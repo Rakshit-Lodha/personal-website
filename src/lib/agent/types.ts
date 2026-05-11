@@ -1,4 +1,5 @@
-export type AgentMode = "auto" | "fit" | "ask";
+export type AgentMode = "auto" | "fit" | "ask" | "both";
+export type AgentResponseType = "qa" | "fitment" | "both";
 
 export type AgentMessage = {
   role: "user" | "assistant";
@@ -6,6 +7,7 @@ export type AgentMessage = {
 };
 
 export type AgentBrief = {
+  responseType: AgentResponseType;
   mode: "fit" | "ask";
   headline: string;
   fitLevel: "Strong fit" | "Relevant fit" | "Partial fit" | "Not enough evidence";

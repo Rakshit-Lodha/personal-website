@@ -7,7 +7,7 @@ import {
   TECHNICAL_EVIDENCE,
 } from "@/lib/profile";
 
-type SearchMode = "fit" | "ask" | "auto";
+type SearchMode = "fit" | "ask" | "auto" | "both";
 
 const STOP_WORDS = new Set([
   "a",
@@ -94,7 +94,7 @@ export function getExperienceOutcomes(query: string) {
 }
 
 export function searchProfileEvidence(query: string, mode: SearchMode = "auto") {
-  const fitMatches = topMatches(FIT_EVIDENCE, query, mode === "fit" ? 6 : 4);
+  const fitMatches = topMatches(FIT_EVIDENCE, query, mode === "fit" || mode === "both" ? 6 : 4);
   const technicalMatches = topMatches(TECHNICAL_EVIDENCE, query, 5);
   const projectMatches = topMatches(PROJECTS, query, 5);
   const outcomeMatches = getExperienceOutcomes(query).outcomes;
@@ -104,9 +104,12 @@ export function searchProfileEvidence(query: string, mode: SearchMode = "auto") 
     identity: {
       name: IDENTITY.name,
       title: IDENTITY.title,
+      location: IDENTITY.location,
+      locationPreference: IDENTITY.locationPreference,
       summary: IDENTITY.summary,
       positioning: IDENTITY.positioning,
       domains: IDENTITY.domains,
+      workStyle: IDENTITY.workStyle,
       aiProductCapabilities: IDENTITY.aiProductCapabilities,
       technicalTools: IDENTITY.technicalTools,
     },

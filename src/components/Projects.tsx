@@ -1,110 +1,223 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { PROJECTS, EDUCATION, TECHNICAL_SKILLS } from "@/lib/resumeData";
+import { EDUCATION } from "@/lib/resumeData";
+
+export type FeaturedProject = {
+  name: string;
+  positioning: string;
+  proof: string;
+  primitives: string[];
+  githubUrl: string;
+  demoUrl: string;
+};
+
+export type OtherProject = {
+  name: string;
+  description: string;
+  readmeUrl: string;
+};
+
+const featuredProjects: FeaturedProject[] = [
+  {
+    name: "TODO project name",
+    positioning: "TODO one-sentence description of what this project does well.",
+    proof: "TODO specific proof point",
+    primitives: ["TODO primitive", "TODO primitive"],
+    githubUrl: "#",
+    demoUrl: "#",
+  },
+  {
+    name: "TODO project name",
+    positioning: "TODO one-sentence description of what this project does well.",
+    proof: "TODO specific proof point",
+    primitives: ["TODO primitive", "TODO primitive"],
+    githubUrl: "#",
+    demoUrl: "#",
+  },
+  {
+    name: "TODO project name",
+    positioning: "TODO one-sentence description of what this project does well.",
+    proof: "TODO specific proof point",
+    primitives: ["TODO primitive", "TODO primitive"],
+    githubUrl: "#",
+    demoUrl: "#",
+  },
+  {
+    name: "TODO project name",
+    positioning: "TODO one-sentence description of what this project does well.",
+    proof: "TODO specific proof point",
+    primitives: ["TODO primitive", "TODO primitive"],
+    githubUrl: "#",
+    demoUrl: "#",
+  },
+];
+
+const otherProjects: OtherProject[] = [
+  {
+    name: "TODO project name",
+    description: "TODO one short sentence about the project.",
+    readmeUrl: "#",
+  },
+  {
+    name: "TODO project name",
+    description: "TODO one short sentence about the project.",
+    readmeUrl: "#",
+  },
+  {
+    name: "TODO project name",
+    description: "TODO one short sentence about the project.",
+    readmeUrl: "#",
+  },
+];
+
+const skillsLine =
+  "TODO one-sentence prose summary of the technical primitives used across these projects.";
+
+const githubProfileUrl = "https://github.com/rakshitlodha";
+
+export function FeaturedProjectCard({
+  project,
+  index,
+}: {
+  project: FeaturedProject;
+  index: number;
+}) {
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.06 }}
+      className="flex h-full flex-col rounded-xl border-[0.5px] border-neutral-200 bg-neutral-50/70 p-5 md:p-6"
+    >
+      <h3 className="text-lg font-medium text-[#111111]">{project.name}</h3>
+      <p className="mt-2 text-[15px] leading-[1.5] text-neutral-700">
+        {project.positioning}
+      </p>
+      <p className="mt-3 truncate text-[13px] leading-5 text-neutral-500">
+        {project.proof}
+      </p>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {project.primitives.map((primitive, index) => (
+          <span
+            key={`${primitive}-${index}`}
+            className="rounded-full border-[0.5px] border-neutral-300 bg-transparent px-2.5 py-1 text-xs font-normal leading-none text-neutral-700"
+          >
+            {primitive}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-auto flex gap-4 pt-5 text-[13px] font-medium text-[#1B6AE7]">
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7]"
+        >
+          GitHub ↗
+        </a>
+        <a
+          href={project.demoUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7]"
+        >
+          Live demo ↗
+        </a>
+      </div>
+    </motion.article>
+  );
+}
+
+export function OtherProjectRow({ project }: { project: OtherProject }) {
+  return (
+    <li className="text-[15px] leading-6">
+      <span className="font-medium text-[#111111]">{project.name}</span>
+      <span className="text-neutral-600"> — {project.description} </span>
+      <a
+        href={project.readmeUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="text-[13px] font-medium text-[#1B6AE7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7]"
+      >
+        README ↗
+      </a>
+    </li>
+  );
+}
+
+export function ProjectsSection({
+  featuredProjects,
+  otherProjects,
+  skillsLine,
+  githubProfileUrl,
+}: {
+  featuredProjects: FeaturedProject[];
+  otherProjects: OtherProject[];
+  skillsLine: string;
+  githubProfileUrl: string;
+}) {
+  return (
+    <div className="mx-auto max-w-[640px]">
+      <h2 className="text-[32px] font-medium leading-tight tracking-normal text-[#111111] md:text-[40px]">
+        Projects
+      </h2>
+
+      <div className="mt-8 grid grid-cols-1 gap-4 md:mt-12 md:grid-cols-2 md:gap-6">
+        {featuredProjects.map((project, index) => (
+          <FeaturedProjectCard
+            key={`${project.name}-${index}`}
+            project={project}
+            index={index}
+          />
+        ))}
+      </div>
+
+      <div className="mt-12 md:mt-16">
+        <h3 className="text-base font-medium text-[#111111]">Also built</h3>
+        <ul className="mt-5 space-y-3">
+          {otherProjects.map((project, index) => (
+            <OtherProjectRow
+              key={`${project.name}-${index}`}
+              project={project}
+            />
+          ))}
+        </ul>
+      </div>
+
+      <p className="mt-12 text-sm leading-6 text-neutral-600">{skillsLine}</p>
+
+      <a
+        href={githubProfileUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="mt-8 inline-block text-sm font-medium text-[#1B6AE7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7]"
+      >
+        More on GitHub ↗
+      </a>
+    </div>
+  );
+}
 
 export default function Projects() {
-  const skillsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const root = skillsRef.current;
-    if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    let hasAnimated = false;
-    const observer = new IntersectionObserver(
-      async ([entry]) => {
-        if (!entry.isIntersecting || hasAnimated) return;
-        hasAnimated = true;
-        const { animate, stagger } = await import("animejs");
-        animate(root.querySelectorAll(".skill-chip"), {
-          opacity: [0, 1],
-          y: [12, 0],
-          scale: [0.96, 1],
-          duration: 520,
-          delay: stagger(35),
-          ease: "out(3)",
-        });
-      },
-      { threshold: 0.25 }
-    );
-
-    observer.observe(root);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section id="projects" className="py-20 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8">
-          {/* Left: projects + education */}
+    <section id="projects" className="bg-white px-5 pb-20 pt-16 text-[#111111] sm:px-6 md:pt-24 lg:px-8 lg:pb-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_360px]">
           <div>
-            <div className="mb-8">
-              <h2 className="text-3xl font-bold text-foreground mb-2">Projects & Skills</h2>
-              <div className="w-10 h-0.5 bg-[#1B6AE7] mb-2" />
-              <p className="text-muted-foreground text-sm">Products I&apos;ve built and the systems I use to build them.</p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-              {PROJECTS.map((project, i) => (
-                <motion.a
-                  key={project.name}
-                  href={project.href}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="group bg-background rounded-2xl border border-border p-5 flex flex-col gap-3 hover:shadow-md hover:-translate-y-0.5 transition-all focus-visible:outline-2 focus-visible:outline-[#1B6AE7]"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <span className={`w-10 h-10 rounded-xl ${project.iconBg} flex items-center justify-center text-lg shrink-0`}>
-                        {project.icon}
-                      </span>
-                      <div>
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <span className="font-semibold text-sm text-foreground">{project.name}</span>
-                        </div>
-                        <span className="text-xs text-[#1B6AE7]">{project.tag}</span>
-                      </div>
-                    </div>
-                    <span className="text-muted-foreground group-hover:text-[#1B6AE7] group-hover:translate-x-0.5 transition-all shrink-0" aria-hidden="true">→</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{project.description}</p>
-                </motion.a>
-              ))}
-            </div>
-
-            {/* Technical Skills */}
-            <div ref={skillsRef} className="mb-10">
-              <h3 className="text-lg font-semibold text-foreground mb-4">Technical Skills</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                {TECHNICAL_SKILLS.map((group) => (
-                  <div
-                    key={group.title}
-                    className="rounded-2xl border border-border bg-background p-4"
-                  >
-                    <div className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground mb-3">
-                      {group.title}
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {group.skills.map((skill) => (
-                        <span
-                          key={`${group.title}-${skill}`}
-                          className="skill-chip opacity-0 rounded-full border border-border bg-white px-3 py-1 text-xs text-foreground shadow-sm"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <ProjectsSection
+              featuredProjects={featuredProjects}
+              otherProjects={otherProjects}
+              skillsLine={skillsLine}
+              githubProfileUrl={githubProfileUrl}
+            />
 
             {/* Education */}
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-4">Education</h3>
+            <div className="mx-auto mt-16 max-w-[640px] md:mt-24">
+              <h3 className="mb-4 text-lg font-semibold text-foreground">Education</h3>
               <div className="flex flex-wrap items-center gap-4">
                 {EDUCATION.map((edu, i) => (
                   <div key={edu.name} className="flex items-center gap-3">

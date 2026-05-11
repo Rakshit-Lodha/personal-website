@@ -27,29 +27,35 @@ function createId() {
 }
 
 function BriefCards({ brief }: { brief: AgentResponse }) {
+  if (brief.responseType === "qa") return null;
+
   const sections = [
-    { label: "Proof", items: brief.proofPoints },
-    { label: "Projects", items: brief.relevantProjects },
-    { label: "Outcomes", items: brief.relevantOutcomes },
-    { label: "Gaps", items: brief.gapsOrUnknowns },
+    { label: "Proof", items: brief.proofPoints ?? [] },
+    { label: "Projects", items: brief.relevantProjects ?? [] },
+    { label: "Outcomes", items: brief.relevantOutcomes ?? [] },
+    { label: "Gaps", items: brief.gapsOrUnknowns ?? [] },
     { label: "Ask next", items: brief.suggestedFollowups },
   ].filter((section) => section.items.length > 0);
+
+  if (!brief.headline && !brief.summary && !brief.fitLevel && sections.length === 0) return null;
 
   return (
     <div className="mt-3 space-y-3 rounded-2xl border border-blue-100 bg-blue-50/40 p-3 text-left">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#1B6AE7]">
-            {brief.mode === "fit" ? "Fit brief" : "Evidence brief"}
+            {brief.responseType === "both" ? "Q&A + fit brief" : "Fit brief"}
           </p>
-          <h4 className="mt-1 text-sm font-semibold leading-snug text-foreground">{brief.headline}</h4>
+          {brief.headline && <h4 className="mt-1 text-sm font-semibold leading-snug text-foreground">{brief.headline}</h4>}
         </div>
-        <span className="shrink-0 rounded-full bg-white px-2 py-1 text-[10px] font-semibold text-[#1B6AE7] ring-1 ring-blue-100">
-          {brief.fitLevel}
-        </span>
+        {brief.fitLevel && (
+          <span className="shrink-0 rounded-full bg-white px-2 py-1 text-[10px] font-semibold text-[#1B6AE7] ring-1 ring-blue-100">
+            {brief.fitLevel}
+          </span>
+        )}
       </div>
 
-      <p className="text-xs leading-relaxed text-muted-foreground">{brief.summary}</p>
+      {brief.summary && <p className="text-xs leading-relaxed text-muted-foreground">{brief.summary}</p>}
 
       <div className="space-y-2">
         {sections.map((section) => (

@@ -84,6 +84,26 @@ function isFitPrompt(text: string) {
   );
 }
 
+function getPromptMode(text: string): Exclude<AgentMode, "auto"> {
+  const normalized = text.toLowerCase();
+  const hasGeneralQuestionSignal =
+    normalized.includes("background") ||
+    normalized.includes("experience") ||
+    normalized.includes("project") ||
+    normalized.includes("outcome") ||
+    normalized.includes("achievement") ||
+    normalized.includes("skill") ||
+    normalized.includes("work style") ||
+    normalized.includes("summarize") ||
+    normalized.includes("tell me about");
+
+  if (isFitPrompt(text)) {
+    return hasGeneralQuestionSignal && normalized.length < 500 ? "both" : "fit";
+  }
+
+  return "ask";
+}
+
 function AssessmentPreview() {
   return (
     <motion.div
@@ -127,21 +147,25 @@ function AssessmentPreview() {
 }
 
 function AgentBriefCard({ brief }: { brief: AgentResponse }) {
+  if (brief.responseType === "qa") return null;
+
   const sections = [
-    { title: "Strengths", items: brief.proofPoints, icon: CheckCircle2, color: "text-emerald-600" },
-    { title: "Relevant projects", items: brief.relevantProjects, icon: Sparkles, color: "text-[#2563eb]" },
-    { title: "Relevant outcomes", items: brief.relevantOutcomes, icon: TrendingUp, color: "text-[#2563eb]" },
-    { title: "Potential gaps", items: brief.gapsOrUnknowns, icon: AlertTriangle, color: "text-orange-500" },
+    { title: "Strengths", items: brief.proofPoints ?? [], icon: CheckCircle2, color: "text-emerald-600" },
+    { title: "Relevant projects", items: brief.relevantProjects ?? [], icon: Sparkles, color: "text-[#2563eb]" },
+    { title: "Relevant outcomes", items: brief.relevantOutcomes ?? [], icon: TrendingUp, color: "text-[#2563eb]" },
+    { title: "Potential gaps", items: brief.gapsOrUnknowns ?? [], icon: AlertTriangle, color: "text-orange-500" },
   ].filter((section) => section.items.length > 0);
+
+  if (!brief.headline && !brief.summary && sections.length === 0) return null;
 
   return (
     <div className="mt-4 rounded-[22px] border border-[#e7e2db] bg-white p-4 shadow-[0_14px_36px_rgba(17,17,17,0.07)]">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">
-            {brief.mode === "fit" ? "Role-fit assessment" : "Evidence brief"}
+            {brief.responseType === "both" ? "Q&A + role-fit assessment" : "Role-fit assessment"}
           </p>
-          <h3 className="mt-1 text-base font-bold leading-snug text-[#111111]">{brief.headline}</h3>
+          {brief.headline && <h3 className="mt-1 text-base font-bold leading-snug text-[#111111]">{brief.headline}</h3>}
         </div>
         {brief.mode === "fit" && brief.fitScore && (
           <span className="rounded-full bg-[#2563eb] px-3 py-1 text-xs font-bold text-white">
@@ -150,7 +174,7 @@ function AgentBriefCard({ brief }: { brief: AgentResponse }) {
         )}
       </div>
 
-      <p className="mt-3 text-sm leading-relaxed text-[#6b6860]">{brief.summary}</p>
+      {brief.summary && <p className="mt-3 text-sm leading-relaxed text-[#6b6860]">{brief.summary}</p>}
 
       <div className="mt-4 space-y-3">
         {sections.map((section) => {
@@ -283,7 +307,7 @@ export default function ChatPage() {
         role: message.role === "assistant" ? "assistant" : "user",
         content: message.text,
       }));
-    const mode: Exclude<AgentMode, "auto"> = isFitPrompt(trimmed) ? "fit" : "ask";
+    const mode = getPromptMode(trimmed);
 
     setMessages((previous) => [...previous, userMessage, assistantMessage]);
     setInput("");

@@ -1,6 +1,7 @@
 import { Agent, run, tool } from "@openai/agents";
 import { z } from "zod";
 import type { AgentResponse, AgentStreamEvent } from "@/lib/agent/types";
+import { serializeProfileSections } from "@/lib/agent/profileContext";
 import {
   getExperienceOutcomes,
   getIdentityContext,
@@ -11,7 +12,7 @@ import {
 export const runtime = "nodejs";
 
 const AgentRequestSchema = z.object({
-  mode: z.enum(["auto", "fit", "ask"]).default("auto"),
+  mode: z.enum(["auto", "fit", "ask", "both"]).default("auto"),
   messages: z
     .array(
       z.object({
@@ -24,6 +25,7 @@ const AgentRequestSchema = z.object({
 });
 
 const AgentResponseSchema = z.object({
+  responseType: z.enum(["qa", "fitment", "both"]),
   mode: z.enum(["fit", "ask"]),
   headline: z.string(),
   fitLevel: z.enum(["Strong fit", "Relevant fit", "Partial fit", "Not enough evidence"]),
@@ -39,6 +41,14 @@ const AgentResponseSchema = z.object({
 });
 
 const MODEL = process.env.OPENAI_AGENT_MODEL || "gpt-5.5";
+const CONTEXT_MODEL = process.env.OPENAI_CONTEXT_MODEL || "gpt-4o";
+
+const ContextBriefSchema = z.object({
+  responseType: z.enum(["qa", "fitment", "both"]),
+  selectedSections: z.array(z.string()).max(6),
+  contextBrief: z.string(),
+  missingEvidence: z.array(z.string()).max(5),
+});
 
 const searchProfileEvidenceTool = tool({
   name: "search_profile_evidence",
@@ -46,7 +56,7 @@ const searchProfileEvidenceTool = tool({
     "Search Rakshit Lodha's structured profile for fit themes, technical proof, projects, and outcomes relevant to a query.",
   parameters: z.object({
     query: z.string().describe("The visitor's role, company, product problem, or question."),
-    mode: z.enum(["auto", "fit", "ask"]).default("auto"),
+    mode: z.enum(["auto", "fit", "ask", "both"]).default("auto"),
   }),
   execute: async ({ query, mode }) => JSON.stringify(searchProfileEvidence(query, mode)),
 });
@@ -77,6 +87,28 @@ const getIdentityContextTool = tool({
   execute: async () => JSON.stringify(getIdentityContext()),
 });
 
+const contextAgent = new Agent({
+  name: "Rakshit Context Selector",
+  model: CONTEXT_MODEL,
+  outputType: ContextBriefSchema,
+  instructions: `
+You prepare compact context for Rakshit Lodha's portfolio chat agent.
+
+Given the visitor's latest query, conversation, and structured profile sections:
+- Understand the intent even when the wording has typos, synonyms, or indirect phrasing.
+- Treat clear typo corrections and common synonyms as the same concept when the profile supports it, such as "fir base" meaning Firebase and "split testing" meaning A/B testing.
+- Select only the profile sections that are relevant.
+- Summarize the selected section facts into a concise context brief.
+- Preserve specific metrics, tools, employers, locations, project names, dates, and caveats.
+- Keep general capabilities separate from project-specific evidence. Do not imply a tool was used in a project unless that project or evidence item explicitly says so.
+- Do not invent evidence. Put missing information in missingEvidence.
+- Classify responseType as:
+  - "qa" for general questions.
+  - "fitment" for JD, role-fit, hiring, score, requirements, or responsibility matching.
+  - "both" when the user asks both a general question and fitment.
+`.trim(),
+});
+
 const rakshitAgent = new Agent({
   name: "Rakshit Fit Agent",
   model: MODEL,
@@ -91,10 +123,16 @@ const rakshitAgent = new Agent({
 You represent Rakshit Lodha's portfolio. You help visitors evaluate whether Rakshit is relevant for a role, company, product problem, or collaboration.
 
 Primary behavior:
-- If the user provides a job description, product problem, company context, or asks about fit, produce a fit brief.
-- If the user asks a general question, answer it directly and include structured evidence cards.
-- Always call the profile tools before answering.
-- Use only facts returned by tools or present in the conversation.
+- Classify the visitor's intent before answering:
+  - responseType "qa": general questions about Rakshit's background, projects, outcomes, skills, education, work style, or preferences.
+  - responseType "fitment": job descriptions, explicit role/company fit checks, hiring evaluations, requirements/responsibilities matching, or score requests.
+  - responseType "both": the visitor asks a general question and also asks for role fit in the same turn.
+- For responseType "qa", answer conversationally. Do not force a score, fit level, assessment structure, or strengths/gaps framing.
+- For responseType "fitment" or "both", include the fitment fields needed for an assessment card.
+- Use the provided profile context first. Call profile tools only if the context is not enough for a specific factual answer.
+- Use only facts returned by tools, present in the provided profile context, or present in the conversation.
+- If the visitor uses a typo or synonym, answer using the canonical profile term when the meaning is clear. Do not mark a synonym as missing evidence when the underlying capability is present.
+- Do not combine separate facts into a new claim. If a tool appears only as a general capability, say that; do not attach it to a named project unless the context explicitly links them.
 - Do not invent employers, dates, metrics, links, technologies, education, or claims.
 - If evidence is missing, put it in gapsOrUnknowns instead of guessing.
 - Be concise, confident, and outcome-led. Avoid resume boilerplate.
@@ -102,19 +140,42 @@ Primary behavior:
 
 Output requirements:
 - answerText: 2-4 short paragraphs suitable for a chat bubble.
-- fitScore: only include a score such as "8.2/10" when the visitor provided a JD, role context, or explicitly asked about fit. Omit it for normal Q&A.
-- proofPoints: concrete evidence-backed claims.
-- relevantProjects: project names plus why they matter.
-- relevantOutcomes: metrics or outcomes relevant to the query.
-- gapsOrUnknowns: honest limits or missing evidence.
+- mode: use "ask" for responseType "qa"; use "fit" for responseType "fitment" or "both".
+- For responseType "qa", set headline and summary to empty strings, fitLevel to "Not enough evidence", and proofPoints, relevantProjects, relevantOutcomes, and gapsOrUnknowns to empty arrays.
+- fitScore: only include when the visitor provided a JD, role context, or explicitly asked about fit.
+- proofPoints: concrete evidence-backed claims for fitment assessments.
+- relevantProjects: project names plus why they matter for fitment assessments.
+- relevantOutcomes: metrics or outcomes relevant to fitment assessments.
+- gapsOrUnknowns: honest limits or missing evidence for fitment assessments.
 - suggestedFollowups: useful next questions for the visitor.
 - cta: a short next action, usually "Chat with me" or "Schedule a call".
 `.trim(),
 });
 
-function toAgentInput(mode: string, messages: { role: "user" | "assistant"; content: string }[]) {
+function toContextInput(mode: string, messages: { role: "user" | "assistant"; content: string }[]) {
   return [
     `Requested mode: ${mode}`,
+    "Conversation so far:",
+    ...messages.map((message) => `${message.role === "user" ? "Visitor" : "Agent"}: ${message.content}`),
+    "Structured profile sections:",
+    serializeProfileSections(),
+  ].join("\n\n");
+}
+
+function toAgentInputWithContext(
+  mode: string,
+  messages: { role: "user" | "assistant"; content: string }[],
+  context: z.infer<typeof ContextBriefSchema>,
+) {
+  return [
+    `Requested mode: ${mode}`,
+    `Context-classified response type: ${context.responseType}`,
+    `Selected profile sections: ${context.selectedSections.join(", ") || "none"}`,
+    "Profile context brief:",
+    context.contextBrief,
+    context.missingEvidence.length
+      ? `Missing or weak evidence:\n${context.missingEvidence.map((item) => `- ${item}`).join("\n")}`
+      : "Missing or weak evidence: none identified",
     "Conversation so far:",
     ...messages.map((message) => `${message.role === "user" ? "Visitor" : "Agent"}: ${message.content}`),
   ].join("\n\n");
@@ -149,9 +210,15 @@ export async function POST(request: Request) {
 
       try {
         send({ type: "status", message: "Reading profile context" });
-        send({ type: "status", message: "Retrieving evidence" });
+        const contextResult = await run(contextAgent, toContextInput(parsed.mode, parsed.messages), {
+          maxTurns: 2,
+        });
+        const context = contextResult.finalOutput;
+        if (!context) throw new Error("Context agent returned no final output.");
 
-        const result = await run(rakshitAgent, toAgentInput(parsed.mode, parsed.messages), {
+        send({ type: "status", message: "Summarizing relevant context" });
+
+        const result = await run(rakshitAgent, toAgentInputWithContext(parsed.mode, parsed.messages, context), {
           maxTurns: 6,
         });
 
