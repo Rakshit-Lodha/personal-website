@@ -10,8 +10,10 @@ The homepage is composed in `src/app/page.tsx`:
 2. `Hero`
 3. `MyStory`
 4. `Projects`
-5. `CtaSection`
-6. `ChatDrawer`
+5. `SkillMap` — rendered inside `Projects.tsx`, below the Projects content and above Education
+6. Education — still rendered inside `Projects.tsx`
+7. `CtaSection`
+8. `ChatDrawer`
 
 ## Hero
 
@@ -36,42 +38,73 @@ Component: `src/components/MyStory.tsx`
 
 Use this file to edit:
 
-- My Story heading/subtext
-- Company selector cards
-- Chapter titles
-- Role/year metadata
-- Numbered story points
-- Top achievement cards
-- Continue the journey link
+- My Story heading
+- Chapter metadata
+- Chapter lesson copy
+- Shipped proof lists
+- Agent question links
 
-The chapter content lives in the local `storyChapters` array inside `MyStory.tsx`.
+The chapter content lives in the local `chapters` array inside `MyStory.tsx`.
 
-Recent changes:
+Current layout:
 
-- Company selector cards sit below the My Story heading in a horizontal card row.
-- Chapter content appears below the selector.
-- Story point icons were removed.
-- Achievement card icons were removed.
-- Dotted path decoration beside "Continue the journey" was removed.
+- Uses the shared 640px content column.
+- Section title is 32px mobile / 40px desktop, font weight 500.
+- Chapters render as a vertical stack with muted meta text, narrative copy, left-rule shipped lists, and agent links.
 
-## Projects & Skills
+## Projects
 
 Component: `src/components/Projects.tsx`
 
-Project card copy comes from `src/lib/resumeData.ts`, inside the `PROJECTS` array.
+This section is now a visual project showcase, not a 2x2 grid.
 
-Edit these fields for each project:
+Current layout:
 
-- `name`: bold project title
-- `tag`: blue subtitle
-- `description`: grey body copy
-- `icon`: project icon
-- `iconBg`: icon background color
-- `href`: card link
+- The `Projects` title aligns to the exact same 640px content column as `My Story`.
+- Krux.news renders as a full-width hero card with a screenshot slot.
+- MF Search, US Stocks Agent, and Feedback Intelligence render as text-only cards in a horizontally scrollable snap strip.
+- The scroll strip starts at the shared content column and breaks right toward the viewport edge.
+- Proof content is rendered as multi-line left-rule lists, not truncated one-line text.
+- `Also built` rows render below the strip within the 640px content column.
+- `More on GitHub ↗` renders as a single text link.
+- The skills prose line and old technical skills chip cards are intentionally removed.
 
-Recent change:
+Edit these local constants in `Projects.tsx`:
 
-- Removed the `Live` / `Beta` status tags from project cards.
+- `heroProject`
+- `stripProjects`
+- `otherProjects`
+- `githubProfileUrl`
+
+Important:
+
+- The Krux screenshot slot currently points to `/krux-news-screenshot.png`.
+- If that asset does not exist, the UI shows a quiet placeholder.
+- The current project copy and URLs are placeholders by design.
+
+## Skill Map
+
+Component: `src/components/SkillMap.tsx`
+
+This is a static-after-load animated visualization of skills across product, AI, and engineering.
+
+Current behavior:
+
+- Hardcodes the `skills`, `anchorSkills`, and `categoryLabels` data inside the component.
+- Uses absolutely positioned DOM text labels, not a `<canvas>`.
+- Uses seeded pseudo-random positioning so the organic layout is stable across renders.
+- Uses `anime.js` v4 with `animate`, `stagger`, and `createTimeline`.
+- Entrance animation triggers once through `IntersectionObserver`.
+- Category labels fade in first, then skills fade/translate into place.
+- Anchor skills get a small one-time scale animation.
+- Respects `prefers-reduced-motion`.
+- No click handlers, hover states, tooltips, links, idle motion, drift, or pulsing.
+- Includes an `sr-only` accessible fallback list of all categories and skills.
+
+Alignment:
+
+- The `Skill Map` title uses the same 640px content column as `My Story` and `Projects`.
+- The visualization canvas breaks wider than the text column and centers around the same page axis.
 
 ## Shared Content Data
 
@@ -84,4 +117,8 @@ Use this file to edit:
 - `EDUCATION`
 - `CHAT_PROMPTS`
 
-Note: The current My Story chapter copy is self-contained in `src/components/MyStory.tsx`, not in `resumeData.ts`.
+Notes:
+
+- The current My Story chapter copy is self-contained in `src/components/MyStory.tsx`, not in `resumeData.ts`.
+- The current homepage Projects showcase data is self-contained in `src/components/Projects.tsx`, not in `resumeData.ts`.
+- The current Skill Map data is self-contained in `src/components/SkillMap.tsx`.

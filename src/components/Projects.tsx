@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import SkillMap from "@/components/SkillMap";
 import { EDUCATION } from "@/lib/resumeData";
 
 type HeroProject = {
@@ -337,6 +338,8 @@ export default function Projects() {
           otherProjects={otherProjects}
           githubProfileUrl={githubProfileUrl}
         />
+
+        <SkillMap />
 
         <div className="mx-auto mt-16 max-w-[640px] md:mt-24">
           <h3 className="mb-4 text-lg font-semibold text-foreground">
