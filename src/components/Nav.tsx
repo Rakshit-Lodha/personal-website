@@ -8,7 +8,8 @@ const resumeUrl =
 
 const links = [
   { label: "My Story", href: "#story" },
-  { label: "Projects & Skills", href: "#projects" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skill Map", href: "#skill-map" },
   { label: "Education", href: "#education" },
 ];
 

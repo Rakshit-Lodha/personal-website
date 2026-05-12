@@ -390,7 +390,7 @@ export default function Projects() {
           githubProfileUrl={githubProfileUrl}
         />
 
-        <SkillMap />
+        <div id="skill-map"><SkillMap /></div>
         <Education />
       </div>
     </section>
