@@ -15,7 +15,7 @@ const chapters = [
   {
     meta: "LearnApp · 2018–2020 · Core Team Member",
     lesson:
-      "I joined LearnApp because as a college student I believed that financial education was broken in India and I believed that the only way to bring change in financial habits was through education.",
+      "I joined LearnApp as a college student because I believed that financial education was broken in India and the only way to bring change in financial habits was through education.",
     shipped: [
       "Designed library of investing and finance courses",
       "50% course completion rate (category average: ~10%)",
