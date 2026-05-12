@@ -368,6 +368,10 @@ export async function POST(request: Request) {
         send({ type: "final", response });
       } catch (error) {
         console.error("Rakshit agent error", error);
+        console.log("Error details:", {
+          message: error instanceof Error ? error.message : String(error),
+          stack: error instanceof Error ? error.stack : "No stack trace",
+        });
         send({
           type: "error",
           message:
