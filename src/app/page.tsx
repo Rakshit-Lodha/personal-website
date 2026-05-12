@@ -2,7 +2,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import MyStory from "@/components/MyStory";
 import Projects from "@/components/Projects";
-import CtaSection from "@/components/CtaSection";
+import ClosingSection from "@/components/ClosingSection";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
         <Hero />
         <MyStory />
         <Projects />
-        <CtaSection />
+        <ClosingSection />
       </main>
     </>
   );

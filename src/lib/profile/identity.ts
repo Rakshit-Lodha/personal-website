@@ -10,7 +10,20 @@ export const IDENTITY = {
   domains: ["wealth", "lending", "advisory", "support automation"],
   contact: {
     email: "rakshitlodha.business@gmail.com",
-    socials: ["LinkedIn", "GitHub", "X"],
+    socials: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/rakshit-lodha-360241187/",
+      },
+      {
+        label: "GitHub",
+        url: "https://github.com/Rakshit-Lodha",
+      },
+      {
+        label: "X",
+        url: "https://x.com/rakshitlodha",
+      },
+    ],
   },
   workStyle: [
     "Prototype-first and hands-on: prefers to build, design, and test a working MVP himself before taking an idea into broader execution.",

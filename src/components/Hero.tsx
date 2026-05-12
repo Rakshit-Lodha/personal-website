@@ -75,19 +75,19 @@ export default function Hero() {
         className="flex flex-col sm:flex-row gap-3 mb-10"
       >
         <a
-          href="#story"
+          href="/chat"
           className="inline-flex items-center justify-center gap-2 rounded-md px-8 h-11 bg-[#1B6AE7] hover:bg-[#1558c7] text-white text-sm font-medium transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-[#1B6AE7]"
         >
-          My Story
+          Chat with my AI
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </a>
         <a
-          href="/chat"
+          href="#story"
           className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-border bg-background px-8 text-sm font-medium transition-all hover:-translate-y-0.5 hover:border-[#1B6AE7] hover:bg-muted hover:text-foreground hover:shadow-md focus-visible:outline-2 focus-visible:outline-[#1B6AE7]"
         >
-          Chat with my AI
+          My Story
           <span className="text-[#1B6AE7]" aria-hidden="true">✦</span>
         </a>
       </motion.div>

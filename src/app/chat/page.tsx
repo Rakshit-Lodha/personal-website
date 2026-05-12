@@ -149,12 +149,23 @@ function TypingDots() {
   );
 }
 
-function AgentMessage({ text, isLoading }: { text: string; isLoading?: boolean }) {
+function AgentMessage({
+  text,
+  isLoading,
+  status,
+}: {
+  text: string;
+  isLoading?: boolean;
+  status?: string;
+}) {
   return (
     <div className="flex justify-start">
       <div className="mb-8 max-w-[90%] rounded-[18px] rounded-bl-md border border-[#e4e0da] bg-[#faf9f6] px-5 py-4 text-[15px] leading-[1.6] text-[#111111]">
         {isLoading && !text ? (
-          <TypingDots />
+          <div className="flex items-center gap-3 text-[#6b6860]">
+            <TypingDots />
+            <span className="text-sm">{status || "Thinking"}</span>
+          </div>
         ) : (
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
@@ -186,9 +197,11 @@ function AgentMessage({ text, isLoading }: { text: string; isLoading?: boolean }
 function ConversationThread({
   messages,
   isRunning,
+  status,
 }: {
   messages: ChatMessage[];
   isRunning: boolean;
+  status: string;
 }) {
   const endRef = useRef<HTMLDivElement>(null);
 
@@ -206,7 +219,12 @@ function ConversationThread({
         message.role === "user" ? (
           <UserMessage key={message.id} text={message.text} />
         ) : (
-          <AgentMessage key={message.id} text={message.text} isLoading={isRunning} />
+          <AgentMessage
+            key={message.id}
+            text={message.text}
+            isLoading={isRunning}
+            status={message.id === messages.at(-1)?.id ? status : undefined}
+          />
         ),
       )}
       <div ref={endRef} />
@@ -330,6 +348,7 @@ function ChatPageContent() {
   const [input, setInput] = useState(() => searchParams.get("q")?.trim() ?? "");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isRunning, setIsRunning] = useState(false);
+  const [status, setStatus] = useState("");
   const [uploadedFile, setUploadedFile] = useState<UploadedFile | null>(null);
 
   function updateAssistant(id: string, updater: (message: ChatMessage) => ChatMessage) {
@@ -408,6 +427,7 @@ function ChatPageContent() {
     setInput("");
     setUploadedFile(null);
     setIsRunning(true);
+    setStatus("Starting");
 
     try {
       const response = await fetch("/api/agent", {
@@ -435,6 +455,9 @@ function ChatPageContent() {
           if (!line) continue;
 
           const event = JSON.parse(line.slice(6)) as AgentStreamEvent;
+          if (event.type === "status") {
+            setStatus(event.message);
+          }
           if (event.type === "delta") {
             updateAssistant(assistantId, (message) => ({
               ...message,
@@ -461,6 +484,7 @@ function ChatPageContent() {
         text: "I could not reach Rakshit's AI right now. Please try again in a moment.",
       }));
     } finally {
+      setStatus("");
       setIsRunning(false);
     }
   }
@@ -481,7 +505,7 @@ function ChatPageContent() {
           {messages.length === 0 ? (
             <ZeroState onPromptSubmit={(prompt) => sendMessage(prompt)} />
           ) : (
-            <ConversationThread messages={messages} isRunning={isRunning} />
+            <ConversationThread messages={messages} isRunning={isRunning} status={status} />
           )}
         </div>
 

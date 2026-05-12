@@ -15,26 +15,26 @@ const chapters = [
   {
     meta: "LearnApp · 2018–2020 · Core Team Member",
     lesson:
-      "Indian retail investors don't lack finance content — they lack the will to finish any of it. My first job was building a library people would actually complete, and the lesson stuck: the only metric that matters in finance is whether behavior changed three months later.",
+      "I joined LearnApp because as a college student I believed that financial education was broken in India and I believed that the only way to bring change in financial habits was through education.",
     shipped: [
       "Designed library of investing and finance courses",
       "50% course completion rate (category average: ~10%)",
       "₹1.2Cr ARR",
     ],
-    agentLinkLabel: "Ask the agent about the LearnApp course library →",
+    agentLinkLabel: "Ask my agent about the LearnApp's course's module →",
     agentLinkQuery:
       "Tell+me+about+Rakshit%27s+work+on+the+LearnApp+course+library",
   },
   {
     meta: "INDMoney · 2020–2022 · Associate Product Manager",
     lesson:
-      "Financial planning at INDMoney took advisors 4–5 hours per client. By the time I left, it was 15 minutes. The recommendation engine wasn't the hard part — figuring out which of those four hours was advisor judgment and which was advisor habit was. Most of it was habit.",
+      "Joined INDMoney because I realised that while financial education was important, it only changes what people know. But the real leverage in personal finance is at the moment of decision when you're buying a product, not before it.",
     shipped: [
       "Built financial planning module with recommendation algorithms — 4–5 hours to 15 minutes per plan",
       "Enabled 20,000+ advisory plans",
       "Built personalized insurance recommendation engine aligned to user goals — ₹1.5Cr ARR in year one",
     ],
-    agentLinkLabel: "Ask the agent about the planning module at INDMoney →",
+    agentLinkLabel: "Ask my agent about the financial planning module at INDMoney →",
     agentLinkQuery: "Tell+me+about+the+financial+planning+module+at+INDMoney",
   },
   {
@@ -49,7 +49,7 @@ const chapters = [
       "Built execution-only Mutual Fund Platform — projected ₹10Cr annual revenue",
     ],
     agentLinkLabel:
-      "Ask the agent about the support bot eval pipeline at ET Money →",
+      "Ask my agent about the support agent eval pipeline at ET Money →",
     agentLinkQuery:
       "Tell+me+about+the+support+bot+eval+pipeline+at+ET+Money",
   },

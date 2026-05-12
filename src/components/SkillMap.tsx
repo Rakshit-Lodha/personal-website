@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 
 const skills = {
@@ -65,6 +66,15 @@ const categoryLabels = {
 
 type CategoryKey = keyof typeof skills;
 
+const categoryChatPrompts: Record<CategoryKey, string> = {
+  ai_product: "Tell me in detail about his AI skills",
+  technical_tools: "Tell me in detail about the technical tools he knows",
+  product_management: "Tell me in detail about his product management skills",
+  analytics_and_experimentation:
+    "Tell me in detail about his analytics and experimentation skills",
+  research_and_design: "Tell me in detail about his research and design skills",
+};
+
 const categoryOrder = Object.keys(skills) as CategoryKey[];
 
 const cardVariants: Variants = {
@@ -117,19 +127,24 @@ function SkillCategoryCard({
       variants={cardVariants}
       initial={prefersReducedMotion ? "show" : "hidden"}
       animate={prefersReducedMotion || hasEntered ? "show" : "hidden"}
-      className="cursor-default rounded-xl bg-neutral-50 p-5 transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)] md:p-6"
+      className="rounded-xl bg-neutral-50 transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
     >
-      <h3
-        id={labelId}
-        className="mb-5 text-[11px] font-medium uppercase leading-none tracking-[1.5px] text-neutral-500"
+      <Link
+        href={`/chat?q=${encodeURIComponent(categoryChatPrompts[category])}`}
+        className="block h-full rounded-xl p-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7] md:p-6"
       >
-        {categoryLabels[category]}
-      </h3>
-      <div className="flex flex-wrap items-baseline gap-3">
-        {skills[category].map((skill) => (
-          <SkillChip key={skill} skill={skill} />
-        ))}
-      </div>
+        <h3
+          id={labelId}
+          className="mb-5 text-[11px] font-medium uppercase leading-none tracking-[1.5px] text-neutral-500"
+        >
+          {categoryLabels[category]}
+        </h3>
+        <div className="flex flex-wrap items-baseline gap-3">
+          {skills[category].map((skill) => (
+            <SkillChip key={skill} skill={skill} />
+          ))}
+        </div>
+      </Link>
     </motion.div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import Education from "@/components/Education";
 import SkillMap from "@/components/SkillMap";
@@ -13,6 +14,7 @@ type HeroProject = {
   primitives: string[];
   githubUrl: string;
   demoUrl: string;
+  chatPrompt: string;
   screenshotSrc: string;
 };
 
@@ -23,12 +25,14 @@ type StripCard = {
   primitives: string[];
   githubUrl: string;
   demoUrl: string;
+  chatPrompt: string;
 };
 
 export type OtherProject = {
   name: string;
   description: string;
   readmeUrl: string;
+  chatPrompt: string;
 };
 
 const heroProject: HeroProject = {
@@ -42,6 +46,7 @@ const heroProject: HeroProject = {
   primitives: ["AI curation", "Web research", "Publishing"],
   githubUrl: "https://github.com/Rakshit-Lodha/ai-times",
   demoUrl: "https://krux.news/",
+  chatPrompt: "Tell me more about Krux",
   screenshotSrc: "/krux-logo.jpeg",
 };
 
@@ -58,6 +63,7 @@ const stripProjects: StripCard[] = [
     primitives: ["Embeddings", "Intent routing", "ChromaDB"],
     githubUrl: "https://github.com/Rakshit-Lodha/mf-search",
     demoUrl: "https://mf-ai-search.streamlit.app/",
+    chatPrompt: "Tell me more about MF Search",
   },
   {
     name: "US Stocks Agent",
@@ -71,6 +77,7 @@ const stripProjects: StripCard[] = [
     primitives: ["Agent handoffs", "Voice AI", "Evals"],
     githubUrl: "https://github.com/Rakshit-Lodha/us-stock-agent",
     demoUrl: "https://us-stock-agent.streamlit.app/",
+    chatPrompt: "Tell me more about US Stocks Agent",
   },
   {
     name: "Feedback Intelligence",
@@ -84,6 +91,7 @@ const stripProjects: StripCard[] = [
     primitives: ["Agents SDK", "Function tools", "Memory"],
     githubUrl: "https://github.com/Rakshit-Lodha/managed-agents-review",
     demoUrl: "https://managed-agents-review.onrender.com",
+    chatPrompt: "Tell me more about Feedback Intelligence",
   },
 ];
 
@@ -93,12 +101,14 @@ const otherProjects: OtherProject[] = [
     description:
       "RAG product grounded in 700 Bhagavad Gita verses with a 50-question eval suite.",
     readmeUrl: "https://github.com/Rakshit-Lodha/talktokrishna",
+    chatPrompt: "Tell me more about TalkToKrishna",
   },
   {
     name: "Evaluation Framework",
     description:
       "LLM-as-judge and voice evaluation system for quality, safety, and ASR accuracy.",
     readmeUrl: "https://github.com/Rakshit-Lodha/evals",
+    chatPrompt: "Tell me more about Evaluation Framework",
   },
 ];
 
@@ -122,9 +132,11 @@ function PrimitivePills({ primitives }: { primitives: string[] }) {
 function ActionLinks({
   githubUrl,
   demoUrl,
+  chatPrompt,
 }: {
   githubUrl: string;
   demoUrl: string;
+  chatPrompt: string;
 }) {
   return (
     <div className="flex gap-4 text-[13px] font-medium text-[#1B6AE7]">
@@ -144,6 +156,12 @@ function ActionLinks({
       >
         Live demo ↗
       </a>
+      <Link
+        href={`/chat?q=${encodeURIComponent(chatPrompt)}`}
+        className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7]"
+      >
+        Know More ↗
+      </Link>
     </div>
   );
 }
@@ -186,7 +204,11 @@ export function HeroProjectCard({ project }: { project: HeroProject }) {
           <PrimitivePills primitives={project.primitives} />
         </div>
         <div className="mt-6">
-          <ActionLinks githubUrl={project.githubUrl} demoUrl={project.demoUrl} />
+          <ActionLinks
+            githubUrl={project.githubUrl}
+            demoUrl={project.demoUrl}
+            chatPrompt={project.chatPrompt}
+          />
         </div>
       </div>
 
@@ -233,7 +255,11 @@ export function StripProjectCard({
         <PrimitivePills primitives={project.primitives.slice(0, 3)} />
       </div>
       <div className="mt-auto pt-6">
-        <ActionLinks githubUrl={project.githubUrl} demoUrl={project.demoUrl} />
+        <ActionLinks
+          githubUrl={project.githubUrl}
+          demoUrl={project.demoUrl}
+          chatPrompt={project.chatPrompt}
+        />
       </div>
     </motion.article>
   );
@@ -252,6 +278,13 @@ export function OtherProjectRow({ project }: { project: OtherProject }) {
       >
         README ↗
       </a>
+      <span className="text-neutral-300"> / </span>
+      <Link
+        href={`/chat?q=${encodeURIComponent(project.chatPrompt)}`}
+        className="text-[13px] font-medium text-[#1B6AE7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7]"
+      >
+        Know More ↗
+      </Link>
     </li>
   );
 }
