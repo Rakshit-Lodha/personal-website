@@ -11,7 +11,6 @@ export type AgentBrief = {
   mode: "fit" | "ask";
   headline: string;
   fitLevel: "Strong fit" | "Relevant fit" | "Partial fit" | "Not enough evidence";
-  fitScore?: string;
   summary: string;
   proofPoints: string[];
   relevantProjects: string[];

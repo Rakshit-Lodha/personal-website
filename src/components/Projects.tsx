@@ -3,8 +3,8 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Education from "@/components/Education";
 import SkillMap from "@/components/SkillMap";
-import { EDUCATION } from "@/lib/resumeData";
 
 type HeroProject = {
   name: string;
@@ -33,62 +33,83 @@ export type OtherProject = {
 
 const heroProject: HeroProject = {
   name: "Krux.news",
-  positioning: "TODO Krux positioning line.",
-  proof: ["TODO Krux proof item", "TODO Krux pipeline proof item"],
-  primitives: ["TODO", "TODO", "TODO"],
-  githubUrl: "#",
-  demoUrl: "#",
-  screenshotSrc: "/krux-news-screenshot.png",
+  positioning:
+    "AI news product that turns fast-moving AI updates into short, swipeable stories.",
+  proof: [
+    "Built the content pipeline and consumer web app.",
+    "Designed a multi-stage AI workflow from ingestion to publishing.",
+  ],
+  primitives: ["AI curation", "Web research", "Publishing"],
+  githubUrl: "https://github.com/Rakshit-Lodha/ai-times",
+  demoUrl: "https://krux.news/",
+  screenshotSrc: "/krux-logo.jpeg",
 };
 
 const stripProjects: StripCard[] = [
   {
     name: "MF Search",
-    positioning: "TODO MF Search positioning line.",
-    proof: ["TODO proof item", "TODO proof item", "TODO proof item"],
-    primitives: ["TODO", "TODO", "TODO"],
-    githubUrl: "#",
-    demoUrl: "#",
+    positioning:
+      "Semantic search engine across 16,197 mutual funds with intent-aware routing.",
+    proof: [
+      "Routes queries into lookup, comparison, or filtered discovery.",
+      "Handles typos, partial names, categories, and investment styles.",
+      "Generates fund analysis across returns, risk, and expense ratios.",
+    ],
+    primitives: ["Embeddings", "Intent routing", "ChromaDB"],
+    githubUrl: "https://github.com/Rakshit-Lodha/mf-search",
+    demoUrl: "https://mf-ai-search.streamlit.app/",
   },
   {
     name: "US Stocks Agent",
-    positioning: "TODO US Stocks Agent positioning line.",
-    proof: ["TODO proof item", "TODO proof item", "TODO proof item"],
-    primitives: ["TODO", "TODO", "TODO"],
-    githubUrl: "#",
-    demoUrl: "#",
+    positioning:
+      "Multi-agent stock analysis system with financial tools and voice input/output.",
+    proof: [
+      "Improved tool-use accuracy from 58% to 90%.",
+      "Moved from one agent to specialist handoffs after evals.",
+      "Covers 20+ test cases across 5 query categories.",
+    ],
+    primitives: ["Agent handoffs", "Voice AI", "Evals"],
+    githubUrl: "https://github.com/Rakshit-Lodha/us-stock-agent",
+    demoUrl: "https://us-stock-agent.streamlit.app/",
   },
   {
     name: "Feedback Intelligence",
-    positioning: "TODO Feedback Intelligence positioning line.",
-    proof: ["TODO proof item", "TODO proof item", "TODO proof item"],
-    primitives: ["TODO", "TODO", "TODO"],
-    githubUrl: "#",
-    demoUrl: "#",
+    positioning:
+      "Cross-channel agent that turns public feedback into prioritized product signals.",
+    proof: [
+      "Ingests Play Store, App Store, YouTube, and X feedback.",
+      "Classifies bugs, UX complaints, feature requests, and sentiment trends.",
+      "Separates UI chat state from persistent model session memory.",
+    ],
+    primitives: ["Agents SDK", "Function tools", "Memory"],
+    githubUrl: "https://github.com/Rakshit-Lodha/managed-agents-review",
+    demoUrl: "https://managed-agents-review.onrender.com",
   },
 ];
 
 const otherProjects: OtherProject[] = [
   {
     name: "TalkToKrishna",
-    description: "TODO short description.",
-    readmeUrl: "#",
+    description:
+      "RAG product grounded in 700 Bhagavad Gita verses with a 50-question eval suite.",
+    readmeUrl: "https://github.com/Rakshit-Lodha/talktokrishna",
   },
   {
-    name: "Voice Document Q&A",
-    description: "TODO short description.",
-    readmeUrl: "#",
+    name: "Evaluation Framework",
+    description:
+      "LLM-as-judge and voice evaluation system for quality, safety, and ASR accuracy.",
+    readmeUrl: "https://github.com/Rakshit-Lodha/evals",
   },
 ];
 
-const githubProfileUrl = "#";
+const githubProfileUrl = "https://github.com/Rakshit-Lodha";
 
 function PrimitivePills({ primitives }: { primitives: string[] }) {
   return (
     <div className="flex flex-wrap gap-2">
-      {primitives.map((primitive) => (
+      {primitives.map((primitive, index) => (
         <span
-          key={primitive}
+          key={`${primitive}-${index}`}
           className="rounded-full border-[0.5px] border-neutral-300 px-2.5 py-1 text-xs font-normal leading-none text-neutral-700"
         >
           {primitive}
@@ -130,8 +151,11 @@ function ActionLinks({
 function ProofList({ items }: { items: string[] }) {
   return (
     <ul className="space-y-2 border-l border-neutral-200">
-      {items.map((item) => (
-        <li key={item} className="pl-4 text-[13px] leading-[1.5] text-neutral-600">
+      {items.map((item, index) => (
+        <li
+          key={`${item}-${index}`}
+          className="pl-4 text-[13px] leading-[1.5] text-neutral-600"
+        >
           {item}
         </li>
       ))}
@@ -146,9 +170,9 @@ export function HeroProjectCard({ project }: { project: HeroProject }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="grid rounded-xl bg-neutral-50 p-5 md:min-h-[300px] md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:gap-8 md:p-8"
+      className="grid rounded-xl bg-neutral-50 p-5 sm:min-h-[300px] sm:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] sm:gap-8 md:p-8"
     >
-      <div className="order-2 flex flex-col md:order-1">
+      <div className="order-2 flex flex-col sm:order-1">
         <h3 className="text-xl font-medium leading-tight text-[#111111]">
           {project.name}
         </h3>
@@ -166,20 +190,14 @@ export function HeroProjectCard({ project }: { project: HeroProject }) {
         </div>
       </div>
 
-      <div className="order-1 mb-6 md:order-2 md:mb-0">
-        <div className="relative flex h-full min-h-[170px] items-center justify-center overflow-hidden rounded-lg bg-white md:min-h-[236px]">
-          <span className="px-6 text-center text-sm leading-6 text-neutral-500">
-            Krux.news screenshot placeholder
-          </span>
+      <div className="order-1 mb-6 sm:order-2 sm:mb-0">
+        <div className="relative flex h-full min-h-[170px] items-center justify-center overflow-hidden rounded-lg bg-white sm:min-h-[236px]">
           <Image
             src={project.screenshotSrc}
             alt={`${project.name} product screenshot`}
             fill
-            sizes="(max-width: 767px) calc(100vw - 90px), 236px"
+            sizes="(max-width: 639px) calc(100vw - 90px), 236px"
             className="object-cover"
-            onError={(event) => {
-              event.currentTarget.style.display = "none";
-            }}
           />
         </div>
       </div>
@@ -270,8 +288,8 @@ export function ProjectsSection({
         </div>
       </div>
 
-      <div className="mt-6 md:ml-[calc((100%_-_640px)/2)] md:w-[calc(50vw_+_288px)]">
-        <div className="mx-auto flex max-w-[640px] justify-end gap-2 px-1 pb-3 md:max-w-none md:px-0">
+      <div className="mx-auto mt-6 max-w-[640px] md:max-w-[704px]">
+        <div className="flex justify-end gap-2 px-1 pb-3 md:px-0">
           <button
             type="button"
             onClick={() => scrollStrip("left")}
@@ -292,7 +310,7 @@ export function ProjectsSection({
 
         <div
           ref={stripRef}
-          className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 pb-4 [scrollbar-color:#d4d4d4_#f5f5f5] [scrollbar-width:thin] md:px-0 md:pr-8"
+          className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 pb-4 [scrollbar-color:#d4d4d4_#f5f5f5] [scrollbar-width:thin] md:px-0"
         >
           {stripProjects.map((project, index) => (
             <StripProjectCard
@@ -340,27 +358,7 @@ export default function Projects() {
         />
 
         <SkillMap />
-
-        <div className="mx-auto mt-16 max-w-[640px] md:mt-24">
-          <h3 className="mb-4 text-lg font-semibold text-foreground">
-            Education
-          </h3>
-          <div className="flex flex-wrap items-center gap-4">
-            {EDUCATION.map((edu, i) => (
-              <div key={edu.name} className="flex items-center gap-3">
-                {i > 0 && (
-                  <span className="h-6 w-px bg-border" aria-hidden="true" />
-                )}
-                <div className="flex items-center gap-2">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-muted text-xs font-bold text-muted-foreground">
-                    {edu.short}
-                  </div>
-                  <span className="text-sm text-foreground">{edu.name}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Education />
       </div>
     </section>
   );

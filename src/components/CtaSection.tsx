@@ -2,11 +2,7 @@
 
 import { motion } from "framer-motion";
 
-interface CtaSectionProps {
-  onChatOpen?: () => void;
-}
-
-export default function CtaSection({ onChatOpen }: CtaSectionProps) {
+export default function CtaSection() {
   return (
     <section id="contact" className="py-24 px-6 bg-background">
       <div className="max-w-3xl mx-auto text-center">
@@ -22,12 +18,12 @@ export default function CtaSection({ onChatOpen }: CtaSectionProps) {
         <div className="w-10 h-0.5 bg-[#1B6AE7] mx-auto mb-12" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <motion.button
+          <motion.a
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            onClick={onChatOpen}
+            href="/chat"
             className="group flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-border hover:border-[#1B6AE7] hover:shadow-md hover:-translate-y-0.5 transition-all text-left focus-visible:outline-2 focus-visible:outline-[#1B6AE7]"
           >
             <span className="text-2xl" aria-hidden="true">💬</span>
@@ -38,7 +34,7 @@ export default function CtaSection({ onChatOpen }: CtaSectionProps) {
               </div>
             </div>
             <span className="text-[#1B6AE7] group-hover:translate-x-1 transition-transform shrink-0" aria-hidden="true">→</span>
-          </motion.button>
+          </motion.a>
 
           <motion.a
             initial={{ opacity: 0, y: 16 }}

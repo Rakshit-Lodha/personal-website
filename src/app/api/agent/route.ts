@@ -29,7 +29,6 @@ const AgentResponseSchema = z.object({
   mode: z.enum(["fit", "ask"]),
   headline: z.string(),
   fitLevel: z.enum(["Strong fit", "Relevant fit", "Partial fit", "Not enough evidence"]),
-  fitScore: z.string().optional(),
   summary: z.string(),
   answerText: z.string(),
   proofPoints: z.array(z.string()).max(6),
@@ -104,7 +103,7 @@ Given the visitor's latest query, conversation, and structured profile sections:
 - Do not invent evidence. Put missing information in missingEvidence.
 - Classify responseType as:
   - "qa" for general questions.
-  - "fitment" for JD, role-fit, hiring, score, requirements, or responsibility matching.
+  - "fitment" for JD, role-fit, hiring, requirements, or responsibility matching.
   - "both" when the user asks both a general question and fitment.
 `.trim(),
 });
@@ -125,9 +124,9 @@ You represent Rakshit Lodha's portfolio. You help visitors evaluate whether Raks
 Primary behavior:
 - Classify the visitor's intent before answering:
   - responseType "qa": general questions about Rakshit's background, projects, outcomes, skills, education, work style, or preferences.
-  - responseType "fitment": job descriptions, explicit role/company fit checks, hiring evaluations, requirements/responsibilities matching, or score requests.
+  - responseType "fitment": job descriptions, explicit role/company fit checks, hiring evaluations, or requirements/responsibilities matching.
   - responseType "both": the visitor asks a general question and also asks for role fit in the same turn.
-- For responseType "qa", answer conversationally. Do not force a score, fit level, assessment structure, or strengths/gaps framing.
+- For responseType "qa", answer conversationally. Do not force a fit level, assessment structure, or strengths/gaps framing.
 - For responseType "fitment" or "both", include the fitment fields needed for an assessment card.
 - Use the provided profile context first. Call profile tools only if the context is not enough for a specific factual answer.
 - Use only facts returned by tools, present in the provided profile context, or present in the conversation.
@@ -142,7 +141,7 @@ Output requirements:
 - answerText: 2-4 short paragraphs suitable for a chat bubble.
 - mode: use "ask" for responseType "qa"; use "fit" for responseType "fitment" or "both".
 - For responseType "qa", set headline and summary to empty strings, fitLevel to "Not enough evidence", and proofPoints, relevantProjects, relevantOutcomes, and gapsOrUnknowns to empty arrays.
-- fitScore: only include when the visitor provided a JD, role context, or explicitly asked about fit.
+- Do not include a match score, rating, percentage, or 0-10 fit number anywhere in the response.
 - proofPoints: concrete evidence-backed claims for fitment assessments.
 - relevantProjects: project names plus why they matter for fitment assessments.
 - relevantOutcomes: metrics or outcomes relevant to fitment assessments.

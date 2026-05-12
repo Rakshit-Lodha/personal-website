@@ -86,25 +86,37 @@ Important:
 
 Component: `src/components/SkillMap.tsx`
 
-This is a static-after-load animated visualization of skills across product, AI, and engineering.
+This is a clean card-grid view of skills across product, AI, analytics, design, and engineering.
 
 Current behavior:
 
 - Hardcodes the `skills`, `anchorSkills`, and `categoryLabels` data inside the component.
-- Uses absolutely positioned DOM text labels, not a `<canvas>`.
-- Uses seeded pseudo-random positioning so the organic layout is stable across renders.
-- Uses `anime.js` v4 with `animate`, `stagger`, and `createTimeline`.
-- Entrance animation triggers once through `IntersectionObserver`.
-- Category labels fade in first, then skills fade/translate into place.
-- Anchor skills get a small one-time scale animation.
-- Respects `prefers-reduced-motion`.
-- No click handlers, hover states, tooltips, links, idle motion, drift, or pulsing.
-- Includes an `sr-only` accessible fallback list of all categories and skills.
+- Uses normal CSS Grid and flex-wrap text flow. No absolute positioning, collision math, canvas, SVG, or skill-coordinate logic.
+- Uses Framer Motion for a one-time card entrance animation.
+- Cards fade in and translate up by 12px when the section enters the viewport.
+- Card animation order follows the data order: AI Product, Technical Tools, Product Management, Analytics & Experimentation, Research & Design.
+- Skills inside a card appear together with the card; individual skills do not stagger.
+- Respects `prefers-reduced-motion` by rendering cards fully visible immediately.
+- Cards have a subtle hover lift and faint shadow, but remain non-clickable with the default cursor.
+- No tooltips, popovers, project links, category colors, icons, idle animation, breathing, drift, or pulsing.
+
+Layout:
+
+- Desktop row 1: AI Product (~58%) and Technical Tools (~42%).
+- Desktop row 2: Product Management (~30%), Analytics & Experimentation (~38%), Research & Design (~32%).
+- Mobile: all five cards stack vertically in the same order.
+- Category cards use a faint `bg-neutral-50` surface, 12px radius, and no heavy chrome.
+- Skills are text-only chips with no pill background or border.
+- Anchor skills are larger and bolder than non-anchor skills.
 
 Alignment:
 
 - The `Skill Map` title uses the same 640px content column as `My Story` and `Projects`.
-- The visualization canvas breaks wider than the text column and centers around the same page axis.
+- The card grid is wider than the text column (`max-w-[1040px]`) and centers around the same page axis.
+
+Dependency note:
+
+- `animejs` was removed because Skill Map now uses Framer Motion only.
 
 ## Shared Content Data
 

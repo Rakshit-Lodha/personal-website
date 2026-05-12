@@ -7,10 +7,10 @@ const links = [
   { label: "My Story", href: "#story" },
   { label: "Projects & Skills", href: "#projects" },
   { label: "Experience", href: "#story" },
-  { label: "Education", href: "#projects" },
+  { label: "Education", href: "#education" },
 ];
 
-export default function Nav() {
+export default function Nav({ sectionHrefPrefix = "" }: { sectionHrefPrefix?: string }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Nav() {
           {links.map((l) => (
             <a
               key={l.label}
-              href={l.href}
+              href={`${sectionHrefPrefix}${l.href}`}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               {l.label}

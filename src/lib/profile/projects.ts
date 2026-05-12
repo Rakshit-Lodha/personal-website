@@ -27,7 +27,7 @@ export const PROJECTS = [
       "Implemented distribution surfaces including story pages, deep links, RSS, sitemaps, PWA metadata, and swipe reaction tracking.",
     ],
     links: {
-      github: null,
+      github: "https://github.com/Rakshit-Lodha/ai-times",
       demo: "https://krux.news/",
     },
   },
@@ -61,7 +61,7 @@ export const PROJECTS = [
       "Designed the product around cross-channel correlation, not generic dashboard reporting.",
     ],
     links: {
-      github: null,
+      github: "https://github.com/Rakshit-Lodha/managed-agents-review",
       demo: "https://managed-agents-review.onrender.com",
     },
   },
@@ -92,7 +92,7 @@ export const PROJECTS = [
       "Built domain-specific routing for mutual fund discovery rather than a generic vector search demo.",
     ],
     links: {
-      github: null,
+      github: "https://github.com/Rakshit-Lodha/mf-search",
       demo: "https://mf-ai-search.streamlit.app/",
     },
   },
@@ -129,7 +129,7 @@ export const PROJECTS = [
       "Validated major query types with systematic testing instead of relying on demos alone.",
     ],
     links: {
-      github: null,
+      github: "https://github.com/Rakshit-Lodha/us-stock-agent",
       demo: "https://us-stock-agent.streamlit.app/",
     },
   },
@@ -165,7 +165,7 @@ export const PROJECTS = [
       "Used eval results to expose language and speaking-style limits in voice products.",
     ],
     links: {
-      github: null,
+      github: "https://github.com/Rakshit-Lodha/evals",
       demo: null,
     },
   },
@@ -201,8 +201,8 @@ export const PROJECTS = [
       "Made a product decision to revert a more complex prompt when evals showed lower consistency and higher variance.",
     ],
     links: {
-      github: null,
-      demo: null,
+      github: "https://github.com/Rakshit-Lodha/talktokrishna",
+      demo: "https://talktokrishna-app.streamlit.app/",
     },
   },
 ] as const;

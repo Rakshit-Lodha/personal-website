@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -12,7 +11,7 @@ const fadeUp = {
   }),
 };
 
-export default function Hero({ onChatOpen }: { onChatOpen?: () => void }) {
+export default function Hero() {
   const scrollToStory = () => {
     document.getElementById("story")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -84,15 +83,13 @@ export default function Hero({ onChatOpen }: { onChatOpen?: () => void }) {
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </a>
-        <Button
-          size="lg"
-          variant="outline"
-          onClick={onChatOpen}
-          className="h-11 rounded-md border-border px-8 gap-2 hover:-translate-y-0.5 hover:shadow-md transition-all hover:border-[#1B6AE7]"
+        <a
+          href="/chat"
+          className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-border bg-background px-8 text-sm font-medium transition-all hover:-translate-y-0.5 hover:border-[#1B6AE7] hover:bg-muted hover:text-foreground hover:shadow-md focus-visible:outline-2 focus-visible:outline-[#1B6AE7]"
         >
           Chat with my AI
           <span className="text-[#1B6AE7]" aria-hidden="true">✦</span>
-        </Button>
+        </a>
       </motion.div>
 
       {/* Social links */}
@@ -103,7 +100,7 @@ export default function Hero({ onChatOpen }: { onChatOpen?: () => void }) {
         variants={fadeUp}
         className="flex items-center gap-6"
       >
-        <SocialLink href="https://linkedin.com/in/rakshitlodha" label="LinkedIn">
+        <SocialLink href="https://www.linkedin.com/in/rakshit-lodha-360241187/" label="LinkedIn">
           <LinkedInIcon />
         </SocialLink>
         <span className="w-px h-4 bg-border" aria-hidden="true" />
@@ -111,7 +108,7 @@ export default function Hero({ onChatOpen }: { onChatOpen?: () => void }) {
           <XIcon />
         </SocialLink>
         <span className="w-px h-4 bg-border" aria-hidden="true" />
-        <SocialLink href="https://github.com/rakshitlodha" label="GitHub">
+        <SocialLink href="https://github.com/Rakshit-Lodha" label="GitHub">
           <GitHubIcon />
         </SocialLink>
       </motion.div>
