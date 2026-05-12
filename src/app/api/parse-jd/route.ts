@@ -1,5 +1,4 @@
 import mammoth from "mammoth";
-import { PDFParse } from "pdf-parse";
 
 export const runtime = "nodejs";
 
@@ -10,13 +9,10 @@ function extensionFor(file: File) {
 }
 
 async function parsePdf(buffer: Buffer) {
-  const parser = new PDFParse({ data: buffer });
-  try {
-    const result = await parser.getText();
-    return result.text;
-  } finally {
-    await parser.destroy();
-  }
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const pdfParse = require("pdf-parse") as (buf: Buffer) => Promise<{ text: string }>;
+  const result = await pdfParse(buffer);
+  return result.text;
 }
 
 async function parseDocx(buffer: Buffer) {

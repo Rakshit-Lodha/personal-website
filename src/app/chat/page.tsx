@@ -4,7 +4,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { ArrowUp, Paperclip, X } from "lucide-react";
+import { ArrowUp, Loader2, Mic, Paperclip, Square, Volume2, X } from "lucide-react";
 import Nav from "@/components/Nav";
 import type { AgentMode, AgentResponse, AgentStreamEvent } from "@/lib/agent/types";
 
@@ -19,6 +19,7 @@ const AGENT_AVATAR_URL = "/rakshit-avatar.jpeg";
 const DEFAULT_FILE_PROMPT = "Assess fit against the attached job description.";
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const ACCEPTED_EXTENSIONS = [".pdf", ".docx", ".txt"];
+const MAX_RECORDING_MS = 30_000;
 
 type ChatMessage = {
   id: string;
@@ -35,6 +36,7 @@ type UploadedFile = {
 };
 
 let messageCounter = 0;
+let currentSpeechAudio: HTMLAudioElement | null = null;
 
 function createId() {
   return typeof crypto !== "undefined" && "randomUUID" in crypto
@@ -150,6 +152,78 @@ function TypingDots() {
   );
 }
 
+function SpeakButton({ text }: { text: string }) {
+  const [status, setStatus] = useState<"idle" | "loading" | "playing">("idle");
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const objectUrlRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    return () => {
+      audioRef.current?.pause();
+      if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+    };
+  }, []);
+
+  async function handleSpeak() {
+    if (status === "playing") {
+      audioRef.current?.pause();
+      setStatus("idle");
+      return;
+    }
+
+    currentSpeechAudio?.pause();
+    setStatus("loading");
+
+    try {
+      const response = await fetch("/api/speak", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text }),
+      });
+
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => ({}))) as { error?: string };
+        throw new Error(payload.error || "Could not generate speech.");
+      }
+
+      const audioBlob = await response.blob();
+      if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+
+      const objectUrl = URL.createObjectURL(audioBlob);
+      const audio = new Audio(objectUrl);
+
+      objectUrlRef.current = objectUrl;
+      audioRef.current = audio;
+      currentSpeechAudio = audio;
+      audio.onended = () => setStatus("idle");
+      audio.onpause = () => setStatus("idle");
+
+      await audio.play();
+      setStatus("playing");
+    } catch {
+      setStatus("idle");
+    }
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={handleSpeak}
+      disabled={status === "loading" || !text.trim()}
+      className="inline-flex h-8 w-8 items-center justify-center rounded-full text-[#6b6860] transition-colors hover:bg-[#ede9e3] hover:text-[#111111] disabled:cursor-not-allowed disabled:text-[#b8b1a8] focus-visible:outline-2 focus-visible:outline-[#1B6AE7]"
+      aria-label={status === "playing" ? "Stop reading response aloud" : "Read response aloud"}
+      aria-pressed={status === "playing"}
+      title={status === "playing" ? "Stop reading" : "Read aloud"}
+    >
+      {status === "loading" ? (
+        <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+      ) : (
+        <Volume2 className="h-4.5 w-4.5" aria-hidden="true" />
+      )}
+    </button>
+  );
+}
+
 function AgentMessage({
   text,
   isLoading,
@@ -193,6 +267,9 @@ function AgentMessage({
               {text}
             </ReactMarkdown>
             {response?.mode === "fit" ? <FitCard response={response} /> : null}
+            <div className="mt-3 flex justify-end">
+              <SpeakButton text={response?.answerText || text} />
+            </div>
           </>
         )}
       </div>
@@ -271,6 +348,10 @@ function FitCard({ response }: { response: AgentResponse }) {
   );
 }
 
+function normalizeAudioType(type: string) {
+  return type.split(";")[0]?.trim() || "audio/webm";
+}
+
 function FileChip({ file, onRemove }: { file: UploadedFile; onRemove: () => void }) {
   return (
     <div className="mb-3 flex w-fit max-w-full items-center gap-2 rounded-full border border-[#e4e0da] bg-white px-3 py-1.5 text-xs text-[#6b6860]">
@@ -309,7 +390,15 @@ function MessageInput({
 }) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const recordingStreamRef = useRef<MediaStream | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
+  const recordingTimeoutRef = useRef<number | null>(null);
+  const [isRecording, setIsRecording] = useState(false);
+  const [isTranscribing, setIsTranscribing] = useState(false);
+  const [voiceError, setVoiceError] = useState("");
   const canSend = (input.trim().length > 0 || Boolean(uploadedFile?.text)) && !isRunning;
+  const canUseVoice = !isRunning && !isTranscribing;
 
   useEffect(() => {
     const textarea = textareaRef.current;
@@ -319,11 +408,111 @@ function MessageInput({
     textarea.style.height = `${Math.min(textarea.scrollHeight, 200)}px`;
   }, [input]);
 
+  useEffect(() => {
+    return () => {
+      if (recordingTimeoutRef.current) window.clearTimeout(recordingTimeoutRef.current);
+      recordingStreamRef.current?.getTracks().forEach((track) => track.stop());
+    };
+  }, []);
+
+  function stopRecording() {
+    if (recordingTimeoutRef.current) {
+      window.clearTimeout(recordingTimeoutRef.current);
+      recordingTimeoutRef.current = null;
+    }
+
+    const recorder = mediaRecorderRef.current;
+    if (recorder?.state === "recording") recorder.stop();
+  }
+
+  async function transcribeAudio(audioBlob: Blob) {
+    if (!audioBlob.size) {
+      setVoiceError("No audio captured. Please try again.");
+      return;
+    }
+
+    setIsTranscribing(true);
+    setVoiceError("");
+
+    const formData = new FormData();
+    const audioType = normalizeAudioType(audioBlob.type);
+    const extension = audioType.includes("mp4") ? "mp4" : "webm";
+    formData.append("audio", new File([audioBlob], `voice-message.${extension}`, { type: audioType }));
+
+    try {
+      const response = await fetch("/api/transcribe", {
+        method: "POST",
+        body: formData,
+      });
+      const payload = (await response.json()) as { transcript?: string; error?: string };
+
+      if (!response.ok || !payload.transcript) {
+        throw new Error(payload.error || "Could not transcribe audio.");
+      }
+
+      onInputChange(input.trim() ? `${input.trim()} ${payload.transcript}` : payload.transcript);
+      textareaRef.current?.focus();
+    } catch (error) {
+      setVoiceError(error instanceof Error ? error.message : "Could not transcribe audio.");
+    } finally {
+      setIsTranscribing(false);
+    }
+  }
+
+  async function startRecording() {
+    if (!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === "undefined") {
+      setVoiceError("Voice input is not supported in this browser.");
+      return;
+    }
+
+    try {
+      setVoiceError("");
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mimeType = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4"].find((type) =>
+        MediaRecorder.isTypeSupported(type),
+      );
+      const recorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined);
+
+      recordingStreamRef.current = stream;
+      mediaRecorderRef.current = recorder;
+      audioChunksRef.current = [];
+
+      recorder.ondataavailable = (event) => {
+        if (event.data.size > 0) audioChunksRef.current.push(event.data);
+      };
+
+      recorder.onstop = () => {
+        setIsRecording(false);
+        stream.getTracks().forEach((track) => track.stop());
+        recordingStreamRef.current = null;
+        mediaRecorderRef.current = null;
+        const audioBlob = new Blob(audioChunksRef.current, { type: recorder.mimeType || "audio/webm" });
+        void transcribeAudio(audioBlob);
+      };
+
+      recorder.start();
+      setIsRecording(true);
+      recordingTimeoutRef.current = window.setTimeout(stopRecording, MAX_RECORDING_MS);
+    } catch {
+      setVoiceError("Microphone permission was blocked or unavailable.");
+    }
+  }
+
+  function handleVoiceClick() {
+    if (isRecording) {
+      stopRecording();
+      return;
+    }
+
+    if (canUseVoice) void startRecording();
+  }
+
   return (
     <footer className="shrink-0 bg-[#F5F3EF] px-6 md:px-8">
       <div className="mx-auto w-full max-w-[720px]">
         <div className="mb-3 h-px w-full bg-[#e4e0da]" />
         {uploadedFile && <FileChip file={uploadedFile} onRemove={onFileRemove} />}
+        {voiceError ? <p className="mb-3 text-xs text-[#b45309]">{voiceError}</p> : null}
 
         <input
           ref={fileInputRef}
@@ -341,6 +530,7 @@ function MessageInput({
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
+            disabled={isRecording || isTranscribing}
             className="mb-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[#6b6860] transition-colors hover:bg-[#ede9e3] hover:text-[#111111] focus-visible:outline-2 focus-visible:outline-[#1B6AE7]"
             aria-label="Upload a job description"
           >
@@ -365,6 +555,26 @@ function MessageInput({
 
           <button
             type="button"
+            onClick={handleVoiceClick}
+            disabled={!canUseVoice && !isRecording}
+            className={`mb-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-[#1B6AE7] ${
+              isRecording
+                ? "bg-[#fee2e2] text-[#b91c1c] hover:bg-[#fecaca]"
+                : "text-[#6b6860] hover:bg-[#ede9e3] hover:text-[#111111] disabled:cursor-not-allowed disabled:text-[#b8b1a8]"
+            }`}
+            aria-label={isRecording ? "Stop recording" : "Record voice input"}
+            aria-pressed={isRecording}
+            title={isRecording ? "Stop recording" : isTranscribing ? "Transcribing audio" : "Record voice input"}
+          >
+            {isRecording ? (
+              <Square className="h-4 w-4 fill-current" aria-hidden="true" />
+            ) : (
+              <Mic className="h-5 w-5" aria-hidden="true" />
+            )}
+          </button>
+
+          <button
+            type="button"
             onClick={onSend}
             disabled={!canSend}
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1B6AE7] text-white transition-colors disabled:cursor-not-allowed disabled:bg-[#e4e0da] disabled:text-[#8a847c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B6AE7]"
@@ -375,7 +585,7 @@ function MessageInput({
         </div>
 
         <p className="pt-3 pb-4 text-center text-xs text-[#6b6860]">
-          Responses are AI-generated and may be wrong.
+          {isRecording ? "Listening..." : isTranscribing ? "Transcribing..." : "Responses are AI-generated and may be wrong."}
         </p>
       </div>
     </footer>

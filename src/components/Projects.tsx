@@ -52,6 +52,20 @@ const heroProject: HeroProject = {
 
 const stripProjects: StripCard[] = [
   {
+    name: "AI Hiring Chat",
+    positioning:
+      "ChatGPT-style hiring assistant for recruiters to evaluate fit from a company URL, JD, upload, or question.",
+    proof: [
+      "Built a standalone /chat interface with zero-state prompts, persistent composer, file chips, and streamed responses.",
+      "Designed a 3-stage agent pipeline for company research, profile context selection, and evidence-led answers.",
+      "Supports PDF, DOCX, and TXT job descriptions with structured SSE final events for fit-level UI.",
+    ],
+    primitives: ["Agents SDK", "SSE streaming", "JD parsing"],
+    githubUrl: "https://github.com/Rakshit-Lodha/personal-website",
+    demoUrl: "/chat",
+    chatPrompt: "How does the AI hiring chat work?",
+  },
+  {
     name: "MF Search",
     positioning:
       "Semantic search engine across 16,197 mutual funds with intent-aware routing.",

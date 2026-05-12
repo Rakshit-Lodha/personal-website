@@ -9,6 +9,8 @@ The feature supports three modes through one interface:
 - **Company URL fit check:** users paste a company URL and ask whether Rakshit is a relevant fit. The backend researches the public company context before answering.
 - **JD / role-fit evaluation:** users paste or upload a job description and receive a fit assessment.
 - **General Q&A:** users ask conversational questions about Rakshit's background, projects, outcomes, skills, and work style.
+- **Voice input:** users can record a short voice prompt from the composer. The browser sends the audio to Sarvam speech-to-text and inserts the transcript into the text input for review before sending.
+- **Spoken responses:** assistant responses include a speaker control that uses Sarvam text-to-speech to read the answer aloud.
 
 The agent must not produce match scores, ratings, percentages, or 0-10 fit numbers. Fit answers should be evidence-led and honest about gaps.
 
@@ -48,6 +50,8 @@ When implemented, the spec is:
 - `src/app/chat/page.tsx`: standalone chat page UI, zero-state, message thread, composer, upload chip, and client-side stream handling. Fit badge is not yet rendered.
 - `src/app/api/agent/route.ts`: OpenAI Agents SDK route for live AI responses, company URL detection, websearch, profile context selection, and streamed SSE output.
 - `src/app/api/parse-jd/route.ts`: PDF, DOCX, and TXT job-description parsing route.
+- `src/app/api/transcribe/route.ts`: Sarvam speech-to-text route for short microphone recordings. Requires `SARVAM_API_KEY` or `SARVAM_API_SUBSCRIPTION_KEY`.
+- `src/app/api/speak/route.ts`: Sarvam text-to-speech route for assistant response playback. Requires `SARVAM_API_KEY` or `SARVAM_API_SUBSCRIPTION_KEY`.
 - `src/lib/agent/retrieval.ts`: local profile retrieval helpers over structured profile data.
 - `src/lib/agent/types.ts`: shared agent response and stream event types.
 - `src/lib/profile/*`: structured source-of-truth data for identity, experience, projects, education, fit evidence, technical evidence, and project links.
@@ -88,6 +92,21 @@ When implemented, the spec is:
 - Selected files appear as a chip above the composer.
 - Users can send an empty message with only a file; the default prompt is "Assess fit against the attached job description."
 - Dragging a file anywhere onto the page triggers the same upload flow.
+
+## Voice Input Behavior
+
+- The composer mic button records browser audio with `MediaRecorder`.
+- Clicking the mic starts recording; clicking the stop control ends recording and sends the clip to `/api/transcribe`.
+- Recordings are capped at 30 seconds for Sarvam's interactive speech-to-text flow.
+- The transcript is inserted into the composer and is not sent automatically, so users can review or edit before submitting.
+- The Sarvam API key stays server-side. The route reads `SARVAM_API_KEY`, falling back to `SARVAM_API_SUBSCRIPTION_KEY`.
+
+## Spoken Response Behavior
+
+- Completed assistant messages render a speaker button at the end of the response card.
+- Clicking the speaker button calls `/api/speak`, which converts the response text to WAV audio through Sarvam text-to-speech.
+- The browser plays the returned audio directly and allows the same button to stop playback.
+- The API route removes markdown formatting before speech generation and caps TTS input at Sarvam's `bulbul:v3` 2500-character limit.
 
 ## Project And Social Links
 
