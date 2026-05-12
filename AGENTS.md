@@ -10,6 +10,13 @@ Engineering constraints and definition of done for the chat feature and agent pi
 - Turbopack cannot resolve the worker file at bundle time, causing a runtime crash.
 - Fix: `serverExternalPackages: ["pdf-parse", "pdfjs-dist"]` in `next.config.ts` — this loads both packages natively via Node.js require, bypassing Turbopack bundling.
 - Do not remove this config. Removing it will silently break PDF uploads.
+- `pdf-parse` exports a single CJS function — there is no `PDFParse` named export and no class-based API (`.getText()`, `.destroy()`). The correct import and usage is:
+  ```ts
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const pdfParse = require("pdf-parse") as (buf: Buffer) => Promise<{ text: string }>;
+  const result = await pdfParse(buffer);
+  ```
+  Using `import { PDFParse } from "pdf-parse"` will fail at runtime even with `serverExternalPackages` set.
 
 ### Agent Models
 
@@ -27,8 +34,11 @@ Engineering constraints and definition of done for the chat feature and agent pi
 
 ### Fit Card
 
-- `FitCard` renders only when `response.mode === "fit"`.
-- It shows a single pill badge: fit level label + colored dot.
+**Not yet implemented.** The `AgentResponse` struct carries `fitLevel`, `headline`, `proofPoints`, `relevantProjects`, `relevantOutcomes`, `gapsOrUnknowns`, and `suggestedFollowups` but the current chat UI (`src/app/chat/page.tsx`) only renders `answerText` as markdown. The `final` SSE event data is received and stored on the message but the structured fields are not displayed.
+
+When FitCard is implemented, the spec is:
+- Render only when `response.mode === "fit"`.
+- Show a single pill badge: fit level label + colored dot.
 - Fit level values and their badge colors:
   - `"Strong fit"` → green (`#f0fdf4` bg, `#15803d` text)
   - `"Relevant fit"` → blue (`#eff6ff` bg, `#1d4ed8` text)

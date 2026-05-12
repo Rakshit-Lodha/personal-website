@@ -101,6 +101,25 @@ export const EXPERIENCE = [
         themes: ["recommendations", "insurance", "personalization", "revenue"],
       },
     ],
+    failures: [
+      {
+        id: "indmoney-goals-feature",
+        label: "Goals feature — did not get PMF",
+        summary:
+          "The Goals feature was meant to help users set and track financial goals as a core retention driver for the planning module. It failed: monthly retention was low and users were not coming back.",
+        whatWentWrong: [
+          "Unclear target market — never resolved whether we were building for advisors or end customers",
+          "No single north star — acquisition, retention, and monetisation were all treated as equal priorities simultaneously",
+          "Bet on algorithm complexity over product simplicity",
+          "Did not instrument or review data regularly — flew blind on what was actually happening",
+          "Constant friction with business stakeholders — limited cross-functional collaboration",
+          "Shipped features without defining what success looked like first",
+          "Started with the algorithm and worked backwards to customer experience — should have been the opposite",
+          "Did not use the right channels at the right time to drive adoption",
+        ],
+        themes: ["PMF", "retention", "goals", "product failure", "learnings", "what went wrong"],
+      },
+    ],
   },
   {
     id: "learnapp",
