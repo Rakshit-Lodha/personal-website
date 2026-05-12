@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ArrowUp, Paperclip, X } from "lucide-react";
 import Nav from "@/components/Nav";
-import type { AgentMode, AgentStreamEvent } from "@/lib/agent/types";
+import type { AgentMode, AgentResponse, AgentStreamEvent } from "@/lib/agent/types";
 
 const PROMPT_CHIPS = [
   "Drop a JD to see if Rakshit fits this role",
@@ -24,6 +24,7 @@ type ChatMessage = {
   id: string;
   role: "user" | "assistant";
   text: string;
+  response?: AgentResponse;
 };
 
 type UploadedFile = {
@@ -153,10 +154,12 @@ function AgentMessage({
   text,
   isLoading,
   status,
+  response,
 }: {
   text: string;
   isLoading?: boolean;
   status?: string;
+  response?: AgentResponse;
 }) {
   return (
     <div className="flex justify-start">
@@ -167,27 +170,30 @@ function AgentMessage({
             <span className="text-sm">{status || "Thinking"}</span>
           </div>
         ) : (
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={{
-              p: ({ children }) => <p className="mb-3 last:mb-0">{children}</p>,
-              ul: ({ children }) => <ul className="mb-3 list-disc space-y-1 pl-5 last:mb-0">{children}</ul>,
-              ol: ({ children }) => <ol className="mb-3 list-decimal space-y-1 pl-5 last:mb-0">{children}</ol>,
-              li: ({ children }) => <li>{children}</li>,
-              strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
-              em: ({ children }) => <em className="italic">{children}</em>,
-              code: ({ children }) => (
-                <code className="rounded bg-[#ede9e3] px-1 py-0.5 font-mono text-[0.9em]">{children}</code>
-              ),
-              pre: ({ children }) => (
-                <pre className="mb-3 overflow-x-auto rounded-xl bg-[#ede9e3] p-3 font-mono text-sm last:mb-0">
-                  {children}
-                </pre>
-              ),
-            }}
-          >
-            {text}
-          </ReactMarkdown>
+          <>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                p: ({ children }) => <p className="mb-3 last:mb-0">{children}</p>,
+                ul: ({ children }) => <ul className="mb-3 list-disc space-y-1 pl-5 last:mb-0">{children}</ul>,
+                ol: ({ children }) => <ol className="mb-3 list-decimal space-y-1 pl-5 last:mb-0">{children}</ol>,
+                li: ({ children }) => <li>{children}</li>,
+                strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+                em: ({ children }) => <em className="italic">{children}</em>,
+                code: ({ children }) => (
+                  <code className="rounded bg-[#ede9e3] px-1 py-0.5 font-mono text-[0.9em]">{children}</code>
+                ),
+                pre: ({ children }) => (
+                  <pre className="mb-3 overflow-x-auto rounded-xl bg-[#ede9e3] p-3 font-mono text-sm last:mb-0">
+                    {children}
+                  </pre>
+                ),
+              }}
+            >
+              {text}
+            </ReactMarkdown>
+            {response?.mode === "fit" ? <FitCard response={response} /> : null}
+          </>
         )}
       </div>
     </div>
@@ -224,11 +230,44 @@ function ConversationThread({
             text={message.text}
             isLoading={isRunning}
             status={message.id === messages.at(-1)?.id ? status : undefined}
+            response={message.response}
           />
         ),
       )}
       <div ref={endRef} />
     </section>
+  );
+}
+
+const FIT_LEVEL_CONFIG = {
+  "Strong fit": {
+    pill: "bg-[#f0fdf4] border-[#bbf7d0] text-[#15803d]",
+    dot: "bg-[#16a34a]",
+  },
+  "Relevant fit": {
+    pill: "bg-[#eff6ff] border-[#bfdbfe] text-[#1d4ed8]",
+    dot: "bg-[#1B6AE7]",
+  },
+  "Partial fit": {
+    pill: "bg-[#fffbeb] border-[#fde68a] text-[#b45309]",
+    dot: "bg-[#d97706]",
+  },
+  "Not enough evidence": {
+    pill: "bg-[#f5f3ef] border-[#e4e0da] text-[#6b6860]",
+    dot: "bg-[#9a948b]",
+  },
+} as const;
+
+function FitCard({ response }: { response: AgentResponse }) {
+  const config = FIT_LEVEL_CONFIG[response.fitLevel];
+
+  return (
+    <div className="mt-4 border-t border-[#e4e0da] pt-4">
+      <div className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold ${config.pill}`}>
+        <span className={`h-2 w-2 rounded-full ${config.dot}`} />
+        {response.fitLevel}
+      </div>
+    </div>
   );
 }
 
@@ -468,6 +507,7 @@ function ChatPageContent() {
             updateAssistant(assistantId, (message) => ({
               ...message,
               text: message.text || event.response.answerText,
+              response: event.response,
             }));
           }
           if (event.type === "error") {

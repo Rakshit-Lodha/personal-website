@@ -25,6 +25,14 @@ The agent must not produce match scores, ratings, percentages, or 0-10 fit numbe
 - First send unmounts the zero-state and mounts the conversation thread.
 - No mock conversations, fake scores, feature cards, sidebars, or split marketing layout.
 
+## Fit Badge
+
+- Fit/JD responses display a pill badge below the answer text.
+- Badge shows one of four values: `Strong fit`, `Relevant fit`, `Partial fit`, `Not enough evidence`.
+- Color coding: green / blue / amber / gray respectively.
+- General Q&A responses (`mode: "ask"`) never show the badge.
+- The badge is the entire fit UI — no proof points, gaps list, or follow-up chips.
+
 ## Main Page Funnel
 
 - Homepage hero "Chat with my AI" links directly to `/chat`.
@@ -34,13 +42,14 @@ The agent must not produce match scores, ratings, percentages, or 0-10 fit numbe
 
 ## Core Files
 
-- `src/app/chat/page.tsx`: standalone chat page UI, zero-state, message thread, composer, upload chip, and client-side stream handling.
+- `src/app/chat/page.tsx`: standalone chat page UI, zero-state, message thread, composer, upload chip, fit badge, and client-side stream handling.
 - `src/app/api/agent/route.ts`: OpenAI Agents SDK route for live AI responses, company URL detection, websearch, profile context selection, and streamed SSE output.
 - `src/app/api/parse-jd/route.ts`: PDF, DOCX, and TXT job-description parsing route.
 - `src/lib/agent/retrieval.ts`: local profile retrieval helpers over structured profile data.
 - `src/lib/agent/types.ts`: shared agent response and stream event types.
 - `src/lib/profile/*`: structured source-of-truth data for identity, experience, projects, education, fit evidence, technical evidence, and project links.
 - `public/rakshit-avatar.jpeg`: local avatar used in the chat zero-state.
+- `next.config.ts`: sets `serverExternalPackages: ["pdf-parse", "pdfjs-dist"]` — required for PDF parsing to work under Turbopack.
 
 ## Agent Behavior
 
@@ -53,6 +62,7 @@ The agent must not produce match scores, ratings, percentages, or 0-10 fit numbe
 - Uses public websearch only for company context when a company URL is provided.
 - Browser state carries the current conversation for follow-up questions.
 - No server-side conversation storage or database persistence is used.
+- The `final` SSE event carries the full `AgentResponse` struct. The client stores it on the assistant message and uses `fitLevel` to render the fit badge.
 
 ## Websearch Behavior
 
@@ -69,8 +79,9 @@ The agent must not produce match scores, ratings, percentages, or 0-10 fit numbe
 - Supported formats: PDF, DOCX, TXT.
 - Max file size: 10MB.
 - TXT files are parsed directly.
-- PDF text extraction uses `pdf-parse`.
+- PDF text extraction uses `pdf-parse` v2 (class-based API, depends on `pdfjs-dist`).
 - DOCX text extraction uses `mammoth`.
+- `serverExternalPackages: ["pdf-parse", "pdfjs-dist"]` in `next.config.ts` is required — without it Turbopack fails to resolve the pdfjs worker file at runtime.
 - Selected files appear as a chip above the composer.
 - Users can send an empty message with only a file; the default prompt is "Assess fit against the attached job description."
 - Dragging a file anywhere onto the page triggers the same upload flow.
@@ -88,8 +99,7 @@ The feature has been checked with:
 
 - `node node_modules/typescript/lib/tsc.js --noEmit`
 - `npm run lint`
-- `npm run build`
 - `/chat` route response check
-- `/api/parse-jd` TXT upload parsing check
+- `/api/parse-jd` PDF upload parsing check (requires `serverExternalPackages` config)
 
 Live websearch endpoint smoke tests require `OPENAI_API_KEY` to be available in the runtime environment.
