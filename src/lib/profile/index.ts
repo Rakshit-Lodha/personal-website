@@ -1,6 +1,7 @@
 import { EDUCATION } from "./education";
 import { EXPERIENCE } from "./experience";
 import { FIT_EVIDENCE } from "./fitEvidence";
+import { HIRING_PREFERENCES } from "./hiringPreferences";
 import { IDENTITY } from "./identity";
 import { PROJECTS } from "./projects";
 import { SUGGESTED_PROMPTS } from "./prompts";
@@ -12,6 +13,8 @@ export { EXPERIENCE } from "./experience";
 export type { Experience, Outcome } from "./experience";
 export { FIT_EVIDENCE } from "./fitEvidence";
 export type { FitEvidence } from "./fitEvidence";
+export { HIRING_PREFERENCES } from "./hiringPreferences";
+export type { HiringPreferences } from "./hiringPreferences";
 export { IDENTITY } from "./identity";
 export type { Identity } from "./identity";
 export { PROJECTS } from "./projects";
@@ -28,6 +31,7 @@ export const PROFILE_DATA = {
   experience: EXPERIENCE,
   projects: PROJECTS,
   education: EDUCATION,
+  hiringPreferences: HIRING_PREFERENCES,
   fitThemes: FIT_EVIDENCE,
   technicalEvidence: TECHNICAL_EVIDENCE,
   suggestedPrompts: SUGGESTED_PROMPTS,

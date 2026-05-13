@@ -2,6 +2,7 @@ import {
   EDUCATION,
   EXPERIENCE,
   FIT_EVIDENCE,
+  HIRING_PREFERENCES,
   IDENTITY,
   PROJECTS,
   TECHNICAL_EVIDENCE,
@@ -63,6 +64,7 @@ export function getIdentityContext() {
   return {
     identity: IDENTITY,
     education: EDUCATION,
+    hiringPreferences: HIRING_PREFERENCES,
   };
 }
 

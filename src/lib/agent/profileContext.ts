@@ -31,6 +31,11 @@ export const PROFILE_SECTIONS = [
     title: "Education",
     data: PROFILE_DATA.education,
   },
+  {
+    id: "hiringPreferences",
+    title: "Hiring Preferences, Availability, Location, and Compensation",
+    data: PROFILE_DATA.hiringPreferences,
+  },
 ] as const;
 
 export type ProfileSectionId = (typeof PROFILE_SECTIONS)[number]["id"];
