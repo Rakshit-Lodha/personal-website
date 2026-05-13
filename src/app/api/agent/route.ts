@@ -44,7 +44,10 @@ const AgentResponseSchema = z.object({
 const MODEL = process.env.OPENAI_AGENT_MODEL || "gpt-5.5";
 const CONTEXT_MODEL = process.env.OPENAI_CONTEXT_MODEL || "gpt-4o";
 const WEBSEARCH_MODEL = process.env.OPENAI_WEBSEARCH_MODEL || "gpt-4o";
-const openai = new OpenAI();
+
+function getOpenAIClient() {
+  return new OpenAI();
+}
 
 const ContextBriefSchema = z.object({
   responseType: z.enum(["qa", "fitment", "both"]),
@@ -110,8 +113,8 @@ const getIdentityContextTool = tool({
   execute: async () => JSON.stringify(getIdentityContext()),
 });
 
-async function websearch(companyUrl: string, userQuestion: string): Promise<CompanyBrief> {
-  const result = await openai.responses.parse({
+async function websearch(companyTarget: string, userQuestion: string): Promise<CompanyBrief> {
+  const result = await getOpenAIClient().responses.parse({
     model: WEBSEARCH_MODEL,
     tools: [{ type: "web_search", search_context_size: "low" }],
     tool_choice: "auto",
@@ -127,9 +130,9 @@ async function websearch(companyUrl: string, userQuestion: string): Promise<Comp
       {
         role: "user",
         content: [
-          `Company URL: ${companyUrl}`,
+          `Company target: ${companyTarget}`,
           `Visitor question: ${userQuestion}`,
-          "Find public information about what this company does, who it serves, what products or business areas are visible, and which facts matter for assessing whether Rakshit Lodha is a relevant product/AI/fintech fit.",
+          "Find the company's official public website or strongest public source, then research what this company does, who it serves, what products or business areas are visible, and which facts matter for assessing whether Rakshit Lodha is a relevant product/AI/fintech fit.",
           "Include only source URLs you actually used. If evidence is sparse, say so in openQuestions.",
         ].join("\n\n"),
       },
@@ -145,15 +148,15 @@ async function websearch(companyUrl: string, userQuestion: string): Promise<Comp
 const websearchTool = tool({
   name: "websearch",
   description:
-    "Research a public company URL with gpt-5-nano and web search, then return a compact company brief for fit assessment.",
+    "Research a public company target with web search, then return a compact company brief for fit assessment.",
   parameters: z.object({
-    companyUrl: z.string().describe("The public company website URL to research."),
+    companyUrl: z.string().describe("The public company website URL, bare domain, or company name to research."),
     userQuestion: z.string().describe("The visitor's question or fit context."),
   }),
   execute: async ({ companyUrl, userQuestion }) => JSON.stringify(await websearch(companyUrl, userQuestion)),
 });
 
-function extractFirstUrl(text: string) {
+function extractFirstUrl(text: string): string | null {
   const match = text.match(/https?:\/\/[^\s<>"')]+/i);
   if (!match) return null;
 
@@ -162,6 +165,107 @@ function extractFirstUrl(text: string) {
   } catch {
     return null;
   }
+}
+
+function extractQuestionFromChatUrl(text: string) {
+  const url = extractFirstUrl(text);
+  if (!url) return null;
+
+  try {
+    const parsed = new URL(url);
+    const isPortfolioHost = ["rakshitlodha.com", "www.rakshitlodha.com", "localhost", "127.0.0.1"].includes(
+      parsed.hostname,
+    );
+    const question = parsed.searchParams.get("q")?.trim();
+
+    return isPortfolioHost && parsed.pathname === "/chat" && question ? question : null;
+  } catch {
+    return null;
+  }
+}
+
+function normalizeBareDomain(domain: string) {
+  const normalized = domain.replace(/[.,;:!?]+$/g, "").toLowerCase();
+
+  try {
+    return new URL(`https://${normalized}`).toString();
+  } catch {
+    return null;
+  }
+}
+
+function extractBareDomain(text: string) {
+  const matches = text.matchAll(/(?:^|[\s(<])((?:[a-z0-9-]+\.)+[a-z]{2,})(?:[/?#][^\s<>"')]*)?/gi);
+
+  for (const match of matches) {
+    const domain = match[1];
+    if (!domain) continue;
+
+    const normalized = normalizeBareDomain(domain);
+    if (normalized) return normalized;
+  }
+
+  return null;
+}
+
+function cleanCompanyName(value: string) {
+  return value
+    .replace(/\b(the|a|an|this|that|at|for|with|role|company|startup|team|good|great|strong|relevant|fit)\b/gi, " ")
+    .replace(/[^a-z0-9&.\- ]/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/[.,;:!?]+$/g, "");
+}
+
+function extractCompanyNameFromFitQuestion(text: string) {
+  const patterns = [
+    /\b(?:fit|match)\s+(?:at|for|with)\s+([a-z0-9][a-z0-9&.\- ]{1,80})/i,
+    /\b(?:at|for|with)\s+([a-z0-9][a-z0-9&.\- ]{1,80})/i,
+  ];
+
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (!match?.[1]) continue;
+
+    const name = cleanCompanyName(match[1].split(/\b(?:because|if|and|or|where|who|that|which|when)\b/i)[0]);
+    if (name && name.length <= 80) return name;
+  }
+
+  return null;
+}
+
+function hasCompanyFitIntent(text: string, requestedMode: z.infer<typeof AgentRequestSchema>["mode"]) {
+  if (requestedMode === "fit" || requestedMode === "both") return true;
+
+  const normalized = text.toLowerCase();
+  return [
+    "good fit",
+    "great fit",
+    "strong fit",
+    "relevant fit",
+    "would fit",
+    "would be a fit",
+    "fit at",
+    "fit for",
+    "fit with",
+    "match for",
+    "evaluate him for",
+    "evaluate rakshit for",
+    "assess fit",
+  ].some((signal) => normalized.includes(signal));
+}
+
+function extractCompanyResearchTarget(text: string, requestedMode: z.infer<typeof AgentRequestSchema>["mode"]) {
+  const chatUrlQuestion = extractQuestionFromChatUrl(text);
+  if (chatUrlQuestion) {
+    return extractCompanyResearchTarget(chatUrlQuestion, requestedMode);
+  }
+
+  return (
+    extractFirstUrl(text) ||
+    extractBareDomain(text) ||
+    (hasCompanyFitIntent(text, requestedMode) ? extractCompanyNameFromFitQuestion(text) : null)
+  );
 }
 
 const contextAgent = new Agent({
@@ -183,6 +287,8 @@ Given the visitor's latest query, conversation, and structured profile sections:
   - "qa" for general questions.
   - "fitment" for JD, role-fit, hiring, requirements, or responsibility matching.
   - "both" when the user asks both a general question and fitment.
+- If Requested mode is "ask", keep responseType as "qa" unless the visitor clearly supplied a JD, company URL, role requirements, responsibilities, or explicitly asked to assess fit for a specific role/company.
+- Questions about Rakshit's preferred role, compensation, availability, location, work mode, background, strengths, or weaknesses are general Q&A unless they are tied to a concrete JD/company fit check.
 `.trim(),
 });
 
@@ -207,6 +313,8 @@ Primary behavior:
   - responseType "both": the visitor asks a general question and also asks for role fit in the same turn.
 - For responseType "qa", answer conversationally. Do not force a fit level, assessment structure, or strengths/gaps framing.
 - For responseType "fitment" or "both", include the fitment fields needed for an assessment card.
+- If Requested mode is "ask", use responseType "qa" and mode "ask" unless the visitor clearly supplied a JD, company URL, role requirements, responsibilities, or explicitly asked to assess fit for a specific role/company.
+- Treat questions about Rakshit's preferred role, compensation, availability, location, work mode, background, strengths, or weaknesses as general Q&A unless they are tied to a concrete JD/company fit check.
 - Use the provided profile context first. Call profile tools only if the context is not enough for a specific factual answer.
 - If the visitor provides a company URL and no company websearch brief is present, call websearch before assessing fit.
 - Do not call websearch again when a company websearch brief is already present.
@@ -300,8 +408,12 @@ function sse(event: AgentStreamEvent) {
 }
 
 function chunkText(text: string) {
-  const chunks = text.match(/.{1,42}(\s|$)/g);
-  return chunks && chunks.length ? chunks : [text];
+  const chunks: string[] = [];
+  for (let index = 0; index < text.length; index += 42) {
+    chunks.push(text.slice(index, index + 42));
+  }
+
+  return chunks.length ? chunks : [text];
 }
 
 export async function POST(request: Request) {
@@ -324,12 +436,14 @@ export async function POST(request: Request) {
 
       try {
         const latestUserMessage = parsed.messages.findLast((message) => message.role === "user");
-        const companyUrl = latestUserMessage ? extractFirstUrl(latestUserMessage.content) : null;
+        const companyTarget = latestUserMessage
+          ? extractCompanyResearchTarget(latestUserMessage.content, parsed.mode)
+          : null;
         let companyBrief: CompanyBrief | undefined;
 
-        if (companyUrl && latestUserMessage) {
+        if (companyTarget && latestUserMessage) {
           send({ type: "status", message: "Researching company website" });
-          companyBrief = await websearch(companyUrl, latestUserMessage.content);
+          companyBrief = await websearch(companyTarget, latestUserMessage.content);
         }
 
         send({ type: "status", message: "Reading profile context" });

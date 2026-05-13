@@ -51,15 +51,28 @@ function extensionFor(fileName: string) {
 
 function isFitPrompt(text: string) {
   const normalized = text.toLowerCase();
+  const explicitFitSignals = [
+    "job description",
+    "jd",
+    "assess fit",
+    "good fit",
+    "would be a fit",
+    "would fit",
+    "fit against",
+    "fit for this",
+    "fit at",
+    "fit with",
+    "fits this",
+    "match for",
+    "evaluate him for",
+    "evaluate rakshit for",
+    "requirements",
+    "responsibilities",
+  ];
+
   return (
     normalized.length > 500 ||
-    normalized.includes("job description") ||
-    normalized.includes(" jd") ||
-    normalized.includes("role") ||
-    normalized.includes("fit") ||
-    normalized.includes("hiring") ||
-    normalized.includes("requirements") ||
-    normalized.includes("responsibilities")
+    explicitFitSignals.some((signal) => normalized.includes(signal))
   );
 }
 
