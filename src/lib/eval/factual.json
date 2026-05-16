@@ -1,0 +1,102 @@
+[
+  {
+    "id": "F01",
+    "q": "When did Rakshit start at ET Money?",
+    "ground_truth": "December 2022"
+  },
+  {
+    "id": "F02",
+    "q": "What is Rakshit's current employer?",
+    "ground_truth": "ET Money"
+  },
+  {
+    "id": "F03",
+    "q": "By how much did the AI support automation reduce monthly tickets at ET Money?",
+    "ground_truth": "From 17,000 to 7,000 (a ~59% reduction)"
+  },
+  {
+    "id": "F04",
+    "q": "How many funds are indexed in MF Semantic Search?",
+    "ground_truth": "16,197"
+  },
+  {
+    "id": "F05",
+    "q": "What was the time reduction in advisor planning at INDmoney?",
+    "ground_truth": "From 4-5 hours to 15 minutes"
+  },
+  {
+    "id": "F06",
+    "q": "How many advisory plans were shipped through the INDmoney planning module?",
+    "ground_truth": "20,000+"
+  },
+  {
+    "id": "F07",
+    "q": "What ARR did the insurance recommendation engine at INDmoney generate in its first year?",
+    "ground_truth": "₹1.5Cr"
+  },
+  {
+    "id": "F08",
+    "q": "What did Rakshit do at LearnApp?",
+    "ground_truth": "Designed library of investing and finance courses, achieved 50% course completion, generated ₹1.2Cr ARR"
+  },
+  {
+    "id": "F09",
+    "q": "What MBA program is Rakshit currently enrolled in?",
+    "ground_truth": "Executive MBA at SP Jain Global School of Management"
+  },
+  {
+    "id": "F10",
+    "q": "What disbursal volume did Loan Against Mutual Funds reach at ET Money?",
+    "ground_truth": "₹100Cr in 7 months"
+  },
+  {
+    "id": "F11",
+    "q": "What is ET Money Earn's AUM under Rakshit's leadership?",
+    "ground_truth": "₹300Cr"
+  },
+  {
+    "id": "F12",
+    "q": "What four dimensions does the ET Money support bot's eval pipeline score on?",
+    "ground_truth": "Empathy, answer quality, policy compliance, regression"
+  },
+  {
+    "id": "F13",
+    "q": "What four model providers' APIs has Rakshit worked with?",
+    "ground_truth": "OpenAI, Anthropic, xAI, Sarvam"
+  },
+  {
+    "id": "F14",
+    "q": "What is Krux.news?",
+    "ground_truth": "An AI news platform that ingests RSS, ranks stories, runs them through a deep research agent, and generates ~100-word summaries with contextual images"
+  },
+  {
+    "id": "F15",
+    "q": "Where did Rakshit do his undergraduate degree?",
+    "ground_truth": "Christ University, Bengaluru — BBA Finance & International Business"
+  },
+  {
+    "id": "F16",
+    "q": "What revenue is the execution-only Mutual Fund Platform projected to generate?",
+    "ground_truth": "₹10Cr annually"
+  },
+  {
+    "id": "F17",
+    "q": "How does Rakshit's hireability agent classify fit?",
+    "ground_truth": "Four-value enum: Strong fit, Relevant fit, Partial fit, Not enough evidence"
+  },
+  {
+    "id": "F18",
+    "q": "What stack is rakshitlodha.com built on?",
+    "ground_truth": "Next.js 16, TypeScript, OpenAI Agents SDK, Tailwind, shadcn/ui"
+  },
+  {
+    "id": "F19",
+    "q": "What % of SIP book did Rakshit's offline distribution business contribute at ET Money?",
+    "ground_truth": "12% (and 10% of gross sales) within 4 months"
+  },
+  {
+    "id": "F20",
+    "q": "What city is Rakshit based in?",
+    "ground_truth": "Gurugram"
+  }
+]

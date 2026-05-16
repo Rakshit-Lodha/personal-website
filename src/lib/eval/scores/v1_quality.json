@@ -1,0 +1,155 @@
+{
+  "version": "v1",
+  "test_set": "quality",
+  "judge_model": "claude-sonnet-4-5",
+  "date": "2026-05-16T05:49:01.868Z",
+  "cases": [
+    {
+      "id": "Q01",
+      "specificity": 4,
+      "evidence_citation": 3,
+      "anti_hallucination": 4,
+      "reasoning": "The response names specific projects (AI support automation, Feedback Intelligence, MF Semantic Search) and tools (Streamlit, OpenAI, ChromaDB), demonstrating strong specificity. Evidence-citation is good but not perfect—while capabilities are tied to project names, there's less detail about which specific skill was demonstrated in which context. Anti-hallucination is excellent: the response carefully distinguishes between what's evidenced (product/UX thinking) and what's not clearly shown (pixel-level UI design), explicitly acknowledging evidence gaps."
+    },
+    {
+      "id": "Q02",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 3,
+      "reasoning": "The response provides concrete project names (AI support automation at ET Money, multi-agent stock analysis system), specific metrics (17,000 to 7,000 tickets, 58% to 90% accuracy), and technical details (intent classification, RAG, evaluation pipelines). Each capability claim is tied directly to a named project with measurable outcomes. Minor deduction on anti-hallucination because without access to source material, some technical implementation details (like 'specialized agent handoffs' or exact metric improvements) could potentially be inferred rather than explicitly stated, though the overall framing appears grounded."
+    },
+    {
+      "id": "Q03",
+      "specificity": 2,
+      "evidence_citation": 2,
+      "anti_hallucination": 4,
+      "reasoning": "The response mentions specific evaluation methods (LLM-as-judge, trace evaluation, semantic search assessment) but lacks concrete projects, metrics, or shipped outcomes. Evidence-citation is moderate—methods are named but not tied to specific roles or projects where they were applied. Anti-hallucination is strong: the response explicitly acknowledges limitations ('does not specify his full methodology') and avoids making unsupported claims about Rakshit's approach."
+    },
+    {
+      "id": "Q04",
+      "specificity": 3,
+      "evidence_citation": 3,
+      "anti_hallucination": 3,
+      "reasoning": "The response names specific projects (Feedback Intelligence, US Stocks Analysis Agent) and a concrete outcome (reduced monthly ticket volumes at ET Money), showing reasonable specificity. Each claim about agentic workflows is tied to named projects or roles, though some descriptions remain somewhat high-level. The answer appears grounded and avoids obvious fabrication, though phrases like 'reason over user intent' and 'tool orchestration' involve some interpretation of what these projects actually did without direct evidence of their agentic architecture."
+    },
+    {
+      "id": "Q05",
+      "specificity": 3,
+      "evidence_citation": 3,
+      "anti_hallucination": 3,
+      "reasoning": "The response names specific products (Loan Against Mutual Funds, ET Money Earn) and mentions concrete metrics (disbursals, AUM growth), though it could provide exact numbers for higher specificity. Most capability claims are tied to the ET Money experience, showing good evidence-citation, though the opening methodology statement lacks direct evidence linkage. The answer appears grounded in actual work experience without obvious fabrication, though some interpretive framing about his 'approach' extends slightly beyond what concrete evidence might strictly support."
+    },
+    {
+      "id": "Q06",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response provides concrete specifics: named company (ET Money), specific problem domain (support ticket automation), and precise metrics (17,000 to 7,000 tickets). Each claim about his approach (breaking down intents, designing workflows, creating evaluation systems) is directly tied to this specific project with measurable outcomes. The answer stays grounded in what can be evidenced from the project without making unsupported claims about his broader capabilities."
+    },
+    {
+      "id": "Q07",
+      "specificity": 3,
+      "evidence_citation": 3,
+      "anti_hallucination": 3,
+      "reasoning": "The response provides specific methodology (prototype-first, problem framing) and references a concrete domain (AI support automation in fintech), though it lacks named projects, metrics, or timeline details. Most claims about working style are tied to the fintech example, providing reasonable evidence grounding, though the connection between 'prototype-first approach' and 'engineering collaboration' could be more explicitly evidenced. The answer appears cautious and grounded without obvious fabrications, though some capability descriptions feel slightly interpretive rather than directly stated."
+    },
+    {
+      "id": "Q08",
+      "specificity": 3,
+      "evidence_citation": 2,
+      "anti_hallucination": 1,
+      "reasoning": "The response provides specific technical details about Krux.news (multi-stage workflow, specific tech stack like Python, React, ChromaDB) and mentions concrete experience metrics (5+ years fintech). However, it conflates two entirely different entities: Rakshit's Krux.news project and Krux Digital (the DMP company acquired by Salesforce), as evidenced by citations linking to Krux Digital's funding and company pages rather than Rakshit's news platform. This represents a clear hallucination where the agent incorrectly merged unrelated entities with the same name, making the 'evidence' cited completely irrelevant to the actual question."
+    },
+    {
+      "id": "Q09",
+      "specificity": 3,
+      "evidence_citation": 3,
+      "anti_hallucination": 3,
+      "reasoning": "The response names a specific project (US Stocks Analysis Agent) and concrete metrics (WER, CER), which provides good specificity. Each major claim is tied to either the named project or general work areas (speech-to-text, text-to-speech), though the connection between the stock analysis agent and voice AI could be stronger. The answer appropriately scopes claims to 'product-and-evaluation layer' rather than overstating expertise, though without external verification it's unclear if the US Stocks Analysis Agent actually includes voice features as described."
+    },
+    {
+      "id": "Q10",
+      "specificity": 4,
+      "evidence_citation": 3,
+      "anti_hallucination": 3,
+      "reasoning": "The response provides concrete metrics (17,000 to 7,000 tickets), names a specific company (ET Money), and describes specific technical approaches (intent classification, resolution workflows). Evidence-citation is strong for the ET Money example but the opening characterization about 'prototype-led' style and 'turning ambiguity into workflows' lacks direct evidence ties. Anti-hallucination scores well as claims appear grounded, though the connection between the support ticket reduction and stakeholder management specifically requires some inferential leap."
+    },
+    {
+      "id": "Q11",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response names a specific project (MF Semantic Search), specific technologies (OpenAI embeddings, ChromaDB), and specific capabilities (LLM-based intent classification, semantic search over mutual fund database). Every claim is tied to evidence from the profile, and crucially, the agent explicitly admits what is NOT known (production deployment status, scale, latency, KPIs) rather than inventing details. This demonstrates strong grounding and appropriate epistemic humility."
+    },
+    {
+      "id": "Q12",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response provides concrete specifics including named projects (Loan Against Mutual Funds), exact metrics (INR 100Cr disbursals, 20,000+ advisory plans), timeframe (5+ years), location (Gurugram), and company (ET Money). Each capability claim is immediately tied to evidence - fintech expertise is demonstrated through specific role ownership, product outcomes are quantified with numbers, and technical skills are grounded in actual shipped features. The answer stays strictly within the bounds of demonstrable facts without stretching or inventing claims."
+    },
+    {
+      "id": "Q13",
+      "specificity": 4,
+      "evidence_citation": 3,
+      "anti_hallucination": 3,
+      "reasoning": "The response is highly specific, naming the Goals feature at INDMoney with concrete failure modes (unclear target market, misaligned priorities, over-investment in algorithmic complexity). Evidence-citation is good as it ties the learnings directly to this specific project failure, though it doesn't cite external verification. Anti-hallucination scores moderately well because while the details are plausible and internally consistent, without access to source material it's uncertain whether these specific lessons and circumstances are accurately attributed versus reconstructed or generalized."
+    },
+    {
+      "id": "Q14",
+      "specificity": 4,
+      "evidence_citation": 3,
+      "anti_hallucination": 3,
+      "reasoning": "The response provides concrete metrics (17,000 to 7,000 tickets), names specific tools (Firebase), and references a particular project (AI support automation with intent-classification). Evidence-citation is strong for the automation work but the connection between 'quick prototyping/iteration' philosophy and Firebase A/B testing is stated rather than demonstrated through a specific outcome. Anti-hallucination score reflects that while the automation metrics are specific, the direct link between his prioritization approach and these outcomes requires some inferential leap."
+    },
+    {
+      "id": "Q15",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response provides concrete metrics (17,000 to 7,000 monthly tickets), names the specific project (ET Money support automation), and describes specific technical approaches (intent classification, resolution workflows, evaluation systems). Every capability claim is directly tied to this named project with supporting evidence, and the answer stays grounded in what can be reasonably inferred from the stated outcomes without making unsupported leaps about technologies or processes not evidenced."
+    },
+    {
+      "id": "Q16",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response provides a concrete project name (US Stocks Analysis Agent), specific metrics (58% to 90% tool-use accuracy improvement), and describes the architectural approach (specialist handoffs). Each capability claim is directly tied to evidence - multi-agent experience is backed by the named project with measurable outcomes, and the broader claims about AI support automation and agentic workflows are presented as complementary context rather than unsupported assertions. The answer stays grounded in what can be demonstrated and avoids generic statements."
+    },
+    {
+      "id": "Q17",
+      "specificity": 2,
+      "evidence_citation": 1,
+      "anti_hallucination": 3,
+      "reasoning": "The response lists reasonable PRD components (user problems, metrics, A/B testing) but provides no specific examples of actual PRDs Rakshit has written, projects he's worked on, or concrete outcomes. Claims about his approach are inferred from general profile information but not tied to specific instances or evidence sources. While the answer avoids obvious fabrication and hedges with 'likely' and 'would,' it constructs a detailed picture of his PRD style without pointing to where each element was actually demonstrated."
+    },
+    {
+      "id": "Q18",
+      "specificity": 2,
+      "evidence_citation": 1,
+      "anti_hallucination": 3,
+      "reasoning": "The response mentions concrete details like '5+ years of fintech experience' and 'AI Product Manager-style roles' with specific preferences (relocating, prototype-first), earning moderate specificity. However, it provides zero evidence or examples of past projects, roles, or outcomes that demonstrate these capabilities. The claims seem plausible and avoid obvious fabrication, but without evidence pointers, it's difficult to verify if details like the exact years of experience or prototype-first preference are grounded in actual statements from Rakshit."
+    },
+    {
+      "id": "Q19",
+      "specificity": 2,
+      "evidence_citation": 1,
+      "anti_hallucination": 2,
+      "reasoning": "The response mentions specific tools (Firebase A/B Testing, Mixpanel, Google Analytics) which adds some concrete detail, but lacks any named projects, roles, or measurable outcomes from Rakshit's actual work. No claims are tied to specific evidence or examples of where these approaches were demonstrated (e.g., 'in Project X' or 'while at Company Y'). The description sounds plausible for a PM but could apply generically to many practitioners, and without evidence pointers, it's unclear whether these claims are grounded in Rakshit's actual documented work or are reasonable inferences that may stretch beyond available information."
+    },
+    {
+      "id": "Q20",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response provides highly specific details including the company (ET Money), concrete metrics (17,000 to 7,000 tickets), and technical implementation details (intent classification, 100+ workflows). Every capability claim is directly tied to this specific project with measurable outcomes. The answer stays grounded in describing one verifiable result without making unsupported claims or generalizing beyond the evidence presented."
+    }
+  ],
+  "summary": {
+    "n": 20,
+    "specificity_avg": 3.4,
+    "evidence_citation_avg": 3,
+    "anti_hallucination_avg": 3.3,
+    "overall_avg": 3.2
+  }
+}

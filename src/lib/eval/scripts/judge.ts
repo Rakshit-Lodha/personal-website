@@ -7,7 +7,7 @@ import type { CaseResult, FactualScore, QualityScore, RunFile, ScoreFile, Skepti
 loadEnvConfig(process.cwd());
 
 const TEST_SETS: TestSet[] = ["factual", "quality", "skeptic"];
-const JUDGE_MODEL = "claude-opus-4-7";
+const JUDGE_MODEL = "claude-sonnet-4-5";
 const JUDGE_DELAY_MS = 1000;
 
 type AnthropicTextBlock = {

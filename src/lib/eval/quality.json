@@ -1,0 +1,82 @@
+[
+  {
+    "id": "Q01",
+    "q": "Tell me in detail about his research and design skills"
+  },
+  {
+    "id": "Q02",
+    "q": "What's the most technical thing Rakshit has built?"
+  },
+  {
+    "id": "Q03",
+    "q": "How does Rakshit think about evaluating LLM products?"
+  },
+  {
+    "id": "Q04",
+    "q": "Describe Rakshit's experience with agentic workflows."
+  },
+  {
+    "id": "Q05",
+    "q": "What's his approach to building 0-to-1 products?"
+  },
+  {
+    "id": "Q06",
+    "q": "Walk me through the most ambiguous problem he's solved."
+  },
+  {
+    "id": "Q07",
+    "q": "How does he work with engineering teams?"
+  },
+  {
+    "id": "Q08",
+    "q": "Tell me about Krux.news in detail."
+  },
+  {
+    "id": "Q09",
+    "q": "What does he know about voice AI?"
+  },
+  {
+    "id": "Q10",
+    "q": "How does Rakshit handle stakeholder management?"
+  },
+  {
+    "id": "Q11",
+    "q": "What's his experience with semantic search in production?"
+  },
+  {
+    "id": "Q12",
+    "q": "Describe his fintech domain expertise."
+  },
+  {
+    "id": "Q13",
+    "q": "What's the biggest mistake he's made and what did he learn from it?"
+  },
+  {
+    "id": "Q14",
+    "q": "How does he prioritize features?"
+  },
+  {
+    "id": "Q15",
+    "q": "Walk me through how he built the ET Money support automation."
+  },
+  {
+    "id": "Q16",
+    "q": "What's Rakshit's experience with multi-agent architectures?"
+  },
+  {
+    "id": "Q17",
+    "q": "How does he write PRDs?"
+  },
+  {
+    "id": "Q18",
+    "q": "What kind of role is he looking for next?"
+  },
+  {
+    "id": "Q19",
+    "q": "Describe his approach to user research."
+  },
+  {
+    "id": "Q20",
+    "q": "What's the most impressive product result he's driven?"
+  }
+]

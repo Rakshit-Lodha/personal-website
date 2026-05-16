@@ -1,0 +1,112 @@
+{
+  "version": "v1",
+  "test_set": "factual",
+  "judge_model": "claude-sonnet-4-5",
+  "date": "2026-05-16T05:39:37.000Z",
+  "cases": [
+    {
+      "id": "F01",
+      "pass": true,
+      "reasoning": "The agent's response correctly states that Rakshit started at ET Money in December 2022, which matches the ground truth exactly, and the additional detail about the role does not contradict the required fact."
+    },
+    {
+      "id": "F02",
+      "pass": true,
+      "reasoning": "The agent correctly identifies ET Money as Rakshit's current employer, with additional context about location and role that doesn't contradict the ground truth."
+    },
+    {
+      "id": "F03",
+      "pass": true,
+      "reasoning": "The agent correctly states the reduction from 17,000 to 7,000 monthly tickets, which matches the ground truth numbers exactly, even though it expresses this as an absolute reduction of 10,000 rather than the percentage."
+    },
+    {
+      "id": "F04",
+      "pass": true,
+      "reasoning": "The agent's response correctly states that 16,197 mutual funds are indexed, which exactly matches the ground truth number."
+    },
+    {
+      "id": "F05",
+      "pass": true,
+      "reasoning": "The agent correctly states the time reduction from 4-5 hours to 15 minutes, matching the ground truth precisely, despite including additional context about Rakshit and the number of advisory plans generated."
+    },
+    {
+      "id": "F06",
+      "pass": true,
+      "reasoning": "The agent correctly states 'over 20,000 plans' which accurately conveys the ground truth of '20,000+' advisory plans shipped through the INDmoney planning module."
+    },
+    {
+      "id": "F07",
+      "pass": true,
+      "reasoning": "The agent correctly states the ARR as INR 1.5Cr (equivalent to ₹1.5Cr) in the first year, matching the ground truth exactly despite including additional context about the person and company."
+    },
+    {
+      "id": "F08",
+      "pass": true,
+      "reasoning": "The agent's response accurately conveys all three key facts from the ground truth: designing the course library for investing and finance, achieving 50% course completion rate, and generating ₹1.2Cr ARR, with matching numerical precision."
+    },
+    {
+      "id": "F09",
+      "pass": true,
+      "reasoning": "The agent correctly identifies both the program type (Executive MBA) and the institution (SP Jain Global School of Management), matching the ground truth, with additional timeline information that doesn't contradict the core facts."
+    },
+    {
+      "id": "F10",
+      "pass": true,
+      "reasoning": "The agent's response correctly states the disbursal volume of INR 100Cr in 7 months, matching the ground truth exactly, with additional contextual information that doesn't contradict the core fact."
+    },
+    {
+      "id": "F11",
+      "pass": true,
+      "reasoning": "The agent's response correctly states the AUM as INR 300Cr, which matches the ground truth of ₹300Cr (INR and ₹ are equivalent currency notations for Indian Rupees)."
+    },
+    {
+      "id": "F12",
+      "pass": true,
+      "reasoning": "The agent correctly identifies all four dimensions (empathy, answer quality, policy compliance, and regression), with only a minor addition of the word 'testing' after 'regression' which does not change the core meaning."
+    },
+    {
+      "id": "F13",
+      "pass": true,
+      "reasoning": "The agent's response correctly identifies all four model providers (OpenAI, Anthropic, xAI, and Sarvam) that match the ground truth exactly."
+    },
+    {
+      "id": "F14",
+      "pass": true,
+      "reasoning": "The agent correctly identifies Krux.news as a news platform that generates ~100-word summaries of AI news, which aligns with the ground truth's core description of an AI news platform that produces ~100-word summaries, despite not mentioning all technical details like RSS ingestion or deep research agents."
+    },
+    {
+      "id": "F15",
+      "pass": true,
+      "reasoning": "The agent correctly identifies Christ University in Bengaluru and the BBA in Finance & International Business degree, matching all key facts from the ground truth; the additional date information does not contradict the requirement."
+    },
+    {
+      "id": "F16",
+      "pass": true,
+      "reasoning": "The agent correctly states the revenue projection as INR 10Cr annually, which matches the ground truth of ₹10Cr annually (INR and ₹ are equivalent currency notations for Indian Rupees)."
+    },
+    {
+      "id": "F17",
+      "pass": true,
+      "reasoning": "The agent correctly identifies the four-value enum (Strong fit, Relevant fit, Partial fit, Not enough evidence) that classifies fit, matching the ground truth exactly despite including additional context about the assessment methods."
+    },
+    {
+      "id": "F18",
+      "pass": true,
+      "reasoning": "The agent correctly identifies the core technologies (Next.js, TypeScript, OpenAI SDKs) from the ground truth, though it doesn't mention specific versions, Tailwind, or shadcn/ui, the essential stack components are accurately conveyed."
+    },
+    {
+      "id": "F19",
+      "pass": true,
+      "reasoning": "The agent correctly states that Rakshit's offline distribution business contributed 12% of the SIP book within four months, which matches the ground truth's primary claim, though it omits the additional detail about 10% of gross sales."
+    },
+    {
+      "id": "F20",
+      "pass": true,
+      "reasoning": "The agent correctly states that Rakshit is based in Gurugram, which matches the ground truth exactly, and the additional information about relocation does not contradict this fact."
+    }
+  ],
+  "summary": {
+    "n": 20,
+    "pass_rate": 1
+  }
+}

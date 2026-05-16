@@ -1,0 +1,73 @@
+[
+  {
+    "id": "S01_full_jd",
+    "type": "full_jd",
+    "scenario_file": "../JDs/S01_ml_scientist.md"
+  },
+  {
+    "id": "S02_full_jd",
+    "type": "full_jd",
+    "scenario_file": "../JDs/S02_greylabs.md",
+    "expected_fit": "Strong fit"
+  },
+  {
+    "id": "S03_full_jd",
+    "type": "full_jd",
+    "scenario_file": "../JDs/SO3_frontend.md",
+    "expected_fit": "Not a fit — wrong role type"
+  },
+  {
+    "id": "S04_full_jd",
+    "type": "full_jd",
+    "scenario_file": "../JDs/SO4_group_pm.md",
+    "expected_fit": "Partial fit at best — no people management, no HR domain, no large-co experience"
+  },
+  {
+    "id": "S05_full_jd",
+    "type": "full_jd",
+    "scenario_file": "../JDs/SO5_enterprise.md",
+    "expected_fit": "Partial fit — AI signal strong, enterprise B2B / logistics weak"
+  },
+  {
+    "id": "S06_short",
+    "type": "short_summary",
+    "scenario": "Growth PM at a B2C consumer app, focus on funnel optimization, paid acquisition, lifecycle marketing. Strong SQL and experimentation background.",
+    "expected_fit": "Partial fit — analytics yes, paid acquisition no"
+  },
+  {
+    "id": "S07_short",
+    "type": "short_summary",
+    "scenario": "Product Marketing Manager at an AI infrastructure company. Strong technical writing, developer-marketing, existing audience required.",
+    "expected_fit": "Not a fit — wrong function"
+  },
+  {
+    "id": "S08_short",
+    "type": "short_summary",
+    "scenario": "Chief of Staff to a Series C founder. 8+ years operating experience, financial modeling chops, strategic projects across the org.",
+    "expected_fit": "Partial fit — operating experience exists, COS scope and financial modeling depth uncertain"
+  },
+  {
+    "id": "S09_ambiguous",
+    "type": "ambiguous",
+    "scenario": "PM at a Series A AI startup building tools for sales teams. Voice-based product. Must understand conversation intelligence. India-based team. (This is Greylabs-adjacent — strong AI fit, voice and conversation skill match, but you haven't worked on sales/CRM specifically.)",
+    "expected_fit": "Relevant fit — agent should call out which parts match and which don't"
+  },
+  {
+    "id": "S10_positive_control",
+    "type": "short_summary",
+    "scenario": "AI Product Manager at a Series A fintech building agentic workflows for retail investors. PM should write code, ship eval pipelines, own AI roadmap end-to-end.",
+    "expected_fit": "Strong fit — positive control"
+  },
+  {
+    "id": "S11_positive_control",
+    "type": "short_summary",
+    "scenario": "Is Rakshit a good fit for the role of an AI product manager at Razorpay.com",
+    "expected_fit": "Partial fit — AI PM signal strong, but Razorpay is B2B payments infrastructure (merchant-side, fraud/risk/dev-tools) and Rakshit's experience is retail consumer fintech. Domain overlap is fintech-shaped but not problem-shaped."
+  },
+{
+    "id": "S10_positive_control",
+    "type": "short_summary",
+    "scenario": "Is Rakshit a good for the role of SPM at Dezerv.in",
+    "expected_fit": "Strong fit — positive control"
+  }
+]

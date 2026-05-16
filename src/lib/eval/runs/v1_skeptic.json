@@ -1,0 +1,785 @@
+{
+  "version": "v1",
+  "test_set": "skeptic",
+  "date": "2026-05-16T06:50:57.497Z",
+  "system_prompt_sha": "8081e28e638ec9d57a4e851a52eee6376d0ef54c",
+  "api_url": "https://rakshitlodha.com/api/agent",
+  "cases": [
+    {
+      "id": "S01_full_jd",
+      "question": "Optum is a global organization that delivers care, aided by technology to help millions of people live healthier lives. The work you do with our team will directly improve health outcomes by connecting people with the care, pharmacy benefits, data and resources they need to feel their best. Here, you will find a culture guided by inclusion, talented peers, comprehensive benefits and career development opportunities. Come make an impact on the communities we serve as you help us advance health optimization on a global scale. Join us to start Caring. Connecting. Growing together.\n\nWe are looking for an ML Engineer with solid hands-on experience in GenAI and agentic frameworks, backed by solid foundational ML/NLP knowledge. The role involves building production-grade AI systems across verticals such has Health, Rx, Productization etc.\n\nPrimary Responsibilities:\n\nBuild and deploy GenAI and agentic AI solutions in production environments\nDesign ML systems involving structured/unstructured data and complex database interactions\nDevelop scalable Python-based ML pipelines and APIs\nWork on foundational ML use cases including prediction, optimization, and recommendation systems\nCollaborate with product, engineering, and platform teams to operationalize models\nTake lead in productionizing models including API design and integration, load testing, HPC compute, Latency management\nComply with the terms and conditions of the employment contract, company policies and procedures, and any and all directives (such as, but not limited to, transfer and/or re-assignment to different work locations, change in teams and/or work shifts, policies in regard to flexibility of work benefits and/or work environment, alternative work arrangements, and other decisions that may arise due to the changing business environment). The Company may adopt, vary or rescind these policies and directives in its absolute discretion and without any limitation (implied or otherwise) on its ability to do so\nRequired Qualifications:\n\nMaster's or preferably PhD in Computer Science, Artificial Intelligence, Data Science, or a related field\nSolid foundation in machine learning, deep learning, and statistical modeling\nHands-on experience with NLP, LLMs, transformers, and generative AI techniques\nExperience with building and orchestrating AI agents or multi-agent systems\nExperience working with large-scale datasets and distributed computing (e.g., Spark/PySpark)\nProficiency in Python and ML frameworks/libraries (e.g., PyTorch, TensorFlow, scikit-learn)\nUnderstanding of model optimization techniques (e.g., FLOPs reduction, quantization, latency tuning)\nFamiliarity with MLOps practices, model deployment, and monitoring in production environments\nKnowledge of APIs, microservices architecture, and system integration\nSolid problem-solving skills and ability to work in a fast-paced, collaborative environment\nAt UnitedHealth Group, our mission is to help people live healthier lives and make the health system work better for everyone. We believe everyone - of every race, gender, sexuality, age, location and income - deserves the opportunity to live their healthiest life. Today, however, there are still far too many barriers to good health which are disproportionately experienced by people of color, historically marginalized groups and those with lower incomes. We are committed to mitigating our impact on the environment and enabling and delivering equitable care that addresses health disparities and improves health outcomes - an enterprise priority reflected in our mission.",
+      "expected": null,
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Relevant fit for Optum’s GenAI / agentic ML role, with gaps on formal ML-engineering depth",
+        "fitLevel": "Relevant fit",
+        "summary": "Rakshit has strong hands-on evidence in GenAI products, agentic workflows, Python-based AI systems, APIs, semantic search, and eval-driven production thinking. The main gaps are direct healthcare/pharmacy domain experience, Spark/distributed computing, model optimization, and the role’s preference for Master’s/PhD-level ML depth.",
+        "answerText": "Rakshit looks relevant for this Optum ML Engineer role, especially on GenAI, agentic systems, Python-based AI product development, API integration, and operationalizing AI workflows with product and engineering teams. Optum’s public focus on care, pharmacy benefits, analytics, technology, and large-scale health services makes his experience with applied AI systems directionally aligned, though his domain background is fintech rather than healthcare or Rx.\n\nHis strongest evidence is practical: he has built live agentic products using OpenAI Agents SDK, function tools, persistent memory, FastAPI, Streamlit, Next.js, and multi-source ingestion. He also has eval-driven AI experience, including improving tool-use accuracy from 58% to 90% in a multi-agent stock analysis system and building evaluation frameworks for safety, accountability, and voice ASR quality.\n\nThe fit is not a perfect ML-engineering match because the JD asks for deeper foundational ML, distributed computing such as Spark/PySpark, model optimization techniques like quantization/latency tuning, and preferably a Master’s or PhD. Rakshit is better positioned as a hands-on AI Product Manager / AI systems builder who can prototype, evaluate, and productize GenAI systems, rather than as a research-heavy or infrastructure-heavy ML engineer.\n\nSources\n- https://www.optum.com/en/about-us.html\n- https://www.unitedhealthgroup.com/uhg/businesses/optum.html\n- https://business.optum.com/en.html",
+        "proofPoints": [
+          "Built agentic products with OpenAI Agents SDK, function tools, specialist handoffs, persistent memory, and real-time API integrations.",
+          "Created Feedback Intelligence, a live cross-channel product feedback agent using Python, OpenAI Agents SDK, FastAPI, Streamlit, Next.js, TypeScript, and Turso.",
+          "Built US Stocks Analysis Agent with multi-agent architecture, specialist handoffs, financial tools, voice input/output, and systematic trace evaluation.",
+          "Has AI support automation experience at ET Money involving intent classification, 100+ resolution workflows, and eval pipelines.",
+          "Hands-on stack includes Python, FastAPI, OpenAI API, Anthropic API, ChromaDB, Supabase, MySQL, Streamlit, Next.js, React, and TypeScript."
+        ],
+        "relevantProjects": [
+          "Feedback Intelligence — shows production-style agent orchestration, function tools, persistent memory, API design, and multi-source unstructured feedback ingestion.",
+          "US Stocks Analysis Agent — directly relevant to agentic frameworks, tool orchestration, evaluation, and improving model/tool behavior through redesign.",
+          "AI Evaluation Framework — relevant to production GenAI quality, safety testing, rubric-based evaluation, and regression-style validation.",
+          "AI Hiring Chat — demonstrates structured fit assessment, file parsing, websearch, streaming responses, and a multi-stage agent pipeline."
+        ],
+        "relevantOutcomes": [
+          "Improved tool-use accuracy in US Stocks Analysis Agent from 58% to 90%.",
+          "Improved cash-flow query accuracy from 33% to 100% through eval-driven agent redesign.",
+          "Reduced ET Money monthly support tickets from 17,000 to 7,000 using AI support automation.",
+          "AI Evaluation Framework improved text eval pass rate from 57% to 100% and accountability accuracy from 20% to 100%."
+        ],
+        "gapsOrUnknowns": [
+          "No direct evidence of healthcare, pharmacy, payer/provider, or clinical AI project experience.",
+          "No specific evidence of Spark/PySpark or distributed computing experience.",
+          "No explicit evidence of PyTorch, TensorFlow, scikit-learn, quantization, FLOPs reduction, or HPC compute experience.",
+          "Education fit is unclear against the JD’s Master’s or preferably PhD requirement based on the provided context."
+        ],
+        "suggestedFollowups": [
+          "Would you like a recruiter-facing pitch positioning Rakshit for this Optum role?",
+          "Should I map the JD line-by-line against Rakshit’s evidence and gaps?",
+          "Would you like a version that frames him as AI Product Manager vs ML Engineer?",
+          "Ask my AI agent about Rakshit’s agentic AI projects."
+        ],
+        "cta": "Ask my AI agent"
+      },
+      "answer_text": "Rakshit looks relevant for this Optum ML Engineer role, especially on GenAI, agentic systems, Python-based AI product development, API integration, and operationalizing AI workflows with product and engineering teams. Optum’s public focus on care, pharmacy benefits, analytics, technology, and large-scale health services makes his experience with applied AI systems directionally aligned, though his domain background is fintech rather than healthcare or Rx.\n\nHis strongest evidence is practical: he has built live agentic products using OpenAI Agents SDK, function tools, persistent memory, FastAPI, Streamlit, Next.js, and multi-source ingestion. He also has eval-driven AI experience, including improving tool-use accuracy from 58% to 90% in a multi-agent stock analysis system and building evaluation frameworks for safety, accountability, and voice ASR quality.\n\nThe fit is not a perfect ML-engineering match because the JD asks for deeper foundational ML, distributed computing such as Spark/PySpark, model optimization techniques like quantization/latency tuning, and preferably a Master’s or PhD. Rakshit is better positioned as a hands-on AI Product Manager / AI systems builder who can prototype, evaluate, and productize GenAI systems, rather than as a research-heavy or infrastructure-heavy ML engineer.\n\nSources\n- https://www.optum.com/en/about-us.html\n- https://www.unitedhealthgroup.com/uhg/businesses/optum.html\n- https://business.optum.com/en.html",
+      "stages": [
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Researching company website"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Reading profile context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Summarizing relevant context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Drafting brief"
+        }
+      ],
+      "first_delta_ms": 26479,
+      "total_ms": 27120
+    },
+    {
+      "id": "S02_full_jd",
+      "question": "We are looking for a Senior Product Manager who brings genuine depth in Voice AI or BFSI, and the execution muscle to turn complex enterprise problems into products that actually get used. In this role, you won’t just be shipping features. You will be leading a product charter within one of the most consequential applications of AI in Indian financial services.\n\nAs a senior member of a lean, fast-moving team, you will own your charter end-to-end, from discovery through delivery and adoption. You will work directly with enterprise customers, founders, and engineering to define what our AI platform does next, and be accountable for the outcomes, not just the output.\n\nLocation: Mumbai / Bengaluru\n\nWhat You’ll Do\n1. Domain Depth: BFSI or Voice AI\nKnow your domain: You bring meaningful depth in at least one of two worlds. Either the BFSI industry (how banks, NBFCs, fintechs, and insurance companies actually operate, where their workflows break down, and what compliance and operations teams really care about) or Voice AI products (how conversational AI systems are built, deployed, and fail at scale; the difference between a bot that handles volume and one that handles nuance). Either gives you a head start that matters.\n\nTranslate domain into product: You can take a messy enterprise requirement, buried in regulatory language, competing stakeholder asks, and legacy process assumptions, and distill it into a clean product opportunity with a clear north star. Your domain knowledge makes you faster at this, not more rigid.\n\nBridge the gap: Wherever your depth starts, you close the other side quickly. You understand that Voice AI only creates real value in BFSI when you understand both, and you’re genuinely curious about whichever world is newer to you.\n\n2. Charter Ownership & Cross-Functional Execution\nOwn a product area: Lead a focused charter, whether that’s a specific use case vertical (collections, servicing, onboarding), a platform capability (analytics, integrations, configurability), or an enterprise workflow. You set the vision, own the roadmap, and are accountable for outcomes, not just delivery.\n\nEnterprise discovery: Run structured discovery with CXOs, operations heads, and compliance teams. Navigate competing stakeholder inputs without losing the thread, and surface insights that become product decisions, not slide decks.\n\nShip and drive adoption: Manage delivery across engineering, QA, and customer success. Features that go live but don’t get used aren’t shipped. You’re not done until they’re embedded in customer workflows and generating measurable value.\n\nGo-to-market partnership: Work closely with sales and solutions teams during pre-sales, pilots, and expansion. Your product knowledge should be a competitive asset in enterprise conversations, not something that stays inside the building.\n\n3. Product Instinct & Domain Judgment\nAs AI compresses the time to build, the ability to deeply know the customer, and separate what they actually need from what they ask for, becomes the rarest and most valuable PM skill.\n\nAnticipate, don’t just respond: The best product decisions at GreyLabs won’t come from feature requests. They’ll come from someone who understands the customer deeply enough to see around corners. Whether that instinct is built from years inside BFSI or years shipping voice AI products, you should be able to walk into a room and identify the real problem before anyone has named it.\n\nOpinionated prioritisation: You have a clear point of view on what matters and what doesn’t. You can push back on a customer request that would create technical debt without strategic value, say no to a feature that solves one account’s edge case, and explain why in terms the account team and the customer will respect.\n\nQuality as a habit: You hold a high bar for what “done” means. A feature that’s live but not adopted, or a workflow that works in the demo but breaks in production, is not done. You define success criteria before you start, and you follow through until they’re met.\n\n4. Ambiguity & Growth\nVoice AI in Indian BFSI is not a mature category. The use cases, the regulation, and the customer expectations are still being written. You should be energised by that, comfortable holding a strong opinion while remaining genuinely open to being wrong, and disciplined about evolving your thinking as the market does.\n\nWhat We’re Looking For\n6+ years of product management experience: with a track record of owning a product area end-to-end in a B2B SaaS or enterprise environment. You’ve led charters, not just contributed to them.\n\nDeep domain expertise in BFSI or Voice AI: A genuine track record in at least one: meaningful experience building for or within financial services (banking, NBFC, fintech, insurance) or substantial experience owning and shipping voice or conversational AI products. Both are learnable. Just not both from scratch, at the same time, in a fast-moving startup.\n\nEnterprise execution: You’ve managed complex, multi-stakeholder enterprise rollouts where success means adoption and workflow change, not just deployment. You understand what it actually takes to get a bank to change how it operates.\n\nAI curiosity with some proof: You’ve worked on, shipped, or meaningfully engaged with an AI product, professionally or otherwise. You understand the fundamental difference between AI-driven and rule-based products, and have opinions about it.\n\nClear, direct communicator: You write and speak with precision. A Chief Collections Officer in the morning, a backend engineer in the afternoon. You adapt fluently between both.",
+      "expected": "Strong fit",
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Relevant fit for Arrowhead’s BFSI + AI product charter",
+        "fitLevel": "Relevant fit",
+        "summary": "Rakshit brings strong fintech/BFSI product depth, hands-on AI product execution, and outcome-led product ownership. The main caveat is that his Voice AI evidence is prototype/technical rather than proven enterprise Voice AI rollout experience.",
+        "answerText": "Rakshit looks relevant for this Senior PM role, especially if Arrowhead values BFSI depth plus the ability to build practical AI workflows. He has 5+ years in fintech across wealth, lending, insurance, advisory, mutual funds, and support automation, with measurable 0-to-1 outcomes at ET Money and INDMoney.\n\nThe strongest overlap is with Arrowhead’s need for outcome-led AI products in Indian financial services. Rakshit led AI support automation at ET Money, reducing monthly tickets from 17,000 to 7,000 through intent classification, 100+ resolution workflows, and evaluation systems. He also has hands-on LLM experience across agentic workflows, evals, semantic search, and voice interfaces.\n\nThe caveat: his Voice AI proof is more hands-on prototype/evaluation work than direct production enterprise Voice AI deployment. If the role requires someone who has already shipped voice bots into banks/NBFCs with dialer/CRM integrations, that evidence is not explicit. But for a lean team needing a PM who can learn the voice side quickly while bringing fintech judgment and AI execution muscle, he is a credible fit.\n\nSources\n- https://www.arrowhead.ai",
+        "proofPoints": [
+          "5+ years of fintech product experience across wealth, lending, insurance, advisory, mutual funds, and support automation.",
+          "At ET Money, built AI support automation with intent classification, 100+ resolution workflows, and evals, reducing monthly tickets from 17,000 to 7,000.",
+          "Has hands-on AI product experience across LLM evals, agentic workflows, RAG, semantic search, tool calling, and voice interfaces.",
+          "Built and scaled multiple 0-to-1 fintech products, including Loan Against Mutual Funds to INR 100Cr disbursals in 7 months and ET Money Earn to INR 300Cr AUM.",
+          "Comfortable with PRDs, acceptance criteria, stakeholder management, product analytics, launch planning, adoption tracking, and GTM planning."
+        ],
+        "relevantProjects": [
+          "AI Evaluation Framework — relevant because Arrowhead’s Voice AI products need quality, safety, accountability, and ASR measurement; Rakshit built evals covering LLM-as-judge rubrics, WER, and CER.",
+          "US Stocks Analysis Agent — relevant because it includes spoken user queries, transcription, agent processing, spoken answers, and improved tool-use accuracy from 58% to 90%.",
+          "Feedback Intelligence — relevant because it shows agentic product building with source-specific tools, persistent memory, feedback classification, and product signal extraction.",
+          "AI Hiring Chat — relevant because it demonstrates a structured agent pipeline, uploaded JD parsing, company research, context selection, and schema-validated fit assessments."
+        ],
+        "relevantOutcomes": [
+          "ET Money AI support automation: monthly tickets reduced from 17,000 to 7,000.",
+          "ET Money Loan Against Mutual Funds: INR 100Cr disbursals in 7 months.",
+          "ET Money Earn: INR 300Cr AUM.",
+          "INDMoney financial planning: plan creation time reduced from 4–5 hours to 15 minutes, enabling 20,000+ advisory plans.",
+          "ET Money offline distribution: reached 12% of SIP book and 10% of gross sales within 4 months."
+        ],
+        "gapsOrUnknowns": [
+          "No explicit evidence of direct production Voice AI rollout for BFSI enterprises.",
+          "No explicit evidence of managing bank/NBFC CRM or dialer integrations.",
+          "No explicit evidence of complex enterprise rollout ownership with CXOs, compliance teams, and multi-stakeholder procurement cycles.",
+          "Profile shows 5+ years of product experience, while the JD asks for 6+ years."
+        ],
+        "suggestedFollowups": [
+          "Ask Rakshit to walk through his AI support automation system and how he defined quality, adoption, and failure modes.",
+          "Probe how he would evaluate a BFSI Voice AI bot beyond containment rate, including ASR, intent quality, compliance, and escalation quality.",
+          "Ask for examples of stakeholder pushback, prioritisation trade-offs, and adoption ownership in fintech workflows.",
+          "Clarify his readiness to relocate to Mumbai or Bengaluru for this role."
+        ],
+        "cta": "Email me"
+      },
+      "answer_text": "Rakshit looks relevant for this Senior PM role, especially if Arrowhead values BFSI depth plus the ability to build practical AI workflows. He has 5+ years in fintech across wealth, lending, insurance, advisory, mutual funds, and support automation, with measurable 0-to-1 outcomes at ET Money and INDMoney.\n\nThe strongest overlap is with Arrowhead’s need for outcome-led AI products in Indian financial services. Rakshit led AI support automation at ET Money, reducing monthly tickets from 17,000 to 7,000 through intent classification, 100+ resolution workflows, and evaluation systems. He also has hands-on LLM experience across agentic workflows, evals, semantic search, and voice interfaces.\n\nThe caveat: his Voice AI proof is more hands-on prototype/evaluation work than direct production enterprise Voice AI deployment. If the role requires someone who has already shipped voice bots into banks/NBFCs with dialer/CRM integrations, that evidence is not explicit. But for a lean team needing a PM who can learn the voice side quickly while bringing fintech judgment and AI execution muscle, he is a credible fit.\n\nSources\n- https://www.arrowhead.ai",
+      "stages": [
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Researching company website"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Reading profile context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Summarizing relevant context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Drafting brief"
+        }
+      ],
+      "first_delta_ms": 33946,
+      "total_ms": 34451
+    },
+    {
+      "id": "S03_full_jd",
+      "question": "About the job\nCompany Overview:\n\n\n\nGreyOrange technology specializes in bringing warehouses, distribution centers, and fulfillment centers into the future. Our AI-driven GreyMatterTM Fulfillment Operating System and RangerTM robot series are a combined solution that continuously prioritize decisions and workflows to efficiently orchestrate tasks, time, teams of people and robots for optimum performance across a distribution center. Real-time data fed into always-solving algorithms calculate each next-best decision – for every-day performance and in peak periods. The result is a fast, agile, and precise operation that equips customers to continuously meet the what-when-where expectations of their customers in the most optimal manner possible.\n\n\nKey Responsibilities:\n\nCode critical sections and key features of the product\nLead and solve key technical challenges in the overall system\nWork in collaboration with architects to write low-level design documents\nRearchitect existing algorithms & implementations\nPerform code reviews and healthy peer feedback to the team\nMentor and guide team members technically\nObserve and evangelize best technical practices\nWork with architects to create a technical roadmap\nWork with simulations for functional performance\nKeep an eye out for technology trends, open-source projects that can be used\nUnderstanding business requirements and converting them into product features\n\n\nMust have\n\nB.E/ B.Tech/M.E/M.Tech/ M.S from a premier institute.\n6+ years of work experience, having demonstrated problem solving skills. Have experience designing and implementing non-trivial software systems (e.g., using multiple processes/threads/IPC etc.)\nDevelopment experience using Java, Python, Golang, Erlang (either of these)\n\n\nGood to Have\n\nExposure to serverless technologies\nExposure to various databases and associated technologies like Postgre sql, Redis etc.\nKnowledge Docker, Kubernetes and cloud-based deployment environment (AWS,\nGCP, Azure Cloud etc.).\nKnowledge of developing scripts in Python, Shell etc.\nKnowledge of working with Time Series databases (Influx etc.)",
+      "expected": "Not a fit — wrong role type",
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Partial fit for GreyOrange’s senior engineering role",
+        "fitLevel": "Partial fit",
+        "summary": "Rakshit has strong AI-product, Python, workflow automation, and algorithmic product experience, but this JD is primarily a senior hands-on software engineering role with distributed systems, code ownership, architecture, and deployment expectations where his profile has limited direct evidence.",
+        "answerText": "Rakshit is relevant to GreyOrange’s AI-driven orchestration context because he has built agentic workflows, recommendation systems, semantic search, eval pipelines, and Python-based AI products. That maps well to the company’s real-time decisioning and workflow orchestration themes.\n\nHowever, the role itself looks closer to a senior/staff software engineer than an AI Product Manager role. The JD asks for coding critical sections, low-level design, rearchitecting algorithms, code reviews, distributed systems, Java/Golang/Erlang, Docker/Kubernetes, cloud, serverless, and time-series databases. Rakshit has hands-on Python and full-stack AI prototype experience, but the profile evidence is weaker for production backend engineering leadership in those specific stacks.\n\nBest positioning would be for an AI Product Manager / Technical Product Manager role on GreyMatter, warehouse intelligence, decisioning, simulations, or AI workflow orchestration—not as the primary senior engineer owning distributed systems implementation.\n\nSources\n- https://www.greyorange.com/warehouse-automation/\n- https://www.linkedin.com/company/gogreyorange\n- https://www.tdxtech.com/partner/greyorange",
+        "proofPoints": [
+          "Built AI products across agentic workflows, semantic search, RAG, eval systems, and workflow automation.",
+          "Uses Python and has built deployable AI products with FastAPI, Streamlit, Next.js, Supabase, Turso, and APIs.",
+          "Built recommendation algorithms at INDMoney that reduced financial plan creation time from 4–5 hours to 15 minutes and enabled 20,000+ advisory plans.",
+          "Built ET Money AI support automation with intent classification, 100+ resolution workflows, and evals, reducing monthly tickets from 17,000 to 7,000."
+        ],
+        "relevantProjects": [
+          "US Stocks Analysis Agent — shows multi-agent architecture, specialist handoffs, tool-use evaluation, and accuracy improvement from 58% to 90%.",
+          "Feedback Intelligence — shows tool-calling agent workflows, source-specific function tools, FastAPI, Streamlit, Next.js, and persistent memory.",
+          "Krux.news — shows an end-to-end Python AI pipeline with ingestion, curation, research, summarization, image generation, storage, and a consumer app.",
+          "MF Semantic Search — shows semantic retrieval, intent classification, query routing, and domain-specific AI search over 16,197 mutual funds."
+        ],
+        "relevantOutcomes": [
+          "ET Money AI support automation: monthly support tickets reduced from 17,000 to 7,000.",
+          "INDMoney financial planning: plan creation time reduced from 4–5 hours to 15 minutes; 20,000+ advisory plans enabled.",
+          "US Stocks Analysis Agent: tool-use accuracy improved from 58% to 90% through eval-driven redesign."
+        ],
+        "gapsOrUnknowns": [
+          "No clear evidence of 6+ years in hands-on software engineering; profile shows 5+ years mainly in product roles.",
+          "Weak or missing evidence for Java, Golang, and Erlang.",
+          "No direct evidence of Docker, Kubernetes, AWS/GCP/Azure, serverless, or time-series databases like InfluxDB.",
+          "No direct robotics, warehouse automation, simulation, or AMR systems experience in the profile."
+        ],
+        "suggestedFollowups": [
+          "Would you like a recruiter-facing pitch positioning Rakshit for a Technical Product Manager role at GreyOrange?",
+          "Do you want a gap-by-gap comparison against each JD requirement?"
+        ],
+        "cta": "Ask my AI agent"
+      },
+      "answer_text": "Rakshit is relevant to GreyOrange’s AI-driven orchestration context because he has built agentic workflows, recommendation systems, semantic search, eval pipelines, and Python-based AI products. That maps well to the company’s real-time decisioning and workflow orchestration themes.\n\nHowever, the role itself looks closer to a senior/staff software engineer than an AI Product Manager role. The JD asks for coding critical sections, low-level design, rearchitecting algorithms, code reviews, distributed systems, Java/Golang/Erlang, Docker/Kubernetes, cloud, serverless, and time-series databases. Rakshit has hands-on Python and full-stack AI prototype experience, but the profile evidence is weaker for production backend engineering leadership in those specific stacks.\n\nBest positioning would be for an AI Product Manager / Technical Product Manager role on GreyMatter, warehouse intelligence, decisioning, simulations, or AI workflow orchestration—not as the primary senior engineer owning distributed systems implementation.\n\nSources\n- https://www.greyorange.com/warehouse-automation/\n- https://www.linkedin.com/company/gogreyorange\n- https://www.tdxtech.com/partner/greyorange",
+      "stages": [
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Researching company website"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Reading profile context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Summarizing relevant context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Drafting brief"
+        }
+      ],
+      "first_delta_ms": 24539,
+      "total_ms": 25064
+    },
+    {
+      "id": "S04_full_jd",
+      "question": "As an Associate Product Head at MagicBricks, you will play a crucial role in leading the development and execution of innovative consumer internet product strategies to drive business growth and enhance customer experiences. Your focus on data-driven decision-making, user-centric design, and cross-functional collaboration will be key to your success.\n\n**Key Responsibilities:**\n- **Product Strategy and Development:**\n  - Drive the product vision, strategy, and roadmap to enhance customer experiences and business outcomes.\n  - Identify market opportunities, customer needs, and trends in the consumer internet space to create impactful solutions.\n\n- **Team Leadership:**\n  - Lead and mentor a team of at least 4 product managers, fostering a culture of innovation, collaboration, and excellence.\n  - Provide clear direction, set goals, and monitor team performance to ensure project delivery aligns with business objectives.\n\n- **Cross-functional Collaboration:**\n  - Work closely with engineering, design, marketing, and data analytics teams to define and prioritize product requirements.\n  - Partner with senior stakeholders to align product initiatives with overall business goals.\n\n- **Customer Focus:**\n  - Leverage data insights, customer feedback, and user research to make informed decisions and continuously improve product performance.\n  - Optimize the customer journey by developing intuitive, user-friendly solutions tailored to the needs of B2C customers.\n\n- **Performance Analysis:**\n  - Define key metrics to measure product success and monitor progress against these benchmarks.\n  - Utilize data analytics tools to track product performance and identify areas for improvement.\n\n**Qualifications Required:**\n- Minimum of 10 years of experience in product management with a proven track record in the B2B & B2C domain.\n- Previous experience in the consumer internet industry is mandatory.\n- Demonstrated ability to lead teams of 4 or more members effectively.\n- Strong understanding of product management methodologies, including Agile and Scrum.\n- Excellent leadership, communication, and stakeholder management skills.\n- Strong problem-solving abilities and a customer-centric mindset.\n- Ability to work in a fast-paced environment and manage multiple priorities.\n\nIf there are any additional details about the company in the job description, please provide them so that I can include them in the final output. As an Associate Product Head at MagicBricks, you will play a crucial role in leading the development and execution of innovative consumer internet product strategies to drive business growth and enhance customer experiences. Your focus on data-driven decision-making, user-centric design, and cross-functional collaboration will be key to your success.\n\n**Key Responsibilities:**\n- **Product Strategy and Development:**\n  - Drive the product vision, strategy, and roadmap to enhance customer experiences and business outcomes.\n  - Identify market opportunities, customer needs, and trends in the consumer internet space to create impactful solutions.\n\n- **Team Leadership:**\n  - Lead and mentor a team of at least 4 product managers, fostering a culture of innovation, collaboration, and excellence.\n  - Provide clear direction, set goals, and monitor team performance to ensure project delivery aligns with business objectives.\n\n- **Cross-functional Collaboration:**\n  - Work closely with engineering, design, marketing, and data analytics teams to define and prioritize product requirements.\n  - Partner with senior stakeholders to align product initiatives with overall business goals.\n\n- **Customer Focus:**\n  - Leverage data insights, customer feedback, and user research to make informed decisions and continuously improve product performance.\n  - Optimize the customer journey by developing intuitive, user-friendly solutions tailored to the needs of B2C customers.\n\n- **Performance Analysis:**\n  - Define key metrics to measure product success and monitor progress against these benchmarks.\n  - Utilize data analytics tools to track product performance and identify areas for improvement.\n\n**Qualifications Required:**\n- Minimum of 10 years of experience in product management with a proven track record in the B2B & B2C domain.\n- Previous experience in the consumer internet industry is mandatory.\n- Demonstrated ability to lead teams of 4 or more members effectively.\n- Strong understanding of product management methodologies, including Agile and Scrum.\n- Excellent leadership, communication, and stakeholder management skills.\n- Strong problem-solving abilities and a customer-centric mindset.\n- Ability to work in a fast-paced environment and manage multiple priorities.\n\nIf there are any additional details about the company in the job description, please provide them so that I can include them in the final output.",
+      "expected": "Partial fit at best — no people management, no HR domain, no large-co experience",
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Partial fit for Associate Product Head at MagicBricks",
+        "fitLevel": "Partial fit",
+        "summary": "Rakshit is strong on AI-led product building, customer experience improvement, analytics-driven execution, and cross-functional delivery, but the role asks for senior consumer-internet leadership that is not fully evidenced in his profile.",
+        "answerText": "Rakshit has relevant product strengths for MagicBricks’ consumer marketplace context: he has built and scaled fintech products, worked on AI support automation, lending, wealth, and insurance, and delivered measurable customer/business outcomes such as a 59% reduction in support tickets and INR 100Cr in disbursals.\n\nThe main concern is level and domain match. This Associate Product Head role requires 10+ years of product experience, mandatory consumer internet experience, and prior leadership of at least 4 product managers. Rakshit’s profile shows 5+ years of AI/fintech product management, but does not provide evidence for those senior leadership requirements.\n\nHe could be a strong candidate for AI product, growth, support automation, or customer-journey optimization initiatives within MagicBricks, especially if the company is exploring AI-led search, support, lead qualification, or engagement. For this specific Associate Product Head role, the fit is partial unless MagicBricks is flexible on years of experience and people-management scope.\n\nSources\n- https://www.magicbricks.com/aboutus.html\n- https://www.magicbricks.com",
+        "proofPoints": [
+          "5+ years of product management experience focused on AI, fintech, lending, wealth, insurance, and support automation.",
+          "Hands-on AI product experience with LLMs, RAG, semantic search, and voice AI.",
+          "Delivered measurable product outcomes including 59% support ticket reduction and INR 100Cr in disbursals.",
+          "Experience building and scaling 0-to-1 product lines with cross-functional execution."
+        ],
+        "relevantProjects": [
+          "AI support automation — relevant to improving customer experience, reducing support load, and scaling service quality in a high-traffic marketplace.",
+          "Lending/fintech product lines — relevant to roadmap ownership, regulated product execution, growth, and business outcome orientation.",
+          "Semantic search / RAG / LLM work — potentially relevant to MagicBricks use cases like property discovery, Q&A, recommendations, and user support."
+        ],
+        "relevantOutcomes": [
+          "Reduced support tickets by 59%.",
+          "Scaled lending disbursals to INR 100Cr.",
+          "Built and scaled multiple 0-to-1 fintech product lines."
+        ],
+        "gapsOrUnknowns": [
+          "No evidence of 10+ years of product management experience.",
+          "No evidence of mandatory consumer internet industry experience.",
+          "No evidence of leading and mentoring a team of 4 or more product managers.",
+          "No specific evidence of real-estate marketplace, classifieds, or property-tech experience."
+        ],
+        "suggestedFollowups": [
+          "Should I map Rakshit against each JD requirement line by line?",
+          "Would you like a recruiter-facing summary positioning him for MagicBricks?",
+          "Should I suggest adjacent MagicBricks roles where Rakshit may be a stronger fit?"
+        ],
+        "cta": "Ask my AI agent"
+      },
+      "answer_text": "Rakshit has relevant product strengths for MagicBricks’ consumer marketplace context: he has built and scaled fintech products, worked on AI support automation, lending, wealth, and insurance, and delivered measurable customer/business outcomes such as a 59% reduction in support tickets and INR 100Cr in disbursals.\n\nThe main concern is level and domain match. This Associate Product Head role requires 10+ years of product experience, mandatory consumer internet experience, and prior leadership of at least 4 product managers. Rakshit’s profile shows 5+ years of AI/fintech product management, but does not provide evidence for those senior leadership requirements.\n\nHe could be a strong candidate for AI product, growth, support automation, or customer-journey optimization initiatives within MagicBricks, especially if the company is exploring AI-led search, support, lead qualification, or engagement. For this specific Associate Product Head role, the fit is partial unless MagicBricks is flexible on years of experience and people-management scope.\n\nSources\n- https://www.magicbricks.com/aboutus.html\n- https://www.magicbricks.com",
+      "stages": [
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Researching company website"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Reading profile context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Summarizing relevant context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Drafting brief"
+        }
+      ],
+      "first_delta_ms": 19441,
+      "total_ms": 19947
+    },
+    {
+      "id": "S05_full_jd",
+      "question": "Senior AI Product Manager, Logistics Intelligence Platform\n\nAbout FreightGrid\nFreightGrid is a Series B enterprise SaaS company building the operating system\nfor mid-market freight forwarders and 3PLs. Our platform handles shipment\nvisibility, customs documentation, and exception management for 200+ enterprise\ncustomers across North America and Europe, including 4 of the top 20 global\n3PLs. We've raised $48M from Tier-1 enterprise investors and are scaling our\nAI capabilities to move from a system-of-record to a system-of-intelligence.\n\nLocation: New York or San Francisco. Hybrid, 3 days/week in office.\n\nThe Role\nWe're hiring a Senior AI Product Manager to own our AI roadmap across the\nplatform. You'll partner with our ML engineering team to ship AI-native\nfeatures — document extraction, exception prediction, shipment ETA models,\nand agentic workflows for ops teams. This is a senior IC role reporting to\nthe VP Product.\n\nWhat You'll Own\n- The AI product roadmap end-to-end. Discovery, prioritization, shipping,\n  measurement, iteration.\n- Pricing and packaging for AI features. Our customers pay $80K-$400K ACV;\n  AI features are increasingly the wedge in renewal conversations.\n- Customer discovery with VP Operations, Director of Logistics, and Customs\n  Compliance leaders at enterprise accounts. You'll be on 8-10 customer calls\n  per week, often alongside our enterprise AEs.\n- Working with our ML team on model selection, eval design, and ship/no-ship\n  decisions. We expect you to have an opinion on prompt engineering, RAG\n  architecture, and when fine-tuning is worth the cost.\n- GTM enablement for AI features. You'll write the enablement decks, partner\n  with marketing on positioning, and join key sales cycles when needed.\n\nWhat We're Looking For\n- 6+ years of product management experience, with at least 3 years shipping\n  enterprise B2B SaaS products to customers paying $50K+ ACV.\n- Direct experience selling into or shipping for the logistics, supply chain,\n  freight, or adjacent enterprise verticals. Strong preference for candidates\n  who have worked with 3PLs, freight forwarders, or large shippers.\n- Hands-on experience shipping AI/ML features in production — not just\n  \"exposure to AI.\" You should be able to walk us through a specific AI\n  feature you scoped, shipped, and measured.\n- Experience navigating enterprise sales cycles. You understand procurement,\n  legal review, security questionnaires, and the difference between a\n  champion and an economic buyer.\n- Comfort with ambiguity. Our roadmap shifts quarter to quarter as we learn\n  from enterprise design partners.\n\nNice to Have\n- Prior experience at a Series B-D enterprise SaaS company that scaled\n  through the $10M-$50M ARR range.\n- Technical background — CS degree or significant engineering experience.\n  You don't need to code production systems, but you should be able to\n  read code and have technical conversations with ML engineers.\n- Familiarity with enterprise data platforms (Snowflake, Databricks) and\n  modern AI infrastructure (LangChain, vector databases, OpenAI/Anthropic\n  APIs).\n\nCompensation\n$200K-$260K base, equity, full benefits. Visa sponsorship available for\nexceptional candidates.\n\nTo Apply\nSend your resume, a brief note on the most ambitious AI feature you've\nshipped, and one customer story that demonstrates your enterprise PM\nchops to careers@freightgrid.io.",
+      "expected": "Partial fit — AI signal strong, enterprise B2B / logistics weak",
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Relevant AI PM fit, but logistics and enterprise SaaS depth are the key risks",
+        "fitLevel": "Relevant fit",
+        "summary": "Rakshit matches the AI product core of the role well—LLM workflows, semantic search, agentic systems, evaluation-driven product development, and shipped automation outcomes. The weaker evidence is around FreightGrid’s required domain depth: logistics/freight, 3PLs, enterprise $50K+ ACV SaaS, and pricing/packaging for AI features.",
+        "answerText": "Rakshit looks relevant for FreightGrid’s Senior AI PM role primarily on the AI product side. His background includes AI product management across LLM workflows, semantic search, agentic systems, and evaluation-driven AI products, with hands-on work using tools such as OpenAI SDK, Python, and TypeScript.\n\nThe fit is less proven on the freight/3PL side. The public FreightGrid evidence describes an LTL shipping workflow platform, while the role description describes a broader Series B freight-forwarder/3PL operating system; Rakshit’s known experience is fintech, not logistics or supply chain. That makes him credible for the AI roadmap, evals, RAG, and agentic workflows, but he would need to show fast domain learning and enterprise customer-facing PM maturity.\n\nFor the application, he should lead with the most ambitious AI feature he shipped and measured—especially support automation, intent classification, semantic search, or agentic workflow work—and directly address how he would translate that into document extraction, exception prediction, ETA intelligence, and ops-agent workflows.\n\nSources\n- https://www.cbinsights.com/company/freightgrid\n- https://www.f6s.com/company/freightgrid",
+        "proofPoints": [
+          "Over 5 years of product experience, with a focus on AI product management in fintech.",
+          "Built and scaled AI support automation systems with measurable ticket-volume reductions through intent classification and evaluation pipelines.",
+          "Hands-on AI product evidence across LLM workflows, semantic search, RAG implementations, and agentic systems.",
+          "Technical fluency includes OpenAI SDK, Python, TypeScript, and evaluation-driven AI product development.",
+          "Has scaled fintech products at ET Money, including Loan Against Mutual Funds and ET Money Earn."
+        ],
+        "relevantProjects": [
+          "AI support automation systems — relevant to FreightGrid’s need for AI-native operational workflows and measurable automation outcomes.",
+          "Semantic search / RAG implementations — relevant to customs documentation, shipment intelligence, and knowledge retrieval workflows.",
+          "Agent systems — relevant to FreightGrid’s stated goal of agentic workflows for logistics operations teams."
+        ],
+        "relevantOutcomes": [
+          "Reduced ticket volumes through AI support automation using intent classification and evaluation pipelines.",
+          "Scaled multiple fintech products at ET Money, showing product ownership beyond prototypes."
+        ],
+        "gapsOrUnknowns": [
+          "No direct evidence of logistics, supply chain, freight forwarding, 3PL, or large-shipper experience.",
+          "No confirmed experience shipping enterprise B2B SaaS to $50K+ ACV customers.",
+          "No clear evidence of pricing and packaging ownership for AI features.",
+          "No confirmed experience navigating enterprise procurement, legal review, security questionnaires, or complex sales cycles."
+        ],
+        "suggestedFollowups": [
+          "Ask for the strongest AI feature story Rakshit should use in the application.",
+          "Ask how Rakshit should position his fintech AI experience for a logistics AI PM role.",
+          "Ask for a gap-closing interview narrative for FreightGrid."
+        ],
+        "cta": "Ask my AI agent"
+      },
+      "answer_text": "Rakshit looks relevant for FreightGrid’s Senior AI PM role primarily on the AI product side. His background includes AI product management across LLM workflows, semantic search, agentic systems, and evaluation-driven AI products, with hands-on work using tools such as OpenAI SDK, Python, and TypeScript.\n\nThe fit is less proven on the freight/3PL side. The public FreightGrid evidence describes an LTL shipping workflow platform, while the role description describes a broader Series B freight-forwarder/3PL operating system; Rakshit’s known experience is fintech, not logistics or supply chain. That makes him credible for the AI roadmap, evals, RAG, and agentic workflows, but he would need to show fast domain learning and enterprise customer-facing PM maturity.\n\nFor the application, he should lead with the most ambitious AI feature he shipped and measured—especially support automation, intent classification, semantic search, or agentic workflow work—and directly address how he would translate that into document extraction, exception prediction, ETA intelligence, and ops-agent workflows.\n\nSources\n- https://www.cbinsights.com/company/freightgrid\n- https://www.f6s.com/company/freightgrid",
+      "stages": [
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Researching company website"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Reading profile context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Summarizing relevant context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Drafting brief"
+        }
+      ],
+      "first_delta_ms": 22054,
+      "total_ms": 22576
+    },
+    {
+      "id": "S06_short",
+      "question": "Growth PM at a B2C consumer app, focus on funnel optimization, paid acquisition, lifecycle marketing. Strong SQL and experimentation background.",
+      "expected": "Partial fit — analytics yes, paid acquisition no",
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Relevant fit for Growth PM in B2C fintech/consumer apps",
+        "fitLevel": "Relevant fit",
+        "summary": "Rakshit aligns well with the SQL, experimentation, funnel, and consumer-product parts of the role, especially if the app is fintech, AI-led, or monetization-heavy. The weaker evidence is around hands-on paid acquisition and lifecycle marketing ownership.",
+        "answerText": "Rakshit is a relevant fit for a Growth PM role at a B2C consumer app, particularly where growth depends on funnel diagnosis, experimentation, SQL-backed decisions, and rapid product iteration. His strongest overlap is in fintech consumer products, AI-enabled workflows, and revenue/efficiency-focused product work.\n\nHe brings 5+ years of fintech product experience at ET Money, with hands-on SQL, Firebase, Firebase A/B Testing, MySQL, and a bias for quick prototyping based on evidence. That maps well to funnel optimization and experimentation-heavy growth work.\n\nThe main unknown is whether he has directly owned paid acquisition channels or lifecycle marketing programs end-to-end. If those are core requirements, it would be worth validating his depth there in a follow-up conversation.",
+        "proofPoints": [
+          "5+ years of fintech product management experience across lending, wealth, insurance, and mutual funds.",
+          "Hands-on with SQL, experimentation, MySQL, Firebase, and Firebase A/B Testing.",
+          "Experience scaling consumer fintech products with significant revenue impact at ET Money.",
+          "Strong fit theme for growth-focused full-time roles in B2C apps.",
+          "Evidence-backed working style: quick prototyping, iteration, and translating complex problems into scalable systems."
+        ],
+        "relevantProjects": [
+          "AI support automation — shows ability to design scalable AI workflows and improve operational efficiency in a consumer fintech context.",
+          "ET Money fintech product work — relevant because it involved consumer financial products, monetization, and scalable product workflows."
+        ],
+        "relevantOutcomes": [
+          "Delivered substantial efficiency improvements through AI support automation.",
+          "Scaled fintech products with significant revenue impact at ET Money."
+        ],
+        "gapsOrUnknowns": [
+          "No specific evidence provided for direct paid acquisition ownership.",
+          "No specific evidence provided for lifecycle marketing ownership across email, push, WhatsApp, CRM, or retention journeys.",
+          "The company/app context is unknown, so domain-specific fit beyond B2C growth cannot be assessed."
+        ],
+        "suggestedFollowups": [
+          "Has Rakshit directly owned paid acquisition or worked closely with performance marketing teams?",
+          "What funnel metrics has he improved using SQL and experiments?",
+          "Has he built lifecycle journeys for activation, retention, or monetization?"
+        ],
+        "cta": "Ask my AI agent"
+      },
+      "answer_text": "Rakshit is a relevant fit for a Growth PM role at a B2C consumer app, particularly where growth depends on funnel diagnosis, experimentation, SQL-backed decisions, and rapid product iteration. His strongest overlap is in fintech consumer products, AI-enabled workflows, and revenue/efficiency-focused product work.\n\nHe brings 5+ years of fintech product experience at ET Money, with hands-on SQL, Firebase, Firebase A/B Testing, MySQL, and a bias for quick prototyping based on evidence. That maps well to funnel optimization and experimentation-heavy growth work.\n\nThe main unknown is whether he has directly owned paid acquisition channels or lifecycle marketing programs end-to-end. If those are core requirements, it would be worth validating his depth there in a follow-up conversation.",
+      "stages": [
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Researching company website"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Reading profile context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Summarizing relevant context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Drafting brief"
+        }
+      ],
+      "first_delta_ms": 21357,
+      "total_ms": 21696
+    },
+    {
+      "id": "S07_short",
+      "question": "Product Marketing Manager at an AI infrastructure company. Strong technical writing, developer-marketing, existing audience required.",
+      "expected": "Not a fit — wrong function",
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Partial fit for PMM; stronger fit for technical AI product roles",
+        "fitLevel": "Partial fit",
+        "summary": "Rakshit has strong hands-on AI infrastructure-adjacent product depth, but the profile does not show direct Product Marketing Manager ownership, developer-marketing experience, or an existing audience requirement.",
+        "answerText": "Rakshit is technically credible for an AI infrastructure company: he has built LLM agents, RAG/semantic search systems, eval frameworks, tool-calling workflows, and full-stack AI demos. That gives him strong product understanding for technical content, positioning, and developer-facing narratives.\n\nHowever, this specific PMM role asks for direct product marketing, developer-marketing, technical writing, and an existing audience. The profile evidence supports AI product building and GTM/launch planning generally, but not a current PMM role, owned developer marketing programs, published technical writing, or a large audience.\n\nHe would be a better fit if the company values a builder-PMM who can deeply understand the product, prototype use cases, and translate technical concepts into product stories. If the role is primarily audience-led content distribution and developer community growth, evidence is weaker.\n\nSources\n- https://in.linkedin.com/in/rakshit-lodha-360241187\n- https://in.linkedin.com/in/rakshit-lodha-rl\n- https://in.linkedin.com/in/rakshit-lodha-6abbb31a8",
+        "proofPoints": [
+          "Hands-on AI product work across RAG, semantic search, LLM evals, model-graded rubrics, prompt engineering, agentic workflows, tool calling, vector databases, and voice AI.",
+          "Built Feedback Intelligence using OpenAI Agents SDK, source-specific function tools, persistent memory, FastAPI, Streamlit, and Next.js.",
+          "Built Krux.news, an AI news product with RSS ingestion, AI curation, web research, summarization, generated images, and distribution surfaces.",
+          "Has general PM execution experience across GTM planning, launch planning, PRDs, analytics, roadmap strategy, user research, and stakeholder management."
+        ],
+        "relevantProjects": [
+          "Krux.news — relevant because it demonstrates AI-content workflows, research, summarization, publishing, and distribution thinking.",
+          "Feedback Intelligence — relevant because it shows agentic tooling, developer-adjacent integrations, and user feedback analysis across public channels.",
+          "AI Hiring Chat — relevant because it shows full-stack AI agent product building with web search, file parsing, structured fit assessment, and SSE streaming."
+        ],
+        "relevantOutcomes": [
+          "Reduced ET Money support tickets from 17,000 to 7,000 monthly through AI support automation and eval workflows.",
+          "Built Loan Against Mutual Funds to INR 100Cr disbursals in 7 months.",
+          "Scaled ET Money Earn to INR 300Cr AUM."
+        ],
+        "gapsOrUnknowns": [
+          "No strong evidence of a current Product Marketing Manager role in AI infrastructure.",
+          "No clear evidence of developer-marketing ownership, developer community growth, or DevRel-style campaigns.",
+          "No evidence provided of an existing audience size or distribution channel.",
+          "Technical writing samples are not evidenced, beyond AI content/product building projects."
+        ],
+        "suggestedFollowups": [
+          "Ask for Rakshit's best technical writing samples or product teardown examples.",
+          "Ask whether the PMM role is more content/community-led or technical/product-led.",
+          "Share the company name or job description for a sharper assessment."
+        ],
+        "cta": "Ask my AI agent"
+      },
+      "answer_text": "Rakshit is technically credible for an AI infrastructure company: he has built LLM agents, RAG/semantic search systems, eval frameworks, tool-calling workflows, and full-stack AI demos. That gives him strong product understanding for technical content, positioning, and developer-facing narratives.\n\nHowever, this specific PMM role asks for direct product marketing, developer-marketing, technical writing, and an existing audience. The profile evidence supports AI product building and GTM/launch planning generally, but not a current PMM role, owned developer marketing programs, published technical writing, or a large audience.\n\nHe would be a better fit if the company values a builder-PMM who can deeply understand the product, prototype use cases, and translate technical concepts into product stories. If the role is primarily audience-led content distribution and developer community growth, evidence is weaker.\n\nSources\n- https://in.linkedin.com/in/rakshit-lodha-360241187\n- https://in.linkedin.com/in/rakshit-lodha-rl\n- https://in.linkedin.com/in/rakshit-lodha-6abbb31a8",
+      "stages": [
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Researching company website"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Reading profile context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Summarizing relevant context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Drafting brief"
+        }
+      ],
+      "first_delta_ms": 21001,
+      "total_ms": 21472
+    },
+    {
+      "id": "S08_short",
+      "question": "Chief of Staff to a Series C founder. 8+ years operating experience, financial modeling chops, strategic projects across the org.",
+      "expected": "Partial fit — operating experience exists, COS scope and financial modeling depth uncertain",
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Partial fit for founder-facing strategic operations",
+        "fitLevel": "Partial fit",
+        "summary": "Rakshit has strong fintech product, AI workflow, and business-outcome ownership experience, but the profile evidence is lighter for a classic Chief of Staff mandate requiring 8+ years operating experience, financial modeling, and broad org-wide strategic projects.",
+        "answerText": "Rakshit could be relevant if the Chief of Staff role is product- and AI-operations-heavy, especially around founder-led strategic initiatives that need structured execution, automation, and measurable business impact.\n\nHowever, based on the available profile, this is not a clean match for a traditional Series C Chief of Staff role requiring 8+ years of operating experience, deep financial modeling, and broad cross-functional strategy ownership. His strongest evidence is as an AI/Product Manager in fintech, not as a founder’s strategic operator.",
+        "proofPoints": [
+          "5+ years of fintech product experience, with specialization in AI-powered workflows, LLM products, RAG, semantic search, and agentic systems.",
+          "At ET Money, contributed to AI support automation that reduced monthly support tickets from 17,000 to 7,000.",
+          "Managed INR 100Cr disbursals in Loan Against Mutual Funds, showing exposure to high-value fintech operations and execution."
+        ],
+        "relevantProjects": [],
+        "relevantOutcomes": [
+          "Reduced monthly support tickets from 17,000 to 7,000 through AI support automation.",
+          "Managed INR 100Cr disbursals in Loan Against Mutual Funds."
+        ],
+        "gapsOrUnknowns": [
+          "Profile shows 5+ years of experience, while the role asks for 8+ years operating experience.",
+          "No specific evidence of financial modeling ownership.",
+          "Limited evidence of Chief of Staff-style founder support, board/investor prep, OKR cadence, or company-wide strategic project leadership."
+        ],
+        "suggestedFollowups": [
+          "Is this Chief of Staff role more strategy/finance-heavy or product/AI-ops-heavy?",
+          "Would strong fintech product execution compensate for fewer years of operating experience?",
+          "What financial modeling depth is required: basic business cases, fundraising models, or full FP&A ownership?"
+        ],
+        "cta": "Ask my AI agent"
+      },
+      "answer_text": "Rakshit could be relevant if the Chief of Staff role is product- and AI-operations-heavy, especially around founder-led strategic initiatives that need structured execution, automation, and measurable business impact.\n\nHowever, based on the available profile, this is not a clean match for a traditional Series C Chief of Staff role requiring 8+ years of operating experience, deep financial modeling, and broad cross-functional strategy ownership. His strongest evidence is as an AI/Product Manager in fintech, not as a founder’s strategic operator.",
+      "stages": [
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Reading profile context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Summarizing relevant context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Drafting brief"
+        }
+      ],
+      "first_delta_ms": 11379,
+      "total_ms": 11625
+    },
+    {
+      "id": "S09_ambiguous",
+      "question": "PM at a Series A AI startup building tools for sales teams. Voice-based product. Must understand conversation intelligence. India-based team. (This is Greylabs-adjacent — strong AI fit, voice and conversation skill match, but you haven't worked on sales/CRM specifically.)",
+      "expected": "Relevant fit — agent should call out which parts match and which don't",
+      "response": {
+        "responseType": "both",
+        "mode": "fit",
+        "headline": "Strong fit for a voice-first AI PM role; sales/CRM depth is the main unknown",
+        "fitLevel": "Strong fit",
+        "summary": "Rakshit has a strong overlap with a Series A-style voice AI / conversation intelligence PM role, especially where the product depends on voice interfaces, AI support automation, and evaluation systems. The only notable gap is direct evidence of sales-team or CRM workflow ownership.",
+        "answerText": "Rakshit looks highly relevant for Pradhi’s voice-first decision intelligence product. His profile shows hands-on AI PM experience across voice AI, conversation intelligence, agentic workflows, and evaluation systems—directly adjacent to products that analyze calls for intent, risk, and decision signals.\n\nThe strongest fit is on the product/technical side: he has built AI support automation at ET Money and has worked with voice interfaces and LLM-based systems using tools like OpenAI APIs, FastAPI, and Streamlit. That maps well to Pradhi’s focus on going beyond transcripts into actionable conversation signals.\n\nThe main caveat is domain depth: there is no clear evidence that Rakshit has owned sales-team workflows, CRM integrations, or revenue intelligence products specifically. If Pradhi needs someone to immediately lead sales-stack integrations, that should be probed in interviews.\n\nSources\n- https://www.pradhi.ai/",
+        "proofPoints": [
+          "5+ years of fintech product experience with current AI PM work at ET Money.",
+          "Experience building AI support automation systems, voice interfaces, agentic workflows, and evaluation systems.",
+          "Skill set aligns with voice-first analytics and conversation intelligence products.",
+          "India-based and open to full-time onsite roles, matching an India-based team context."
+        ],
+        "relevantProjects": [
+          "AI support automation at ET Money — relevant because it involves applied AI systems in customer conversation/support workflows.",
+          "Voice interfaces — relevant because Pradhi’s product depends on voice-first interaction and signal interpretation.",
+          "Evaluation systems — relevant because conversation intelligence products need reliable measurement of AI quality and signal accuracy."
+        ],
+        "relevantOutcomes": [
+          "Built AI support automation systems at ET Money.",
+          "Developed capabilities across voice AI, conversation intelligence, and agentic workflows."
+        ],
+        "gapsOrUnknowns": [
+          "No direct evidence of sales/CRM integration experience.",
+          "No public evidence confirming Pradhi’s funding stage, team size, or exact hiring needs.",
+          "No specific evidence of Rakshit owning buyer-intent or collections-risk analytics products."
+        ],
+        "suggestedFollowups": [
+          "Has Rakshit worked with call-center or sales-call datasets specifically?",
+          "Can he walk through how he would evaluate voice-signal quality beyond transcript accuracy?",
+          "Has he integrated AI workflows into CRM or sales tooling before?"
+        ],
+        "cta": "Ask my AI agent"
+      },
+      "answer_text": "Rakshit looks highly relevant for Pradhi’s voice-first decision intelligence product. His profile shows hands-on AI PM experience across voice AI, conversation intelligence, agentic workflows, and evaluation systems—directly adjacent to products that analyze calls for intent, risk, and decision signals.\n\nThe strongest fit is on the product/technical side: he has built AI support automation at ET Money and has worked with voice interfaces and LLM-based systems using tools like OpenAI APIs, FastAPI, and Streamlit. That maps well to Pradhi’s focus on going beyond transcripts into actionable conversation signals.\n\nThe main caveat is domain depth: there is no clear evidence that Rakshit has owned sales-team workflows, CRM integrations, or revenue intelligence products specifically. If Pradhi needs someone to immediately lead sales-stack integrations, that should be probed in interviews.\n\nSources\n- https://www.pradhi.ai/",
+      "stages": [
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Researching company website"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Reading profile context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Summarizing relevant context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Drafting brief"
+        }
+      ],
+      "first_delta_ms": 17042,
+      "total_ms": 17455
+    },
+    {
+      "id": "S10_positive_control",
+      "question": "AI Product Manager at a Series A fintech building agentic workflows for retail investors. PM should write code, ship eval pipelines, own AI roadmap end-to-end.",
+      "expected": "Strong fit — positive control",
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Strong fit for an AI PM building agentic fintech workflows",
+        "fitLevel": "Strong fit",
+        "summary": "Rakshit is highly relevant for an AI Product Manager role at a fintech like VYNN AI, especially if the role needs hands-on product ownership across agentic workflows, evaluation systems, and retail-investor-facing financial intelligence.",
+        "answerText": "Rakshit looks like a strong fit for this AI Product Manager role. His background combines fintech product experience, hands-on AI workflow development, semantic search/RAG exposure, and evaluation-oriented thinking—well aligned with a company building agentic equity research for retail investors.\n\nThe fit is strongest where the role requires a PM who can go beyond roadmap writing: Rakshit has experience with AI-driven workflows, support automation, semantic search in mutual funds, and an AI financial analysis agent that improved tool-use accuracy. That maps closely to VYNN AI’s focus on automated financial analysis, agent orchestration, validated recommendations, and auditable outputs.\n\nThe main uncertainty is company-stage fit: the public brief does not confirm Series A funding or current hiring/team structure. There is also limited direct evidence that Rakshit has shipped production-grade eval pipelines specifically for equity-research agents, though his AI evaluation and tool-use work is directionally relevant.\n\nSources\n- https://vynnai.com",
+        "proofPoints": [
+          "Over 5 years of fintech experience, including AI-driven product work at ET Money across wealth management and insurance contexts.",
+          "Hands-on experience with AI workflows, semantic search, RAG systems, and evaluation systems.",
+          "Relevant project experience includes semantic search in mutual funds, directly adjacent to retail-investor discovery and financial decisioning.",
+          "Built an AI financial analysis agent with improved tool-use accuracy, relevant to agentic research and recommendation systems.",
+          "Preference for full-time onsite or hybrid roles, with relocation openness from Gurugram."
+        ],
+        "relevantProjects": [
+          "Semantic search in mutual funds — relevant to VYNN AI’s retail-investor research and financial discovery experience.",
+          "AI financial analysis agent — relevant to agentic workflows, financial reasoning, tool use, and validated recommendations."
+        ],
+        "relevantOutcomes": [
+          "Scaled AI support automation and fintech products at ET Money across wealth management and insurance.",
+          "Improved tool-use accuracy in an AI financial analysis agent."
+        ],
+        "gapsOrUnknowns": [
+          "No confirmed public evidence that VYNN AI is Series A funded.",
+          "No public clarity on VYNN AI’s current hiring plans, team size, or whether the role exists independently of Robinhood context.",
+          "Rakshit’s profile shows evaluation-system exposure, but not a confirmed production equity-research eval pipeline matching VYNN AI’s exact setup."
+        ],
+        "suggestedFollowups": [
+          "Has Rakshit built agent evaluation pipelines hands-on, or primarily specified them as a PM?",
+          "How deeply can Rakshit code in the stack VYNN AI uses?",
+          "Would Rakshit be open to an early-stage or founder-led environment if VYNN AI is not formally Series A?"
+        ],
+        "cta": "Ask my AI agent"
+      },
+      "answer_text": "Rakshit looks like a strong fit for this AI Product Manager role. His background combines fintech product experience, hands-on AI workflow development, semantic search/RAG exposure, and evaluation-oriented thinking—well aligned with a company building agentic equity research for retail investors.\n\nThe fit is strongest where the role requires a PM who can go beyond roadmap writing: Rakshit has experience with AI-driven workflows, support automation, semantic search in mutual funds, and an AI financial analysis agent that improved tool-use accuracy. That maps closely to VYNN AI’s focus on automated financial analysis, agent orchestration, validated recommendations, and auditable outputs.\n\nThe main uncertainty is company-stage fit: the public brief does not confirm Series A funding or current hiring/team structure. There is also limited direct evidence that Rakshit has shipped production-grade eval pipelines specifically for equity-research agents, though his AI evaluation and tool-use work is directionally relevant.\n\nSources\n- https://vynnai.com",
+      "stages": [
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Researching company website"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Reading profile context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Summarizing relevant context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Drafting brief"
+        }
+      ],
+      "first_delta_ms": 21590,
+      "total_ms": 22060
+    },
+    {
+      "id": "S11_positive_control",
+      "question": "Is Rakshit a good fit for the role of an AI product manager at Razorpay.com",
+      "expected": "Partial fit — AI PM signal strong, but Razorpay is B2B payments infrastructure (merchant-side, fraud/risk/dev-tools) and Rakshit's experience is retail consumer fintech. Domain overlap is fintech-shaped but not problem-shaped.",
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Strong fit for AI Product Manager roles at Razorpay",
+        "fitLevel": "Strong fit",
+        "summary": "Rakshit’s fintech PM background and AI product experience map well to Razorpay’s payments, banking automation, and AI-led product direction.",
+        "answerText": "Yes — Rakshit looks like a strong fit for an AI Product Manager role at Razorpay, especially if the role involves AI workflows in payments, banking automation, fraud/support operations, or developer-facing fintech products.\n\nRazorpay’s public direction includes AI-driven payments, RazorpayX banking automation, smart routing, and agentic payment initiatives. Rakshit brings 5+ years of fintech product experience and has built AI products involving LLM workflows, agentic systems, and semantic search, with a prototype-first approach suited to fast-moving fintech teams.\n\nThe main caveat is that there isn’t enough public detail on Razorpay’s exact AI PM role scope or team structure, so the fit would be strongest for roles that combine fintech domain depth, AI productization, user workflow automation, and measurable business outcomes.\n\nSources\n- https://razorpay.com/about/\n- https://www.business-standard.com/amp/companies/news/razorpay-bets-ai-powered-banking-tools-ahead-ipo-125081000494_1.html\n- https://en.wikipedia.org/wiki/RazorPay",
+        "proofPoints": [
+          "5+ years of fintech product experience, including scaling products at ET Money.",
+          "AI product specialization across LLM workflows, agentic systems, and semantic search.",
+          "Experience delivering measurable fintech outcomes, including support ticket reduction and INR 100Cr in loans disbursed through product initiatives.",
+          "Prototype-first, evidence-led product style fits API-centric, rapidly evolving fintech environments."
+        ],
+        "relevantProjects": [],
+        "relevantOutcomes": [
+          "Reduced support tickets significantly through fintech product improvements at ET Money.",
+          "Achieved INR 100Cr in loans disbursed through innovative product initiatives."
+        ],
+        "gapsOrUnknowns": [
+          "No public evidence of the exact AI Product Manager role requirements at Razorpay.",
+          "Razorpay’s internal AI PM team structure and hiring priorities are not publicly clear."
+        ],
+        "suggestedFollowups": [
+          "Share the Razorpay JD to assess role-by-role fit more precisely.",
+          "Ask which of Rakshit’s AI projects best match payments or banking automation.",
+          "Ask for an outreach pitch tailored to Razorpay."
+        ],
+        "cta": "Ask my AI agent"
+      },
+      "answer_text": "Yes — Rakshit looks like a strong fit for an AI Product Manager role at Razorpay, especially if the role involves AI workflows in payments, banking automation, fraud/support operations, or developer-facing fintech products.\n\nRazorpay’s public direction includes AI-driven payments, RazorpayX banking automation, smart routing, and agentic payment initiatives. Rakshit brings 5+ years of fintech product experience and has built AI products involving LLM workflows, agentic systems, and semantic search, with a prototype-first approach suited to fast-moving fintech teams.\n\nThe main caveat is that there isn’t enough public detail on Razorpay’s exact AI PM role scope or team structure, so the fit would be strongest for roles that combine fintech domain depth, AI productization, user workflow automation, and measurable business outcomes.\n\nSources\n- https://razorpay.com/about/\n- https://www.business-standard.com/amp/companies/news/razorpay-bets-ai-powered-banking-tools-ahead-ipo-125081000494_1.html\n- https://en.wikipedia.org/wiki/RazorPay",
+      "stages": [
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Researching company website"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Reading profile context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Summarizing relevant context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Drafting brief"
+        }
+      ],
+      "first_delta_ms": 17036,
+      "total_ms": 17486
+    },
+    {
+      "id": "S10_positive_control",
+      "question": "Is Rakshit a good for the role of SPM at Dezerv.in",
+      "expected": "Strong fit — positive control",
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Relevant fit for SPM at Dezerv",
+        "fitLevel": "Relevant fit",
+        "summary": "Rakshit has strong fintech, wealth, advisory, AI-product, and mutual-fund experience that maps well to Dezerv’s tech-led wealth management model, though PMS/AIF and multi-asset portfolio depth are not yet evidenced.",
+        "answerText": "Rakshit looks like a relevant fit for an SPM role at Dezerv, especially if the role focuses on digital wealth products, advisory journeys, portfolio intelligence, support automation, growth, or AI-enabled client experience. He has 5+ years in fintech and currently works at ET Money across wealth, insurance, and mutual funds.\n\nThe strongest overlap is Dezerv’s technology-led wealth management model: Rakshit has experience building advisory products, recommendation systems, AI support automation, and scalable fintech workflows. That aligns with Dezerv’s Wealth Monitor, app-led portfolio tracking, and data-driven advisory experience.\n\nThe main caveat is that the provided profile does not show direct PMS/AIF regulatory exposure or hands-on multi-asset portfolio product ownership, which may matter for a Senior Product Manager role at Dezerv.\n\nSources\n- https://www.dezerv.in/\n- https://www.moneycontrol.com/news/business/startup/wealthtech-platform-dezerv-raises-rs-350-crore-funding-round-led-by-premji-invest-accel-13612144.html\n- https://www.moneycontrol.com/news/business/markets/dezerv-surpasses-rs-10-000-crore-in-aum-targets-rs-25-000-crore-by-december-2025-12886269.html",
+        "proofPoints": [
+          "5+ years of fintech experience across wealth, lending, and advisory domains.",
+          "Currently works at ET Money, scaling products in wealth, insurance, and mutual funds.",
+          "Experience building AI support automation systems and advisory products.",
+          "Strong fit themes include fintech growth, support automation, and zero-to-one product building.",
+          "Dezerv’s public positioning emphasizes tech-led wealth management, portfolio tracking, and data-driven advisory, which overlaps with Rakshit’s AI product and wealthtech background."
+        ],
+        "relevantProjects": [
+          "AI support automation systems — relevant to scaling client experience and advisory operations at a high-growth wealth platform.",
+          "Advisory products — relevant to Dezerv’s human-plus-technology wealth management model.",
+          "Recommendation systems — relevant to personalized portfolio insights and wealth journeys.",
+          "0-to-1 fintech products — relevant if the SPM role involves launching new wealth, advisory, or investment experiences."
+        ],
+        "relevantOutcomes": [
+          "Experience scaling fintech products in wealth, insurance, and mutual funds at ET Money.",
+          "Background in translating user problems into scalable AI workflows and products."
+        ],
+        "gapsOrUnknowns": [
+          "No specific evidence of PMS or AIF regulatory product ownership.",
+          "No direct evidence of multi-asset portfolio product experience matching Dezerv’s Integrated Portfolio Approach.",
+          "No JD-specific responsibilities were provided, so the assessment is based on Dezerv’s public product context."
+        ],
+        "suggestedFollowups": [
+          "Share the SPM job description for a sharper responsibility-by-responsibility fit check.",
+          "Ask how Rakshit’s ET Money experience maps to wealthtech product leadership.",
+          "Ask what interview stories Rakshit should emphasize for Dezerv."
+        ],
+        "cta": "Ask my AI agent"
+      },
+      "answer_text": "Rakshit looks like a relevant fit for an SPM role at Dezerv, especially if the role focuses on digital wealth products, advisory journeys, portfolio intelligence, support automation, growth, or AI-enabled client experience. He has 5+ years in fintech and currently works at ET Money across wealth, insurance, and mutual funds.\n\nThe strongest overlap is Dezerv’s technology-led wealth management model: Rakshit has experience building advisory products, recommendation systems, AI support automation, and scalable fintech workflows. That aligns with Dezerv’s Wealth Monitor, app-led portfolio tracking, and data-driven advisory experience.\n\nThe main caveat is that the provided profile does not show direct PMS/AIF regulatory exposure or hands-on multi-asset portfolio product ownership, which may matter for a Senior Product Manager role at Dezerv.\n\nSources\n- https://www.dezerv.in/\n- https://www.moneycontrol.com/news/business/startup/wealthtech-platform-dezerv-raises-rs-350-crore-funding-round-led-by-premji-invest-accel-13612144.html\n- https://www.moneycontrol.com/news/business/markets/dezerv-surpasses-rs-10-000-crore-in-aum-targets-rs-25-000-crore-by-december-2025-12886269.html",
+      "stages": [
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Researching company website"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Reading profile context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Summarizing relevant context"
+        },
+        {
+          "stage": "",
+          "elapsed_ms": 0,
+          "message": "Drafting brief"
+        }
+      ],
+      "first_delta_ms": 21934,
+      "total_ms": 22450
+    }
+  ]
+}
