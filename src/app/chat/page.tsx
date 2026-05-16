@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -121,6 +122,12 @@ function ZeroState({ onPromptSubmit }: { onPromptSubmit: (prompt: string) => voi
         I&apos;ve been trained on every project, role, and decision in his career — including the things he got wrong.
         Ask me anything, or drop a JD to see if he&apos;s a fit.
       </p>
+      <Link
+        href="/evals"
+        className="mt-4 rounded-full border border-[#e4e0da] bg-white/60 px-4 py-2 text-xs font-medium text-[#6b6860] transition-colors hover:border-[#cfc8be] hover:bg-white hover:text-[#111111] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B6AE7]"
+      >
+        Want to check if it&apos;s biased? View evals →
+      </Link>
 
       <div className="mt-10 flex w-full max-w-[480px] flex-col gap-2.5">
         {PROMPT_CHIPS.map((prompt) => (
