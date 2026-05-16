@@ -2,7 +2,7 @@ import { Agent, run, tool } from "@openai/agents";
 import OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
-import type { AgentResponse, AgentStreamEvent } from "@/lib/agent/types";
+import type { AgentResponse, AgentStatusStage, AgentStreamEvent } from "@/lib/agent/types";
 import { serializeProfileSections } from "@/lib/agent/profileContext";
 import {
   getExperienceOutcomes,
@@ -417,6 +417,7 @@ function chunkText(text: string) {
 }
 
 export async function POST(request: Request) {
+  const startTime = Date.now();
   const encoder = new TextEncoder();
 
   if (!process.env.OPENAI_API_KEY) {
@@ -433,6 +434,9 @@ export async function POST(request: Request) {
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
       const send = (event: AgentStreamEvent) => controller.enqueue(encoder.encode(sse(event)));
+      const sendStatus = (stage: AgentStatusStage, message: string) => {
+        send({ type: "status", stage, elapsed_ms: Date.now() - startTime, message });
+      };
 
       try {
         const latestUserMessage = parsed.messages.findLast((message) => message.role === "user");
@@ -442,11 +446,11 @@ export async function POST(request: Request) {
         let companyBrief: CompanyBrief | undefined;
 
         if (companyTarget && latestUserMessage) {
-          send({ type: "status", message: "Researching company website" });
+          sendStatus("websearch_start", "Researching company website");
           companyBrief = await websearch(companyTarget, latestUserMessage.content);
+          sendStatus("websearch_complete", "Researching company website");
         }
 
-        send({ type: "status", message: "Reading profile context" });
         const contextMessages =
           companyBrief && latestUserMessage
             ? [
@@ -458,14 +462,16 @@ export async function POST(request: Request) {
               ]
             : parsed.messages;
 
+        sendStatus("context_start", "Reading profile context");
         const contextResult = await run(contextAgent, toContextInput(companyBrief ? "fit" : parsed.mode, contextMessages), {
           maxTurns: 2,
         });
         const context = contextResult.finalOutput;
         if (!context) throw new Error("Context agent returned no final output.");
 
-        send({ type: "status", message: "Summarizing relevant context" });
+        sendStatus("context_complete", "Summarizing relevant context");
 
+        sendStatus("answer_start", "Summarizing relevant context");
         const result = await run(rakshitAgent, toAgentInputWithContext(companyBrief ? "fit" : parsed.mode, parsed.messages, context, companyBrief), {
           maxTurns: 6,
         });
@@ -473,7 +479,7 @@ export async function POST(request: Request) {
         const response = result.finalOutput as AgentResponse | undefined;
         if (!response) throw new Error("Agent returned no final output.");
 
-        send({ type: "status", message: "Drafting brief" });
+        sendStatus("answer_complete", "Drafting brief");
         for (const chunk of chunkText(response.answerText)) {
           send({ type: "delta", text: chunk });
           await new Promise((resolve) => setTimeout(resolve, 18));
