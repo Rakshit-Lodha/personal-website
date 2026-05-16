@@ -1,7 +1,10 @@
 import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { loadEnvConfig } from "@next/env";
 import type { CaseResult, FactualScore, QualityScore, RunFile, ScoreFile, SkepticScore, TestSet } from "../types";
+
+loadEnvConfig(process.cwd());
 
 const TEST_SETS: TestSet[] = ["factual", "quality", "skeptic"];
 const JUDGE_MODEL = "claude-opus-4-7";
