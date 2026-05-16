@@ -162,7 +162,26 @@ function getActualFitLevel(testCase: CaseResult) {
 }
 
 function skepticPrompt(testCase: CaseResult, expectedFitLevel: string, actualFitLevel: string) {
-  return `You are scoring an AI agent's fit assessment of a person (Rakshit Lodha) against a job description or scenario. The agent must classify fit as one of: "Strong fit", "Relevant fit", "Partial fit", or "Not enough evidence".
+  return `You are scoring an AI agent's fit assessment of Rakshit Lodha against a hiring target.
+
+The agent must classify fit as exactly one of:
+- "Strong fit"
+- "Relevant fit"
+- "Partial fit"
+- "Not enough evidence"
+
+Your job is not just to check whether the answer is detailed.
+Your job is to check whether the agent correctly weighted Rakshit's evidence against the evaluation target.
+
+The evaluation target may be:
+- a full job description,
+- a short role/scenario,
+- a company website or company name,
+- or a vague fit question.
+
+If the target is a job description, identify the role's core must-have requirements.
+If the target is a company or website, identify the company's concrete product/domain/business signals from the scenario and the agent's cited sources.
+If the target is vague or public evidence is thin, the agent should be cautious and should not infer hiring needs, tech stack, seniority, or role requirements without evidence.
 
 SCENARIO: ${testCase.question}
 
@@ -171,14 +190,48 @@ EXPECTED FIT LEVEL (parsed): ${expectedFitLevel}
 AGENT'S FIT LEVEL: ${actualFitLevel}
 AGENT'S FULL EXPLANATION: ${testCase.answer_text}
 
-Score:
-1. fit_level_correct: did the agent's fit level match the expected? (true|false)
-2. Specificity (1-4): same definition as the quality rubric — does the explanation name specific projects/roles/outcomes?
-3. Evidence-citation (1-4): does the explanation tie each strength/gap claim to specific evidence?
-4. Anti-hallucination (1-4): does the explanation avoid inventing experience the candidate doesn't have?
+First, identify the 3-6 most important evaluation criteria for this case.
+For a JD, these are must-have role requirements.
+For a company/website, these are public product/domain/business signals that matter for fit.
+For a vague prompt, these may be unknowns or evidence gaps rather than requirements.
 
-Respond with ONLY a JSON object, no other text:
-{"fit_level_correct": true|false, "expected_fit_level": "...", "actual_fit_level": "...", "specificity": <1-4>, "evidence_citation": <1-4>, "anti_hallucination": <1-4>, "reasoning": "2-4 sentences"}`;
+Then score:
+1. fit_level_correct: did the agent's fit level match the expected? (true|false)
+2. target_alignment (1-4): did the agent evaluate Rakshit against the right criteria for this target?
+   4 = clearly maps strengths and gaps against the core target criteria.
+   3 = covers most core criteria, with some missing weighting.
+   2 = discusses some relevant evidence but misses or underweights major criteria.
+   1 = mostly talks about impressive but non-core evidence.
+3. fit_calibration (1-4): did the agent choose a fit label that properly reflects hard gaps and available evidence?
+   4 = fit label is well-calibrated to the target criteria and gaps.
+   3 = mostly calibrated, with minor generosity or harshness.
+   2 = noticeably too generous or too harsh.
+   1 = materially wrong label given the target.
+4. evidence_citation (1-4): are claims about Rakshit tied to specific projects, roles, outcomes, or known profile facts?
+   4 = every major claim has concrete evidence.
+   3 = most claims are evidenced.
+   2 = some claims are evidenced, but several are generic.
+   1 = claims are mostly unsupported.
+5. anti_hallucination (1-4): does the agent avoid inventing experience, overstating adjacent experience, or implying direct experience where only adjacent evidence exists?
+   4 = strictly grounded and clearly distinguishes direct vs adjacent evidence.
+   3 = mostly grounded with minor overreach.
+   2 = some unsupported stretching.
+   1 = clear fabrication or major overclaim.
+
+Important judging rule:
+A response can be detailed and evidence-backed while still being a bad fit assessment if it overweights adjacent evidence and underweights hard gaps. In that case, evidence_citation may be high, but target_alignment and fit_calibration should be low.
+
+Examples:
+- If a role requires PhD/Master's ML depth, Spark/PySpark, PyTorch/TensorFlow, model optimization, MLOps, and production ML engineering, then general GenAI product work or agent prototypes should not justify "Relevant fit" unless there is direct evidence for the core ML engineering requirements.
+- If the prompt is only a company website, the agent should cite public company signals and avoid pretending there is a specific open role unless evidence supports that.
+- Missing hard requirements should pull the fit level down, even if the candidate has impressive adjacent AI product experience.
+
+Respond with ONLY a JSON object, no markdown, no code fence:
+{"fit_level_correct": true|false, "expected_fit_level": "...", "actual_fit_level": "...", "core_criteria": ["...", "..."], "matched_criteria": ["...", "..."], "missing_or_weak_criteria": ["...", "..."], "target_alignment": <1-4>, "fit_calibration": <1-4>, "evidence_citation": <1-4>, "anti_hallucination": <1-4>, "reasoning": "2-4 sentences explaining whether the agent correctly weighted the target criteria and candidate evidence."}`;
+}
+
+function stringArray(value: unknown) {
+  return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [];
 }
 
 function placeholderScore(testSet: TestSet, testCase: CaseResult, reason: string) {
@@ -201,7 +254,11 @@ function placeholderScore(testSet: TestSet, testCase: CaseResult, reason: string
     fit_level_correct: false,
     expected_fit_level: parseExpectedFitLevel(testCase.expected),
     actual_fit_level: getActualFitLevel(testCase),
-    specificity: 1,
+    core_criteria: [],
+    matched_criteria: [],
+    missing_or_weak_criteria: [],
+    target_alignment: 1,
+    fit_calibration: 1,
     evidence_citation: 1,
     anti_hallucination: 1,
     reasoning: reason,
@@ -242,7 +299,11 @@ async function judgeCase(testSet: TestSet, testCase: CaseResult, apiKey: string)
       fit_level_correct: parsed.fit_level_correct === true,
       expected_fit_level: typeof parsed.expected_fit_level === "string" ? parsed.expected_fit_level : expectedFitLevel,
       actual_fit_level: typeof parsed.actual_fit_level === "string" ? parsed.actual_fit_level : actualFitLevel,
-      specificity: clampScore(parsed.specificity),
+      core_criteria: stringArray(parsed.core_criteria),
+      matched_criteria: stringArray(parsed.matched_criteria),
+      missing_or_weak_criteria: stringArray(parsed.missing_or_weak_criteria),
+      target_alignment: clampScore(parsed.target_alignment),
+      fit_calibration: clampScore(parsed.fit_calibration),
       evidence_citation: clampScore(parsed.evidence_citation),
       anti_hallucination: clampScore(parsed.anti_hallucination),
       reasoning: typeof parsed.reasoning === "string" ? parsed.reasoning : "No reasoning returned.",
@@ -277,7 +338,8 @@ function summarize(testSet: TestSet, scores: ScoreFile["cases"]): Record<string,
   }
 
   const skepticScores = scores as SkepticScore[];
-  const specificityAvg = mean(skepticScores.map((score) => score.specificity));
+  const targetAlignmentAvg = mean(skepticScores.map((score) => score.target_alignment));
+  const fitCalibrationAvg = mean(skepticScores.map((score) => score.fit_calibration));
   const evidenceAvg = mean(skepticScores.map((score) => score.evidence_citation));
   const antiHallucinationAvg = mean(skepticScores.map((score) => score.anti_hallucination));
   return {
@@ -285,10 +347,11 @@ function summarize(testSet: TestSet, scores: ScoreFile["cases"]): Record<string,
     fit_level_accuracy: skepticScores.length
       ? skepticScores.filter((score) => score.fit_level_correct).length / skepticScores.length
       : 0,
-    specificity_avg: round1(specificityAvg),
+    target_alignment_avg: round1(targetAlignmentAvg),
+    fit_calibration_avg: round1(fitCalibrationAvg),
     evidence_citation_avg: round1(evidenceAvg),
     anti_hallucination_avg: round1(antiHallucinationAvg),
-    overall_avg: round1(mean([specificityAvg, evidenceAvg, antiHallucinationAvg])),
+    overall_avg: round1(mean([targetAlignmentAvg, fitCalibrationAvg, evidenceAvg, antiHallucinationAvg])),
   };
 }
 

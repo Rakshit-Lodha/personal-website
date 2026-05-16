@@ -13,7 +13,9 @@ System prompt SHA: 8081e28e638ec9d57a4e851a52eee6376d0ef54c
 | Quality | 20 | Anti-hallucination (avg) | 3.3/4 |
 | Quality | 20 | Overall avg | 3.2/4 |
 | Skeptic | 12 | Fit-level accuracy | 25% |
-| Skeptic | 12 | Explanation overall avg | 3.3/4 |
+| Skeptic | 12 | Target alignment (avg) | 3.0/4 |
+| Skeptic | 12 | Fit calibration (avg) | 2.4/4 |
+| Skeptic | 12 | Explanation overall avg | 2.8/4 |
 
 ## Latency
 

@@ -46,7 +46,11 @@ export type SkepticScore = {
   fit_level_correct: boolean;
   expected_fit_level: string;
   actual_fit_level: string;
-  specificity: number;
+  core_criteria: string[];
+  matched_criteria: string[];
+  missing_or_weak_criteria: string[];
+  target_alignment: number;
+  fit_calibration: number;
   evidence_citation: number;
   anti_hallucination: number;
   reasoning: string;

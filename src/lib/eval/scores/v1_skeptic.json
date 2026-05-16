@@ -2,135 +2,361 @@
   "version": "v1",
   "test_set": "skeptic",
   "judge_model": "claude-sonnet-4-5",
-  "date": "2026-05-16T06:58:38.796Z",
+  "date": "2026-05-16T07:46:23.592Z",
   "cases": [
     {
       "id": "S01_full_jd",
       "fit_level_correct": false,
       "expected_fit_level": "Not enough evidence",
       "actual_fit_level": "Relevant fit",
-      "specificity": 4,
-      "evidence_citation": 4,
-      "anti_hallucination": 4,
-      "reasoning": "The agent provided highly specific evidence citing concrete projects (OpenAI Agents SDK work, stock analysis system with 58% to 90% improvement, FastAPI/Streamlit implementations). All claims were tied to verifiable technical experience and the agent explicitly acknowledged gaps (lack of Spark/PySpark, quantization experience, advanced degree). However, the fit level is incorrect—the agent assessed 'Relevant fit' when it should be 'Not enough evidence' given the missing PhD/Master's requirement, lack of distributed computing experience, and absence of healthcare domain knowledge that are core to this senior ML Engineer role."
+      "core_criteria": [
+        "Master's/PhD in CS, AI, or related field (required qualification)",
+        "Solid foundation in ML, deep learning, and statistical modeling",
+        "Experience with distributed computing (Spark/PySpark) for large-scale datasets",
+        "Model optimization techniques (quantization, FLOPs reduction, latency tuning)",
+        "Proficiency in ML frameworks (PyTorch, TensorFlow, scikit-learn)",
+        "MLOps practices, model deployment, and production monitoring"
+      ],
+      "matched_criteria": [
+        "Hands-on experience with GenAI and agentic frameworks",
+        "Python-based development and API integration (FastAPI)",
+        "Building production-grade AI systems and evaluation frameworks"
+      ],
+      "missing_or_weak_criteria": [
+        "Master's/PhD qualification not evidenced",
+        "No evidence of distributed computing (Spark/PySpark) experience",
+        "No evidence of deep ML frameworks (PyTorch, TensorFlow) work",
+        "No evidence of model optimization techniques (quantization, latency tuning)",
+        "Foundational ML/statistical modeling depth unclear",
+        "MLOps production monitoring and orchestration unclear"
+      ],
+      "target_alignment": 2,
+      "fit_calibration": 2,
+      "evidence_citation": 3,
+      "anti_hallucination": 3,
+      "reasoning": "The agent correctly identified several hard gaps (PhD/Master's, Spark/PySpark, model optimization, foundational ML depth) and acknowledged Rakshit is better positioned as an AI Product Manager than ML Engineer. However, the agent still assigned 'Relevant fit' despite missing most required qualifications and core ML engineering requirements. Given the absence of evidence for educational credentials, distributed computing, ML frameworks, and deep ML foundation, 'Not enough evidence' would be the properly calibrated label. The agent overweighted GenAI product experience while underweighting the fundamental ML engineering requirements explicitly listed as required qualifications."
     },
     {
       "id": "S02_full_jd",
       "fit_level_correct": false,
       "expected_fit_level": "Strong fit",
       "actual_fit_level": "Relevant fit",
-      "specificity": 4,
+      "core_criteria": [
+        "6+ years PM experience owning product end-to-end in B2B SaaS/enterprise",
+        "Deep domain expertise in BFSI OR Voice AI (meaningful track record)",
+        "Enterprise execution: multi-stakeholder rollouts with adoption/workflow change",
+        "AI product experience with shipped products (not just prototypes)",
+        "Charter ownership with accountability for outcomes"
+      ],
+      "matched_criteria": [
+        "BFSI depth across wealth, lending, insurance, advisory, mutual funds",
+        "AI support automation with measurable outcomes (17k to 7k tickets)",
+        "Hands-on LLM/agentic workflow experience"
+      ],
+      "missing_or_weak_criteria": [
+        "6+ years requirement (Rakshit has 5+ years)",
+        "Enterprise B2B SaaS rollouts with banks/NBFCs (fintech B2C experience instead)",
+        "Production Voice AI deployment at scale"
+      ],
+      "target_alignment": 3,
+      "fit_calibration": 2,
       "evidence_citation": 4,
       "anti_hallucination": 4,
-      "reasoning": "The agent provided highly specific evidence, citing concrete projects (ET Money support automation reducing tickets from 17k to 7k, intent classification, 100+ resolution workflows), domains (wealth, lending, insurance), and technical work (LLM evals, agentic workflows, voice interfaces). All claims are tied to verifiable experience without invention. However, the agent underestimated fit by flagging Voice AI production deployment as a potential gap, when the candidate's hands-on AI/voice work combined with deep BFSI experience (5+ years across multiple fintech verticals with 0-to-1 outcomes) actually meets the 'deep in one domain, curious about the other' requirement the role explicitly allows for."
+      "reasoning": "The agent correctly identified core criteria and provided well-evidenced evaluation, but miscalibrated the fit level by underweighting how strongly Rakshit matches the 'BFSI depth' path (which the JD explicitly states is sufficient). The role says deep expertise in 'BFSI OR Voice AI' with curiosity to bridge - Rakshit has strong BFSI across multiple domains, proven AI execution with shipped outcomes, and demonstrable voice interface work. The agent treated the voice gap as more disqualifying than the JD's structure warrants, especially given the 5 vs 6 year experience is marginal and Rakshit's outcomes suggest senior capability."
     },
     {
       "id": "S03_full_jd",
       "fit_level_correct": false,
       "expected_fit_level": "Not enough evidence",
       "actual_fit_level": "Partial fit",
-      "specificity": 3,
-      "evidence_citation": 3,
-      "anti_hallucination": 4,
-      "reasoning": "The agent correctly identified this as a senior software engineering role requiring backend systems expertise (Java/Golang, distributed systems, Kubernetes) rather than an AI PM role. The explanation references specific technical areas from Rakshit's background (agentic workflows, recommendation systems, Python) and accurately notes the mismatch between his AI product experience and the role's core requirements. However, the agent classified it as 'Partial fit' when the evidence suggests 'Not enough evidence' for the actual engineering requirements, making the fit assessment too generous."
+      "core_criteria": [
+        "6+ years work experience with demonstrated problem solving in non-trivial software systems (multi-process/thread/IPC)",
+        "Development experience in Java, Python, Golang, or Erlang",
+        "Coding critical sections and key features",
+        "Low-level design and rearchitecting algorithms",
+        "Code reviews and technical mentorship",
+        "Distributed systems implementation experience"
+      ],
+      "matched_criteria": [
+        "Python experience mentioned"
+      ],
+      "missing_or_weak_criteria": [
+        "No evidence of 6+ years backend/distributed systems engineering",
+        "No evidence of Java/Golang/Erlang development",
+        "No evidence of multi-process/thread/IPC system design",
+        "No evidence of low-level design documentation",
+        "No evidence of production backend engineering leadership",
+        "No evidence of code review and engineering mentorship at this level"
+      ],
+      "target_alignment": 3,
+      "fit_calibration": 2,
+      "evidence_citation": 2,
+      "anti_hallucination": 1,
+      "reasoning": "The agent correctly identified this as a senior backend engineering role requiring distributed systems expertise, Java/Golang/Erlang, and production engineering leadership—none of which have evidence in Rakshit's profile. However, the agent assigned 'Partial fit' when the profile shows no concrete evidence for any of the core must-have engineering requirements beyond basic Python usage. The correct classification should be 'Not enough evidence' since there's insufficient data to assess fit for this senior engineering role, even though the agent accurately diagnosed the role-type mismatch."
     },
     {
       "id": "S04_full_jd",
       "fit_level_correct": true,
       "expected_fit_level": "Partial fit",
       "actual_fit_level": "Partial fit",
-      "specificity": 4,
+      "core_criteria": [
+        "10+ years product management experience",
+        "Mandatory consumer internet industry experience",
+        "Demonstrated leadership of 4+ product managers",
+        "B2B & B2C domain proven track record",
+        "Product management methodologies (Agile/Scrum)"
+      ],
+      "matched_criteria": [
+        "Product management experience with measurable outcomes",
+        "Cross-functional collaboration skills",
+        "Data-driven decision making"
+      ],
+      "missing_or_weak_criteria": [
+        "10+ years experience (has only 5+ years)",
+        "Consumer internet industry experience (has fintech, not consumer internet marketplace)",
+        "Team leadership of 4+ product managers (no evidence of people management)",
+        "Real estate/property tech domain knowledge"
+      ],
+      "target_alignment": 4,
+      "fit_calibration": 4,
       "evidence_citation": 4,
       "anti_hallucination": 4,
-      "reasoning": "The agent correctly identifies 'Partial fit' and provides highly specific evidence including the 59% support ticket reduction, INR 100Cr disbursals, and AI support automation work. The explanation precisely identifies the core gaps (10+ years experience requirement, mandatory consumer internet background, leading 4+ PMs) while acknowledging relevant strengths in AI/fintech product work. Critically, the agent avoids claiming Rakshit has people management or consumer internet experience he doesn't possess, staying truthful to the evidence."
+      "reasoning": "The agent correctly identified the three critical hard gaps: insufficient years of experience (5+ vs 10+ required), lack of people management evidence (no team leadership vs 4+ PMs required), and domain mismatch (fintech vs consumer internet mandatory). The agent appropriately weighted these as disqualifying for a strong fit while acknowledging adjacent product skills, resulting in the correct 'Partial fit' classification that aligns with the expected assessment."
     },
     {
       "id": "S05_full_jd",
       "fit_level_correct": false,
       "expected_fit_level": "Partial fit",
       "actual_fit_level": "Relevant fit",
-      "specificity": 3,
+      "core_criteria": [
+        "6+ years PM experience with 3+ years shipping enterprise B2B SaaS ($50K+ ACV)",
+        "Direct experience in logistics/supply chain/freight/3PL verticals",
+        "Hands-on experience shipping AI/ML features in production with measurable outcomes",
+        "Experience navigating enterprise sales cycles and customer discovery with enterprise stakeholders",
+        "Technical depth to discuss prompt engineering, RAG, fine-tuning, model selection with ML teams"
+      ],
+      "matched_criteria": [
+        "AI/ML product experience with LLM workflows, semantic search, agentic systems",
+        "Technical depth with OpenAI SDK, Python, TypeScript and AI tooling"
+      ],
+      "missing_or_weak_criteria": [
+        "No evidence of logistics/supply chain/freight/3PL domain experience (fintech background instead)",
+        "No clear evidence of enterprise B2B SaaS experience at $50K+ ACV scale",
+        "No evidence of navigating enterprise sales cycles or customer discovery with VP Operations/Director of Logistics level stakeholders",
+        "Unclear if PM experience meets 6+ years threshold or if AI feature shipping was at required enterprise scale"
+      ],
+      "target_alignment": 3,
+      "fit_calibration": 2,
       "evidence_citation": 2,
       "anti_hallucination": 3,
-      "reasoning": "The agent misclassified as 'Relevant fit' when 'Partial fit' was expected—a meaningful distinction since the role strongly emphasizes logistics domain experience which Rakshit lacks. The explanation provides reasonable specificity about AI capabilities (LLM workflows, semantic search, agentic systems) and correctly identifies the logistics gap. However, evidence citation is weak—it mentions tools and work areas but doesn't tie them to specific projects or outcomes from Rakshit's background, and the sources cited are about FreightGrid, not about Rakshit's experience."
+      "reasoning": "The agent correctly identifies the logistics domain gap as a major weakness and appropriately highlights AI product strengths. However, it underweights the multiple hard gaps: no evidence of enterprise B2B SaaS at the required ACV scale, no evidence of enterprise sales cycle navigation, and unclear seniority/scale of AI feature shipping. The agent labels this 'Relevant fit' when these cumulative gaps—especially the complete absence of logistics domain experience AND unclear enterprise PM credentials—should warrant 'Partial fit'. The AI technical depth alone cannot overcome multiple must-have requirement gaps in an enterprise domain-specific senior role."
     },
     {
       "id": "S06_short",
       "fit_level_correct": false,
       "expected_fit_level": "Partial fit",
       "actual_fit_level": "Relevant fit",
-      "specificity": 3,
+      "core_criteria": [
+        "B2C consumer app experience",
+        "Funnel optimization expertise",
+        "Paid acquisition ownership",
+        "Lifecycle marketing programs",
+        "Strong SQL skills",
+        "Experimentation background"
+      ],
+      "matched_criteria": [
+        "B2C fintech consumer product experience",
+        "SQL skills (SQL, MySQL, Firebase)",
+        "Experimentation background (Firebase A/B Testing)",
+        "Analytics and data-driven decision making"
+      ],
+      "missing_or_weak_criteria": [
+        "Paid acquisition channel ownership",
+        "Lifecycle marketing programs",
+        "Funnel optimization (unclear depth)"
+      ],
+      "target_alignment": 3,
+      "fit_calibration": 2,
       "evidence_citation": 3,
-      "anti_hallucination": 4,
-      "reasoning": "The agent correctly identified analytics strengths (SQL, experimentation, Firebase A/B Testing) and appropriately flagged the gap in paid acquisition and lifecycle marketing. However, it classified this as 'Relevant fit' rather than 'Partial fit', despite clearly noting the missing experience in core requirements. The explanation is specific about tools and context (ET Money, fintech, 5+ years) and avoids inventing experience, but the fit level is too generous given the acknowledged gaps in paid acquisition."
+      "anti_hallucination": 3,
+      "reasoning": "The agent correctly identified Rakshit's strong analytics, SQL, and experimentation background, and appropriately flagged the uncertainty around paid acquisition and lifecycle marketing. However, the agent was too generous with the fit level—calling this 'Relevant fit' when two of six core criteria (paid acquisition and lifecycle marketing) have no evidence, which should result in 'Partial fit'. The agent's own hedge ('main unknown is whether he has directly owned paid acquisition...') contradicts the 'Relevant fit' label, suggesting fit_calibration was off by one level."
     },
     {
       "id": "S07_short",
       "fit_level_correct": false,
       "expected_fit_level": "Not enough evidence",
       "actual_fit_level": "Partial fit",
-      "specificity": 3,
-      "evidence_citation": 2,
-      "anti_hallucination": 2,
-      "reasoning": "The agent correctly identifies the role mismatch (builder vs. PMM function) but scores 'Partial fit' instead of 'Not enough evidence'. The explanation claims specific technical capabilities (LLM agents, RAG systems, eval frameworks) without citing which profile or project demonstrates these, risking hallucination. While the agent appropriately flags missing evidence for technical writing and existing audience, it overstates the candidate's fit by suggesting he 'has built' these systems without verification from the listed sources."
+      "core_criteria": [
+        "Product marketing management experience (marketing function, not product/engineering)",
+        "Developer marketing track record with measurable programs",
+        "Technical writing portfolio (published articles, blogs, documentation)",
+        "Existing audience (social media following, content reach, community presence)"
+      ],
+      "matched_criteria": [
+        "Technical credibility in AI infrastructure domain"
+      ],
+      "missing_or_weak_criteria": [
+        "Product marketing management experience",
+        "Developer marketing programs",
+        "Technical writing portfolio",
+        "Existing audience"
+      ],
+      "target_alignment": 2,
+      "fit_calibration": 2,
+      "evidence_citation": 3,
+      "anti_hallucination": 3,
+      "reasoning": "The agent correctly identifies that Rakshit lacks direct PMM experience, developer marketing programs, technical writing, and audience, but then assigns 'Partial fit' instead of recognizing this is a functional mismatch (builder/engineer vs marketer role). The agent overweights adjacent technical credibility while underweighting the hard requirement that this is a marketing role requiring marketing skills and track record, not just product understanding. A builder with no marketing experience is 'Not enough evidence' for a marketing manager role, not 'Partial fit'."
     },
     {
       "id": "S08_short",
       "fit_level_correct": true,
       "expected_fit_level": "Partial fit",
       "actual_fit_level": "Partial fit",
-      "specificity": 2,
-      "evidence_citation": 2,
+      "core_criteria": [
+        "8+ years operating experience",
+        "Financial modeling depth/chops",
+        "Chief of Staff scope - cross-functional strategic projects",
+        "Series C stage operational leadership",
+        "Founder-facing strategic partner capability"
+      ],
+      "matched_criteria": [
+        "Operating experience exists (though years/depth unclear)"
+      ],
+      "missing_or_weak_criteria": [
+        "Financial modeling depth uncertain/not evidenced",
+        "Chief of Staff scope unclear - no clear evidence of COS-type work",
+        "Cross-functional strategic project leadership at appropriate scale",
+        "Founder-level strategic partnership experience"
+      ],
+      "target_alignment": 4,
+      "fit_calibration": 4,
+      "evidence_citation": 3,
       "anti_hallucination": 4,
-      "reasoning": "The agent correctly identifies Partial fit and appropriately notes the gap between Rakshit's AI/Product Manager background in fintech versus traditional Chief of Staff operating experience. However, the explanation lacks specific project names, companies, or quantified outcomes from Rakshit's profile. The agent avoids hallucination by explicitly stating what evidence is missing rather than inventing credentials."
+      "reasoning": "The agent correctly identified this as Partial fit and properly weighted the core gaps: uncertain COS scope, unclear financial modeling depth, and product/AI-heavy background vs traditional strategic operator role. The agent appropriately noted operating experience exists but avoided overstating it, and correctly flagged this is 'not a clean match' for the traditional Series C COS requirements. The evaluation directly addresses the must-have criteria (8+ years, financial modeling, strategic cross-functional work) and accurately reflects the evidence gaps."
     },
     {
       "id": "S09_ambiguous",
       "fit_level_correct": false,
       "expected_fit_level": "Relevant fit",
       "actual_fit_level": "Strong fit",
-      "specificity": 3,
+      "core_criteria": [
+        "AI product management experience",
+        "Voice-based product experience",
+        "Conversation intelligence understanding",
+        "Sales team/CRM domain expertise",
+        "Series A startup context fit",
+        "India-based alignment"
+      ],
+      "matched_criteria": [
+        "AI product management experience",
+        "Voice-based product experience",
+        "Conversation intelligence understanding",
+        "India-based alignment"
+      ],
+      "missing_or_weak_criteria": [
+        "Sales team/CRM domain expertise",
+        "Direct sales workflows or revenue intelligence experience"
+      ],
+      "target_alignment": 4,
+      "fit_calibration": 2,
       "evidence_citation": 3,
       "anti_hallucination": 4,
-      "reasoning": "The agent incorrectly classified this as 'Strong fit' when it should be 'Relevant fit' given the sales/CRM domain gap explicitly noted. The explanation is specific (names ET Money, mentions OpenAI APIs, FastAPI, Streamlit) and appropriately identifies the domain mismatch. However, the fit level doesn't match the mixed evidence—strong technical AI fit but clear sales workflow gap warrants 'Relevant' not 'Strong'."
+      "reasoning": "The agent correctly identified all core criteria and accurately mapped Rakshit's strong technical AI/voice/conversation skills while explicitly calling out the missing sales/CRM domain expertise. However, the fit calibration is off: the agent chose 'Strong fit' when the scenario explicitly states this is 'Greylabs-adjacent' with clear domain gaps that should yield 'Relevant fit.' The agent's own analysis supports Relevant fit but labeled it Strong, making this a calibration error rather than a target alignment issue."
     },
     {
       "id": "S10_positive_control",
       "fit_level_correct": true,
       "expected_fit_level": "Strong fit",
       "actual_fit_level": "Strong fit",
-      "specificity": 4,
-      "evidence_citation": 4,
+      "core_criteria": [
+        "PM who writes code / technical execution capability",
+        "Can ship eval pipelines for AI systems",
+        "Owns AI roadmap end-to-end / product leadership",
+        "Fintech domain experience",
+        "Agentic workflows / AI agent experience",
+        "Retail investor / investment analysis context"
+      ],
+      "matched_criteria": [
+        "Fintech product experience explicitly mentioned",
+        "AI-driven workflows and agent orchestration cited",
+        "Semantic search/RAG and financial analysis agent work",
+        "Evaluation-oriented thinking and tool-use accuracy improvements",
+        "Maps to VYNN AI's automated financial analysis and validated recommendations"
+      ],
+      "missing_or_weak_criteria": [
+        "Direct evidence of writing production code as a PM",
+        "Concrete examples of shipping eval pipelines specifically",
+        "Evidence of end-to-end AI roadmap ownership at product leadership level"
+      ],
+      "target_alignment": 3,
+      "fit_calibration": 3,
+      "evidence_citation": 3,
       "anti_hallucination": 4,
-      "reasoning": "The agent correctly identifies Strong fit and provides highly specific evidence: semantic search in mutual funds, AI financial analysis agent with tool-use accuracy improvements, support automation, and eval work. Each claim is tied to concrete projects (AI-driven workflows, agent orchestration, validated recommendations). The agent appropriately flags uncertainties (Series A confirmation, production eval pipelines) rather than overstating evidence, demonstrating strong anti-hallucination discipline."
+      "reasoning": "The agent correctly identified the core requirements (fintech, agentic workflows, eval pipelines, technical PM) and mapped Rakshit's experience appropriately. While acknowledging some gaps (production eval pipelines, company stage uncertainty), the agent properly weighted the strong domain and AI workflow alignment. The 'Strong fit' label is justified given the comprehensive match on fintech + AI agents + evaluation work, though the agent could have been more explicit about evidence for the 'writes code' and 'ships eval pipelines' requirements."
     },
     {
       "id": "S11_positive_control",
       "fit_level_correct": false,
       "expected_fit_level": "Partial fit",
       "actual_fit_level": "Strong fit",
-      "specificity": 2,
-      "evidence_citation": 2,
-      "anti_hallucination": 3,
-      "reasoning": "The agent overclaimed fit by rating it 'Strong' when the domain mismatch (B2B payments infrastructure vs consumer retail fintech) warrants 'Partial'. The explanation mentions relevant AI capabilities (LLM workflows, agentic systems) but doesn't cite specific Rakshit projects or acknowledge the significant domain gap between merchant-side payment infrastructure and consumer fintech. The agent correctly identifies fintech and AI experience but fails to weigh the problem-domain mismatch appropriately."
+      "core_criteria": [
+        "B2B payments infrastructure experience (merchant-side, payment processing)",
+        "Fraud detection, risk management, or security systems experience",
+        "Developer tools or API product experience",
+        "AI/ML product management capability",
+        "Fintech domain knowledge"
+      ],
+      "matched_criteria": [
+        "AI/ML product management capability",
+        "Fintech domain knowledge (consumer side)"
+      ],
+      "missing_or_weak_criteria": [
+        "B2B payments infrastructure experience",
+        "Merchant-side or business payments problems",
+        "Fraud/risk management systems",
+        "Developer tools or API products"
+      ],
+      "target_alignment": 2,
+      "fit_calibration": 2,
+      "evidence_citation": 3,
+      "anti_hallucination": 1,
+      "reasoning": "The agent correctly identifies Rakshit's AI PM capabilities and fintech experience but fails to weight the critical gap between consumer retail fintech and Razorpay's B2B merchant payments infrastructure. The agent mentions fraud/routing/developer tools as potential fit areas but doesn't acknowledge that Rakshit lacks direct experience in these merchant-side, B2B payment problems. Calling this 'strong fit' significantly overstates the match when the domain overlap is fintech-shaped but not problem-shaped, exactly as the expected assessment notes."
     },
     {
       "id": "S10_positive_control",
       "fit_level_correct": false,
       "expected_fit_level": "Strong fit",
       "actual_fit_level": "Relevant fit",
-      "specificity": 3,
+      "core_criteria": [
+        "Senior product management experience in fintech/wealthtech",
+        "Product ownership in wealth management or investment products",
+        "Technology-led digital wealth platform experience",
+        "Building customer-facing advisory or portfolio tracking products",
+        "Experience at scale with growing fintech platforms"
+      ],
+      "matched_criteria": [
+        "5+ years fintech product experience at ET Money",
+        "Built advisory products and recommendation systems",
+        "AI-enabled automation and scalable workflows",
+        "Direct wealth management product experience (mutual funds, portfolio products)"
+      ],
+      "missing_or_weak_criteria": [
+        "PMS/AIF regulatory exposure (agent flags this but overweights it as a gap)"
+      ],
+      "target_alignment": 3,
+      "fit_calibration": 2,
       "evidence_citation": 3,
-      "anti_hallucination": 4,
-      "reasoning": "The agent correctly identifies specific relevant experiences (advisory products, recommendation systems, AI support automation at ET Money) and appropriately flags potential gaps (PMS/AIF regulatory exposure). However, it underrates the fit by choosing 'Relevant fit' instead of 'Strong fit' despite acknowledging strong alignment with Dezerv's core product areas. The explanation is cautious and evidence-based without inventing credentials."
+      "anti_hallucination": 1,
+      "reasoning": "The agent correctly identifies strong overlaps between Rakshit's ET Money wealth product experience and Dezerv's technology-led wealth platform, including advisory systems, portfolio intelligence, and AI automation. However, the agent undervalues this alignment by calling out lack of 'direct PMS/AIF regulatory exposure' as a significant caveat, when Rakshit's demonstrated wealth management product expertise at a comparable fintech platform strongly suggests he can handle Dezerv's SPM role. The fit level should be 'Strong fit' given the direct domain match, seniority alignment, and relevant product experience, not downgraded to 'Relevant fit' based on a narrow regulatory exposure concern that may not be a core SPM requirement."
     }
   ],
   "summary": {
     "n": 12,
     "fit_level_accuracy": 0.25,
-    "specificity_avg": 3.2,
+    "target_alignment_avg": 3,
+    "fit_calibration_avg": 2.4,
     "evidence_citation_avg": 3,
-    "anti_hallucination_avg": 3.7,
-    "overall_avg": 3.3
+    "anti_hallucination_avg": 2.9,
+    "overall_avg": 2.8
   }
 }

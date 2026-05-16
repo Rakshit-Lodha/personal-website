@@ -53,7 +53,12 @@ type SkepticScore = {
   fit_level_correct: boolean;
   expected_fit_level: string;
   actual_fit_level: string;
-  specificity: number;
+  core_criteria?: string[];
+  matched_criteria?: string[];
+  missing_or_weak_criteria?: string[];
+  target_alignment?: number;
+  fit_calibration?: number;
+  specificity?: number;
   evidence_citation: number;
   anti_hallucination: number;
   reasoning: string;
@@ -363,7 +368,20 @@ function ScoreGrid({ version }: { version: VersionData }) {
               </div>
               {testSet !== "factual" && version.summary.scores[testSet] ? (
                 <div className="mt-4 space-y-2 text-xs text-[#6b6860]">
-                  <ScoreLine label="Specificity" value={version.summary.scores[testSet]?.specificity_avg} />
+                  {testSet === "skeptic" ? (
+                    <>
+                      <ScoreLine
+                        label="Alignment"
+                        value={
+                          version.summary.scores[testSet]?.target_alignment_avg ??
+                          version.summary.scores[testSet]?.specificity_avg
+                        }
+                      />
+                      <ScoreLine label="Calibration" value={version.summary.scores[testSet]?.fit_calibration_avg} />
+                    </>
+                  ) : (
+                    <ScoreLine label="Specificity" value={version.summary.scores[testSet]?.specificity_avg} />
+                  )}
                   <ScoreLine label="Evidence" value={version.summary.scores[testSet]?.evidence_citation_avg} />
                   <ScoreLine label="Grounding" value={version.summary.scores[testSet]?.anti_hallucination_avg} />
                 </div>
@@ -494,7 +512,9 @@ function scoreDetails(testSet: TestSet, scoreItem: FactualScore | QualityScore |
     return `Specificity ${quality.specificity}/4 · Evidence ${quality.evidence_citation}/4 · Grounding ${quality.anti_hallucination}/4. ${quality.reasoning}`;
   }
   const skeptic = scoreItem as SkepticScore;
-  return `Expected ${skeptic.expected_fit_level}; got ${skeptic.actual_fit_level}. Specificity ${skeptic.specificity}/4 · Evidence ${skeptic.evidence_citation}/4 · Grounding ${skeptic.anti_hallucination}/4. ${skeptic.reasoning}`;
+  const alignment = skeptic.target_alignment ?? skeptic.specificity ?? 0;
+  const calibration = skeptic.fit_calibration ?? 0;
+  return `Expected ${skeptic.expected_fit_level}; got ${skeptic.actual_fit_level}. Alignment ${alignment}/4 · Calibration ${calibration}/4 · Evidence ${skeptic.evidence_citation}/4 · Grounding ${skeptic.anti_hallucination}/4. ${skeptic.reasoning}`;
 }
 
 function interestingCases(version: VersionData) {

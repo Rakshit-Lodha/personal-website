@@ -206,6 +206,8 @@ function scoreRows(summary: EvaluationSummary) {
   }
   if (skeptic) {
     rows.push(`| Skeptic | ${skeptic.n ?? 0} | Fit-level accuracy | ${formatPercent(skeptic.fit_level_accuracy)} |`);
+    rows.push(`| Skeptic | ${skeptic.n ?? 0} | Target alignment (avg) | ${formatAvg(skeptic.target_alignment_avg ?? skeptic.specificity_avg)} |`);
+    rows.push(`| Skeptic | ${skeptic.n ?? 0} | Fit calibration (avg) | ${formatAvg(skeptic.fit_calibration_avg)} |`);
     rows.push(`| Skeptic | ${skeptic.n ?? 0} | Explanation overall avg | ${formatAvg(skeptic.overall_avg)} |`);
   }
 
@@ -292,6 +294,8 @@ function scoreDeltaRows(a: EvaluationSummary, b: EvaluationSummary) {
     ["Factual pass rate", a.scores.factual?.pass_rate, b.scores.factual?.pass_rate, "percent"],
     ["Quality overall avg", a.scores.quality?.overall_avg, b.scores.quality?.overall_avg, "score"],
     ["Skeptic fit-level accuracy", a.scores.skeptic?.fit_level_accuracy, b.scores.skeptic?.fit_level_accuracy, "percent"],
+    ["Skeptic target alignment", a.scores.skeptic?.target_alignment_avg, b.scores.skeptic?.target_alignment_avg, "score"],
+    ["Skeptic fit calibration", a.scores.skeptic?.fit_calibration_avg, b.scores.skeptic?.fit_calibration_avg, "score"],
     ["Skeptic explanation overall avg", a.scores.skeptic?.overall_avg, b.scores.skeptic?.overall_avg, "score"],
   ];
 
