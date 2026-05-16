@@ -405,64 +405,30 @@ function ScoreLine({ label, value }: { label: string; value: number | undefined 
 }
 
 function LatencyGrid({ version }: { version: VersionData }) {
-  const stageMax = Math.max(
-    1,
-    version.summary.latency.stages_mean_ms.websearch ?? 0,
-    version.summary.latency.stages_mean_ms.context ?? 0,
-    version.summary.latency.stages_mean_ms.answer ?? 0,
-  );
-
   return (
-    <section className="grid gap-4 lg:grid-cols-[1.35fr_0.9fr]">
-      <div className="rounded-lg border border-[#e4e0da] bg-white p-5">
-        <h2 className="text-lg font-semibold text-[#111111]">Latency by Test Set</h2>
-        <div className="mt-5 overflow-x-auto">
-          <table className="w-full min-w-[640px] text-left text-sm">
-            <thead className="text-xs uppercase tracking-[0.08em] text-[#6b6860]">
-              <tr className="border-b border-[#ede9e3]">
-                <th className="pb-2 font-medium">Set</th>
-                <th className="pb-2 font-medium">N</th>
-                <th className="pb-2 font-medium">Mean</th>
-                <th className="pb-2 font-medium">Median</th>
-                <th className="pb-2 font-medium">p95</th>
-                <th className="pb-2 font-medium">First token</th>
-              </tr>
-            </thead>
-            <tbody>
-              {TEST_SETS.map((testSet) => {
-                const stats = version.summary.latency[testSet];
-                if (!stats) return null;
-                return <LatencyRow key={testSet} label={TEST_SET_LABELS[testSet]} stats={stats} />;
-              })}
-              <LatencyRow label="All" stats={version.summary.latency.overall} strong />
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div className="rounded-lg border border-[#e4e0da] bg-white p-5">
-        <h2 className="text-lg font-semibold text-[#111111]">Pipeline Stages</h2>
-        <p className="mt-1 text-sm text-[#6b6860]">Mean elapsed time from stage start to completion.</p>
-        <div className="mt-5 space-y-4">
-          {[
-            ["Websearch", version.summary.latency.stages_mean_ms.websearch ?? 0],
-            ["Context", version.summary.latency.stages_mean_ms.context ?? 0],
-            ["Answer", version.summary.latency.stages_mean_ms.answer ?? 0],
-          ].map(([label, value]) => (
-            <div key={label}>
-              <div className="mb-2 flex justify-between text-sm">
-                <span className="font-medium text-[#111111]">{label}</span>
-                <span className="text-[#6b6860]">{seconds(value as number)}</span>
-              </div>
-              <Bar value={value as number} max={stageMax} />
-            </div>
-          ))}
-        </div>
-        {stageMax === 1 ? (
-          <p className="mt-4 rounded-lg bg-[#fffbeb] px-3 py-2 text-xs leading-relaxed text-[#b45309]">
-            Stage data is missing or zero in this run. Deploy the telemetry build before capturing V2 to populate this chart.
-          </p>
-        ) : null}
+    <section className="rounded-lg border border-[#e4e0da] bg-white p-5">
+      <h2 className="text-lg font-semibold text-[#111111]">Latency by Test Set</h2>
+      <div className="mt-5 overflow-x-auto">
+        <table className="w-full min-w-[640px] text-left text-sm">
+          <thead className="text-xs uppercase tracking-[0.08em] text-[#6b6860]">
+            <tr className="border-b border-[#ede9e3]">
+              <th className="pb-2 font-medium">Set</th>
+              <th className="pb-2 font-medium">N</th>
+              <th className="pb-2 font-medium">Mean</th>
+              <th className="pb-2 font-medium">Median</th>
+              <th className="pb-2 font-medium">p95</th>
+              <th className="pb-2 font-medium">First token</th>
+            </tr>
+          </thead>
+          <tbody>
+            {TEST_SETS.map((testSet) => {
+              const stats = version.summary.latency[testSet];
+              if (!stats) return null;
+              return <LatencyRow key={testSet} label={TEST_SET_LABELS[testSet]} stats={stats} />;
+            })}
+            <LatencyRow label="All" stats={version.summary.latency.overall} strong />
+          </tbody>
+        </table>
       </div>
     </section>
   );
