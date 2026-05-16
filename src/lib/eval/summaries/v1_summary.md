@@ -8,10 +8,10 @@ System prompt SHA: 8081e28e638ec9d57a4e851a52eee6376d0ef54c
 | Test Set | N | Metric | Score |
 |---|---:|---|---:|
 | Factual | 20 | Pass rate | 100% |
-| Quality | 20 | Specificity (avg) | 3.4/4 |
-| Quality | 20 | Evidence-citation (avg) | 3.0/4 |
-| Quality | 20 | Anti-hallucination (avg) | 3.3/4 |
-| Quality | 20 | Overall avg | 3.2/4 |
+| Quality | 20 | Specificity (avg) | 3.0/4 |
+| Quality | 20 | Evidence-citation (avg) | 2.8/4 |
+| Quality | 20 | Anti-hallucination (avg) | 2.7/4 |
+| Quality | 20 | Overall avg | 2.8/4 |
 | Skeptic | 12 | Fit-level accuracy | 25% |
 | Skeptic | 12 | Target alignment (avg) | 3.0/4 |
 | Skeptic | 12 | Fit calibration (avg) | 2.4/4 |

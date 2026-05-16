@@ -1,6 +1,6 @@
 {
   "version": "v1",
-  "date": "2026-05-16T07:46:33.647Z",
+  "date": "2026-05-16T08:55:52.419Z",
   "system_prompt_sha": "8081e28e638ec9d57a4e851a52eee6376d0ef54c",
   "scores": {
     "factual": {
@@ -9,10 +9,10 @@
     },
     "quality": {
       "n": 20,
-      "specificity_avg": 3.4,
-      "evidence_citation_avg": 3,
-      "anti_hallucination_avg": 3.3,
-      "overall_avg": 3.2
+      "specificity_avg": 3,
+      "evidence_citation_avg": 2.8,
+      "anti_hallucination_avg": 2.7,
+      "overall_avg": 2.8
     },
     "skeptic": {
       "n": 12,

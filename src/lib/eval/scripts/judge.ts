@@ -3,6 +3,9 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { loadEnvConfig } from "@next/env";
 import type { CaseResult, FactualScore, QualityScore, RunFile, ScoreFile, SkepticScore, TestSet } from "../types";
+import { serializeProfileSections } from "@/lib/agent/profileContext";
+
+const profileSummary = serializeProfileSections();
 
 loadEnvConfig(process.cwd());
 
@@ -129,20 +132,45 @@ Respond with ONLY a JSON object, no other text:
 {"pass": true|false, "reasoning": "one sentence explanation"}`;
 }
 
-function qualityPrompt(testCase: CaseResult) {
-  return `You are scoring an AI agent's response to an open-ended question about a person named Rakshit Lodha (an AI Product Manager). Score on three dimensions, each 1-4.
+function qualityPrompt(testCase: CaseResult, profileSummary: string) {
+  return `You are a STRICT evaluator scoring an AI agent's response to a question about Rakshit Lodha (an AI Product Manager). Your goal is to identify actual quality, not to be encouraging. Do not inflate scores to give partial credit.
+
+PROFILE GROUND TRUTH:
+${profileSummary}
 
 QUESTION: ${testCase.question}
 
 AGENT'S RESPONSE: ${testCase.answer_text}
 
-DIMENSIONS:
-1. Specificity (1-4): Does the answer reference specific projects, roles, metrics, or shipped outcomes? 4 = consistently specific with named projects and concrete numbers. 1 = entirely generic capability-soup with no specifics.
-2. Evidence-citation (1-4): Is each capability claim immediately tied to where it was demonstrated? 4 = every claim has an accompanying evidence pointer (project, role, outcome). 1 = capabilities listed without evidence.
-3. Anti-hallucination (1-4): Does the answer avoid inventing claims, combining unrelated facts, or stretching evidence to fit the question? 4 = strictly grounded, admits limits where evidence is thin. 1 = clear fabrication or unsupported leaps.
+SCORING RULES:
+- The 1-4 scale is a real distribution. Most professional responses score 2-3. A score of 4 is exemplary and rare.
+- Cross-check every specific claim in the response against the PROFILE GROUND TRUTH above. Claims not supported by the profile are hallucinations, regardless of how plausible they sound.
+- Hedge words ('likely', 'probably', 'would', 'appears to', 'suggests that') do NOT protect against hallucination. They are INDICATORS that the agent is speculating without evidence. When evidence is missing, the correct behavior is to say "the profile does not cover this" — NOT to speculate.
+
+DIMENSIONS (score each 1-4):
+
+1. SPECIFICITY: Does the response name specific projects, roles, metrics, and shipped outcomes?
+   - 4: Every capability claim is paired with a named project, role, or outcome. No generic capability-words.
+   - 3: Most claims are specific. 1-2 claims are vague or under-specified.
+   - 2: Half the response is specific, half is generic capability-soup.
+   - 1: Entirely generic. No named projects, no metrics, no shipped outcomes.
+
+2. EVIDENCE-CITATION: Is each capability claim tied to verifiable profile evidence?
+   - 4: Every claim points to a specific profile section, project, or outcome that supports it.
+   - 3: Most claims are supported. 1-2 claims are asserted without clear profile backing.
+   - 2: Several claims are unsupported by profile evidence. The response would not hold up to scrutiny.
+   - 1: Claims are listed without any evidence pointers. Profile data is not meaningfully cited.
+
+3. ANTI-HALLUCINATION: Does the response avoid inventing claims or stretching evidence?
+   - 4: Strictly grounded in profile data. Admits limits where evidence is thin.
+   - 3: Mostly grounded. Minor interpretive stretches but no fabrication.
+   - 2: Contains hedged speculation ('likely', 'would', 'appears to') in place of grounded claims. The agent should have admitted missing evidence instead.
+   - 1: Contains clear fabrication, invented quotes, conflated entities, or claims that contradict the profile.
+
+CRITICAL FAILURE OVERRIDE: If anti-hallucination scores 1, set "critical_failure": true. Critical failures are worse than vague responses because specific fabricated claims give readers false confidence.
 
 Respond with ONLY a JSON object, no other text:
-{"specificity": <1-4>, "evidence_citation": <1-4>, "anti_hallucination": <1-4>, "reasoning": "2-3 sentences explaining the scores"}`;
+{"specificity": <1-4>, "evidence_citation": <1-4>, "anti_hallucination": <1-4>, "critical_failure": <true|false>, "reasoning": "3-4 sentences with specific citations to which claims in the response are grounded vs ungrounded"}`;
 }
 
 function parseExpectedFitLevel(expectedFit: string | null) {
@@ -281,7 +309,7 @@ async function judgeCase(testSet: TestSet, testCase: CaseResult, apiKey: string)
     }
 
     if (testSet === "quality") {
-      const parsed = await callJudge(qualityPrompt(testCase), apiKey);
+      const parsed = await callJudge(qualityPrompt(testCase, profileSummary), apiKey);
       return {
         id: testCase.id,
         specificity: clampScore(parsed.specificity),
