@@ -6,6 +6,7 @@ import { IDENTITY } from "./identity";
 import { PROJECTS } from "./projects";
 import { SUGGESTED_PROMPTS } from "./prompts";
 import { TECHNICAL_EVIDENCE } from "./technicalEvidence";
+import { PROFILE_DATA_V2 } from "./v2";
 
 export { EDUCATION } from "./education";
 export type { Education } from "./education";
@@ -22,8 +23,12 @@ export type { Project } from "./projects";
 export { SUGGESTED_PROMPTS } from "./prompts";
 export { TECHNICAL_EVIDENCE } from "./technicalEvidence";
 export type { TechnicalEvidence } from "./technicalEvidence";
+export { PROFILE_DATA_V2, PROFILE_V2_DEEP_EVIDENCE } from "./v2";
+export type { DeepEvidenceInput } from "./v2";
 
-export const PROFILE_DATA = {
+export const PROFILE_VERSION = process.env.OPENAI_PROFILE_VERSION || "v1";
+
+export const PROFILE_DATA_V1 = {
   person: IDENTITY,
   aiProductCapabilities: IDENTITY.aiProductCapabilities,
   hobbies: IDENTITY.personalSignals,
@@ -36,5 +41,13 @@ export const PROFILE_DATA = {
   technicalEvidence: TECHNICAL_EVIDENCE,
   suggestedPrompts: SUGGESTED_PROMPTS,
 } as const;
+
+export const PROFILE_DATA = PROFILE_VERSION === "v2" ? PROFILE_DATA_V2 : PROFILE_DATA_V1;
+
+export function getReadyDeepEvidence() {
+  return PROFILE_VERSION === "v2"
+    ? PROFILE_DATA_V2.deepEvidence.filter((entry) => entry.status === "ready")
+    : [];
+}
 
 export type ProfileData = typeof PROFILE_DATA;

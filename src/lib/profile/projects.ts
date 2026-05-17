@@ -32,6 +32,7 @@ export const PROJECTS = [
       "pdf-parse",
       "mammoth",
       "Tailwind CSS",
+      "shadcn/ui",
     ],
     architecture:
       "A Node runtime API route streams newline-delimited SSE events to the browser. The backend detects company URLs, researches public company context when needed, runs a context selector over Rakshit's structured profile, and then uses a main answer agent with retrieval tools to produce a schema-validated AgentResponse.",

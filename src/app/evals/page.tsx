@@ -1,6 +1,8 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import Link from "next/link";
+import type { ReactNode } from "react";
+import { ArrowRight, CheckCircle2, Gauge, SearchCheck, ShieldCheck, TriangleAlert } from "lucide-react";
 import Nav from "@/components/Nav";
 
 export const dynamic = "force-dynamic";
@@ -29,6 +31,8 @@ type RunFile = {
   version: string;
   test_set: TestSet;
   date: string;
+  prompt_version?: string;
+  profile_version?: string;
   system_prompt_sha: string;
   api_url: string;
   cases: CaseResult[];
@@ -92,6 +96,8 @@ type LatencyStats = {
 type EvalSummary = {
   version: string;
   date: string;
+  prompt_version?: string;
+  profile_version?: string;
   system_prompt_sha: string;
   scores: Partial<Record<TestSet, Record<string, number>>>;
   latency: Partial<Record<TestSet, LatencyStats>> & {
@@ -106,9 +112,24 @@ type EvalSummary = {
 
 const TEST_SETS: TestSet[] = ["factual", "quality", "skeptic"];
 const TEST_SET_LABELS: Record<TestSet, string> = {
-  factual: "Factual",
-  quality: "Quality",
-  skeptic: "Skeptic",
+  factual: "Factual recall",
+  quality: "Answer quality",
+  skeptic: "Fit judgment",
+};
+
+const TEST_SET_EXPLAINERS: Record<TestSet, { short: string; detail: string }> = {
+  factual: {
+    short: "Can it remember known profile facts?",
+    detail: "Twenty direct checks for projects, outcomes, tools, and agent behavior that should have one grounded answer.",
+  },
+  quality: {
+    short: "Does it answer with useful evidence?",
+    detail: "Rubric-graded answers for specificity, cited evidence, and avoiding unsupported claims.",
+  },
+  skeptic: {
+    short: "Can it avoid over-selling fit?",
+    detail: "Role, company, and JD-style prompts that test whether the agent calibrates fit labels conservatively.",
+  },
 };
 
 function evalPath(...segments: string[]) {
@@ -221,6 +242,8 @@ function fallbackSummary(version: string, runs: Partial<Record<TestSet, RunFile>
   return {
     version,
     date: new Date().toISOString(),
+    prompt_version: TEST_SETS.map((testSet) => runs[testSet]?.prompt_version).find(Boolean),
+    profile_version: TEST_SETS.map((testSet) => runs[testSet]?.profile_version).find(Boolean),
     system_prompt_sha: TEST_SETS.map((testSet) => runs[testSet]?.system_prompt_sha).find(Boolean) ?? "unknown",
     scores: Object.fromEntries(
       TEST_SETS.flatMap((testSet) => {
@@ -273,6 +296,21 @@ function score(value: number | undefined) {
   return `${(value ?? 0).toFixed(1)}/4`;
 }
 
+function signedNumber(value: number, digits = 1) {
+  const rounded = value.toFixed(digits);
+  return value > 0 ? `+${rounded}` : rounded;
+}
+
+function signedPercentPoints(value: number | undefined) {
+  const points = Math.round((value ?? 0) * 100);
+  return points > 0 ? `+${points}pp` : `${points}pp`;
+}
+
+function signedSeconds(value: number | undefined) {
+  const secondsValue = (value ?? 0) / 1000;
+  return secondsValue > 0 ? `+${secondsValue.toFixed(1)}s` : `${secondsValue.toFixed(1)}s`;
+}
+
 function metricWidth(value: number | undefined, max: number) {
   return `${Math.min(100, Math.max(0, ((value ?? 0) / max) * 100))}%`;
 }
@@ -308,6 +346,12 @@ function scoreTone(value: number, max: number) {
   return "bg-[#fef2f2] text-[#b91c1c] border-[#fecaca]";
 }
 
+function deltaTone(value: number, betterWhenHigher = true, surface: "light" | "dark" = "light") {
+  if (Math.abs(value) < 0.0001) return surface === "dark" ? "text-[#d7d2cb]" : "text-[#6b6860]";
+  const improved = betterWhenHigher ? value > 0 : value < 0;
+  return improved ? "text-[#15803d]" : "text-[#b45309]";
+}
+
 function Bar({ value, max, tone = "bg-[#1B6AE7]" }: { value: number; max: number; tone?: string }) {
   return (
     <div className="h-2 overflow-hidden rounded-full bg-[#e4e0da]">
@@ -316,28 +360,238 @@ function Bar({ value, max, tone = "bg-[#1B6AE7]" }: { value: number; max: number
   );
 }
 
-function HeroMetrics({ version }: { version: VersionData }) {
+function HeroMetrics({ version, previousVersion }: { version: VersionData; previousVersion?: VersionData }) {
   const { summary } = version;
   const factual = summary.scores.factual;
   const quality = summary.scores.quality;
   const skeptic = summary.scores.skeptic;
+  const factualDelta = factual?.pass_rate !== undefined && previousVersion?.summary.scores.factual?.pass_rate !== undefined
+    ? factual.pass_rate - previousVersion.summary.scores.factual.pass_rate
+    : undefined;
+  const qualityDelta = quality?.overall_avg !== undefined && previousVersion?.summary.scores.quality?.overall_avg !== undefined
+    ? quality.overall_avg - previousVersion.summary.scores.quality.overall_avg
+    : undefined;
+  const skepticDelta =
+    skeptic?.fit_level_accuracy !== undefined && previousVersion?.summary.scores.skeptic?.fit_level_accuracy !== undefined
+      ? skeptic.fit_level_accuracy - previousVersion.summary.scores.skeptic.fit_level_accuracy
+      : undefined;
+  const latencyDelta = previousVersion
+    ? summary.latency.overall.total_mean_ms - previousVersion.summary.latency.overall.total_mean_ms
+    : undefined;
 
   return (
     <section className="grid gap-3 md:grid-cols-4">
-      <MetricPanel label="Factual pass" value={percent(factual?.pass_rate)} helper={`${factual?.n ?? 0} recall checks`} />
-      <MetricPanel label="Quality score" value={score(quality?.overall_avg)} helper="Specificity + evidence + grounding" />
-      <MetricPanel label="Fit accuracy" value={percent(skeptic?.fit_level_accuracy)} helper={`${skeptic?.n ?? 0} role/JD checks`} />
-      <MetricPanel label="Mean latency" value={seconds(summary.latency.overall.total_mean_ms)} helper={`${summary.latency.overall.n} cases`} />
+      <MetricPanel
+        label="Facts remembered"
+        value={percent(factual?.pass_rate)}
+        helper={`${factual?.n ?? 0} recall checks`}
+        delta={factualDelta !== undefined ? signedPercentPoints(factualDelta) : undefined}
+        deltaClass={factualDelta !== undefined ? deltaTone(factualDelta) : undefined}
+      />
+      <MetricPanel
+        label="Answer quality"
+        value={score(quality?.overall_avg)}
+        helper="Specificity, evidence, grounding"
+        delta={qualityDelta !== undefined ? signedNumber(qualityDelta) : undefined}
+        deltaClass={qualityDelta !== undefined ? deltaTone(qualityDelta) : undefined}
+      />
+      <MetricPanel
+        label="Fit label accuracy"
+        value={percent(skeptic?.fit_level_accuracy)}
+        helper={`${skeptic?.n ?? 0} fit prompts`}
+        delta={skepticDelta !== undefined ? signedPercentPoints(skepticDelta) : undefined}
+        deltaClass={skepticDelta !== undefined ? deltaTone(skepticDelta) : undefined}
+      />
+      <MetricPanel
+        label="Average wait"
+        value={seconds(summary.latency.overall.total_mean_ms)}
+        helper={`${summary.latency.overall.n} total cases`}
+        delta={latencyDelta !== undefined ? signedSeconds(latencyDelta) : undefined}
+        deltaClass={latencyDelta !== undefined ? deltaTone(latencyDelta, false) : undefined}
+      />
     </section>
   );
 }
 
-function MetricPanel({ label, value, helper }: { label: string; value: string; helper: string }) {
+function MetricPanel({
+  label,
+  value,
+  helper,
+  delta,
+  deltaClass = "text-[#6b6860]",
+}: {
+  label: string;
+  value: string;
+  helper: string;
+  delta?: string;
+  deltaClass?: string;
+}) {
   return (
-    <div className="rounded-lg border border-[#e4e0da] bg-white px-4 py-3">
-      <p className="text-xs font-medium uppercase tracking-[0.08em] text-[#6b6860]">{label}</p>
-      <p className="mt-2 text-2xl font-semibold text-[#111111]">{value}</p>
+    <div className="rounded-lg border border-[#e4e0da] bg-white px-4 py-4">
+      <div className="flex items-start justify-between gap-3">
+        <p className="text-xs font-medium uppercase tracking-[0.08em] text-[#6b6860]">{label}</p>
+        {delta ? <span className={`text-xs font-semibold ${deltaClass}`}>{delta}</span> : null}
+      </div>
+      <p className="mt-3 text-3xl font-semibold tracking-tight text-[#111111]">{value}</p>
+      <p className="mt-1 text-xs leading-relaxed text-[#6b6860]">{helper}</p>
+    </div>
+  );
+}
+
+function ReadoutHero({ version, previousVersion }: { version: VersionData; previousVersion?: VersionData }) {
+  const factualPass = version.summary.scores.factual?.pass_rate ?? 0;
+  const fitAccuracy = version.summary.scores.skeptic?.fit_level_accuracy ?? 0;
+  const qualityScore = version.summary.scores.quality?.overall_avg ?? 0;
+  const verdict =
+    factualPass >= 1 && fitAccuracy >= 0.5
+      ? "The agent is factual, but fit calibration is still the main improvement area."
+      : "The agent needs more work before its fit judgments should be trusted.";
+
+  return (
+    <section className="grid gap-5 lg:grid-cols-[1.25fr_0.75fr]">
+      <div className="rounded-lg border border-[#e4e0da] bg-white p-6 md:p-7">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#bfdbfe] bg-[#eff6ff] px-3 py-1 text-xs font-semibold text-[#1d4ed8]">
+          <SearchCheck size={14} />
+          Latest run: {version.version.toUpperCase()}
+        </div>
+        <h2 className="mt-5 max-w-2xl text-3xl font-semibold tracking-tight text-[#111111] md:text-4xl">
+          {verdict}
+        </h2>
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#34312c]">
+          This page tests the hiring agent the way a recruiter would use it: ask factual questions, judge answer usefulness,
+          then see whether it stays honest when a role is only a partial match.
+        </p>
+        <div className="mt-6 grid gap-3 md:grid-cols-3">
+          <OutcomePill icon={<CheckCircle2 size={16} />} label="Facts" value={percent(factualPass)} helper="known-answer checks" />
+          <OutcomePill icon={<ShieldCheck size={16} />} label="Quality" value={score(qualityScore)} helper="evidence rubric" />
+          <OutcomePill icon={<Gauge size={16} />} label="Fit labels" value={percent(fitAccuracy)} helper="calibration checks" />
+        </div>
+      </div>
+      <div className="rounded-lg border border-[#d8d1c7] bg-[#111111] p-6 text-white">
+        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#d7d2cb]">What changed</p>
+        {previousVersion ? (
+          <>
+            <p className="mt-3 text-2xl font-semibold tracking-tight">
+              {previousVersion.version.toUpperCase()} <ArrowRight className="mx-1 inline-block" size={18} />{" "}
+              {version.version.toUpperCase()}
+            </p>
+            <ChangeList current={version} previous={previousVersion} />
+          </>
+        ) : (
+          <p className="mt-3 text-sm leading-relaxed text-[#d7d2cb]">
+            Add another eval version to see score and latency changes here.
+          </p>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function OutcomePill({
+  icon,
+  label,
+  value,
+  helper,
+}: {
+  icon: ReactNode;
+  label: string;
+  value: string;
+  helper: string;
+}) {
+  return (
+    <div className="rounded-lg border border-[#ede9e3] bg-[#faf9f6] p-3">
+      <div className="flex items-center gap-2 text-sm font-semibold text-[#34312c]">
+        <span className="text-[#1B6AE7]">{icon}</span>
+        {label}
+      </div>
+      <p className="mt-2 text-2xl font-semibold tracking-tight text-[#111111]">{value}</p>
       <p className="mt-1 text-xs text-[#6b6860]">{helper}</p>
+    </div>
+  );
+}
+
+function ChangeList({ current, previous }: { current: VersionData; previous: VersionData }) {
+  const factualDelta =
+    (current.summary.scores.factual?.pass_rate ?? 0) - (previous.summary.scores.factual?.pass_rate ?? 0);
+  const qualityDelta =
+    (current.summary.scores.quality?.overall_avg ?? 0) - (previous.summary.scores.quality?.overall_avg ?? 0);
+  const fitDelta =
+    (current.summary.scores.skeptic?.fit_level_accuracy ?? 0) -
+    (previous.summary.scores.skeptic?.fit_level_accuracy ?? 0);
+  const latencyDelta = current.summary.latency.overall.total_mean_ms - previous.summary.latency.overall.total_mean_ms;
+
+  return (
+    <dl className="mt-6 space-y-4">
+      <ChangeRow label="Factual recall" value={signedPercentPoints(factualDelta)} tone={deltaTone(factualDelta, true, "dark")} />
+      <ChangeRow label="Answer quality" value={signedNumber(qualityDelta)} tone={deltaTone(qualityDelta, true, "dark")} />
+      <ChangeRow label="Fit accuracy" value={signedPercentPoints(fitDelta)} tone={deltaTone(fitDelta, true, "dark")} />
+      <ChangeRow label="Average latency" value={signedSeconds(latencyDelta)} tone={deltaTone(latencyDelta, false, "dark")} />
+    </dl>
+  );
+}
+
+function ChangeRow({ label, value, tone }: { label: string; value: string; tone: string }) {
+  return (
+    <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
+      <dt className="text-sm text-[#d7d2cb]">{label}</dt>
+      <dd className={`text-sm font-semibold ${tone}`}>{value}</dd>
+    </div>
+  );
+}
+
+function HowToRead() {
+  return (
+    <section className="rounded-lg border border-[#e4e0da] bg-white p-5 md:p-6">
+      <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">How to read this</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#111111]">Three questions, not one magic score</h2>
+        </div>
+        <p className="max-w-xl text-sm leading-relaxed text-[#6b6860]">
+          Each eval set catches a different failure mode: forgetting facts, giving vague answers, or sounding too confident
+          about a weak match.
+        </p>
+      </div>
+      <div className="mt-6 grid gap-4 md:grid-cols-3">
+        <ExplainerCard
+          icon={<CheckCircle2 size={18} />}
+          title={TEST_SET_LABELS.factual}
+          text={TEST_SET_EXPLAINERS.factual.detail}
+          accent="bg-[#f0fdf4] text-[#15803d] border-[#bbf7d0]"
+        />
+        <ExplainerCard
+          icon={<ShieldCheck size={18} />}
+          title={TEST_SET_LABELS.quality}
+          text={TEST_SET_EXPLAINERS.quality.detail}
+          accent="bg-[#eff6ff] text-[#1d4ed8] border-[#bfdbfe]"
+        />
+        <ExplainerCard
+          icon={<TriangleAlert size={18} />}
+          title={TEST_SET_LABELS.skeptic}
+          text={TEST_SET_EXPLAINERS.skeptic.detail}
+          accent="bg-[#fffbeb] text-[#b45309] border-[#fde68a]"
+        />
+      </div>
+    </section>
+  );
+}
+
+function ExplainerCard({
+  icon,
+  title,
+  text,
+  accent,
+}: {
+  icon: ReactNode;
+  title: string;
+  text: string;
+  accent: string;
+}) {
+  return (
+    <div className="rounded-lg border border-[#ede9e3] bg-[#faf9f6] p-4">
+      <div className={`inline-flex h-8 w-8 items-center justify-center rounded-lg border ${accent}`}>{icon}</div>
+      <h3 className="mt-4 text-base font-semibold text-[#111111]">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-[#6b6860]">{text}</p>
     </div>
   );
 }
@@ -347,8 +601,11 @@ function ScoreGrid({ version }: { version: VersionData }) {
     <section className="rounded-lg border border-[#e4e0da] bg-white p-5">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h2 className="text-lg font-semibold text-[#111111]">Score Coverage</h2>
-          <p className="mt-1 text-sm text-[#6b6860]">Judge scores by test set. Lower bars are where V2 should focus.</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">Scorecard</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#111111]">Where the agent is strong or weak</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#6b6860]">
+            Green is healthy, amber is watch closely, red needs work. Quality and fit judgment use a 1-4 judge rubric.
+          </p>
         </div>
       </div>
       <div className="mt-5 grid gap-4 md:grid-cols-3">
@@ -362,7 +619,8 @@ function ScoreGrid({ version }: { version: VersionData }) {
                   {metric.display}
                 </span>
               </div>
-              <p className="mt-2 text-xs text-[#6b6860]">{metric.label}</p>
+              <p className="mt-2 text-xs text-[#6b6860]">{TEST_SET_EXPLAINERS[testSet].short}</p>
+              <p className="mt-1 text-xs text-[#8a857c]">{metric.label}</p>
               <div className="mt-4">
                 <Bar value={metric.value} max={metric.max} />
               </div>
@@ -407,7 +665,15 @@ function ScoreLine({ label, value }: { label: string; value: number | undefined 
 function LatencyGrid({ version }: { version: VersionData }) {
   return (
     <section className="rounded-lg border border-[#e4e0da] bg-white p-5">
-      <h2 className="text-lg font-semibold text-[#111111]">Latency by Test Set</h2>
+      <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">Responsiveness</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#111111]">How long users wait</h2>
+        </div>
+        <p className="max-w-lg text-sm leading-relaxed text-[#6b6860]">
+          Latency is measured from the offline run. URL or web-search paths naturally take longer than profile-only questions.
+        </p>
+      </div>
       <div className="mt-5 overflow-x-auto">
         <table className="w-full min-w-[640px] text-left text-sm">
           <thead className="text-xs uppercase tracking-[0.08em] text-[#6b6860]">
@@ -554,7 +820,7 @@ function CaseInspection({ version }: { version: VersionData }) {
   );
 }
 
-function VersionSection({ version }: { version: VersionData }) {
+function VersionSection({ version, previousVersion }: { version: VersionData; previousVersion?: VersionData }) {
   return (
     <section id={version.version} className="space-y-5">
       <div className="flex flex-col gap-3 border-b border-[#e4e0da] pb-5 md:flex-row md:items-end md:justify-between">
@@ -562,17 +828,21 @@ function VersionSection({ version }: { version: VersionData }) {
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">Version</p>
           <h1 className="mt-1 text-4xl font-semibold tracking-tight text-[#111111]">{version.version.toUpperCase()}</h1>
           <p className="mt-2 text-sm text-[#6b6860]">
-            Captured {formatDate(version.summary.date)} · SHA {version.summary.system_prompt_sha.slice(0, 7)}
+            Captured {formatDate(version.summary.date)}
+            {version.summary.prompt_version ? ` · Prompt ${version.summary.prompt_version}` : ""}
+            {version.summary.profile_version ? ` · Profile ${version.summary.profile_version}` : ""}
+            {" · "}
+            SHA {version.summary.system_prompt_sha.slice(0, 7)}
           </p>
         </div>
         <Link
           href="/chat"
           className="inline-flex w-fit items-center rounded-full border border-[#e4e0da] bg-white px-4 py-2 text-sm font-medium text-[#34312c] transition-colors hover:border-[#cfc8be] hover:bg-[#faf9f6]"
         >
-          Back to chat →
+          Try the agent
         </Link>
       </div>
-      <HeroMetrics version={version} />
+      <HeroMetrics version={version} previousVersion={previousVersion} />
       <ScoreGrid version={version} />
       <LatencyGrid version={version} />
       <CaseInspection version={version} />
@@ -583,22 +853,30 @@ function VersionSection({ version }: { version: VersionData }) {
 export default function EvalsPage() {
   const versions = discoverVersions().map(loadVersion);
   const latestVersion = versions[0];
+  const previousVersion = versions[1];
 
   return (
     <>
       <Nav sectionHrefPrefix="/" />
       <main className="min-h-screen bg-[#F5F3EF] px-6 pt-24 pb-16 text-[#111111] md:px-8">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-8 max-w-3xl">
+          <header className="mb-8 max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#1B6AE7]">Agent evals</p>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight text-[#111111] md:text-5xl">
-              Is the hiring agent grounded?
+              Can this hiring agent be trusted?
             </h1>
             <p className="mt-4 text-base leading-relaxed text-[#34312c] md:text-lg">
-              A visual readout of factual recall, answer quality, fit-judgment accuracy, and latency. New versions appear here
-              automatically when their run, score, or summary JSON files are generated.
+              A readable report on whether the agent remembers facts, gives evidence-backed answers, and stays skeptical
+              when a role is not a perfect fit.
             </p>
-          </div>
+          </header>
+
+          {latestVersion ? (
+            <div className="mb-8 space-y-5">
+              <ReadoutHero version={latestVersion} previousVersion={previousVersion} />
+              <HowToRead />
+            </div>
+          ) : null}
 
           {versions.length > 1 ? (
             <div className="mb-8 flex flex-wrap gap-2">
@@ -616,8 +894,8 @@ export default function EvalsPage() {
 
           {latestVersion ? (
             <div className="space-y-12">
-              {versions.map((version) => (
-                <VersionSection key={version.version} version={version} />
+              {versions.map((version, index) => (
+                <VersionSection key={version.version} version={version} previousVersion={versions[index + 1]} />
               ))}
             </div>
           ) : (

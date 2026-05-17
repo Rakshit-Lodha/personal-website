@@ -17,6 +17,8 @@ type LatencyStats = {
 type EvaluationSummary = {
   version: string;
   date: string;
+  prompt_version: string;
+  profile_version: string;
   system_prompt_sha: string;
   scores: Partial<Record<TestSet, Record<string, number>>>;
   latency: Partial<Record<TestSet, LatencyStats>> & {
@@ -151,6 +153,8 @@ async function computeSummary(version: string): Promise<EvaluationSummary> {
   const latency: Partial<Record<TestSet, LatencyStats>> = {};
   const allCases: CaseResult[] = [];
   const shas: string[] = [];
+  const promptVersions: string[] = [];
+  const profileVersions: string[] = [];
 
   for (const testSet of TEST_SETS) {
     const scoreFile = await loadScore(version, testSet);
@@ -165,6 +169,8 @@ async function computeSummary(version: string): Promise<EvaluationSummary> {
       latency[testSet] = stats;
       allCases.push(...runFile.cases);
       if (runFile.system_prompt_sha) shas.push(runFile.system_prompt_sha);
+      if (runFile.prompt_version) promptVersions.push(runFile.prompt_version);
+      if (runFile.profile_version) profileVersions.push(runFile.profile_version);
     }
   }
 
@@ -174,6 +180,8 @@ async function computeSummary(version: string): Promise<EvaluationSummary> {
   return {
     version,
     date: new Date().toISOString(),
+    prompt_version: promptVersions[0] ?? "unknown",
+    profile_version: profileVersions[0] ?? "unknown",
     system_prompt_sha: shas[0] ?? "unknown",
     scores,
     latency: {
@@ -251,6 +259,8 @@ function renderSummaryMarkdown(summary: EvaluationSummary) {
   return `# ${summary.version.toUpperCase()} Evaluation Summary
 
 Date: ${summary.date.slice(0, 10)}
+Prompt version: ${summary.prompt_version}
+Profile version: ${summary.profile_version}
 System prompt SHA: ${summary.system_prompt_sha}
 
 ## Scores

@@ -1,0 +1,179 @@
+{
+  "version_a": "v1",
+  "version_b": "v2_prompt",
+  "summary_a": {
+    "version": "v1",
+    "date": "2026-05-17T05:42:35.482Z",
+    "prompt_version": "unknown",
+    "profile_version": "unknown",
+    "system_prompt_sha": "8081e28e638ec9d57a4e851a52eee6376d0ef54c",
+    "scores": {
+      "factual": {
+        "n": 20,
+        "pass_rate": 1
+      },
+      "quality": {
+        "n": 20,
+        "specificity_avg": 3,
+        "evidence_citation_avg": 2.8,
+        "anti_hallucination_avg": 2.7,
+        "overall_avg": 2.8
+      },
+      "skeptic": {
+        "n": 12,
+        "fit_level_accuracy": 0.25,
+        "target_alignment_avg": 3,
+        "fit_calibration_avg": 2.4,
+        "evidence_citation_avg": 3,
+        "anti_hallucination_avg": 2.9,
+        "overall_avg": 2.8
+      }
+    },
+    "latency": {
+      "factual": {
+        "total_mean_ms": 5756,
+        "total_median_ms": 4788,
+        "total_p95_ms": 15167,
+        "first_delta_mean_ms": 5647,
+        "n": 20,
+        "n_url_path": 0
+      },
+      "quality": {
+        "total_mean_ms": 8126,
+        "total_median_ms": 7592,
+        "total_p95_ms": 11396,
+        "first_delta_mean_ms": 7835,
+        "n": 20,
+        "n_url_path": 0
+      },
+      "skeptic": {
+        "total_mean_ms": 21950,
+        "total_median_ms": 21878,
+        "total_p95_ms": 34451,
+        "first_delta_mean_ms": 21483,
+        "n": 12,
+        "n_url_path": 0
+      },
+      "overall": {
+        "total_mean_ms": 10405,
+        "total_median_ms": 7016,
+        "total_p95_ms": 25064,
+        "first_delta_mean_ms": 10143,
+        "n": 52
+      },
+      "stages_mean_ms": {
+        "websearch": 0,
+        "context": 0,
+        "answer": 0
+      },
+      "by_websearch_path": {
+        "had_websearch": {
+          "total_mean_ms": 0,
+          "total_median_ms": 0,
+          "total_p95_ms": 0,
+          "first_delta_mean_ms": 0,
+          "n": 0
+        },
+        "no_websearch": {
+          "total_mean_ms": 10405,
+          "total_median_ms": 7016,
+          "total_p95_ms": 25064,
+          "first_delta_mean_ms": 10143,
+          "n": 52
+        }
+      }
+    }
+  },
+  "summary_b": {
+    "version": "v2_prompt",
+    "date": "2026-05-17T05:42:35.483Z",
+    "prompt_version": "v2Candidate",
+    "profile_version": "v2",
+    "system_prompt_sha": "3743b8514c5fb3243b7a1ad9bd7a3a774a82106d",
+    "scores": {
+      "factual": {
+        "n": 20,
+        "pass_rate": 1
+      },
+      "quality": {
+        "n": 20,
+        "specificity_avg": 3.4,
+        "evidence_citation_avg": 3.4,
+        "anti_hallucination_avg": 3.3,
+        "overall_avg": 3.4
+      },
+      "skeptic": {
+        "n": 12,
+        "fit_level_accuracy": 0.4166666666666667,
+        "target_alignment_avg": 3.3,
+        "fit_calibration_avg": 2.8,
+        "evidence_citation_avg": 3.7,
+        "anti_hallucination_avg": 3,
+        "overall_avg": 3.2
+      }
+    },
+    "latency": {
+      "factual": {
+        "total_mean_ms": 5118,
+        "total_median_ms": 4810,
+        "total_p95_ms": 6132,
+        "first_delta_mean_ms": 5023,
+        "n": 20,
+        "n_url_path": 0
+      },
+      "quality": {
+        "total_mean_ms": 8549,
+        "total_median_ms": 8424,
+        "total_p95_ms": 11699,
+        "first_delta_mean_ms": 8082,
+        "n": 20,
+        "n_url_path": 0
+      },
+      "skeptic": {
+        "total_mean_ms": 23219,
+        "total_median_ms": 21849,
+        "total_p95_ms": 32928,
+        "first_delta_mean_ms": 22526,
+        "n": 12,
+        "n_url_path": 11
+      },
+      "overall": {
+        "total_mean_ms": 10615,
+        "total_median_ms": 7846,
+        "total_p95_ms": 29231,
+        "first_delta_mean_ms": 10239,
+        "n": 52
+      },
+      "stages_mean_ms": {
+        "websearch": 5875,
+        "context": 2849,
+        "answer": 6143
+      },
+      "by_websearch_path": {
+        "had_websearch": {
+          "total_mean_ms": 24095,
+          "total_median_ms": 21864,
+          "total_p95_ms": 32928,
+          "first_delta_mean_ms": 23375,
+          "n": 11
+        },
+        "no_websearch": {
+          "total_mean_ms": 6998,
+          "total_median_ms": 6132,
+          "total_p95_ms": 11699,
+          "first_delta_mean_ms": 6714,
+          "n": 41
+        }
+      }
+    }
+  },
+  "scores_delta": {
+    "factual_pass_rate": "0.00",
+    "quality_overall_avg": "+0.6",
+    "skeptic_fit_level_accuracy": "+0.17"
+  },
+  "latency_delta": {
+    "overall_mean_ms": "+210",
+    "overall_first_delta_mean_ms": "+96"
+  }
+}

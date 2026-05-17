@@ -22,6 +22,8 @@ export type RunFile = {
   version: string;
   test_set: TestSet;
   date: string;
+  prompt_version?: string;
+  profile_version?: string;
   system_prompt_sha: string;
   api_url: string;
   cases: CaseResult[];

@@ -1,4 +1,6 @@
-import { PROFILE_DATA } from "@/lib/profile";
+import { getReadyDeepEvidence, PROFILE_DATA } from "@/lib/profile";
+
+const readyDeepEvidence = getReadyDeepEvidence();
 
 export const PROFILE_SECTIONS = [
   {
@@ -36,6 +38,15 @@ export const PROFILE_SECTIONS = [
     title: "Hiring Preferences, Availability, Location, and Compensation",
     data: PROFILE_DATA.hiringPreferences,
   },
+  ...(readyDeepEvidence.length
+    ? [
+        {
+          id: "deepEvidence",
+          title: "Deep Evidence for Rich Q&A",
+          data: readyDeepEvidence,
+        },
+      ]
+    : []),
 ] as const;
 
 export type ProfileSectionId = (typeof PROFILE_SECTIONS)[number]["id"];
