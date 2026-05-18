@@ -1,4 +1,4 @@
-export const AGENT_PROMPT_VERSION = process.env.OPENAI_AGENT_PROMPT_VERSION || "v1";
+export const AGENT_PROMPT_VERSION = process.env.OPENAI_AGENT_PROMPT_VERSION || "v2Candidate";
 
 const v1ContextInstructions = `
 You prepare compact context for Rakshit Lodha's portfolio chat agent.
@@ -152,5 +152,5 @@ export const AGENT_PROMPTS = {
 } as const;
 
 export function getAgentPrompts(version = AGENT_PROMPT_VERSION) {
-  return AGENT_PROMPTS[version as keyof typeof AGENT_PROMPTS] ?? AGENT_PROMPTS.v1;
+  return AGENT_PROMPTS[version as keyof typeof AGENT_PROMPTS] ?? AGENT_PROMPTS.v2Candidate;
 }

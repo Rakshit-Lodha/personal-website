@@ -26,7 +26,7 @@ export type { TechnicalEvidence } from "./technicalEvidence";
 export { PROFILE_DATA_V2, PROFILE_V2_DEEP_EVIDENCE } from "./v2";
 export type { DeepEvidenceInput } from "./v2";
 
-export const PROFILE_VERSION = process.env.OPENAI_PROFILE_VERSION || "v1";
+export const PROFILE_VERSION = process.env.OPENAI_PROFILE_VERSION || "v2";
 
 export const PROFILE_DATA_V1 = {
   person: IDENTITY,

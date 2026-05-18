@@ -853,7 +853,7 @@ function VersionSection({ version, previousVersion }: { version: VersionData; pr
 export default function EvalsPage() {
   const versions = discoverVersions().map(loadVersion);
   const latestVersion = versions[0];
-  const previousVersion = versions[1];
+  const previousVersion = versions.length > 1 ? versions[versions.length - 1] : undefined;
 
   return (
     <>
