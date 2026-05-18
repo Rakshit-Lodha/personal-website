@@ -322,6 +322,22 @@ function formatDate(value: string) {
     : parsed.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
 
+function versionLabel(version: VersionData, index: number) {
+  if (index === 0) return "Current evaluation";
+  if (version.version === "v1") return "Baseline";
+  return `Evaluation ${index + 1}`;
+}
+
+function versionChipLabel(version: VersionData, index: number) {
+  if (index === 0) return "Current";
+  if (version.version === "v1") return "Baseline";
+  return `Run ${index + 1}`;
+}
+
+function versionAnchor(index: number) {
+  return `eval-run-${index + 1}`;
+}
+
 function scoreStatus(testSet: TestSet, summary: Record<string, number> | undefined) {
   if (!summary) return { label: "Missing", value: 0, max: 1, display: "No scores" };
   if (testSet === "factual") {
@@ -452,7 +468,7 @@ function ReadoutHero({ version, previousVersion }: { version: VersionData; previ
       <div className="rounded-lg border border-[#e4e0da] bg-white p-6 md:p-7">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#bfdbfe] bg-[#eff6ff] px-3 py-1 text-xs font-semibold text-[#1d4ed8]">
           <SearchCheck size={14} />
-          Latest run: {version.version.toUpperCase()}
+          Latest evaluated default
         </div>
         <h2 className="mt-5 max-w-2xl text-3xl font-semibold tracking-tight text-[#111111] md:text-4xl">
           {verdict}
@@ -472,8 +488,7 @@ function ReadoutHero({ version, previousVersion }: { version: VersionData; previ
         {previousVersion ? (
           <>
             <p className="mt-3 text-2xl font-semibold tracking-tight">
-              {previousVersion.version.toUpperCase()} <ArrowRight className="mx-1 inline-block" size={18} />{" "}
-              {version.version.toUpperCase()}
+              Baseline <ArrowRight className="mx-1 inline-block" size={18} /> Current
             </p>
             <ChangeList current={version} previous={previousVersion} />
           </>
@@ -820,13 +835,21 @@ function CaseInspection({ version }: { version: VersionData }) {
   );
 }
 
-function VersionSection({ version, previousVersion }: { version: VersionData; previousVersion?: VersionData }) {
+function VersionSection({
+  version,
+  previousVersion,
+  index,
+}: {
+  version: VersionData;
+  previousVersion?: VersionData;
+  index: number;
+}) {
   return (
-    <section id={version.version} className="space-y-5">
+    <section id={versionAnchor(index)} className="space-y-5">
       <div className="flex flex-col gap-3 border-b border-[#e4e0da] pb-5 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">Version</p>
-          <h1 className="mt-1 text-4xl font-semibold tracking-tight text-[#111111]">{version.version.toUpperCase()}</h1>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">Evaluation run</p>
+          <h1 className="mt-1 text-4xl font-semibold tracking-tight text-[#111111]">{versionLabel(version, index)}</h1>
           <p className="mt-2 text-sm text-[#6b6860]">
             Captured {formatDate(version.summary.date)}
             {version.summary.prompt_version ? ` · Prompt ${version.summary.prompt_version}` : ""}
@@ -880,13 +903,13 @@ export default function EvalsPage() {
 
           {versions.length > 1 ? (
             <div className="mb-8 flex flex-wrap gap-2">
-              {versions.map((version) => (
+              {versions.map((version, index) => (
                 <a
-                  key={version.version}
-                  href={`#${version.version}`}
+                  key={versionAnchor(index)}
+                  href={`#${versionAnchor(index)}`}
                   className="rounded-full border border-[#e4e0da] bg-white px-3 py-1.5 text-sm font-medium text-[#34312c] transition-colors hover:border-[#cfc8be] hover:bg-[#faf9f6]"
                 >
-                  {version.version.toUpperCase()}
+                  {versionChipLabel(version, index)}
                 </a>
               ))}
             </div>
@@ -895,7 +918,12 @@ export default function EvalsPage() {
           {latestVersion ? (
             <div className="space-y-12">
               {versions.map((version, index) => (
-                <VersionSection key={version.version} version={version} previousVersion={versions[index + 1]} />
+                <VersionSection
+                  key={versionAnchor(index)}
+                  version={version}
+                  previousVersion={versions[index + 1]}
+                  index={index}
+                />
               ))}
             </div>
           ) : (
