@@ -117,6 +117,11 @@ const TEST_SET_LABELS: Record<TestSet, string> = {
   skeptic: "Fit judgment",
 };
 
+const FINAL_EVAL_VERSION = "v3Pipeline_tightened";
+const BASELINE_EVAL_VERSION = "v1";
+const COMPARISON_EVAL_VERSIONS = ["v1", "v2_prompt", FINAL_EVAL_VERSION] as const;
+const FINAL_EVAL_LABEL = "V3 final";
+
 const TEST_SET_EXPLAINERS: Record<TestSet, { short: string; detail: string }> = {
   factual: {
     short: "Can it remember known profile facts?",
@@ -322,20 +327,21 @@ function formatDate(value: string) {
     : parsed.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
 
-function versionLabel(version: VersionData, index: number) {
-  if (index === 0) return "Current evaluation";
-  if (version.version === "v1") return "Baseline";
-  return `Evaluation ${index + 1}`;
+function versionLabel(version: VersionData) {
+  if (version.version === FINAL_EVAL_VERSION) return "Final V3 evaluation";
+  if (version.version === "v2_prompt") return "V2 evaluation";
+  if (version.version === BASELINE_EVAL_VERSION) return "Baseline";
+  return version.version;
 }
 
-function versionChipLabel(version: VersionData, index: number) {
-  if (index === 0) return "Current";
-  if (version.version === "v1") return "Baseline";
-  return `Run ${index + 1}`;
+function versionAnchor(version: VersionData) {
+  if (version.version === FINAL_EVAL_VERSION) return "final-v3-evaluation";
+  return `eval-${version.version.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
 }
 
-function versionAnchor(index: number) {
-  return `eval-run-${index + 1}`;
+function promptLabel(version: VersionData) {
+  if (version.version === FINAL_EVAL_VERSION) return "v3Pipeline";
+  return version.summary.prompt_version;
 }
 
 function scoreStatus(testSet: TestSet, summary: Record<string, number> | undefined) {
@@ -459,8 +465,8 @@ function ReadoutHero({ version, previousVersion }: { version: VersionData; previ
   const fitAccuracy = version.summary.scores.skeptic?.fit_level_accuracy ?? 0;
   const qualityScore = version.summary.scores.quality?.overall_avg ?? 0;
   const verdict =
-    factualPass >= 1 && fitAccuracy >= 0.5
-      ? "The agent is factual, but fit calibration is still the main improvement area."
+    factualPass >= 1 && qualityScore >= 3.4 && fitAccuracy >= 0.5
+      ? "V3 is the version to ship: more grounded, better calibrated, and deliberately slower."
       : "The agent needs more work before its fit judgments should be trusted.";
 
   return (
@@ -468,14 +474,14 @@ function ReadoutHero({ version, previousVersion }: { version: VersionData; previ
       <div className="rounded-lg border border-[#e4e0da] bg-white p-6 md:p-7">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#bfdbfe] bg-[#eff6ff] px-3 py-1 text-xs font-semibold text-[#1d4ed8]">
           <SearchCheck size={14} />
-          Latest evaluated default
+          Final V3 report
         </div>
         <h2 className="mt-5 max-w-2xl text-3xl font-semibold tracking-tight text-[#111111] md:text-4xl">
           {verdict}
         </h2>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#34312c]">
           This page tests the hiring agent the way a recruiter would use it: ask factual questions, judge answer usefulness,
-          then see whether it stays honest when a role is only a partial match.
+          and check whether fit labels stay conservative when the evidence is only adjacent.
         </p>
         <div className="mt-6 grid gap-3 md:grid-cols-3">
           <OutcomePill icon={<CheckCircle2 size={16} />} label="Facts" value={percent(factualPass)} helper="known-answer checks" />
@@ -488,13 +494,13 @@ function ReadoutHero({ version, previousVersion }: { version: VersionData; previ
         {previousVersion ? (
           <>
             <p className="mt-3 text-2xl font-semibold tracking-tight">
-              Baseline <ArrowRight className="mx-1 inline-block" size={18} /> Current
+              Baseline <ArrowRight className="mx-1 inline-block" size={18} /> {FINAL_EVAL_LABEL}
             </p>
             <ChangeList current={version} previous={previousVersion} />
           </>
         ) : (
           <p className="mt-3 text-sm leading-relaxed text-[#d7d2cb]">
-            Add another eval version to see score and latency changes here.
+            Add a baseline eval version to see score and latency changes here.
           </p>
         )}
       </div>
@@ -611,13 +617,15 @@ function ExplainerCard({
   );
 }
 
-function ScoreGrid({ version }: { version: VersionData }) {
+function ScoreGrid({ version, isFinal = false }: { version: VersionData; isFinal?: boolean }) {
   return (
     <section className="rounded-lg border border-[#e4e0da] bg-white p-5">
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">Scorecard</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#111111]">Where the agent is strong or weak</h2>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#111111]">
+            {isFinal ? "Where V3 is strong or weak" : "Where this run was strong or weak"}
+          </h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#6b6860]">
             Green is healthy, amber is watch closely, red needs work. Quality and fit judgment use a 1-4 judge rubric.
           </p>
@@ -677,16 +685,20 @@ function ScoreLine({ label, value }: { label: string; value: number | undefined 
   );
 }
 
-function LatencyGrid({ version }: { version: VersionData }) {
+function LatencyGrid({ version, isFinal = false }: { version: VersionData; isFinal?: boolean }) {
   return (
     <section className="rounded-lg border border-[#e4e0da] bg-white p-5">
       <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">Responsiveness</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#111111]">How long users wait</h2>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#111111]">
+            {isFinal ? "The speed tradeoff" : "How long this run took"}
+          </h2>
         </div>
         <p className="max-w-lg text-sm leading-relaxed text-[#6b6860]">
-          Latency is measured from the offline run. URL or web-search paths naturally take longer than profile-only questions.
+          {isFinal
+            ? "V3 is slower because it plans intent, classifies evidence, and sometimes researches company context before answering. URL or web-search paths naturally take longer than profile-only questions."
+            : "Latency is measured from the offline run. URL or web-search paths naturally take longer than profile-only questions."}
         </p>
       </div>
       <div className="mt-5 overflow-x-auto">
@@ -799,7 +811,7 @@ function CaseInspection({ version }: { version: VersionData }) {
     <section className="rounded-lg border border-[#e4e0da] bg-white p-5">
       <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-[#111111]">What Needs Attention</h2>
+          <h2 className="text-lg font-semibold text-[#111111]">What still needs attention</h2>
           <p className="mt-1 text-sm text-[#6b6860]">Failed or mismatched cases first, with judge reasoning and latency.</p>
         </div>
         <p className="text-xs text-[#6b6860]">{cases.length} shown</p>
@@ -838,21 +850,21 @@ function CaseInspection({ version }: { version: VersionData }) {
 function VersionSection({
   version,
   previousVersion,
-  index,
+  isFinal = false,
 }: {
   version: VersionData;
   previousVersion?: VersionData;
-  index: number;
+  isFinal?: boolean;
 }) {
   return (
-    <section id={versionAnchor(index)} className="space-y-5">
+    <section id={versionAnchor(version)} className="space-y-5">
       <div className="flex flex-col gap-3 border-b border-[#e4e0da] pb-5 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">Evaluation run</p>
-          <h1 className="mt-1 text-4xl font-semibold tracking-tight text-[#111111]">{versionLabel(version, index)}</h1>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">Evaluation report</p>
+          <h1 className="mt-1 text-4xl font-semibold tracking-tight text-[#111111]">{versionLabel(version)}</h1>
           <p className="mt-2 text-sm text-[#6b6860]">
             Captured {formatDate(version.summary.date)}
-            {version.summary.prompt_version ? ` · Prompt ${version.summary.prompt_version}` : ""}
+            {promptLabel(version) ? ` · Prompt ${promptLabel(version)}` : ""}
             {version.summary.profile_version ? ` · Profile ${version.summary.profile_version}` : ""}
             {" · "}
             SHA {version.summary.system_prompt_sha.slice(0, 7)}
@@ -866,17 +878,19 @@ function VersionSection({
         </Link>
       </div>
       <HeroMetrics version={version} previousVersion={previousVersion} />
-      <ScoreGrid version={version} />
-      <LatencyGrid version={version} />
+      <ScoreGrid version={version} isFinal={isFinal} />
+      <LatencyGrid version={version} isFinal={isFinal} />
       <CaseInspection version={version} />
     </section>
   );
 }
 
 export default function EvalsPage() {
-  const versions = discoverVersions().map(loadVersion);
-  const latestVersion = versions[0];
-  const previousVersion = versions.length > 1 ? versions[versions.length - 1] : undefined;
+  const availableVersions = discoverVersions();
+  const finalVersion = availableVersions.includes(FINAL_EVAL_VERSION) ? loadVersion(FINAL_EVAL_VERSION) : null;
+  const baselineVersion = availableVersions.includes(BASELINE_EVAL_VERSION) ? loadVersion(BASELINE_EVAL_VERSION) : undefined;
+  const comparisonVersions = COMPARISON_EVAL_VERSIONS.filter((version) => availableVersions.includes(version)).map(loadVersion);
+  const historyVersions = comparisonVersions.filter((version) => version.version !== FINAL_EVAL_VERSION);
 
   return (
     <>
@@ -889,48 +903,47 @@ export default function EvalsPage() {
               Can this hiring agent be trusted?
             </h1>
             <p className="mt-4 text-base leading-relaxed text-[#34312c] md:text-lg">
-              A readable report on whether the agent remembers facts, gives evidence-backed answers, and stays skeptical
-              when a role is not a perfect fit.
+              The final V3 report on whether the agent remembers facts, gives evidence-backed answers, and stays skeptical
+              when a role is not a clean fit.
             </p>
           </header>
 
-          {latestVersion ? (
+          {finalVersion ? (
             <div className="mb-8 space-y-5">
-              <ReadoutHero version={latestVersion} previousVersion={previousVersion} />
+              <ReadoutHero version={finalVersion} previousVersion={baselineVersion} />
               <HowToRead />
             </div>
           ) : null}
 
-          {versions.length > 1 ? (
-            <div className="mb-8 flex flex-wrap gap-2">
-              {versions.map((version, index) => (
-                <a
-                  key={versionAnchor(index)}
-                  href={`#${versionAnchor(index)}`}
-                  className="rounded-full border border-[#e4e0da] bg-white px-3 py-1.5 text-sm font-medium text-[#34312c] transition-colors hover:border-[#cfc8be] hover:bg-[#faf9f6]"
-                >
-                  {versionChipLabel(version, index)}
-                </a>
-              ))}
-            </div>
-          ) : null}
-
-          {latestVersion ? (
+          {finalVersion ? (
             <div className="space-y-12">
-              {versions.map((version, index) => (
-                <VersionSection
-                  key={versionAnchor(index)}
-                  version={version}
-                  previousVersion={versions[index + 1]}
-                  index={index}
-                />
-              ))}
+              <VersionSection version={finalVersion} previousVersion={baselineVersion} isFinal />
+              {historyVersions.length ? (
+                <section className="space-y-6">
+                  <div className="border-b border-[#e4e0da] pb-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">Comparison history</p>
+                    <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[#111111]">
+                      How V3 compares with V1 and V2
+                    </h2>
+                    <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[#6b6860]">
+                      These earlier runs stay visible for context. The final V3 report above is the version to judge as current.
+                    </p>
+                  </div>
+                  {historyVersions.map((version) => (
+                    <VersionSection
+                      key={version.version}
+                      version={version}
+                      previousVersion={version.version === BASELINE_EVAL_VERSION ? undefined : baselineVersion}
+                    />
+                  ))}
+                </section>
+              ) : null}
             </div>
           ) : (
             <section className="rounded-lg border border-[#e4e0da] bg-white p-6">
-              <h2 className="text-xl font-semibold text-[#111111]">No eval runs yet</h2>
+              <h2 className="text-xl font-semibold text-[#111111]">No final V3 eval run yet</h2>
               <p className="mt-2 text-sm leading-relaxed text-[#6b6860]">
-                Run `npx tsx src/lib/eval/scripts/run-eval.ts v1 factual`, then judge and compare the version to populate this page.
+                Run the final V3 eval suite, then judge and compare the version to populate this page.
               </p>
             </section>
           )}

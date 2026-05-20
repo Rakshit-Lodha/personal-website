@@ -1,0 +1,155 @@
+{
+  "version": "v3Pipeline",
+  "test_set": "quality",
+  "judge_model": "claude-sonnet-4-5",
+  "date": "2026-05-20T09:22:55.695Z",
+  "cases": [
+    {
+      "id": "Q01",
+      "specificity": 3,
+      "evidence_citation": 2,
+      "anti_hallucination": 2,
+      "reasoning": "The response names specific projects (Krux.news, AI support automation, feedback tool) and ties some claims to them, but the core question asks about 'research and design skills' which the profile does not explicitly document. The agent speculates that 'multi-stage content pipeline' and 'mobile-first design' demonstrate design judgment, and that support automation shows 'research judgment' by working with 'support patterns'—but these are interpretive stretches rather than grounded evidence. The profile's technicalTools section lists Figma, but the response never mentions it. The agent correctly admits limitations ('not documented here is formal UX research methodology'), but reaches that admission only after speculating about applied research and systems design capabilities that are inferred rather than directly evidenced. The hedging language ('points to', 'suggests', 'seems strongest at') masks the absence of direct research/design evidence in the profile."
+    },
+    {
+      "id": "Q02",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 2,
+      "reasoning": "The response correctly identifies the US Stocks Analysis Agent as the most technical project and cites specific, verifiable metrics (58% to 90% tool-use accuracy improvement). It accurately names technical elements like multi-agent architecture, specialist handoffs, real-time financial tools, and voice interaction—all supported by the profile's project data and deep evidence. However, the phrase 'appears to have been' is a hedge that suggests uncertainty where the profile actually provides clear evidence about the eval-driven redesign. This hedging is unnecessary speculation rather than admitting a genuine evidence gap, which slightly undermines grounding discipline."
+    },
+    {
+      "id": "Q03",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response names specific projects (AI Evaluation Framework, ET Money support automation, TalkToKrishna) and ties eval dimensions to documented evidence. The claim about 'text eval pass rate improved from 57% to 100%' and 'accountability accuracy improved from 20% to 100%' directly matches technicalEvidence section data on the AI Evaluation Framework. The support automation evals (empathy, answer quality, policy compliance, regression) match etmoney-support-automation evidence, and the TalkToKrishna eval dimensions (correctness, relevance, tone, safety) match the talk-to-krishna project data. No speculation or fabrication detected."
+    },
+    {
+      "id": "Q04",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response correctly identifies ET Money AI support automation as the primary evidence, citing '100+ resolution workflows' and evaluation dimensions (empathy, answer quality, policy compliance, regression testing) that match profile data exactly. It accurately references the intent classification and resolution workflow architecture from etmoney-support-automation. The response appropriately acknowledges 'adjacent evidence' for broader agentic capabilities (function tools, specialist handoffs, persistent memory) which maps to the technicalEvidence section on 'Agents and Tool Orchestration' and projects like feedback-agent and us-stocks-analysis-agent. No fabrication or unsupported speculation is present."
+    },
+    {
+      "id": "Q05",
+      "specificity": 3,
+      "evidence_citation": 3,
+      "anti_hallucination": 2,
+      "reasoning": "The response correctly cites the ET Money offline distribution business as a 0-to-1 example and accurately references his prototype-first work style from the identity section. However, the phrase 'his style appears prototype-first' uses hedge language when the profile explicitly states this in workStyle, not as an inference. The response also says 'Adjacent to that, his AI product work shows a similar pattern' without naming specific 0-to-1 AI projects like Krux.news, Feedback Intelligence, or TalkToKrishna that are explicitly tagged as 0-to-1 in the profile. The caveat about no formal framework is appropriate acknowledgment of evidence limits, but the hedging throughout ('suggests', 'appears') indicates speculation where direct evidence exists."
+    },
+    {
+      "id": "Q06",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response names two specific projects with clear outcomes: ET Money AI support automation (17,000 to 7,000 monthly tickets) and MF Semantic Search POC. Both examples are grounded in profile evidence from the experience and projects sections. The response correctly characterizes the support automation ambiguity (high-volume queries, emotional context, scope narrowing to mutual-fund categories) and the semantic search ambiguity (partial names, comparison queries, unclear user intent), all supported by the deepEvidence sections. No fabrication or unsupported speculation present."
+    },
+    {
+      "id": "Q07",
+      "specificity": 3,
+      "evidence_citation": 3,
+      "anti_hallucination": 2,
+      "reasoning": "The response correctly cites the ET Money support automation project with specific details (scope selection, answer logic, templates, eval process, data layer iteration) that match the deep evidence. The mention of 'roadmap strategy, PRDs, product analytics, A/B testing, UI/UX collaboration, launch planning, and delivery tracking' is directly supported by technicalEvidence section 'product-experimentation-and-delivery'. However, the phrase 'his collaboration style appears to combine' uses hedging language to speculate about interpersonal working style when the profile only documents PM execution capabilities and project outcomes, not how he actually collaborates day-to-day with engineering teams. The agent should have noted that the profile shows strong product definition and execution capability but doesn't explicitly describe his engineering collaboration dynamics."
+    },
+    {
+      "id": "Q08",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response accurately describes Krux.news using specific capabilities from the profile: RSS ingestion, AI story curation, Claude tool calls, 100-word summaries, and image generation. The agent correctly states the product's mobile-first, swipeable format and its purpose of turning AI company updates into short stories. Critically, the agent explicitly acknowledges missing evidence by stating 'The evidence does not include launch status, user metrics, architecture details, specific tech stack beyond Claude/tool calls, or Rakshit's exact implementation timeline.' This is exemplary anti-hallucination behavior—admitting limits rather than hedging or speculating. All claims made are directly supported by the projects section ground truth for 'krux-new'."
+    },
+    {
+      "id": "Q09",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "Every capability claim is tied to specific named projects with concrete tools: US Stocks Analysis Agent with OpenAI Whisper for transcription and OpenAI TTS for spoken responses, and AI Evaluation Framework measuring ASR accuracy with WER/CER metrics. The response explicitly scopes limitations by stating what is NOT covered in the evidence (wake-word detection, telephony infrastructure, speaker diarization, real-time streaming), which demonstrates proper evidence boundaries. All claims map directly to aiProductCapabilities, technicalTools, and project evidence in sections 'projects' and 'technicalEvidence'."
+    },
+    {
+      "id": "Q10",
+      "specificity": 2,
+      "evidence_citation": 2,
+      "anti_hallucination": 2,
+      "reasoning": "The response correctly cites Rakshit's prototype-first work style from the identity section and lists relevant PM execution capabilities from technicalEvidence. However, the question asks specifically about stakeholder management, and the response pivots to general work style and PM processes without providing concrete examples of stakeholder management in action. The statement 'There isn't specific evidence here about his communication rituals' is honest but highlights that the response doesn't actually answer the question asked. The response contains no named projects demonstrating stakeholder management, no metrics around alignment or buy-in outcomes, and relies heavily on listing general PM capabilities rather than showing how Rakshit manages stakeholders through specific shipped work. While not fabricated, the response substitutes adjacent evidence for the missing direct evidence."
+    },
+    {
+      "id": "Q11",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response correctly identifies MF Semantic Search as the primary semantic search example, accurately citing ChromaDB, OpenAI embeddings, and the 16,197 mutual fund dataset from the projects section. It appropriately mentions TalkToKrishna as adjacent RAG experience with 700 Gita verses, matching the profile data. The response explicitly acknowledges the limitation that production-scale metrics, uptime, and deployment infrastructure are not covered in the evidence, which demonstrates proper handling of missing information rather than speculation."
+    },
+    {
+      "id": "Q12",
+      "specificity": 3,
+      "evidence_citation": 3,
+      "anti_hallucination": 3,
+      "reasoning": "The response correctly identifies Rakshit's fintech domain coverage (lending, wealth, insurance, advisory, mutual funds, P2P) supported by his ET Money and INDMoney experience sections. The claim about 'documented business impact across fintech product lines, including revenue, AUM, disbursal, and sales outcomes' is supported by specific outcomes like LAMF (INR 100Cr disbursals), ET Money Earn (INR 300Cr AUM), and insurance revenue growth. The mutual fund semantic search and US stocks agent examples are accurately cited from the projects section. However, the phrase 'understanding product monetization, financial-product funnels, and growth levers in fintech' makes an interpretive leap beyond what's explicitly stated in the profile—while plausible given the outcomes, these specific capability terms aren't directly documented, making it a minor stretch rather than strict grounding."
+    },
+    {
+      "id": "Q13",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response correctly identifies the Goals feature at INDMoney as Rakshit's biggest documented mistake, citing specific failures like low monthly retention and users not returning (directly from experience.indmoney.failures). The three key learnings mentioned—target market clarity, simplicity over complexity, and regular data review—are all explicitly listed in the 'whatWentWrong' array of that failure. The connection to Krux.news is appropriately drawn from the krux-news-deep-dive evidence which explicitly states 'retention should determine whether a side product remains a focus.' All claims are grounded in profile data with no speculation or fabrication."
+    },
+    {
+      "id": "Q14",
+      "specificity": 2,
+      "evidence_citation": 2,
+      "anti_hallucination": 3,
+      "reasoning": "The response correctly names the Feedback Intelligence project and references AI Hiring Chat, but the central claim that Feedback Intelligence 'classified feedback into prioritized product signals' is a mischaracterization—the profile shows it aggregates feedback and provides conversational analysis, not explicit prioritization of features. The list of PM practices (roadmap strategy, PRDs, A/B testing, etc.) comes from technicalEvidence section but is presented as documented prioritization approach without showing how Rakshit actually prioritizes features in practice. The response lacks concrete examples of prioritization decisions from shipped products (e.g., why he scoped LAMF to certain features, why he focused support automation on mutual funds first). Most claims are accurate but generic; the response doesn't demonstrate understanding of his actual prioritization framework beyond standard PM tools."
+    },
+    {
+      "id": "Q15",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response correctly cites the ticket reduction metric (17,000-19,000 to 7,000-7,500) from etmoney-support-automation, accurately names the three system components (intent classification, 100+ resolution workflows, eval pipeline), and properly lists the four evaluation dimensions (empathy, answer quality, policy compliance, regression testing) all found in the experience section. The agent explicitly states implementation details are not available rather than speculating, which is the correct behavior when evidence is missing. All claims are verifiable against the profile ground truth with no fabrication or unsupported assertions."
+    },
+    {
+      "id": "Q16",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 4,
+      "reasoning": "The response names the US Stocks Analysis Agent with the specific metric improvement from 58% to 90% tool-use accuracy, directly citing the specialist handoffs architecture described in both the projects section and technicalEvidence section. The AI Hiring Chat reference is appropriately qualified as 'adjacent rather than direct evidence' and described as a 'multi-stage agent pipeline,' which accurately reflects the profile's description of context selection and answer agent stages. Every claim is verifiable against the profile data, and the response appropriately distinguishes between direct multi-agent evidence and related agentic workflow experience without overstating either."
+    },
+    {
+      "id": "Q17",
+      "specificity": 1,
+      "evidence_citation": 1,
+      "anti_hallucination": 2,
+      "reasoning": "The response is entirely generic, listing PM execution activities (PRDs, product specs, acceptance criteria, user stories, stakeholder buy-in, UX/design collaboration, wireframes, UX reviews, engineering delivery, product analytics, event instrumentation) that appear verbatim in technicalEvidence > product-experimentation-and-delivery but without citing any specific project, role, or shipped outcome where Rakshit actually wrote a PRD. The agent correctly admits 'The evidence does not include a sample PRD or a named PRD template' and avoids fabricating one, which prevents a critical failure. However, the response then speculates about how his PRDs are 'likely outcome- and execution-oriented' and describes a 'closest documented pattern' without grounding that pattern in any named work. This is capability-soup speculation rather than evidence-citation, earning low scores on specificity and evidence-citation, and a 2 on anti-hallucination for excessive hedged speculation where 'the profile does not cover this' would have been the correct answer."
+    },
+    {
+      "id": "Q18",
+      "specificity": 2,
+      "evidence_citation": 2,
+      "anti_hallucination": 3,
+      "reasoning": "The response correctly identifies AI Product Manager as a target role and accurately cites RAG, semantic search, agentic workflows, voice interfaces, and eval systems from the profile's aiProductCapabilities and positioning sections. It also correctly states he's based in Gurugram and open to relocating, matching the locationPreference field. However, the response is mostly generic capability-listing without naming specific projects or outcomes that demonstrate why these roles fit. The phrase 'The evidence does not list a specific target title or preferred industry beyond that' is somewhat misleading—the profile explicitly states his title as 'AI Product Manager' and lists domains including wealth, lending, advisory, and support automation, which the response should have surfaced more directly."
+    },
+    {
+      "id": "Q19",
+      "specificity": 3,
+      "evidence_citation": 2,
+      "anti_hallucination": 2,
+      "reasoning": "The response names the Feedback Intelligence project specifically and correctly describes Rakshit's role in identifying the problem from his own product work. However, the second paragraph lists numerous research activities (user interviews, surveys, secondary research, competitor research, etc.) that appear in the technicalEvidence section under 'Product Experimentation and Delivery' but provides no concrete examples of how Rakshit actually conducted these activities in any shipped project. The response uses hedge language ('appears to combine', 'suggests he does not') where it should either cite specific evidence or admit the profile lacks detail on research methodology. The claim that he 'does not treat research as a one-off discovery phase' is interpretive speculation rather than documented behavior."
+    },
+    {
+      "id": "Q20",
+      "specificity": 4,
+      "evidence_citation": 4,
+      "anti_hallucination": 3,
+      "reasoning": "The response names two specific products with concrete metrics: ET Money Earn (INR 300Cr AUM, INR 100Cr in one month, IPL ad) and AI support automation (17,000 to 7,000 tickets, intent classification, 100+ workflows, eval pipeline). All core claims are verifiable against the profile: etmoney-earn shows 'INR 300Cr AUM' and etmoney-earn-p2p-investment shows '0 -> INR 100Cr AUM in 1 month' with IPL ad mention; etmoney-support-automation shows the ticket reduction and system description. The word 'probably' introduces minor speculation about which result is 'most impressive' when the agent could simply present both as strong results, but no fabrication occurs—just interpretive framing."
+    }
+  ],
+  "summary": {
+    "n": 20,
+    "specificity_avg": 3.3,
+    "evidence_citation_avg": 3.2,
+    "anti_hallucination_avg": 3.1,
+    "overall_avg": 3.2
+  }
+}

@@ -1,0 +1,2048 @@
+{
+  "version": "v3Pipeline",
+  "test_set": "factual",
+  "date": "2026-05-20T08:57:34.841Z",
+  "prompt_version": "v3Pipeline",
+  "profile_version": "v2",
+  "system_prompt_sha": "ae763816fdc4ce047b378915666bcbc3ff5068e0",
+  "api_url": "http://localhost:3017/api/agent",
+  "cases": [
+    {
+      "id": "F01",
+      "question": "When did Rakshit start at ET Money?",
+      "expected": "December 2022",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit started at ET Money in December 2022 as a Product Manager.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor asked about Rakshit's start date at ET Money.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "ET Money",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "experience"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha started at ET Money in December 2022 as a Product Manager.",
+            "directEvidence": [
+              {
+                "id": "etmoney",
+                "sourceType": "identity",
+                "title": "Current role at ET Money",
+                "evidence": "Rakshit Lodha is currently a Product Manager at ET Money, having started in December 2022.",
+                "relevance": "This evidence directly confirms the start date of Rakshit's role at ET Money.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "etmoney"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit started at ET Money in December 2022 as a Product Manager.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 0,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1544,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1544,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 8265,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 8265,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 10968,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 10984,
+      "total_ms": 11022
+    },
+    {
+      "id": "F02",
+      "question": "What is Rakshit's current employer?",
+      "expected": "ET Money",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit Lodha’s current employer is ET Money, where he serves as a Product Manager.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor is inquiring about Rakshit's current employer.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "current employer information"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha's current employer is ET Money, where he serves as a Product Manager.",
+            "directEvidence": [
+              {
+                "id": "current-experience",
+                "sourceType": "identity",
+                "title": "Current Employer and Role",
+                "evidence": "Rakshit Lodha is currently a Product Manager at ET Money.",
+                "relevance": "Directly answers the question about Rakshit's current employer.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "current-experience"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit Lodha’s current employer is ET Money, where he serves as a Product Manager.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1585,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1585,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 3814,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 3814,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 6200,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 6209,
+      "total_ms": 6248
+    },
+    {
+      "id": "F03",
+      "question": "By how much did the AI support automation reduce monthly tickets at ET Money?",
+      "expected": "From 17,000 to 7,000 (a ~59% reduction)",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "At ET Money, Rakshit's AI support automation reduced monthly support ticket volume from 17,000 to 7,000. That’s a reduction of 10,000 tickets per month. He did this by designing intent classification, 100+ resolution workflows, and an eval pipeline.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor is asking about the impact of AI support automation on monthly ticket reduction at ET Money.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "ET Money",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "experience",
+              "project evidence"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Impact of AI support automation on reducing monthly tickets at ET Money.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "experience",
+                "title": "AI support automation",
+                "evidence": "Reduced monthly support ticket volume from 17,000 to 7,000 by designing intent classification, 100+ resolution workflows, and an eval pipeline.",
+                "relevance": "This evidence directly shows the reduction in ticket volume due to AI support automation at ET Money.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation"
+            ]
+          }
+        }
+      },
+      "answer_text": "At ET Money, Rakshit's AI support automation reduced monthly support ticket volume from 17,000 to 7,000. That’s a reduction of 10,000 tickets per month. He did this by designing intent classification, 100+ resolution workflows, and an eval pipeline.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1223,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1223,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 5121,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 5121,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 8014,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 8021,
+      "total_ms": 8137
+    },
+    {
+      "id": "F04",
+      "question": "How many funds are indexed in MF Semantic Search?",
+      "expected": "16,197",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "MF Semantic Search indexes 16,197 mutual funds. It searches across them using ChromaDB, OpenAI embeddings, and LLM-based routing.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is asking about the number of funds indexed in the MF Semantic Search.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "MF Semantic Search details"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "The MF Semantic Search indexes 16,197 mutual funds.",
+            "directEvidence": [
+              {
+                "id": "mf-semantic-search",
+                "sourceType": "project",
+                "title": "MF Semantic Search",
+                "evidence": "MF Semantic Search searches 16,197 mutual funds using ChromaDB, OpenAI embeddings, and LLM-based routing.",
+                "relevance": "This directly states the number of funds indexed in the search system.",
+                "evidenceType": "direct",
+                "supports": [
+                  "mf-semantic-search-detail"
+                ]
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "mf-semantic-search"
+            ]
+          }
+        }
+      },
+      "answer_text": "MF Semantic Search indexes 16,197 mutual funds. It searches across them using ChromaDB, OpenAI embeddings, and LLM-based routing.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2141,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2141,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 5932,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 5932,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 8326,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 8333,
+      "total_ms": 8411
+    },
+    {
+      "id": "F05",
+      "question": "What was the time reduction in advisor planning at INDmoney?",
+      "expected": "From 4-5 hours to 15 minutes",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "At INDmoney, Rakshit reduced advisor plan creation time from 4–5 hours to about 15 minutes. He did this by building a financial planning module using recommendation algorithms, which also enabled the generation of 20,000+ advisory plans.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor asked about time reduction in advisor planning at INDmoney.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "INDmoney",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "INDmoney",
+              "advisor planning",
+              "time reduction"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha reduced the advisor planning time at INDmoney from 4-5 hours to 15 minutes by developing a financial planning module using recommendation algorithms, enabling the generation of over 20,000 advisory plans.",
+            "directEvidence": [
+              {
+                "id": "indmoney-financial-planning",
+                "sourceType": "experience",
+                "title": "Financial planning module at INDmoney",
+                "evidence": "Built financial planning module with recommendation algorithms, reducing plan creation time from 4-5 hours to 15 minutes and enabling 20,000+ advisory plans.",
+                "relevance": "This directly addresses the time reduction in advisor planning at INDmoney.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Time reduction in advisor planning at INDmoney",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "indmoney-financial-planning"
+                ],
+                "notes": "The evidence shows a significant reduction in time for creating advisory plans."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "indmoney-financial-planning"
+            ]
+          }
+        }
+      },
+      "answer_text": "At INDmoney, Rakshit reduced advisor plan creation time from 4–5 hours to about 15 minutes. He did this by building a financial planning module using recommendation algorithms, which also enabled the generation of 20,000+ advisory plans.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 0,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1639,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1639,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 6978,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 6978,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 9796,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 9803,
+      "total_ms": 9917
+    },
+    {
+      "id": "F06",
+      "question": "How many advisory plans were shipped through the INDmoney planning module?",
+      "expected": "20,000+",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit’s INDmoney financial planning module enabled 20,000+ advisory plans. The module also reduced plan creation time from 4–5 hours to about 15 minutes using recommendation algorithms.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor asked about the number of advisory plans shipped through the INDmoney planning module.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "INDmoney project details"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [
+              "details on the INDmoney planning module outcome"
+            ],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Inquiry about the number of advisory plans shipped through the INDmoney planning module.",
+            "directEvidence": [
+              {
+                "id": "indmoney-financial-planning",
+                "sourceType": "experience",
+                "title": "Financial planning module",
+                "evidence": "Built financial planning module with recommendation algorithms, reducing plan creation time from 4-5 hours to 15 minutes and enabling 20,000+ advisory plans.",
+                "relevance": "Direct evidence of the number of advisory plans shipped through the INDmoney planning module.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Number of advisory plans shipped through INDmoney planning module",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "indmoney-financial-planning"
+                ],
+                "notes": ""
+              }
+            ],
+            "strongestEvidenceIds": [
+              "indmoney-financial-planning"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit’s INDmoney financial planning module enabled 20,000+ advisory plans. The module also reduced plan creation time from 4–5 hours to about 15 minutes using recommendation algorithms.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1653,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1653,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 8925,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 8925,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 11635,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 11639,
+      "total_ms": 11736
+    },
+    {
+      "id": "F07",
+      "question": "What ARR did the insurance recommendation engine at INDmoney generate in its first year?",
+      "expected": "₹1.5Cr",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "The insurance recommendation engine Rakshit developed at INDmoney generated INR 1.5Cr ARR in its first year. It was a personalized recommendation system aligned with users’ financial goals.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor asking about the ARR generated by the insurance recommendation engine at INDmoney in its first year.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "INDmoney project specifics",
+              "ARR generation details",
+              "insurance recommendation engine outcomes"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "The insurance recommendation engine at INDmoney generated INR 1.5Cr ARR in its first year.",
+            "directEvidence": [
+              {
+                "id": "indmoney-insurance-recommendations",
+                "sourceType": "experience",
+                "title": "Insurance recommendations",
+                "evidence": "Developed personalized insurance recommendation system aligned with financial goals, achieving INR 1.5Cr ARR in the first year.",
+                "relevance": "Specifically states the ARR generated by the insurance recommendation engine.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "ARR generation details",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "indmoney-insurance-recommendations"
+                ],
+                "notes": "Directly fulfilled by evidence of INR 1.5Cr ARR in year one of the project."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "indmoney-insurance-recommendations"
+            ]
+          }
+        }
+      },
+      "answer_text": "The insurance recommendation engine Rakshit developed at INDmoney generated INR 1.5Cr ARR in its first year. It was a personalized recommendation system aligned with users’ financial goals.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1706,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1706,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 6588,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 6588,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 9202,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 9211,
+      "total_ms": 9306
+    },
+    {
+      "id": "F08",
+      "question": "What did Rakshit do at LearnApp?",
+      "expected": "Designed library of investing and finance courses, achieved 50% course completion, generated ₹1.2Cr ARR",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit served as a Core Team Member at LearnApp. His documented work there was designing and building an investing and finance course library.\n\nThe course library improved learner completion and became a revenue driver: it achieved a 50% course completion rate and generated INR 1.2Cr in annual recurring revenue.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor asked about Rakshit's role at LearnApp.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "LearnApp",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "LearnApp projects",
+              "roles and responsibilities",
+              "outcomes at LearnApp"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha served as a Core Team Member at LearnApp, where he designed and built an investing and finance course library. The project resulted in a 50% course completion rate and generated INR 1.2 crore in annual recurring revenue.",
+            "directEvidence": [
+              {
+                "id": "learnapp-courses",
+                "sourceType": "experience",
+                "title": "Investing and finance course library",
+                "evidence": "Designed a course library that improved completion and generated recurring revenue, achieving a 50% completion rate and INR 1.2Cr ARR.",
+                "relevance": "Rakshit was part of the core team responsible for this successful outcome, indicating his role in project development and revenue generation.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Understand Rakshit's role and outcomes at LearnApp",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "learnapp-courses"
+                ],
+                "notes": ""
+              }
+            ],
+            "strongestEvidenceIds": [
+              "learnapp-courses"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit served as a Core Team Member at LearnApp. His documented work there was designing and building an investing and finance course library.\n\nThe course library improved learner completion and became a revenue driver: it achieved a 50% course completion rate and generated INR 1.2Cr in annual recurring revenue.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2054,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2054,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 7519,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 7519,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 11233,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 11245,
+      "total_ms": 11397
+    },
+    {
+      "id": "F09",
+      "question": "What MBA program is Rakshit currently enrolled in?",
+      "expected": "Executive MBA at SP Jain Global School of Management",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit is currently enrolled in the MBA (Executive) program at SP Jain Global School of Management. The documented enrollment period starts in August 2025 and ends in January 2027.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor inquires about Rakshit's current MBA program enrollment.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "education"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit is currently enrolled in an Executive MBA program at SP Jain Global School of Management.",
+            "directEvidence": [
+              {
+                "id": "edu-sp-jain",
+                "sourceType": "identity",
+                "title": "SP Jain Global School of Management",
+                "evidence": "Rakshit is enrolled in an MBA (Executive) program at SP Jain Global School of Management starting in August 2025 and ending in January 2027.",
+                "relevance": "Indicates Rakshit Lodha's current MBA program enrollment.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "edu-sp-jain"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit is currently enrolled in the MBA (Executive) program at SP Jain Global School of Management. The documented enrollment period starts in August 2025 and ends in January 2027.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1481,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1481,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 4661,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 4661,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 7089,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 7100,
+      "total_ms": 7192
+    },
+    {
+      "id": "F10",
+      "question": "What disbursal volume did Loan Against Mutual Funds reach at ET Money?",
+      "expected": "₹100Cr in 7 months",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit built and scaled Loan Against Mutual Funds at ET Money from the ground up to INR 100Cr in disbursals within 7 months.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor asked about the disbursal volume for Loan Against Mutual Funds at ET Money.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "ET Money",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "ET Money projects",
+              "Loan Against Mutual Funds details",
+              "disbursal volume specifics"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Inquiry about disbursal volume for Loan Against Mutual Funds at ET Money.",
+            "directEvidence": [
+              {
+                "id": "etmoney-lamf",
+                "sourceType": "experience",
+                "title": "Loan Against Mutual Funds",
+                "evidence": "Built and scaled Loan Against Mutual Funds from ground up to INR 100Cr disbursals in 7 months.",
+                "relevance": "Explicitly states the disbursal volume for Loan Against Mutual Funds at ET Money.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "etmoney-lamf"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit built and scaled Loan Against Mutual Funds at ET Money from the ground up to INR 100Cr in disbursals within 7 months.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2275,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2275,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 6992,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 6992,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 9360,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 9366,
+      "total_ms": 9423
+    },
+    {
+      "id": "F11",
+      "question": "What is ET Money Earn's AUM under Rakshit's leadership?",
+      "expected": "₹300Cr",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Under Rakshit Lodha’s leadership, ET Money Earn scaled to INR 300Cr in AUM. The documented evidence says he led the 0-to-1 development and scaling of ET Money Earn to that AUM level.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Question about ET Money Earn's AUM under Rakshit's leadership.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "experience",
+              "project evidence",
+              "outcomes"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "The AUM of ET Money Earn under Rakshit Lodha's leadership reached INR 300Cr.",
+            "directEvidence": [
+              {
+                "id": "etmoney-earn",
+                "sourceType": "experience",
+                "title": "ET Money Earn",
+                "evidence": "Led 0-to-1 development and scaling of ET Money Earn to INR 300Cr AUM.",
+                "relevance": "Direct evidence of the AUM achieved for ET Money Earn.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "etmoney-earn"
+            ]
+          }
+        }
+      },
+      "answer_text": "Under Rakshit Lodha’s leadership, ET Money Earn scaled to INR 300Cr in AUM. The documented evidence says he led the 0-to-1 development and scaling of ET Money Earn to that AUM level.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1601,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1601,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 5142,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 5142,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 7683,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 7690,
+      "total_ms": 7787
+    },
+    {
+      "id": "F12",
+      "question": "What four dimensions does the ET Money support bot's eval pipeline score on?",
+      "expected": "Empathy, answer quality, policy compliance, regression",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "The ET Money support bot’s evaluation pipeline scores on four dimensions: empathy, answer quality, policy compliance, and regression testing.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor asked about evaluation dimensions of ET Money support bot's pipeline.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "ET Money support bot",
+              "evaluation pipeline",
+              "scoring dimensions"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "The ET Money support bot's evaluation pipeline scores on four dimensions: empathy, answer quality, policy compliance, and regression testing.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation-deep-dive",
+                "sourceType": "experience",
+                "title": "ET Money AI support automation deep evidence",
+                "evidence": "The pipeline evaluates empathy, answer quality, policy compliance, and regression.",
+                "relevance": "This describes the specific dimensions used in evaluating the ET Money support bot.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Understanding of evaluation dimensions for ET Money support bot's pipeline",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation-deep-dive"
+                ],
+                "notes": "The pipeline's four evaluation dimensions are directly covered."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation-deep-dive"
+            ]
+          }
+        }
+      },
+      "answer_text": "The ET Money support bot’s evaluation pipeline scores on four dimensions: empathy, answer quality, policy compliance, and regression testing.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1930,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1930,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 5435,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 5435,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 7479,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 7486,
+      "total_ms": 7563
+    },
+    {
+      "id": "F13",
+      "question": "What four model providers' APIs has Rakshit worked with?",
+      "expected": "OpenAI, Anthropic, xAI, Sarvam",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit has worked with four model providers’ APIs: OpenAI API, Anthropic API, xAI API, and Sarvam API.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor is inquiring about the model providers' APIs Rakshit has worked with.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "model provider APIs Rakshit has worked with"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha has experience working with various model providers' APIs in his role as an AI Product Manager.",
+            "directEvidence": [
+              {
+                "id": "api-experience",
+                "sourceType": "identity",
+                "title": "Model Provider API Experience",
+                "evidence": "Rakshit has hands-on experience building LLM products and has worked with OpenAI API, Anthropic API, xAI API, and Sarvam API.",
+                "relevance": "Direct evidence that Rakshit has worked with these four model providers' APIs.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "api-experience"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit has worked with four model providers’ APIs: OpenAI API, Anthropic API, xAI API, and Sarvam API.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 0,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1602,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1602,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 4865,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 4865,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 7064,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 7073,
+      "total_ms": 7131
+    },
+    {
+      "id": "F14",
+      "question": "What is Krux.news?",
+      "expected": "An AI news platform that ingests RSS, ranks stories, runs them through a deep research agent, and generates ~100-word summaries with contextual images",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Krux.news is Rakshit’s AI-driven news product for tracking fast-moving AI company updates. It turns those developments into short, swipeable stories with research, summaries, generated images, and a mobile-first feed.\n\nThe product was built end-to-end with technologies including Next.js, React, and TypeScript. The documented product direction also shows it evolved from comparing LLM-written articles into a shorter, persona-aware feed for people who want to understand AI updates quickly.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is asking what Krux.news is.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "Krux.news",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "project evidence"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Krux.news is an AI-driven news platform designed to provide concise, swipeable updates on fast-moving AI company developments. It focuses on delivering short stories with research, summaries, and generated images, optimized for a mobile-first experience.",
+            "directEvidence": [
+              {
+                "id": "krux-new",
+                "sourceType": "project",
+                "title": "Krux.news",
+                "evidence": "End-to-end AI news product that turns fast-moving AI company updates into short, swipeable stories with research, summaries, generated images, and a mobile-first feed. Built with Next.js, React, TypeScript, and more.",
+                "relevance": "This evidence directly describes what Krux.news is and how it functions as an AI news platform.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "krux-news-deep-dive",
+                "sourceType": "project",
+                "title": "Krux.news deep evidence",
+                "evidence": "An AI-news product that pivoted from comparing LLM-written articles to a short, persona-aware feed for people who want to understand AI updates quickly.",
+                "relevance": "This evidence provides deeper insights into the product's evolution and design considerations, but is more about the development process than the platform description.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "krux-new"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "krux-new"
+            ]
+          }
+        }
+      },
+      "answer_text": "Krux.news is Rakshit’s AI-driven news product for tracking fast-moving AI company updates. It turns those developments into short, swipeable stories with research, summaries, generated images, and a mobile-first feed.\n\nThe product was built end-to-end with technologies including Next.js, React, and TypeScript. The documented product direction also shows it evolved from comparing LLM-written articles into a shorter, persona-aware feed for people who want to understand AI updates quickly.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1879,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1879,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 5565,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 5565,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 9109,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 9112,
+      "total_ms": 9341
+    },
+    {
+      "id": "F15",
+      "question": "Where did Rakshit do his undergraduate degree?",
+      "expected": "Christ University, Bengaluru — BBA Finance & International Business",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit Lodha completed his undergraduate degree at Christ University, Bengaluru. He earned a BBA in Finance & International Business, studying there from June 2017 to April 2020.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor asked about Rakshit's undergraduate degree.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "education"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Information about Rakshit Lodha's undergraduate degree.",
+            "directEvidence": [
+              {
+                "id": "edu-christ-university-bba",
+                "sourceType": "identity",
+                "title": "Undergraduate Degree",
+                "evidence": "Rakshit Lodha completed his BBA in Finance & International Business from Christ University, Bengaluru, from June 2017 to April 2020.",
+                "relevance": "Direct answer to the query about Rakshit's undergraduate education.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Undergraduate degree information",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "edu-christ-university-bba"
+                ],
+                "notes": "Rakshit holds a BBA in Finance & International Business."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "edu-christ-university-bba"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit Lodha completed his undergraduate degree at Christ University, Bengaluru. He earned a BBA in Finance & International Business, studying there from June 2017 to April 2020.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 0,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2321,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2321,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 9347,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 9347,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 11733,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 11743,
+      "total_ms": 11841
+    },
+    {
+      "id": "F16",
+      "question": "What revenue is the execution-only Mutual Fund Platform projected to generate?",
+      "expected": "₹10Cr annually",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "The execution-only Mutual Fund Platform Rakshit built is projected to generate INR 10 crore in annual revenue.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is asking about the projected revenue of the execution-only Mutual Fund Platform.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "The execution-only Mutual Fund Platform is projected to generate INR 10 Crore in annual revenue. This forecast reflects the platform's potential in the mutual funds and wealth domains.",
+            "directEvidence": [
+              {
+                "id": "etmoney-mf-platform",
+                "sourceType": "experience",
+                "title": "Execution-only Mutual Fund Platform",
+                "evidence": "Built execution-only Mutual Fund Platform, projected to generate INR 10Cr annual revenue.",
+                "relevance": "This evidence directly states the projected revenue of the platform.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Projected revenue of the execution-only Mutual Fund Platform",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-mf-platform"
+                ],
+                "notes": "Projected revenue of INR 10Cr is directly covered."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-mf-platform"
+            ]
+          }
+        }
+      },
+      "answer_text": "The execution-only Mutual Fund Platform Rakshit built is projected to generate INR 10 crore in annual revenue.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2228,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2228,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 18619,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 18619,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 23292,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 23298,
+      "total_ms": 23357
+    },
+    {
+      "id": "F17",
+      "question": "How does Rakshit's hireability agent classify fit?",
+      "expected": "Four-value enum: Strong fit, Relevant fit, Partial fit, Not enough evidence",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit’s hireability agent classifies fit using four labels: Strong fit, Relevant fit, Partial fit, and Not enough evidence.\n\nThe documented intent is to evaluate Rakshit’s profile against role-specific questions without forcing every answer into a static assessment frame. In other words, it can answer general questions conversationally, but when a visitor is asking about hiring fit, it uses those labels to structure the assessment.\n\nAdjacent examples from Rakshit’s work show a similar pattern: he has built AI systems for intent classification in support automation and dynamic feedback categorization in a feedback intelligence agent, both of which are relevant to designing structured classification workflows.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor asked about classification of fit in hiring.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "fit assessment process",
+              "criteria Rakshit meets for roles"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit's portfolio includes an AI Hiring Chat project that classifies fit using four labels: Strong fit, Relevant fit, Partial fit, and Not enough evidence. This structured fit assessment is part of a larger agentic hiring assistant designed to help evaluate Rakshit's fit for specific roles or questions.",
+            "directEvidence": [
+              {
+                "id": "ai-hiring-chat-deep-dive",
+                "sourceType": "project",
+                "title": "AI Hiring Chat deep evidence",
+                "evidence": "The AI Hiring Chat classifies fit using four specific labels and evaluates Rakshit's profile for role-specific questions without forcing a static assessment frame.",
+                "relevance": "Demonstrates the structured fit assessment approach and dynamic query handling through Rakshit's portfolio tool.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "etmoney-support-automation-deep-dive",
+                "sourceType": "experience",
+                "title": "ET Money AI support automation deep evidence",
+                "evidence": "Implemented an AI support automation system that improved query classification using intent classification and evals for empathy and answer quality.",
+                "relevance": "Shows experience in applying AI to structured workflow classification, relevant for evaluating fitment processes.",
+                "evidenceType": "adjacent",
+                "supports": []
+              },
+              {
+                "id": "feedback-agent-deep-dive",
+                "sourceType": "project",
+                "title": "Feedback Intelligence deep evidence",
+                "evidence": "Developed a feedback agent that uses PM-style questions and dynamic feedback categorization.",
+                "relevance": "Illustrates capability in designing systems that handle dynamic queries and context classification, relevant to fit assessments.",
+                "evidenceType": "adjacent",
+                "supports": []
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "ai-hiring-chat-deep-dive"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit’s hireability agent classifies fit using four labels: Strong fit, Relevant fit, Partial fit, and Not enough evidence.\n\nThe documented intent is to evaluate Rakshit’s profile against role-specific questions without forcing every answer into a static assessment frame. In other words, it can answer general questions conversationally, but when a visitor is asking about hiring fit, it uses those labels to structure the assessment.\n\nAdjacent examples from Rakshit’s work show a similar pattern: he has built AI systems for intent classification in support automation and dynamic feedback categorization in a feedback intelligence agent, both of which are relevant to designing structured classification workflows.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 0,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2158,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2158,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 9532,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 9532,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 14494,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 14501,
+      "total_ms": 14845
+    },
+    {
+      "id": "F18",
+      "question": "What stack is rakshitlodha.com built on?",
+      "expected": "Next.js 16, TypeScript, OpenAI Agents SDK, Tailwind, shadcn/ui",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "rakshitlodha.com is built with Next.js 16, TypeScript, OpenAI Agents SDK, Tailwind CSS, and shadcn/ui. The same project evidence also notes that the AI Hiring Chat on the site uses this stack.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is asking about the technology stack used for Rakshit Lodha's personal website, rakshitlodha.com.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "website technology stack"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha's personal website, rakshitlodha.com, is built using the following technology stack: Next.js 16, TypeScript, OpenAI Agents SDK, Tailwind CSS, and shadcn/ui.",
+            "directEvidence": [
+              {
+                "id": "ai-hiring-chat-deep-dive",
+                "sourceType": "project",
+                "title": "AI Hiring Chat deep evidence",
+                "evidence": "Built rakshitlodha.com and the AI Hiring Chat with Next.js 16, TypeScript, OpenAI Agents SDK, Tailwind CSS, and shadcn/ui.",
+                "relevance": "This project provides the explicit technology stack used for building Rakshit Lodha's personal website, rakshitlodha.com.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Personal website technology stack",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "ai-hiring-chat-deep-dive"
+                ],
+                "notes": "The stack includes Next.js, TypeScript, OpenAI Agents SDK, Tailwind CSS, shadcn/ui."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "ai-hiring-chat-deep-dive"
+            ]
+          }
+        }
+      },
+      "answer_text": "rakshitlodha.com is built with Next.js 16, TypeScript, OpenAI Agents SDK, Tailwind CSS, and shadcn/ui. The same project evidence also notes that the AI Hiring Chat on the site uses this stack.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1608,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1608,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 6560,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 6560,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 9333,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 9342,
+      "total_ms": 9438
+    },
+    {
+      "id": "F19",
+      "question": "What % of SIP book did Rakshit's offline distribution business contribute at ET Money?",
+      "expected": "12% (and 10% of gross sales) within 4 months",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit’s offline distribution business at ET Money contributed about 12% of the SIP book within roughly the first 4 months. The same initiative also contributed about 10% of gross sales in that period.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor asks about the contribution of Rakshit's offline distribution business to the SIP book at ET Money.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "Contribution metrics of Rakshit's offline distribution business at ET Money"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit's offline distribution business at ET Money contributed significantly to the SIP book within a short timeframe.",
+            "directEvidence": [
+              {
+                "id": "etmoney-offline-distribution",
+                "sourceType": "experience",
+                "title": "Offline distribution business",
+                "evidence": "Built a 0-to-1 offline distribution business on top of ET Money's platform for relationship-manager-led planning and transactions.",
+                "relevance": "Rakshit's offline distribution business contributed 12% of the SIP book and 10% of gross sales within the first 4 months.",
+                "evidenceType": "direct",
+                "supports": []
+              },
+              {
+                "id": "etmoney-rm-deep-dive",
+                "sourceType": "experience",
+                "title": "ET Money relationship-manager distribution deep evidence",
+                "evidence": "The offline business contributed about 12% of SIP book and 10% of gross sales within about 4 months.",
+                "relevance": "Explicitly states the contribution of the offline distribution business to the SIP book.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Contribution metrics of Rakshit's offline distribution business at ET Money",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-offline-distribution",
+                  "etmoney-rm-deep-dive"
+                ],
+                "notes": "Direct evidence of the business contributing 12% of the SIP book."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-offline-distribution",
+              "etmoney-rm-deep-dive"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit’s offline distribution business at ET Money contributed about 12% of the SIP book within roughly the first 4 months. The same initiative also contributed about 10% of gross sales in that period.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1598,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1598,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 15539,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 15539,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 18204,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 18211,
+      "total_ms": 18309
+    },
+    {
+      "id": "F20",
+      "question": "What city is Rakshit based in?",
+      "expected": "Gurugram",
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit Lodha is based in Gurugram.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor asked about Rakshit's city of residence.",
+            "target": {
+              "roleTitle": "",
+              "companyName": "",
+              "companyUrl": "",
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": "",
+            "retrievalNeeds": [
+              "location"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "The visitor asked about Rakshit Lodha's city of residence.",
+            "directEvidence": [
+              {
+                "id": "location-facts",
+                "sourceType": "identity",
+                "title": "City of Residence",
+                "evidence": "Rakshit Lodha is based in Gurugram.",
+                "relevance": "Confirms the current city of residence.",
+                "evidenceType": "direct",
+                "supports": []
+              },
+              {
+                "id": "hiring-preferences-location",
+                "sourceType": "identity",
+                "title": "Location Preference",
+                "evidence": "Rakshit is based in Gurugram and open to exploring opportunities in other cities like Mumbai, Bengaluru, Pune, and Hyderabad.",
+                "relevance": "Provides additional context about current location and openness to relocate.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "location-facts"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit Lodha is based in Gurugram.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1628,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1628,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 6234,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 6234,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 9306,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 9312,
+      "total_ms": 9330
+    }
+  ]
+}

@@ -25,8 +25,12 @@ export type AgentResponse = AgentBrief & {
 };
 
 export type AgentStatusStage =
+  | "intent_start"
+  | "intent_complete"
   | "websearch_start"
   | "websearch_complete"
+  | "evidence_start"
+  | "evidence_complete"
   | "context_start"
   | "context_complete"
   | "answer_start"

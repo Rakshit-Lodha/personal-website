@@ -1,0 +1,83 @@
+{
+  "version": "v3Pipeline",
+  "date": "2026-05-20T09:25:11.046Z",
+  "prompt_version": "v3Pipeline",
+  "profile_version": "v2",
+  "system_prompt_sha": "ae763816fdc4ce047b378915666bcbc3ff5068e0",
+  "scores": {
+    "factual": {
+      "n": 20,
+      "pass_rate": 1
+    },
+    "quality": {
+      "n": 20,
+      "specificity_avg": 3.3,
+      "evidence_citation_avg": 3.2,
+      "anti_hallucination_avg": 3.1,
+      "overall_avg": 3.2
+    },
+    "skeptic": {
+      "n": 12,
+      "fit_level_accuracy": 0.5833333333333334,
+      "target_alignment_avg": 3.7,
+      "fit_calibration_avg": 3.2,
+      "evidence_citation_avg": 3.5,
+      "anti_hallucination_avg": 3.2,
+      "overall_avg": 3.4
+    }
+  },
+  "latency": {
+    "factual": {
+      "total_mean_ms": 10587,
+      "total_median_ms": 9382,
+      "total_p95_ms": 18309,
+      "first_delta_mean_ms": 10484,
+      "n": 20,
+      "n_url_path": 0
+    },
+    "quality": {
+      "total_mean_ms": 16219,
+      "total_median_ms": 14916,
+      "total_p95_ms": 21706,
+      "first_delta_mean_ms": 15786,
+      "n": 20,
+      "n_url_path": 0
+    },
+    "skeptic": {
+      "total_mean_ms": 33361,
+      "total_median_ms": 32836,
+      "total_p95_ms": 44912,
+      "first_delta_mean_ms": 32729,
+      "n": 12,
+      "n_url_path": 6
+    },
+    "overall": {
+      "total_mean_ms": 18008,
+      "total_median_ms": 14593,
+      "total_p95_ms": 37863,
+      "first_delta_mean_ms": 17657,
+      "n": 52
+    },
+    "stages_mean_ms": {
+      "websearch": 8306,
+      "context": 0,
+      "answer": 6499
+    },
+    "by_websearch_path": {
+      "had_websearch": {
+        "total_mean_ms": 35464,
+        "total_median_ms": 37419,
+        "total_p95_ms": 44912,
+        "first_delta_mean_ms": 34741,
+        "n": 6
+      },
+      "no_websearch": {
+        "total_mean_ms": 15731,
+        "total_median_ms": 13745,
+        "total_p95_ms": 32097,
+        "first_delta_mean_ms": 15428,
+        "n": 46
+      }
+    }
+  }
+}

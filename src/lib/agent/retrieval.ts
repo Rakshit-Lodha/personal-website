@@ -1,6 +1,8 @@
 import { getReadyDeepEvidence, PROFILE_DATA } from "@/lib/profile";
 
 type SearchMode = "fit" | "ask" | "auto" | "both";
+type WorkContext = "production" | "professional" | "personal_project" | "generic_capability";
+type EvidenceStrength = "direct_shipped" | "direct_claim" | "adjacent" | "generic";
 
 const STOP_WORDS = new Set([
   "a",
@@ -52,6 +54,33 @@ function topMatches<T>(items: readonly T[], query: string, limit: number) {
     .map(({ item }) => item);
 }
 
+function withEvidenceMetadata<T extends object>(
+  item: T,
+  workContext: WorkContext,
+  evidenceStrength: EvidenceStrength,
+) {
+  return {
+    ...item,
+    workContext,
+    evidenceStrength,
+  };
+}
+
+function describeEvidencePriority() {
+  return {
+    rankingOrder: [
+      "1. Professional shipped outcomes from ET Money, INDMoney, and LearnApp.",
+      "2. Work-linked deepEvidence with sourceType experience or failure.",
+      "3. Personal projects only as supporting evidence unless the user asks about projects or no professional evidence exists.",
+      "4. Generic capability/tool lists only as weak support; do not lead with them.",
+    ],
+    qnaRule:
+      "For Q&A about skills, product judgment, research, design, PRDs, prioritization, stakeholder management, fintech, or domain expertise, lead with production/professional evidence whenever present.",
+    fitmentRule:
+      "For fitment, calibrate directness from concrete shipped outcomes and criteria coverage, not keyword proximity.",
+  };
+}
+
 export function getIdentityContext() {
   return {
     identity: PROFILE_DATA.person,
@@ -70,8 +99,19 @@ export function getProjectDetails(projectIds?: readonly string[]) {
   );
 
   return {
-    projects,
-    ...(readyDeepEvidence.length ? { deepEvidence: readyDeepEvidence } : {}),
+    evidencePriority: describeEvidencePriority(),
+    projects: projects.map((project) => withEvidenceMetadata(project, "personal_project", "direct_claim")),
+    ...(readyDeepEvidence.length
+      ? {
+          deepEvidence: readyDeepEvidence.map((entry) =>
+            withEvidenceMetadata(
+              entry,
+              entry.sourceType === "experience" || entry.sourceType === "failure" ? "professional" : "personal_project",
+              entry.sourceType === "experience" || entry.sourceType === "failure" ? "direct_shipped" : "direct_claim",
+            ),
+          ),
+        }
+      : {}),
   };
 }
 
@@ -86,8 +126,13 @@ export function getExperienceOutcomes(query: string) {
   );
 
   return {
-    outcomes: topMatches(outcomes, query, 8),
-    companies: topMatches(PROFILE_DATA.experience, query, 3),
+    evidencePriority: describeEvidencePriority(),
+    outcomes: topMatches(outcomes, query, 8).map((outcome) =>
+      withEvidenceMetadata(outcome, "production", "direct_shipped"),
+    ),
+    companies: topMatches(PROFILE_DATA.experience, query, 3).map((company) =>
+      withEvidenceMetadata(company, "professional", "direct_claim"),
+    ),
   };
 }
 
@@ -100,6 +145,7 @@ export function searchProfileEvidence(query: string, mode: SearchMode = "auto") 
 
   return {
     mode,
+    evidencePriority: describeEvidencePriority(),
     identity: {
       name: PROFILE_DATA.person.name,
       title: PROFILE_DATA.person.title,
@@ -113,11 +159,27 @@ export function searchProfileEvidence(query: string, mode: SearchMode = "auto") 
       technicalTools: PROFILE_DATA.person.technicalTools,
     },
     fitEvidence: fitMatches.length ? fitMatches : PROFILE_DATA.fitThemes.slice(0, 4),
-    technicalEvidence: technicalMatches.length ? technicalMatches : PROFILE_DATA.technicalEvidence.slice(0, 4),
+    technicalEvidence: (technicalMatches.length ? technicalMatches : PROFILE_DATA.technicalEvidence.slice(0, 4)).map(
+      (item) => withEvidenceMetadata(item, "generic_capability", "generic"),
+    ),
     projects: projectMatches.length
       ? projectMatches
-      : PROFILE_DATA.projects.filter((project) => project.featured).slice(0, 4),
+          .map((project) => withEvidenceMetadata(project, "personal_project", "direct_claim"))
+      : PROFILE_DATA.projects
+          .filter((project) => project.featured)
+          .slice(0, 4)
+          .map((project) => withEvidenceMetadata(project, "personal_project", "direct_claim")),
     outcomes: outcomeMatches,
-    ...(deepEvidenceMatches.length ? { deepEvidence: deepEvidenceMatches } : {}),
+    ...(deepEvidenceMatches.length
+      ? {
+          deepEvidence: deepEvidenceMatches.map((entry) =>
+            withEvidenceMetadata(
+              entry,
+              entry.sourceType === "experience" || entry.sourceType === "failure" ? "professional" : "personal_project",
+              entry.sourceType === "experience" || entry.sourceType === "failure" ? "direct_shipped" : "direct_claim",
+            ),
+          ),
+        }
+      : {}),
   };
 }

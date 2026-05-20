@@ -262,7 +262,7 @@ async function main() {
     test_set: testSet,
     date: new Date().toISOString(),
     prompt_version: process.env.OPENAI_AGENT_PROMPT_VERSION || "v1",
-    profile_version: process.env.OPENAI_PROFILE_VERSION || "v1",
+    profile_version: process.env.OPENAI_PROFILE_VERSION || "v2",
     system_prompt_sha: execSync("git rev-parse HEAD", { encoding: "utf8" }).trim(),
     api_url: apiUrl,
     cases: [],
