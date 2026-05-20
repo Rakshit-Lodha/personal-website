@@ -55,7 +55,7 @@ export const FIT_EVIDENCE = [
     id: "support-automation",
     label: "Support Automation",
     summary:
-      "Reduced support tickets from 17,000 to 7,000 by building intent classification, resolution workflows, and eval systems.",
+      "Reduced monthly support tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30% by building intent classification, resolution workflows, and LLM-as-judge eval systems.",
     evidenceIds: ["etmoney-support-automation"],
     roleMatches: ["AI Support Automation PM", "Customer Experience PM", "AI Operations PM"],
     themes: ["support automation", "intent classification", "resolution workflows", "LLM evals"],

@@ -42,7 +42,7 @@ const chapters = [
     lesson:
       "Four years at ET Money taught me one thing about AI products: the model is interchangeable, the eval is the product. The rubric is where the judgment lives. It's also where I now spend most of my time.",
     shipped: [
-      "Built AI support automation — 17K to 7K monthly tickets via intent classification, 100+ resolution workflows, and a four-dimension eval pipeline (empathy, accuracy, policy, regression)",
+      "Built AI support automation — 19K to 9K monthly tickets, a 55% reduction, and 30% CSAT improvement via intent classification, 100+ resolution workflows, and an LLM-as-judge eval pipeline",
       "Built 0-to-1 offline distribution business for relationship managers — 12% of SIP book, 10% of gross sales within 4 months",
       "Built Loan Against Mutual Funds from zero — ₹100Cr disbursals in 7 months",
       "Led ET Money Earn from 0 to ₹300Cr AUM",

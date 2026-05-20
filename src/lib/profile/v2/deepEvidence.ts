@@ -43,7 +43,7 @@ export const PROFILE_V2_DEEP_EVIDENCE: DeepEvidenceInput[] = [
     userOrBusinessProblem:
       "People evaluating Rakshit would otherwise need to scan pages, infer fit themselves, or book a call too early; the assistant makes it easier to ask role-specific questions and decide whether a conversation is worth having.",
     rakshitRole:
-      "Rakshit defined the product concept, built the chat experience, designed the agent pipeline, created the structured profile context, and built the eval loop used to improve prompts and profile data over time.",
+      "Rakshit defined the product concept, built the chat experience, designed the V1/V2/V3 agent pipeline, created the structured profile context, and built the eval loop used to improve prompts, retrieval, and profile data over time.",
     constraints: [
       "The agent had to answer both normal background questions and fitment questions without forcing everything into a hiring-assessment frame.",
       "The system needed to stay grounded in profile data while still producing useful, conversational answers.",
@@ -52,18 +52,25 @@ export const PROFILE_V2_DEEP_EVIDENCE: DeepEvidenceInput[] = [
     ],
     decisions: [
       {
-        decision: "Split the pipeline into a context selector and an answer agent.",
-        why: "The context selector can classify the user query as Q&A, fitment, or both, then brief the answer agent with only the relevant profile sections.",
-        alternativesConsidered: ["A single prompt that reads the full profile every time", "A static FAQ-style site"],
+        decision: "Move V3 from a context-selector pattern to a full versioned agent pipeline.",
+        why: "The agent needed to classify intent, decide whether company research was needed, gather evidence, and route to the right answer style before writing the final response.",
+        alternativesConsidered: ["Keep the V2 prompt/context selector", "Use a single prompt that reads the full profile every time", "Build a static FAQ-style site"],
         tradeoff:
-          "The two-agent setup adds latency and complexity, but it gives cleaner separation between retrieval/classification and final answer quality.",
+          "The V3 pipeline adds latency and complexity, but it gives cleaner separation between planning, research, evidence classification, and final answer quality.",
       },
       {
         decision: "Turn prompts and profile data into versioned dynamic elements.",
         why: "The agent should improve through evals without silently changing production behavior.",
         alternativesConsidered: ["Editing the live prompt directly", "Treating every improvement as a one-off code change"],
         tradeoff:
-          "Versioning adds process overhead, but makes it possible to compare V1 and V2 candidates against the same baseline.",
+          "Versioning adds process overhead, but makes it possible to compare V1, V2, and V3 against the same baseline.",
+      },
+      {
+        decision: "Rank evidence by context and strength, not only keyword proximity.",
+        why: "V3 initially improved fit calibration but sometimes over-indexed on personal projects or generic PM capability lists for Q&A.",
+        alternativesConsidered: ["Rely on the final answer prompt to choose the best evidence", "Keep keyword retrieval unchanged"],
+        tradeoff:
+          "Adding workContext and evidenceStrength metadata makes the evidence packet more explicit, but it requires more discipline in profile data and eval review.",
       },
       {
         decision: "Build an eval pipeline before promoting prompt or profile changes.",
@@ -75,13 +82,18 @@ export const PROFILE_V2_DEEP_EVIDENCE: DeepEvidenceInput[] = [
     ],
     executionDetails: [
       "Built a standalone chat interface for recruiters, founders, and collaborators to ask about Rakshit or paste a job description.",
-      "Implemented a context selector that reviews the profile and classifies the query as Q&A, fitment, or both.",
-      "Implemented an answer agent that writes the final response and returns a structured AgentResponse.",
+      "V1 established the baseline single-agent behavior and eval harness across factual, quality, fitment, and latency checks.",
+      "V2 improved prompt/profile grounding, raising answer quality while keeping the simpler architecture.",
+      "V3 added an intent planner that classifies Q&A, fitment, or both; extracts target role, company, JD, or topic; and creates a retrieval plan.",
+      "V3 optionally runs company research or skips it when no concrete target is present.",
+      "V3 gathers profile, experience, project, education, preference, seniority, and company evidence into an evidence packet.",
+      "V3 routes the evidence packet to Q&A, fitment, or both answer agents before returning a structured AgentResponse.",
+      "Added workContext and evidenceStrength fields so production/professional evidence can outrank personal projects and generic capability lists.",
       "Classifies fit only with four labels: Strong fit, Relevant fit, Partial fit, and Not enough evidence.",
       "Built rakshitlodha.com and the AI Hiring Chat with Next.js 16, TypeScript, OpenAI Agents SDK, Tailwind CSS, and shadcn/ui.",
       "Launched the experience to founders and used their real questions and feedback to identify gaps in fit calibration and answer depth.",
       "Built a 52-question eval pipeline covering factual accuracy, quality, fitment accuracy, and latency.",
-      "Broke dynamic behavior into versioned prompt and profile layers so future improvements can be tested before release.",
+      "Kept V1, V2, and V3 eval history visible so improvements and regressions can be compared over time.",
     ],
     metrics: [
       {
@@ -91,21 +103,30 @@ export const PROFILE_V2_DEEP_EVIDENCE: DeepEvidenceInput[] = [
         timeframe: "V1 baseline period",
         caveat: "The eval suite measures agent behavior, not production recruiter conversion.",
       },
+      {
+        label: "Version progression",
+        before: "V1 baseline: 100% factual recall, 2.8/4 answer quality, 25% fit accuracy, 10.4s mean latency",
+        after: "Final V3: 100% factual recall, 3.5/4 answer quality, 58% fit accuracy, 21.9s mean latency",
+        timeframe: "V1 to final V3 eval history",
+        caveat: "V3 is deliberately slower because it plans intent, researches company context when needed, and classifies evidence before answering.",
+      },
     ],
     failureModesOrRisks: [
       "The fit label can become too generous if the answer agent overweights adjacent evidence.",
       "Q&A answers can become shallow if the profile data only contains short project summaries.",
-      "Latency can increase as the pipeline adds web search, context selection, and richer answer generation.",
+      "Latency can increase as the pipeline adds intent planning, optional web search, evidence classification, and richer answer generation.",
     ],
     lessonsLearned: [
       "A personal website can become more useful when it answers the evaluator's exact question instead of only presenting static sections.",
       "Prompt changes need eval gates because subjective answer quality can improve while fit calibration regresses.",
-      "For Q&A depth, richer profile evidence is as important as a better final answer prompt.",
+      "Fit calibration improved most when evidence classification became its own step instead of being buried inside the final answer prompt.",
+      "For Q&A depth, the pipeline must rank production work above side projects and generic capability lists when professional evidence exists.",
     ],
     evidenceLimits: [
       "Do not claim this has measured recruiter conversion or hiring outcomes unless those numbers are added later.",
-      "Do not claim the V2 prompts outperform V1 until eval results show it.",
+      "Do not claim V3 is faster than V1 or V2; the accepted tradeoff is better grounding and fit calibration at higher latency.",
       "If asked how the hireability agent classifies fit, answer with the four fit labels, not only the Q&A/fitment/both routing modes.",
+      "If asked how the V3 pipeline works, use the flow: user question, intent planner, optional company research, evidence gatherer, evidence packet, intent-specific answer agent, structured AgentResponse, SSE stream to chat UI.",
       "If asked what stack rakshitlodha.com is built on, use the repo/profile stack: Next.js 16, TypeScript, OpenAI Agents SDK, Tailwind CSS, and shadcn/ui.",
     ],
     goodForQuestionsAbout: ["agent pipelines", "evals", "prompt versioning", "portfolio chat", "fit assessment"],
@@ -504,7 +525,7 @@ export const PROFILE_V2_DEEP_EVIDENCE: DeepEvidenceInput[] = [
     title: "ET Money AI support automation deep evidence",
     status: "ready",
     oneLine:
-      "A production AI support automation system that reduced monthly tickets from roughly 17,000-19,000 to about 7,000-7,500 while improving support quality and keeping costs controlled.",
+      "A production AI support automation system that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30% while keeping costs controlled.",
     context:
       "ET Money had high support volume, especially around mutual-fund transactions. Rakshit focused on the categories with the highest volume and built a data-grounded AI support system instead of relying on a free-form LLM.",
     userOrBusinessProblem:
@@ -557,7 +578,7 @@ export const PROFILE_V2_DEEP_EVIDENCE: DeepEvidenceInput[] = [
       "Started with a 10% user launch in December 2025 and human-in-the-loop review by Rakshit and ops.",
       "Used review findings to strengthen the data layer, especially for withdrawal TAT hallucinations.",
       "Built an automated eval pipeline comparing the agent's response with the final human support response for tickets that escalated.",
-      "Evaluated factual accuracy, intent detection, query classification, and empathy.",
+      "Evaluated empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
       "Ran quality evaluation on non-escalated AI-resolved queries.",
       "Expanded launch from 10% users in December 2025 to 50% in January 2026 and 100% in February 2026.",
       "Added transaction-page flows where the system used known order context to answer likely status questions upfront.",
@@ -565,10 +586,10 @@ export const PROFILE_V2_DEEP_EVIDENCE: DeepEvidenceInput[] = [
     metrics: [
       {
         label: "Monthly support tickets",
-        before: "Around 17,000-19,000 per month",
-        after: "About 7,000-7,500 per month",
+        before: "19,000 per month",
+        after: "9,000 per month",
         timeframe: "After rollout to 100% users",
-        caveat: "The baseline profile/eval uses 17,000 to 7,000; the richer notes describe the target/result as about 7,500. Treat this as an approximate range.",
+        caveat: "This is reported as a 55% reduction in the profile evidence.",
       },
       {
         label: "AI support query volume and cost",
@@ -585,11 +606,11 @@ export const PROFILE_V2_DEEP_EVIDENCE: DeepEvidenceInput[] = [
         caveat: "Dates should not be used if discussing work before December 2025.",
       },
       {
-        label: "Support rating",
-        before: "About 3 out of 5, or about 6 out of 10",
-        after: "About 3.8 out of 5, or about 7.6 out of 10",
+        label: "CSAT",
+        before: "Baseline CSAT before AI support automation",
+        after: "30% improvement",
         timeframe: "After full rollout and iteration",
-        caveat: "Two rating scales were mentioned; avoid mixing them as the same metric unless clarified.",
+        caveat: "The profile stores the relative improvement, not the raw CSAT baseline and ending values.",
       },
     ],
     failureModesOrRisks: [
@@ -607,8 +628,8 @@ export const PROFILE_V2_DEEP_EVIDENCE: DeepEvidenceInput[] = [
     evidenceLimits: [
       "Do not say the agent solved every ET Money support category; the initial scope was heavily mutual-fund focused.",
       "Do not imply the system relied only on LLM generation; the core design used routing, metadata, and approved answer patterns.",
-      "If asked for the baseline factual metric, answer 17,000 to 7,000. If giving the richer narrative, say roughly 7,000-7,500.",
-      "If asked what the support bot eval pipeline scored, include empathy, answer quality, policy compliance, and regression as the baseline eval dimensions.",
+      "If asked for the baseline factual metric, answer 19,000 to 9,000 monthly tickets, a 55% reduction, with 30% CSAT improvement.",
+      "If asked what the support bot eval pipeline scored, include empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
     ],
     goodForQuestionsAbout: ["support automation", "AI workflows", "production AI", "customer experience"],
   },

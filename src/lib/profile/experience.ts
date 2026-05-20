@@ -12,10 +12,11 @@ export const EXPERIENCE = [
       {
         id: "etmoney-support-automation",
         label: "AI support automation",
-        metric: "17,000 -> 7,000 monthly tickets",
-        impact: "Reduced monthly ticket volume by designing intent classification, 100+ resolution workflows, and an eval pipeline.",
+        metric: "19,000 -> 9,000 monthly tickets; 55% reduction; 30% CSAT improvement",
+        impact:
+          "Reduced monthly ticket volume by designing intent classification, 100+ resolution workflows, and an LLM-as-judge eval pipeline.",
         evidence:
-          "Built and scaled an AI support automation system with intent classification, 100+ resolution workflows, and evals for empathy, answer quality, policy compliance, and regression testing.",
+          "Built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
         themes: ["support automation", "agentic workflows", "eval systems", "LLM products"],
       },
       {

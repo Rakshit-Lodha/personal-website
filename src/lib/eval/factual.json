@@ -12,7 +12,7 @@
   {
     "id": "F03",
     "q": "By how much did the AI support automation reduce monthly tickets at ET Money?",
-    "ground_truth": "From 17,000 to 7,000 (a ~59% reduction)"
+    "ground_truth": "From 19,000 to 9,000, a 55% reduction, with 30% CSAT improvement"
   },
   {
     "id": "F04",
@@ -57,7 +57,7 @@
   {
     "id": "F12",
     "q": "What four dimensions does the ET Money support bot's eval pipeline score on?",
-    "ground_truth": "Empathy, answer quality, policy compliance, regression"
+    "ground_truth": "Empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method"
   },
   {
     "id": "F13",

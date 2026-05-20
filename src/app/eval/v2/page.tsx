@@ -490,7 +490,7 @@ export default function EvalV2Page() {
             <SectionIntro
               eyebrow="V3 pipeline"
               title="Four dedicated stages instead of one."
-              body="V1 and V2 were a single LLM call: detect intent, select context, write answer. V3 breaks this into four stages, each with a specific job. The key insight is that evidence classification needs its own step — you can't rank production outcomes above side projects if you don't know which is which yet."
+              body="V1 established the baseline agent behavior. V2 improved prompt and profile grounding. V3 turns the system into a versioned pipeline: plan intent, optionally research the company, classify evidence, route to the right answer agent, and stream a structured response. The key insight is that evidence classification needs its own step — you can't rank production outcomes above side projects if you don't know which is which yet."
             />
             <div className="flex justify-center rounded-xl border border-[#e4e0da] bg-white p-6">
               <Image
@@ -578,8 +578,8 @@ export default function EvalV2Page() {
           <section className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
             <SectionIntro
               eyebrow="V1 baseline vs V3"
-              title="V3 improves on every dimension from baseline."
-              body="The current V3 pipeline beats the V1 baseline on factual recall, answer quality, fit accuracy, and latency. The biggest gains are in quality and fit calibration."
+              title="V3 improves trust, with a latency tradeoff."
+              body="The current V3 pipeline beats the V1 baseline on answer quality and fit accuracy while preserving factual recall. It is slower because the system now plans intent, researches company context when needed, and classifies evidence before writing."
             />
             <div className="overflow-hidden rounded-lg border border-[#e4e0da] bg-white">
               <table className="w-full text-left text-sm">

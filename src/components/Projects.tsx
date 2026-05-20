@@ -57,7 +57,8 @@ const stripProjects: StripCard[] = [
       "ChatGPT-style hiring assistant for recruiters to evaluate fit from a company URL, JD, upload, or question.",
     proof: [
       "Built a standalone /chat interface with zero-state prompts, persistent composer, file chips, and streamed responses.",
-      "Designed a 3-stage agent pipeline for company research, profile context selection, and evidence-led answers.",
+      "Shipped a V3 agent pipeline with intent planning, optional company research, evidence gathering, and intent-specific answer agents.",
+      "Kept V1, V2, and V3 eval history visible so quality, fit calibration, and latency tradeoffs can be compared over time.",
       "Supports PDF, DOCX, and TXT job descriptions with structured SSE final events for fit-level UI.",
     ],
     primitives: ["Agents SDK", "SSE streaming", "JD parsing"],
