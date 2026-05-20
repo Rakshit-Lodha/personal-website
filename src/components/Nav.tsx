@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const resumeUrl =
-  "https://drive.google.com/file/d/1vfbeiJ50qj7MTv7lo_7MzssiH57VcBrW/view?usp=sharing";
+  "https://drive.google.com/file/d/1TBQCTHb0FjG1Wm7TAgHrkObsZM3DxMxX/view?usp=sharing";
 
 const links = [
   { label: "My Story", href: "#story" },
