@@ -125,15 +125,15 @@ const FINAL_EVAL_LABEL = "V3 final";
 const TEST_SET_EXPLAINERS: Record<TestSet, { short: string; detail: string }> = {
   factual: {
     short: "Can it remember known profile facts?",
-    detail: "Twenty direct checks for projects, outcomes, tools, and agent behavior that should have one grounded answer.",
+    detail: "20 known-answer checks for dates, projects, tools, outcomes, and agent behavior. This verifies the agent can retrieve facts without inventing or missing profile evidence.",
   },
   quality: {
     short: "Does it answer with useful evidence?",
-    detail: "Rubric-graded answers for specificity, cited evidence, and avoiding unsupported claims.",
+    detail: "20 open-ended Q&A prompts judged on specificity, evidence citation, and anti-hallucination. This catches vague resume-speak and unsupported process claims.",
   },
   skeptic: {
     short: "Can it avoid over-selling fit?",
-    detail: "Role, company, and JD-style prompts that test whether the agent calibrates fit labels conservatively.",
+    detail: "12 role, company, and JD-style prompts judged on target alignment, fit calibration, evidence, and grounding. This tests whether fit labels stay conservative.",
   },
 };
 
@@ -301,13 +301,17 @@ function score(value: number | undefined) {
   return `${(value ?? 0).toFixed(1)}/4`;
 }
 
-function signedNumber(value: number, digits = 1) {
-  const rounded = value.toFixed(digits);
-  return value > 0 ? `+${rounded}` : rounded;
+function scorePercent(value: number | undefined) {
+  return `${Math.round(((value ?? 0) / 4) * 100)}%`;
 }
 
 function signedPercentPoints(value: number | undefined) {
   const points = Math.round((value ?? 0) * 100);
+  return points > 0 ? `+${points}pp` : `${points}pp`;
+}
+
+function signedScorePercentPoints(value: number | undefined) {
+  const points = Math.round(((value ?? 0) / 4) * 100);
   return points > 0 ? `+${points}pp` : `${points}pp`;
 }
 
@@ -357,7 +361,7 @@ function scoreStatus(testSet: TestSet, summary: Record<string, number> | undefin
       display: percent(summary.fit_level_accuracy),
     };
   }
-  return { label: "Overall avg", value: summary.overall_avg ?? 0, max: 4, display: score(summary.overall_avg) };
+  return { label: "Overall avg", value: summary.overall_avg ?? 0, max: 4, display: scorePercent(summary.overall_avg) };
 }
 
 function scoreTone(value: number, max: number) {
@@ -412,9 +416,9 @@ function HeroMetrics({ version, previousVersion }: { version: VersionData; previ
       />
       <MetricPanel
         label="Answer quality"
-        value={score(quality?.overall_avg)}
+        value={scorePercent(quality?.overall_avg)}
         helper="Specificity, evidence, grounding"
-        delta={qualityDelta !== undefined ? signedNumber(qualityDelta) : undefined}
+        delta={qualityDelta !== undefined ? signedScorePercentPoints(qualityDelta) : undefined}
         deltaClass={qualityDelta !== undefined ? deltaTone(qualityDelta) : undefined}
       />
       <MetricPanel
@@ -466,7 +470,7 @@ function ReadoutHero({ version, previousVersion }: { version: VersionData; previ
   const qualityScore = version.summary.scores.quality?.overall_avg ?? 0;
   const verdict =
     factualPass >= 1 && qualityScore >= 3.4 && fitAccuracy >= 0.5
-      ? "V3 is the version to ship: more grounded, better calibrated, and deliberately slower."
+      ? "Final V3 is more grounded, better calibrated, but slower."
       : "The agent needs more work before its fit judgments should be trusted.";
 
   return (
@@ -485,7 +489,7 @@ function ReadoutHero({ version, previousVersion }: { version: VersionData; previ
         </p>
         <div className="mt-6 grid gap-3 md:grid-cols-3">
           <OutcomePill icon={<CheckCircle2 size={16} />} label="Facts" value={percent(factualPass)} helper="known-answer checks" />
-          <OutcomePill icon={<ShieldCheck size={16} />} label="Quality" value={score(qualityScore)} helper="evidence rubric" />
+          <OutcomePill icon={<ShieldCheck size={16} />} label="Quality" value={scorePercent(qualityScore)} helper="evidence rubric" />
           <OutcomePill icon={<Gauge size={16} />} label="Fit labels" value={percent(fitAccuracy)} helper="calibration checks" />
         </div>
       </div>
@@ -544,7 +548,7 @@ function ChangeList({ current, previous }: { current: VersionData; previous: Ver
   return (
     <dl className="mt-6 space-y-4">
       <ChangeRow label="Factual recall" value={signedPercentPoints(factualDelta)} tone={deltaTone(factualDelta, true, "dark")} />
-      <ChangeRow label="Answer quality" value={signedNumber(qualityDelta)} tone={deltaTone(qualityDelta, true, "dark")} />
+      <ChangeRow label="Answer quality" value={signedScorePercentPoints(qualityDelta)} tone={deltaTone(qualityDelta, true, "dark")} />
       <ChangeRow label="Fit accuracy" value={signedPercentPoints(fitDelta)} tone={deltaTone(fitDelta, true, "dark")} />
       <ChangeRow label="Average latency" value={signedSeconds(latencyDelta)} tone={deltaTone(latencyDelta, false, "dark")} />
     </dl>
@@ -566,11 +570,11 @@ function HowToRead() {
       <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">How to read this</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#111111]">Three questions, not one magic score</h2>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#111111]">Three eval sets</h2>
         </div>
         <p className="max-w-xl text-sm leading-relaxed text-[#6b6860]">
-          Each eval set catches a different failure mode: forgetting facts, giving vague answers, or sounding too confident
-          about a weak match.
+          I ran the agent through factual recall, answer quality, and fit judgment evals. Together they test whether it
+          remembers the profile, answers with evidence, and stays skeptical when the match is weak.
         </p>
       </div>
       <div className="mt-6 grid gap-4 md:grid-cols-3">
