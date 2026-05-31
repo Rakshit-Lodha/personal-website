@@ -1,0 +1,538 @@
+{
+  "version": "v4_test",
+  "test_set": "skeptic",
+  "date": "2026-05-30T07:43:43.678Z",
+  "prompt_version": "v1",
+  "profile_version": "v2",
+  "system_prompt_sha": "4ee93feabec0ac241d2ab8c0855e4f8ace0c7962",
+  "api_url": "http://localhost:3002/api/agent",
+  "cases": [
+    {
+      "id": "S01_full_jd",
+      "question": "Optum is a global organization that delivers care, aided by technology to help millions of people live healthier lives. The work you do with our team will directly improve health outcomes by connecting people with the care, pharmacy benefits, data and resources they need to feel their best. Here, you will find a culture guided by inclusion, talented peers, comprehensive benefits and career development opportunities. Come make an impact on the communities we serve as you help us advance health optimization on a global scale. Join us to start Caring. Connecting. Growing together.\n\nWe are looking for an ML Engineer with solid hands-on experience in GenAI and agentic frameworks, backed by solid foundational ML/NLP knowledge. The role involves building production-grade AI systems across verticals such has Health, Rx, Productization etc.\n\nPrimary Responsibilities:\n\nBuild and deploy GenAI and agentic AI solutions in production environments\nDesign ML systems involving structured/unstructured data and complex database interactions\nDevelop scalable Python-based ML pipelines and APIs\nWork on foundational ML use cases including prediction, optimization, and recommendation systems\nCollaborate with product, engineering, and platform teams to operationalize models\nTake lead in productionizing models including API design and integration, load testing, HPC compute, Latency management\nComply with the terms and conditions of the employment contract, company policies and procedures, and any and all directives (such as, but not limited to, transfer and/or re-assignment to different work locations, change in teams and/or work shifts, policies in regard to flexibility of work benefits and/or work environment, alternative work arrangements, and other decisions that may arise due to the changing business environment). The Company may adopt, vary or rescind these policies and directives in its absolute discretion and without any limitation (implied or otherwise) on its ability to do so\nRequired Qualifications:\n\nMaster's or preferably PhD in Computer Science, Artificial Intelligence, Data Science, or a related field\nSolid foundation in machine learning, deep learning, and statistical modeling\nHands-on experience with NLP, LLMs, transformers, and generative AI techniques\nExperience with building and orchestrating AI agents or multi-agent systems\nExperience working with large-scale datasets and distributed computing (e.g., Spark/PySpark)\nProficiency in Python and ML frameworks/libraries (e.g., PyTorch, TensorFlow, scikit-learn)\nUnderstanding of model optimization techniques (e.g., FLOPs reduction, quantization, latency tuning)\nFamiliarity with MLOps practices, model deployment, and monitoring in production environments\nKnowledge of APIs, microservices architecture, and system integration\nSolid problem-solving skills and ability to work in a fast-paced, collaborative environment\nAt UnitedHealth Group, our mission is to help people live healthier lives and make the health system work better for everyone. We believe everyone - of every race, gender, sexuality, age, location and income - deserves the opportunity to live their healthiest life. Today, however, there are still far too many barriers to good health which are disproportionately experienced by people of color, historically marginalized groups and those with lower incomes. We are committed to mitigating our impact on the environment and enabling and delivering equitable care that addresses health disparities and improves health outcomes - an enterprise priority reflected in our mission.",
+      "expected": null,
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Partial fit for Optum ML Engineer — strong GenAI agent evidence, but core ML engineering requirements are not fully proven",
+        "fitLevel": "Partial fit",
+        "summary": "Rakshit has credible hands-on GenAI and agentic AI experience, including shipped AI support automation and a multi-agent analysis system. However, this Optum role is an ML Engineer position requiring production ML pipelines, ML frameworks, distributed computing, MLOps, optimization, and advanced CS/AI education. Several of those core engineering requirements are missing or only adjacent in the evidence.",
+        "answerText": "Rakshit looks like a **Partial fit** for this Optum ML Engineer role.\n\nThe strongest match is on **GenAI, NLP-style automation, and agentic workflows**. In production, he built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, improved CSAT, designed intent classification, created 100+ resolution workflows, and built an evaluation pipeline using an LLM-as-judge approach. He also has a personal multi-agent stock analysis project with specialist handoffs, real-time tools, voice input/output, and systematic evaluation.\n\nWhere the fit weakens is that this is a true **ML engineering / production systems** role. The JD asks for Python-based ML pipelines and APIs, PyTorch/TensorFlow/scikit-learn, Spark/PySpark or distributed computing, MLOps, monitoring, model optimization, latency tuning, API integration, load testing, and preferably a Master’s or PhD in a related field. The provided evidence does not directly establish those requirements. Rakshit’s AI evaluation and agent work is relevant, but it does not prove the deeper ML engineering stack Optum is asking for.\n\nSo the best positioning would be: Rakshit is strongest for **AI product / applied GenAI systems / agent workflow design**, and potentially useful in an ML engineering team that values product-minded GenAI builders. But for this specific ML Engineer role, he would need to prove hands-on depth in production ML infrastructure, ML frameworks, distributed data processing, and model deployment.\n\nSources:\n- Optum: https://www.optum.com",
+        "proofPoints": [
+          "Built and scaled production AI support automation that reduced monthly tickets from 19,000 to 9,000 and improved CSAT by 30%.",
+          "Designed intent classification, 100+ resolution workflows, and an LLM-as-judge evaluation pipeline for empathy, answer quality, policy compliance, and regression testing.",
+          "Built a multi-agent stock analysis system with specialist handoffs, real-time financial tools, voice input/output, and systematic evaluation.",
+          "Has adjacent experience designing AI evaluation systems for conversational quality, accountability, safety, and ASR accuracy."
+        ],
+        "relevantProjects": [
+          "AI support automation",
+          "US Stocks Analysis Agent",
+          "Feedback Intelligence",
+          "AI Evaluation Framework"
+        ],
+        "relevantOutcomes": [
+          "Reduced monthly support tickets from 19,000 to 9,000.",
+          "Improved CSAT by 30%.",
+          "Improved tool-use accuracy in a personal multi-agent system from 58% to 90%."
+        ],
+        "gapsOrUnknowns": [
+          "No direct evidence of PyTorch, TensorFlow, scikit-learn, or similar ML framework proficiency.",
+          "No direct evidence of Spark/PySpark, distributed computing, or large-scale dataset engineering.",
+          "No direct evidence of MLOps practices such as deployment pipelines, monitoring, model serving, or production model operations.",
+          "No direct evidence of model optimization techniques such as quantization, FLOPs reduction, or latency tuning at the model level."
+        ],
+        "suggestedFollowups": [
+          "Ask Rakshit to share specific Python ML engineering work, including libraries and deployment details.",
+          "Ask whether he has hands-on experience with PyTorch, TensorFlow, scikit-learn, Spark, or PySpark.",
+          "Ask for examples of production model deployment, monitoring, API integration, or latency optimization.",
+          "Ask about his formal education relative to the Master’s or PhD requirement."
+        ],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "fitment",
+            "querySummary": "Evaluating fitment for an ML Engineer role at Optum with a focus on GenAI and agentic frameworks.",
+            "target": {
+              "roleTitle": "ML Engineer",
+              "companyName": "Optum",
+              "companyUrl": "",
+              "jdTextPresent": true
+            },
+            "assumedTargetRole": "ML Engineer",
+            "retrievalNeeds": [
+              "Machine learning and NLP experience",
+              "GenAI and agentic frameworks",
+              "Python and ML frameworks/libraries",
+              "MLOps practices",
+              "Collaboration and problem-solving skills"
+            ],
+            "mustHaveCriteria": [
+              "Hands-on experience with NLP, LLMs, transformers, and generative AI",
+              "Experience building and orchestrating AI agents or multi-agent systems",
+              "Proficiency in Python and ML frameworks/libraries (e.g., PyTorch, TensorFlow)",
+              "Familiarity with MLOps practices and production environments",
+              "PhD or Master's in Computer Science or related field"
+            ],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": true
+          },
+          "companyBrief": {
+            "companyName": "Optum",
+            "companyUrl": "https://www.optum.com",
+            "companySummary": "Optum is a health services and innovation company that is part of UnitedHealth Group. It focuses on optimizing health outcomes by using data and technology to support healthcare access, pharmacy benefits, and other health resources.",
+            "productAreas": [
+              "Health Services",
+              "Pharmacy Benefits",
+              "Data Analytics",
+              "Healthcare Technology"
+            ],
+            "businessModel": "Optum operates within the healthcare sector, providing services and solutions to healthcare providers, payers, and consumers through data-driven and technology-enabled care models.",
+            "targetUsers": [
+              "Healthcare Providers",
+              "Payers",
+              "Consumers",
+              "Pharmaceutical Companies"
+            ],
+            "hiringOrProductSignals": [
+              "Looking for ML Engineers with experience in GenAI and AI systems",
+              "Focus on healthcare, pharmacy benefits, and data-driven solutions"
+            ],
+            "fitRelevantContext": [
+              "Involvement in AI and machine learning applications in healthcare",
+              "Experience with data analytics and complex database interactions",
+              "Development of scalable and operational AI models"
+            ],
+            "likelyPMProblemSpaces": [
+              "Healthcare Optimization",
+              "Data Analytics Strategy",
+              "Pharmacy Benefit Management"
+            ],
+            "likelyAIPMProblemSpaces": [
+              "Development of AI-driven healthcare solutions",
+              "Application of GenAI in health services",
+              "Data integration and model deployment in healthcare"
+            ],
+            "domainSpecificRequirements": [
+              "Strong knowledge in healthcare systems and regulations",
+              "Expertise in machine learning and AI technologies",
+              "Experience with large-scale data management"
+            ],
+            "uncertaintyNotes": [
+              "Specifics about daily PM or AI PM responsibilities are limited in public information."
+            ],
+            "openQuestions": [
+              "Details about the product management methodologies employed at Optum are unclear.",
+              "Information on specific AI projects within healthcare at Optum is limited."
+            ],
+            "sources": [
+              {
+                "title": "Optum Official Website",
+                "url": "https://www.optum.com"
+              }
+            ]
+          },
+          "evidencePacket": {
+            "summary": "Evaluating Rakshit Lodha's fit for an ML Engineer role at Optum with a focus on GenAI and agentic frameworks, considering specific must-have criteria.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "AI support automation",
+                "evidence": "Built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
+                "relevance": "Direct experience building and deploying AI and agentic workflows.",
+                "evidenceType": "direct",
+                "supports": [
+                  "Hands-on experience with NLP, LLMs, transformers, and generative AI",
+                  "Experience building and orchestrating AI agents or multi-agent systems"
+                ]
+              },
+              {
+                "id": "us-stocks-analysis-agent",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "US Stocks Analysis Agent",
+                "evidence": "Multi-agent stock analysis system with specialist handoffs, real-time financial tools, voice input/output, and a systematic evaluation framework that improved tool-use accuracy from 58% to 90%.",
+                "relevance": "Built multi-agent systems with real-time applications.",
+                "evidenceType": "direct",
+                "supports": [
+                  "Experience building and orchestrating AI agents or multi-agent systems"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "feedback-agent",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "Feedback Intelligence",
+                "evidence": "Cross-channel product feedback agent that classifies feedback into prioritized product signals through a conversational agent.",
+                "relevance": "Experience with conversational agents and integration with multiple data sources.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "Experience building and orchestrating AI agents or multi-agent systems"
+                ]
+              },
+              {
+                "id": "ai-evaluation-framework",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "AI Evaluation Framework",
+                "evidence": "Evaluation system for conversational AI quality, accountability, safety, and voice ASR accuracy.",
+                "relevance": "Framework design and evaluation of AI models.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "Familiarity with MLOps practices and production environments"
+                ]
+              }
+            ],
+            "gaps": [
+              "PhD or Master's in Computer Science related field",
+              "Proficiency in ML frameworks/libraries like PyTorch, TensorFlow",
+              "Familiarity with MLOps practices and production environments"
+            ],
+            "criteriaCoverage": [
+              {
+                "requirement": "Hands-on experience with NLP, LLMs, transformers, and generative AI",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": ""
+              },
+              {
+                "requirement": "Experience building and orchestrating AI agents or multi-agent systems",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation",
+                  "us-stocks-analysis-agent"
+                ],
+                "notes": ""
+              },
+              {
+                "requirement": "Proficiency in Python and ML frameworks/libraries (e.g., PyTorch, TensorFlow)",
+                "weight": "core",
+                "status": "missing",
+                "evidenceIds": [],
+                "notes": "Python expertise mentioned, but no specific mention of PyTorch or TensorFlow."
+              },
+              {
+                "requirement": "Familiarity with MLOps practices and production environments",
+                "weight": "core",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "ai-evaluation-framework"
+                ],
+                "notes": "Evaluated AI models but lacking direct MLOps practices evidence."
+              },
+              {
+                "requirement": "PhD or Master's in Computer Science or related field",
+                "weight": "core",
+                "status": "missing",
+                "evidenceIds": [],
+                "notes": ""
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation",
+              "us-stocks-analysis-agent"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit looks like a **Partial fit** for this Optum ML Engineer role.\n\nThe strongest match is on **GenAI, NLP-style automation, and agentic workflows**. In production, he built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, improved CSAT, designed intent classification, created 100+ resolution workflows, and built an evaluation pipeline using an LLM-as-judge approach. He also has a personal multi-agent stock analysis project with specialist handoffs, real-time tools, voice input/output, and systematic evaluation.\n\nWhere the fit weakens is that this is a true **ML engineering / production systems** role. The JD asks for Python-based ML pipelines and APIs, PyTorch/TensorFlow/scikit-learn, Spark/PySpark or distributed computing, MLOps, monitoring, model optimization, latency tuning, API integration, load testing, and preferably a Master’s or PhD in a related field. The provided evidence does not directly establish those requirements. Rakshit’s AI evaluation and agent work is relevant, but it does not prove the deeper ML engineering stack Optum is asking for.\n\nSo the best positioning would be: Rakshit is strongest for **AI product / applied GenAI systems / agent workflow design**, and potentially useful in an ML engineering team that values product-minded GenAI builders. But for this specific ML Engineer role, he would need to prove hands-on depth in production ML infrastructure, ML frameworks, distributed data processing, and model deployment.\n\nSources:\n- Optum: https://www.optum.com",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 0,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 4000,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "websearch_start",
+          "elapsed_ms": 4001,
+          "message": "Researching company context"
+        },
+        {
+          "stage": "websearch_complete",
+          "elapsed_ms": 8067,
+          "message": "Built company brief"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 8067,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 19565,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 19565,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 33139,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 33161,
+      "total_ms": 33872
+    },
+    {
+      "id": "S02_full_jd",
+      "question": "We are looking for a Senior Product Manager who brings genuine depth in Voice AI or BFSI, and the execution muscle to turn complex enterprise problems into products that actually get used. In this role, you won’t just be shipping features. You will be leading a product charter within one of the most consequential applications of AI in Indian financial services.\n\nAs a senior member of a lean, fast-moving team, you will own your charter end-to-end, from discovery through delivery and adoption. You will work directly with enterprise customers, founders, and engineering to define what our AI platform does next, and be accountable for the outcomes, not just the output.\n\nLocation: Mumbai / Bengaluru\n\nWhat You’ll Do\n1. Domain Depth: BFSI or Voice AI\nKnow your domain: You bring meaningful depth in at least one of two worlds. Either the BFSI industry (how banks, NBFCs, fintechs, and insurance companies actually operate, where their workflows break down, and what compliance and operations teams really care about) or Voice AI products (how conversational AI systems are built, deployed, and fail at scale; the difference between a bot that handles volume and one that handles nuance). Either gives you a head start that matters.\n\nTranslate domain into product: You can take a messy enterprise requirement, buried in regulatory language, competing stakeholder asks, and legacy process assumptions, and distill it into a clean product opportunity with a clear north star. Your domain knowledge makes you faster at this, not more rigid.\n\nBridge the gap: Wherever your depth starts, you close the other side quickly. You understand that Voice AI only creates real value in BFSI when you understand both, and you’re genuinely curious about whichever world is newer to you.\n\n2. Charter Ownership & Cross-Functional Execution\nOwn a product area: Lead a focused charter, whether that’s a specific use case vertical (collections, servicing, onboarding), a platform capability (analytics, integrations, configurability), or an enterprise workflow. You set the vision, own the roadmap, and are accountable for outcomes, not just delivery.\n\nEnterprise discovery: Run structured discovery with CXOs, operations heads, and compliance teams. Navigate competing stakeholder inputs without losing the thread, and surface insights that become product decisions, not slide decks.\n\nShip and drive adoption: Manage delivery across engineering, QA, and customer success. Features that go live but don’t get used aren’t shipped. You’re not done until they’re embedded in customer workflows and generating measurable value.\n\nGo-to-market partnership: Work closely with sales and solutions teams during pre-sales, pilots, and expansion. Your product knowledge should be a competitive asset in enterprise conversations, not something that stays inside the building.\n\n3. Product Instinct & Domain Judgment\nAs AI compresses the time to build, the ability to deeply know the customer, and separate what they actually need from what they ask for, becomes the rarest and most valuable PM skill.\n\nAnticipate, don’t just respond: The best product decisions at GreyLabs won’t come from feature requests. They’ll come from someone who understands the customer deeply enough to see around corners. Whether that instinct is built from years inside BFSI or years shipping voice AI products, you should be able to walk into a room and identify the real problem before anyone has named it.\n\nOpinionated prioritisation: You have a clear point of view on what matters and what doesn’t. You can push back on a customer request that would create technical debt without strategic value, say no to a feature that solves one account’s edge case, and explain why in terms the account team and the customer will respect.\n\nQuality as a habit: You hold a high bar for what “done” means. A feature that’s live but not adopted, or a workflow that works in the demo but breaks in production, is not done. You define success criteria before you start, and you follow through until they’re met.\n\n4. Ambiguity & Growth\nVoice AI in Indian BFSI is not a mature category. The use cases, the regulation, and the customer expectations are still being written. You should be energised by that, comfortable holding a strong opinion while remaining genuinely open to being wrong, and disciplined about evolving your thinking as the market does.\n\nWhat We’re Looking For\n6+ years of product management experience: with a track record of owning a product area end-to-end in a B2B SaaS or enterprise environment. You’ve led charters, not just contributed to them.\n\nDeep domain expertise in BFSI or Voice AI: A genuine track record in at least one: meaningful experience building for or within financial services (banking, NBFC, fintech, insurance) or substantial experience owning and shipping voice or conversational AI products. Both are learnable. Just not both from scratch, at the same time, in a fast-moving startup.\n\nEnterprise execution: You’ve managed complex, multi-stakeholder enterprise rollouts where success means adoption and workflow change, not just deployment. You understand what it actually takes to get a bank to change how it operates.\n\nAI curiosity with some proof: You’ve worked on, shipped, or meaningfully engaged with an AI product, professionally or otherwise. You understand the fundamental difference between AI-driven and rule-based products, and have opinions about it.\n\nClear, direct communicator: You write and speak with precision. A Chief Collections Officer in the morning, a backend engineer in the afternoon. You adapt fluently between both.",
+      "expected": "Strong fit",
+      "response": {
+        "responseType": "fitment",
+        "mode": "fit",
+        "headline": "Relevant fit for GreyLabs’ BFSI + AI SPM role, with strongest evidence in fintech and AI support automation",
+        "fitLevel": "Relevant fit",
+        "summary": "Rakshit has strong fintech/BFSI product evidence and shipped AI product work, including production AI support automation and scaled financial products. The main caveat is that the evidence does not prove 6+ years of PM experience in a B2B SaaS or enterprise environment, nor explicit ownership of bank/NBFC enterprise rollouts or production Voice AI.",
+        "answerText": "Rakshit looks like a relevant fit for GreyLabs’ Senior Product Manager role, especially if the charter values BFSI depth plus hands-on AI product judgment.\n\nHis strongest match is on Indian financial-services product experience: he has shipped and scaled insurance and lending/wealth-adjacent products, including revamping term and health insurance journeys and building Loan Against Mutual Funds to meaningful disbursal scale. He also has direct AI product evidence from production support automation, where he designed intent classification, 100+ resolution workflows, and evaluation mechanisms for empathy, answer quality, policy compliance, and regression testing.\n\nWhere the fit is less fully proven is the exact GreyLabs environment: the role asks for 6+ years in B2B SaaS or enterprise PM, complex multi-stakeholder enterprise rollouts, and ideally Voice AI or BFSI workflows inside banks/NBFCs/enterprise operations. Rakshit has strong BFSI and AI-adjacent evidence, but the packet does not explicitly show 6+ years of B2B SaaS PM, direct enterprise customer discovery with CXOs/compliance teams, or production Voice AI ownership.\n\nOverall: he should be credible for a conversation if GreyLabs is open to a fintech AI PM who can ramp into enterprise Voice AI. He is less proven if the role strictly requires prior bank-enterprise rollout ownership or deep production Voice AI experience from day one.",
+        "proofPoints": [
+          "Built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000 and improved CSAT by 30%.",
+          "Designed intent classification, 100+ resolution workflows, and an evaluation pipeline covering empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
+          "Increased insurance revenue from INR 1.5Cr to INR 3Cr by revamping term and health insurance journeys, adding partners, and introducing a new 1Cr health insurance product.",
+          "Built and scaled Loan Against Mutual Funds from the ground up to INR 100Cr disbursals in 7 months.",
+          "Built a stock analysis agent with real-time financial tools and voice input/output capabilities."
+        ],
+        "relevantProjects": [
+          "AI support automation at ET Money",
+          "Health & Term Insurance product revamp",
+          "Loan Against Mutual Funds",
+          "AI Hiring Chat assistant",
+          "US Stocks Analysis Agent with voice input/output"
+        ],
+        "relevantOutcomes": [
+          "55% reduction in monthly support tickets, from 19,000 to 9,000.",
+          "30% CSAT improvement from AI support automation.",
+          "Insurance revenue increased from INR 1.5Cr to INR 3Cr.",
+          "Loan Against Mutual Funds reached INR 100Cr disbursals in 7 months."
+        ],
+        "gapsOrUnknowns": [
+          "No explicit evidence of 6+ years of product management experience in a B2B SaaS or enterprise environment.",
+          "No explicit proof of complex bank/NBFC enterprise rollouts with CXOs, compliance, operations, customer success, or sales/solutions teams.",
+          "Voice AI evidence is adjacent through a personal stock analysis agent with voice input/output, not production Voice AI ownership.",
+          "Communication skills are implied through product work but not directly evidenced through enterprise pre-sales, executive discovery, or written artifacts."
+        ],
+        "suggestedFollowups": [
+          "Ask Rakshit to walk through the AI support automation product: discovery, rollout, adoption metrics, failure modes, and evaluation design.",
+          "Probe whether he has worked directly with regulated financial-services stakeholders, compliance teams, or enterprise operations teams.",
+          "Assess his point of view on Voice AI in BFSI: containment vs resolution, hallucination risk, compliance monitoring, QA, and workflow integration.",
+          "Clarify total PM experience and whether any work involved B2B SaaS, enterprise customers, pilots, or expansion motions."
+        ],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "fitment",
+            "querySummary": "The user is looking for a Senior Product Manager with expertise in Voice AI or BFSI, capable of handling complex enterprise products in Indian financial services.",
+            "target": {
+              "roleTitle": "Senior Product Manager",
+              "companyName": "GreyLabs",
+              "companyUrl": "",
+              "jdTextPresent": true
+            },
+            "assumedTargetRole": "Senior Product Manager",
+            "retrievalNeeds": [
+              "experience in product management in B2B SaaS or enterprise environment",
+              "domain expertise in BFSI or Voice AI",
+              "enterprise-level execution and rollout experience",
+              "AI product involvement"
+            ],
+            "mustHaveCriteria": [
+              "6+ years of product management experience in B2B SaaS or enterprise environment",
+              "deep domain expertise in BFSI or Voice AI",
+              "experience managing complex enterprise rollouts",
+              "AI product experience",
+              "strong communication skills"
+            ],
+            "missingOrAmbiguousInputs": [
+              "company name and URL are inferred; verify if this is correct"
+            ],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha combines over 5 years of AI and fintech product management experience, making him a suitable candidate for a Senior Product Manager role at GreyLabs, particularly in Voice AI and BFSI domains.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "AI support automation",
+                "evidence": "Built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
+                "relevance": "Demonstrates enterprise-level AI product execution and adoption.",
+                "evidenceType": "direct",
+                "supports": [
+                  "experience in product management in B2B SaaS or enterprise environment",
+                  "AI product experience"
+                ]
+              },
+              {
+                "id": "etmoney-insurance-platform",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Health & Term Insurance",
+                "evidence": "Increased insurance revenue from INR 1.5Cr to INR 3Cr by revamping term and health insurance journeys, adding partners, and introducing a new 1Cr health insurance product.",
+                "relevance": "Proves deep domain expertise in BFSI, particularly in insurance.",
+                "evidenceType": "direct",
+                "supports": [
+                  "deep domain expertise in BFSI or Voice AI"
+                ]
+              },
+              {
+                "id": "ai-hiring-chat-deep-dive",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "AI Hiring Chat deep evidence",
+                "evidence": "Developed a chat-based hiring assistant using OpenAI stack, which involves significant interaction with AI technologies.",
+                "relevance": "Illustrates broad AI and conversational interface expertise.",
+                "evidenceType": "direct",
+                "supports": [
+                  "AI product experience"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "etmoney-lamf",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Loan Against Mutual Funds",
+                "evidence": "Built and scaled Loan Against Mutual Funds from ground up to INR 100Cr disbursals in 7 months.",
+                "relevance": "Significant BFSI experience and enterprise-level execution capability.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "experience managing complex enterprise rollouts"
+                ]
+              },
+              {
+                "id": "us-stocks-analysis-agent",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "US Stocks Analysis Agent",
+                "evidence": "Built a stock analysis agent with real-time financial tools and voice input/output capabilities.",
+                "relevance": "Involvement in Voice AI and financial analysis.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "deep domain expertise in BFSI or Voice AI"
+                ]
+              }
+            ],
+            "gaps": [
+              "6+ years of product management experience in B2B SaaS or enterprise environment"
+            ],
+            "criteriaCoverage": [
+              {
+                "requirement": "6+ years of product management experience in B2B SaaS or enterprise environment",
+                "weight": "core",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "etmoney-support-automation",
+                  "ai-hiring-chat-deep-dive"
+                ],
+                "notes": "Lacks explicit 6+ years B2B SaaS evidence; demonstrates substantial enterprise experience."
+              },
+              {
+                "requirement": "deep domain expertise in BFSI or Voice AI",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-insurance-platform"
+                ],
+                "notes": "Strong BFSI expertise, especially in insurance products."
+              },
+              {
+                "requirement": "experience managing complex enterprise rollouts",
+                "weight": "core",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "etmoney-lamf"
+                ],
+                "notes": "Demonstrates enterprise-level ability but lacks explicit large-scale rollout ownership."
+              },
+              {
+                "requirement": "AI product experience",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation",
+                  "ai-hiring-chat-deep-dive"
+                ],
+                "notes": "Proven experience in AI product design and execution."
+              },
+              {
+                "requirement": "strong communication skills",
+                "weight": "supporting",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "ai-hiring-chat-deep-dive"
+                ],
+                "notes": "Implied through project management and stakeholder engagement activities."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation",
+              "etmoney-insurance-platform",
+              "ai-hiring-chat-deep-dive"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit looks like a relevant fit for GreyLabs’ Senior Product Manager role, especially if the charter values BFSI depth plus hands-on AI product judgment.\n\nHis strongest match is on Indian financial-services product experience: he has shipped and scaled insurance and lending/wealth-adjacent products, including revamping term and health insurance journeys and building Loan Against Mutual Funds to meaningful disbursal scale. He also has direct AI product evidence from production support automation, where he designed intent classification, 100+ resolution workflows, and evaluation mechanisms for empathy, answer quality, policy compliance, and regression testing.\n\nWhere the fit is less fully proven is the exact GreyLabs environment: the role asks for 6+ years in B2B SaaS or enterprise PM, complex multi-stakeholder enterprise rollouts, and ideally Voice AI or BFSI workflows inside banks/NBFCs/enterprise operations. Rakshit has strong BFSI and AI-adjacent evidence, but the packet does not explicitly show 6+ years of B2B SaaS PM, direct enterprise customer discovery with CXOs/compliance teams, or production Voice AI ownership.\n\nOverall: he should be credible for a conversation if GreyLabs is open to a fintech AI PM who can ramp into enterprise Voice AI. He is less proven if the role strictly requires prior bank-enterprise rollout ownership or deep production Voice AI experience from day one.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2103,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2103,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 8601,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 8601,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 24681,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 24696,
+      "total_ms": 25345
+    }
+  ]
+}

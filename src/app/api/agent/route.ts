@@ -46,6 +46,7 @@ const AgentResponseSchema = z.object({
 const MODEL = process.env.OPENAI_AGENT_MODEL || "gpt-5.5";
 const CONTEXT_MODEL = process.env.OPENAI_CONTEXT_MODEL || "gpt-4o";
 const WEBSEARCH_MODEL = process.env.OPENAI_WEBSEARCH_MODEL || "gpt-4o";
+const INTENT_MODEL = process.env.OPENAI_INTENT_MODEL || "gpt-4o-mini";
 const SELECTED_PROMPTS = getAgentPrompts();
 const PROMPT_VERSION = process.env.OPENAI_AGENT_PROMPT_VERSION || "v3Pipeline";
 const IS_V3_PIPELINE = PROMPT_VERSION === "v3Pipeline";
@@ -67,9 +68,9 @@ const ContextBriefSchema = z.object({
 });
 
 const IntentTargetSchema = z.object({
-  roleTitle: z.string().optional(),
-  companyName: z.string().optional(),
-  companyUrl: z.string().optional(),
+  roleTitle: z.string().nullish(),
+  companyName: z.string().nullish(),
+  companyUrl: z.string().nullish(),
   jdTextPresent: z.boolean(),
 });
 
@@ -77,7 +78,7 @@ const IntentPlanSchema = z.object({
   responseType: z.enum(["qa", "fitment", "both"]),
   querySummary: z.string(),
   target: IntentTargetSchema,
-  assumedTargetRole: z.string().optional(),
+  assumedTargetRole: z.string().nullish(),
   retrievalNeeds: z.array(z.string()).max(10),
   mustHaveCriteria: z.array(z.string()).max(8),
   missingOrAmbiguousInputs: z.array(z.string()).max(6),
@@ -370,7 +371,7 @@ const rakshitAgent = new Agent({
 
 const intentPlannerAgent = new Agent({
   name: "Rakshit Intent Planner",
-  model: CONTEXT_MODEL,
+  model: INTENT_MODEL,
   outputType: IntentPlanSchema,
   instructions: selectedPrompt(
     "intentPlannerInstructions",
@@ -388,21 +389,6 @@ const evidenceGathererAgent = new Agent({
   ),
 });
 
-function createV3AnswerAgent(responseType: "qa" | "fitment" | "both") {
-  const promptKey =
-    responseType === "qa"
-      ? "qaAnswerInstructions"
-      : responseType === "both"
-        ? "bothAnswerInstructions"
-        : "fitmentAnswerInstructions";
-
-  return new Agent({
-    name: `Rakshit ${responseType} Answer Agent`,
-    model: MODEL,
-    outputType: AgentResponseSchema,
-    instructions: selectedPrompt(promptKey, SELECTED_PROMPTS.answerInstructions),
-  });
-}
 
 function toContextInput(mode: string, messages: { role: "user" | "assistant"; content: string }[]) {
   return [
@@ -477,10 +463,11 @@ function toAgentInputWithContext(
 }
 
 function toIntentInput(mode: string, messages: { role: "user" | "assistant"; content: string }[]) {
+  const recent = messages.slice(-3);
   return [
     `Requested mode: ${mode}`,
     "Conversation so far:",
-    ...messages.map((message) => `${message.role === "user" ? "Visitor" : "Agent"}: ${message.content}`),
+    ...recent.map((message) => `${message.role === "user" ? "Visitor" : "Agent"}: ${message.content}`),
   ].join("\n\n");
 }
 
@@ -612,11 +599,11 @@ function toEvidenceInput(
 ) {
   return [
     "Intent plan:",
-    JSON.stringify(intentPlan, null, 2),
+    JSON.stringify(intentPlan),
     companyBrief ? "Company brief:" : "Company brief: none",
-    companyBrief ? JSON.stringify(companyBrief, null, 2) : "",
+    companyBrief ? JSON.stringify(companyBrief) : "",
     "Retrieved profile evidence:",
-    JSON.stringify(rawEvidence, null, 2),
+    JSON.stringify(rawEvidence),
   ].join("\n\n");
 }
 
@@ -630,7 +617,7 @@ function toV3AnswerInput(
   return [
     `Requested mode: ${mode}`,
     "Intent plan:",
-    JSON.stringify(intentPlan, null, 2),
+    JSON.stringify(intentPlan),
     companyBrief
       ? [
           "Company websearch brief:",
@@ -639,7 +626,7 @@ function toV3AnswerInput(
         ].join("\n\n")
       : "Company websearch brief: none",
     "Evidence packet:",
-    JSON.stringify(evidencePacket, null, 2),
+    JSON.stringify(evidencePacket),
     "Conversation so far:",
     ...messages.map((message) => `${message.role === "user" ? "Visitor" : "Agent"}: ${message.content}`),
   ].join("\n\n");
@@ -739,33 +726,101 @@ export async function POST(request: Request) {
             intentPlan.shouldResearchCompany && latestUserMessage
               ? getCompanyTargetFromIntent(intentPlan, latestUserText, parsed.mode)
               : null;
-          let companyBrief: CompanyBrief | undefined;
 
-          if (companyTarget) {
-            sendStatus("websearch_start", "Researching company context");
-            companyBrief = await websearch(companyTarget, latestUserText || intentPlan.querySummary);
-            sendStatus("websearch_complete", "Built company brief");
-          }
-
+          if (companyTarget) sendStatus("websearch_start", "Researching company context");
           sendStatus("evidence_start", "Gathering profile evidence");
-          const rawEvidence = await gatherRawEvidence(intentPlan, parsed.messages);
-          const evidenceResult = await run(evidenceGathererAgent, toEvidenceInput(intentPlan, rawEvidence, companyBrief), {
-            maxTurns: 2,
-          });
-          const evidencePacket = evidenceResult.finalOutput;
-          if (!evidencePacket) throw new Error("Evidence gatherer returned no final output.");
+
+          const [companyBrief, evidencePacket] = await Promise.all([
+            companyTarget
+              ? websearch(companyTarget, latestUserText || intentPlan.querySummary)
+              : Promise.resolve(undefined as CompanyBrief | undefined),
+            (async () => {
+              const rawEvidence = await gatherRawEvidence(intentPlan, parsed.messages);
+              const evidenceResult = await run(evidenceGathererAgent, toEvidenceInput(intentPlan, rawEvidence), {
+                maxTurns: 2,
+              });
+              const packet = evidenceResult.finalOutput;
+              if (!packet) throw new Error("Evidence gatherer returned no final output.");
+              return packet;
+            })(),
+          ]);
+
+          if (companyBrief) sendStatus("websearch_complete", "Built company brief");
           sendStatus("evidence_complete", "Classified evidence");
 
           sendStatus("answer_start", "Drafting answer");
-          const answerAgent = createV3AnswerAgent(intentPlan.responseType);
-          const result = await run(
-            answerAgent,
-            toV3AnswerInput(companyBrief ? "fit" : parsed.mode, parsed.messages, intentPlan, evidencePacket, companyBrief),
-            { maxTurns: 2 },
+          const promptKey =
+            intentPlan.responseType === "qa"
+              ? "qaAnswerInstructions"
+              : intentPlan.responseType === "both"
+              ? "bothAnswerInstructions"
+              : "fitmentAnswerInstructions";
+          const answerInput = toV3AnswerInput(
+            companyBrief ? "fit" : parsed.mode,
+            parsed.messages,
+            intentPlan,
+            evidencePacket,
+            companyBrief,
           );
 
-          const response = result.finalOutput as AgentResponse | undefined;
-          if (!response) throw new Error("Agent returned no final output.");
+          const answerStream = getOpenAIClient().responses.stream({
+            model: MODEL,
+            text: { format: zodTextFormat(AgentResponseSchema, "agent_response") },
+            input: [
+              { role: "system", content: selectedPrompt(promptKey, SELECTED_PROMPTS.answerInstructions) },
+              { role: "user", content: answerInput },
+            ],
+          });
+
+          // Stream answerText deltas as they arrive in the partial JSON
+          const ANSWER_MARKER = '"answerText":"';
+          let searchBuf = "";
+          let markerFound = false;
+          let prevBackslash = false;
+          let answerDone = false;
+          answerStream.on("response.output_text.delta", (event) => {
+            if (answerDone) return;
+            const delta = event.delta;
+            let toProcess: string;
+            if (!markerFound) {
+              searchBuf += delta;
+              const idx = searchBuf.indexOf(ANSWER_MARKER);
+              if (idx < 0) {
+                if (searchBuf.length > ANSWER_MARKER.length + 5) searchBuf = searchBuf.slice(-ANSWER_MARKER.length - 2);
+                return;
+              }
+              markerFound = true;
+              toProcess = searchBuf.slice(idx + ANSWER_MARKER.length);
+            } else {
+              toProcess = delta;
+            }
+            let toSend = "";
+            for (const ch of toProcess) {
+              if (prevBackslash) {
+                prevBackslash = false;
+                if (ch === '"') toSend += '"';
+                else if (ch === "\\") toSend += "\\";
+                else if (ch === "n") toSend += "\n";
+                else if (ch === "t") toSend += "\t";
+                else if (ch === "r") toSend += "\r";
+                else toSend += ch;
+              } else if (ch === "\\") {
+                prevBackslash = true;
+              } else if (ch === '"') {
+                if (toSend) send({ type: "delta", text: toSend });
+                answerDone = true;
+                return;
+              } else {
+                toSend += ch;
+              }
+            }
+            if (toSend) send({ type: "delta", text: toSend });
+          });
+
+          const finalResult = await answerStream.finalResponse();
+          const response = finalResult.output_parsed as z.infer<typeof AgentResponseSchema> | null;
+          if (!response) throw new Error("Answer agent returned no final output.");
+
           const responseWithDebug = {
             ...response,
             v3Debug: {
@@ -776,11 +831,6 @@ export async function POST(request: Request) {
           };
 
           sendStatus("answer_complete", "Drafted answer");
-          for (const chunk of chunkText(response.answerText)) {
-            send({ type: "delta", text: chunk });
-            await new Promise((resolve) => setTimeout(resolve, 18));
-          }
-
           send({ type: "final", response: responseWithDebug });
           return;
         }

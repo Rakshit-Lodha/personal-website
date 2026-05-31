@@ -117,10 +117,10 @@ const TEST_SET_LABELS: Record<TestSet, string> = {
   skeptic: "Fit judgment",
 };
 
-const FINAL_EVAL_VERSION = "v3Pipeline_tightened";
-const BASELINE_EVAL_VERSION = "v1";
-const COMPARISON_EVAL_VERSIONS = ["v1", "v2_prompt", FINAL_EVAL_VERSION] as const;
-const FINAL_EVAL_LABEL = "V3 final";
+const FINAL_EVAL_VERSION = "v4e";
+const BASELINE_EVAL_VERSION = "v3Pipeline_tightened";
+const COMPARISON_EVAL_VERSIONS = ["v1", "v2_prompt", "v3Pipeline_tightened", "v4d", FINAL_EVAL_VERSION] as const;
+const FINAL_EVAL_LABEL = "V4 final";
 
 const TEST_SET_EXPLAINERS: Record<TestSet, { short: string; detail: string }> = {
   factual: {
@@ -332,19 +332,22 @@ function formatDate(value: string) {
 }
 
 function versionLabel(version: VersionData) {
-  if (version.version === FINAL_EVAL_VERSION) return "Final V3 evaluation";
+  if (version.version === FINAL_EVAL_VERSION) return "Final V4 evaluation";
+  if (version.version === "v4d") return "V4 evaluation";
+  if (version.version === "v3Pipeline_tightened") return "V3 final evaluation";
   if (version.version === "v2_prompt") return "V2 evaluation";
-  if (version.version === BASELINE_EVAL_VERSION) return "Baseline";
+  if (version.version === "v1") return "Baseline";
   return version.version;
 }
 
 function versionAnchor(version: VersionData) {
-  if (version.version === FINAL_EVAL_VERSION) return "final-v3-evaluation";
+  if (version.version === FINAL_EVAL_VERSION) return "final-v4-evaluation";
   return `eval-${version.version.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
 }
 
 function promptLabel(version: VersionData) {
-  if (version.version === FINAL_EVAL_VERSION) return "v3Pipeline";
+  if (version.version === FINAL_EVAL_VERSION) return "v4Pipeline";
+  if (version.version === "v3Pipeline_tightened") return "v3Pipeline";
   return version.summary.prompt_version;
 }
 
@@ -469,8 +472,8 @@ function ReadoutHero({ version, previousVersion }: { version: VersionData; previ
   const fitAccuracy = version.summary.scores.skeptic?.fit_level_accuracy ?? 0;
   const qualityScore = version.summary.scores.quality?.overall_avg ?? 0;
   const verdict =
-    factualPass >= 1 && qualityScore >= 3.4 && fitAccuracy >= 0.5
-      ? "Final V3 is more grounded, better calibrated, but slower."
+    factualPass >= 1 && qualityScore >= 3.0 && fitAccuracy >= 0.85
+      ? "V4 is sharper on fit calibration and faster to respond — quality is comparable."
       : "The agent needs more work before its fit judgments should be trusted.";
 
   return (
@@ -478,7 +481,7 @@ function ReadoutHero({ version, previousVersion }: { version: VersionData; previ
       <div className="rounded-lg border border-[#e4e0da] bg-white p-6 md:p-7">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#bfdbfe] bg-[#eff6ff] px-3 py-1 text-xs font-semibold text-[#1d4ed8]">
           <SearchCheck size={14} />
-          Final V3 report
+          Final V4 report
         </div>
         <h2 className="mt-5 max-w-2xl text-3xl font-semibold tracking-tight text-[#111111] md:text-4xl">
           {verdict}
@@ -498,7 +501,7 @@ function ReadoutHero({ version, previousVersion }: { version: VersionData; previ
         {previousVersion ? (
           <>
             <p className="mt-3 text-2xl font-semibold tracking-tight">
-              Baseline <ArrowRight className="mx-1 inline-block" size={18} /> {FINAL_EVAL_LABEL}
+              V3 <ArrowRight className="mx-1 inline-block" size={18} /> {FINAL_EVAL_LABEL}
             </p>
             <ChangeList current={version} previous={previousVersion} />
           </>
@@ -628,7 +631,7 @@ function ScoreGrid({ version, isFinal = false }: { version: VersionData; isFinal
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">Scorecard</p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#111111]">
-            {isFinal ? "Where V3 is strong or weak" : "Where this run was strong or weak"}
+            {isFinal ? "Where V4 is strong or weak" : "Where this run was strong or weak"}
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#6b6860]">
             Green is healthy, amber is watch closely, red needs work. Quality and fit judgment use a 1-4 judge rubric.
@@ -701,7 +704,7 @@ function LatencyGrid({ version, isFinal = false }: { version: VersionData; isFin
         </div>
         <p className="max-w-lg text-sm leading-relaxed text-[#6b6860]">
           {isFinal
-            ? "V3 is slower because it plans intent, classifies evidence, and sometimes researches company context before answering. URL or web-search paths naturally take longer than profile-only questions."
+            ? "V4 plans intent, classifies evidence, and sometimes researches company context before answering. Websearch and evidence gathering now run in parallel; URL paths still take longer than profile-only questions."
             : "Latency is measured from the offline run. URL or web-search paths naturally take longer than profile-only questions."}
         </p>
       </div>
@@ -907,7 +910,7 @@ export default function EvalsPage() {
               Can this hiring agent be trusted?
             </h1>
             <p className="mt-4 text-base leading-relaxed text-[#34312c] md:text-lg">
-              The final V3 report on whether the agent remembers facts, gives evidence-backed answers, and stays skeptical
+              The V4 report on whether the agent remembers facts, gives evidence-backed answers, and stays skeptical
               when a role is not a clean fit.
             </p>
           </header>
@@ -927,10 +930,10 @@ export default function EvalsPage() {
                   <div className="border-b border-[#e4e0da] pb-4">
                     <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6b6860]">Comparison history</p>
                     <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[#111111]">
-                      How V3 compares with V1 and V2
+                      How V4 compares with earlier versions
                     </h2>
                     <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[#6b6860]">
-                      These earlier runs stay visible for context. The final V3 report above is the version to judge as current.
+                      These earlier runs stay visible for context. The V4 report above is the version to judge as current.
                     </p>
                   </div>
                   {historyVersions.map((version) => (

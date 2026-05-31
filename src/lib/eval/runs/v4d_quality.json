@@ -1,0 +1,3003 @@
+{
+  "version": "v4d",
+  "test_set": "quality",
+  "date": "2026-05-30T08:56:31.039Z",
+  "prompt_version": "v1",
+  "profile_version": "v2",
+  "system_prompt_sha": "4ee93feabec0ac241d2ab8c0855e4f8ace0c7962",
+  "api_url": "http://localhost:3002/api/agent",
+  "cases": [
+    {
+      "id": "Q01",
+      "question": "Tell me in detail about his research and design skills",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit’s strongest documented design evidence is from shipped, production work where he designed systems and user-facing workflows rather than purely visual design.\n\nAt ET Money, he designed intent classification and more than 100 support-resolution workflows for AI support automation. The problem was high monthly support ticket volume and customer-service load. Rakshit’s work focused on structuring intents, mapping resolution paths, and making the automation useful enough to deflect real support demand. The documented outcome was a 55% reduction in monthly ticket volume and a 30% improvement in CSAT.\n\nAt LearnApp, he designed an investing and finance course library. This is a more education/product-design example: the work involved shaping the course experience and content structure in a way that improved completion rates and generated recurring revenue. That suggests strength in designing for engagement, learning flow, and user progression.\n\nOn research skills, the evidence is more adjacent than direct. In his personal project “Feedback Intelligence,” Rakshit defined workflows for PMs, built data ingestion, and used AI tools to summarize and answer feedback inquiries. That shows comfort working with user feedback as a research input: collecting, organizing, synthesizing, and making feedback queryable. However, the evidence does not document formal research methods like usability testing, interviews, surveys, diary studies, or moderated research sessions.\n\nHe also has adjacent product-design evidence from Krux.news, where he built the content pipeline and designed a persona-based curation flow for an AI news product. The product pivoted toward a short, persona-aware feed for quick comprehension, which points to an ability to reason about user context, content prioritization, and information density.\n\nWhat is not clearly documented: direct collaboration with dedicated design teams, ownership of visual/UI systems, wireframing tools, formal research plans, or end-to-end design research processes. So the best summary is: Rakshit has strong practical product/workflow design experience, especially in AI-enabled systems, support automation, education/content experiences, and feedback synthesis. His formal UX research and dedicated design-team collaboration experience are less explicitly evidenced in the available profile.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor is inquiring about Rakshit's research and design skills.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "experience in research methodologies",
+              "examples of design projects",
+              "collaboration with design teams"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "This packet evaluates Rakshit Lodha's research and design skills, highlighting his experience in building systems and collaborating with design teams.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "project",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "AI Support Automation at ET Money",
+                "evidence": "Designed intent classification and 100+ resolution workflows, contributing to a 55% reduction in monthly ticket volume and a 30% improvement in CSAT.",
+                "relevance": "Demonstrates Rakshit's skills in designing systems and managing workflows with clear impact.",
+                "evidenceType": "direct",
+                "supports": [
+                  "experience in designing workflows",
+                  "collaboration with teams"
+                ]
+              },
+              {
+                "id": "learnapp-courses",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Investing and Finance Course Library at LearnApp",
+                "evidence": "Designed a course library that improved completion rates and generated recurring revenue, showing experience in education design and content creation.",
+                "relevance": "Shows Rakshit's ability to design educational content with a focus on engagement and user experience.",
+                "evidenceType": "direct",
+                "supports": [
+                  "examples of design projects"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "krux-news-deep-dive",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "Krux.news AI News Product",
+                "evidence": "Built the content pipeline and designed the persona-based curation flow for an AI news product, pivoting to a short, persona-aware feed for quick comprehension.",
+                "relevance": "Illustrates Rakshit's ability to manage content curation and design user-facing products.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "examples of design projects"
+                ]
+              },
+              {
+                "id": "feedback-agent-deep-dive",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "Feedback Intelligence",
+                "evidence": "Defined workflow for PMs, built data ingestion, and used AI tools to summarize and answer feedback inquiries, focusing on user feedback analysis.",
+                "relevance": "Relevant to understanding research methodologies for handling user feedback and designing interfaces to enhance user engagement.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "experience in research methodologies"
+                ]
+              }
+            ],
+            "gaps": [
+              "Specific examples of direct collaboration with dedicated design teams in a traditional setting."
+            ],
+            "criteriaCoverage": [
+              {
+                "requirement": "experience in research methodologies",
+                "weight": "core",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "feedback-agent-deep-dive"
+                ],
+                "notes": "Experience primarily demonstrated through handling and analyzing user feedback."
+              },
+              {
+                "requirement": "examples of design projects",
+                "weight": "supporting",
+                "status": "direct",
+                "evidenceIds": [
+                  "learnapp-courses",
+                  "krux-news-deep-dive"
+                ],
+                "notes": "Design projects evidenced through course design and AI news product."
+              },
+              {
+                "requirement": "collaboration with design teams",
+                "weight": "supporting",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": "Collaboration implied in workflow design at ET Money, but lacks explicit collaboration details with dedicated design teams."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation",
+              "learnapp-courses"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit’s strongest documented design evidence is from shipped, production work where he designed systems and user-facing workflows rather than purely visual design.\n\nAt ET Money, he designed intent classification and more than 100 support-resolution workflows for AI support automation. The problem was high monthly support ticket volume and customer-service load. Rakshit’s work focused on structuring intents, mapping resolution paths, and making the automation useful enough to deflect real support demand. The documented outcome was a 55% reduction in monthly ticket volume and a 30% improvement in CSAT.\n\nAt LearnApp, he designed an investing and finance course library. This is a more education/product-design example: the work involved shaping the course experience and content structure in a way that improved completion rates and generated recurring revenue. That suggests strength in designing for engagement, learning flow, and user progression.\n\nOn research skills, the evidence is more adjacent than direct. In his personal project “Feedback Intelligence,” Rakshit defined workflows for PMs, built data ingestion, and used AI tools to summarize and answer feedback inquiries. That shows comfort working with user feedback as a research input: collecting, organizing, synthesizing, and making feedback queryable. However, the evidence does not document formal research methods like usability testing, interviews, surveys, diary studies, or moderated research sessions.\n\nHe also has adjacent product-design evidence from Krux.news, where he built the content pipeline and designed a persona-based curation flow for an AI news product. The product pivoted toward a short, persona-aware feed for quick comprehension, which points to an ability to reason about user context, content prioritization, and information density.\n\nWhat is not clearly documented: direct collaboration with dedicated design teams, ownership of visual/UI systems, wireframing tools, formal research plans, or end-to-end design research processes. So the best summary is: Rakshit has strong practical product/workflow design experience, especially in AI-enabled systems, support automation, education/content experiences, and feedback synthesis. His formal UX research and dedicated design-team collaboration experience are less explicitly evidenced in the available profile.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2225,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2225,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 10268,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 10268,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 23024,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 14198,
+      "total_ms": 23065
+    },
+    {
+      "id": "Q02",
+      "question": "What's the most technical thing Rakshit has built?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Based on the documented evidence, the most technically involved thing Rakshit has built appears to be the AI support automation system at ET Money.\n\nHe built and scaled an AI support automation setup that reduced monthly tickets from 19,000 to 9,000 and improved CSAT by 30%. The technically interesting parts were not just the chatbot layer: he designed intent classification, 100+ resolution workflows, and an evaluation pipeline to test empathy, answer quality, policy compliance, and regressions using an LLM-as-judge approach.\n\nThat project stands out because it combined applied AI, workflow automation, quality evaluation, and production-scale customer support impact.\n\nTwo other strong technical builds from his professional work are:\n\n- Loan Against Mutual Funds at ET Money: built and scaled from the ground up to INR 100Cr disbursals in 7 months.\n- Financial planning module at INDMoney: built recommendation algorithms that reduced plan creation time from 4–5 hours to 15 minutes and enabled 20,000+ advisory plans.\n\nHe also has personal AI projects like an AI hiring chat assistant using Next.js, React, TypeScript, and AI agents, but the ET Money support automation is the strongest production example in the evidence.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Inquiry about technical projects built by Rakshit.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "technical projects",
+              "specific technologies used",
+              "impact of projects"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha has built several technical projects, both in professional and personal contexts, showcasing his ability to develop complex AI and fintech products.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "AI support automation at ET Money",
+                "evidence": "Built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
+                "relevance": "Demonstrates Rakshit's skills in building AI systems with significant impact.",
+                "evidenceType": "direct",
+                "supports": [
+                  "Technical expertise in AI workflows and automation."
+                ]
+              },
+              {
+                "id": "etmoney-lamf",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Loan Against Mutual Funds",
+                "evidence": "Built and scaled Loan Against Mutual Funds from ground up to INR 100Cr disbursals in 7 months.",
+                "relevance": "Shows capability to handle financial product development and scaling.",
+                "evidenceType": "direct",
+                "supports": [
+                  "Technical and domain expertise in fintech product development."
+                ]
+              },
+              {
+                "id": "indmoney-financial-planning",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Financial planning module at INDMoney",
+                "evidence": "Built financial planning module with recommendation algorithms, reducing plan creation time from 4-5 hours to 15 minutes and enabling 20,000+ advisory plans.",
+                "relevance": "Illustrates proficiency in algorithmic and financial planning automation.",
+                "evidenceType": "direct",
+                "supports": [
+                  "Technical competence in recommendations and algorithmic solutions."
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "ai-hiring-chat",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "AI Hiring Chat",
+                "evidence": "Standalone ChatGPT-style hiring assistant integrating Next.js, React, TypeScript, and AI agents for job fit assessments.",
+                "relevance": "Highlights Rakshit's ability in building conversational AI interfaces and integrating various web technologies.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "Technical project building and AI integration."
+                ]
+              },
+              {
+                "id": "krux-new",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "Krux.news",
+                "evidence": "Developed an AI news platform with a focus on short, swipeable stories and mobile-first feed using AI tools for summarization and image generation.",
+                "relevance": "Demonstrates skills in designing and building AI-enhanced content workflows.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "AI content automation and mobile application development."
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation",
+              "etmoney-lamf",
+              "indmoney-financial-planning"
+            ]
+          }
+        }
+      },
+      "answer_text": "Based on the documented evidence, the most technically involved thing Rakshit has built appears to be the AI support automation system at ET Money.\n\nHe built and scaled an AI support automation setup that reduced monthly tickets from 19,000 to 9,000 and improved CSAT by 30%. The technically interesting parts were not just the chatbot layer: he designed intent classification, 100+ resolution workflows, and an evaluation pipeline to test empathy, answer quality, policy compliance, and regressions using an LLM-as-judge approach.\n\nThat project stands out because it combined applied AI, workflow automation, quality evaluation, and production-scale customer support impact.\n\nTwo other strong technical builds from his professional work are:\n\n- Loan Against Mutual Funds at ET Money: built and scaled from the ground up to INR 100Cr disbursals in 7 months.\n- Financial planning module at INDMoney: built recommendation algorithms that reduced plan creation time from 4–5 hours to 15 minutes and enabled 20,000+ advisory plans.\n\nHe also has personal AI projects like an AI hiring chat assistant using Next.js, React, TypeScript, and AI agents, but the ET Money support automation is the strongest production example in the evidence.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1840,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1840,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 8624,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 8624,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 16161,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 11704,
+      "total_ms": 16173
+    },
+    {
+      "id": "Q03",
+      "question": "How does Rakshit think about evaluating LLM products?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit appears to think about LLM product evaluation as a product-quality system, not just a model-quality check.\n\nThe clearest example is his production work at ET Money, where he built and scaled AI support automation. There, evaluation was tied to real customer-support outcomes: reducing monthly tickets from 19,000 to 9,000 and improving CSAT by 30%. His evaluation approach covered intent classification, more than 100 resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.\n\nSo the pattern is: define what “good” means for the user and business, test the AI against that standard, and keep checking for regressions as workflows change. In support automation, that meant not only whether the answer was accurate, but whether it was empathetic, compliant with policy, and reliable across repeated cases.\n\nAdjacent personal projects show a similar evaluation mindset. In an AI Evaluation Framework project, he worked on conversational AI quality, accountability, safety, and voice ASR accuracy, including LLM-as-judge rubrics and WER/CER measurement. In TalkToKrishna, a RAG project, he evaluated relevance, correctness, tone, citation quality, and safety.\n\nWhat is not documented here is a broad vendor-evaluation checklist across many commercial LLM products. The strongest evidence is that Rakshit has built and evaluated LLM-powered product systems in production, especially where quality, trust, and customer experience mattered.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor asked about Rakshit's perspective on evaluating LLM products.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "products evaluated",
+              "evaluation criteria",
+              "experience with LLM products"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha evaluates LLM products by focusing on developing robust evaluation pipelines and systems that ensure quality, empathy, answer accuracy, policy compliance, and avoiding hallucinations. He has significant experience in using LLMs for support automation, agent frameworks, and semantic search.\n\nHis method involves designing intent classification systems, agentic workflows, and LLM-as-judge evaluation frameworks. These support proactive and reactive AI systems that manage customer queries efficiently and effectively, as evidenced by his work at ET Money and his personal AI projects.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "AI support automation at ET Money",
+                "evidence": "Built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
+                "relevance": "Shows practical application of LLM evaluation in a production context.",
+                "evidenceType": "direct",
+                "supports": [
+                  "ai-product-management",
+                  "eval-driven-ai"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "ai-evaluation-framework",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "AI Evaluation Framework",
+                "evidence": "Evaluation system for conversational AI quality, accountability, safety, and voice ASR accuracy, covering LLM-as-judge rubrics and WER/CER measurement. Improved text eval pass rate from 57% to 100% and accountability accuracy from 20% to 100%.",
+                "relevance": "Demonstrates Rakshit's structured approach to evaluating LLM products through personal projects focusing on accuracy and accountability.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "eval-driven-ai"
+                ]
+              },
+              {
+                "id": "talk-to-krishna",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "TalkToKrishna",
+                "evidence": "Built a RAG architecture linking user emotional states to Bhagavad Gita verses. Used evaluations across relevance, correctness, tone, citation quality, and safety.",
+                "relevance": "Illustrates experience in building and evaluating retrieval-augmented generation (RAG) solutions, enhancing LLM-based semantic search and response evaluation.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "rag-and-semantic-search"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Experience with LLM products",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": "Demonstrated hands-on implementation and scaling of LLM-based systems in a professional context."
+              },
+              {
+                "requirement": "LLM evaluation frameworks",
+                "weight": "supporting",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "ai-evaluation-framework"
+                ],
+                "notes": "Involved in developing evaluation systems to ensure quality and compliance in AI products."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit appears to think about LLM product evaluation as a product-quality system, not just a model-quality check.\n\nThe clearest example is his production work at ET Money, where he built and scaled AI support automation. There, evaluation was tied to real customer-support outcomes: reducing monthly tickets from 19,000 to 9,000 and improving CSAT by 30%. His evaluation approach covered intent classification, more than 100 resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.\n\nSo the pattern is: define what “good” means for the user and business, test the AI against that standard, and keep checking for regressions as workflows change. In support automation, that meant not only whether the answer was accurate, but whether it was empathetic, compliant with policy, and reliable across repeated cases.\n\nAdjacent personal projects show a similar evaluation mindset. In an AI Evaluation Framework project, he worked on conversational AI quality, accountability, safety, and voice ASR accuracy, including LLM-as-judge rubrics and WER/CER measurement. In TalkToKrishna, a RAG project, he evaluated relevance, correctness, tone, citation quality, and safety.\n\nWhat is not documented here is a broad vendor-evaluation checklist across many commercial LLM products. The strongest evidence is that Rakshit has built and evaluated LLM-powered product systems in production, especially where quality, trust, and customer experience mattered.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 0,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2154,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2154,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 8189,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 8189,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 15891,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 10659,
+      "total_ms": 15907
+    },
+    {
+      "id": "Q04",
+      "question": "Describe Rakshit's experience with agentic workflows.",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit has documented production experience with agentic workflows through AI support automation at ET Money. He built and scaled an automation system that reduced monthly support tickets from 19,000 to 9,000 and improved CSAT by 30%. His work included intent classification, 100+ resolution workflows, and an evaluation pipeline covering empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.\n\nThe clearest example is that he was not just prototyping an agentic flow — he was designing workflows that had to resolve real customer issues, stay policy-compliant, and be regression-tested as the system scaled.\n\nHe also has adjacent personal-project experience. For his portfolio, he built an AI Hiring Chat using Next.js, TypeScript, and the OpenAI Agents SDK, involving agentic chat workflows. Another personal project, Feedback Intelligence, used agent tools to aggregate public user feedback and turn it into prioritized product signals.\n\nSo the strongest evidence is production support automation, with personal projects showing continued hands-on exploration of agentic chat and agent-tool workflows.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Inquiry about Rakshit's experience with agentic workflows.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "experience with agentic workflows",
+              "projects involving agentic workflows",
+              "specific outcomes related to agentic workflows"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha has substantial experience with agentic workflows, both in professional and personal project contexts. His role as an AI Product Manager involves building and scaling AI products with components like agentic workflows. Notably, at ET Money, he developed an AI support automation system utilizing agentic workflows, leading to a significant reduction in support tickets and an improvement in customer satisfaction. Rakshit has also worked on personal projects involving agentic workflows, such as the AI Hiring Chat and other AI-driven applications.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "AI support automation",
+                "evidence": "Built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
+                "relevance": "This is a direct example of utilizing agentic workflows in a production environment.",
+                "evidenceType": "direct",
+                "supports": [
+                  "support-automation",
+                  "agentic-workflows",
+                  "eval-systems",
+                  "LLM-products"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "ai-hiring-chat",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "AI Hiring Chat",
+                "evidence": "Developed a standalone ChatGPT-style hiring assistant for Rakshit's portfolio, involving agentic chat workflows. Built using Next.js, TypeScript, OpenAI Agents SDK, and other tools.",
+                "relevance": "Demonstrates the application of agentic workflows in personal project scenarios focusing on interactive AI-driven chat experiences.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "agentic-workflows",
+                  "tools"
+                ]
+              },
+              {
+                "id": "feedback-agent",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "Feedback Intelligence",
+                "evidence": "Built a SaaS product for aggregating public user feedback across various platforms and turning it into prioritized product signals using agent tools.",
+                "relevance": "Highlights the use of agentic workflows in managing feedback and interactions across multiple data sources.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "agentic-workflows",
+                  "tools"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Experience with agentic workflows",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": "Strong production evidence from ET Money's AI support automation project."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit has documented production experience with agentic workflows through AI support automation at ET Money. He built and scaled an automation system that reduced monthly support tickets from 19,000 to 9,000 and improved CSAT by 30%. His work included intent classification, 100+ resolution workflows, and an evaluation pipeline covering empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.\n\nThe clearest example is that he was not just prototyping an agentic flow — he was designing workflows that had to resolve real customer issues, stay policy-compliant, and be regression-tested as the system scaled.\n\nHe also has adjacent personal-project experience. For his portfolio, he built an AI Hiring Chat using Next.js, TypeScript, and the OpenAI Agents SDK, involving agentic chat workflows. Another personal project, Feedback Intelligence, used agent tools to aggregate public user feedback and turn it into prioritized product signals.\n\nSo the strongest evidence is production support automation, with personal projects showing continued hands-on exploration of agentic chat and agent-tool workflows.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2845,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2845,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 8660,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 8660,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 14928,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 11171,
+      "total_ms": 14939
+    },
+    {
+      "id": "Q05",
+      "question": "What's his approach to building 0-to-1 products?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit’s documented approach to 0-to-1 products is to start with a clear user and business problem, validate assumptions quickly, and then scale based on user feedback and performance metrics.\n\nThe strongest evidence comes from ET Money, where he built multiple products from the ground up:\n\n- He built a 0-to-1 offline distribution business on top of ET Money’s platform for relationship-manager-led planning and transactions. That suggests he is comfortable creating a new business motion, not just a new app feature.\n- He built and scaled Loan Against Mutual Funds from the ground up to INR 100Cr in disbursals in 7 months, showing a bias toward validating and scaling a financial product with measurable business outcomes.\n- He led 0-to-1 development and scaling of ET Money Earn to INR 300Cr AUM, which points to experience taking a wealth product from concept into meaningful adoption.\n\nSo, in practical terms, his approach appears to be: define the problem sharply, launch/validate early, use user and business metrics to guide iteration, and scale once the product shows traction. There is also evidence that he uses AI and data-driven decision-making in product iteration, though the packet does not provide a detailed step-by-step process or specific frameworks he used.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Details on Rakshit's approach to building 0-to-1 products.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "approach to 0-to-1 product development",
+              "product management strategies",
+              "innovation in product lifecycle"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha's approach to building 0-to-1 products involves defining clear user and business problems, rapid prototyping to validate assumptions, and scaling based on user feedback and metrics. His methodology integrates AI and data-driven decision-making to iterate on product offerings.",
+            "directEvidence": [
+              {
+                "id": "etmoney-offline-distribution",
+                "sourceType": "project",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Offline Distribution Business",
+                "evidence": "Built a 0-to-1 offline distribution business on top of ET Money's platform for relationship-manager-led planning and transactions.",
+                "relevance": "Demonstrates Rakshit's capability to build new product lines from scratch and scale them effectively.",
+                "evidenceType": "direct",
+                "supports": [
+                  "zero-to-one"
+                ]
+              },
+              {
+                "id": "etmoney-lamf",
+                "sourceType": "project",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Loan Against Mutual Funds",
+                "evidence": "Built and scaled Loan Against Mutual Funds from ground up to INR 100Cr disbursals in 7 months.",
+                "relevance": "Shows his ability to create and scale financial products from inception.",
+                "evidenceType": "direct",
+                "supports": [
+                  "zero-to-one"
+                ]
+              },
+              {
+                "id": "etmoney-earn",
+                "sourceType": "project",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "ET Money Earn",
+                "evidence": "Led 0-to-1 development and scaling of ET Money Earn to INR 300Cr AUM.",
+                "relevance": "Highlights his leadership in initiating and growing wealth-focused platforms.",
+                "evidenceType": "direct",
+                "supports": [
+                  "zero-to-one"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "learnapp-courses",
+                "sourceType": "project",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Investing and Finance Course Library",
+                "evidence": "Designed library of investing and finance courses, achieving 50% course completion rate and generating INR 1.2Cr ARR.",
+                "relevance": "Experience in creating educational products from early stages; transferable to 0-to-1 development.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "zero-to-one"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Approach to 0-to-1 product development",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-offline-distribution",
+                  "etmoney-lamf",
+                  "etmoney-earn"
+                ],
+                "notes": "Multiple examples of successfully building and scaling 0-to-1 products at ET Money."
+              },
+              {
+                "requirement": "Product management strategies",
+                "weight": "supporting",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "learnapp-courses"
+                ],
+                "notes": "Transferable strategy experience from building educational platforms at LearnApp."
+              },
+              {
+                "requirement": "Innovation in product lifecycle",
+                "weight": "nice-to-have",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-offline-distribution",
+                  "etmoney-lamf",
+                  "etmoney-earn"
+                ],
+                "notes": "Innovative approaches in the fintech domain."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-offline-distribution",
+              "etmoney-lamf",
+              "etmoney-earn"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit’s documented approach to 0-to-1 products is to start with a clear user and business problem, validate assumptions quickly, and then scale based on user feedback and performance metrics.\n\nThe strongest evidence comes from ET Money, where he built multiple products from the ground up:\n\n- He built a 0-to-1 offline distribution business on top of ET Money’s platform for relationship-manager-led planning and transactions. That suggests he is comfortable creating a new business motion, not just a new app feature.\n- He built and scaled Loan Against Mutual Funds from the ground up to INR 100Cr in disbursals in 7 months, showing a bias toward validating and scaling a financial product with measurable business outcomes.\n- He led 0-to-1 development and scaling of ET Money Earn to INR 300Cr AUM, which points to experience taking a wealth product from concept into meaningful adoption.\n\nSo, in practical terms, his approach appears to be: define the problem sharply, launch/validate early, use user and business metrics to guide iteration, and scale once the product shows traction. There is also evidence that he uses AI and data-driven decision-making in product iteration, though the packet does not provide a detailed step-by-step process or specific frameworks he used.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2020,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2020,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 7402,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 7402,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 15024,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 9957,
+      "total_ms": 15035
+    },
+    {
+      "id": "Q06",
+      "question": "Walk me through the most ambiguous problem he's solved.",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "The clearest example is Rakshit’s AI support automation work at ET Money.\n\nThe ambiguous problem was: customer support volume was very high, but automating support safely is not just a chatbot problem. The system had to understand user intent, route or resolve many different issue types, give answers that were helpful and empathetic, and stay compliant with policy. The evidence does not spell out every tradeoff he made, but it does show that Rakshit tackled both the product workflow side and the AI quality-control side.\n\nRakshit’s role was to build and scale the automation. He designed intent classification, created more than 100 resolution workflows, and built an evaluation pipeline to check empathy, answer quality, policy compliance, and regression risk using an LLM-as-judge approach.\n\nThe outcome was strong: monthly support tickets dropped from 19,000 to 9,000, and customer satisfaction improved. That makes this a good example of him operating in ambiguity because the solution required more than shipping an AI feature; it required defining the problem space, structuring support intents, creating resolution paths, and putting evaluation in place so the automation could scale without degrading customer experience.\n\nThere’s also adjacent evidence from a personal project where he built a product-feedback agent to summarize app-store and social-media feedback into prioritized product signals, but the ET Money support automation is the strongest documented professional example.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is asking about a challenging or ambiguous problem that Rakshit has addressed in his work.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "most ambiguous problem solved",
+              "problem-solving examples",
+              "complex challenges faced"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha encountered a challenging problem at ET Money where he successfully implemented AI support automation. This involved designing intent classification and resolution workflows, as well as an LLM-based evaluation pipeline, resulting in a significant reduction in monthly support tickets and an improvement in customer satisfaction ratings.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "AI support automation",
+                "evidence": "Built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
+                "relevance": "Direct example of solving an ambiguous problem involving AI systems, customer support, and metric-driven impact.",
+                "evidenceType": "direct",
+                "supports": [
+                  "most ambiguous problem solved",
+                  "problem-solving examples",
+                  "complex challenges faced"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "feedback-agent-deep-dive",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "adjacent",
+                "title": "Feedback Intelligence deep evidence",
+                "evidence": "Built a product-feedback agent using OpenAI Agents SDK to summarize feedback from app stores and social media, offering prioritized product signals to product managers.",
+                "relevance": "Demonstrates problem-solving in feedback analysis and product management, though not in the same domain as ET Money's support automation.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "problem-solving examples",
+                  "complex challenges faced"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "most ambiguous problem solved",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": ""
+              },
+              {
+                "requirement": "problem-solving examples",
+                "weight": "supporting",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": "Primary evidence from ET Money's AI support automation."
+              },
+              {
+                "requirement": "complex challenges faced",
+                "weight": "supporting",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": "Complex AI and customer service challenge addressed."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation"
+            ]
+          }
+        }
+      },
+      "answer_text": "The clearest example is Rakshit’s AI support automation work at ET Money.\n\nThe ambiguous problem was: customer support volume was very high, but automating support safely is not just a chatbot problem. The system had to understand user intent, route or resolve many different issue types, give answers that were helpful and empathetic, and stay compliant with policy. The evidence does not spell out every tradeoff he made, but it does show that Rakshit tackled both the product workflow side and the AI quality-control side.\n\nRakshit’s role was to build and scale the automation. He designed intent classification, created more than 100 resolution workflows, and built an evaluation pipeline to check empathy, answer quality, policy compliance, and regression risk using an LLM-as-judge approach.\n\nThe outcome was strong: monthly support tickets dropped from 19,000 to 9,000, and customer satisfaction improved. That makes this a good example of him operating in ambiguity because the solution required more than shipping an AI feature; it required defining the problem space, structuring support intents, creating resolution paths, and putting evaluation in place so the automation could scale without degrading customer experience.\n\nThere’s also adjacent evidence from a personal project where he built a product-feedback agent to summarize app-store and social-media feedback into prioritized product signals, but the ET Money support automation is the strongest documented professional example.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2797,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2797,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 9799,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 9799,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 24461,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 16452,
+      "total_ms": 24473
+    },
+    {
+      "id": "Q07",
+      "question": "How does he work with engineering teams?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit seems to work with engineering teams in a very hands-on, prototype-first way: he gets close to the problem, translates it into buildable workflows, and stays involved through quality and iteration.\n\nThe clearest example is his AI support automation work at ET Money. He helped build and scale an AI support system that reduced monthly tickets from 19,000 to 9,000 and improved CSAT by 30%. His role covered product and technical shaping: intent classification, 100+ resolution workflows, and an evaluation pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.\n\nThat suggests he does not just hand off requirements to engineering. He works at the level of problem decomposition, workflow design, evaluation criteria, and production outcomes — which usually makes collaboration smoother because engineering teams get clearer specs, faster feedback loops, and a shared definition of quality.\n\nThere is also adjacent evidence from his financial planning module work, where he built recommendation algorithms that reduced plan creation time from 4–5 hours to 15 minutes and enabled 20,000+ advisory plans. That points to comfort working on product areas where business logic, user workflows, and technical implementation have to come together.\n\nWhat is not documented here is the exact team structure, rituals, or whether he managed engineers directly. The strongest evidence is that he collaborates well with engineering by being deeply involved in the build, testing, and iteration process.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is asking about Rakshit Lodha's collaboration with engineering teams.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "work style",
+              "collaboration evidence with engineering teams"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha effectively collaborates with engineering teams by taking a prototype-first and hands-on approach, focusing on problem-solving, and aligning closely with team goals and user needs. He has demonstrated his ability to work cross-functionally on multiple projects at ET Money and INDMoney, where he successfully led AI support automation, built financial planning modules, and scaled new financial products.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "AI support automation",
+                "evidence": "Built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
+                "relevance": "Demonstrates direct collaboration with engineering teams to create AI-driven solutions.",
+                "evidenceType": "direct",
+                "supports": [
+                  "work style",
+                  "collaboration with engineering teams"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "indmoney-financial-planning",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Financial planning module",
+                "evidence": "Built financial planning module with recommendation algorithms, reducing plan creation time from 4-5 hours to 15 minutes and enabling 20,000+ advisory plans.",
+                "relevance": "Illustrates effective cross-functional collaboration with development teams.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "work style",
+                  "collaboration with engineering teams"
+                ]
+              },
+              {
+                "id": "krux-news-deep-dive",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "Krux.news deep evidence",
+                "evidence": "Built and pivoted an AI-news platform that processes and delivers curated news content for tech-driven audiences with a scalable AI-driven backend.",
+                "relevance": "Shows capability to collaborate and implement complex technical solutions.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "work style",
+                  "collaboration with engineering teams"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "work style",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": "Rakshit uses a prototype-first, hands-on approach, aligning closely with user needs and engineering solutions."
+              },
+              {
+                "requirement": "collaboration with engineering teams",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": "Evidence from ET Money shows direct collaboration with engineering teams in a production environment."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit seems to work with engineering teams in a very hands-on, prototype-first way: he gets close to the problem, translates it into buildable workflows, and stays involved through quality and iteration.\n\nThe clearest example is his AI support automation work at ET Money. He helped build and scale an AI support system that reduced monthly tickets from 19,000 to 9,000 and improved CSAT by 30%. His role covered product and technical shaping: intent classification, 100+ resolution workflows, and an evaluation pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.\n\nThat suggests he does not just hand off requirements to engineering. He works at the level of problem decomposition, workflow design, evaluation criteria, and production outcomes — which usually makes collaboration smoother because engineering teams get clearer specs, faster feedback loops, and a shared definition of quality.\n\nThere is also adjacent evidence from his financial planning module work, where he built recommendation algorithms that reduced plan creation time from 4–5 hours to 15 minutes and enabled 20,000+ advisory plans. That points to comfort working on product areas where business logic, user workflows, and technical implementation have to come together.\n\nWhat is not documented here is the exact team structure, rituals, or whether he managed engineers directly. The strongest evidence is that he collaborates well with engineering by being deeply involved in the build, testing, and iteration process.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 0,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2438,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2438,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 7245,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 7245,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 14654,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 9062,
+      "total_ms": 14672
+    },
+    {
+      "id": "Q08",
+      "question": "Tell me about Krux.news in detail.",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Krux.news is Rakshit Lodha’s personal AI-driven news product focused on making fast-moving AI company news easier to consume.\n\nThe core idea is concise, swipeable updates: Krux.news turns AI news into short, AI-generated stories of under 100 words. The product uses AI for story curation, summarization, and image generation, so the experience is built around quick comprehension rather than long-form reading.\n\nA key product decision was a pivot away from article comparison toward short, persona-aware news. The documented reason was user preference: people wanted concise, swipeable stories instead of a comparison-heavy experience. Rakshit built both the backend and frontend, implemented persona-based curation, and maintained the product.\n\nIn terms of audience, the evidence points to people who want quick, digestible updates on AI company developments—especially users trying to keep up with a fast-moving AI news cycle without reading full articles.\n\nWhat is not documented: I don’t have a detailed company background, launch timeline, user metrics, monetization model, tech stack, or recent public news for Krux.news. Also, this should not be confused with Krux Analytics, the mining/drilling analytics company; the evidence here is specifically about Rakshit’s Krux.news project.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is asking for detailed information about Krux.news.",
+            "target": {
+              "roleTitle": null,
+              "companyName": "Krux.news",
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "company overview",
+              "services offered",
+              "target audience",
+              "market position",
+              "recent news"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": true
+          },
+          "companyBrief": {
+            "companyName": "Krux Analytics",
+            "companyUrl": "https://www.kruxanalytics.com",
+            "companySummary": "Krux Analytics is a software company founded in 2016, focused on standardizing, validating, and providing real-time analytics on drilling data for the metals and mining industry. In April 2026, it officially joined IMDEX to expand its global reach and integrate into broader drilling optimization ecosystems. Their platform transforms fragmented data from drill rigs into a trusted, single source of truth to enable smarter operational decisions.",
+            "productAreas": [
+              "Drilling data collection and standardization",
+              "Real-time analytics dashboards for drilling performance",
+              "Data validation and normalization across service providers",
+              "Integration with drilling workflow and analytics ecosystems"
+            ],
+            "businessModel": "Enterprise B2B SaaS / software platform for mining and drilling operations, delivering value by improving decision-making through data clarity, sold to mining companies and drilling service providers. Recently integrated into IMDEX’s portfolio.",
+            "targetUsers": [
+              "Mining companies and operators",
+              "Drilling operations teams",
+              "Service providers in drilling and exploration",
+              "Decision-makers needing real-time drilling performance insights"
+            ],
+            "hiringOrProductSignals": [
+              "Joined IMDEX in April 2026, expanding scale and integration opportunities"
+            ],
+            "fitRelevantContext": [
+              "Enterprise SaaS within heavy industry (mining/drilling)",
+              "Emphasis on operational data integrity and standardization",
+              "Integration within global ecosystem (via IMDEX)",
+              "Focus on real-world, field-level data and analytics"
+            ],
+            "likelyPMProblemSpaces": [
+              "Designing intuitive dashboards for real-time drilling performance",
+              "Managing data standardization and validation across disparate sources",
+              "Integrating drilling analytics into broader software and hardware ecosystems",
+              "Prioritizing features that align with operational and safety workflows"
+            ],
+            "likelyAIPMProblemSpaces": [
+              "Implementing predictive analytics for drilling efficiency or failure detection",
+              "Optimizing data pipelines for real-time decision-making",
+              "Embedding trust, validation, and quality control in AI models trained on drilling data",
+              "Designing AI-driven insights that surface actionable recommendations for operations teams"
+            ],
+            "domainSpecificRequirements": [
+              "Deep understanding of mining and drilling domain constraints and operations",
+              "Robust data validation, standardization, and compliance pipelines",
+              "Real-time system reliability and performance under field conditions",
+              "Integration capabilities with hardware and existing drilling software stacks"
+            ],
+            "uncertaintyNotes": [
+              "Limited publicly available detail on specific feature set, architecture, or AI tools used",
+              "Unclear how much of the product roadmap now aligns with IMDEX’s offerings versus standalone Krux features"
+            ],
+            "openQuestions": [
+              "What specific AI or machine learning capabilities does Krux’s platform currently include or plan to develop?",
+              "How deeply integrated is the Krux platform into IMDEX’s drilling solutions (e.g., unified UX, backend consolidation)?",
+              "What are the main KPIs or operational outcomes Krux delivers for customers (e.g., cost reduction, time saved, risk mitigated)?"
+            ],
+            "sources": [
+              {
+                "title": "Krux Analytics: optimising drilling performance with data platform",
+                "url": "https://www.kruxanalytics.com/news"
+              },
+              {
+                "title": "A Decade of Krux: Reflecting on 10 Years and Looking Ahead With IMDEX",
+                "url": "https://www.kruxanalytics.com/blog/a-decade-of-krux-reflecting-on-10-years-and-looking-ahead-with-imdex"
+              },
+              {
+                "title": "IMDEX completes Krux Analytics acquisition, advancing drill site technologies business (Annual Report reference)",
+                "url": "https://company-announcements.afr.com/asx/imd/fdfab86a-8135-11f0-9312-c290f5ea0995.pdf"
+              }
+            ]
+          },
+          "evidencePacket": {
+            "summary": "Krux.news is an AI-driven news platform designed to provide concise and swipeable updates on AI company developments.",
+            "directEvidence": [
+              {
+                "id": "krux-new",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "Krux.news Overview",
+                "evidence": "Krux.news delivers short, AI-generated stories that distill fast-moving AI news into under 100 words, using AI for story curation, summarization, and image generation.",
+                "relevance": "Addresses the need for quick, digestible updates on AI news.",
+                "evidenceType": "direct",
+                "supports": [
+                  "target audience",
+                  "services offered"
+                ]
+              },
+              {
+                "id": "krux-news-deep-dive",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "Krux.news deep evidence",
+                "evidence": "Pivoted from article comparison to short, persona-aware news due to user preference for concise, swipeable stories. Built the backend and frontend, implemented persona-based curation, and maintained the product.",
+                "relevance": "Highlights the product's evolution and alignment with user needs.",
+                "evidenceType": "direct",
+                "supports": [
+                  "services offered",
+                  "market position"
+                ]
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [
+              "company overview",
+              "recent news"
+            ],
+            "criteriaCoverage": [
+              {
+                "requirement": "company overview",
+                "weight": "core",
+                "status": "missing",
+                "evidenceIds": [],
+                "notes": "No detailed company background available."
+              },
+              {
+                "requirement": "services offered",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "krux-new"
+                ],
+                "notes": "AI-generated short news stories on AI company updates."
+              },
+              {
+                "requirement": "target audience",
+                "weight": "supporting",
+                "status": "direct",
+                "evidenceIds": [
+                  "krux-new"
+                ],
+                "notes": "Targeting individuals needing quick comprehension of AI news."
+              },
+              {
+                "requirement": "market position",
+                "weight": "nice-to-have",
+                "status": "direct",
+                "evidenceIds": [
+                  "krux-news-deep-dive"
+                ],
+                "notes": "Positioned around fast, digestible AI news updates."
+              },
+              {
+                "requirement": "recent news",
+                "weight": "nice-to-have",
+                "status": "missing",
+                "evidenceIds": [],
+                "notes": "No recent news about the company provided."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "krux-new",
+              "krux-news-deep-dive"
+            ]
+          }
+        }
+      },
+      "answer_text": "Krux.news is Rakshit Lodha’s personal AI-driven news product focused on making fast-moving AI company news easier to consume.\n\nThe core idea is concise, swipeable updates: Krux.news turns AI news into short, AI-generated stories of under 100 words. The product uses AI for story curation, summarization, and image generation, so the experience is built around quick comprehension rather than long-form reading.\n\nA key product decision was a pivot away from article comparison toward short, persona-aware news. The documented reason was user preference: people wanted concise, swipeable stories instead of a comparison-heavy experience. Rakshit built both the backend and frontend, implemented persona-based curation, and maintained the product.\n\nIn terms of audience, the evidence points to people who want quick, digestible updates on AI company developments—especially users trying to keep up with a fast-moving AI news cycle without reading full articles.\n\nWhat is not documented: I don’t have a detailed company background, launch timeline, user metrics, monetization model, tech stack, or recent public news for Krux.news. Also, this should not be confused with Krux Analytics, the mining/drilling analytics company; the evidence here is specifically about Rakshit’s Krux.news project.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2242,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "websearch_start",
+          "elapsed_ms": 2242,
+          "message": "Researching company context"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2242,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "websearch_complete",
+          "elapsed_ms": 8731,
+          "message": "Built company brief"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 8731,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 8731,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 18460,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 14699,
+      "total_ms": 18472
+    },
+    {
+      "id": "Q09",
+      "question": "What does he know about voice AI?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit has documented experience with voice AI through building and evaluating voice interfaces. The profile specifically mentions work across speech-to-text, text-to-speech, and ASR quality measurement.\n\nA concrete adjacent example is his US Stocks Analysis Agent, a personal project that included voice input/output and evaluation frameworks. In that project, he worked on improving the agent’s tool-use accuracy from 58% to 90%.\n\nWhat’s not documented here is production-scale voice AI work, telephony/contact-center deployment, wake-word systems, or low-latency streaming architecture. So the strongest supported claim is that he understands and has hands-on experience with voice-enabled AI experiences and evaluation, especially around STT/TTS and ASR quality.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Inquiry about Rakshit's knowledge of voice AI.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "voice AI knowledge",
+              "related projects or experience"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha has relevant experience in voice AI as part of his broader work with AI product management, particularly in building voice-enabled AI experiences.",
+            "directEvidence": [
+              {
+                "id": "voice-ai",
+                "sourceType": "fitTheme",
+                "workContext": "generic_capability",
+                "evidenceStrength": "direct_claim",
+                "title": "Voice AI",
+                "evidence": "Built and evaluated voice interfaces, including speech-to-text, text-to-speech, and ASR quality measurement.",
+                "relevance": "Rakshit has explicit experience with voice interfaces in AI products.",
+                "evidenceType": "direct",
+                "supports": [
+                  "us-stocks-analysis-agent",
+                  "ai-evaluation-framework"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "us-stocks-analysis-agent",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "US Stocks Analysis Agent",
+                "evidence": "Developed an AI financial analysis agent featuring voice input/output and evaluation frameworks, improving tool-use accuracy from 58% to 90%.",
+                "relevance": "This project included significant work on voice input and interaction, showcasing Rakshit's capabilities in voice AI development.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "voice-ai"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Voice AI knowledge",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "voice-ai"
+                ],
+                "notes": "Rakshit's profile lists explicit experience with voice interfaces and ASR evaluation."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "voice-ai"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit has documented experience with voice AI through building and evaluating voice interfaces. The profile specifically mentions work across speech-to-text, text-to-speech, and ASR quality measurement.\n\nA concrete adjacent example is his US Stocks Analysis Agent, a personal project that included voice input/output and evaluation frameworks. In that project, he worked on improving the agent’s tool-use accuracy from 58% to 90%.\n\nWhat’s not documented here is production-scale voice AI work, telephony/contact-center deployment, wake-word systems, or low-latency streaming architecture. So the strongest supported claim is that he understands and has hands-on experience with voice-enabled AI experiences and evaluation, especially around STT/TTS and ASR quality.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2206,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2206,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 5669,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 5669,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 10727,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 8328,
+      "total_ms": 10743
+    },
+    {
+      "id": "Q10",
+      "question": "How does Rakshit handle stakeholder management?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit’s documented stakeholder management style is strongest around aligning teams on a focused product scope and coordinating across internal and external partners.\n\nA good example is ET Money’s AI support automation work. Rakshit scoped the first version specifically to mutual-fund support queries instead of trying to automate everything at once. He worked with the mutual-fund team to fetch accurate metadata and build the right data flows so responses could be precise. That suggests a practical stakeholder approach: narrow the problem, bring the right domain team in, and align execution around accuracy and customer-support impact.\n\nAnother example is the Loan Against Mutual Funds product at ET Money, where Rakshit partnered with DSP Finance while also managing internal expectations. That points to experience handling external partner collaboration in a regulated financial-product context, not just internal product delivery.\n\nWhat is less documented is his exact communication cadence, meeting style, escalation approach, or a detailed conflict-resolution playbook. The closest evidence on that side is a learning from an INDMoney goals feature that did not get product-market fit, where limited cross-functional collaboration and stakeholder friction were identified as lessons. So the evidence shows both shipped stakeholder-heavy work and some reflection on where collaboration could have been better.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is inquiring about Rakshit's approach to stakeholder management.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "stakeholder management practices",
+              "communication style with stakeholders",
+              "conflict resolution examples"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "This packet explores Rakshit Lodha's approach to stakeholder management, focusing on his experiences and documented practices related to AI product management, communication with stakeholders, and examples of conflict resolution within professional contexts. The evidence prioritizes production outcomes over personal projects to provide concrete examples of Rakshit's skills in managing stakeholders effectively.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation-deep-dive",
+                "sourceType": "experience",
+                "workContext": "professional",
+                "evidenceStrength": "direct_shipped",
+                "title": "ET Money AI support automation deep evidence",
+                "evidence": "Rakshit managed to scope V1 to mutual-fund support queries, work with the mutual-fund team to fetch accurate metadata, and build data flows to support precise responses, demonstrating his ability to align stakeholders on a focused strategy to reduce customer support volume.",
+                "relevance": "Demonstrates stakeholder management skills in aligning technical and business teams.",
+                "evidenceType": "direct",
+                "supports": [
+                  "stakeholder management"
+                ]
+              },
+              {
+                "id": "etmoney-lamf-deep-dive",
+                "sourceType": "experience",
+                "workContext": "professional",
+                "evidenceStrength": "direct_shipped",
+                "title": "ET Money Loan Against Mutual Funds deep evidence",
+                "evidence": "Rakshit partnered with DSP Finance, managing complex relationships to launch the Loan Against Mutual Funds product, showing an ability to collaborate with external partners while managing internal stakeholder expectations.",
+                "relevance": "Shows ability to manage partnerships and internal buy-in on complex financial products.",
+                "evidenceType": "direct",
+                "supports": [
+                  "stakeholder management"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "feedback-agent-deep-dive",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "Feedback Intelligence deep evidence",
+                "evidence": "Rakshit built a feedback agent to aggregate user feedback, showing his insight into stakeholder needs and proactive conflict resolution by addressing user pain points before they become larger issues.",
+                "relevance": "Highlights proactive management of user and stakeholder expectations.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "stakeholder management"
+                ]
+              },
+              {
+                "id": "indmoney-goals-feature",
+                "sourceType": "experience",
+                "workContext": "professional",
+                "evidenceStrength": "direct_claim",
+                "title": "Goals feature — did not get PMF",
+                "evidence": "Learnings from failed goals feature at INDMoney included limited cross-functional collaboration and stakeholder friction, indicating areas of challenge and growth in stakeholder management.",
+                "relevance": "Provides insights into challenges faced in stakeholder management and lessons learned.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "stakeholder management"
+                ]
+              }
+            ],
+            "gaps": [
+              "Specific examples of direct stakeholder communication, detailed conflict resolution practices."
+            ],
+            "criteriaCoverage": [
+              {
+                "requirement": "stakeholder management practices",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation-deep-dive",
+                  "etmoney-lamf-deep-dive"
+                ],
+                "notes": "Demonstrated in managing complex projects and external partnerships."
+              },
+              {
+                "requirement": "communication style with stakeholders",
+                "weight": "supporting",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "feedback-agent-deep-dive",
+                  "indmoney-goals-feature"
+                ],
+                "notes": "Evidence of proactive user feedback loops and learnings from project failures."
+              },
+              {
+                "requirement": "conflict resolution examples",
+                "weight": "supporting",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "indmoney-goals-feature"
+                ],
+                "notes": "Lessons learned from challenges in cross-functional collaboration at INDMoney."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation-deep-dive",
+              "etmoney-lamf-deep-dive"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit’s documented stakeholder management style is strongest around aligning teams on a focused product scope and coordinating across internal and external partners.\n\nA good example is ET Money’s AI support automation work. Rakshit scoped the first version specifically to mutual-fund support queries instead of trying to automate everything at once. He worked with the mutual-fund team to fetch accurate metadata and build the right data flows so responses could be precise. That suggests a practical stakeholder approach: narrow the problem, bring the right domain team in, and align execution around accuracy and customer-support impact.\n\nAnother example is the Loan Against Mutual Funds product at ET Money, where Rakshit partnered with DSP Finance while also managing internal expectations. That points to experience handling external partner collaboration in a regulated financial-product context, not just internal product delivery.\n\nWhat is less documented is his exact communication cadence, meeting style, escalation approach, or a detailed conflict-resolution playbook. The closest evidence on that side is a learning from an INDMoney goals feature that did not get product-market fit, where limited cross-functional collaboration and stakeholder friction were identified as lessons. So the evidence shows both shipped stakeholder-heavy work and some reflection on where collaboration could have been better.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1881,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1881,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 9461,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 9461,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 16657,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 11699,
+      "total_ms": 16666
+    },
+    {
+      "id": "Q11",
+      "question": "What's his experience with semantic search in production?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit has documented experience implementing semantic search in a financial discovery context through his MF Semantic Search project. He built a semantic search engine across 16,197 mutual funds using LLM-based intent classification and OpenAI embeddings, with search modes for single lookup, comparison, and discovery workflows.\n\nThe closest adjacent example is TalkToKrishna, where he developed a RAG-based system using semantic search and dual-collection retrieval to ground responses in the Bhagavad Gita.\n\nOne caveat: the evidence describes these as personal projects, not employer-owned production systems. So the strongest claim is that he has built production-style semantic search systems with real retrieval workflows, but there is no documented professional production deployment in the provided evidence.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Inquiry about Rakshit's experience with semantic search in production.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "semantic search experience",
+              "projects involving semantic search",
+              "production-level implementations"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha has experience building semantic search systems in production contexts, specifically for financial discovery and mutual fund exploration. His work involves leveraging LLM-based intent classification and RAG systems to enhance search capabilities.",
+            "directEvidence": [
+              {
+                "id": "mf-semantic-search",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "MF Semantic Search",
+                "evidence": "Implemented a semantic search engine across 16,197 mutual funds using LLM-based intent classification and OpenAI embeddings. Designed search modes for single lookup, comparison, and discovery workflows.",
+                "relevance": "Direct experience with building a semantic search system tailored for mutual funds.",
+                "evidenceType": "direct",
+                "supports": [
+                  "rag-and-semantic-search"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "talk-to-krishna",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "TalkToKrishna",
+                "evidence": "Developed a RAG-based system for spiritual counseling that involved semantic search and dual-collection retrieval to provide guidance grounded in the Bhagavad Gita.",
+                "relevance": "Demonstrates transferable skills in building semantic search and RAG systems beyond financial applications.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "rag-search-and-retrieval"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Experience with semantic search in production",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "mf-semantic-search"
+                ],
+                "notes": "Direct implementation of semantic search workflows in a financial context."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "mf-semantic-search"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit has documented experience implementing semantic search in a financial discovery context through his MF Semantic Search project. He built a semantic search engine across 16,197 mutual funds using LLM-based intent classification and OpenAI embeddings, with search modes for single lookup, comparison, and discovery workflows.\n\nThe closest adjacent example is TalkToKrishna, where he developed a RAG-based system using semantic search and dual-collection retrieval to ground responses in the Bhagavad Gita.\n\nOne caveat: the evidence describes these as personal projects, not employer-owned production systems. So the strongest claim is that he has built production-style semantic search systems with real retrieval workflows, but there is no documented professional production deployment in the provided evidence.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1994,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1994,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 7973,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 7973,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 11704,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 8996,
+      "total_ms": 11714
+    },
+    {
+      "id": "Q12",
+      "question": "Describe his fintech domain expertise.",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit has documented fintech experience across lending, wealth, mutual funds, insurance, and financial planning products.\n\nHis strongest direct fintech evidence is from ET Money. He built and scaled a Loan Against Mutual Funds product from the ground up to INR 100Cr in disbursals within 7 months, which shows hands-on experience at the intersection of lending and investment assets. He also led the 0-to-1 development and scaling of ET Money Earn to INR 300Cr AUM, demonstrating wealth-product and AUM-growth experience. In insurance, he worked on the Health & Term Insurance vertical and helped increase revenue from INR 1.5Cr to INR 3Cr.\n\nAdjacent fintech evidence comes from INDMoney, where he built a financial planning module with recommendation algorithms that reduced plan creation time from 4–5 hours to 15 minutes. He also developed a personalized insurance recommendation system aligned with users’ financial goals, reaching INR 1.5Cr ARR in the first year.\n\nOverall, his fintech expertise is strongest in building and scaling consumer financial products, especially where product decisions connect user needs, financial recommendations, distribution, and measurable business outcomes.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor asked for a description of Rakshit Lodha's fintech domain expertise.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "fintech domain expertise",
+              "specific projects in fintech",
+              "skills relevant to fintech"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha has extensive expertise in the fintech domain, particularly through his work at ET Money and INDMoney, where he contributed to various lending, wealth, insurance, and mutual fund products. He has a strong background in building and scaling fintech solutions, achieving significant metrics in areas like mutual funds and insurance.",
+            "directEvidence": [
+              {
+                "id": "etmoney-lamf",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Loan Against Mutual Funds",
+                "evidence": "Built and scaled Loan Against Mutual Funds from ground up to INR 100Cr disbursals in 7 months.",
+                "relevance": "Demonstrates capability in fintech product development focused on lending and mutual funds.",
+                "evidenceType": "direct",
+                "supports": [
+                  "fintech domain expertise"
+                ]
+              },
+              {
+                "id": "etmoney-earn",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "ET Money Earn",
+                "evidence": "Led 0-to-1 development and scaling of ET Money Earn to INR 300Cr AUM.",
+                "relevance": "Illustrates expertise in wealth management and product scaling.",
+                "evidenceType": "direct",
+                "supports": [
+                  "fintech domain expertise"
+                ]
+              },
+              {
+                "id": "etmoney-insurance-platform",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Health & Term Insurance",
+                "evidence": "Increased revenue of insurance as a vertical from INR 1.5Cr to INR 3Cr.",
+                "relevance": "Highlights proficiency in insurance product development and revenue growth.",
+                "evidenceType": "direct",
+                "supports": [
+                  "fintech domain expertise"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "indmoney-financial-planning",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Financial Planning Module",
+                "evidence": "Built financial planning module with recommendation algorithms, reducing plan creation time from 4-5 hours to 15 minutes.",
+                "relevance": "Relevant experience in financial planning and advisory products.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "fintech domain expertise"
+                ]
+              },
+              {
+                "id": "indmoney-insurance-recommendations",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Insurance Recommendations",
+                "evidence": "Developed personalized insurance recommendation system aligned with financial goals, achieving INR 1.5Cr ARR in the first year.",
+                "relevance": "Experience in integrating personalization into fintech solutions.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "fintech domain expertise"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "etmoney-lamf",
+              "etmoney-earn",
+              "etmoney-insurance-platform"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit has documented fintech experience across lending, wealth, mutual funds, insurance, and financial planning products.\n\nHis strongest direct fintech evidence is from ET Money. He built and scaled a Loan Against Mutual Funds product from the ground up to INR 100Cr in disbursals within 7 months, which shows hands-on experience at the intersection of lending and investment assets. He also led the 0-to-1 development and scaling of ET Money Earn to INR 300Cr AUM, demonstrating wealth-product and AUM-growth experience. In insurance, he worked on the Health & Term Insurance vertical and helped increase revenue from INR 1.5Cr to INR 3Cr.\n\nAdjacent fintech evidence comes from INDMoney, where he built a financial planning module with recommendation algorithms that reduced plan creation time from 4–5 hours to 15 minutes. He also developed a personalized insurance recommendation system aligned with users’ financial goals, reaching INR 1.5Cr ARR in the first year.\n\nOverall, his fintech expertise is strongest in building and scaling consumer financial products, especially where product decisions connect user needs, financial recommendations, distribution, and measurable business outcomes.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2648,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2648,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 8018,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 8018,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 15215,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 10462,
+      "total_ms": 15225
+    },
+    {
+      "id": "Q13",
+      "question": "What's the biggest mistake he's made and what did he learn from it?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "The clearest documented example is Rakshit’s work on the Goals feature at INDmoney. The feature was intended to help users set and track financial goals and become a core retention driver for the planning module, but it did not achieve product-market fit: monthly retention was low, and users were not coming back.\n\nWhat he learned from that failure was practical product discipline: start with a clear target market, define one north-star metric, keep the product simple instead of over-investing in algorithmic complexity, and review data regularly so the team can catch weak retention signals earlier.\n\nSo the mistake was not just that the feature failed; it was that the product direction appears to have been too broad or complex without enough focus on a specific user segment, a simple value proposition, and a single retention-oriented measure of success.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Inquiry about the biggest mistake and lessons learned by Rakshit Lodha.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "mistake learning experience",
+              "personal development lessons"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Inquiry about Rakshit Lodha's biggest mistake and the lessons learned from it.",
+            "directEvidence": [
+              {
+                "id": "indmoney-goals-feature",
+                "sourceType": "experience",
+                "workContext": "professional",
+                "evidenceStrength": "direct_claim",
+                "title": "Goals feature — did not get PMF",
+                "evidence": "The Goals feature was meant to help users set and track financial goals as a core retention driver for the planning module. It failed: monthly retention was low and users were not coming back.",
+                "relevance": "The failure taught several key lessons, including the importance of having a clear target market, defining a single north star metric, focusing on product simplicity rather than algorithm complexity, and ensuring regular data review.",
+                "evidenceType": "direct",
+                "supports": [
+                  "PMF",
+                  "retention",
+                  "goals",
+                  "product failure",
+                  "learnings"
+                ]
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [],
+            "strongestEvidenceIds": [
+              "indmoney-goals-feature"
+            ]
+          }
+        }
+      },
+      "answer_text": "The clearest documented example is Rakshit’s work on the Goals feature at INDmoney. The feature was intended to help users set and track financial goals and become a core retention driver for the planning module, but it did not achieve product-market fit: monthly retention was low, and users were not coming back.\n\nWhat he learned from that failure was practical product discipline: start with a clear target market, define one north-star metric, keep the product simple instead of over-investing in algorithmic complexity, and review data regularly so the team can catch weak retention signals earlier.\n\nSo the mistake was not just that the feature failed; it was that the product direction appears to have been too broad or complex without enough focus on a specific user segment, a simple value proposition, and a single retention-oriented measure of success.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 0,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1902,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1902,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 5601,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 5601,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 10937,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 7557,
+      "total_ms": 10947
+    },
+    {
+      "id": "Q14",
+      "question": "How does he prioritize features?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit appears to prioritize features by tying them to a clear user or business problem, then using feedback and evaluation loops to decide what is worth building or improving.\n\nThe strongest documented example is his AI Support Automation work at ET Money. There, the problem was monthly support ticket volume. Rakshit designed intent classification, more than 100 resolution workflows, and an evaluation pipeline for empathy, answer quality, policy compliance, and regression testing. That suggests his prioritization was not just “what can we build,” but “which user intents are important enough to automate, and how do we know the automation is good enough to ship or keep improving?”\n\nThere’s also adjacent evidence from his Feedback Intelligence project, where he built a SaaS product that aggregates user feedback from multiple channels and prioritizes product signals through a conversational agent. That points to a preference for using customer feedback as an input into product decisions.\n\nOne useful learning comes from his Goals feature work at INDMoney: the feature did not achieve product-market fit because of an unclear target market and competing priorities. Rakshit’s takeaway was to define success metrics and target markets more clearly before or during feature development.\n\nSo, based on the documented evidence, his approach is: start with the customer/business pain, classify and size the important signals, define what success should look like, and use evaluation or feedback loops to decide what to build, automate, or iterate. The exact prioritization framework he uses is not documented in the evidence packet.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is asking about Rakshit's approach to prioritizing features.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "feature prioritization strategies",
+              "examples of feature prioritization in projects",
+              "Rakshit's decision-making process"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha employs a structured and evidence-driven approach to feature prioritization, focusing on aligning product features with business goals and user needs. He leverages feedback, intent classification, and evaluation frameworks to make informed decisions.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "AI Support Automation at ET Money",
+                "evidence": "Reduced monthly ticket volume by designing intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
+                "relevance": "Demonstrates Rakshit's ability to prioritize features that directly reduce customer support tickets and improve customer satisfaction through data-driven decision-making and workflow design.",
+                "evidenceType": "direct",
+                "supports": [
+                  "feature prioritization",
+                  "decision-making process"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "feedback-agent",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "Feedback Intelligence Project",
+                "evidence": "Built a SaaS product that aggregates user feedback from multiple channels and prioritizes product signals through a conversational agent.",
+                "relevance": "Shows Rakshit's method of using feedback aggregation and classification to prioritize product enhancements.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "feature prioritization",
+                  "decision-making process"
+                ]
+              },
+              {
+                "id": "indmoney-goals-feature",
+                "sourceType": "experience",
+                "workContext": "professional",
+                "evidenceStrength": "direct_claim",
+                "title": "Goals Feature at INDMoney",
+                "evidence": "The feature failed to achieve product-market fit due to unclear target market and competing priorities. Rakshit learned to define success metrics and target markets more clearly.",
+                "relevance": "Illustrates the importance of clear prioritization and success criteria in feature development.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "feature prioritization"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "feature prioritization strategies",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": "Rakshit uses structured methodologies and data-driven insights for feature prioritization."
+              },
+              {
+                "requirement": "examples of feature prioritization in projects",
+                "weight": "supporting",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "feedback-agent"
+                ],
+                "notes": "Provides a project-based example of feature prioritization based on user feedback."
+              },
+              {
+                "requirement": "decision-making process in feature prioritization",
+                "weight": "supporting",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "indmoney-goals-feature"
+                ],
+                "notes": "Highlights learning from prioritization mistakes in a professional setting."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit appears to prioritize features by tying them to a clear user or business problem, then using feedback and evaluation loops to decide what is worth building or improving.\n\nThe strongest documented example is his AI Support Automation work at ET Money. There, the problem was monthly support ticket volume. Rakshit designed intent classification, more than 100 resolution workflows, and an evaluation pipeline for empathy, answer quality, policy compliance, and regression testing. That suggests his prioritization was not just “what can we build,” but “which user intents are important enough to automate, and how do we know the automation is good enough to ship or keep improving?”\n\nThere’s also adjacent evidence from his Feedback Intelligence project, where he built a SaaS product that aggregates user feedback from multiple channels and prioritizes product signals through a conversational agent. That points to a preference for using customer feedback as an input into product decisions.\n\nOne useful learning comes from his Goals feature work at INDMoney: the feature did not achieve product-market fit because of an unclear target market and competing priorities. Rakshit’s takeaway was to define success metrics and target markets more clearly before or during feature development.\n\nSo, based on the documented evidence, his approach is: start with the customer/business pain, classify and size the important signals, define what success should look like, and use evaluation or feedback loops to decide what to build, automate, or iterate. The exact prioritization framework he uses is not documented in the evidence packet.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 3890,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 3890,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 12081,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 12081,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 20173,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 14738,
+      "total_ms": 20184
+    },
+    {
+      "id": "Q15",
+      "question": "Walk me through how he built the ET Money support automation.",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit built the ET Money support automation as a production system aimed at reducing customer support load while maintaining response quality.\n\nThe documented core of the work was three parts:\n\n1. **Intent classification**  \n   He designed intent classification so incoming customer issues could be understood and routed into the right type of resolution path.\n\n2. **Resolution workflows**  \n   He created **100+ resolution workflows**, which suggests the system was not just a generic chatbot — it handled many specific support scenarios with defined ways to resolve them.\n\n3. **Evaluation and quality control**  \n   He also built an evaluation pipeline using an **LLM-as-judge** method. That pipeline checked for **empathy, answer quality, policy compliance, and regression issues**, so the automation could be scaled without letting response quality drift.\n\nThe main challenge documented was balancing automation with customer experience: reducing ticket volume while ensuring answers stayed helpful, compliant, and empathetic. The outcome was substantial: monthly support tickets dropped from **19,000 to 9,000**, and CSAT improved by **30%**.\n\nWhat is not documented in the evidence is the exact backend stack, model provider, orchestration framework, data sources, or deployment architecture. So the safest summary is: Rakshit led the product/system design around intent classification, workflow coverage, and evaluation quality for a shipped AI support automation system at ET Money.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is asking for details on how Rakshit built the ET Money support automation.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "experience with support automation projects",
+              "specific methodologies used in project",
+              "challenges faced during the project",
+              "technologies applied in ET Money support automation"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha built an AI support automation system for ET Money that reduced monthly support tickets by 55% and improved customer satisfaction by 30%. This involved designing intent classification, over 100 resolution workflows, and an evaluation pipeline using an LLM-as-judge method to ensure answer quality and empathy.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "AI support automation at ET Money",
+                "evidence": "Built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
+                "relevance": "Explains how Rakshit developed the ET Money support automation, including methodologies and challenges faced.",
+                "evidenceType": "direct",
+                "supports": []
+              }
+            ],
+            "adjacentEvidence": [],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "experience with support automation projects",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": ""
+              },
+              {
+                "requirement": "specific methodologies used in project",
+                "weight": "supporting",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": ""
+              },
+              {
+                "requirement": "challenges faced during the project",
+                "weight": "supporting",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": ""
+              },
+              {
+                "requirement": "technologies applied in ET Money support automation",
+                "weight": "supporting",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": ""
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit built the ET Money support automation as a production system aimed at reducing customer support load while maintaining response quality.\n\nThe documented core of the work was three parts:\n\n1. **Intent classification**  \n   He designed intent classification so incoming customer issues could be understood and routed into the right type of resolution path.\n\n2. **Resolution workflows**  \n   He created **100+ resolution workflows**, which suggests the system was not just a generic chatbot — it handled many specific support scenarios with defined ways to resolve them.\n\n3. **Evaluation and quality control**  \n   He also built an evaluation pipeline using an **LLM-as-judge** method. That pipeline checked for **empathy, answer quality, policy compliance, and regression issues**, so the automation could be scaled without letting response quality drift.\n\nThe main challenge documented was balancing automation with customer experience: reducing ticket volume while ensuring answers stayed helpful, compliant, and empathetic. The outcome was substantial: monthly support tickets dropped from **19,000 to 9,000**, and CSAT improved by **30%**.\n\nWhat is not documented in the evidence is the exact backend stack, model provider, orchestration framework, data sources, or deployment architecture. So the safest summary is: Rakshit led the product/system design around intent classification, workflow coverage, and evaluation quality for a shipped AI support automation system at ET Money.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 2,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2757,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2757,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 8766,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 8766,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 16128,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 11080,
+      "total_ms": 16139
+    },
+    {
+      "id": "Q16",
+      "question": "What's Rakshit's experience with multi-agent architectures?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit has direct hands-on experience with multi-agent architecture through his personal project, **US Stocks Analysis Agent**. He designed a stock analysis system that routed tasks across specialist sub-agents, included real-time financial tools, and supported voice input/output.\n\nThe core idea was to improve financial-analysis task handling by using specialist handoffs rather than a single general agent for every query. He also added a systematic evaluation framework, and the documented outcome was an improvement in tool-use accuracy from 58% to 90%.\n\nA related adjacent example is **AI Hiring Chat**, where Rakshit built an agentic hiring assistant using a versioned agent pipeline with planning, evidence gathering, and structured response generation. That is not documented as a multi-agent architecture in the same way as the stocks project, but it shows related experience with agent workflows and evaluation-oriented design.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is asking about Rakshit's experience with multi-agent architectures.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "experience with multi-agent architectures",
+              "related projects or roles Rakshit has held"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha has experience working with multi-agent architectures, specifically in his personal project, the US Stocks Analysis Agent. This involved designing a system with specialist sub-agents and a voice interaction layer to improve accuracy in financial analysis tasks.",
+            "directEvidence": [
+              {
+                "id": "us-stocks-analysis-agent",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "US Stocks Analysis Agent",
+                "evidence": "Rakshit designed a multi-agent stock analysis system with specialist handoffs, real-time financial tools, voice input/output, and a systematic evaluation framework that improved tool-use accuracy from 58% to 90%.",
+                "relevance": "This evidence directly showcases Rakshit's experience with multi-agent systems, as he built a system routing queries to specialist agents.",
+                "evidenceType": "direct",
+                "supports": [
+                  "multi-agent systems",
+                  "tool-use evals",
+                  "financial analysis",
+                  "voice AI"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "ai-hiring-chat",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "AI Hiring Chat",
+                "evidence": "Built an agentic hiring assistant using a versioned agent pipeline with intentional planning, evidence gathering, and structured response generation.",
+                "relevance": "This project demonstrates Rakshit's skills in building agent systems, albeit in a different domain from financial analysis.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "agent pipelines",
+                  "evals",
+                  "prompt versioning",
+                  "portfolio chat",
+                  "fit assessment"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Experience with multi-agent architectures",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "us-stocks-analysis-agent"
+                ],
+                "notes": "Rakshit has direct project experience in multi-agent architectures through his US Stocks Analysis Agent."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "us-stocks-analysis-agent"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit has direct hands-on experience with multi-agent architecture through his personal project, **US Stocks Analysis Agent**. He designed a stock analysis system that routed tasks across specialist sub-agents, included real-time financial tools, and supported voice input/output.\n\nThe core idea was to improve financial-analysis task handling by using specialist handoffs rather than a single general agent for every query. He also added a systematic evaluation framework, and the documented outcome was an improvement in tool-use accuracy from 58% to 90%.\n\nA related adjacent example is **AI Hiring Chat**, where Rakshit built an agentic hiring assistant using a versioned agent pipeline with planning, evidence gathering, and structured response generation. That is not documented as a multi-agent architecture in the same way as the stocks project, but it shows related experience with agent workflows and evaluation-oriented design.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2669,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2669,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 6697,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 6697,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 11765,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 7930,
+      "total_ms": 11777
+    },
+    {
+      "id": "Q17",
+      "question": "How does he write PRDs?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit’s specific PRD-writing process is not directly documented in the evidence I have, so I wouldn’t claim a step-by-step method or share a sample PRD style as fact.\n\nWhat is documented is that he has PM execution experience across PRDs, product specs, acceptance criteria, user stories, stakeholder buy-in, UX/design collaboration, wireframes, UX reviews, and engineering delivery. There’s also a strong adjacent example from his work on a financial planning module: he helped build a complex recommendation-driven product that reduced plan creation time from 4–5 hours to 15 minutes and enabled 20,000+ advisory plans. That suggests he has experience structuring complex product requirements into something shippable, though the evidence does not show the actual PRD artifact.\n\nSo the grounded answer is: Rakshit has documented experience with PRDs and related product-spec work, but his exact PRD template, writing workflow, level of detail, and examples are not available in the provided evidence.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "Visitor is asking about Rakshit's process of writing Product Requirement Documents (PRDs).",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "PRD writing process",
+              "examples of PRDs written by Rakshit",
+              "Rakshit's documentation style"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha's specific process for writing Product Requirement Documents (PRDs) is not directly documented in the provided evidence.",
+            "directEvidence": [],
+            "adjacentEvidence": [
+              {
+                "id": "indmoney-financial-planning",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Financial planning module",
+                "evidence": "Built financial planning module with recommendation algorithms, reducing plan creation time from 4-5 hours to 15 minutes and enabling 20,000+ advisory plans.",
+                "relevance": "This indicates Rakshit's experience in organizing and structuring complex product features, which is relevant to writing PRDs.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "PRD writing process"
+                ]
+              },
+              {
+                "id": "product-experimentation-and-delivery",
+                "sourceType": "technical",
+                "workContext": "generic_capability",
+                "evidenceStrength": "generic",
+                "title": "Product Experimentation and Delivery",
+                "evidence": "Knows how to design and conduct A/B tests, including Firebase-based experimentation. Has PM execution experience across PRDs, product specs, acceptance criteria, user stories, stakeholder buy-in, UX/design collaboration, wireframes, UX reviews, and engineering delivery.",
+                "relevance": "While PRD writing is not specifically detailed, there is evidence of experience in PM execution that involves creating product specs and acceptance criteria.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "PRD writing process"
+                ]
+              }
+            ],
+            "gaps": [
+              "Rakshit's specific process of writing PRDs is not documented."
+            ],
+            "criteriaCoverage": [
+              {
+                "requirement": "PRD writing process",
+                "weight": "core",
+                "status": "missing",
+                "evidenceIds": [],
+                "notes": "The explicit process or examples of PRDs written by Rakshit are not available in the evidence."
+              },
+              {
+                "requirement": "Examples of PRDs written by Rakshit",
+                "weight": "core",
+                "status": "missing",
+                "evidenceIds": [],
+                "notes": "There are no specific examples of Rakshit’s PRDs."
+              },
+              {
+                "requirement": "Rakshit's documentation style",
+                "weight": "nice-to-have",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "indmoney-financial-planning",
+                  "product-experimentation-and-delivery"
+                ],
+                "notes": "Generic capability evidence suggests familiarity with PRD components but lacks direct proof of style."
+              }
+            ],
+            "strongestEvidenceIds": []
+          }
+        }
+      },
+      "answer_text": "Rakshit’s specific PRD-writing process is not directly documented in the evidence I have, so I wouldn’t claim a step-by-step method or share a sample PRD style as fact.\n\nWhat is documented is that he has PM execution experience across PRDs, product specs, acceptance criteria, user stories, stakeholder buy-in, UX/design collaboration, wireframes, UX reviews, and engineering delivery. There’s also a strong adjacent example from his work on a financial planning module: he helped build a complex recommendation-driven product that reduced plan creation time from 4–5 hours to 15 minutes and enabled 20,000+ advisory plans. That suggests he has experience structuring complex product requirements into something shippable, though the evidence does not show the actual PRD artifact.\n\nSo the grounded answer is: Rakshit has documented experience with PRDs and related product-spec work, but his exact PRD template, writing workflow, level of detail, and examples are not available in the provided evidence.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 0,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 4343,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 4343,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 10228,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 10228,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 16092,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 12352,
+      "total_ms": 16109
+    },
+    {
+      "id": "Q18",
+      "question": "What kind of role is he looking for next?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit is looking for Product Manager opportunities where he can keep building AI-driven products, especially in domains close to his current work: fintech, wealth, lending, insurance, mutual funds, support automation, semantic search, and agentic workflows.\n\nThe strongest documented signal is his current role at ET Money, where he works as a Product Manager and has scaled AI support automation along with lending, wealth, insurance, and mutual fund products. He is also open to relocating for the right role.\n\nA good next role would likely combine product ownership with AI product execution—turning messy customer or operational problems into scalable product systems. The evidence does not specify a preferred company stage, title level, geography, or industry beyond those themes.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is inquiring about Rakshit Lodha's desired next role.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha is open to new opportunities and is eager to relocate for the right role. He has experience as a Product Manager at ET Money, focusing on fintech and AI product management. His expertise includes building AI support automation, semantic search systems, and dealing with agentic workflows, mainly in financial domains like wealth, lending, and insurance.",
+            "directEvidence": [
+              {
+                "id": "etmoney",
+                "sourceType": "experience",
+                "workContext": "professional",
+                "evidenceStrength": "direct_claim",
+                "title": "Current Role at ET Money as Product Manager",
+                "evidence": "Rakshit Lodha is currently a Product Manager at ET Money, where he has scaled AI support automation, lending, wealth, insurance, and mutual fund products.",
+                "relevance": "This highlights his current engagement and the type of products he manages.",
+                "evidenceType": "direct",
+                "supports": [
+                  "ai-product-management"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "ai-hiring-chat-deep-dive",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "AI Hiring Chat Project",
+                "evidence": "Rakshit developed an AI hiring assistant on his portfolio site to help recruiters evaluate him efficiently. It integrates an evidence-gathering pipeline and uses OpenAI Agents SDK.",
+                "relevance": "Demonstrates skills in AI product design and user-centric tools, broadening the scope of potential roles.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "agentic-systems"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Open to relocation",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney"
+                ],
+                "notes": "The evidence indicates Rakshit is willing to relocate, which could be relevant for various roles."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit is looking for Product Manager opportunities where he can keep building AI-driven products, especially in domains close to his current work: fintech, wealth, lending, insurance, mutual funds, support automation, semantic search, and agentic workflows.\n\nThe strongest documented signal is his current role at ET Money, where he works as a Product Manager and has scaled AI support automation along with lending, wealth, insurance, and mutual fund products. He is also open to relocating for the right role.\n\nA good next role would likely combine product ownership with AI product execution—turning messy customer or operational problems into scalable product systems. The evidence does not specify a preferred company stage, title level, geography, or industry beyond those themes.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 1,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2163,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2163,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 6390,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 6390,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 11261,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 8058,
+      "total_ms": 11272
+    },
+    {
+      "id": "Q19",
+      "question": "Describe his approach to user research.",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "Rakshit’s documented user-research approach is strongest around fast feedback loops, support-signal analysis, and iterative product improvement rather than formal interview-heavy research.\n\nA good production example is his AI support automation work. He used intent classification, resolution workflows, and an LLM-as-judge evaluation pipeline to improve how support issues were understood and resolved. The outcome was a 55% reduction in monthly ticket volume and a 30% improvement in CSAT, which suggests he focuses on turning real user pain points into measurable workflow and product improvements.\n\nThere is also adjacent evidence from his personal “Feedback Intelligence” project, where he built an agent to aggregate public user feedback from app-store and social media data and convert it into prioritized product signals. That points to a research style centered on collecting user signals from multiple channels, identifying patterns, and translating them into product priorities.\n\nWhat is not documented in the evidence: specific use of stakeholder interviews, moderated usability testing, survey design, or a formal research framework. So the clearest description is: Rakshit appears to approach user research by mining real user feedback, structuring it into actionable signals, validating through evaluation loops, and iterating toward measurable product outcomes.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is seeking information about Rakshit Lodha's approach to user research.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "user research methodology",
+              "user research techniques",
+              "stakeholder interviews",
+              "user testing",
+              "gathering user feedback",
+              "analyzing user data"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha's user research approach prioritizes quick feedback loops and user-centric design, aligning product functionality with actual user needs. His methodology includes structured workflows, user feedback analysis, and iterative development processes to enhance product quality and user satisfaction.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "project",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "AI support automation",
+                "evidence": "Reduced monthly ticket volume by 55% and improved CSAT by 30%, using intent classification, resolution workflows, and an LLM-as-judge eval pipeline.",
+                "relevance": "Utilizes structured evaluation and feedback mechanisms to enhance user support workflows.",
+                "evidenceType": "direct",
+                "supports": [
+                  "user research methodology",
+                  "user testing",
+                  "gathering user feedback"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "feedback-agent",
+                "sourceType": "project",
+                "workContext": "personal_project",
+                "evidenceStrength": "direct_claim",
+                "title": "Feedback Intelligence",
+                "evidence": "Built an agent to aggregate public user feedback and transform it into prioritized product signals using app-store and social media data.",
+                "relevance": "Demonstrates capability in collecting and analyzing user feedback from multiple channels, relevant for understanding user needs and preferences.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "gathering user feedback",
+                  "analyzing user data"
+                ]
+              },
+              {
+                "id": "indmoney-financial-planning",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Financial planning module",
+                "evidence": "Built a module with recommendation algorithms, reducing plan creation time from 4-5 hours to 15 minutes, enabling 20,000+ plans.",
+                "relevance": "Highlights the use of recommendations and user insights in product development, aiding in user experience enhancement.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "user research techniques"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "user research methodology",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": "Rakshit's work in AI support automation demonstrates a clear focus on refining workflows based on user feedback and evaluations."
+              },
+              {
+                "requirement": "user research techniques",
+                "weight": "supporting",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "indmoney-financial-planning"
+                ],
+                "notes": "Recommendation algorithms in financial planning projects imply techniques to understand user needs."
+              },
+              {
+                "requirement": "gathering user feedback",
+                "weight": "core",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "feedback-agent"
+                ],
+                "notes": "Development of the Feedback Intelligence project provides evidence of gathering and prioritizing user feedback."
+              },
+              {
+                "requirement": "analyzing user data",
+                "weight": "supporting",
+                "status": "adjacent",
+                "evidenceIds": [
+                  "feedback-agent"
+                ],
+                "notes": "Ability to analyze cross-channel feedback demonstrates proficiency in handling user data."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation"
+            ]
+          }
+        }
+      },
+      "answer_text": "Rakshit’s documented user-research approach is strongest around fast feedback loops, support-signal analysis, and iterative product improvement rather than formal interview-heavy research.\n\nA good production example is his AI support automation work. He used intent classification, resolution workflows, and an LLM-as-judge evaluation pipeline to improve how support issues were understood and resolved. The outcome was a 55% reduction in monthly ticket volume and a 30% improvement in CSAT, which suggests he focuses on turning real user pain points into measurable workflow and product improvements.\n\nThere is also adjacent evidence from his personal “Feedback Intelligence” project, where he built an agent to aggregate public user feedback from app-store and social media data and convert it into prioritized product signals. That points to a research style centered on collecting user signals from multiple channels, identifying patterns, and translating them into product priorities.\n\nWhat is not documented in the evidence: specific use of stakeholder interviews, moderated usability testing, survey design, or a formal research framework. So the clearest description is: Rakshit appears to approach user research by mining real user feedback, structuring it into actionable signals, validating through evaluation loops, and iterating toward measurable product outcomes.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 0,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 1998,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 1998,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 7313,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 7313,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 13918,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 9647,
+      "total_ms": 13936
+    },
+    {
+      "id": "Q20",
+      "question": "What's the most impressive product result he's driven?",
+      "expected": null,
+      "response": {
+        "responseType": "qa",
+        "mode": "ask",
+        "headline": "",
+        "fitLevel": "Not enough evidence",
+        "summary": "",
+        "answerText": "The strongest documented product result is Rakshit’s AI support automation work at ET Money. He built and scaled automation that reduced monthly support tickets from 19,000 to 9,000, while improving CSAT by 30%.\n\nWhat makes it especially impressive is that it was not just a chatbot-style launch. The documented work included intent classification, 100+ resolution workflows, and an evaluation pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge approach. So the result combined operational efficiency with customer experience quality.\n\nTwo other strong outcomes from his ET Money work: he built ET Money Earn from the ground up, which reached INR 100Cr AUM in 1 month, and he helped grow insurance revenue from INR 1.5Cr to INR 3Cr by revamping term and health insurance journeys, adding partners, and introducing a new 1Cr health insurance product.",
+        "proofPoints": [],
+        "relevantProjects": [],
+        "relevantOutcomes": [],
+        "gapsOrUnknowns": [],
+        "suggestedFollowups": [],
+        "cta": "Ask my AI agent",
+        "v3Debug": {
+          "intentPlan": {
+            "responseType": "qa",
+            "querySummary": "The visitor is asking about Rakshit Lodha's most impressive product result.",
+            "target": {
+              "roleTitle": null,
+              "companyName": null,
+              "companyUrl": null,
+              "jdTextPresent": false
+            },
+            "assumedTargetRole": null,
+            "retrievalNeeds": [
+              "product outcomes evidence",
+              "impact metrics",
+              "user engagement results",
+              "project success stories"
+            ],
+            "mustHaveCriteria": [],
+            "missingOrAmbiguousInputs": [],
+            "shouldResearchCompany": false
+          },
+          "companyBrief": null,
+          "evidencePacket": {
+            "summary": "Rakshit Lodha's most impressive product result might be the AI support automation at ET Money which reduced monthly ticket volume by 55% and improved customer satisfaction by 30%.",
+            "directEvidence": [
+              {
+                "id": "etmoney-support-automation",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "AI support automation",
+                "evidence": "Built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.",
+                "relevance": "Significant impact on customer support efficiency and satisfaction.",
+                "evidenceType": "direct",
+                "supports": [
+                  "core"
+                ]
+              }
+            ],
+            "adjacentEvidence": [
+              {
+                "id": "etmoney-earn-p2p-investment",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "ET Money Earn (P2P Investment)",
+                "evidence": "Built ET Money Earn from the ground up, reached INR 100Cr AUM in 1 month, and had the product showcased in an IPL ad.",
+                "relevance": "Demonstrates rapid AUM scaling and successful product launch.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "core"
+                ]
+              },
+              {
+                "id": "etmoney-insurance-platform",
+                "sourceType": "experience",
+                "workContext": "production",
+                "evidenceStrength": "direct_shipped",
+                "title": "Health & Term Insurance",
+                "evidence": "Increased insurance revenue from INR 1.5Cr to INR 3Cr by revamping term and health insurance journeys, adding partners, and introducing a new 1Cr health insurance product.",
+                "relevance": "Highlights ability to drive significant revenue growth in insurance.",
+                "evidenceType": "adjacent",
+                "supports": [
+                  "core"
+                ]
+              }
+            ],
+            "gaps": [],
+            "criteriaCoverage": [
+              {
+                "requirement": "Impressive product result",
+                "weight": "core",
+                "status": "direct",
+                "evidenceIds": [
+                  "etmoney-support-automation"
+                ],
+                "notes": "The AI support automation achieved a substantial reduction in support tickets and improved customer satisfaction."
+              }
+            ],
+            "strongestEvidenceIds": [
+              "etmoney-support-automation"
+            ]
+          }
+        }
+      },
+      "answer_text": "The strongest documented product result is Rakshit’s AI support automation work at ET Money. He built and scaled automation that reduced monthly support tickets from 19,000 to 9,000, while improving CSAT by 30%.\n\nWhat makes it especially impressive is that it was not just a chatbot-style launch. The documented work included intent classification, 100+ resolution workflows, and an evaluation pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge approach. So the result combined operational efficiency with customer experience quality.\n\nTwo other strong outcomes from his ET Money work: he built ET Money Earn from the ground up, which reached INR 100Cr AUM in 1 month, and he helped grow insurance revenue from INR 1.5Cr to INR 3Cr by revamping term and health insurance journeys, adding partners, and introducing a new 1Cr health insurance product.",
+      "stages": [
+        {
+          "stage": "intent_start",
+          "elapsed_ms": 0,
+          "message": "Understanding the question"
+        },
+        {
+          "stage": "intent_complete",
+          "elapsed_ms": 2332,
+          "message": "Planned retrieval"
+        },
+        {
+          "stage": "evidence_start",
+          "elapsed_ms": 2332,
+          "message": "Gathering profile evidence"
+        },
+        {
+          "stage": "evidence_complete",
+          "elapsed_ms": 7440,
+          "message": "Classified evidence"
+        },
+        {
+          "stage": "answer_start",
+          "elapsed_ms": 7440,
+          "message": "Drafting answer"
+        },
+        {
+          "stage": "answer_complete",
+          "elapsed_ms": 13304,
+          "message": "Drafted answer"
+        }
+      ],
+      "first_delta_ms": 9440,
+      "total_ms": 13310
+    }
+  ]
+}

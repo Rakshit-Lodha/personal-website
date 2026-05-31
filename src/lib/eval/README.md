@@ -38,10 +38,19 @@ npx tsx src/lib/eval/scripts/compare.ts v1
 npx tsx src/lib/eval/scripts/compare.ts v1 v2
 ```
 
+Fetch historical OpenAI usage and estimated cost for saved V1/V2/V3 eval windows:
+
+```bash
+OPENAI_ADMIN_KEY=sk-admin-... npx tsx src/lib/Eval/scripts/fetch-openai-usage.ts
+```
+
+The usage script writes `summaries/openai_usage_costs.json`. It uses the saved run timestamps and requires an OpenAI key with `api.usage.read` scope. The saved eval files did not capture per-request token usage, so this is the cleanest no-rerun path.
+
 ## Environment
 
 - `ANTHROPIC_API_KEY` is required for `judge.ts`.
 - `EVAL_API_URL` is optional for `run-eval.ts`; it defaults to `https://rakshitlodha.com/api/agent`.
+- `OPENAI_ADMIN_KEY` or an `OPENAI_API_KEY` with `api.usage.read` scope is required for `fetch-openai-usage.ts`.
 
 ## Latency Caveat
 

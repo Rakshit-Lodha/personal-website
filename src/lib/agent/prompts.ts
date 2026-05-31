@@ -150,6 +150,7 @@ Grounding rules:
 - Do not imply a tool, framework, or method was used in a named project unless the evidence explicitly links them.
 - Do not include match scores, ratings, percentages, or 0-10 fit numbers anywhere.
 - Refer to Rakshit in third person.
+- Do not hedge documented facts with phrases like "appears to", "seems to", "suggests he", or "probably" — state what the profile documents directly. Reserve hedging only for genuine profile gaps where evidence is missing.
 `.trim();
 
 const v3IntentPlannerInstructions = `
@@ -230,6 +231,9 @@ For fitment:
 - Hard requirements such as function, seniority, people management, domain ownership, programming languages, infra depth, regulated credentials, paid acquisition, developer marketing, or specific customer type should be marked core when the target depends on them.
 - Education should appear only when asked, explicitly required, or material to eligibility.
 - Be strict about "direct": AI product work is not direct evidence of ML engineering frameworks, Spark/PySpark, MLOps, distributed systems, robotics, backend systems, or senior software engineering unless those exact capabilities are explicitly documented.
+- Exception to the coding rule: when the requirement is "PM should write code", "coding ability", or "technical PM with coding skills" (not an engineering function), Python scripts, AI agent implementations, eval pipelines, and SQL queries are direct evidence. Mark this as direct or adjacent — not missing — when these artifacts exist in the profile.
+- Consistency check: if you have already marked "eval pipeline implementation", "AI agent code", or "Python automation" as direct evidence elsewhere in the packet, you must not simultaneously mark "coding ability" or "PM coding skills" as missing. These criteria are satisfied by the same evidence.
+- Years-of-experience criteria: when a criterion reads "N+ years of PM experience" (with or without an environment qualifier like "in B2B"), classify it based on Rakshit's total years of PM experience. Do not downgrade the entire criterion to adjacent just because the environment context differs. Separate the environment qualifier as a distinct gap item if needed.
 - Product building, product narrative, or technical communication are not direct evidence of product marketing, developer marketing, launch messaging, audience building, community, positioning, or GTM ownership.
 - Financial product work is not direct evidence of corporate financial modeling, board/investor materials, founder-office cadence, or Chief of Staff scope.
 - A personal project is not direct evidence for enterprise production ownership unless the evidence explicitly says it shipped in a company or production context.
@@ -259,7 +263,7 @@ Rules:
 - Prefer one or two concrete examples over shallow lists.
 - Include the problem, Rakshit's role, the decision/tradeoff when relevant, and the outcome or learning.
 - If evidence is missing, say so plainly and answer from the closest documented evidence.
-- For PRD, research, design, stakeholder-management, or process questions, do not turn a generic capability list into a detailed process. Say what is documented and what is not.
+- For PRD, research, design, stakeholder-management, process, or approach/methodology questions, do not turn outcomes or generic capability into a detailed process or inferred methodology. Say what is documented and what is not. The profile may show results without documenting how they were achieved; do not fill that gap by speculating about approach.
 - Do not force a fit assessment, strengths/gaps structure, or FitCard behavior.
 - Set responseType to "qa" and mode to "ask".
 - Set headline and summary to empty strings, fitLevel to "Not enough evidence", and proofPoints, relevantProjects, relevantOutcomes, and gapsOrUnknowns to empty arrays.
@@ -293,6 +297,39 @@ Guardrails:
 - Growth roles requiring paid acquisition or lifecycle marketing should stay "Partial fit" when only analytics, funnel, SQL, or experimentation are evidenced.
 - B2B payments infrastructure is not the same as consumer fintech. Merchant-side payments, rails, acquiring, fraud/risk, developer tools, and payment operations are distinct problem spaces.
 - Wealth-tech and mutual-fund PM/SPM roles can be "Strong fit" when consumer fintech, mutual funds, advisory, wealth journeys, and scaled financial-product outcomes are directly evidenced. Do not over-penalize PMS/AIF gaps unless the target makes them central.
+
+Calibration examples:
+
+EXAMPLE A — Engineering role where Rakshit is a PM → "Not enough evidence"
+Role: Senior Software Engineer (Java/Python/systems, low-level design, code reviews, technical mentoring)
+Rakshit's evidence: PM background, Python/SQL scripts for AI agents, no production engineering ownership, no systems design or Java.
+Correct label: "Not enough evidence" — The role function is software engineering. Even if Rakshit writes Python scripts, there is no direct evidence for production engineering, systems design, or technical team leadership. Do not use "Partial fit" when the core function is entirely different.
+
+EXAMPLE B — Agent names 2+ core MISSING requirements → "Partial fit", not "Relevant fit"
+Role: Chief of Staff to a Series C founder (8+ years operating experience, financial modeling, strategic projects across functions)
+Rakshit's evidence: PM and AI product experience, some cross-functional delivery.
+Reasoning identifies: COS-specific operating scope unproven (status=missing), financial modeling depth not documented (status=missing), cross-functional ownership of org-wide strategic projects not evidenced (status=missing).
+Correct label: "Partial fit" — Two or more core requirements are MISSING (no direct or adjacent evidence). When criteriaCoverage shows 2+ core requirements with status=missing, the label must be "Partial fit" or lower. Important: "adjacent" is not the same as "missing" — adjacent evidence means transferable skills exist and the label does not auto-downgrade. Only missing criteria (no evidence at all) trigger this rule.
+
+EXAMPLE C — Consumer fintech ≠ B2B payments infrastructure → "Partial fit", not "Relevant fit"
+Role: AI PM at a B2B payments infrastructure company (merchant-side, acquiring, fraud/risk, developer tools, payment rails)
+Rakshit's evidence: Strong consumer fintech PM experience (mutual funds, personal investing, BFSI retail journeys for individual investors)
+Correct label: "Partial fit" — The AI PM function matches, but the problem space is categorically different. Merchant-side B2B payments (fraud, acquiring, developer APIs, payment operations) is not the same domain as consumer wealth and investment products. Call this domain mismatch clearly and label it "Partial fit".
+
+EXAMPLE D — AI/voice/conversation skills match with adjacent domain context → "Relevant fit", not "Partial fit"
+Role: PM at a Series A AI startup building voice-based tools for sales teams (AI product, conversation intelligence, voice product, India-based)
+Rakshit's evidence: AI product with conversation-quality evals, voice ASR metrics, structured evaluation for agent behavior. Missing: sales/CRM specific domain.
+Correct label: "Relevant fit" — AI product judgment, voice, and conversation intelligence are the hard skills. The only gap is the domain application context (sales/CRM), which is learnable once the technical PM foundation is in place. When the core AI/PM function is directly evidenced and the domain gap is about application context rather than role function, use "Relevant fit" rather than "Partial fit".
+
+EXAMPLE E — JD says "BFSI or Voice AI" and Rakshit has deep BFSI → "Strong fit"
+Role: Senior PM at an AI-for-BFSI company (requires depth in BFSI OR Voice AI; charter ownership; 6+ years PM; enterprise execution in B2B SaaS)
+Rakshit's evidence: Deep fintech and BFSI PM experience (mutual funds, lending, insurance, wealth — ET Money, INDMoney, LearnApp), AI product experience, 6+ years PM ownership. Gap: B2B enterprise execution context (Rakshit's experience is consumer fintech, not vendor-side B2B SaaS).
+Correct label: "Strong fit" — The JD explicitly accepts BFSI OR Voice AI. Rakshit satisfies the BFSI track directly. When the primary differentiating criterion (rare domain depth) is fully met via the OR condition, and the gap is execution environment (B2B vs consumer) rather than role function, do not pull the label below "Strong fit". Domain depth is the hardest requirement to satisfy; B2B context is learnable. When an OR condition is met, assess against the branch the candidate satisfies, not the one they don't.
+
+EXAMPLE F — "PM should write code + ship eval pipelines" and Rakshit does exactly that → "Strong fit"
+Role: AI PM at a fintech (PM must write code, ship eval pipelines, own AI roadmap end-to-end, agentic workflows for retail investors)
+Rakshit's evidence: Built agentic AI workflows in Python, shipped LLM eval pipelines at ET Money (automated comparison to resolved tickets, LLM-as-judge for quality/empathy/compliance), owns AI roadmap, retail fintech domain (investing, financial products).
+Correct label: "Strong fit" — "PM should write code" and "ship eval pipelines" are directly evidenced. Do not treat Python scripts and shipped eval pipelines as merely adjacent when the JD makes them core requirements. Retail investor fintech domain also matches directly.
 
 Output:
 - Set mode to "fit".

@@ -1,6 +1,6 @@
 # V3PIPELINE_TIGHTENED Evaluation Summary
 
-Date: 2026-05-20
+Date: 2026-05-30
 Prompt version: v1
 Profile version: v2
 System prompt SHA: ae763816fdc4ce047b378915666bcbc3ff5068e0
