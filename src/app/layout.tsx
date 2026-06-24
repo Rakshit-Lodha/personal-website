@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter } from "next/font/google";
 import { Instrument_Serif } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
+import { Figtree } from "next/font/google";
+import localFont from "next/font/local";
+import Analytics from "@/components/Analytics";
 import "./globals.css";
 
 const inter = Inter({
@@ -22,6 +26,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const figtree = Figtree({
+  variable: "--font-figtree",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const offbitDisplay = localFont({
+  src: "../../public/fonts/OffBitTrialDotBold.otf",
+  variable: "--font-display",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Rakshit Lodha — AI Product Manager",
   description:
@@ -34,9 +51,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${instrumentSerif.variable} ${geistMono.variable} antialiased`}
+      className={`${inter.variable} ${instrumentSerif.variable} ${geistMono.variable} ${figtree.variable} ${offbitDisplay.variable} antialiased`}
     >
-      <body className="min-h-screen bg-background">{children}</body>
+      <body className="min-h-screen bg-background">
+        {children}
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
+      </body>
     </html>
   );
 }

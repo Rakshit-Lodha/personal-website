@@ -1,19 +1,21 @@
-import Nav from "@/components/Nav";
+import LandingNav from "@/components/LandingNav";
 import Hero from "@/components/Hero";
 import MyStory from "@/components/MyStory";
 import Projects from "@/components/Projects";
-import ClosingSection from "@/components/ClosingSection";
+import SkillMap from "@/components/SkillMap";
+import Education from "@/components/Education";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
-      <Nav />
-      <main>
-        <Hero />
-        <MyStory />
-        <Projects />
-        <ClosingSection />
-      </main>
+      <LandingNav />
+      <Hero />
+      <MyStory />
+      <Projects />
+      <SkillMap />
+      <Education />
+      <Footer />
     </>
   );
 }

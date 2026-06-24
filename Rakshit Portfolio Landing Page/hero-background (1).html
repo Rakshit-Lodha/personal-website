@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hero Background</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;}
+#hero{position:relative;width:100vw;height:100vh;overflow:hidden;cursor:none}
+#mesh-canvas{position:absolute;inset:0;z-index:1}
+#particle-canvas{position:absolute;inset:0;z-index:2;pointer-events:none}
+#cur{position:fixed;z-index:99;pointer-events:none;width:6px;height:6px;border-radius:50%;
+     background:rgba(255,255,255,0.5);transform:translate(-50%,-50%)}
+#cur-ring{position:fixed;z-index:98;pointer-events:none;width:26px;height:26px;border-radius:50%;
+          border:1px solid rgba(255,255,255,0.15);transform:translate(-50%,-50%)}
+</style>
+</head>
+<body>
+<div id="hero">
+  <canvas id="mesh-canvas"></canvas>
+  <canvas id="particle-canvas"></canvas>
+</div>
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<script>
+(function(){
+
+const mc = document.getElementById('mesh-canvas');
+const gl  = mc.getContext('webgl') || mc.getContext('experimental-webgl');
+const VS  = `attribute vec2 a;void main(){gl_Position=vec4(a,0,1);}`;
+
+const FS = `
+precision highp float;
+uniform vec2  u_res;
+uniform float u_t;
+
+float hash(vec2 p){p=fract(p*vec2(127.1,311.7));p+=dot(p,p+74.41);return fract(p.x*p.y);}
+float noise(vec2 p){
+  vec2 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);
+  return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),
+             mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x),f.y);
+}
+float fbm(vec2 p){
+  float v=0.0,a=0.5;
+  mat2 R=mat2(0.8,0.6,-0.6,0.8);
+  for(int i=0;i<4;i++){v+=a*noise(p);p=R*p*2.05;a*=0.50;}
+  return v;
+}
+
+void main(){
+  vec2 uv = gl_FragCoord.xy / u_res;
+  float t  = u_t;
+
+  /* ── CONTINUOUS LOOP OFFSETS
+     The entire gradient field is shifted by a looping
+     sin/cos offset so it physically pans left↔right and
+     up↔down in a smooth infinite figure-eight path.
+     Amplitude 0.28 = moves ~28% of canvas width/height.   */
+  float loopX = 0.22 * sin(t * 0.55);
+  float loopY = 0.16 * cos(t * 0.42);
+  vec2 pan = uv + vec2(loopX, loopY);
+
+  /* ── warp on top of the panning ── */
+  float wx = fbm(pan*0.80 + vec2(t*0.09, t*0.06));
+  float wy = fbm(pan*0.80 + vec2(t*0.07+3.8, t*0.10+2.0));
+  vec2 w = pan + 0.038 * vec2(wx-0.5, wy-0.5);
+
+  /* ── BASE: left-dark right-bright diagonal,
+     also pans with the loop offset               */
+  float base = smoothstep(-0.15, 1.15, w.x * 0.6 + w.y * 0.4);
+
+  /* ── TOP DARKENING ── */
+  float topDark = (1.0 - smoothstep(0.10, 0.75, w.y)) * 0.50;
+
+  /* ── NAVY POOL: center-left dark zone, orbits continuously ── */
+  vec2 navyC = vec2(
+    0.25 + 0.18*sin(t*0.50),
+    0.48 + 0.15*cos(t*0.38+1.0)
+  );
+  float navyD = length(w - navyC);
+  float navy  = smoothstep(0.50, 0.0, navyD) * 0.68;
+
+  /* ── BRIGHT ZONE: right-center, orbits opposite phase ── */
+  vec2 brightC = vec2(
+    0.72 + 0.18*sin(t*0.44+3.14),
+    0.55 + 0.14*cos(t*0.36+2.0)
+  );
+  float brightD = length(w - brightC);
+  float bright  = exp(-brightD*brightD / 0.18) * 0.30;
+
+  /* ── SECONDARY BRIGHT: top-right corner pulse ── */
+  vec2 bright2C = vec2(
+    0.85 + 0.10*cos(t*0.33+1.5),
+    0.80 + 0.10*sin(t*0.41+0.7)
+  );
+  float bright2D = length(w - bright2C);
+  float bright2  = exp(-bright2D*bright2D / 0.12) * 0.20;
+
+  float field = base - topDark - navy + bright + bright2;
+  field += 0.025 * sin(t*0.60);
+  field = clamp(field, 0.0, 1.0);
+
+  /* ── COLOURS — updated darkest stop to #0C44C2 ── */
+  vec3 c0 = vec3(0.047, 0.267, 0.761); /* #0C44C2 — requested dark */
+  vec3 c1 = vec3(0.059, 0.231, 0.784); /* #0f3bc8 dark indigo      */
+  vec3 c2 = vec3(0.106, 0.322, 0.918); /* #1b52ea mid royal        */
+  vec3 c3 = vec3(0.243, 0.396, 0.996); /* #3e65fe electric blue    */
+
+  vec3 col;
+  float s = field * 3.0;
+  if(s < 1.0)      col = mix(c0, c1, smoothstep(0.0,1.0,s));
+  else if(s < 2.0) col = mix(c1, c2, smoothstep(0.0,1.0,s-1.0));
+  else             col = mix(c2, c3, smoothstep(0.0,1.0,s-2.0));
+
+  vec2 vig = uv*2.0-1.0;
+  col *= 1.0 - dot(vig,vig)*0.07;
+
+  gl_FragColor = vec4(clamp(col,0.0,1.0),1.0);
+}
+`;
+
+function sh(type,src){
+  const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
+  if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(s));
+  return s;
+}
+const prog=gl.createProgram();
+gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));
+gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));
+gl.linkProgram(prog);gl.useProgram(prog);
+
+const buf=gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+const aLoc=gl.getAttribLocation(prog,'a');
+gl.enableVertexAttribArray(aLoc);gl.vertexAttribPointer(aLoc,2,gl.FLOAT,false,0,0);
+const uRes=gl.getUniformLocation(prog,'u_res');
+const uT  =gl.getUniformLocation(prog,'u_t');
+
+/* ── PARTICLES ── */
+const pc=document.getElementById('particle-canvas');
+const ctx=pc.getContext('2d');
+let W,H,pts=[];
+const GRID=32,ATTRACT=110,SPRING=0.09,DAMP=0.75,PULL=0.048;
+const mouse={x:-9999,y:-9999,on:false};
+
+function buildPts(){
+  pts=[];
+  const cols=Math.ceil(W/GRID)+2,rows=Math.ceil(H/GRID)+2;
+  for(let r=0;r<rows;r++)
+    for(let c=0;c<cols;c++)
+      pts.push({ox:c*GRID,oy:r*GRID,x:c*GRID,y:r*GRID,vx:0,vy:0});
+}
+function resize(){
+  W=mc.width=pc.width=window.innerWidth;
+  H=mc.height=pc.height=window.innerHeight;
+  gl.viewport(0,0,W,H);gl.uniform2f(uRes,W,H);buildPts();
+}
+function drawParticles(){
+  ctx.clearRect(0,0,W,H);
+  for(const p of pts){
+    let fx=(p.ox-p.x)*SPRING,fy=(p.oy-p.y)*SPRING;
+    if(mouse.on){
+      const dx=mouse.x-p.x,dy=mouse.y-p.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<ATTRACT){const f=(1-d/ATTRACT)**2;fx+=dx*f*PULL;fy+=dy*f*PULL;}
+    }
+    p.vx=(p.vx+fx)*DAMP;p.vy=(p.vy+fy)*DAMP;p.x+=p.vx;p.y+=p.vy;
+    const ddx=p.x-p.ox,ddy=p.y-p.oy;
+    const disp=Math.min(Math.sqrt(ddx*ddx+ddy*ddy)/20,1);
+    const radius=1.0+disp*2.6,alpha=0.48+disp*0.52;
+    if(disp>0.07){
+      const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,radius*8);
+      g.addColorStop(0,`rgba(170,190,255,${(disp*0.45).toFixed(2)})`);
+      g.addColorStop(1,'rgba(170,190,255,0)');
+      ctx.beginPath();ctx.arc(p.x,p.y,radius*8,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+    }
+    ctx.beginPath();ctx.arc(p.x,p.y,radius,0,Math.PI*2);
+    ctx.fillStyle=`rgba(220,230,255,${alpha.toFixed(2)})`;ctx.fill();
+  }
+}
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let rx=0,ry=0;
+function tick(){
+  rx+=(mouse.x-rx)*0.10;ry+=(mouse.y-ry)*0.10;
+  cur.style.left=mouse.x+'px';cur.style.top=mouse.y+'px';
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(tick);
+}
+const t0=performance.now();
+function loop(){
+  gl.uniform1f(uT,(performance.now()-t0)*0.001);
+  gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+  drawParticles();
+  requestAnimationFrame(loop);
+}
+window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;mouse.on=true;});
+window.addEventListener('mouseleave',()=>{mouse.on=false;});
+window.addEventListener('resize',resize);
+resize();loop();tick();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Voice agent — wireframes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --blue: #456aff;
+    --blue-deep: #1a3ec7;
+    --blue-soft: #99adff;
+    --ink: #111;
+    --muted: #636364;
+    --bg: #F5F3EF;
+    --dark: #0c1230;
+    --dark-2: #060a1d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Figtree", system-ui, sans-serif;
+    background: #efece6;
+    color: var(--ink);
+  }
+  .page {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 32px 96px;
+  }
+  h1 {
+    font-size: 30px;
+    margin: 0 0 6px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    color: var(--muted);
+    margin: 0 0 40px;
+    font-size: 15px;
+    max-width: 820px;
+    line-height: 1.55;
+  }
+  .subtitle b { color: var(--ink); }
+  .pill-tag {
+    display: inline-block;
+    background: #eaf1ff;
+    color: var(--blue);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 1100px) { .grid { grid-template-columns: 1fr; } }
+
+  .col h2 {
+    font-size: 16px;
+    margin: 0 0 4px;
+    font-weight: 700;
+  }
+  .col .lede {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* ---------- Viewport (fake browser window) ---------- */
+  .viewport {
+    position: relative;
+    height: 540px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #d8d3c8;
+    background: var(--bg);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  }
+  .vp-label {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.45);
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(6px);
+    padding: 4px 9px;
+    border-radius: 5px;
+    z-index: 5;
+  }
+
+  /* Fake page content behind the panel */
+  .mock-page {
+    position: absolute;
+    inset: 0;
+    padding: 48px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    overflow: hidden;
+  }
+  .mock-nav {
+    height: 36px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #ece8db;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 16px;
+  }
+  .mock-nav .logo {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .mock-nav .nav-pills {
+    display: flex;
+    margin-left: auto;
+    gap: 4px;
+    background: #eaf1ff;
+    padding: 2px;
+    border-radius: 5px;
+  }
+  .mock-nav .nav-pills span {
+    font-size: 9px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: #444;
+  }
+  .mock-nav .nav-pills span.on {
+    background: white;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .mock-section {
+    background: white;
+    border: 1px solid #ece8db;
+    border-radius: 10px;
+    padding: 14px 16px;
+    flex-shrink: 0;
+  }
+  .mock-section.compact { padding: 10px 14px; }
+  .mock-section .h {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1a1a3a;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+  .mock-section .bar {
+    height: 6px;
+    background: #ece8db;
+    border-radius: 3px;
+    margin-bottom: 5px;
+  }
+  .mock-section .bar.w70 { width: 70%; }
+  .mock-section .bar.w90 { width: 90%; }
+  .mock-section .bar.w50 { width: 50%; }
+  .mock-section.active {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(69,106,255,0.18);
+    background: #f3f6ff;
+    position: relative;
+  }
+  .mock-section.active .h { color: var(--blue); }
+  .mock-section.active::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    bottom: -1px;
+    width: 3px;
+    background: var(--blue);
+    border-radius: 10px 0 0 10px;
+  }
+
+  /* ---------- IDLE DOCK (Wireframe A) ---------- */
+  .dock {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .dock-orb {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 35% 30%, #b1c1ff 0%, var(--blue) 45%, var(--blue-deep) 100%);
+    box-shadow: 0 10px 30px rgba(69,106,255,0.4), inset 0 1px 2px rgba(255,255,255,0.5);
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    animation: dock-pulse 2.8s ease-in-out infinite;
+  }
+  @keyframes dock-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(69,106,255,0.4); }
+    50%      { transform: scale(1.05); box-shadow: 0 12px 38px rgba(69,106,255,0.6); }
+  }
+  .dock-orb::before, .dock-orb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1.5px solid var(--blue);
+    animation: dock-ring 2.4s ease-out infinite;
+    opacity: 0;
+  }
+  .dock-orb::after { animation-delay: 1.2s; }
+  @keyframes dock-ring {
+    0%   { transform: scale(0.8); opacity: 0.7; }
+    100% { transform: scale(1.9); opacity: 0; }
+  }
+  .dock-orb svg { width: 22px; height: 22px; position: relative; z-index: 2; }
+  .dock-label {
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(6px);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    white-space: nowrap;
+  }
+
+  /* ---------- VOICE PANEL (B, C) ---------- */
+  .panel {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    width: 300px;
+    background: linear-gradient(180deg, var(--dark) 0%, var(--dark-2) 100%);
+    border-radius: 12px;
+    box-shadow: -8px 0 32px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    overflow: hidden;
+    z-index: 4;
+  }
+  .panel-head {
+    display: flex;
+    align-items: center;
+    padding: 12px 12px 10px;
+    gap: 8px;
+  }
+  .panel-close {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    line-height: 1;
+  }
+  .panel-title {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.55);
+    font-weight: 600;
+  }
+  .mode-toggle {
+    margin-left: auto;
+    display: flex;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    padding: 2px;
+    gap: 0;
+  }
+  .mode-toggle .seg {
+    font-size: 10px;
+    padding: 4px 9px;
+    border-radius: 4px;
+    color: rgba(255,255,255,0.55);
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .mode-toggle .seg.on {
+    background: white;
+    color: var(--ink);
+  }
+
+  /* Visualizer area */
+  .viz {
+    flex-shrink: 0;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .orb-core {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 32% 28%, var(--blue-soft) 0%, var(--blue) 45%, var(--blue-deep) 100%);
+    box-shadow: 0 0 40px rgba(69,106,255,0.4);
+    animation: orb-morph 4s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+  }
+  @keyframes orb-morph {
+    0%, 100% { border-radius: 50%; transform: scale(1); }
+    33%      { border-radius: 45% 55% 60% 40% / 55% 45% 55% 45%; transform: scale(1.04); }
+    66%      { border-radius: 55% 45% 40% 60% / 45% 60% 40% 55%; transform: scale(1.02); }
+  }
+  .listen-ring {
+    position: absolute;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    border: 1.5px solid var(--blue);
+    animation: ring 2.4s ease-out infinite;
+    opacity: 0;
+  }
+  .listen-ring.r2 { animation-delay: 0.8s; }
+  .listen-ring.r3 { animation-delay: 1.6s; }
+  @keyframes ring {
+    0%   { transform: scale(0.7); opacity: 0.7; }
+    100% { transform: scale(2.6); opacity: 0; }
+  }
+
+  /* Speaking bars (overlay during speaking state) */
+  .speak-bars {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 50px;
+    z-index: 3;
+  }
+  .speak-bars span {
+    width: 4px;
+    background: white;
+    border-radius: 2px;
+    animation: bar-bounce 0.7s ease-in-out infinite;
+    box-shadow: 0 0 6px rgba(255,255,255,0.5);
+  }
+  .speak-bars span:nth-child(1) { height: 35%; animation-delay: 0s; }
+  .speak-bars span:nth-child(2) { height: 70%; animation-delay: 0.1s; }
+  .speak-bars span:nth-child(3) { height: 95%; animation-delay: 0.2s; }
+  .speak-bars span:nth-child(4) { height: 55%; animation-delay: 0.15s; }
+  .speak-bars span:nth-child(5) { height: 80%; animation-delay: 0.05s; }
+  .speak-bars span:nth-child(6) { height: 45%; animation-delay: 0.25s; }
+  .speak-bars span:nth-child(7) { height: 65%; animation-delay: 0.3s; }
+  @keyframes bar-bounce {
+    0%, 100% { transform: scaleY(0.35); }
+    50%      { transform: scaleY(1); }
+  }
+
+  .status {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: white;
+  }
+  .status .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #46e08a;
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: dot-blink 1.4s ease-in-out infinite;
+    vertical-align: middle;
+  }
+  .status .dot.speaking { background: var(--blue); }
+  @keyframes dot-blink {
+    0%, 100% { opacity: 0.4; }
+    50%      { opacity: 1; }
+  }
+  .status-sub {
+    text-align: center;
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    margin: 0 0 14px;
+  }
+
+  /* Transcript area */
+  .transcript {
+    flex: 1;
+    padding: 0 16px 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .bubble {
+    border-radius: 10px;
+    padding: 9px 11px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .bubble.user {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
+    align-self: flex-end;
+    max-width: 90%;
+  }
+  .bubble.ai {
+    background: rgba(69,106,255,0.18);
+    border: 1px solid rgba(69,106,255,0.35);
+    color: white;
+    align-self: flex-start;
+    max-width: 95%;
+  }
+  .bubble .who {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 3px;
+    opacity: 0.5;
+    font-weight: 700;
+  }
+
+  /* Live captions (for speaking state) */
+  .caption {
+    position: relative;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.05);
+    border-left: 2px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    font-size: 12px;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.85);
+  }
+  .caption .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 12px;
+    background: var(--blue);
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: cursor-blink 0.8s steps(1) infinite;
+  }
+  @keyframes cursor-blink {
+    0%, 50%  { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Navigation indicator chip (auto-nav) */
+  .nav-chip {
+    margin: 8px 12px 0;
+    padding: 8px 10px;
+    background: rgba(69,106,255,0.14);
+    border: 1px solid rgba(69,106,255,0.4);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.9);
+  }
+  .nav-chip .pin {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+  .nav-chip .text {
+    flex: 1;
+    line-height: 1.3;
+  }
+  .nav-chip .text b { color: white; font-weight: 600; }
+  .nav-chip .text .sub {
+    color: rgba(255,255,255,0.55);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 1px;
+  }
+
+  /* Bottom action bar */
+  .panel-foot {
+    padding: 10px 12px 12px;
+    display: flex;
+    gap: 8px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    background: rgba(0,0,0,0.18);
+  }
+  .panel-foot .end-btn {
+    flex: 1;
+    height: 34px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .panel-foot .end-btn.danger {
+    background: rgba(255,72,72,0.18);
+    color: #ff9b9b;
+  }
+  .panel-foot .switch-btn {
+    flex: 1;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: transparent;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  /* ---------- CAVEMAN / TEXT MODE (D) ---------- */
+  .caveman-msgs {
+    flex: 1;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+  }
+  .caveman-bubble {
+    border-radius: 12px;
+    padding: 9px 12px;
+    font-size: 12px;
+    line-height: 1.45;
+    max-width: 88%;
+  }
+  .caveman-bubble.user {
+    background: var(--blue);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+  .caveman-bubble.ai {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.9);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+  .typing-bubble {
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 10px 12px;
+    align-self: flex-start;
+    display: flex;
+    gap: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .typing-bubble span {
+    width: 6px; height: 6px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    animation: dot-blink 1.2s ease-in-out infinite;
+  }
+  .typing-bubble span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-bubble span:nth-child(3) { animation-delay: 0.4s; }
+
+  .composer {
+    margin: 0 12px 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 8px 8px 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .composer .input {
+    flex: 1;
+    color: rgba(255,255,255,0.45);
+    font-size: 12px;
+  }
+  .composer .mic-btn {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: var(--blue);
+    color: white;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .composer .mic-btn svg { width: 13px; height: 13px; }
+
+  /* Hero CTA highlight (shown in B viewport to indicate also-activates) */
+  .cta-hint {
+    position: absolute;
+    top: 200px;
+    left: 24px;
+    background: var(--blue);
+    color: white;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(69,106,255,0.35);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: dock-pulse 2s ease-in-out infinite;
+  }
+  .cta-hint .arrow {
+    font-size: 12px;
+  }
+
+  /* Notes block */
+  .notes {
+    margin-top: 28px;
+    background: white;
+    border: 1px solid #e6e2d8;
+    border-radius: 12px;
+    padding: 18px 20px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #444;
+  }
+  .notes h3 {
+    font-size: 14px;
+    color: var(--ink);
+    margin: 0 0 8px;
+    font-weight: 700;
+  }
+  .notes h3:not(:first-child) { margin-top: 18px; }
+  .notes ul { margin: 6px 0 0; padding-left: 20px; }
+  .notes code {
+    background: #f3f1ea;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  .stack-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .stack-chip {
+    background: #eef1ff;
+    color: var(--blue-deep);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <h1>Voice agent — wireframes</h1>
+    <p class="subtitle">
+      <span class="pill-tag">Pipecat</span><span class="pill-tag">Sarvam</span><span class="pill-tag">OpenAI 4o</span>
+      Four states of the side-mounted voice agent. <b>Idle</b> = small pulsing orb on the right edge. <b>Listening</b> = expanded panel with morphing visualizer. <b>Speaking</b> = the agent talks AND auto-navigates the page to the section it's referencing. <b>Caveman mode</b> = same panel hands off to text chat. Animations run live — give each viewport a few seconds.
+    </p>
+
+    <div class="grid">
+      <!-- ============ A — IDLE ============ -->
+      <div class="col">
+        <h2>A — Idle (dormant)</h2>
+        <p class="lede">Persistent floating orb anchored to the right edge of every page. Gentle pulse + outward rings draw the eye. Click to expand, or click the hero's "Chat with my AI" CTA — both routes activate voice mode.</p>
+        <div class="viewport">
+          <div class="vp-label">Idle state</div>
+          <div class="mock-page">
+            <div class="mock-nav">
+              <span class="logo">Rakshit Lodha.</span>
+              <div class="nav-pills">
+                <span class="on">My Story</span>
+                <span>Projects</span>
+                <span>Skill Map</span>
+                <span>Education</span>
+              </div>
+            </div>
+            <div class="mock-section">
+              <div class="h">HERO — Hi, my name is Rakshit</div>
+              <div class="bar w90"></div>
+              <div class="bar w70"></div>
+              <div class="bar w50"></div>
+            </div>
+            <div class="mock-section">
+              <div class="h">MY STORY</div>
+              <div class="bar w90"></div>
+              <div class="bar w70"></div>
+            </div>
+            <div class="mock-section">
+              <div class="h">PROJECTS</div>
+              <div class="bar w90"></div>
+              <div class="bar w70"></div>
+            </div>
+          </div>
+          <div class="dock">
+            <div class="dock-orb">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor"/>
+                <path d="M5 11a7 7 0 0014 0M12 18v3M9 21h6"/>
+              </svg>
+            </div>
+            <div class="dock-label">Talk to me</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ B — LISTENING ============ -->
+      <div class="col">
+        <h2>B — Voice active · Listening</h2>
+        <p class="lede">User tapped the orb (or "Chat with my AI"). Panel slides out from the right. Morphing blue orb + concentric rings = "I'm listening." Live transcript of user speech appears as captions.</p>
+        <div class="viewport">
+          <div class="vp-label">Listening</div>
+          <div class="mock-page">
+            <div class="mock-nav">
+              <span class="logo">Rakshit Lodha.</span>
+              <div class="nav-pills">
+                <span class="on">My Story</span>
+                <span>Projects</span>
+                <span>Skill Map</span>
+                <span>Education</span>
+              </div>
+            </div>
+            <div class="mock-section">
+              <div class="h">HERO</div>
+              <div class="bar w90"></div>
+              <div class="bar w70"></div>
+            </div>
+            <div class="mock-section">
+              <div class="h">MY STORY</div>
+              <div class="bar w90"></div>
+              <div class="bar w70"></div>
+            </div>
+            <div class="mock-section">
+              <div class="h">PROJECTS</div>
+              <div class="bar w90"></div>
+            </div>
+          </div>
+
+          <!-- Hero "Chat with my AI" hint -->
+          <div class="cta-hint">
+            <span class="arrow">✨</span>
+            Chat with my AI
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <button class="panel-close">×</button>
+              <span class="panel-title">Voice</span>
+              <div class="mode-toggle">
+                <span class="seg on">Voice</span>
+                <span class="seg">Text</span>
+              </div>
+            </div>
+
+            <div class="viz">
+              <div class="listen-ring"></div>
+              <div class="listen-ring r2"></div>
+              <div class="listen-ring r3"></div>
+              <div class="orb-core"></div>
+            </div>
+
+            <p class="status"><span class="dot"></span>Listening</p>
+            <p class="status-sub">Speak naturally — I'll handle the rest.</p>
+
+            <div class="transcript">
+              <div class="caption">
+                "Tell me about your time at INDMoney<span class="cursor"></span>"
+              </div>
+            </div>
+
+            <div class="panel-foot">
+              <button class="end-btn danger">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor"><rect x="2" y="2" width="8" height="8" rx="1"/></svg>
+                End call
+              </button>
+              <button class="switch-btn">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12v7H5l-3 3V4z"/></svg>
+                Switch to chat
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ C — SPEAKING + AUTO-NAV ============ -->
+      <div class="col">
+        <h2>C — Speaking · auto-navigating</h2>
+        <p class="lede">Agent is responding. While it talks about INDMoney, the page auto-scrolls and highlights that section. Visualizer switches to waveform bars. Nav chip in the panel makes the navigation explicit.</p>
+        <div class="viewport">
+          <div class="vp-label">Speaking + section nav</div>
+          <div class="mock-page">
+            <div class="mock-nav">
+              <span class="logo">Rakshit Lodha.</span>
+              <div class="nav-pills">
+                <span>My Story</span>
+                <span class="on">My Story</span>
+                <span>Projects</span>
+                <span>Education</span>
+              </div>
+            </div>
+            <div class="mock-section compact">
+              <div class="h">CHAPTER 1 — CHRIST UNIVERSITY</div>
+              <div class="bar w90"></div>
+            </div>
+            <div class="mock-section active">
+              <div class="h">CHAPTER 2 — INDMONEY (2021–2023)</div>
+              <div class="bar w90"></div>
+              <div class="bar w70"></div>
+              <div class="bar w50"></div>
+            </div>
+            <div class="mock-section compact">
+              <div class="h">CHAPTER 3 — ET MONEY</div>
+              <div class="bar w70"></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <button class="panel-close">×</button>
+              <span class="panel-title">Voice</span>
+              <div class="mode-toggle">
+                <span class="seg on">Voice</span>
+                <span class="seg">Text</span>
+              </div>
+            </div>
+
+            <div class="viz">
+              <div class="orb-core" style="filter: brightness(0.85);"></div>
+              <div class="speak-bars">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <p class="status"><span class="dot speaking"></span>Speaking</p>
+            <p class="status-sub">Auto-navigating to relevant section</p>
+
+            <div class="nav-chip">
+              <div class="pin">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="white"><path d="M6 1a4 4 0 00-4 4c0 3 4 6 4 6s4-3 4-6a4 4 0 00-4-4zm0 5.5A1.5 1.5 0 116 3.5a1.5 1.5 0 010 3z"/></svg>
+              </div>
+              <div class="text">
+                <span class="sub">Now showing</span>
+                <b>Chapter 2 — INDMoney</b>
+              </div>
+            </div>
+
+            <div class="transcript">
+              <div class="caption">
+                "INDMoney was where I learned to ship at scale — we grew DAU 3x in nine months<span class="cursor"></span>"
+              </div>
+            </div>
+
+            <div class="panel-foot">
+              <button class="end-btn danger">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor"><rect x="2" y="2" width="8" height="8" rx="1"/></svg>
+                End call
+              </button>
+              <button class="switch-btn">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12v7H5l-3 3V4z"/></svg>
+                Switch to chat
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ D — CAVEMAN / TEXT MODE ============ -->
+      <div class="col">
+        <h2>D — Caveman mode (text)</h2>
+        <p class="lede">User flips the toggle to "Text" (or taps "Switch to chat"). Panel transforms into a text chat. Mic button in composer to flip back. Same agent, same context — voice ↔ text seamlessly.</p>
+        <div class="viewport">
+          <div class="vp-label">Caveman mode</div>
+          <div class="mock-page">
+            <div class="mock-nav">
+              <span class="logo">Rakshit Lodha.</span>
+              <div class="nav-pills">
+                <span>My Story</span>
+                <span class="on">My Story</span>
+                <span>Projects</span>
+                <span>Education</span>
+              </div>
+            </div>
+            <div class="mock-section compact">
+              <div class="h">CHAPTER 1</div>
+              <div class="bar w90"></div>
+            </div>
+            <div class="mock-section active">
+              <div class="h">CHAPTER 2 — INDMONEY</div>
+              <div class="bar w90"></div>
+              <div class="bar w70"></div>
+            </div>
+            <div class="mock-section compact">
+              <div class="h">CHAPTER 3</div>
+              <div class="bar w70"></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <button class="panel-close">×</button>
+              <span class="panel-title">Chat</span>
+              <div class="mode-toggle">
+                <span class="seg">Voice</span>
+                <span class="seg on">Text</span>
+              </div>
+            </div>
+
+            <div class="caveman-msgs">
+              <div class="caveman-bubble user">Tell me about your time at INDMoney</div>
+              <div class="caveman-bubble ai">INDMoney was where I learned to ship at scale. Joined as PM in 2021, grew DAU 3x in nine months.</div>
+              <div class="caveman-bubble user">What did you own?</div>
+              <div class="typing-bubble">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="composer">
+              <span class="input">Ask anything...</span>
+              <button class="mic-btn" aria-label="Switch to voice">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor"/>
+                  <path d="M5 11a7 7 0 0014 0M12 18v3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <h3>Stack</h3>
+      <div class="stack-row">
+        <span class="stack-chip">Pipecat — orchestration</span>
+        <span class="stack-chip">Sarvam — STT/TTS (Indic-friendly)</span>
+        <span class="stack-chip">OpenAI 4o — reasoning + tool calls</span>
+      </div>
+
+      <h3>Activation routes</h3>
+      <ul>
+        <li><b>Side orb</b> (always visible, every page) — tap to open voice panel.</li>
+        <li><b>Hero "Chat with my AI" CTA</b> — same activation. The CTA is now voice-first; text mode is the fallback (caveman).</li>
+      </ul>
+
+      <h3>Auto-navigation behavior</h3>
+      <ul>
+        <li>Agent emits a structured tool call alongside its spoken response, e.g. <code>scroll_to_section(id="indmoney")</code>.</li>
+        <li>Frontend reacts: smooth-scrolls to that section + adds a temporary 3px blue rail + soft glow (shown in C/D as the highlighted card).</li>
+        <li>Nav chip in the panel makes the navigation legible — "Now showing: Chapter 2 — INDMoney".</li>
+        <li>Sections need stable IDs in the DOM (already true for the landing: <code>#my-story</code>, <code>#projects</code>, <code>#skill-map</code>, <code>#education</code>). For sub-sections like INDMoney chapter, add per-chapter IDs.</li>
+      </ul>
+
+      <h3>Tool registry the agent will call</h3>
+      <ul>
+        <li><code>scroll_to_section(id)</code> — navigate to landing section</li>
+        <li><code>open_project(slug)</code> — focus a project card</li>
+        <li><code>set_volume(pct)</code> / <code>play_music(track?)</code> / <code>pause_music()</code> — controls the music player from the previous mockup</li>
+        <li><code>open_chat(prefill?)</code> — switch to caveman mode with optional prefilled question</li>
+        <li><code>end_call()</code> — close the panel</li>
+      </ul>
+
+      <h3>Open questions before build</h3>
+      <ul>
+        <li><b>Latency budget</b> — Pipecat + Sarvam + 4o can hit ~600-900ms end-to-end. Acceptable, but worth a target before we start.</li>
+        <li><b>Wake word?</b> — or strictly tap-to-talk? Wake word is more magical but adds always-on mic permissions (deal-breaker for some).</li>
+        <li><b>Persisted state across pages</b> — agent should survive a navigation (e.g., from <code>/</code> to <code>/chat</code>). Means mounting the panel in <code>layout.tsx</code>.</li>
+        <li><b>Caveman handoff</b> — does flipping to text reuse the existing <code>/chat</code> backend, or run inside the panel? Wireframe D assumes in-panel; the alternative is full-page route.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

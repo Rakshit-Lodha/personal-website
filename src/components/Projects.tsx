@@ -1,393 +1,279 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import Education from "@/components/Education";
-import SkillMap from "@/components/SkillMap";
+import NextLink from "next/link";
 
-type HeroProject = {
-  name: string;
-  positioning: string;
-  proof: string[];
-  primitives: string[];
-  githubUrl: string;
-  demoUrl: string;
-  chatPrompt: string;
-  screenshotSrc: string;
+type Link = { label: string; href: string };
+
+type Project = {
+  id: string;
+  banner: string;
+  tags: string;
+  desc: string;
+  bullets: string[];
+  links: Link[];
 };
 
-type StripCard = {
-  name: string;
-  positioning: string;
-  proof: string[];
-  primitives: string[];
-  githubUrl: string;
-  demoUrl: string;
-  chatPrompt: string;
+type MoreProject = {
+  title: string;
+  desc: string;
+  links: Link[];
 };
 
-export type OtherProject = {
-  name: string;
-  description: string;
-  readmeUrl: string;
-  chatPrompt: string;
-};
-
-const heroProject: HeroProject = {
-  name: "Krux.news",
-  positioning:
-    "AI news product that turns fast-moving AI updates into short, swipeable stories.",
-  proof: [
-    "Built the content pipeline and consumer web app.",
-    "Designed a multi-stage AI workflow from ingestion to publishing.",
-  ],
-  primitives: ["AI curation", "Web research", "Publishing"],
-  githubUrl: "https://github.com/Rakshit-Lodha/ai-times",
-  demoUrl: "https://krux.news/",
-  chatPrompt: "Tell me more about Krux",
-  screenshotSrc: "/krux-logo.jpeg",
-};
-
-const stripProjects: StripCard[] = [
+const PROJECTS: Project[] = [
   {
-    name: "AI Hiring Chat",
-    positioning:
-      "ChatGPT-style hiring assistant for recruiters to evaluate fit from a company URL, JD, upload, or question.",
-    proof: [
+    id: "krux",
+    banner: "/landing/krux-banner.png",
+    tags: "AI CURATION | WEB RESEARCH | PUBLISHING",
+    desc: "AI news product that turns fast-moving AI updates into short, swipeable stories.",
+    bullets: [
+      "Built the content pipeline and consumer web app.",
+      "Designed a multi-stage AI workflow from ingestion to publishing.",
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/Rakshit-Lodha/ai-times" },
+      { label: "Live Demo", href: "https://krux.news/" },
+      { label: "Know More", href: `/chat?q=${encodeURIComponent("Tell me more about Krux")}` },
+    ],
+  },
+  {
+    id: "mf-search",
+    banner: "/landing/mf-search-banner.png",
+    tags: "EMBEDDINGS | INTENT ROUTING | CHROMADB",
+    desc: "Semantic search engine across 16,197 mutual funds with intent-aware routing.",
+    bullets: [
+      "Routes queries into lookup, comparison, or filtered discovery.",
+      "Handles typos, partial names, categories, and investment styles.",
+      "Generates fund analysis across returns, risk, and expense ratios.",
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/Rakshit-Lodha/mf-search" },
+      { label: "Live Demo", href: "https://mf-ai-search.streamlit.app/" },
+      { label: "Know More", href: `/chat?q=${encodeURIComponent("Tell me more about MF Search")}` },
+    ],
+  },
+  {
+    id: "ai-hiring-chat",
+    banner: "/landing/ai-hiring-chat-banner.png",
+    tags: "AGENTS SDK | SSE STREAMING | JD PARSING",
+    desc: "ChatGPT-style hiring assistant for recruiters to evaluate fit from a company URL, JD, upload, or question.",
+    bullets: [
       "Built a standalone /chat interface with zero-state prompts, persistent composer, file chips, and streamed responses.",
       "Shipped a V3 agent pipeline with intent planning, optional company research, evidence gathering, and intent-specific answer agents.",
       "Kept V1, V2, and V3 eval history visible so quality, fit calibration, and latency tradeoffs can be compared over time.",
       "Supports PDF, DOCX, and TXT job descriptions with structured SSE final events for fit-level UI.",
     ],
-    primitives: ["Agents SDK", "SSE streaming", "JD parsing"],
-    githubUrl: "https://github.com/Rakshit-Lodha/personal-website",
-    demoUrl: "/chat",
-    chatPrompt: "How does the AI hiring chat work?",
-  },
-  {
-    name: "MF Search",
-    positioning:
-      "Semantic search engine across 16,197 mutual funds with intent-aware routing.",
-    proof: [
-      "Routes queries into lookup, comparison, or filtered discovery.",
-      "Handles typos, partial names, categories, and investment styles.",
-      "Generates fund analysis across returns, risk, and expense ratios.",
+    links: [
+      { label: "GitHub", href: "https://github.com/Rakshit-Lodha/personal-website" },
+      { label: "Live Demo", href: "/chat" },
+      { label: "Know More", href: `/chat?q=${encodeURIComponent("How does the AI hiring chat work?")}` },
     ],
-    primitives: ["Embeddings", "Intent routing", "ChromaDB"],
-    githubUrl: "https://github.com/Rakshit-Lodha/mf-search",
-    demoUrl: "https://mf-ai-search.streamlit.app/",
-    chatPrompt: "Tell me more about MF Search",
-  },
-  {
-    name: "US Stocks Agent",
-    positioning:
-      "Multi-agent stock analysis system with financial tools and voice input/output.",
-    proof: [
-      "Improved tool-use accuracy from 58% to 90%.",
-      "Moved from one agent to specialist handoffs after evals.",
-      "Covers 20+ test cases across 5 query categories.",
-    ],
-    primitives: ["Agent handoffs", "Voice AI", "Evals"],
-    githubUrl: "https://github.com/Rakshit-Lodha/us-stock-agent",
-    demoUrl: "https://us-stock-agent.streamlit.app/",
-    chatPrompt: "Tell me more about US Stocks Agent",
-  },
-  {
-    name: "Feedback Intelligence",
-    positioning:
-      "Cross-channel agent that turns public feedback into prioritized product signals.",
-    proof: [
-      "Ingests Play Store, App Store, YouTube, and X feedback.",
-      "Classifies bugs, UX complaints, feature requests, and sentiment trends.",
-      "Separates UI chat state from persistent model session memory.",
-    ],
-    primitives: ["Agents SDK", "Function tools", "Memory"],
-    githubUrl: "https://github.com/Rakshit-Lodha/managed-agents-review",
-    demoUrl: "https://managed-agents-review.onrender.com",
-    chatPrompt: "Tell me more about Feedback Intelligence",
   },
 ];
 
-const otherProjects: OtherProject[] = [
+const MORE_PROJECTS: MoreProject[] = [
   {
-    name: "TalkToKrishna",
-    description:
-      "RAG product grounded in 700 Bhagavad Gita verses with a 50-question eval suite.",
-    readmeUrl: "https://github.com/Rakshit-Lodha/talktokrishna",
-    chatPrompt: "Tell me more about TalkToKrishna",
+    title: "TalkToKrishna",
+    desc: "RAG product grounded in 700 Bhagavad Gita verses with a 50-question eval suite.",
+    links: [
+      { label: "Read me", href: "https://github.com/Rakshit-Lodha/talktokrishna" },
+      { label: "Know More", href: `/chat?q=${encodeURIComponent("Tell me more about TalkToKrishna")}` },
+    ],
   },
   {
-    name: "Evaluation Framework",
-    description:
-      "LLM-as-judge and voice evaluation system for quality, safety, and ASR accuracy.",
-    readmeUrl: "https://github.com/Rakshit-Lodha/evals",
-    chatPrompt: "Tell me more about Evaluation Framework",
+    title: "Evaluation Framework",
+    desc: "LLM-as-judge and voice evaluation system for quality, safety, and ASR accuracy.",
+    links: [
+      { label: "Read me", href: "https://github.com/Rakshit-Lodha/evals" },
+      { label: "Know More", href: `/chat?q=${encodeURIComponent("Tell me more about Evaluation Framework")}` },
+    ],
   },
 ];
 
-const githubProfileUrl = "https://github.com/Rakshit-Lodha";
+const MORE_BANNER = "/landing/more-banner.png";
+const MORE_TAGS = "AGENTS SDK | SSE STREAMING | JD PARSING";
 
-function PrimitivePills({ primitives }: { primitives: string[] }) {
+function LinkRow({ links, compact = false }: { links: Link[]; compact?: boolean }) {
   return (
-    <div className="flex flex-wrap gap-2">
-      {primitives.map((primitive, index) => (
-        <span
-          key={`${primitive}-${index}`}
-          className="rounded-full border-[0.5px] border-neutral-300 px-2.5 py-1 text-xs font-normal leading-none text-neutral-700"
-        >
-          {primitive}
-        </span>
-      ))}
+    <div
+      className="flex flex-wrap items-center"
+      style={{
+        gap: "clamp(10px,1.16vw,19px)",
+        marginTop: compact ? 0 : "clamp(4px,0.4vw,6px)",
+      }}
+    >
+      {links.map((l) => {
+        const isInternal = l.href.startsWith("/");
+        const className =
+          "font-figtree inline-flex items-center text-[#456aff] no-underline transition-opacity hover:opacity-70";
+        const style = {
+          gap: "2px",
+          fontSize: "clamp(11px,1.04vw,18px)",
+          fontWeight: 500,
+        };
+        const content = (
+          <>
+            {l.label}
+            <span
+              className="inline-block"
+              style={{ fontSize: "0.9em", transform: "rotate(45deg)" }}
+              aria-hidden="true"
+            >
+              ↑
+            </span>
+          </>
+        );
+        return isInternal ? (
+          <NextLink key={l.label} href={l.href} className={className} style={style}>
+            {content}
+          </NextLink>
+        ) : (
+          <a
+            key={l.label}
+            href={l.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={className}
+            style={style}
+          >
+            {content}
+          </a>
+        );
+      })}
     </div>
   );
 }
 
-function ActionLinks({
-  githubUrl,
-  demoUrl,
-  chatPrompt,
-}: {
-  githubUrl: string;
-  demoUrl: string;
-  chatPrompt: string;
-}) {
+function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="flex gap-4 text-[13px] font-medium text-[#1B6AE7]">
-      <a
-        href={githubUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7]"
+    <div className="proj-card-hover flex flex-col" style={{ gap: "clamp(16px,2vw,32px)" }}>
+      <div
+        className="w-full overflow-hidden flex-shrink-0"
+        style={{
+          borderRadius: "clamp(8px,0.8vw,14px)",
+          aspectRatio: "723 / 498",
+        }}
       >
-        GitHub ↗
-      </a>
-      <a
-        href={demoUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7]"
-      >
-        Live demo ↗
-      </a>
-      <Link
-        href={`/chat?q=${encodeURIComponent(chatPrompt)}`}
-        className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7]"
-      >
-        Know More ↗
-      </Link>
-    </div>
-  );
-}
-
-function ProofList({ items }: { items: string[] }) {
-  return (
-    <ul className="space-y-2 border-l border-neutral-200">
-      {items.map((item, index) => (
-        <li
-          key={`${item}-${index}`}
-          className="pl-4 text-[13px] leading-[1.5] text-neutral-600"
-        >
-          {item}
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-export function HeroProjectCard({ project }: { project: HeroProject }) {
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-      className="grid rounded-xl bg-neutral-50 p-5 sm:min-h-[300px] sm:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] sm:gap-8 md:p-8"
-    >
-      <div className="order-2 flex flex-col sm:order-1">
-        <h3 className="text-xl font-medium leading-tight text-[#111111]">
-          {project.name}
-        </h3>
-        <p className="mt-3 text-[15px] leading-[1.5] text-neutral-700">
-          {project.positioning}
-        </p>
-        <div className="mt-5">
-          <ProofList items={project.proof} />
-        </div>
-        <div className="mt-5">
-          <PrimitivePills primitives={project.primitives} />
-        </div>
-        <div className="mt-6">
-          <ActionLinks
-            githubUrl={project.githubUrl}
-            demoUrl={project.demoUrl}
-            chatPrompt={project.chatPrompt}
-          />
-        </div>
-      </div>
-
-      <div className="order-1 mb-6 sm:order-2 sm:mb-0">
-        <div className="relative flex h-full min-h-[170px] items-center justify-center overflow-hidden rounded-lg bg-white sm:min-h-[236px]">
-          <Image
-            src={project.screenshotSrc}
-            alt={`${project.name} product screenshot`}
-            fill
-            sizes="(max-width: 639px) calc(100vw - 90px), 236px"
-            className="object-cover"
-          />
-        </div>
-      </div>
-    </motion.article>
-  );
-}
-
-export function StripProjectCard({
-  project,
-  index,
-}: {
-  project: StripCard;
-  index: number;
-}) {
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.06, ease: "easeOut" }}
-      className="flex min-h-[310px] w-[280px] shrink-0 snap-start flex-col rounded-xl bg-neutral-50 p-5 md:w-[340px] md:p-6"
-    >
-      <h3 className="text-lg font-medium leading-tight text-[#111111]">
-        {project.name}
-      </h3>
-      <p className="mt-3 text-sm leading-[1.5] text-neutral-700">
-        {project.positioning}
-      </p>
-      <div className="mt-5">
-        <ProofList items={project.proof} />
-      </div>
-      <div className="mt-5">
-        <PrimitivePills primitives={project.primitives.slice(0, 3)} />
-      </div>
-      <div className="mt-auto pt-6">
-        <ActionLinks
-          githubUrl={project.githubUrl}
-          demoUrl={project.demoUrl}
-          chatPrompt={project.chatPrompt}
+        <Image
+          src={project.banner}
+          alt=""
+          width={723}
+          height={498}
+          className="block h-full w-full object-cover"
         />
       </div>
-    </motion.article>
-  );
-}
-
-export function OtherProjectRow({ project }: { project: OtherProject }) {
-  return (
-    <li className="text-[15px] leading-6">
-      <span className="font-medium text-[#111111]">{project.name}</span>
-      <span className="text-neutral-600"> — {project.description} </span>
-      <a
-        href={project.readmeUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="text-[13px] font-medium text-[#1B6AE7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7]"
-      >
-        README ↗
-      </a>
-      <span className="text-neutral-300"> / </span>
-      <Link
-        href={`/chat?q=${encodeURIComponent(project.chatPrompt)}`}
-        className="text-[13px] font-medium text-[#1B6AE7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7]"
-      >
-        Know More ↗
-      </Link>
-    </li>
-  );
-}
-
-export function ProjectsSection({
-  heroProject,
-  stripProjects,
-  otherProjects,
-  githubProfileUrl,
-}: {
-  heroProject: HeroProject;
-  stripProjects: StripCard[];
-  otherProjects: OtherProject[];
-  githubProfileUrl: string;
-}) {
-  const stripRef = useRef<HTMLDivElement>(null);
-
-  function scrollStrip(direction: "left" | "right") {
-    stripRef.current?.scrollBy({
-      left: direction === "left" ? -364 : 364,
-      behavior: "smooth",
-    });
-  }
-
-  return (
-    <>
-      <div className="mx-auto max-w-[640px] px-1 md:px-0">
-        <h2 className="text-[32px] font-medium leading-tight tracking-normal text-[#111111] md:text-[40px]">
-          Projects
-        </h2>
-
-        <div className="mt-8 md:mt-12">
-          <HeroProjectCard project={heroProject} />
-        </div>
-      </div>
-
-      <div className="mx-auto mt-6 max-w-[640px] md:max-w-[704px]">
-        <div className="flex justify-end gap-2 px-1 pb-3 md:px-0">
-          <button
-            type="button"
-            onClick={() => scrollStrip("left")}
-            className="hidden h-8 w-8 items-center justify-center rounded-full border-[0.5px] border-neutral-300 text-sm text-neutral-700 transition-colors hover:bg-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7] md:inline-flex"
-            aria-label="Scroll projects left"
-          >
-            ←
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollStrip("right")}
-            className="hidden h-8 w-8 items-center justify-center rounded-full border-[0.5px] border-neutral-300 text-sm text-neutral-700 transition-colors hover:bg-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7] md:inline-flex"
-            aria-label="Scroll projects right"
-          >
-            →
-          </button>
-        </div>
-
-        <div
-          ref={stripRef}
-          className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 pb-4 [scrollbar-color:#d4d4d4_#f5f5f5] [scrollbar-width:thin] md:px-0"
+      <div className="flex flex-col" style={{ gap: "clamp(10px,1vw,16px)" }}>
+        <p
+          className="font-figtree uppercase text-[#8d8d8d]"
+          style={{
+            fontSize: "clamp(9px,0.87vw,15px)",
+            letterSpacing: "0.22em",
+            lineHeight: 1.3,
+          }}
         >
-          {stripProjects.map((project, index) => (
-            <StripProjectCard
-              key={project.name}
-              project={project}
-              index={index}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="mx-auto mt-20 max-w-[640px] px-1 md:px-0">
-        <h3 className="text-base font-medium text-[#111111]">Also built</h3>
-        <ul className="mt-5 space-y-3">
-          {otherProjects.map((project) => (
-            <OtherProjectRow key={project.name} project={project} />
+          {project.tags}
+        </p>
+        <p
+          className="font-figtree m-0 text-[#111]"
+          style={{ fontSize: "clamp(14px,1.62vw,28px)", lineHeight: 1.45 }}
+        >
+          {project.desc}
+        </p>
+        <ul
+          className="m-0 flex list-none flex-col p-0"
+          style={{ gap: "clamp(8px,0.87vw,14px)" }}
+        >
+          {project.bullets.map((b, i) => (
+            <li
+              key={i}
+              className="flex items-start font-figtree text-[#404040]"
+              style={{
+                gap: "clamp(6px,0.52vw,9px)",
+                fontSize: "clamp(11px,1.04vw,18px)",
+                lineHeight: 1.4,
+              }}
+            >
+              <Image
+                src="/landing/bullet-check.svg"
+                alt=""
+                width={22}
+                height={22}
+                className="flex-shrink-0"
+                style={{
+                  width: "clamp(13px,1.39vw,22px)",
+                  height: "clamp(13px,1.39vw,22px)",
+                  marginTop: "2px",
+                }}
+              />
+              <span>{b}</span>
+            </li>
           ))}
         </ul>
-
-        <a
-          href={githubProfileUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-12 inline-block text-sm font-medium text-[#1B6AE7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7]"
-        >
-          More on GitHub ↗
-        </a>
+        <LinkRow links={project.links} />
       </div>
-    </>
+    </div>
+  );
+}
+
+function MoreCard() {
+  return (
+    <div className="proj-card-hover flex flex-col" style={{ gap: "clamp(16px,2vw,32px)" }}>
+      <div
+        className="w-full overflow-hidden flex-shrink-0"
+        style={{
+          borderRadius: "clamp(8px,0.8vw,14px)",
+          aspectRatio: "723 / 498",
+        }}
+      >
+        <Image
+          src={MORE_BANNER}
+          alt=""
+          width={723}
+          height={498}
+          className="block h-full w-full object-cover"
+        />
+      </div>
+      <div className="flex flex-col" style={{ gap: "clamp(10px,1vw,16px)" }}>
+        <p
+          className="font-figtree uppercase text-[#8d8d8d]"
+          style={{
+            fontSize: "clamp(9px,0.87vw,15px)",
+            letterSpacing: "0.22em",
+            lineHeight: 1.3,
+          }}
+        >
+          {MORE_TAGS}
+        </p>
+        {MORE_PROJECTS.map((m, idx) => (
+          <div
+            key={m.title}
+            className="flex flex-col"
+            style={{
+              gap: "clamp(8px,0.8vw,12px)",
+              marginTop: idx === 0 ? 0 : "clamp(14px,1.5vw,24px)",
+            }}
+          >
+            <p
+              className="font-figtree m-0 text-[#111]"
+              style={{
+                fontSize: "clamp(14px,1.62vw,28px)",
+                lineHeight: 1.45,
+                marginBottom: "2px",
+              }}
+            >
+              {m.title}
+            </p>
+            <p
+              className="font-figtree m-0 text-[#404040]"
+              style={{ fontSize: "clamp(11px,1.04vw,18px)", lineHeight: 1.4 }}
+            >
+              {m.desc}
+            </p>
+            <LinkRow links={m.links} compact />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -395,18 +281,49 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="bg-white px-5 pb-20 pt-16 text-[#111111] sm:px-6 md:pt-24 lg:px-8 lg:pb-24"
+      className="bg-[#F3F7F8]"
+      style={{
+        padding:
+          "clamp(48px,5.5vw,96px) clamp(16px,5.3vw,92px) clamp(64px,9.3vw,120px)",
+      }}
     >
-      <div className="mx-auto max-w-7xl">
-        <ProjectsSection
-          heroProject={heroProject}
-          stripProjects={stripProjects}
-          otherProjects={otherProjects}
-          githubProfileUrl={githubProfileUrl}
-        />
+      <div
+        className="flex items-center"
+        style={{ gap: "clamp(12px,1.4vw,24px)", marginBottom: "clamp(28px,4vw,64px)" }}
+      >
+        <div
+          className="flex flex-shrink-0 items-center"
+          style={{ gap: "clamp(8px,0.9vw,14px)" }}
+        >
+          <h2
+            className="font-display whitespace-nowrap text-[#496dff]"
+            style={{ fontSize: "clamp(28px,3.7vw,82px)", lineHeight: 1 }}
+          >
+            MY PROJECTS
+          </h2>
+          <Image
+            src="/landing/projects-icon.png"
+            alt=""
+            width={96}
+            height={96}
+            className="flex-shrink-0 object-contain"
+            style={{
+              width: "clamp(40px,5.5vw,96px)",
+              height: "clamp(40px,5.5vw,96px)",
+            }}
+          />
+        </div>
+        <div className="h-px flex-1 bg-[#c8d0ee]" />
+      </div>
 
-        <div id="skill-map"><SkillMap /></div>
-        <Education />
+      <div
+        className="grid grid-cols-1 md:grid-cols-2"
+        style={{ gap: "clamp(16px,2.3vw,40px)" }}
+      >
+        {PROJECTS.map((p) => (
+          <ProjectCard key={p.id} project={p} />
+        ))}
+        <MoreCard />
       </div>
     </section>
   );

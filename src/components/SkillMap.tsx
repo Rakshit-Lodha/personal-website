@@ -1,218 +1,181 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
 
-const skills = {
-  ai_product: [
-    "RAG",
-    "Semantic search",
-    "LLM evals",
-    "Model-graded rubrics",
-    "Prompt engineering",
-    "Agentic workflows",
-    "Tool calling",
-    "Vector databases",
-    "Voice AI",
-  ],
-  technical_tools: [
-    "Python",
-    "TypeScript",
-    "Next.js",
-    "React",
-    "FastAPI",
-    "OpenAI API",
-    "Anthropic API",
-    "xAI API",
-    "Sarvam API",
-    "ChromaDB",
-    "Supabase",
-    "MySQL",
-  ],
-  product_management: [
-    "0 to 1",
-    "Agile",
-    "GTM planning",
-    "Business case modelling",
-  ],
-  analytics_and_experimentation: [
-    "A/B testing",
-    "SQL",
-    "Mixpanel",
-    "Cohort analysis"
-  ],
-  research_and_design: ["User interviews", "Figma", "Wireframing"],
-} as const;
+type Tag = { label: string; bold?: boolean };
+type Card = { category: string; tags: Tag[] };
 
-const anchorSkills = new Set([
-  "RAG",
-  "LLM evals",
-  "Python",
-  "Anthropic API",
-  "GTM planning",
-  "A/B testing",
-  "SQL",
-  "User interviews",
-]);
+const ROW1: Card[] = [
+  {
+    category: "AI",
+    tags: [
+      { label: "RAG", bold: true },
+      { label: "Semantic search" },
+      { label: "LLM evals", bold: true },
+      { label: "Model-graded rubrics" },
+      { label: "Prompt engineering" },
+      { label: "Vector databases" },
+      { label: "Tool calling" },
+      { label: "Agentic workflows" },
+      { label: "Voice AI" },
+    ],
+  },
+  {
+    category: "Technical Tools",
+    tags: [
+      { label: "Python", bold: true },
+      { label: "TypeScript" },
+      { label: "Anthropic API", bold: true },
+      { label: "Next.js" },
+      { label: "React" },
+      { label: "FastAPI" },
+      { label: "OpenAI API" },
+      { label: "xAI API" },
+      { label: "Sarvam API" },
+      { label: "ChromaDB" },
+      { label: "Supabase" },
+    ],
+  },
+];
 
-const categoryLabels = {
-  ai_product: "AI",
-  technical_tools: "Technical Tools",
-  product_management: "Product",
-  analytics_and_experimentation: "Analytics",
-  research_and_design: "Design",
-} as const;
+const ROW2: Card[] = [
+  {
+    category: "Product",
+    tags: [
+      { label: "0 to 1" },
+      { label: "Agile" },
+      { label: "GTM planning", bold: true },
+      { label: "Business case modelling" },
+    ],
+  },
+  {
+    category: "Analytics",
+    tags: [
+      { label: "A/B testing", bold: true },
+      { label: "Cohort analysis" },
+      { label: "SQL", bold: true },
+      { label: "Mixpanel" },
+    ],
+  },
+  {
+    category: "Design",
+    tags: [
+      { label: "User interviews", bold: true },
+      { label: "Figma" },
+      { label: "Wireframing" },
+    ],
+  },
+];
 
-type CategoryKey = keyof typeof skills;
-
-const categoryChatPrompts: Record<CategoryKey, string> = {
-  ai_product: "Tell me in detail about his AI skills",
-  technical_tools: "Tell me in detail about the technical tools he knows",
-  product_management: "Tell me in detail about his product management skills",
-  analytics_and_experimentation:
-    "Tell me in detail about his analytics and experimentation skills",
-  research_and_design: "Tell me in detail about his research and design skills",
-};
-
-const categoryOrder = Object.keys(skills) as CategoryKey[];
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 12 },
-  show: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: index * 0.1,
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  }),
-};
-
-function SkillChip({ skill }: { skill: string }) {
-  const isAnchor = anchorSkills.has(skill);
-
+function SkillCard({ card }: { card: Card }) {
   return (
-    <span
-      className={`whitespace-nowrap leading-none ${
-        isAnchor
-          ? "text-base font-semibold tracking-[-0.2px] text-[#111111] md:text-lg"
-          : "text-[13px] font-normal tracking-normal text-neutral-700 md:text-sm"
-      }`}
+    <div
+      className="flex flex-1 min-w-0 flex-col bg-white"
+      style={{
+        padding: "clamp(12px,1.04vw,18px)",
+        gap: "clamp(12px,1.39vw,24px)",
+        boxShadow:
+          "0 19px 21px rgba(0,0,0,0.10), 0 77px 38.5px rgba(0,0,0,0.09), 0 173px 52px rgba(0,0,0,0.05), 0 307px 61.5px rgba(0,0,0,0.01)",
+      }}
     >
-      {skill}
-    </span>
-  );
-}
-
-function SkillCategoryCard({
-  category,
-  index,
-  hasEntered,
-  prefersReducedMotion,
-}: {
-  category: CategoryKey;
-  index: number;
-  hasEntered: boolean;
-  prefersReducedMotion: boolean;
-}) {
-  const labelId = `skill-map-${category}`;
-
-  return (
-    <motion.div
-      role="group"
-      aria-labelledby={labelId}
-      custom={index}
-      variants={cardVariants}
-      initial={prefersReducedMotion ? "show" : "hidden"}
-      animate={prefersReducedMotion || hasEntered ? "show" : "hidden"}
-      className="rounded-xl bg-neutral-50 transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
-    >
-      <Link
-        href={`/chat?q=${encodeURIComponent(categoryChatPrompts[category])}`}
-        className="block h-full rounded-xl p-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B6AE7] md:p-6"
+      <div
+        className="font-figtree uppercase text-[#496dff]"
+        style={{
+          fontSize: "clamp(11px,1.04vw,18px)",
+          fontWeight: 800,
+          lineHeight: 1.42,
+        }}
       >
-        <h3
-          id={labelId}
-          className="mb-5 text-[11px] font-medium uppercase leading-none tracking-[1.5px] text-neutral-500"
-        >
-          {categoryLabels[category]}
-        </h3>
-        <div className="flex flex-wrap items-baseline gap-3">
-          {skills[category].map((skill) => (
-            <SkillChip key={skill} skill={skill} />
-          ))}
-        </div>
-      </Link>
-    </motion.div>
+        {card.category}
+      </div>
+      <div
+        className="flex flex-wrap"
+        style={{
+          gap: "clamp(10px,1.1vw,18px) clamp(14px,1.4vw,22px)",
+        }}
+      >
+        {card.tags.map((t) => (
+          <Link
+            key={t.label}
+            href={`/chat?q=${encodeURIComponent(
+              `Tell me about Rakshit's experience with ${t.label}`
+            )}`}
+            className="skill-tag font-figtree whitespace-nowrap text-[#111]"
+            style={{
+              fontSize: t.bold ? "clamp(11px,1.04vw,18px)" : "clamp(10px,0.93vw,16px)",
+              fontWeight: t.bold ? 700 : 400,
+              lineHeight: 1.4,
+            }}
+          >
+            {t.label}
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }
 
 export default function SkillMap() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-  const [hasEntered, setHasEntered] = useState(false);
-
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHasEntered(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "-15% 0px", threshold: 0.15 },
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, [prefersReducedMotion]);
-
-  const isVisible = Boolean(prefersReducedMotion) || hasEntered;
-
   return (
     <section
-      ref={sectionRef}
-      aria-label="Skill Map"
-      className="bg-white px-5 pt-16 text-[#111111] sm:px-6 md:pt-24 lg:px-8"
+      id="skill-map"
+      className="bg-[#F3F7F8]"
+      style={{
+        padding:
+          "clamp(48px,5.5vw,96px) clamp(16px,5.3vw,92px) clamp(64px,9.3vw,120px)",
+      }}
     >
-      <div className="mx-auto max-w-7xl">
-        <div className="mx-auto max-w-[640px] px-1 md:px-0">
-          <h2 className="text-[32px] font-medium leading-tight tracking-normal text-[#111111] md:text-[40px]">
-            Skill Map
+      <div
+        className="flex items-center"
+        style={{ gap: "clamp(12px,1.6vw,28px)", marginBottom: "clamp(24px,3vw,40px)" }}
+      >
+        <div
+          className="flex flex-shrink-0 items-center"
+          style={{ gap: "clamp(6px,0.5vw,9px)" }}
+        >
+          <h2
+            className="font-display whitespace-nowrap text-[#496dff]"
+            style={{ fontSize: "clamp(28px,3.7vw,82px)", lineHeight: 1 }}
+          >
+            SKILL MAP
           </h2>
+          <Image
+            src="/landing/skill-map-icon.png"
+            alt=""
+            width={100}
+            height={100}
+            className="flex-shrink-0 object-contain"
+            style={{
+              width: "clamp(40px,5.8vw,100px)",
+              height: "clamp(40px,5.8vw,100px)",
+            }}
+          />
         </div>
+        <div className="h-px flex-1 bg-[#c8d0ee]" />
+      </div>
 
-        <div className="mx-auto mt-8 w-full max-w-[1040px] md:mt-12">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,58fr)_minmax(0,42fr)] md:gap-5">
-            {categoryOrder.slice(0, 2).map((category, index) => (
-              <SkillCategoryCard
-                key={category}
-                category={category}
-                index={index}
-                hasEntered={isVisible}
-                prefersReducedMotion={Boolean(prefersReducedMotion)}
-              />
-            ))}
-          </div>
-
-          <div className="mt-4 grid grid-cols-1 gap-4 md:mt-5 md:grid-cols-[minmax(0,30fr)_minmax(0,38fr)_minmax(0,32fr)] md:gap-5">
-            {categoryOrder.slice(2).map((category, index) => (
-              <SkillCategoryCard
-                key={category}
-                category={category}
-                index={index + 2}
-                hasEntered={isVisible}
-                prefersReducedMotion={Boolean(prefersReducedMotion)}
-              />
-            ))}
-          </div>
+      <div
+        className="relative flex flex-col overflow-hidden"
+        style={{
+          background: "linear-gradient(to bottom, #dde0ff, #bbc8ff)",
+          padding: "clamp(20px,2.4vw,42px)",
+          gap: "clamp(16px,1.85vw,32px)",
+        }}
+      >
+        <div
+          className="flex flex-col items-stretch md:flex-row"
+          style={{ gap: "clamp(12px,1.85vw,32px)" }}
+        >
+          {ROW1.map((c) => (
+            <SkillCard key={c.category} card={c} />
+          ))}
+        </div>
+        <div
+          className="flex flex-col items-stretch md:flex-row"
+          style={{ gap: "clamp(12px,1.85vw,32px)" }}
+        >
+          {ROW2.map((c) => (
+            <SkillCard key={c.category} card={c} />
+          ))}
         </div>
       </div>
     </section>

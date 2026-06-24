@@ -8,6 +8,7 @@ import remarkGfm from "remark-gfm";
 import { ArrowUp, Loader2, Mic, Paperclip, Square, Volume2, X } from "lucide-react";
 import Nav from "@/components/Nav";
 import type { AgentMode, AgentResponse, AgentStreamEvent } from "@/lib/agent/types";
+import { trackChatInteraction } from "@/lib/analytics";
 
 const PROMPT_CHIPS = [
   "Drop a JD to see if Rakshit fits this role",
@@ -697,6 +698,7 @@ function ChatPageContent() {
     setUploadedFile(null);
     setIsRunning(true);
     setStatus("Starting");
+    trackChatInteraction({ mode, hasFile: hasReadyFile });
 
     try {
       const response = await fetch("/api/agent", {
