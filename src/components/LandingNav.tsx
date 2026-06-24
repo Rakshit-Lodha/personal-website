@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import MusicChipDesktop from "./music/MusicChipDesktop";
+import { useMusic } from "./music/MusicPlayerProvider";
 
 const NAV_LINKS = [
   { label: "My Story", href: "#my-story" },
@@ -12,6 +14,33 @@ const NAV_LINKS = [
 export default function LandingNav() {
   const [activeId, setActiveId] = useState<string>("my-story");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [navHeight, setNavHeight] = useState(56);
+  const navRef = useRef<HTMLElement>(null);
+  const { isDocked, isSheetOpen } = useMusic();
+
+  useEffect(() => {
+    const el = navRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => {
+      setNavHeight(el.offsetHeight);
+    });
+    ro.observe(el);
+    setNavHeight(el.offsetHeight);
+    return () => ro.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  // Nav fade only applies on mobile (where the fullscreen sheet covers it).
+  // On desktop, the chip grows beside the nav — nav stays visible.
+  const navHidden = isSheetOpen && !isDesktop;
 
   useEffect(() => {
     const ids = NAV_LINKS.map((l) => l.href.slice(1));
@@ -39,95 +68,114 @@ export default function LandingNav() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  // Mobile docked: flatten bottom corners so the strip merges with the nav.
+  // Only applies on mobile — on desktop there's no strip below the nav.
+  const isMobileDocked = isDocked && !isDesktop;
+
   return (
     <div
       className="fixed left-0 right-0 top-0 z-50 pointer-events-none"
       style={{
         padding:
           "clamp(12px,1.6vw,28px) clamp(12px,5.3vw,92px) 0",
+        opacity: navHidden ? 0 : 1,
+        transform: navHidden ? "translateY(-12px)" : "translateY(0)",
+        pointerEvents: navHidden ? "none" : undefined,
+        transition: "opacity .25s ease, transform .3s ease",
       }}
     >
-      <nav
-        className="pointer-events-auto flex items-center justify-between bg-white"
-        style={{
-          borderRadius: "clamp(10px,1.04vw,18px)",
-          padding: "clamp(10px,1.04vw,18px) clamp(14px,1.39vw,24px)",
-          boxShadow:
-            "0 6px 13px rgba(0,0,0,.10), 0 23px 23px rgba(0,0,0,.09), 0 53px 32px rgba(0,0,0,.05), 0 94px 37px rgba(0,0,0,.01)",
-        }}
-      >
-        <a
-          href="#hero"
-          className="font-display text-[#170f49] whitespace-nowrap no-underline"
-          style={{ fontSize: "clamp(13px,1.16vw,20px)", letterSpacing: ".01em" }}
-        >
-          Rakshit Lodha.
-        </a>
-
-        {/* Desktop pill bar */}
-        <div
-          className="hidden md:flex items-center rounded-[clamp(4px,.35vw,6px)] border border-[#f8f8f8] bg-[#eaf1ff]"
+      <div className="flex items-start gap-2 lg:gap-3 justify-between">
+        <nav
+          ref={navRef}
+          className="pointer-events-auto flex items-center justify-between bg-white flex-1"
           style={{
-            padding: "clamp(2px,.17vw,3px)",
-            gap: "clamp(1px,.17vw,3px)",
-            filter: "drop-shadow(0 0 2px rgba(0,0,0,.18))",
+            borderRadius: isMobileDocked
+              ? "clamp(10px,1.04vw,18px) clamp(10px,1.04vw,18px) 0 0"
+              : "clamp(10px,1.04vw,18px)",
+            padding: "clamp(10px,1.04vw,18px) clamp(14px,1.39vw,24px)",
+            boxShadow:
+              "0 6px 13px rgba(0,0,0,.10), 0 23px 23px rgba(0,0,0,.09), 0 53px 32px rgba(0,0,0,.05), 0 94px 37px rgba(0,0,0,.01)",
+            transition: "border-radius .35s cubic-bezier(.2,.8,.2,1)",
           }}
         >
-          {NAV_LINKS.map((l) => {
-            const id = l.href.slice(1);
-            const isActive = activeId === id;
-            return (
-              <a
-                key={l.label}
-                href={l.href}
-                className={`font-figtree text-center text-[#222] no-underline whitespace-nowrap transition-colors ${
-                  isActive
-                    ? "bg-white font-semibold rounded-[clamp(4px,.46vw,8px)]"
-                    : "font-normal hover:bg-white/60 rounded-[clamp(3px,.23vw,4px)]"
-                }`}
-                style={{
-                  padding: "clamp(4px,.35vw,6px) clamp(5px,.46vw,8px)",
-                  fontSize: "clamp(9px,.81vw,14px)",
-                  minWidth: "clamp(52px,5.79vw,100px)",
-                  lineHeight: 1.3,
-                  filter: isActive ? "drop-shadow(0 0 2px rgba(0,0,0,.18))" : undefined,
-                }}
-              >
-                {l.label}
-              </a>
-            );
-          })}
+          <a
+            href="#hero"
+            className="font-display text-[#170f49] whitespace-nowrap no-underline"
+            style={{ fontSize: "clamp(13px,1.16vw,20px)", letterSpacing: ".01em" }}
+          >
+            Rakshit Lodha.
+          </a>
+
+          {/* Desktop pill bar */}
+          <div
+            className="hidden md:flex items-center rounded-[clamp(4px,.35vw,6px)] border border-[#f8f8f8] bg-[#eaf1ff]"
+            style={{
+              padding: "clamp(2px,.17vw,3px)",
+              gap: "clamp(1px,.17vw,3px)",
+              filter: "drop-shadow(0 0 2px rgba(0,0,0,.18))",
+            }}
+          >
+            {NAV_LINKS.map((l) => {
+              const id = l.href.slice(1);
+              const isActive = activeId === id;
+              return (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  className={`font-figtree text-center text-[#222] no-underline whitespace-nowrap transition-colors ${
+                    isActive
+                      ? "bg-white font-semibold rounded-[clamp(4px,.46vw,8px)]"
+                      : "font-normal hover:bg-white/60 rounded-[clamp(3px,.23vw,4px)]"
+                  }`}
+                  style={{
+                    padding: "clamp(4px,.35vw,6px) clamp(5px,.46vw,8px)",
+                    fontSize: "clamp(9px,.81vw,14px)",
+                    minWidth: "clamp(52px,5.79vw,100px)",
+                    lineHeight: 1.3,
+                    filter: isActive ? "drop-shadow(0 0 2px rgba(0,0,0,.18))" : undefined,
+                  }}
+                >
+                  {l.label}
+                </a>
+              );
+            })}
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            type="button"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="landing-mobile-menu"
+            onClick={() => setMenuOpen((v) => !v)}
+            className="md:hidden flex items-center justify-center"
+            style={{
+              width: 36,
+              height: 36,
+              borderRadius: 8,
+              background: "#eaf1ff",
+              border: "1px solid #f0f3ff",
+            }}
+          >
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+              {menuOpen ? (
+                <path d="M2 2l14 10M16 2L2 12" stroke="#1a1a2e" strokeWidth="1.8" strokeLinecap="round" />
+              ) : (
+                <>
+                  <path d="M2 2h14" stroke="#1a1a2e" strokeWidth="1.8" strokeLinecap="round" />
+                  <path d="M2 7h14" stroke="#1a1a2e" strokeWidth="1.8" strokeLinecap="round" />
+                  <path d="M2 12h14" stroke="#1a1a2e" strokeWidth="1.8" strokeLinecap="round" />
+                </>
+              )}
+            </svg>
+          </button>
+        </nav>
+
+        {/* Desktop music chip — sits beside the nav */}
+        <div className="hidden lg:block pointer-events-auto">
+          <MusicChipDesktop collapsedHeight={navHeight} />
         </div>
-
-        {/* Mobile hamburger */}
-        <button
-          type="button"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          aria-controls="landing-mobile-menu"
-          onClick={() => setMenuOpen((v) => !v)}
-          className="md:hidden flex items-center justify-center"
-          style={{
-            width: 36,
-            height: 36,
-            borderRadius: 8,
-            background: "#eaf1ff",
-            border: "1px solid #f0f3ff",
-          }}
-        >
-          <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
-            {menuOpen ? (
-              <path d="M2 2l14 10M16 2L2 12" stroke="#1a1a2e" strokeWidth="1.8" strokeLinecap="round" />
-            ) : (
-              <>
-                <path d="M2 2h14" stroke="#1a1a2e" strokeWidth="1.8" strokeLinecap="round" />
-                <path d="M2 7h14" stroke="#1a1a2e" strokeWidth="1.8" strokeLinecap="round" />
-                <path d="M2 12h14" stroke="#1a1a2e" strokeWidth="1.8" strokeLinecap="round" />
-              </>
-            )}
-          </svg>
-        </button>
-      </nav>
+      </div>
 
       {/* Mobile dropdown */}
       {menuOpen && (

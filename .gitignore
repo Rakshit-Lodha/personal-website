@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# lyrics-align tooling
+/scripts/lyrics-align/venv
+/scripts/lyrics-align/__pycache__
+/scripts/lyrics-align/separated

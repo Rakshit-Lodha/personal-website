@@ -1,0 +1,3972 @@
+{
+  "title": "Open It Up",
+  "audio": "music/Open It Up.mp3",
+  "duration": 221.12,
+  "lines": [
+    {
+      "text": "Late-night table, lamp glow, hands on the frame",
+      "start": 12.781,
+      "end": 14.201,
+      "words": [
+        {
+          "word": "Late-night",
+          "start": 12.781,
+          "end": 12.933
+        },
+        {
+          "word": "table,",
+          "start": 12.941,
+          "end": 13.221
+        },
+        {
+          "word": "lamp",
+          "start": 13.241,
+          "end": 13.381
+        },
+        {
+          "word": "glow,",
+          "start": 13.401,
+          "end": 13.681
+        },
+        {
+          "word": "hands",
+          "start": 13.721,
+          "end": 13.861
+        },
+        {
+          "word": "on",
+          "start": 13.881,
+          "end": 13.921
+        },
+        {
+          "word": "the",
+          "start": 13.941,
+          "end": 14.021
+        },
+        {
+          "word": "frame",
+          "start": 14.041,
+          "end": 14.201
+        }
+      ]
+    },
+    {
+      "text": "I take it apart, then I put it back tame",
+      "start": 14.381,
+      "end": 15.721,
+      "words": [
+        {
+          "word": "I",
+          "start": 14.381,
+          "end": 14.461
+        },
+        {
+          "word": "take",
+          "start": 14.481,
+          "end": 14.581
+        },
+        {
+          "word": "it",
+          "start": 14.601,
+          "end": 14.661
+        },
+        {
+          "word": "apart,",
+          "start": 14.721,
+          "end": 14.941
+        },
+        {
+          "word": "then",
+          "start": 14.961,
+          "end": 15.041
+        },
+        {
+          "word": "I",
+          "start": 15.081,
+          "end": 15.101
+        },
+        {
+          "word": "put",
+          "start": 15.121,
+          "end": 15.201
+        },
+        {
+          "word": "it",
+          "start": 15.241,
+          "end": 15.281
+        },
+        {
+          "word": "back",
+          "start": 15.301,
+          "end": 15.421
+        },
+        {
+          "word": "tame",
+          "start": 15.461,
+          "end": 15.721
+        }
+      ]
+    },
+    {
+      "text": "Not for the praise, not for the plaque, not the name",
+      "start": 15.741,
+      "end": 17.142,
+      "words": [
+        {
+          "word": "Not",
+          "start": 15.741,
+          "end": 15.861
+        },
+        {
+          "word": "for",
+          "start": 15.881,
+          "end": 15.961
+        },
+        {
+          "word": "the",
+          "start": 15.981,
+          "end": 16.061
+        },
+        {
+          "word": "praise,",
+          "start": 16.101,
+          "end": 16.381
+        },
+        {
+          "word": "not",
+          "start": 16.401,
+          "end": 16.501
+        },
+        {
+          "word": "for",
+          "start": 16.521,
+          "end": 16.581
+        },
+        {
+          "word": "the",
+          "start": 16.602,
+          "end": 16.682
+        },
+        {
+          "word": "plaque,",
+          "start": 16.702,
+          "end": 16.842
+        },
+        {
+          "word": "not",
+          "start": 16.862,
+          "end": 16.922
+        },
+        {
+          "word": "the",
+          "start": 16.942,
+          "end": 17.022
+        },
+        {
+          "word": "name",
+          "start": 17.042,
+          "end": 17.142
+        }
+      ]
+    },
+    {
+      "text": "For the click of the lock when I map out the game",
+      "start": 17.162,
+      "end": 18.542,
+      "words": [
+        {
+          "word": "For",
+          "start": 17.162,
+          "end": 17.222
+        },
+        {
+          "word": "the",
+          "start": 17.242,
+          "end": 17.342
+        },
+        {
+          "word": "click",
+          "start": 17.362,
+          "end": 17.462
+        },
+        {
+          "word": "of",
+          "start": 17.502,
+          "end": 17.542
+        },
+        {
+          "word": "the",
+          "start": 17.562,
+          "end": 17.642
+        },
+        {
+          "word": "lock",
+          "start": 17.662,
+          "end": 17.762
+        },
+        {
+          "word": "when",
+          "start": 17.782,
+          "end": 17.882
+        },
+        {
+          "word": "I",
+          "start": 17.902,
+          "end": 17.942
+        },
+        {
+          "word": "map",
+          "start": 17.982,
+          "end": 18.062
+        },
+        {
+          "word": "out",
+          "start": 18.102,
+          "end": 18.182
+        },
+        {
+          "word": "the",
+          "start": 18.202,
+          "end": 18.282
+        },
+        {
+          "word": "game",
+          "start": 18.302,
+          "end": 18.542
+        }
+      ]
+    },
+    {
+      "text": "Screws in a dish, chips in a line, mind in a storm",
+      "start": 18.562,
+      "end": 20.382,
+      "words": [
+        {
+          "word": "Screws",
+          "start": 18.562,
+          "end": 18.722
+        },
+        {
+          "word": "in",
+          "start": 18.782,
+          "end": 18.822
+        },
+        {
+          "word": "a",
+          "start": 18.862,
+          "end": 18.902
+        },
+        {
+          "word": "dish,",
+          "start": 18.942,
+          "end": 19.202
+        },
+        {
+          "word": "chips",
+          "start": 19.222,
+          "end": 19.362
+        },
+        {
+          "word": "in",
+          "start": 19.402,
+          "end": 19.462
+        },
+        {
+          "word": "a",
+          "start": 19.522,
+          "end": 19.562
+        },
+        {
+          "word": "line,",
+          "start": 19.582,
+          "end": 19.822
+        },
+        {
+          "word": "mind",
+          "start": 19.842,
+          "end": 19.982
+        },
+        {
+          "word": "in",
+          "start": 20.042,
+          "end": 20.082
+        },
+        {
+          "word": "a",
+          "start": 20.122,
+          "end": 20.162
+        },
+        {
+          "word": "storm",
+          "start": 20.182,
+          "end": 20.382
+        }
+      ]
+    },
+    {
+      "text": "Cut through the skin just to see how it formed",
+      "start": 20.402,
+      "end": 22.242,
+      "words": [
+        {
+          "word": "Cut",
+          "start": 20.402,
+          "end": 20.462
+        },
+        {
+          "word": "through",
+          "start": 20.482,
+          "end": 20.702
+        },
+        {
+          "word": "the",
+          "start": 20.722,
+          "end": 20.802
+        },
+        {
+          "word": "skin",
+          "start": 20.822,
+          "end": 21.122
+        },
+        {
+          "word": "just",
+          "start": 21.142,
+          "end": 21.262
+        },
+        {
+          "word": "to",
+          "start": 21.282,
+          "end": 21.382
+        },
+        {
+          "word": "see",
+          "start": 21.402,
+          "end": 21.562
+        },
+        {
+          "word": "how",
+          "start": 21.602,
+          "end": 21.722
+        },
+        {
+          "word": "it",
+          "start": 21.782,
+          "end": 21.862
+        },
+        {
+          "word": "formed",
+          "start": 21.902,
+          "end": 22.242
+        }
+      ]
+    },
+    {
+      "text": "Every wire, every hinge, every pulse in the core",
+      "start": 22.522,
+      "end": 24.202,
+      "words": [
+        {
+          "word": "Every",
+          "start": 22.522,
+          "end": 23.022
+        },
+        {
+          "word": "wire,",
+          "start": 23.042,
+          "end": 23.182
+        },
+        {
+          "word": "every",
+          "start": 23.202,
+          "end": 23.362
+        },
+        {
+          "word": "hinge,",
+          "start": 23.382,
+          "end": 23.522
+        },
+        {
+          "word": "every",
+          "start": 23.542,
+          "end": 23.662
+        },
+        {
+          "word": "pulse",
+          "start": 23.682,
+          "end": 23.802
+        },
+        {
+          "word": "in",
+          "start": 23.842,
+          "end": 23.882
+        },
+        {
+          "word": "the",
+          "start": 23.902,
+          "end": 23.982
+        },
+        {
+          "word": "core",
+          "start": 24.022,
+          "end": 24.202
+        }
+      ]
+    },
+    {
+      "text": "I don't want magic, I want truth at the source",
+      "start": 24.222,
+      "end": 26.322,
+      "words": [
+        {
+          "word": "I",
+          "start": 24.222,
+          "end": 24.242
+        },
+        {
+          "word": "don't",
+          "start": 24.262,
+          "end": 24.422
+        },
+        {
+          "word": "want",
+          "start": 24.442,
+          "end": 24.582
+        },
+        {
+          "word": "magic,",
+          "start": 24.602,
+          "end": 24.902
+        },
+        {
+          "word": "I",
+          "start": 24.962,
+          "end": 25.042
+        },
+        {
+          "word": "want",
+          "start": 25.062,
+          "end": 25.202
+        },
+        {
+          "word": "truth",
+          "start": 25.222,
+          "end": 25.382
+        },
+        {
+          "word": "at",
+          "start": 25.442,
+          "end": 25.522
+        },
+        {
+          "word": "the",
+          "start": 25.542,
+          "end": 25.642
+        },
+        {
+          "word": "source",
+          "start": 25.682,
+          "end": 26.322
+        }
+      ]
+    },
+    {
+      "text": "I built a calm voice for a stranger in stress",
+      "start": 27.643,
+      "end": 29.823,
+      "words": [
+        {
+          "word": "I",
+          "start": 27.643,
+          "end": 27.743
+        },
+        {
+          "word": "built",
+          "start": 27.763,
+          "end": 27.923
+        },
+        {
+          "word": "a",
+          "start": 28.003,
+          "end": 28.063
+        },
+        {
+          "word": "calm",
+          "start": 28.083,
+          "end": 28.363
+        },
+        {
+          "word": "voice",
+          "start": 28.403,
+          "end": 28.643
+        },
+        {
+          "word": "for",
+          "start": 28.683,
+          "end": 28.843
+        },
+        {
+          "word": "a",
+          "start": 28.903,
+          "end": 28.943
+        },
+        {
+          "word": "stranger",
+          "start": 28.963,
+          "end": 29.263
+        },
+        {
+          "word": "in",
+          "start": 29.283,
+          "end": 29.323
+        },
+        {
+          "word": "stress",
+          "start": 29.443,
+          "end": 29.823
+        }
+      ]
+    },
+    {
+      "text": "Slow like a hand on the back of the chest",
+      "start": 30.243,
+      "end": 32.303,
+      "words": [
+        {
+          "word": "Slow",
+          "start": 30.243,
+          "end": 30.583
+        },
+        {
+          "word": "like",
+          "start": 30.623,
+          "end": 30.723
+        },
+        {
+          "word": "a",
+          "start": 30.843,
+          "end": 30.943
+        },
+        {
+          "word": "hand",
+          "start": 30.983,
+          "end": 31.223
+        },
+        {
+          "word": "on",
+          "start": 31.283,
+          "end": 31.383
+        },
+        {
+          "word": "the",
+          "start": 31.403,
+          "end": 31.523
+        },
+        {
+          "word": "back",
+          "start": 31.563,
+          "end": 31.683
+        },
+        {
+          "word": "of",
+          "start": 31.763,
+          "end": 31.843
+        },
+        {
+          "word": "the",
+          "start": 31.883,
+          "end": 32.023
+        },
+        {
+          "word": "chest",
+          "start": 32.043,
+          "end": 32.303
+        }
+      ]
+    },
+    {
+      "text": "Point by point, debt by debt, breath by breath",
+      "start": 32.543,
+      "end": 35.303,
+      "words": [
+        {
+          "word": "Point",
+          "start": 32.543,
+          "end": 32.803
+        },
+        {
+          "word": "by",
+          "start": 32.843,
+          "end": 33.083
+        },
+        {
+          "word": "point,",
+          "start": 33.163,
+          "end": 33.443
+        },
+        {
+          "word": "debt",
+          "start": 33.483,
+          "end": 33.723
+        },
+        {
+          "word": "by",
+          "start": 33.763,
+          "end": 34.043
+        },
+        {
+          "word": "debt,",
+          "start": 34.103,
+          "end": 34.383
+        },
+        {
+          "word": "breath",
+          "start": 34.423,
+          "end": 34.663
+        },
+        {
+          "word": "by",
+          "start": 34.723,
+          "end": 34.983
+        },
+        {
+          "word": "breath",
+          "start": 35.043,
+          "end": 35.303
+        }
+      ]
+    },
+    {
+      "text": "It won't sell a dream, it just lays out the steps",
+      "start": 35.383,
+      "end": 37.423,
+      "words": [
+        {
+          "word": "It",
+          "start": 35.383,
+          "end": 35.463
+        },
+        {
+          "word": "won't",
+          "start": 35.483,
+          "end": 35.663
+        },
+        {
+          "word": "sell",
+          "start": 35.683,
+          "end": 35.803
+        },
+        {
+          "word": "a",
+          "start": 35.883,
+          "end": 36.003
+        },
+        {
+          "word": "dream,",
+          "start": 36.043,
+          "end": 36.263
+        },
+        {
+          "word": "it",
+          "start": 36.343,
+          "end": 36.423
+        },
+        {
+          "word": "just",
+          "start": 36.443,
+          "end": 36.563
+        },
+        {
+          "word": "lays",
+          "start": 36.603,
+          "end": 36.763
+        },
+        {
+          "word": "out",
+          "start": 36.803,
+          "end": 36.903
+        },
+        {
+          "word": "the",
+          "start": 36.923,
+          "end": 37.043
+        },
+        {
+          "word": "steps",
+          "start": 37.063,
+          "end": 37.423
+        }
+      ]
+    },
+    {
+      "text": "Built me a scout for the hunt through the noise",
+      "start": 37.883,
+      "end": 40.044,
+      "words": [
+        {
+          "word": "Built",
+          "start": 37.883,
+          "end": 38.143
+        },
+        {
+          "word": "me",
+          "start": 38.203,
+          "end": 38.303
+        },
+        {
+          "word": "a",
+          "start": 38.383,
+          "end": 38.443
+        },
+        {
+          "word": "scout",
+          "start": 38.463,
+          "end": 38.744
+        },
+        {
+          "word": "for",
+          "start": 38.804,
+          "end": 38.944
+        },
+        {
+          "word": "the",
+          "start": 38.984,
+          "end": 39.164
+        },
+        {
+          "word": "hunt",
+          "start": 39.224,
+          "end": 39.344
+        },
+        {
+          "word": "through",
+          "start": 39.404,
+          "end": 39.584
+        },
+        {
+          "word": "the",
+          "start": 39.604,
+          "end": 39.724
+        },
+        {
+          "word": "noise",
+          "start": 39.784,
+          "end": 40.044
+        }
+      ]
+    },
+    {
+      "text": "Doesn't fake certainty, doesn't cosplay a voice",
+      "start": 40.084,
+      "end": 42.564,
+      "words": [
+        {
+          "word": "Doesn't",
+          "start": 40.084,
+          "end": 40.404
+        },
+        {
+          "word": "fake",
+          "start": 40.444,
+          "end": 40.644
+        },
+        {
+          "word": "certainty,",
+          "start": 40.684,
+          "end": 41.324
+        },
+        {
+          "word": "doesn't",
+          "start": 41.364,
+          "end": 41.664
+        },
+        {
+          "word": "cosplay",
+          "start": 41.704,
+          "end": 42.124
+        },
+        {
+          "word": "a",
+          "start": 42.204,
+          "end": 42.284
+        },
+        {
+          "word": "voice",
+          "start": 42.304,
+          "end": 42.564
+        }
+      ]
+    },
+    {
+      "text": "It tells me what fits and it tells me what flops",
+      "start": 42.644,
+      "end": 45.124,
+      "words": [
+        {
+          "word": "It",
+          "start": 42.644,
+          "end": 42.744
+        },
+        {
+          "word": "tells",
+          "start": 42.764,
+          "end": 43.004
+        },
+        {
+          "word": "me",
+          "start": 43.044,
+          "end": 43.224
+        },
+        {
+          "word": "what",
+          "start": 43.244,
+          "end": 43.544
+        },
+        {
+          "word": "fits",
+          "start": 43.604,
+          "end": 43.844
+        },
+        {
+          "word": "and",
+          "start": 43.924,
+          "end": 44.004
+        },
+        {
+          "word": "it",
+          "start": 44.064,
+          "end": 44.164
+        },
+        {
+          "word": "tells",
+          "start": 44.184,
+          "end": 44.324
+        },
+        {
+          "word": "me",
+          "start": 44.364,
+          "end": 44.504
+        },
+        {
+          "word": "what",
+          "start": 44.544,
+          "end": 44.724
+        },
+        {
+          "word": "flops",
+          "start": 44.804,
+          "end": 45.124
+        }
+      ]
+    },
+    {
+      "text": "If I'm not the right one, it still says stop",
+      "start": 45.184,
+      "end": 47.604,
+      "words": [
+        {
+          "word": "If",
+          "start": 45.184,
+          "end": 45.264
+        },
+        {
+          "word": "I'm",
+          "start": 45.324,
+          "end": 45.444
+        },
+        {
+          "word": "not",
+          "start": 45.464,
+          "end": 45.584
+        },
+        {
+          "word": "the",
+          "start": 45.624,
+          "end": 45.784
+        },
+        {
+          "word": "right",
+          "start": 45.804,
+          "end": 46.064
+        },
+        {
+          "word": "one,",
+          "start": 46.184,
+          "end": 46.344
+        },
+        {
+          "word": "it",
+          "start": 46.564,
+          "end": 46.644
+        },
+        {
+          "word": "still",
+          "start": 46.664,
+          "end": 46.944
+        },
+        {
+          "word": "says",
+          "start": 46.984,
+          "end": 47.264
+        },
+        {
+          "word": "stop",
+          "start": 47.284,
+          "end": 47.604
+        }
+      ]
+    },
+    {
+      "text": "Built a news blade that trims down the flood",
+      "start": 47.964,
+      "end": 50.145,
+      "words": [
+        {
+          "word": "Built",
+          "start": 47.964,
+          "end": 48.124
+        },
+        {
+          "word": "a",
+          "start": 48.204,
+          "end": 48.304
+        },
+        {
+          "word": "news",
+          "start": 48.344,
+          "end": 48.544
+        },
+        {
+          "word": "blade",
+          "start": 48.604,
+          "end": 48.904
+        },
+        {
+          "word": "that",
+          "start": 48.944,
+          "end": 49.184
+        },
+        {
+          "word": "trims",
+          "start": 49.244,
+          "end": 49.524
+        },
+        {
+          "word": "down",
+          "start": 49.544,
+          "end": 49.684
+        },
+        {
+          "word": "the",
+          "start": 49.724,
+          "end": 49.845
+        },
+        {
+          "word": "flood",
+          "start": 49.865,
+          "end": 50.145
+        }
+      ]
+    },
+    {
+      "text": "Turns a whole world riot to a sip, not a shove",
+      "start": 50.165,
+      "end": 52.665,
+      "words": [
+        {
+          "word": "Turns",
+          "start": 50.165,
+          "end": 50.345
+        },
+        {
+          "word": "a",
+          "start": 50.425,
+          "end": 50.545
+        },
+        {
+          "word": "whole",
+          "start": 50.565,
+          "end": 50.785
+        },
+        {
+          "word": "world",
+          "start": 50.825,
+          "end": 51.085
+        },
+        {
+          "word": "riot",
+          "start": 51.125,
+          "end": 51.405
+        },
+        {
+          "word": "to",
+          "start": 51.445,
+          "end": 51.565
+        },
+        {
+          "word": "a",
+          "start": 51.645,
+          "end": 51.745
+        },
+        {
+          "word": "sip,",
+          "start": 51.805,
+          "end": 52.065
+        },
+        {
+          "word": "not",
+          "start": 52.085,
+          "end": 52.185
+        },
+        {
+          "word": "a",
+          "start": 52.265,
+          "end": 52.365
+        },
+        {
+          "word": "shove",
+          "start": 52.425,
+          "end": 52.665
+        }
+      ]
+    },
+    {
+      "text": "And a search that can hear what you meant in your skull",
+      "start": 52.745,
+      "end": 55.205,
+      "words": [
+        {
+          "word": "And",
+          "start": 52.745,
+          "end": 52.845
+        },
+        {
+          "word": "a",
+          "start": 52.925,
+          "end": 53.005
+        },
+        {
+          "word": "search",
+          "start": 53.045,
+          "end": 53.285
+        },
+        {
+          "word": "that",
+          "start": 53.325,
+          "end": 53.465
+        },
+        {
+          "word": "can",
+          "start": 53.485,
+          "end": 53.685
+        },
+        {
+          "word": "hear",
+          "start": 53.725,
+          "end": 53.925
+        },
+        {
+          "word": "what",
+          "start": 53.965,
+          "end": 54.105
+        },
+        {
+          "word": "you",
+          "start": 54.125,
+          "end": 54.325
+        },
+        {
+          "word": "meant",
+          "start": 54.365,
+          "end": 54.525
+        },
+        {
+          "word": "in",
+          "start": 54.605,
+          "end": 54.705
+        },
+        {
+          "word": "your",
+          "start": 54.725,
+          "end": 54.845
+        },
+        {
+          "word": "skull",
+          "start": 54.865,
+          "end": 55.205
+        }
+      ]
+    },
+    {
+      "text": "Not the words on the page, but the shape of the pull",
+      "start": 55.225,
+      "end": 58.025,
+      "words": [
+        {
+          "word": "Not",
+          "start": 55.225,
+          "end": 55.345
+        },
+        {
+          "word": "the",
+          "start": 55.385,
+          "end": 55.565
+        },
+        {
+          "word": "words",
+          "start": 55.585,
+          "end": 55.845
+        },
+        {
+          "word": "on",
+          "start": 55.905,
+          "end": 56.005
+        },
+        {
+          "word": "the",
+          "start": 56.025,
+          "end": 56.185
+        },
+        {
+          "word": "page,",
+          "start": 56.225,
+          "end": 56.485
+        },
+        {
+          "word": "but",
+          "start": 56.505,
+          "end": 56.625
+        },
+        {
+          "word": "the",
+          "start": 56.665,
+          "end": 56.805
+        },
+        {
+          "word": "shape",
+          "start": 56.865,
+          "end": 57.125
+        },
+        {
+          "word": "of",
+          "start": 57.205,
+          "end": 57.285
+        },
+        {
+          "word": "the",
+          "start": 57.305,
+          "end": 57.465
+        },
+        {
+          "word": "pull",
+          "start": 57.505,
+          "end": 58.025
+        }
+      ]
+    },
+    {
+      "text": "I like the edge where the lie starts dying",
+      "start": 58.305,
+      "end": 60.585,
+      "words": [
+        {
+          "word": "I",
+          "start": 58.305,
+          "end": 58.365
+        },
+        {
+          "word": "like",
+          "start": 58.405,
+          "end": 58.545
+        },
+        {
+          "word": "the",
+          "start": 58.585,
+          "end": 58.725
+        },
+        {
+          "word": "edge",
+          "start": 58.825,
+          "end": 58.985
+        },
+        {
+          "word": "where",
+          "start": 59.025,
+          "end": 59.185
+        },
+        {
+          "word": "the",
+          "start": 59.205,
+          "end": 59.325
+        },
+        {
+          "word": "lie",
+          "start": 59.365,
+          "end": 59.605
+        },
+        {
+          "word": "starts",
+          "start": 59.625,
+          "end": 59.945
+        },
+        {
+          "word": "dying",
+          "start": 59.985,
+          "end": 60.585
+        }
+      ]
+    },
+    {
+      "text": "I like the code when the gears stop hiding",
+      "start": 60.846,
+      "end": 63.226,
+      "words": [
+        {
+          "word": "I",
+          "start": 60.846,
+          "end": 60.926
+        },
+        {
+          "word": "like",
+          "start": 60.946,
+          "end": 61.066
+        },
+        {
+          "word": "the",
+          "start": 61.106,
+          "end": 61.246
+        },
+        {
+          "word": "code",
+          "start": 61.286,
+          "end": 61.566
+        },
+        {
+          "word": "when",
+          "start": 61.606,
+          "end": 61.706
+        },
+        {
+          "word": "the",
+          "start": 61.746,
+          "end": 61.906
+        },
+        {
+          "word": "gears",
+          "start": 61.926,
+          "end": 62.146
+        },
+        {
+          "word": "stop",
+          "start": 62.186,
+          "end": 62.446
+        },
+        {
+          "word": "hiding",
+          "start": 62.546,
+          "end": 63.226
+        }
+      ]
+    },
+    {
+      "text": "If it can't say, \"I don't know,\" keep sliding",
+      "start": 63.246,
+      "end": 65.766,
+      "words": [
+        {
+          "word": "If",
+          "start": 63.246,
+          "end": 63.406
+        },
+        {
+          "word": "it",
+          "start": 63.426,
+          "end": 63.506
+        },
+        {
+          "word": "can't",
+          "start": 63.546,
+          "end": 63.806
+        },
+        {
+          "word": "say,",
+          "start": 63.846,
+          "end": 64.046
+        },
+        {
+          "word": "\"I",
+          "start": 64.066,
+          "end": 64.286
+        },
+        {
+          "word": "don't",
+          "start": 64.326,
+          "end": 64.486
+        },
+        {
+          "word": "know,\"",
+          "start": 64.506,
+          "end": 64.766
+        },
+        {
+          "word": "keep",
+          "start": 64.806,
+          "end": 65.046
+        },
+        {
+          "word": "sliding",
+          "start": 65.086,
+          "end": 65.766
+        }
+      ]
+    },
+    {
+      "text": "I only trust what survives my prying",
+      "start": 66.046,
+      "end": 69.026,
+      "words": [
+        {
+          "word": "I",
+          "start": 66.046,
+          "end": 66.106
+        },
+        {
+          "word": "only",
+          "start": 66.166,
+          "end": 66.366
+        },
+        {
+          "word": "trust",
+          "start": 66.446,
+          "end": 66.706
+        },
+        {
+          "word": "what",
+          "start": 66.746,
+          "end": 66.906
+        },
+        {
+          "word": "survives",
+          "start": 66.926,
+          "end": 67.366
+        },
+        {
+          "word": "my",
+          "start": 67.426,
+          "end": 67.606
+        },
+        {
+          "word": "prying",
+          "start": 67.726,
+          "end": 69.026
+        }
+      ]
+    },
+    {
+      "text": "Honest thing, honest thing",
+      "start": 69.306,
+      "end": 70.886,
+      "words": [
+        {
+          "word": "Honest",
+          "start": 69.306,
+          "end": 69.626
+        },
+        {
+          "word": "thing,",
+          "start": 69.646,
+          "end": 69.946
+        },
+        {
+          "word": "honest",
+          "start": 70.266,
+          "end": 70.566
+        },
+        {
+          "word": "thing",
+          "start": 70.606,
+          "end": 70.886
+        }
+      ]
+    },
+    {
+      "text": "Say it plain, let it ring",
+      "start": 71.806,
+      "end": 74.067,
+      "words": [
+        {
+          "word": "Say",
+          "start": 71.806,
+          "end": 72.007
+        },
+        {
+          "word": "it",
+          "start": 72.067,
+          "end": 72.127
+        },
+        {
+          "word": "plain,",
+          "start": 72.167,
+          "end": 72.527
+        },
+        {
+          "word": "let",
+          "start": 72.787,
+          "end": 72.967
+        },
+        {
+          "word": "it",
+          "start": 73.047,
+          "end": 73.127
+        },
+        {
+          "word": "ring",
+          "start": 73.147,
+          "end": 74.067
+        }
+      ]
+    },
+    {
+      "text": "Honest thing, honest thing",
+      "start": 74.407,
+      "end": 75.967,
+      "words": [
+        {
+          "word": "Honest",
+          "start": 74.407,
+          "end": 74.707
+        },
+        {
+          "word": "thing,",
+          "start": 74.727,
+          "end": 75.007
+        },
+        {
+          "word": "honest",
+          "start": 75.347,
+          "end": 75.627
+        },
+        {
+          "word": "thing",
+          "start": 75.687,
+          "end": 75.967
+        }
+      ]
+    },
+    {
+      "text": "Built to break, built to sing",
+      "start": 76.767,
+      "end": 78.667,
+      "words": [
+        {
+          "word": "Built",
+          "start": 76.767,
+          "end": 77.067
+        },
+        {
+          "word": "to",
+          "start": 77.107,
+          "end": 77.227
+        },
+        {
+          "word": "break,",
+          "start": 77.267,
+          "end": 77.547
+        },
+        {
+          "word": "built",
+          "start": 77.887,
+          "end": 78.107
+        },
+        {
+          "word": "to",
+          "start": 78.187,
+          "end": 78.327
+        },
+        {
+          "word": "sing",
+          "start": 78.367,
+          "end": 78.667
+        }
+      ]
+    },
+    {
+      "text": "No big act, no shiny skin",
+      "start": 78.707,
+      "end": 80.887,
+      "words": [
+        {
+          "word": "No",
+          "start": 78.707,
+          "end": 78.827
+        },
+        {
+          "word": "big",
+          "start": 78.867,
+          "end": 79.167
+        },
+        {
+          "word": "act,",
+          "start": 79.267,
+          "end": 79.427
+        },
+        {
+          "word": "no",
+          "start": 79.467,
+          "end": 79.707
+        },
+        {
+          "word": "shiny",
+          "start": 79.747,
+          "end": 80.307
+        },
+        {
+          "word": "skin",
+          "start": 80.327,
+          "end": 80.887
+        }
+      ]
+    },
+    {
+      "text": "If it works, then let it in",
+      "start": 80.967,
+      "end": 83.328,
+      "words": [
+        {
+          "word": "If",
+          "start": 80.967,
+          "end": 81.127
+        },
+        {
+          "word": "it",
+          "start": 81.307,
+          "end": 81.447
+        },
+        {
+          "word": "works,",
+          "start": 81.507,
+          "end": 81.907
+        },
+        {
+          "word": "then",
+          "start": 81.987,
+          "end": 82.267
+        },
+        {
+          "word": "let",
+          "start": 82.307,
+          "end": 82.507
+        },
+        {
+          "word": "it",
+          "start": 82.707,
+          "end": 82.787
+        },
+        {
+          "word": "in",
+          "start": 83.128,
+          "end": 83.328
+        }
+      ]
+    },
+    {
+      "text": "Honest thing, honest thing",
+      "start": 84.528,
+      "end": 86.948,
+      "words": [
+        {
+          "word": "Honest",
+          "start": 84.528,
+          "end": 84.848
+        },
+        {
+          "word": "thing,",
+          "start": 84.888,
+          "end": 85.168
+        },
+        {
+          "word": "honest",
+          "start": 85.508,
+          "end": 85.828
+        },
+        {
+          "word": "thing",
+          "start": 85.888,
+          "end": 86.948
+        }
+      ]
+    },
+    {
+      "text": "That's the only way I win",
+      "start": 87.368,
+      "end": 89.368,
+      "words": [
+        {
+          "word": "That's",
+          "start": 87.368,
+          "end": 87.628
+        },
+        {
+          "word": "the",
+          "start": 87.668,
+          "end": 87.768
+        },
+        {
+          "word": "only",
+          "start": 88.008,
+          "end": 88.288
+        },
+        {
+          "word": "way",
+          "start": 88.448,
+          "end": 88.768
+        },
+        {
+          "word": "I",
+          "start": 88.968,
+          "end": 89.068
+        },
+        {
+          "word": "win",
+          "start": 89.288,
+          "end": 89.368
+        }
+      ]
+    },
+    {
+      "text": "I don't need chrome, I need bones and a backbone",
+      "start": 89.408,
+      "end": 90.668,
+      "words": [
+        {
+          "word": "I",
+          "start": 89.408,
+          "end": 89.448
+        },
+        {
+          "word": "don't",
+          "start": 89.468,
+          "end": 89.588
+        },
+        {
+          "word": "need",
+          "start": 89.608,
+          "end": 89.688
+        },
+        {
+          "word": "chrome,",
+          "start": 89.708,
+          "end": 89.908
+        },
+        {
+          "word": "I",
+          "start": 89.928,
+          "end": 89.948
+        },
+        {
+          "word": "need",
+          "start": 89.968,
+          "end": 90.048
+        },
+        {
+          "word": "bones",
+          "start": 90.068,
+          "end": 90.208
+        },
+        {
+          "word": "and",
+          "start": 90.228,
+          "end": 90.288
+        },
+        {
+          "word": "a",
+          "start": 90.328,
+          "end": 90.368
+        },
+        {
+          "word": "backbone",
+          "start": 90.388,
+          "end": 90.668
+        }
+      ]
+    },
+    {
+      "text": "Need a tool that can stand where the facts go",
+      "start": 90.688,
+      "end": 91.788,
+      "words": [
+        {
+          "word": "Need",
+          "start": 90.688,
+          "end": 90.768
+        },
+        {
+          "word": "a",
+          "start": 90.808,
+          "end": 90.848
+        },
+        {
+          "word": "tool",
+          "start": 90.868,
+          "end": 90.968
+        },
+        {
+          "word": "that",
+          "start": 90.988,
+          "end": 91.068
+        },
+        {
+          "word": "can",
+          "start": 91.088,
+          "end": 91.148
+        },
+        {
+          "word": "stand",
+          "start": 91.168,
+          "end": 91.268
+        },
+        {
+          "word": "where",
+          "start": 91.288,
+          "end": 91.388
+        },
+        {
+          "word": "the",
+          "start": 91.408,
+          "end": 91.468
+        },
+        {
+          "word": "facts",
+          "start": 91.488,
+          "end": 91.628
+        },
+        {
+          "word": "go",
+          "start": 91.668,
+          "end": 91.788
+        }
+      ]
+    },
+    {
+      "text": "Need a voice that won't lean on a sweet little lie",
+      "start": 91.888,
+      "end": 93.208,
+      "words": [
+        {
+          "word": "Need",
+          "start": 91.888,
+          "end": 92.028
+        },
+        {
+          "word": "a",
+          "start": 92.048,
+          "end": 92.088
+        },
+        {
+          "word": "voice",
+          "start": 92.108,
+          "end": 92.228
+        },
+        {
+          "word": "that",
+          "start": 92.248,
+          "end": 92.328
+        },
+        {
+          "word": "won't",
+          "start": 92.348,
+          "end": 92.448
+        },
+        {
+          "word": "lean",
+          "start": 92.468,
+          "end": 92.548
+        },
+        {
+          "word": "on",
+          "start": 92.588,
+          "end": 92.628
+        },
+        {
+          "word": "a",
+          "start": 92.688,
+          "end": 92.708
+        },
+        {
+          "word": "sweet",
+          "start": 92.728,
+          "end": 92.868
+        },
+        {
+          "word": "little",
+          "start": 92.908,
+          "end": 93.068
+        },
+        {
+          "word": "lie",
+          "start": 93.088,
+          "end": 93.208
+        }
+      ]
+    },
+    {
+      "text": "Just to keep a face on a difficult night",
+      "start": 93.228,
+      "end": 94.449,
+      "words": [
+        {
+          "word": "Just",
+          "start": 93.228,
+          "end": 93.328
+        },
+        {
+          "word": "to",
+          "start": 93.348,
+          "end": 93.388
+        },
+        {
+          "word": "keep",
+          "start": 93.408,
+          "end": 93.528
+        },
+        {
+          "word": "a",
+          "start": 93.588,
+          "end": 93.688
+        },
+        {
+          "word": "face",
+          "start": 93.708,
+          "end": 93.848
+        },
+        {
+          "word": "on",
+          "start": 93.888,
+          "end": 93.928
+        },
+        {
+          "word": "a",
+          "start": 93.968,
+          "end": 94.009
+        },
+        {
+          "word": "difficult",
+          "start": 94.029,
+          "end": 94.329
+        },
+        {
+          "word": "night",
+          "start": 94.349,
+          "end": 94.449
+        }
+      ]
+    },
+    {
+      "text": "So I made one that talks like a steady old guide",
+      "start": 94.469,
+      "end": 95.749,
+      "words": [
+        {
+          "word": "So",
+          "start": 94.469,
+          "end": 94.549
+        },
+        {
+          "word": "I",
+          "start": 94.589,
+          "end": 94.629
+        },
+        {
+          "word": "made",
+          "start": 94.669,
+          "end": 94.769
+        },
+        {
+          "word": "one",
+          "start": 94.809,
+          "end": 94.869
+        },
+        {
+          "word": "that",
+          "start": 94.889,
+          "end": 94.969
+        },
+        {
+          "word": "talks",
+          "start": 94.989,
+          "end": 95.089
+        },
+        {
+          "word": "like",
+          "start": 95.109,
+          "end": 95.189
+        },
+        {
+          "word": "a",
+          "start": 95.209,
+          "end": 95.229
+        },
+        {
+          "word": "steady",
+          "start": 95.249,
+          "end": 95.409
+        },
+        {
+          "word": "old",
+          "start": 95.469,
+          "end": 95.589
+        },
+        {
+          "word": "guide",
+          "start": 95.609,
+          "end": 95.749
+        }
+      ]
+    },
+    {
+      "text": "No hard sell, no smoke, no borrowed pride",
+      "start": 95.789,
+      "end": 97.149,
+      "words": [
+        {
+          "word": "No",
+          "start": 95.789,
+          "end": 95.889
+        },
+        {
+          "word": "hard",
+          "start": 95.929,
+          "end": 96.069
+        },
+        {
+          "word": "sell,",
+          "start": 96.089,
+          "end": 96.229
+        },
+        {
+          "word": "no",
+          "start": 96.249,
+          "end": 96.349
+        },
+        {
+          "word": "smoke,",
+          "start": 96.369,
+          "end": 96.549
+        },
+        {
+          "word": "no",
+          "start": 96.569,
+          "end": 96.689
+        },
+        {
+          "word": "borrowed",
+          "start": 96.709,
+          "end": 96.889
+        },
+        {
+          "word": "pride",
+          "start": 96.909,
+          "end": 97.149
+        }
+      ]
+    },
+    {
+      "text": "Walks you through bills with a patient tone",
+      "start": 97.169,
+      "end": 98.309,
+      "words": [
+        {
+          "word": "Walks",
+          "start": 97.169,
+          "end": 97.289
+        },
+        {
+          "word": "you",
+          "start": 97.309,
+          "end": 97.369
+        },
+        {
+          "word": "through",
+          "start": 97.389,
+          "end": 97.529
+        },
+        {
+          "word": "bills",
+          "start": 97.549,
+          "end": 97.649
+        },
+        {
+          "word": "with",
+          "start": 97.669,
+          "end": 97.749
+        },
+        {
+          "word": "a",
+          "start": 97.769,
+          "end": 97.809
+        },
+        {
+          "word": "patient",
+          "start": 97.829,
+          "end": 98.129
+        },
+        {
+          "word": "tone",
+          "start": 98.169,
+          "end": 98.309
+        }
+      ]
+    },
+    {
+      "text": "Like, \"Here's what it is, and you're not alone\"",
+      "start": 98.329,
+      "end": 100.969,
+      "words": [
+        {
+          "word": "Like,",
+          "start": 98.329,
+          "end": 98.429
+        },
+        {
+          "word": "\"Here's",
+          "start": 98.449,
+          "end": 98.589
+        },
+        {
+          "word": "what",
+          "start": 98.609,
+          "end": 98.689
+        },
+        {
+          "word": "it",
+          "start": 98.729,
+          "end": 98.789
+        },
+        {
+          "word": "is,",
+          "start": 98.849,
+          "end": 99.009
+        },
+        {
+          "word": "and",
+          "start": 99.049,
+          "end": 99.109
+        },
+        {
+          "word": "you're",
+          "start": 99.129,
+          "end": 99.249
+        },
+        {
+          "word": "not",
+          "start": 99.269,
+          "end": 99.389
+        },
+        {
+          "word": "alone\"",
+          "start": 99.409,
+          "end": 100.969
+        }
+      ]
+    },
+    {
+      "text": "Then I built one to speak when they ask who I am",
+      "start": 100.989,
+      "end": 103.529,
+      "words": [
+        {
+          "word": "Then",
+          "start": 100.989,
+          "end": 101.149
+        },
+        {
+          "word": "I",
+          "start": 101.209,
+          "end": 101.289
+        },
+        {
+          "word": "built",
+          "start": 101.309,
+          "end": 101.609
+        },
+        {
+          "word": "one",
+          "start": 101.689,
+          "end": 101.769
+        },
+        {
+          "word": "to",
+          "start": 101.789,
+          "end": 101.929
+        },
+        {
+          "word": "speak",
+          "start": 101.949,
+          "end": 102.229
+        },
+        {
+          "word": "when",
+          "start": 102.269,
+          "end": 102.389
+        },
+        {
+          "word": "they",
+          "start": 102.409,
+          "end": 102.569
+        },
+        {
+          "word": "ask",
+          "start": 102.689,
+          "end": 102.829
+        },
+        {
+          "word": "who",
+          "start": 102.869,
+          "end": 103.009
+        },
+        {
+          "word": "I",
+          "start": 103.149,
+          "end": 103.249
+        },
+        {
+          "word": "am",
+          "start": 103.349,
+          "end": 103.529
+        }
+      ]
+    },
+    {
+      "text": "It don't overshoot, it don't stretch for a grand",
+      "start": 103.749,
+      "end": 106.07,
+      "words": [
+        {
+          "word": "It",
+          "start": 103.749,
+          "end": 103.869
+        },
+        {
+          "word": "don't",
+          "start": 103.909,
+          "end": 104.069
+        },
+        {
+          "word": "overshoot,",
+          "start": 104.209,
+          "end": 104.789
+        },
+        {
+          "word": "it",
+          "start": 104.849,
+          "end": 104.929
+        },
+        {
+          "word": "don't",
+          "start": 104.969,
+          "end": 105.13
+        },
+        {
+          "word": "stretch",
+          "start": 105.15,
+          "end": 105.39
+        },
+        {
+          "word": "for",
+          "start": 105.43,
+          "end": 105.57
+        },
+        {
+          "word": "a",
+          "start": 105.65,
+          "end": 105.75
+        },
+        {
+          "word": "grand",
+          "start": 105.79,
+          "end": 106.07
+        }
+      ]
+    },
+    {
+      "text": "It says, \"He can fit here, he can grow with the crew\"",
+      "start": 106.13,
+      "end": 108.41,
+      "words": [
+        {
+          "word": "It",
+          "start": 106.13,
+          "end": 106.19
+        },
+        {
+          "word": "says,",
+          "start": 106.21,
+          "end": 106.37
+        },
+        {
+          "word": "\"He",
+          "start": 106.39,
+          "end": 106.51
+        },
+        {
+          "word": "can",
+          "start": 106.53,
+          "end": 106.69
+        },
+        {
+          "word": "fit",
+          "start": 106.75,
+          "end": 107.03
+        },
+        {
+          "word": "here,",
+          "start": 107.05,
+          "end": 107.35
+        },
+        {
+          "word": "he",
+          "start": 107.37,
+          "end": 107.47
+        },
+        {
+          "word": "can",
+          "start": 107.49,
+          "end": 107.65
+        },
+        {
+          "word": "grow",
+          "start": 107.69,
+          "end": 107.81
+        },
+        {
+          "word": "with",
+          "start": 107.83,
+          "end": 107.95
+        },
+        {
+          "word": "the",
+          "start": 107.99,
+          "end": 108.09
+        },
+        {
+          "word": "crew\"",
+          "start": 108.13,
+          "end": 108.41
+        }
+      ]
+    },
+    {
+      "text": "But it won't dress me up in a shine I can't prove",
+      "start": 108.47,
+      "end": 111.17,
+      "words": [
+        {
+          "word": "But",
+          "start": 108.47,
+          "end": 108.63
+        },
+        {
+          "word": "it",
+          "start": 108.69,
+          "end": 108.77
+        },
+        {
+          "word": "won't",
+          "start": 108.81,
+          "end": 109.09
+        },
+        {
+          "word": "dress",
+          "start": 109.11,
+          "end": 109.35
+        },
+        {
+          "word": "me",
+          "start": 109.41,
+          "end": 109.59
+        },
+        {
+          "word": "up",
+          "start": 109.67,
+          "end": 109.73
+        },
+        {
+          "word": "in",
+          "start": 109.81,
+          "end": 109.89
+        },
+        {
+          "word": "a",
+          "start": 109.97,
+          "end": 110.03
+        },
+        {
+          "word": "shine",
+          "start": 110.07,
+          "end": 110.39
+        },
+        {
+          "word": "I",
+          "start": 110.45,
+          "end": 110.55
+        },
+        {
+          "word": "can't",
+          "start": 110.57,
+          "end": 110.87
+        },
+        {
+          "word": "prove",
+          "start": 110.91,
+          "end": 111.17
+        }
+      ]
+    },
+    {
+      "text": "That's the part people miss in the first quick glance",
+      "start": 111.21,
+      "end": 113.75,
+      "words": [
+        {
+          "word": "That's",
+          "start": 111.21,
+          "end": 111.35
+        },
+        {
+          "word": "the",
+          "start": 111.37,
+          "end": 111.53
+        },
+        {
+          "word": "part",
+          "start": 111.55,
+          "end": 111.81
+        },
+        {
+          "word": "people",
+          "start": 111.85,
+          "end": 112.19
+        },
+        {
+          "word": "miss",
+          "start": 112.21,
+          "end": 112.43
+        },
+        {
+          "word": "in",
+          "start": 112.51,
+          "end": 112.59
+        },
+        {
+          "word": "the",
+          "start": 112.63,
+          "end": 112.79
+        },
+        {
+          "word": "first",
+          "start": 112.81,
+          "end": 113.05
+        },
+        {
+          "word": "quick",
+          "start": 113.13,
+          "end": 113.37
+        },
+        {
+          "word": "glance",
+          "start": 113.43,
+          "end": 113.75
+        }
+      ]
+    },
+    {
+      "text": "I'm not chasing applause, I'm chasing the stance",
+      "start": 113.79,
+      "end": 116.311,
+      "words": [
+        {
+          "word": "I'm",
+          "start": 113.79,
+          "end": 113.91
+        },
+        {
+          "word": "not",
+          "start": 113.95,
+          "end": 114.11
+        },
+        {
+          "word": "chasing",
+          "start": 114.13,
+          "end": 114.53
+        },
+        {
+          "word": "applause,",
+          "start": 114.61,
+          "end": 115.09
+        },
+        {
+          "word": "I'm",
+          "start": 115.13,
+          "end": 115.41
+        },
+        {
+          "word": "chasing",
+          "start": 115.43,
+          "end": 115.83
+        },
+        {
+          "word": "the",
+          "start": 115.85,
+          "end": 115.99
+        },
+        {
+          "word": "stance",
+          "start": 116.01,
+          "end": 116.311
+        }
+      ]
+    },
+    {
+      "text": "Of a thing that can fail and still tell you why",
+      "start": 116.391,
+      "end": 118.831,
+      "words": [
+        {
+          "word": "Of",
+          "start": 116.391,
+          "end": 116.451
+        },
+        {
+          "word": "a",
+          "start": 116.531,
+          "end": 116.651
+        },
+        {
+          "word": "thing",
+          "start": 116.691,
+          "end": 116.931
+        },
+        {
+          "word": "that",
+          "start": 116.971,
+          "end": 117.091
+        },
+        {
+          "word": "can",
+          "start": 117.111,
+          "end": 117.291
+        },
+        {
+          "word": "fail",
+          "start": 117.371,
+          "end": 117.611
+        },
+        {
+          "word": "and",
+          "start": 117.651,
+          "end": 117.771
+        },
+        {
+          "word": "still",
+          "start": 117.791,
+          "end": 118.051
+        },
+        {
+          "word": "tell",
+          "start": 118.091,
+          "end": 118.331
+        },
+        {
+          "word": "you",
+          "start": 118.371,
+          "end": 118.531
+        },
+        {
+          "word": "why",
+          "start": 118.571,
+          "end": 118.831
+        }
+      ]
+    },
+    {
+      "text": "A clean little cut with a clear-eyed lie? I don't buy",
+      "start": 119.111,
+      "end": 122.071,
+      "words": [
+        {
+          "word": "A",
+          "start": 119.111,
+          "end": 119.151
+        },
+        {
+          "word": "clean",
+          "start": 119.231,
+          "end": 119.511
+        },
+        {
+          "word": "little",
+          "start": 119.531,
+          "end": 119.831
+        },
+        {
+          "word": "cut",
+          "start": 119.891,
+          "end": 120.151
+        },
+        {
+          "word": "with",
+          "start": 120.171,
+          "end": 120.311
+        },
+        {
+          "word": "a",
+          "start": 120.411,
+          "end": 120.511
+        },
+        {
+          "word": "clear-eyed",
+          "start": 120.551,
+          "end": 121.071
+        },
+        {
+          "word": "lie?",
+          "start": 121.151,
+          "end": 121.451
+        },
+        {
+          "word": "I",
+          "start": 121.511,
+          "end": 121.571
+        },
+        {
+          "word": "don't",
+          "start": 121.591,
+          "end": 121.751
+        },
+        {
+          "word": "buy",
+          "start": 121.791,
+          "end": 122.071
+        }
+      ]
+    },
+    {
+      "text": "I'm in the crawlspace, cross-legged, tracing the line",
+      "start": 122.151,
+      "end": 123.971,
+      "words": [
+        {
+          "word": "I'm",
+          "start": 122.151,
+          "end": 122.231
+        },
+        {
+          "word": "in",
+          "start": 122.251,
+          "end": 122.291
+        },
+        {
+          "word": "the",
+          "start": 122.311,
+          "end": 122.391
+        },
+        {
+          "word": "crawlspace,",
+          "start": 122.411,
+          "end": 122.851
+        },
+        {
+          "word": "cross-legged,",
+          "start": 122.891,
+          "end": 123.331
+        },
+        {
+          "word": "tracing",
+          "start": 123.351,
+          "end": 123.591
+        },
+        {
+          "word": "the",
+          "start": 123.611,
+          "end": 123.691
+        },
+        {
+          "word": "line",
+          "start": 123.731,
+          "end": 123.971
+        }
+      ]
+    },
+    {
+      "text": "Back to the switch and the spark and the sign",
+      "start": 124.011,
+      "end": 125.271,
+      "words": [
+        {
+          "word": "Back",
+          "start": 124.011,
+          "end": 124.111
+        },
+        {
+          "word": "to",
+          "start": 124.151,
+          "end": 124.211
+        },
+        {
+          "word": "the",
+          "start": 124.231,
+          "end": 124.291
+        },
+        {
+          "word": "switch",
+          "start": 124.311,
+          "end": 124.451
+        },
+        {
+          "word": "and",
+          "start": 124.471,
+          "end": 124.531
+        },
+        {
+          "word": "the",
+          "start": 124.551,
+          "end": 124.611
+        },
+        {
+          "word": "spark",
+          "start": 124.631,
+          "end": 124.771
+        },
+        {
+          "word": "and",
+          "start": 124.811,
+          "end": 124.871
+        },
+        {
+          "word": "the",
+          "start": 124.891,
+          "end": 124.971
+        },
+        {
+          "word": "sign",
+          "start": 125.011,
+          "end": 125.271
+        }
+      ]
+    },
+    {
+      "text": "If I can crack what it does, then I know where it bends",
+      "start": 125.331,
+      "end": 127.031,
+      "words": [
+        {
+          "word": "If",
+          "start": 125.331,
+          "end": 125.391
+        },
+        {
+          "word": "I",
+          "start": 125.451,
+          "end": 125.491
+        },
+        {
+          "word": "can",
+          "start": 125.511,
+          "end": 125.611
+        },
+        {
+          "word": "crack",
+          "start": 125.631,
+          "end": 125.731
+        },
+        {
+          "word": "what",
+          "start": 125.751,
+          "end": 125.831
+        },
+        {
+          "word": "it",
+          "start": 125.871,
+          "end": 125.931
+        },
+        {
+          "word": "does,",
+          "start": 125.951,
+          "end": 126.051
+        },
+        {
+          "word": "then",
+          "start": 126.071,
+          "end": 126.151
+        },
+        {
+          "word": "I",
+          "start": 126.211,
+          "end": 126.231
+        },
+        {
+          "word": "know",
+          "start": 126.251,
+          "end": 126.371
+        },
+        {
+          "word": "where",
+          "start": 126.391,
+          "end": 126.551
+        },
+        {
+          "word": "it",
+          "start": 126.631,
+          "end": 126.691
+        },
+        {
+          "word": "bends",
+          "start": 126.731,
+          "end": 127.031
+        }
+      ]
+    },
+    {
+      "text": "If I know where it bends, I know where it ends",
+      "start": 127.091,
+      "end": 131.952,
+      "words": [
+        {
+          "word": "If",
+          "start": 127.091,
+          "end": 127.172
+        },
+        {
+          "word": "I",
+          "start": 127.232,
+          "end": 127.352
+        },
+        {
+          "word": "know",
+          "start": 127.392,
+          "end": 127.652
+        },
+        {
+          "word": "where",
+          "start": 127.692,
+          "end": 127.892
+        },
+        {
+          "word": "it",
+          "start": 128.012,
+          "end": 128.112
+        },
+        {
+          "word": "bends,",
+          "start": 128.192,
+          "end": 129.632
+        },
+        {
+          "word": "I",
+          "start": 129.752,
+          "end": 129.892
+        },
+        {
+          "word": "know",
+          "start": 129.952,
+          "end": 130.872
+        },
+        {
+          "word": "where",
+          "start": 130.892,
+          "end": 131.192
+        },
+        {
+          "word": "it",
+          "start": 131.312,
+          "end": 131.412
+        },
+        {
+          "word": "ends",
+          "start": 131.672,
+          "end": 131.952
+        }
+      ]
+    },
+    {
+      "text": "I like the edge where the lie starts dying",
+      "start": 132.252,
+      "end": 134.592,
+      "words": [
+        {
+          "word": "I",
+          "start": 132.252,
+          "end": 132.332
+        },
+        {
+          "word": "like",
+          "start": 132.352,
+          "end": 132.472
+        },
+        {
+          "word": "the",
+          "start": 132.512,
+          "end": 132.712
+        },
+        {
+          "word": "edge",
+          "start": 132.772,
+          "end": 132.932
+        },
+        {
+          "word": "where",
+          "start": 132.972,
+          "end": 133.152
+        },
+        {
+          "word": "the",
+          "start": 133.172,
+          "end": 133.292
+        },
+        {
+          "word": "lie",
+          "start": 133.332,
+          "end": 133.572
+        },
+        {
+          "word": "starts",
+          "start": 133.592,
+          "end": 133.912
+        },
+        {
+          "word": "dying",
+          "start": 133.932,
+          "end": 134.592
+        }
+      ]
+    },
+    {
+      "text": "I like the code when the gears stop hiding",
+      "start": 134.832,
+      "end": 137.212,
+      "words": [
+        {
+          "word": "I",
+          "start": 134.832,
+          "end": 134.912
+        },
+        {
+          "word": "like",
+          "start": 134.932,
+          "end": 135.072
+        },
+        {
+          "word": "the",
+          "start": 135.092,
+          "end": 135.232
+        },
+        {
+          "word": "code",
+          "start": 135.272,
+          "end": 135.552
+        },
+        {
+          "word": "when",
+          "start": 135.592,
+          "end": 135.732
+        },
+        {
+          "word": "the",
+          "start": 135.752,
+          "end": 135.892
+        },
+        {
+          "word": "gears",
+          "start": 135.932,
+          "end": 136.172
+        },
+        {
+          "word": "stop",
+          "start": 136.192,
+          "end": 136.432
+        },
+        {
+          "word": "hiding",
+          "start": 136.532,
+          "end": 137.212
+        }
+      ]
+    },
+    {
+      "text": "If it can't say, \"I don't know,\" keep sliding",
+      "start": 137.272,
+      "end": 139.813,
+      "words": [
+        {
+          "word": "If",
+          "start": 137.272,
+          "end": 137.372
+        },
+        {
+          "word": "it",
+          "start": 137.432,
+          "end": 137.512
+        },
+        {
+          "word": "can't",
+          "start": 137.552,
+          "end": 137.792
+        },
+        {
+          "word": "say,",
+          "start": 137.852,
+          "end": 138.092
+        },
+        {
+          "word": "\"I",
+          "start": 138.112,
+          "end": 138.313
+        },
+        {
+          "word": "don't",
+          "start": 138.353,
+          "end": 138.513
+        },
+        {
+          "word": "know,\"",
+          "start": 138.533,
+          "end": 138.773
+        },
+        {
+          "word": "keep",
+          "start": 138.813,
+          "end": 139.073
+        },
+        {
+          "word": "sliding",
+          "start": 139.113,
+          "end": 139.813
+        }
+      ]
+    },
+    {
+      "text": "I only trust what survives my prying",
+      "start": 140.093,
+      "end": 143.033,
+      "words": [
+        {
+          "word": "I",
+          "start": 140.093,
+          "end": 140.173
+        },
+        {
+          "word": "only",
+          "start": 140.213,
+          "end": 140.413
+        },
+        {
+          "word": "trust",
+          "start": 140.453,
+          "end": 140.753
+        },
+        {
+          "word": "what",
+          "start": 140.793,
+          "end": 140.973
+        },
+        {
+          "word": "survives",
+          "start": 141.013,
+          "end": 141.433
+        },
+        {
+          "word": "my",
+          "start": 141.493,
+          "end": 141.693
+        },
+        {
+          "word": "prying",
+          "start": 141.773,
+          "end": 143.033
+        }
+      ]
+    },
+    {
+      "text": "Honest thing, honest thing",
+      "start": 143.373,
+      "end": 145.033,
+      "words": [
+        {
+          "word": "Honest",
+          "start": 143.373,
+          "end": 143.693
+        },
+        {
+          "word": "thing,",
+          "start": 143.713,
+          "end": 144.013
+        },
+        {
+          "word": "honest",
+          "start": 144.333,
+          "end": 144.633
+        },
+        {
+          "word": "thing",
+          "start": 144.653,
+          "end": 145.033
+        }
+      ]
+    },
+    {
+      "text": "Say it plain, let it ring",
+      "start": 145.853,
+      "end": 147.633,
+      "words": [
+        {
+          "word": "Say",
+          "start": 145.853,
+          "end": 146.073
+        },
+        {
+          "word": "it",
+          "start": 146.153,
+          "end": 146.213
+        },
+        {
+          "word": "plain,",
+          "start": 146.253,
+          "end": 146.713
+        },
+        {
+          "word": "let",
+          "start": 146.853,
+          "end": 147.033
+        },
+        {
+          "word": "it",
+          "start": 147.093,
+          "end": 147.173
+        },
+        {
+          "word": "ring",
+          "start": 147.213,
+          "end": 147.633
+        }
+      ]
+    },
+    {
+      "text": "Honest thing, honest thing",
+      "start": 148.473,
+      "end": 150.154,
+      "words": [
+        {
+          "word": "Honest",
+          "start": 148.473,
+          "end": 148.753
+        },
+        {
+          "word": "thing,",
+          "start": 148.833,
+          "end": 149.073
+        },
+        {
+          "word": "honest",
+          "start": 149.454,
+          "end": 150.034
+        },
+        {
+          "word": "thing",
+          "start": 150.054,
+          "end": 150.154
+        }
+      ]
+    },
+    {
+      "text": "Built to break, built to sing",
+      "start": 150.874,
+      "end": 152.834,
+      "words": [
+        {
+          "word": "Built",
+          "start": 150.874,
+          "end": 151.174
+        },
+        {
+          "word": "to",
+          "start": 151.214,
+          "end": 151.334
+        },
+        {
+          "word": "break,",
+          "start": 151.394,
+          "end": 151.654
+        },
+        {
+          "word": "built",
+          "start": 151.994,
+          "end": 152.294
+        },
+        {
+          "word": "to",
+          "start": 152.334,
+          "end": 152.434
+        },
+        {
+          "word": "sing",
+          "start": 152.494,
+          "end": 152.834
+        }
+      ]
+    },
+    {
+      "text": "No big act, no shiny skin",
+      "start": 152.854,
+      "end": 155.034,
+      "words": [
+        {
+          "word": "No",
+          "start": 152.854,
+          "end": 152.934
+        },
+        {
+          "word": "big",
+          "start": 153.014,
+          "end": 153.314
+        },
+        {
+          "word": "act,",
+          "start": 153.414,
+          "end": 153.554
+        },
+        {
+          "word": "no",
+          "start": 153.594,
+          "end": 153.794
+        },
+        {
+          "word": "shiny",
+          "start": 153.874,
+          "end": 154.434
+        },
+        {
+          "word": "skin",
+          "start": 154.474,
+          "end": 155.034
+        }
+      ]
+    },
+    {
+      "text": "If it works, then let it in",
+      "start": 155.134,
+      "end": 157.694,
+      "words": [
+        {
+          "word": "If",
+          "start": 155.134,
+          "end": 155.234
+        },
+        {
+          "word": "it",
+          "start": 155.454,
+          "end": 155.594
+        },
+        {
+          "word": "works,",
+          "start": 155.654,
+          "end": 156.054
+        },
+        {
+          "word": "then",
+          "start": 156.134,
+          "end": 156.434
+        },
+        {
+          "word": "let",
+          "start": 156.474,
+          "end": 156.674
+        },
+        {
+          "word": "it",
+          "start": 157.374,
+          "end": 157.634
+        },
+        {
+          "word": "in",
+          "start": 157.654,
+          "end": 157.694
+        }
+      ]
+    },
+    {
+      "text": "Honest thing, honest thing",
+      "start": 158.714,
+      "end": 160.535,
+      "words": [
+        {
+          "word": "Honest",
+          "start": 158.714,
+          "end": 159.014
+        },
+        {
+          "word": "thing,",
+          "start": 159.034,
+          "end": 159.354
+        },
+        {
+          "word": "honest",
+          "start": 159.694,
+          "end": 160.054
+        },
+        {
+          "word": "thing",
+          "start": 160.114,
+          "end": 160.535
+        }
+      ]
+    },
+    {
+      "text": "That's the only way I win",
+      "start": 161.575,
+      "end": 163.895,
+      "words": [
+        {
+          "word": "That's",
+          "start": 161.575,
+          "end": 161.855
+        },
+        {
+          "word": "the",
+          "start": 161.895,
+          "end": 161.995
+        },
+        {
+          "word": "only",
+          "start": 162.255,
+          "end": 162.535
+        },
+        {
+          "word": "way",
+          "start": 162.695,
+          "end": 163.035
+        },
+        {
+          "word": "I",
+          "start": 163.375,
+          "end": 163.515
+        },
+        {
+          "word": "win",
+          "start": 163.535,
+          "end": 163.895
+        }
+      ]
+    },
+    {
+      "text": "I built in the dark with a grin and a snarl",
+      "start": 168.515,
+      "end": 169.695,
+      "words": [
+        {
+          "word": "I",
+          "start": 168.515,
+          "end": 168.635
+        },
+        {
+          "word": "built",
+          "start": 168.655,
+          "end": 168.775
+        },
+        {
+          "word": "in",
+          "start": 168.835,
+          "end": 168.875
+        },
+        {
+          "word": "the",
+          "start": 168.895,
+          "end": 168.975
+        },
+        {
+          "word": "dark",
+          "start": 168.995,
+          "end": 169.095
+        },
+        {
+          "word": "with",
+          "start": 169.115,
+          "end": 169.215
+        },
+        {
+          "word": "a",
+          "start": 169.275,
+          "end": 169.315
+        },
+        {
+          "word": "grin",
+          "start": 169.335,
+          "end": 169.435
+        },
+        {
+          "word": "and",
+          "start": 169.475,
+          "end": 169.535
+        },
+        {
+          "word": "a",
+          "start": 169.555,
+          "end": 169.575
+        },
+        {
+          "word": "snarl",
+          "start": 169.595,
+          "end": 169.695
+        }
+      ]
+    },
+    {
+      "text": "Pulling the whole thing apart till it sparks at the heart",
+      "start": 169.715,
+      "end": 171.095,
+      "words": [
+        {
+          "word": "Pulling",
+          "start": 169.715,
+          "end": 169.855
+        },
+        {
+          "word": "the",
+          "start": 169.875,
+          "end": 169.935
+        },
+        {
+          "word": "whole",
+          "start": 169.955,
+          "end": 170.075
+        },
+        {
+          "word": "thing",
+          "start": 170.095,
+          "end": 170.195
+        },
+        {
+          "word": "apart",
+          "start": 170.215,
+          "end": 170.415
+        },
+        {
+          "word": "till",
+          "start": 170.435,
+          "end": 170.515
+        },
+        {
+          "word": "it",
+          "start": 170.535,
+          "end": 170.575
+        },
+        {
+          "word": "sparks",
+          "start": 170.595,
+          "end": 170.755
+        },
+        {
+          "word": "at",
+          "start": 170.775,
+          "end": 170.815
+        },
+        {
+          "word": "the",
+          "start": 170.835,
+          "end": 170.915
+        },
+        {
+          "word": "heart",
+          "start": 170.935,
+          "end": 171.095
+        }
+      ]
+    },
+    {
+      "text": "I wanted the seams, wanted scars, wanted weight",
+      "start": 171.135,
+      "end": 172.356,
+      "words": [
+        {
+          "word": "I",
+          "start": 171.135,
+          "end": 171.235
+        },
+        {
+          "word": "wanted",
+          "start": 171.275,
+          "end": 171.436
+        },
+        {
+          "word": "the",
+          "start": 171.456,
+          "end": 171.536
+        },
+        {
+          "word": "seams,",
+          "start": 171.556,
+          "end": 171.716
+        },
+        {
+          "word": "wanted",
+          "start": 171.736,
+          "end": 171.876
+        },
+        {
+          "word": "scars,",
+          "start": 171.896,
+          "end": 172.036
+        },
+        {
+          "word": "wanted",
+          "start": 172.056,
+          "end": 172.216
+        },
+        {
+          "word": "weight",
+          "start": 172.236,
+          "end": 172.356
+        }
+      ]
+    },
+    {
+      "text": "Wanted proof in the gears, not a sales-line face",
+      "start": 172.376,
+      "end": 173.676,
+      "words": [
+        {
+          "word": "Wanted",
+          "start": 172.376,
+          "end": 172.536
+        },
+        {
+          "word": "proof",
+          "start": 172.556,
+          "end": 172.656
+        },
+        {
+          "word": "in",
+          "start": 172.716,
+          "end": 172.756
+        },
+        {
+          "word": "the",
+          "start": 172.776,
+          "end": 172.856
+        },
+        {
+          "word": "gears,",
+          "start": 172.876,
+          "end": 173.016
+        },
+        {
+          "word": "not",
+          "start": 173.036,
+          "end": 173.096
+        },
+        {
+          "word": "a",
+          "start": 173.136,
+          "end": 173.156
+        },
+        {
+          "word": "sales-line",
+          "start": 173.176,
+          "end": 173.496
+        },
+        {
+          "word": "face",
+          "start": 173.516,
+          "end": 173.676
+        }
+      ]
+    },
+    {
+      "text": "If it says, \"I can't,\" then that's part of the art",
+      "start": 173.696,
+      "end": 174.976,
+      "words": [
+        {
+          "word": "If",
+          "start": 173.696,
+          "end": 173.736
+        },
+        {
+          "word": "it",
+          "start": 173.756,
+          "end": 173.796
+        },
+        {
+          "word": "says,",
+          "start": 173.816,
+          "end": 173.936
+        },
+        {
+          "word": "\"I",
+          "start": 173.956,
+          "end": 173.996
+        },
+        {
+          "word": "can't,\"",
+          "start": 174.016,
+          "end": 174.156
+        },
+        {
+          "word": "then",
+          "start": 174.176,
+          "end": 174.296
+        },
+        {
+          "word": "that's",
+          "start": 174.316,
+          "end": 174.476
+        },
+        {
+          "word": "part",
+          "start": 174.516,
+          "end": 174.616
+        },
+        {
+          "word": "of",
+          "start": 174.656,
+          "end": 174.696
+        },
+        {
+          "word": "the",
+          "start": 174.716,
+          "end": 174.816
+        },
+        {
+          "word": "art",
+          "start": 174.876,
+          "end": 174.976
+        }
+      ]
+    },
+    {
+      "text": "If it says, \"Not yet,\" then that's smart",
+      "start": 174.996,
+      "end": 176.276,
+      "words": [
+        {
+          "word": "If",
+          "start": 174.996,
+          "end": 175.036
+        },
+        {
+          "word": "it",
+          "start": 175.056,
+          "end": 175.116
+        },
+        {
+          "word": "says,",
+          "start": 175.136,
+          "end": 175.256
+        },
+        {
+          "word": "\"Not",
+          "start": 175.276,
+          "end": 175.436
+        },
+        {
+          "word": "yet,\"",
+          "start": 175.476,
+          "end": 175.756
+        },
+        {
+          "word": "then",
+          "start": 175.776,
+          "end": 175.896
+        },
+        {
+          "word": "that's",
+          "start": 175.936,
+          "end": 176.056
+        },
+        {
+          "word": "smart",
+          "start": 176.076,
+          "end": 176.276
+        }
+      ]
+    },
+    {
+      "text": "I'm proud of the bruise, proud of the bend",
+      "start": 176.316,
+      "end": 177.696,
+      "words": [
+        {
+          "word": "I'm",
+          "start": 176.316,
+          "end": 176.396
+        },
+        {
+          "word": "proud",
+          "start": 176.436,
+          "end": 176.576
+        },
+        {
+          "word": "of",
+          "start": 176.596,
+          "end": 176.636
+        },
+        {
+          "word": "the",
+          "start": 176.656,
+          "end": 176.756
+        },
+        {
+          "word": "bruise,",
+          "start": 176.776,
+          "end": 177.036
+        },
+        {
+          "word": "proud",
+          "start": 177.076,
+          "end": 177.216
+        },
+        {
+          "word": "of",
+          "start": 177.236,
+          "end": 177.276
+        },
+        {
+          "word": "the",
+          "start": 177.296,
+          "end": 177.396
+        },
+        {
+          "word": "bend",
+          "start": 177.416,
+          "end": 177.696
+        }
+      ]
+    },
+    {
+      "text": "Proud of the truth that can hold to the end",
+      "start": 177.736,
+      "end": 179.016,
+      "words": [
+        {
+          "word": "Proud",
+          "start": 177.736,
+          "end": 177.876
+        },
+        {
+          "word": "of",
+          "start": 177.896,
+          "end": 177.936
+        },
+        {
+          "word": "the",
+          "start": 177.956,
+          "end": 178.056
+        },
+        {
+          "word": "truth",
+          "start": 178.076,
+          "end": 178.196
+        },
+        {
+          "word": "that",
+          "start": 178.216,
+          "end": 178.296
+        },
+        {
+          "word": "can",
+          "start": 178.316,
+          "end": 178.396
+        },
+        {
+          "word": "hold",
+          "start": 178.416,
+          "end": 178.516
+        },
+        {
+          "word": "to",
+          "start": 178.536,
+          "end": 178.596
+        },
+        {
+          "word": "the",
+          "start": 178.616,
+          "end": 178.716
+        },
+        {
+          "word": "end",
+          "start": 178.796,
+          "end": 179.016
+        }
+      ]
+    },
+    {
+      "text": "Honest thing, honest thing",
+      "start": 181.956,
+      "end": 183.637,
+      "words": [
+        {
+          "word": "Honest",
+          "start": 181.956,
+          "end": 182.276
+        },
+        {
+          "word": "thing,",
+          "start": 182.497,
+          "end": 182.617
+        },
+        {
+          "word": "honest",
+          "start": 182.917,
+          "end": 183.517
+        },
+        {
+          "word": "thing",
+          "start": 183.537,
+          "end": 183.637
+        }
+      ]
+    },
+    {
+      "text": "Say it plain, let it ring",
+      "start": 184.457,
+      "end": 186.257,
+      "words": [
+        {
+          "word": "Say",
+          "start": 184.457,
+          "end": 184.677
+        },
+        {
+          "word": "it",
+          "start": 184.737,
+          "end": 184.797
+        },
+        {
+          "word": "plain,",
+          "start": 184.837,
+          "end": 185.337
+        },
+        {
+          "word": "let",
+          "start": 185.437,
+          "end": 185.637
+        },
+        {
+          "word": "it",
+          "start": 185.717,
+          "end": 185.777
+        },
+        {
+          "word": "ring",
+          "start": 185.817,
+          "end": 186.257
+        }
+      ]
+    },
+    {
+      "text": "Honest thing, honest thing",
+      "start": 187.077,
+      "end": 188.757,
+      "words": [
+        {
+          "word": "Honest",
+          "start": 187.077,
+          "end": 187.417
+        },
+        {
+          "word": "thing,",
+          "start": 187.457,
+          "end": 187.737
+        },
+        {
+          "word": "honest",
+          "start": 188.057,
+          "end": 188.637
+        },
+        {
+          "word": "thing",
+          "start": 188.657,
+          "end": 188.757
+        }
+      ]
+    },
+    {
+      "text": "Built to break, built to sing",
+      "start": 189.497,
+      "end": 191.357,
+      "words": [
+        {
+          "word": "Built",
+          "start": 189.497,
+          "end": 189.797
+        },
+        {
+          "word": "to",
+          "start": 189.837,
+          "end": 189.957
+        },
+        {
+          "word": "break,",
+          "start": 189.997,
+          "end": 190.257
+        },
+        {
+          "word": "built",
+          "start": 190.617,
+          "end": 190.897
+        },
+        {
+          "word": "to",
+          "start": 190.937,
+          "end": 191.077
+        },
+        {
+          "word": "sing",
+          "start": 191.117,
+          "end": 191.357
+        }
+      ]
+    },
+    {
+      "text": "No big act, no shiny skin",
+      "start": 191.377,
+      "end": 193.638,
+      "words": [
+        {
+          "word": "No",
+          "start": 191.377,
+          "end": 191.577
+        },
+        {
+          "word": "big",
+          "start": 191.617,
+          "end": 191.917
+        },
+        {
+          "word": "act,",
+          "start": 192.017,
+          "end": 192.177
+        },
+        {
+          "word": "no",
+          "start": 192.197,
+          "end": 192.437
+        },
+        {
+          "word": "shiny",
+          "start": 192.497,
+          "end": 193.077
+        },
+        {
+          "word": "skin",
+          "start": 193.097,
+          "end": 193.638
+        }
+      ]
+    },
+    {
+      "text": "If it works, then let it in",
+      "start": 193.738,
+      "end": 196.258,
+      "words": [
+        {
+          "word": "If",
+          "start": 193.738,
+          "end": 193.878
+        },
+        {
+          "word": "it",
+          "start": 194.078,
+          "end": 194.218
+        },
+        {
+          "word": "works,",
+          "start": 194.258,
+          "end": 194.678
+        },
+        {
+          "word": "then",
+          "start": 194.738,
+          "end": 195.298
+        },
+        {
+          "word": "let",
+          "start": 195.318,
+          "end": 195.578
+        },
+        {
+          "word": "it",
+          "start": 196.018,
+          "end": 196.198
+        },
+        {
+          "word": "in",
+          "start": 196.218,
+          "end": 196.258
+        }
+      ]
+    },
+    {
+      "text": "Honest thing, honest thing",
+      "start": 197.358,
+      "end": 199.138,
+      "words": [
+        {
+          "word": "Honest",
+          "start": 197.358,
+          "end": 197.698
+        },
+        {
+          "word": "thing,",
+          "start": 197.718,
+          "end": 197.998
+        },
+        {
+          "word": "honest",
+          "start": 198.338,
+          "end": 198.738
+        },
+        {
+          "word": "thing",
+          "start": 198.798,
+          "end": 199.138
+        }
+      ]
+    },
+    {
+      "text": "That's the only way I win",
+      "start": 200.198,
+      "end": 202.278,
+      "words": [
+        {
+          "word": "That's",
+          "start": 200.198,
+          "end": 200.478
+        },
+        {
+          "word": "the",
+          "start": 200.518,
+          "end": 200.618
+        },
+        {
+          "word": "only",
+          "start": 200.878,
+          "end": 201.138
+        },
+        {
+          "word": "way",
+          "start": 201.298,
+          "end": 201.618
+        },
+        {
+          "word": "I",
+          "start": 201.998,
+          "end": 202.018
+        },
+        {
+          "word": "win",
+          "start": 202.038,
+          "end": 202.278
+        }
+      ]
+    }
+  ]
+}
