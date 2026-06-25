@@ -22,7 +22,7 @@ type MoreProject = {
 
 const PROJECTS: Project[] = [
   {
-    id: "krux",
+    id: "krux-new",
     banner: "/landing/krux-banner.png",
     tags: "AI CURATION | WEB RESEARCH | PUBLISHING",
     desc: "AI news product that turns fast-moving AI updates into short, swipeable stories.",
@@ -37,7 +37,7 @@ const PROJECTS: Project[] = [
     ],
   },
   {
-    id: "mf-search",
+    id: "mf-semantic-search",
     banner: "/landing/mf-search-banner.png",
     tags: "EMBEDDINGS | INTENT ROUTING | CHROMADB",
     desc: "Semantic search engine across 16,197 mutual funds with intent-aware routing.",
@@ -146,7 +146,11 @@ function LinkRow({ links, compact = false }: { links: Link[]; compact?: boolean 
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="proj-card-hover flex flex-col" style={{ gap: "clamp(16px,2vw,32px)" }}>
+    <div
+      data-jj-project-id={project.id}
+      className="proj-card-hover flex flex-col"
+      style={{ gap: "clamp(16px,2vw,32px)" }}
+    >
       <div
         className="w-full overflow-hidden flex-shrink-0"
         style={{
@@ -217,7 +221,11 @@ function ProjectCard({ project }: { project: Project }) {
 
 function MoreCard() {
   return (
-    <div className="proj-card-hover flex flex-col" style={{ gap: "clamp(16px,2vw,32px)" }}>
+    <div
+      data-jj-project-id="more-projects"
+      className="proj-card-hover flex flex-col"
+      style={{ gap: "clamp(16px,2vw,32px)" }}
+    >
       <div
         className="w-full overflow-hidden flex-shrink-0"
         style={{

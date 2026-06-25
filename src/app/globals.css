@@ -102,6 +102,13 @@
   }
 }
 
+.jj-command-highlight {
+  outline: 3px solid rgba(73, 109, 255, 0.75);
+  outline-offset: 6px;
+  box-shadow: 0 0 0 10px rgba(73, 109, 255, 0.12);
+  transition: outline-color 0.2s ease, box-shadow 0.2s ease;
+}
+
 @layer utilities {
   .font-serif {
     font-family: var(--font-instrument-serif), Georgia, "Times New Roman", serif;

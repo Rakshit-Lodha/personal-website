@@ -1,0 +1,2098 @@
+[
+  {
+    "id": "navigation:hero",
+    "entityType": "navigation",
+    "entityId": "hero",
+    "title": "Home hero",
+    "aliases": [
+      "home",
+      "top",
+      "start",
+      "hero",
+      "intro"
+    ],
+    "retrievalText": "The hero section introduces Rakshit Lodha and the portfolio.",
+    "speechSummary": "The hero is the top intro section of Rakshit's portfolio.",
+    "facts": [
+      "Visible on the home page.",
+      "Useful when the user asks to go to the top."
+    ],
+    "metadata": {
+      "source": "site",
+      "sectionId": "hero",
+      "pageAnchor": "#hero",
+      "visibleOnPage": true,
+      "workContext": "site_navigation",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "navigation",
+        "home",
+        "hero",
+        "intro"
+      ],
+      "priority": 40
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "hero"
+      }
+    ]
+  },
+  {
+    "id": "navigation:my-story",
+    "entityType": "navigation",
+    "entityId": "my-story",
+    "title": "My Story",
+    "aliases": [
+      "my story",
+      "story",
+      "experience",
+      "career",
+      "work history"
+    ],
+    "retrievalText": "The My Story section contains Rakshit's LearnApp, INDMoney, and ET Money experience timeline.",
+    "speechSummary": "My Story shows Rakshit's career timeline across LearnApp, INDMoney, and ET Money.",
+    "facts": [
+      "Contains visible career cards.",
+      "Includes outcomes from LearnApp, INDMoney, and ET Money."
+    ],
+    "metadata": {
+      "source": "site",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "workContext": "site_navigation",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "navigation",
+        "experience",
+        "career",
+        "timeline"
+      ],
+      "priority": 70
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "my-story"
+      }
+    ]
+  },
+  {
+    "id": "navigation:projects",
+    "entityType": "navigation",
+    "entityId": "projects",
+    "title": "Projects",
+    "aliases": [
+      "projects",
+      "portfolio projects",
+      "side projects",
+      "ai projects"
+    ],
+    "retrievalText": "The Projects section contains Rakshit's featured AI projects including Krux.news, AI Hiring Chat, MF Semantic Search, and more.",
+    "speechSummary": "Projects shows Rakshit's featured AI and product builds.",
+    "facts": [
+      "Visible on the home page.",
+      "Contains project cards and links."
+    ],
+    "metadata": {
+      "source": "site",
+      "sectionId": "projects",
+      "pageAnchor": "#projects",
+      "visibleOnPage": true,
+      "workContext": "site_navigation",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "navigation",
+        "projects",
+        "ai projects"
+      ],
+      "priority": 80
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "projects"
+      }
+    ]
+  },
+  {
+    "id": "navigation:skill-map",
+    "entityType": "navigation",
+    "entityId": "skill-map",
+    "title": "Skill Map",
+    "aliases": [
+      "skills",
+      "skill map",
+      "technical skills",
+      "tools"
+    ],
+    "retrievalText": "The Skill Map section shows Rakshit's AI, technical, product, analytics, and design skills.",
+    "speechSummary": "Skill Map shows Rakshit's AI, technical, product, analytics, and design skills.",
+    "facts": [
+      "Visible on the home page.",
+      "Includes AI, tools, product, analytics, and design skills."
+    ],
+    "metadata": {
+      "source": "site",
+      "sectionId": "skill-map",
+      "pageAnchor": "#skill-map",
+      "visibleOnPage": true,
+      "workContext": "site_navigation",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "navigation",
+        "skills",
+        "tools"
+      ],
+      "priority": 60
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "skill-map"
+      }
+    ]
+  },
+  {
+    "id": "navigation:education",
+    "entityType": "navigation",
+    "entityId": "education",
+    "title": "Education",
+    "aliases": [
+      "education",
+      "college",
+      "school",
+      "degrees"
+    ],
+    "retrievalText": "The Education section lists Rakshit's MBA, BBA, and LSE summer school education.",
+    "speechSummary": "Education shows Rakshit's academic background.",
+    "facts": [
+      "SP Jain Global School of Management: MBA (Executive)",
+      "Christ University: BBA Finance & International Business",
+      "London School of Economics: Summer School: Alternative Investments"
+    ],
+    "metadata": {
+      "source": "site",
+      "sectionId": "education",
+      "pageAnchor": "#education",
+      "visibleOnPage": true,
+      "workContext": "education",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "navigation",
+        "education",
+        "school",
+        "degree"
+      ],
+      "priority": 50
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "education"
+      }
+    ]
+  },
+  {
+    "id": "project:ai-hiring-chat",
+    "entityType": "project",
+    "entityId": "ai-hiring-chat",
+    "title": "AI Hiring Chat",
+    "aliases": [
+      "AI Hiring Chat",
+      "ai-hiring-chat",
+      "Portfolio hiring assistant / agentic chat interface",
+      "single-column chat interface",
+      "zero-state prompt chips",
+      "persistent bottom composer",
+      "PDF job description parsing",
+      "DOCX job description parsing",
+      "TXT job description parsing",
+      "SSE response streaming",
+      "intent planner agent",
+      "optional company research",
+      "evidence gatherer",
+      "criteria coverage",
+      "production-first evidence ranking",
+      "structured fit assessment",
+      "general Q&A mode",
+      "versioned eval history"
+    ],
+    "retrievalText": "AI Hiring Chat\nPortfolio hiring assistant / agentic chat interface\nStandalone ChatGPT-style hiring assistant for Rakshit's portfolio that helps recruiters, founders, and hiring managers evaluate Rakshit against a company URL, job description, uploaded file, or free-form question.\nA Node runtime API route streams newline-delimited SSE events to the browser. The V3 backend runs an intent planner, optionally researches company context, gathers and classifies profile evidence, then routes to a Q&A, fitment, or mixed answer agent that returns a schema-validated AgentResponse.\nsingle-column chat interface\nzero-state prompt chips\npersistent bottom composer\nPDF job description parsing\nDOCX job description parsing\nTXT job description parsing\nSSE response streaming\nintent planner agent\noptional company research\nevidence gatherer\ncriteria coverage\nproduction-first evidence ranking\nstructured fit assessment\ngeneral Q&A mode\nversioned eval history\nNext.js 16\nReact 19\nTypeScript\nOpenAI Agents SDK\nOpenAI Responses API web search\nZod\nSSE\npdf-parse\nmammoth\nTailwind CSS\nshadcn/ui\nBuilt the standalone /chat route with a ChatGPT-style zero state, prompt chips, message thread, persistent composer, upload chip, drag-and-drop upload, and streamed answer rendering.\nEvolved the agent from V1 baseline to V2 prompt/profile improvements, then to a V3 pipeline with intent planning, optional company research, evidence gathering, intent-specific answer agents, and structured final responses.\nAdded evidence metadata such as workContext and evidenceStrength so production/professional evidence ranks above personal projects and generic capability lists.\nKept V1, V2, and V3 eval history visible so factual recall, answer quality, fit calibration, and latency tradeoffs can be compared over time.\nImplemented structured SSE events: status updates for progress, delta chunks for answer text, final events with the full AgentResponse, and error events for graceful failure.\nSupports pasted or uploaded job descriptions across PDF, DOCX, and TXT formats with a 10MB upload limit.\nSeparated fit evaluation from general Q&A so normal questions use ask mode and do not force a fit badge or assessment framing.\nConstrained fit output to four labels: Strong fit, Relevant fit, Partial fit, and Not enough evidence. The agent is explicitly prohibited from producing match scores, ratings, percentages, or 0-10 numbers.\nA portfolio website evolved into an agentic hiring assistant that helps recruiters and founders assess Rakshit through chat instead of reading a static profile.\nThe project started as a personal website, but the product insight was that recruiters, founders, or potential collaborators need fast answers about fit, not another static portfolio page.\nPeople evaluating Rakshit would otherwise need to scan pages, infer fit themselves, or book a call too early; the assistant makes it easier to ask role-specific questions and decide whether a conversation is worth having.\nRakshit defined the product concept, built the chat experience, designed the V1/V2/V3 agent pipeline, created the structured profile context, and built the eval loop used to improve prompts, retrieval, and profile data over time.\nBuilt a standalone chat interface for recruiters, founders, and collaborators to ask about Rakshit or paste a job description.\nV1 established the baseline single-agent behavior and eval harness across factual, quality, fitment, and latency checks.\nV2 improved prompt/profile grounding, raising answer quality while keeping the simpler architecture.\nV3 added an intent planner that classifies Q&A, fitment, or both; extracts target role, company, JD, or topic; and creates a retrieval plan.\nV3 optionally runs company research or skips it when no concrete target is present.\nV3 gathers profile, experience, project, education, preference, seniority, and company evidence into an evidence packet.\nV3 routes the evidence packet to Q&A, fitment, or both answer agents before returning a structured AgentResponse.\nAdded workContext and evidenceStrength fields so production/professional evidence can outrank personal projects and generic capability lists.\nClassifies fit only with four labels: Strong fit, Relevant fit, Partial fit, and Not enough evidence.\nBuilt rakshitlodha.com and the AI Hiring Chat with Next.js 16, TypeScript, OpenAI Agents SDK, Tailwind CSS, and shadcn/ui.\nLaunched the experience to founders and used their real questions and feedback to identify gaps in fit calibration and answer depth.\nBuilt a 52-question eval pipeline covering factual accuracy, quality, fitment accuracy, and latency.\nKept V1, V2, and V3 eval history visible so improvements and regressions can be compared over time.\nA personal website can become more useful when it answers the evaluator's exact question instead of only presenting static sections.\nPrompt changes need eval gates because subjective answer quality can improve while fit calibration regresses.\nFit calibration improved most when evidence classification became its own step instead of being buried inside the final answer prompt.\nFor Q&A depth, the pipeline must rank production work above side projects and generic capability lists when professional evidence exists.",
+    "speechSummary": "A portfolio website evolved into an agentic hiring assistant that helps recruiters and founders assess Rakshit through chat instead of reading a static profile.",
+    "facts": [
+      "Standalone ChatGPT-style hiring assistant for Rakshit's portfolio that helps recruiters, founders, and hiring managers evaluate Rakshit against a company URL, job description, uploaded file, or free-form question.",
+      "A Node runtime API route streams newline-delimited SSE events to the browser. The V3 backend runs an intent planner, optionally researches company context, gathers and classifies profile evidence, then routes to a Q&A, fitment, or mixed answer agent that returns a schema-validated AgentResponse.",
+      "Built the standalone /chat route with a ChatGPT-style zero state, prompt chips, message thread, persistent composer, upload chip, drag-and-drop upload, and streamed answer rendering.",
+      "Evolved the agent from V1 baseline to V2 prompt/profile improvements, then to a V3 pipeline with intent planning, optional company research, evidence gathering, intent-specific answer agents, and structured final responses.",
+      "Added evidence metadata such as workContext and evidenceStrength so production/professional evidence ranks above personal projects and generic capability lists.",
+      "Kept V1, V2, and V3 eval history visible so factual recall, answer quality, fit calibration, and latency tradeoffs can be compared over time.",
+      "Implemented structured SSE events: status updates for progress, delta chunks for answer text, final events with the full AgentResponse, and error events for graceful failure.",
+      "Supports pasted or uploaded job descriptions across PDF, DOCX, and TXT formats with a 10MB upload limit."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "projects",
+      "pageAnchor": "#projects",
+      "visibleOnPage": true,
+      "projectId": "ai-hiring-chat",
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "project",
+        "Portfolio hiring assistant / agentic chat interface",
+        "Live",
+        "single-column chat interface",
+        "zero-state prompt chips",
+        "persistent bottom composer",
+        "PDF job description parsing",
+        "DOCX job description parsing",
+        "TXT job description parsing",
+        "SSE response streaming",
+        "intent planner agent",
+        "optional company research",
+        "evidence gatherer",
+        "criteria coverage",
+        "production-first evidence ranking",
+        "structured fit assessment",
+        "general Q&A mode",
+        "versioned eval history",
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "OpenAI Agents SDK",
+        "OpenAI Responses API web search",
+        "Zod",
+        "SSE",
+        "pdf-parse",
+        "mammoth",
+        "Tailwind CSS",
+        "shadcn/ui"
+      ],
+      "priority": 95,
+      "links": {
+        "github": "https://github.com/Rakshit-Lodha/personal-website",
+        "demo": "/chat"
+      }
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "projects"
+      },
+      {
+        "type": "focus_project",
+        "projectId": "ai-hiring-chat"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "ai-hiring-chat",
+        "linkType": "github"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "ai-hiring-chat",
+        "linkType": "demo"
+      }
+    ]
+  },
+  {
+    "id": "project:krux-new",
+    "entityType": "project",
+    "entityId": "krux-new",
+    "title": "Krux.news",
+    "aliases": [
+      "Krux.news",
+      "krux-new",
+      "AI news platform / news agent",
+      "RSS ingestion",
+      "AI story curation",
+      "web research",
+      "Claude tool calls",
+      "100-word summaries",
+      "image generation",
+      "Supabase-backed publishing",
+      "mobile feed",
+      "RSS and sitemap distribution",
+      "Krux",
+      "Crux",
+      "Crux.news",
+      "Krux news",
+      "Crux news",
+      "AI Times",
+      "ai-times"
+    ],
+    "retrievalText": "Krux.news\nAI news platform / news agent\nEnd-to-end AI news product that turns fast-moving AI company updates into short, swipeable stories with research, summaries, generated images, and a mobile-first feed.\nPython pipeline monitors RSS feeds, stores raw items in Supabase, uses Claude for curation, OpenAI web search for research, Claude tool calls for article generation, OpenAI image generation for visuals, and a Next.js app for distribution.\nRSS ingestion\nAI story curation\nweb research\nClaude tool calls\n100-word summaries\nimage generation\nSupabase-backed publishing\nmobile feed\nRSS and sitemap distribution\nNext.js 16\nReact 19\nTypeScript\nFramer Motion\nPython\nSupabase\nAnthropic SDK\nOpenAI SDK\nFeedparser\nBuilt both the content pipeline and the consumer web app.\nDesigned a multi-stage AI content workflow from ingestion to publishing.\nImplemented distribution surfaces including story pages, deep links, RSS, sitemaps, PWA metadata, and swipe reaction tracking.\nAn AI-news product that pivoted from comparing LLM-written articles to a short, persona-aware feed for people who want to understand AI updates quickly.\nThe first concept was to send the same news item to multiple LLMs and compare their 300-400 word articles to expose model biases. User behavior showed that people did not want to read multiple long versions of the same story.\nProduct managers, VCs, and AI-curious operators need a fast way to understand important AI news without reading long articles or duplicate coverage.\nRakshit defined the pivot, built the content pipeline, implemented the frontend and backend, designed the persona-based curation flow, and kept the product running after the retention learnings.\nBuilt a Next.js frontend and a Python/FastAPI backend pipeline.\nIngested news and reports from multiple RSS feeds.\nRan a morning cron job that selected around 15 potentially interesting pieces for a defined persona.\nPerformed deeper research on selected stories before sending them to the article writer prompt.\nGenerated articles in 100 words or less.\nBuilt a two-stage image pipeline: first generating an image prompt, then using an image model to create the final card asset.\nPublished stories into swipeable cards where users could swipe right for useful stories and left for irrelevant ones.\nA technically clever AI concept still needs a clear consumption habit.\nFor news products, time-to-value can matter more than showing the underlying AI sophistication.\nRetention should determine whether a side product remains a focus or simply stays live.",
+    "speechSummary": "An AI-news product that pivoted from comparing LLM-written articles to a short, persona-aware feed for people who want to understand AI updates quickly.",
+    "facts": [
+      "End-to-end AI news product that turns fast-moving AI company updates into short, swipeable stories with research, summaries, generated images, and a mobile-first feed.",
+      "Python pipeline monitors RSS feeds, stores raw items in Supabase, uses Claude for curation, OpenAI web search for research, Claude tool calls for article generation, OpenAI image generation for visuals, and a Next.js app for distribution.",
+      "Built both the content pipeline and the consumer web app.",
+      "Designed a multi-stage AI content workflow from ingestion to publishing.",
+      "Implemented distribution surfaces including story pages, deep links, RSS, sitemaps, PWA metadata, and swipe reaction tracking."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "projects",
+      "pageAnchor": "#projects",
+      "visibleOnPage": true,
+      "projectId": "krux-new",
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "project",
+        "AI news platform / news agent",
+        "Live",
+        "RSS ingestion",
+        "AI story curation",
+        "web research",
+        "Claude tool calls",
+        "100-word summaries",
+        "image generation",
+        "Supabase-backed publishing",
+        "mobile feed",
+        "RSS and sitemap distribution",
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Framer Motion",
+        "Python",
+        "Supabase",
+        "Anthropic SDK",
+        "OpenAI SDK",
+        "Feedparser"
+      ],
+      "priority": 95,
+      "links": {
+        "github": "https://github.com/Rakshit-Lodha/ai-times",
+        "demo": "https://krux.news/"
+      }
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "projects"
+      },
+      {
+        "type": "focus_project",
+        "projectId": "krux-new"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "krux-new",
+        "linkType": "github"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "krux-new",
+        "linkType": "demo"
+      }
+    ]
+  },
+  {
+    "id": "project:feedback-agent",
+    "entityType": "project",
+    "entityId": "feedback-agent",
+    "title": "Feedback Intelligence",
+    "aliases": [
+      "Feedback Intelligence",
+      "feedback-agent",
+      "Cross-channel product feedback agent",
+      "OpenAI Agents SDK",
+      "function tools",
+      "persistent agent memory",
+      "Play Store review ingestion",
+      "App Store review ingestion",
+      "YouTube comment ingestion",
+      "X mention ingestion",
+      "relevance filtering",
+      "feedback classification",
+      "onboarding preview APIs"
+    ],
+    "retrievalText": "Feedback Intelligence\nCross-channel product feedback agent\nSaaS product for aggregating public user feedback across app stores, YouTube, and X, then turning it into prioritized product signals through a conversational agent.\nOpenAI agent uses source-specific function tools, session memory through Turso, and a strict product feedback analysis prompt. A FastAPI backend verifies public sources for onboarding and a Next.js frontend provides source connection flows.\nOpenAI Agents SDK\nfunction tools\npersistent agent memory\nPlay Store review ingestion\nApp Store review ingestion\nYouTube comment ingestion\nX mention ingestion\nrelevance filtering\nfeedback classification\nonboarding preview APIs\nPython\nOpenAI Agents SDK\nFastAPI\nStreamlit\nNext.js 14\nReact 18\nTypeScript\nTurso\nYouTube Data API\nX API\nBuilt an agent that classifies feedback into P0 bugs, UX complaints, feature requests, positive signals, and sentiment trends.\nImplemented source tools for Google Play, App Store, YouTube, and X/Twitter.\nSeparated UI chat state from persistent model session memory.\nDesigned the product around cross-channel correlation, not generic dashboard reporting.\nA product-feedback agent inspired by ET Money pain points, built to help PMs quickly understand app-store, Play Store, and social feedback instead of waiting for slow feedback loops.\nAt ET Money, product teams often learned about user pain through customer support with too much delay. Rakshit wanted a more dynamic feedback loop directly from public user channels.\nProduct managers need to understand what went wrong in a release, what users are complaining about, and which issues matter, without manually reading reviews across multiple platforms.\nRakshit identified the problem from his own product work, defined the workflow for PMs, built the data ingestion approach, and used the OpenAI Agents SDK to summarize and answer questions over the feedback.\nBuilt dynamic scraping for Play Store and App Store reviews over a user-selected period.\nUsed the official X API to pull feedback from X for the relevant period.\nAllowed the user to define the period through a sidebar.\nAssembled relevant review and social context based on the PM's question.\nUsed OpenAI Agents SDK to summarize issues, identify what was right or wrong, and support release-specific analysis.\nThe most valuable AI workflow for PMs is often not generic summarization, but shortening the loop from user signal to product action.\nSource selection and period filtering are product decisions, not just backend implementation details.\nFeedback products need to preserve enough raw context for PMs to trust the synthesized insight.",
+    "speechSummary": "A product-feedback agent inspired by ET Money pain points, built to help PMs quickly understand app-store, Play Store, and social feedback instead of waiting for slow feedback loops.",
+    "facts": [
+      "SaaS product for aggregating public user feedback across app stores, YouTube, and X, then turning it into prioritized product signals through a conversational agent.",
+      "OpenAI agent uses source-specific function tools, session memory through Turso, and a strict product feedback analysis prompt. A FastAPI backend verifies public sources for onboarding and a Next.js frontend provides source connection flows.",
+      "Built an agent that classifies feedback into P0 bugs, UX complaints, feature requests, positive signals, and sentiment trends.",
+      "Implemented source tools for Google Play, App Store, YouTube, and X/Twitter.",
+      "Separated UI chat state from persistent model session memory.",
+      "Designed the product around cross-channel correlation, not generic dashboard reporting."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "projects",
+      "pageAnchor": "#projects",
+      "visibleOnPage": true,
+      "projectId": "feedback-agent",
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "project",
+        "Cross-channel product feedback agent",
+        "Live",
+        "OpenAI Agents SDK",
+        "function tools",
+        "persistent agent memory",
+        "Play Store review ingestion",
+        "App Store review ingestion",
+        "YouTube comment ingestion",
+        "X mention ingestion",
+        "relevance filtering",
+        "feedback classification",
+        "onboarding preview APIs",
+        "Python",
+        "FastAPI",
+        "Streamlit",
+        "Next.js 14",
+        "React 18",
+        "TypeScript",
+        "Turso",
+        "YouTube Data API",
+        "X API"
+      ],
+      "priority": 95,
+      "links": {
+        "github": "https://github.com/Rakshit-Lodha/managed-agents-review",
+        "demo": "https://managed-agents-review.onrender.com"
+      }
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "projects"
+      },
+      {
+        "type": "focus_project",
+        "projectId": "feedback-agent"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "feedback-agent",
+        "linkType": "github"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "feedback-agent",
+        "linkType": "demo"
+      }
+    ]
+  },
+  {
+    "id": "project:mf-semantic-search",
+    "entityType": "project",
+    "entityId": "mf-semantic-search",
+    "title": "MF Semantic Search",
+    "aliases": [
+      "MF Semantic Search",
+      "mf-semantic-search",
+      "Semantic search across mutual funds",
+      "semantic search",
+      "intent classification",
+      "fuzzy fund matching",
+      "query routing",
+      "single-fund lookup",
+      "fund comparison",
+      "filtered discovery",
+      "AI-generated investment analysis"
+    ],
+    "retrievalText": "MF Semantic Search\nSemantic search across mutual funds\nSemantic search engine across 16,197 mutual funds, using LLM-based intent classification to route queries into single-fund lookup, fund comparison, or filtered discovery workflows.\nGPT-4o-mini classifies user intent, ChromaDB and OpenAI embeddings retrieve relevant funds from a 16,197-fund database, and GPT-4o generates professional analysis across returns, risk, and expense ratios.\nsemantic search\nintent classification\nfuzzy fund matching\nquery routing\nsingle-fund lookup\nfund comparison\nfiltered discovery\nAI-generated investment analysis\nStreamlit\nChromaDB\nOpenAI text-embedding-3-small\nGPT-4o\nGPT-4o-mini\nStreamlit Cloud\nDesigned three search modes: single lookup, comparison, and filtered discovery.\nHandled natural language queries, typos, partial names, categories, and investment styles.\nBuilt domain-specific routing for mutual fund discovery rather than a generic vector search demo.\nA mutual-fund search POC built after seeing exact-match search fail, focused on comparison, better RAG-based search, and fund explanation.\nRakshit was frustrated that mutual-fund search required users to type exact fund names. He built a POC to explore whether semantic search and intent routing could create a better fund discovery and advisory experience.\nMutual-fund users often search with partial names, natural-language intent, categories, or comparison questions; exact-match search creates friction and hides relevant funds.\nRakshit conceived the POC, defined the three core use cases, built the semantic search workflow, and mapped each use case to possible product entry points.\nBuilt a POC for mutual-fund semantic search and explanation.\nSupported better search for non-exact fund queries.\nDesigned comparison and fund-explanation workflows as separate use cases.\nMapped comparison and explanation to fund detail page entry points.\nMapped improved search to the search bar and core user discovery experience.\nSemantic retrieval is most useful when paired with clear product entry points.\nNarrowing an AI POC to three high-value workflows makes it easier to evaluate and explain.\nFinancial search is not just search quality; it also needs explanation quality and user trust.",
+    "speechSummary": "A mutual-fund search POC built after seeing exact-match search fail, focused on comparison, better RAG-based search, and fund explanation.",
+    "facts": [
+      "Semantic search engine across 16,197 mutual funds, using LLM-based intent classification to route queries into single-fund lookup, fund comparison, or filtered discovery workflows.",
+      "GPT-4o-mini classifies user intent, ChromaDB and OpenAI embeddings retrieve relevant funds from a 16,197-fund database, and GPT-4o generates professional analysis across returns, risk, and expense ratios.",
+      "Designed three search modes: single lookup, comparison, and filtered discovery.",
+      "Handled natural language queries, typos, partial names, categories, and investment styles.",
+      "Built domain-specific routing for mutual fund discovery rather than a generic vector search demo."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "projects",
+      "pageAnchor": "#projects",
+      "visibleOnPage": true,
+      "projectId": "mf-semantic-search",
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "project",
+        "Semantic search across mutual funds",
+        "Beta",
+        "semantic search",
+        "intent classification",
+        "fuzzy fund matching",
+        "query routing",
+        "single-fund lookup",
+        "fund comparison",
+        "filtered discovery",
+        "AI-generated investment analysis",
+        "Streamlit",
+        "ChromaDB",
+        "OpenAI text-embedding-3-small",
+        "GPT-4o",
+        "GPT-4o-mini",
+        "Streamlit Cloud"
+      ],
+      "priority": 95,
+      "links": {
+        "github": "https://github.com/Rakshit-Lodha/mf-search",
+        "demo": "https://mf-ai-search.streamlit.app/"
+      }
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "projects"
+      },
+      {
+        "type": "focus_project",
+        "projectId": "mf-semantic-search"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "mf-semantic-search",
+        "linkType": "github"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "mf-semantic-search",
+        "linkType": "demo"
+      }
+    ]
+  },
+  {
+    "id": "project:us-stocks-analysis-agent",
+    "entityType": "project",
+    "entityId": "us-stocks-analysis-agent",
+    "title": "US Stocks Analysis Agent",
+    "aliases": [
+      "US Stocks Analysis Agent",
+      "us-stocks-analysis-agent",
+      "AI financial analysis agent",
+      "multi-agent architecture",
+      "agent handoffs",
+      "financial statement tools",
+      "earnings analysis",
+      "multi-company comparison",
+      "speech-to-text",
+      "text-to-speech",
+      "trace evaluation",
+      "eval-driven redesign"
+    ],
+    "retrievalText": "US Stocks Analysis Agent\nAI financial analysis agent\nMulti-agent stock analysis system with specialist handoffs, real-time financial tools, voice input/output, and a systematic evaluation framework that improved tool-use accuracy from 58% to 90%.\nA triage agent routes queries to specialist agents for financial data, qualitative earnings analysis, or full analysis. The system uses income statement, balance sheet, cash flow, price, and earnings tools, with voice input and spoken output.\nmulti-agent architecture\nagent handoffs\nfinancial statement tools\nearnings analysis\nmulti-company comparison\nspeech-to-text\ntext-to-speech\ntrace evaluation\neval-driven redesign\nPython\nStreamlit\nOpenAI Agents architecture\nOpenAI Whisper\nOpenAI TTS\nAlpha Vantage API\nOpenAI trace evaluation\nUsed evals to justify moving from a single-agent design to specialized agent handoffs.\nBuilt both the financial analysis workflow and the voice interaction layer.\nValidated major query types with systematic testing instead of relying on demos alone.\nOverall tool-use accuracy improved from 58% to 90%.\nCash flow query accuracy improved from 33% to 100%.\nEvaluation suite covers 20+ test cases across 5 query categories.\nA personal US-stock analyst built with OpenAI Agents SDK, financial-data tools, specialist sub-agents, voice input, and an eval loop that improved tool-use accuracy from 58% to 90%.\nRakshit had started investing in US stocks and wanted a faster way to analyze fundamentals and earnings reports without manually pulling data from multiple sources.\nA retail investor needs reliable answers about financial statements, earnings, and full-company analysis; a generic chatbot can easily call the wrong tool or hallucinate financial details.\nRakshit designed the agent architecture, chose tools over RAG for changing market data, built the voice interaction layer, and redesigned the system based on evaluation results.\nUsed Alpha Vantage APIs to fetch financial statements and stock data.\nBuilt a first single-agent version that decided which financial tool to call.\nEvaluated tool-use behavior and found the single-agent design reached 58% accuracy.\nCreated three specialist sub-agents: a financial data agent, a qualitative earnings-call agent, and a full analysis agent.\nRouted user queries to the relevant specialist agent based on query intent.\nAdded voice input using OpenAI Whisper transcription.\nSent transcribed voice queries into the agent workflow and returned spoken answers through OpenAI text-to-speech.\nAgent architecture can matter more than adding more prompt instructions.\nSpecialist agents are useful when the core failure mode is wrong tool routing.\nVoice AI forces product tradeoffs between completeness and speed.",
+    "speechSummary": "A personal US-stock analyst built with OpenAI Agents SDK, financial-data tools, specialist sub-agents, voice input, and an eval loop that improved tool-use accuracy from 58% to 90%.",
+    "facts": [
+      "Multi-agent stock analysis system with specialist handoffs, real-time financial tools, voice input/output, and a systematic evaluation framework that improved tool-use accuracy from 58% to 90%.",
+      "A triage agent routes queries to specialist agents for financial data, qualitative earnings analysis, or full analysis. The system uses income statement, balance sheet, cash flow, price, and earnings tools, with voice input and spoken output.",
+      "Used evals to justify moving from a single-agent design to specialized agent handoffs.",
+      "Built both the financial analysis workflow and the voice interaction layer.",
+      "Validated major query types with systematic testing instead of relying on demos alone."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "projects",
+      "pageAnchor": "#projects",
+      "visibleOnPage": true,
+      "projectId": "us-stocks-analysis-agent",
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "project",
+        "AI financial analysis agent",
+        "Beta",
+        "multi-agent architecture",
+        "agent handoffs",
+        "financial statement tools",
+        "earnings analysis",
+        "multi-company comparison",
+        "speech-to-text",
+        "text-to-speech",
+        "trace evaluation",
+        "eval-driven redesign",
+        "Python",
+        "Streamlit",
+        "OpenAI Agents architecture",
+        "OpenAI Whisper",
+        "OpenAI TTS",
+        "Alpha Vantage API",
+        "OpenAI trace evaluation"
+      ],
+      "priority": 95,
+      "links": {
+        "github": "https://github.com/Rakshit-Lodha/us-stock-agent",
+        "demo": "https://us-stock-agent.streamlit.app/"
+      }
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "projects"
+      },
+      {
+        "type": "focus_project",
+        "projectId": "us-stocks-analysis-agent"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "us-stocks-analysis-agent",
+        "linkType": "github"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "us-stocks-analysis-agent",
+        "linkType": "demo"
+      }
+    ]
+  },
+  {
+    "id": "project:ai-evaluation-framework",
+    "entityType": "project",
+    "entityId": "ai-evaluation-framework",
+    "title": "AI Evaluation Framework",
+    "aliases": [
+      "AI Evaluation Framework",
+      "ai-evaluation-framework",
+      "Text and voice AI evaluation system",
+      "LLM-as-judge evaluation",
+      "structured rubrics",
+      "safety classification",
+      "accountability testing",
+      "prompt iteration",
+      "ASR evaluation",
+      "WER/CER measurement"
+    ],
+    "retrievalText": "AI Evaluation Framework\nText and voice AI evaluation system\nEvaluation system for conversational AI quality, accountability, safety, and voice ASR accuracy, covering LLM-as-judge rubrics and WER/CER measurement.\nText evals use real-world scenarios and GPT-4o rubric grading for empathy, accountability, actionable guidance, and safety. Voice evals measure ASR accuracy with WER and CER across languages and speaking styles.\nLLM-as-judge evaluation\nstructured rubrics\nsafety classification\naccountability testing\nprompt iteration\nASR evaluation\nWER/CER measurement\nGPT-4o\nPython\nstructured eval datasets\nvoice transcription metrics\nBuilt evals for both product quality and safety behavior.\nDefined automatic-fail conditions for missed crisis escalation, dismissal, or forced optimism.\nUsed eval results to expose language and speaking-style limits in voice products.\nText eval pass rate improved from 57% to 100%.\nAccountability accuracy improved from 20% to 100%.\nSafety compliance reached 100% on crisis scenarios.\nMeasured English WER between 4.1% and 11.7%, and Hindi WER at 27.7%.",
+    "speechSummary": "Evaluation system for conversational AI quality, accountability, safety, and voice ASR accuracy, covering LLM-as-judge rubrics and WER/CER measurement.",
+    "facts": [
+      "Evaluation system for conversational AI quality, accountability, safety, and voice ASR accuracy, covering LLM-as-judge rubrics and WER/CER measurement.",
+      "Text evals use real-world scenarios and GPT-4o rubric grading for empathy, accountability, actionable guidance, and safety. Voice evals measure ASR accuracy with WER and CER across languages and speaking styles.",
+      "Built evals for both product quality and safety behavior.",
+      "Defined automatic-fail conditions for missed crisis escalation, dismissal, or forced optimism.",
+      "Used eval results to expose language and speaking-style limits in voice products."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "projects",
+      "pageAnchor": "#projects",
+      "visibleOnPage": true,
+      "projectId": "ai-evaluation-framework",
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "project",
+        "Text and voice AI evaluation system",
+        "Prototype",
+        "LLM-as-judge evaluation",
+        "structured rubrics",
+        "safety classification",
+        "accountability testing",
+        "prompt iteration",
+        "ASR evaluation",
+        "WER/CER measurement",
+        "GPT-4o",
+        "Python",
+        "structured eval datasets",
+        "voice transcription metrics"
+      ],
+      "priority": 70,
+      "links": {
+        "github": "https://github.com/Rakshit-Lodha/evals"
+      }
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "projects"
+      },
+      {
+        "type": "focus_project",
+        "projectId": "ai-evaluation-framework"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "ai-evaluation-framework",
+        "linkType": "github"
+      }
+    ]
+  },
+  {
+    "id": "project:talk-to-krishna",
+    "entityType": "project",
+    "entityId": "talk-to-krishna",
+    "title": "TalkToKrishna",
+    "aliases": [
+      "TalkToKrishna",
+      "talk-to-krishna",
+      "RAG spiritual counseling product",
+      "RAG",
+      "dual-collection retrieval",
+      "semantic search",
+      "persona prompting",
+      "safety handling",
+      "LLM-as-judge evaluation",
+      "prompt rollback decisions"
+    ],
+    "retrievalText": "TalkToKrishna\nRAG spiritual counseling product\nRAG-based conversational product grounded in 700 Bhagavad Gita verses, with dual retrieval collections, persona-aware generation, and a 50-question evaluation suite.\nUser queries retrieve from separate Problems and Solutions collections: Arjuna's struggles for emotional matching and Krishna's teachings for guidance. GPT-4o then generates grounded responses with verse references and safety-aware behavior.\nRAG\ndual-collection retrieval\nsemantic search\npersona prompting\nsafety handling\nLLM-as-judge evaluation\nprompt rollback decisions\nPython\nChromaDB\nOpenAI text-embedding-3-small\nGPT-4o\npandas\nBuilt a RAG architecture that maps a user's emotional state to analogous source material before giving guidance.\nUsed multi-dimensional evals across relevance, correctness, tone, citation quality, and safety.\nMade a product decision to revert a more complex prompt when evals showed lower consistency and higher variance.\nBaseline score: 84.2/100 across a 50-question suite.\nCorrectness: 91.7/100.\nTone and persona: 87.8/100.\nSafety: 100/100 across crisis and dangerous-reasoning test cases.\nA Bhagavad Gita RAG product built after a personal moment of wanting a better way to read, understand, and apply the text.\nAfter a breakup, Rakshit was reading the Bhagavad Gita and felt there should be a more interactive way to understand it than reading linearly.\nA user may arrive with an emotional, philosophical, practical, or crisis-oriented question and needs grounded guidance from the Gita without hallucinated scripture or unsafe advice.\nRakshit built the Streamlit product, structured the verse data, designed the ChromaDB retrieval flow, created the generation prompt, and built the LLM-judge evaluation categories.\nBuilt a Streamlit app for conversational Gita guidance.\nEmbedded the Gita verses into ChromaDB.\nRan semantic search against the user's query to retrieve similar results.\nUsed an LLM relevance step to choose the most appropriate verses.\nGenerated responses with GPT-4o in an empathetic Krishna persona.\nGrounded answers in retrieved verses and included verse citations.\nBuilt evaluation categories for crisis, philosophical, dangerous relationship, practical, adversarial, and negative cases.\nEvaluated relevance, correctness, tone/persona, Gita reference quality, and safety with LLM-as-judge scoring.\nBounded, static knowledge domains are good candidates for RAG when grounding matters.\nSafety evaluation needs category-specific cases, not only average answer quality.\nA persona prompt must be judged on correctness, tone, citation quality, and safety together.",
+    "speechSummary": "A Bhagavad Gita RAG product built after a personal moment of wanting a better way to read, understand, and apply the text.",
+    "facts": [
+      "RAG-based conversational product grounded in 700 Bhagavad Gita verses, with dual retrieval collections, persona-aware generation, and a 50-question evaluation suite.",
+      "User queries retrieve from separate Problems and Solutions collections: Arjuna's struggles for emotional matching and Krishna's teachings for guidance. GPT-4o then generates grounded responses with verse references and safety-aware behavior.",
+      "Built a RAG architecture that maps a user's emotional state to analogous source material before giving guidance.",
+      "Used multi-dimensional evals across relevance, correctness, tone, citation quality, and safety.",
+      "Made a product decision to revert a more complex prompt when evals showed lower consistency and higher variance."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "projects",
+      "pageAnchor": "#projects",
+      "visibleOnPage": true,
+      "projectId": "talk-to-krishna",
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "project",
+        "RAG spiritual counseling product",
+        "Prototype",
+        "RAG",
+        "dual-collection retrieval",
+        "semantic search",
+        "persona prompting",
+        "safety handling",
+        "LLM-as-judge evaluation",
+        "prompt rollback decisions",
+        "Python",
+        "ChromaDB",
+        "OpenAI text-embedding-3-small",
+        "GPT-4o",
+        "pandas"
+      ],
+      "priority": 70,
+      "links": {
+        "github": "https://github.com/Rakshit-Lodha/talktokrishna",
+        "demo": "https://talktokrishna-app.streamlit.app/"
+      }
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "projects"
+      },
+      {
+        "type": "focus_project",
+        "projectId": "talk-to-krishna"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "talk-to-krishna",
+        "linkType": "github"
+      },
+      {
+        "type": "open_project_link",
+        "projectId": "talk-to-krishna",
+        "linkType": "demo"
+      }
+    ]
+  },
+  {
+    "id": "experience:etmoney",
+    "entityType": "experience",
+    "entityId": "etmoney",
+    "title": "ET Money - Product Manager",
+    "aliases": [
+      "ET Money",
+      "etmoney",
+      "Product Manager",
+      "AI support automation",
+      "lending",
+      "wealth",
+      "insurance",
+      "mutual funds",
+      "distribution"
+    ],
+    "retrievalText": "ET Money\nProduct Manager\nGurugram\nDec 2022\nPresent\nScaled AI support automation, lending, wealth, insurance, and mutual fund products.\nAI support automation\nlending\nwealth\ninsurance\nmutual funds\ndistribution\nAI support automation\n19,000 -> 9,000 monthly tickets; 55% reduction; 30% CSAT improvement\nReduced monthly ticket volume by designing intent classification, 100+ resolution workflows, and an LLM-as-judge eval pipeline.\nBuilt and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.\nsupport automation\nagentic workflows\neval systems\nLLM products\nOffline distribution business\n12% of SIP book and 10% of gross sales within 4 months\nEnabled relationship managers to create goal-based investment plans and execute transactions on ET Money's platform.\nBuilt a 0-to-1 offline distribution business on top of ET Money's platform for relationship-manager-led planning and transactions.\n0-to-1\nwealth\nadvisory\ndistribution\nLoan Against Mutual Funds\nINR 100Cr disbursals in 7 months\nBuilt and scaled Loan Against Mutual Funds from the ground up.\nBuilt and scaled Loan Against Mutual Funds from ground up to INR 100Cr disbursals in 7 months.\nlending\nmutual funds\n0-to-1\nET Money Earn\nINR 300Cr AUM\nLed 0-to-1 development and scaling of ET Money Earn.\nLed 0-to-1 development and scaling of ET Money Earn to INR 300Cr AUM.\nwealth\n0-to-1\nAUM\nExecution-only Mutual Fund Platform\nProjected INR 10Cr annual revenue\nBuilt an execution-only mutual fund platform with meaningful revenue potential.\nBuilt execution-only Mutual Fund Platform, projected to generate INR 10Cr annual revenue.\nmutual funds\nwealth\nrevenue\nHealth & Term Insurance\nIncreased term and health insurance policy sales by 100%\nIncreased insurance revenue from INR 1.5Cr to INR 3Cr by revamping term and health insurance journeys, adding partners, and introducing a new 1Cr health insurance product.\nIncreased revenue of insurance as a vertical from INR 1.5Cr to INR 3Cr.\ninsurance\nterm insurance\nhealth insurance\nrevenue\nET Money Earn (P2P Investment)\n0 -> INR 100Cr AUM in 1 month\nBuilt ET Money Earn from the ground up, reached INR 100Cr AUM in 1 month, and had the product showcased in an IPL ad.\nGenerated INR 3Cr in annual income in the first year.\ninvestments\nP2P investment\nrevenue\n0-to-1",
+    "speechSummary": "Scaled AI support automation, lending, wealth, insurance, and mutual fund products.",
+    "facts": [
+      "Product Manager at ET Money",
+      "Scaled AI support automation, lending, wealth, insurance, and mutual fund products.",
+      "AI support automation: 19,000 -> 9,000 monthly tickets; 55% reduction; 30% CSAT improvement",
+      "Offline distribution business: 12% of SIP book and 10% of gross sales within 4 months",
+      "Loan Against Mutual Funds: INR 100Cr disbursals in 7 months",
+      "ET Money Earn: INR 300Cr AUM"
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "etmoney",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "experience",
+        "ET Money",
+        "Product Manager",
+        "AI support automation",
+        "lending",
+        "wealth",
+        "insurance",
+        "mutual funds",
+        "distribution"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "my-story"
+      },
+      {
+        "type": "focus_experience",
+        "companyId": "etmoney"
+      }
+    ]
+  },
+  {
+    "id": "outcome:etmoney-support-automation",
+    "entityType": "outcome",
+    "entityId": "etmoney-support-automation",
+    "parentId": "etmoney",
+    "title": "ET Money: AI support automation",
+    "aliases": [
+      "AI support automation",
+      "etmoney-support-automation",
+      "ET Money",
+      "support automation",
+      "agentic workflows",
+      "eval systems",
+      "LLM products"
+    ],
+    "retrievalText": "ET Money\nAI support automation\n19,000 -> 9,000 monthly tickets; 55% reduction; 30% CSAT improvement\nReduced monthly ticket volume by designing intent classification, 100+ resolution workflows, and an LLM-as-judge eval pipeline.\nBuilt and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.\nsupport automation\nagentic workflows\neval systems\nLLM products",
+    "speechSummary": "AI support automation: Reduced monthly ticket volume by designing intent classification, 100+ resolution workflows, and an LLM-as-judge eval pipeline.",
+    "facts": [
+      "19,000 -> 9,000 monthly tickets; 55% reduction; 30% CSAT improvement",
+      "Reduced monthly ticket volume by designing intent classification, 100+ resolution workflows, and an LLM-as-judge eval pipeline.",
+      "Built and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "etmoney",
+      "outcomeId": "etmoney-support-automation",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "outcome",
+        "ET Money",
+        "AI support automation",
+        "support automation",
+        "agentic workflows",
+        "eval systems",
+        "LLM products"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "focus_experience",
+        "companyId": "etmoney"
+      },
+      {
+        "type": "highlight_outcome",
+        "outcomeId": "etmoney-support-automation"
+      }
+    ]
+  },
+  {
+    "id": "outcome:etmoney-offline-distribution",
+    "entityType": "outcome",
+    "entityId": "etmoney-offline-distribution",
+    "parentId": "etmoney",
+    "title": "ET Money: Offline distribution business",
+    "aliases": [
+      "Offline distribution business",
+      "etmoney-offline-distribution",
+      "ET Money",
+      "0-to-1",
+      "wealth",
+      "advisory",
+      "distribution"
+    ],
+    "retrievalText": "ET Money\nOffline distribution business\n12% of SIP book and 10% of gross sales within 4 months\nEnabled relationship managers to create goal-based investment plans and execute transactions on ET Money's platform.\nBuilt a 0-to-1 offline distribution business on top of ET Money's platform for relationship-manager-led planning and transactions.\n0-to-1\nwealth\nadvisory\ndistribution",
+    "speechSummary": "Offline distribution business: Enabled relationship managers to create goal-based investment plans and execute transactions on ET Money's platform.",
+    "facts": [
+      "12% of SIP book and 10% of gross sales within 4 months",
+      "Enabled relationship managers to create goal-based investment plans and execute transactions on ET Money's platform.",
+      "Built a 0-to-1 offline distribution business on top of ET Money's platform for relationship-manager-led planning and transactions."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "etmoney",
+      "outcomeId": "etmoney-offline-distribution",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "outcome",
+        "ET Money",
+        "Offline distribution business",
+        "0-to-1",
+        "wealth",
+        "advisory",
+        "distribution"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "focus_experience",
+        "companyId": "etmoney"
+      },
+      {
+        "type": "highlight_outcome",
+        "outcomeId": "etmoney-offline-distribution"
+      }
+    ]
+  },
+  {
+    "id": "outcome:etmoney-lamf",
+    "entityType": "outcome",
+    "entityId": "etmoney-lamf",
+    "parentId": "etmoney",
+    "title": "ET Money: Loan Against Mutual Funds",
+    "aliases": [
+      "Loan Against Mutual Funds",
+      "etmoney-lamf",
+      "ET Money",
+      "lending",
+      "mutual funds",
+      "0-to-1"
+    ],
+    "retrievalText": "ET Money\nLoan Against Mutual Funds\nINR 100Cr disbursals in 7 months\nBuilt and scaled Loan Against Mutual Funds from the ground up.\nBuilt and scaled Loan Against Mutual Funds from ground up to INR 100Cr disbursals in 7 months.\nlending\nmutual funds\n0-to-1",
+    "speechSummary": "Loan Against Mutual Funds: Built and scaled Loan Against Mutual Funds from the ground up.",
+    "facts": [
+      "INR 100Cr disbursals in 7 months",
+      "Built and scaled Loan Against Mutual Funds from the ground up.",
+      "Built and scaled Loan Against Mutual Funds from ground up to INR 100Cr disbursals in 7 months."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "etmoney",
+      "outcomeId": "etmoney-lamf",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "outcome",
+        "ET Money",
+        "Loan Against Mutual Funds",
+        "lending",
+        "mutual funds",
+        "0-to-1"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "focus_experience",
+        "companyId": "etmoney"
+      },
+      {
+        "type": "highlight_outcome",
+        "outcomeId": "etmoney-lamf"
+      }
+    ]
+  },
+  {
+    "id": "outcome:etmoney-earn",
+    "entityType": "outcome",
+    "entityId": "etmoney-earn",
+    "parentId": "etmoney",
+    "title": "ET Money: ET Money Earn",
+    "aliases": [
+      "ET Money Earn",
+      "etmoney-earn",
+      "ET Money",
+      "wealth",
+      "0-to-1",
+      "AUM"
+    ],
+    "retrievalText": "ET Money\nET Money Earn\nINR 300Cr AUM\nLed 0-to-1 development and scaling of ET Money Earn.\nLed 0-to-1 development and scaling of ET Money Earn to INR 300Cr AUM.\nwealth\n0-to-1\nAUM",
+    "speechSummary": "ET Money Earn: Led 0-to-1 development and scaling of ET Money Earn.",
+    "facts": [
+      "INR 300Cr AUM",
+      "Led 0-to-1 development and scaling of ET Money Earn.",
+      "Led 0-to-1 development and scaling of ET Money Earn to INR 300Cr AUM."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "etmoney",
+      "outcomeId": "etmoney-earn",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "outcome",
+        "ET Money",
+        "ET Money Earn",
+        "wealth",
+        "0-to-1",
+        "AUM"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "focus_experience",
+        "companyId": "etmoney"
+      },
+      {
+        "type": "highlight_outcome",
+        "outcomeId": "etmoney-earn"
+      }
+    ]
+  },
+  {
+    "id": "outcome:etmoney-mf-platform",
+    "entityType": "outcome",
+    "entityId": "etmoney-mf-platform",
+    "parentId": "etmoney",
+    "title": "ET Money: Execution-only Mutual Fund Platform",
+    "aliases": [
+      "Execution-only Mutual Fund Platform",
+      "etmoney-mf-platform",
+      "ET Money",
+      "mutual funds",
+      "wealth",
+      "revenue"
+    ],
+    "retrievalText": "ET Money\nExecution-only Mutual Fund Platform\nProjected INR 10Cr annual revenue\nBuilt an execution-only mutual fund platform with meaningful revenue potential.\nBuilt execution-only Mutual Fund Platform, projected to generate INR 10Cr annual revenue.\nmutual funds\nwealth\nrevenue",
+    "speechSummary": "Execution-only Mutual Fund Platform: Built an execution-only mutual fund platform with meaningful revenue potential.",
+    "facts": [
+      "Projected INR 10Cr annual revenue",
+      "Built an execution-only mutual fund platform with meaningful revenue potential.",
+      "Built execution-only Mutual Fund Platform, projected to generate INR 10Cr annual revenue."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "etmoney",
+      "outcomeId": "etmoney-mf-platform",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "outcome",
+        "ET Money",
+        "Execution-only Mutual Fund Platform",
+        "mutual funds",
+        "wealth",
+        "revenue"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "focus_experience",
+        "companyId": "etmoney"
+      },
+      {
+        "type": "highlight_outcome",
+        "outcomeId": "etmoney-mf-platform"
+      }
+    ]
+  },
+  {
+    "id": "outcome:etmoney-insurance-platform",
+    "entityType": "outcome",
+    "entityId": "etmoney-insurance-platform",
+    "parentId": "etmoney",
+    "title": "ET Money: Health & Term Insurance",
+    "aliases": [
+      "Health & Term Insurance",
+      "etmoney-insurance-platform",
+      "ET Money",
+      "insurance",
+      "term insurance",
+      "health insurance",
+      "revenue"
+    ],
+    "retrievalText": "ET Money\nHealth & Term Insurance\nIncreased term and health insurance policy sales by 100%\nIncreased insurance revenue from INR 1.5Cr to INR 3Cr by revamping term and health insurance journeys, adding partners, and introducing a new 1Cr health insurance product.\nIncreased revenue of insurance as a vertical from INR 1.5Cr to INR 3Cr.\ninsurance\nterm insurance\nhealth insurance\nrevenue",
+    "speechSummary": "Health & Term Insurance: Increased insurance revenue from INR 1.5Cr to INR 3Cr by revamping term and health insurance journeys, adding partners, and introducing a new 1Cr health insurance product.",
+    "facts": [
+      "Increased term and health insurance policy sales by 100%",
+      "Increased insurance revenue from INR 1.5Cr to INR 3Cr by revamping term and health insurance journeys, adding partners, and introducing a new 1Cr health insurance product.",
+      "Increased revenue of insurance as a vertical from INR 1.5Cr to INR 3Cr."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "etmoney",
+      "outcomeId": "etmoney-insurance-platform",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "outcome",
+        "ET Money",
+        "Health & Term Insurance",
+        "insurance",
+        "term insurance",
+        "health insurance",
+        "revenue"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "focus_experience",
+        "companyId": "etmoney"
+      },
+      {
+        "type": "highlight_outcome",
+        "outcomeId": "etmoney-insurance-platform"
+      }
+    ]
+  },
+  {
+    "id": "outcome:etmoney-earn-p2p-investment",
+    "entityType": "outcome",
+    "entityId": "etmoney-earn-p2p-investment",
+    "parentId": "etmoney",
+    "title": "ET Money: ET Money Earn (P2P Investment)",
+    "aliases": [
+      "ET Money Earn (P2P Investment)",
+      "etmoney-earn-p2p-investment",
+      "ET Money",
+      "investments",
+      "P2P investment",
+      "revenue",
+      "0-to-1"
+    ],
+    "retrievalText": "ET Money\nET Money Earn (P2P Investment)\n0 -> INR 100Cr AUM in 1 month\nBuilt ET Money Earn from the ground up, reached INR 100Cr AUM in 1 month, and had the product showcased in an IPL ad.\nGenerated INR 3Cr in annual income in the first year.\ninvestments\nP2P investment\nrevenue\n0-to-1",
+    "speechSummary": "ET Money Earn (P2P Investment): Built ET Money Earn from the ground up, reached INR 100Cr AUM in 1 month, and had the product showcased in an IPL ad.",
+    "facts": [
+      "0 -> INR 100Cr AUM in 1 month",
+      "Built ET Money Earn from the ground up, reached INR 100Cr AUM in 1 month, and had the product showcased in an IPL ad.",
+      "Generated INR 3Cr in annual income in the first year."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "etmoney",
+      "outcomeId": "etmoney-earn-p2p-investment",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "outcome",
+        "ET Money",
+        "ET Money Earn (P2P Investment)",
+        "investments",
+        "P2P investment",
+        "revenue",
+        "0-to-1"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "focus_experience",
+        "companyId": "etmoney"
+      },
+      {
+        "type": "highlight_outcome",
+        "outcomeId": "etmoney-earn-p2p-investment"
+      }
+    ]
+  },
+  {
+    "id": "experience:indmoney",
+    "entityType": "experience",
+    "entityId": "indmoney",
+    "title": "INDMoney - Associate Product Manager",
+    "aliases": [
+      "INDMoney",
+      "indmoney",
+      "Associate Product Manager",
+      "recommendations",
+      "financial planning",
+      "insurance",
+      "advisory"
+    ],
+    "retrievalText": "INDMoney\nAssociate Product Manager\nGurugram\nDec 2020\nDec 2022\nTurned advisory and insurance workflows into scalable recommendation products.\nrecommendations\nfinancial planning\ninsurance\nadvisory\nFinancial planning module\n4-5 hours -> 15 minutes; 20,000+ advisory plans\nReduced financial plan creation time with recommendation algorithms and scaled advisory plan generation.\nBuilt financial planning module with recommendation algorithms, reducing plan creation time from 4-5 hours to 15 minutes and enabling 20,000+ advisory plans.\nrecommendations\nadvisory\nworkflow automation\nplanning\nInsurance recommendations\nINR 1.5Cr ARR in first year\nDeveloped personalized insurance recommendations aligned with users' financial goals.\nDeveloped personalized insurance recommendation system aligned with financial goals, achieving INR 1.5Cr ARR in the first year.\nrecommendations\ninsurance\npersonalization\nrevenue",
+    "speechSummary": "Turned advisory and insurance workflows into scalable recommendation products.",
+    "facts": [
+      "Associate Product Manager at INDMoney",
+      "Turned advisory and insurance workflows into scalable recommendation products.",
+      "Financial planning module: 4-5 hours -> 15 minutes; 20,000+ advisory plans",
+      "Insurance recommendations: INR 1.5Cr ARR in first year"
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "indmoney",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "experience",
+        "INDMoney",
+        "Associate Product Manager",
+        "recommendations",
+        "financial planning",
+        "insurance",
+        "advisory"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "my-story"
+      },
+      {
+        "type": "focus_experience",
+        "companyId": "indmoney"
+      }
+    ]
+  },
+  {
+    "id": "outcome:indmoney-financial-planning",
+    "entityType": "outcome",
+    "entityId": "indmoney-financial-planning",
+    "parentId": "indmoney",
+    "title": "INDMoney: Financial planning module",
+    "aliases": [
+      "Financial planning module",
+      "indmoney-financial-planning",
+      "INDMoney",
+      "recommendations",
+      "advisory",
+      "workflow automation",
+      "planning"
+    ],
+    "retrievalText": "INDMoney\nFinancial planning module\n4-5 hours -> 15 minutes; 20,000+ advisory plans\nReduced financial plan creation time with recommendation algorithms and scaled advisory plan generation.\nBuilt financial planning module with recommendation algorithms, reducing plan creation time from 4-5 hours to 15 minutes and enabling 20,000+ advisory plans.\nrecommendations\nadvisory\nworkflow automation\nplanning",
+    "speechSummary": "Financial planning module: Reduced financial plan creation time with recommendation algorithms and scaled advisory plan generation.",
+    "facts": [
+      "4-5 hours -> 15 minutes; 20,000+ advisory plans",
+      "Reduced financial plan creation time with recommendation algorithms and scaled advisory plan generation.",
+      "Built financial planning module with recommendation algorithms, reducing plan creation time from 4-5 hours to 15 minutes and enabling 20,000+ advisory plans."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "indmoney",
+      "outcomeId": "indmoney-financial-planning",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "outcome",
+        "INDMoney",
+        "Financial planning module",
+        "recommendations",
+        "advisory",
+        "workflow automation",
+        "planning"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "focus_experience",
+        "companyId": "indmoney"
+      },
+      {
+        "type": "highlight_outcome",
+        "outcomeId": "indmoney-financial-planning"
+      }
+    ]
+  },
+  {
+    "id": "outcome:indmoney-insurance-recommendations",
+    "entityType": "outcome",
+    "entityId": "indmoney-insurance-recommendations",
+    "parentId": "indmoney",
+    "title": "INDMoney: Insurance recommendations",
+    "aliases": [
+      "Insurance recommendations",
+      "indmoney-insurance-recommendations",
+      "INDMoney",
+      "recommendations",
+      "insurance",
+      "personalization",
+      "revenue"
+    ],
+    "retrievalText": "INDMoney\nInsurance recommendations\nINR 1.5Cr ARR in first year\nDeveloped personalized insurance recommendations aligned with users' financial goals.\nDeveloped personalized insurance recommendation system aligned with financial goals, achieving INR 1.5Cr ARR in the first year.\nrecommendations\ninsurance\npersonalization\nrevenue",
+    "speechSummary": "Insurance recommendations: Developed personalized insurance recommendations aligned with users' financial goals.",
+    "facts": [
+      "INR 1.5Cr ARR in first year",
+      "Developed personalized insurance recommendations aligned with users' financial goals.",
+      "Developed personalized insurance recommendation system aligned with financial goals, achieving INR 1.5Cr ARR in the first year."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "indmoney",
+      "outcomeId": "indmoney-insurance-recommendations",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "outcome",
+        "INDMoney",
+        "Insurance recommendations",
+        "recommendations",
+        "insurance",
+        "personalization",
+        "revenue"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "focus_experience",
+        "companyId": "indmoney"
+      },
+      {
+        "type": "highlight_outcome",
+        "outcomeId": "indmoney-insurance-recommendations"
+      }
+    ]
+  },
+  {
+    "id": "failure:indmoney-goals-feature",
+    "entityType": "failure",
+    "entityId": "indmoney-goals-feature",
+    "parentId": "indmoney",
+    "title": "INDMoney: Goals feature — did not get PMF",
+    "aliases": [
+      "Goals feature — did not get PMF",
+      "indmoney-goals-feature",
+      "INDMoney",
+      "PMF",
+      "retention",
+      "goals",
+      "product failure",
+      "learnings",
+      "what went wrong"
+    ],
+    "retrievalText": "INDMoney\nGoals feature — did not get PMF\nThe Goals feature was meant to help users set and track financial goals as a core retention driver for the planning module. It failed: monthly retention was low and users were not coming back.\nUnclear target market — never resolved whether we were building for advisors or end customers\nNo single north star — acquisition, retention, and monetisation were all treated as equal priorities simultaneously\nBet on algorithm complexity over product simplicity\nDid not instrument or review data regularly — flew blind on what was actually happening\nConstant friction with business stakeholders — limited cross-functional collaboration\nShipped features without defining what success looked like first\nStarted with the algorithm and worked backwards to customer experience — should have been the opposite\nDid not use the right channels at the right time to drive adoption\nPMF\nretention\ngoals\nproduct failure\nlearnings\nwhat went wrong",
+    "speechSummary": "The Goals feature was meant to help users set and track financial goals as a core retention driver for the planning module. It failed: monthly retention was low and users were not coming back.",
+    "facts": [
+      "The Goals feature was meant to help users set and track financial goals as a core retention driver for the planning module. It failed: monthly retention was low and users were not coming back.",
+      "Unclear target market — never resolved whether we were building for advisors or end customers",
+      "No single north star — acquisition, retention, and monetisation were all treated as equal priorities simultaneously",
+      "Bet on algorithm complexity over product simplicity",
+      "Did not instrument or review data regularly — flew blind on what was actually happening",
+      "Constant friction with business stakeholders — limited cross-functional collaboration",
+      "Shipped features without defining what success looked like first",
+      "Started with the algorithm and worked backwards to customer experience — should have been the opposite"
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": false,
+      "companyId": "indmoney",
+      "workContext": "professional",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "failure",
+        "INDMoney",
+        "Goals feature — did not get PMF",
+        "PMF",
+        "retention",
+        "goals",
+        "product failure",
+        "learnings",
+        "what went wrong"
+      ],
+      "priority": 75
+    },
+    "preferredCommands": [
+      {
+        "type": "focus_experience",
+        "companyId": "indmoney"
+      }
+    ]
+  },
+  {
+    "id": "experience:learnapp",
+    "entityType": "experience",
+    "entityId": "learnapp",
+    "title": "LearnApp - Core Team Member",
+    "aliases": [
+      "LearnApp",
+      "learnapp",
+      "Core Team Member",
+      "0-to-1",
+      "education",
+      "content",
+      "investing"
+    ],
+    "retrievalText": "LearnApp\nCore Team Member\nRemote\nNov 2018\nDec 2020\nHelped build an investing education platform from an early-stage team.\n0-to-1\neducation\ncontent\ninvesting\nInvesting and finance course library\n50% course completion; INR 1.2Cr ARR\nDesigned a course library that improved completion and generated recurring revenue.\nDesigned library of investing and finance courses, achieving 50% course completion rate and generating INR 1.2Cr ARR.\n0-to-1\neducation\ninvesting\ncontent",
+    "speechSummary": "Helped build an investing education platform from an early-stage team.",
+    "facts": [
+      "Core Team Member at LearnApp",
+      "Helped build an investing education platform from an early-stage team.",
+      "Investing and finance course library: 50% course completion; INR 1.2Cr ARR"
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "learnapp",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "experience",
+        "LearnApp",
+        "Core Team Member",
+        "0-to-1",
+        "education",
+        "content",
+        "investing"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "my-story"
+      },
+      {
+        "type": "focus_experience",
+        "companyId": "learnapp"
+      }
+    ]
+  },
+  {
+    "id": "outcome:learnapp-courses",
+    "entityType": "outcome",
+    "entityId": "learnapp-courses",
+    "parentId": "learnapp",
+    "title": "LearnApp: Investing and finance course library",
+    "aliases": [
+      "Investing and finance course library",
+      "learnapp-courses",
+      "LearnApp",
+      "0-to-1",
+      "education",
+      "investing",
+      "content"
+    ],
+    "retrievalText": "LearnApp\nInvesting and finance course library\n50% course completion; INR 1.2Cr ARR\nDesigned a course library that improved completion and generated recurring revenue.\nDesigned library of investing and finance courses, achieving 50% course completion rate and generating INR 1.2Cr ARR.\n0-to-1\neducation\ninvesting\ncontent",
+    "speechSummary": "Investing and finance course library: Designed a course library that improved completion and generated recurring revenue.",
+    "facts": [
+      "50% course completion; INR 1.2Cr ARR",
+      "Designed a course library that improved completion and generated recurring revenue.",
+      "Designed library of investing and finance courses, achieving 50% course completion rate and generating INR 1.2Cr ARR."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "learnapp",
+      "outcomeId": "learnapp-courses",
+      "workContext": "professional",
+      "evidenceStrength": "direct_shipped",
+      "tags": [
+        "outcome",
+        "LearnApp",
+        "Investing and finance course library",
+        "0-to-1",
+        "education",
+        "investing",
+        "content"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "focus_experience",
+        "companyId": "learnapp"
+      },
+      {
+        "type": "highlight_outcome",
+        "outcomeId": "learnapp-courses"
+      }
+    ]
+  },
+  {
+    "id": "skill:agents-and-tool-orchestration",
+    "entityType": "skill",
+    "entityId": "agents-and-tool-orchestration",
+    "title": "Agents and Tool Orchestration",
+    "aliases": [
+      "Agents and Tool Orchestration",
+      "agents-and-tool-orchestration",
+      "OpenAI Agents SDK",
+      "function tools",
+      "agent handoffs",
+      "Turso session memory",
+      "real-time financial APIs"
+    ],
+    "retrievalText": "Agents and Tool Orchestration\nBuilt agentic products with function tools, specialist handoffs, persistent memory, real-time APIs, and measured tool-use behavior.\nFeedback Intelligence uses OpenAI Agents SDK function tools for Play Store, App Store, YouTube, and X feedback retrieval.\nUS Stocks Analysis Agent moved from a single-agent design to specialist handoffs and improved tool-use accuracy from 58% to 90%.\nKrux.news uses a multi-stage pipeline with curation, research, summarization, image generation, and publishing steps.\nOpenAI Agents SDK\nfunction tools\nagent handoffs\nTurso session memory\nreal-time financial APIs\nfeedback-agent\nus-stocks-analysis-agent\nkrux-new",
+    "speechSummary": "Built agentic products with function tools, specialist handoffs, persistent memory, real-time APIs, and measured tool-use behavior.",
+    "facts": [
+      "Feedback Intelligence uses OpenAI Agents SDK function tools for Play Store, App Store, YouTube, and X feedback retrieval.",
+      "US Stocks Analysis Agent moved from a single-agent design to specialist handoffs and improved tool-use accuracy from 58% to 90%.",
+      "Krux.news uses a multi-stage pipeline with curation, research, summarization, image generation, and publishing steps."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "skill-map",
+      "pageAnchor": "#skill-map",
+      "visibleOnPage": true,
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "skill",
+        "Agents and Tool Orchestration",
+        "OpenAI Agents SDK",
+        "function tools",
+        "agent handoffs",
+        "Turso session memory",
+        "real-time financial APIs",
+        "feedback-agent",
+        "us-stocks-analysis-agent",
+        "krux-new"
+      ],
+      "priority": 80
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "skill-map"
+      }
+    ]
+  },
+  {
+    "id": "skill:rag-and-semantic-search",
+    "entityType": "skill",
+    "entityId": "rag-and-semantic-search",
+    "title": "RAG and Semantic Search",
+    "aliases": [
+      "RAG and Semantic Search",
+      "rag-and-semantic-search",
+      "ChromaDB",
+      "OpenAI text-embedding-3-small",
+      "GPT-4o",
+      "GPT-4o-mini"
+    ],
+    "retrievalText": "RAG and Semantic Search\nBuilt retrieval systems for mutual funds and spiritual guidance, including vector search, intent classification, and dual-collection retrieval strategies.\nMF Semantic Search searches 16,197 mutual funds using ChromaDB, OpenAI embeddings, and LLM-based routing.\nTalkToKrishna retrieves from separate Problems and Solutions collections across 700 Bhagavad Gita verses.\nChromaDB\nOpenAI text-embedding-3-small\nGPT-4o\nGPT-4o-mini\nmf-semantic-search\ntalk-to-krishna",
+    "speechSummary": "Built retrieval systems for mutual funds and spiritual guidance, including vector search, intent classification, and dual-collection retrieval strategies.",
+    "facts": [
+      "MF Semantic Search searches 16,197 mutual funds using ChromaDB, OpenAI embeddings, and LLM-based routing.",
+      "TalkToKrishna retrieves from separate Problems and Solutions collections across 700 Bhagavad Gita verses."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "skill-map",
+      "pageAnchor": "#skill-map",
+      "visibleOnPage": true,
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "skill",
+        "RAG and Semantic Search",
+        "ChromaDB",
+        "OpenAI text-embedding-3-small",
+        "GPT-4o",
+        "GPT-4o-mini",
+        "mf-semantic-search",
+        "talk-to-krishna"
+      ],
+      "priority": 80
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "skill-map"
+      }
+    ]
+  },
+  {
+    "id": "skill:eval-driven-ai-product",
+    "entityType": "skill",
+    "entityId": "eval-driven-ai-product",
+    "title": "Eval-Driven AI Product Development",
+    "aliases": [
+      "Eval-Driven AI Product Development",
+      "eval-driven-ai-product",
+      "LLM-as-judge",
+      "trace evaluation",
+      "structured rubrics",
+      "WER",
+      "CER"
+    ],
+    "retrievalText": "Eval-Driven AI Product Development\nDesigned evaluation systems for agent tool usage, conversational quality, safety, accountability, RAG correctness, persona consistency, and ASR accuracy.\nUS Stocks Analysis Agent used 20+ test cases across 5 categories and improved overall accuracy from 58% to 90%.\nAI Evaluation Framework improved conversational pass rate from 57% to 100% and accountability accuracy from 20% to 100%.\nTalkToKrishna used a 50-question suite and reverted a more complex prompt after evals showed worse consistency.\nLLM-as-judge\ntrace evaluation\nstructured rubrics\nWER\nCER\nus-stocks-analysis-agent\nai-evaluation-framework\ntalk-to-krishna",
+    "speechSummary": "Designed evaluation systems for agent tool usage, conversational quality, safety, accountability, RAG correctness, persona consistency, and ASR accuracy.",
+    "facts": [
+      "US Stocks Analysis Agent used 20+ test cases across 5 categories and improved overall accuracy from 58% to 90%.",
+      "AI Evaluation Framework improved conversational pass rate from 57% to 100% and accountability accuracy from 20% to 100%.",
+      "TalkToKrishna used a 50-question suite and reverted a more complex prompt after evals showed worse consistency."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "skill-map",
+      "pageAnchor": "#skill-map",
+      "visibleOnPage": true,
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "skill",
+        "Eval-Driven AI Product Development",
+        "LLM-as-judge",
+        "trace evaluation",
+        "structured rubrics",
+        "WER",
+        "CER",
+        "us-stocks-analysis-agent",
+        "ai-evaluation-framework",
+        "talk-to-krishna"
+      ],
+      "priority": 80
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "skill-map"
+      }
+    ]
+  },
+  {
+    "id": "skill:voice-ai",
+    "entityType": "skill",
+    "entityId": "voice-ai",
+    "title": "Voice AI",
+    "aliases": [
+      "Voice AI",
+      "voice-ai",
+      "OpenAI Whisper",
+      "OpenAI TTS",
+      "WER",
+      "CER"
+    ],
+    "retrievalText": "Voice AI\nBuilt and evaluated voice interfaces, including speech-to-text, text-to-speech, and ASR quality measurement.\nUS Stocks Analysis Agent supports spoken stock questions, transcription, agent processing, and spoken answers.\nAI Evaluation Framework measures ASR quality with WER and CER, including language and speaking-style comparisons.\nOpenAI Whisper\nOpenAI TTS\nWER\nCER\nus-stocks-analysis-agent\nai-evaluation-framework",
+    "speechSummary": "Built and evaluated voice interfaces, including speech-to-text, text-to-speech, and ASR quality measurement.",
+    "facts": [
+      "US Stocks Analysis Agent supports spoken stock questions, transcription, agent processing, and spoken answers.",
+      "AI Evaluation Framework measures ASR quality with WER and CER, including language and speaking-style comparisons."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "skill-map",
+      "pageAnchor": "#skill-map",
+      "visibleOnPage": true,
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "skill",
+        "Voice AI",
+        "OpenAI Whisper",
+        "OpenAI TTS",
+        "WER",
+        "CER",
+        "us-stocks-analysis-agent",
+        "ai-evaluation-framework"
+      ],
+      "priority": 80
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "skill-map"
+      }
+    ]
+  },
+  {
+    "id": "skill:full-stack-ai-products",
+    "entityType": "skill",
+    "entityId": "full-stack-ai-products",
+    "title": "Full-Stack AI Products",
+    "aliases": [
+      "Full-Stack AI Products",
+      "full-stack-ai-products",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Python",
+      "FastAPI",
+      "Streamlit",
+      "Supabase",
+      "Streamlit Cloud",
+      "Render"
+    ],
+    "retrievalText": "Full-Stack AI Products\nBuilt deployable AI products across pipelines, backends, frontends, storage, and hosted demos.\nKrux.news combines a Python AI pipeline, Supabase storage, and a Next.js consumer app.\nFeedback Intelligence combines an Agents SDK backend, Streamlit chat UI, FastAPI preview API, and Next.js onboarding flow.\nMF Semantic Search and US Stocks Analysis Agent are deployed as Streamlit apps.\nNext.js\nReact\nTypeScript\nPython\nFastAPI\nStreamlit\nSupabase\nStreamlit Cloud\nRender\nkrux-new\nfeedback-agent\nmf-semantic-search\nus-stocks-analysis-agent",
+    "speechSummary": "Built deployable AI products across pipelines, backends, frontends, storage, and hosted demos.",
+    "facts": [
+      "Krux.news combines a Python AI pipeline, Supabase storage, and a Next.js consumer app.",
+      "Feedback Intelligence combines an Agents SDK backend, Streamlit chat UI, FastAPI preview API, and Next.js onboarding flow.",
+      "MF Semantic Search and US Stocks Analysis Agent are deployed as Streamlit apps."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "skill-map",
+      "pageAnchor": "#skill-map",
+      "visibleOnPage": true,
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "skill",
+        "Full-Stack AI Products",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Python",
+        "FastAPI",
+        "Streamlit",
+        "Supabase",
+        "Streamlit Cloud",
+        "Render",
+        "krux-new",
+        "feedback-agent",
+        "mf-semantic-search",
+        "us-stocks-analysis-agent"
+      ],
+      "priority": 80
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "skill-map"
+      }
+    ]
+  },
+  {
+    "id": "skill:product-experimentation-and-delivery",
+    "entityType": "skill",
+    "entityId": "product-experimentation-and-delivery",
+    "title": "Product Experimentation and Delivery",
+    "aliases": [
+      "Product Experimentation and Delivery",
+      "product-experimentation-and-delivery",
+      "Firebase",
+      "Firebase A/B Testing",
+      "Jira",
+      "Figma",
+      "Mixpanel",
+      "Amplitude",
+      "Google Analytics",
+      "SQL",
+      "event instrumentation",
+      "roadmap planning",
+      "OKRs",
+      "business case modeling",
+      "PRDs",
+      "product specs",
+      "acceptance criteria",
+      "user stories",
+      "wireframes",
+      "UX reviews",
+      "funnel analytics",
+      "cohort analysis",
+      "user interviews",
+      "surveys",
+      "secondary research",
+      "competitor research",
+      "GTM planning",
+      "launch planning",
+      "Agile/Scrum",
+      "sprint planning",
+      "backlog prioritization",
+      "stakeholder management"
+    ],
+    "retrievalText": "Product Experimentation and Delivery\nComfortable with core PM execution across roadmap strategy, research, PRDs, product analytics, A/B testing, UI/UX collaboration, launch planning, and delivery tracking.\nKnows how to design and conduct A/B tests, including Firebase-based experimentation.\nHas PM execution experience across PRDs, product specs, acceptance criteria, user stories, stakeholder buy-in, UX/design collaboration, wireframes, UX reviews, and engineering delivery.\nUses product analytics and event instrumentation to track adoption, funnel conversion, cohorts, and product/business metrics.\nWorks across user interviews, surveys, secondary research, competitor research, roadmap strategy, OKRs, business cases, GTM planning, launch planning, Agile/Scrum, sprint planning, and backlog prioritization.\nFirebase\nFirebase A/B Testing\nJira\nFigma\nMixpanel\nAmplitude\nGoogle Analytics\nSQL\nevent instrumentation\nroadmap planning\nOKRs\nbusiness case modeling\nPRDs\nproduct specs\nacceptance criteria\nuser stories\nwireframes\nUX reviews\nfunnel analytics\ncohort analysis\nuser interviews\nsurveys\nsecondary research\ncompetitor research\nGTM planning\nlaunch planning\nAgile/Scrum\nsprint planning\nbacklog prioritization\nstakeholder management",
+    "speechSummary": "Comfortable with core PM execution across roadmap strategy, research, PRDs, product analytics, A/B testing, UI/UX collaboration, launch planning, and delivery tracking.",
+    "facts": [
+      "Knows how to design and conduct A/B tests, including Firebase-based experimentation.",
+      "Has PM execution experience across PRDs, product specs, acceptance criteria, user stories, stakeholder buy-in, UX/design collaboration, wireframes, UX reviews, and engineering delivery.",
+      "Uses product analytics and event instrumentation to track adoption, funnel conversion, cohorts, and product/business metrics.",
+      "Works across user interviews, surveys, secondary research, competitor research, roadmap strategy, OKRs, business cases, GTM planning, launch planning, Agile/Scrum, sprint planning, and backlog prioritization."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "skill-map",
+      "pageAnchor": "#skill-map",
+      "visibleOnPage": true,
+      "workContext": "personal_project",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "skill",
+        "Product Experimentation and Delivery",
+        "Firebase",
+        "Firebase A/B Testing",
+        "Jira",
+        "Figma",
+        "Mixpanel",
+        "Amplitude",
+        "Google Analytics",
+        "SQL",
+        "event instrumentation",
+        "roadmap planning",
+        "OKRs",
+        "business case modeling",
+        "PRDs",
+        "product specs",
+        "acceptance criteria",
+        "user stories",
+        "wireframes",
+        "UX reviews",
+        "funnel analytics",
+        "cohort analysis",
+        "user interviews",
+        "surveys",
+        "secondary research",
+        "competitor research",
+        "GTM planning",
+        "launch planning",
+        "Agile/Scrum",
+        "sprint planning",
+        "backlog prioritization",
+        "stakeholder management"
+      ],
+      "priority": 80
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "skill-map"
+      }
+    ]
+  },
+  {
+    "id": "song:open-it-up",
+    "entityType": "song",
+    "entityId": "open-it-up",
+    "title": "Open It Up",
+    "aliases": [
+      "Open It Up",
+      "open-it-up",
+      "project song",
+      "projects song",
+      "rap song for projects",
+      "rap",
+      "Eminem-style rap"
+    ],
+    "retrievalText": "Open It Up is tied to Rakshit's Projects phase. Style: rap, Eminem-style rap. It is available in the website music player.",
+    "speechSummary": "Open It Up is the Projects track with a rap, Eminem-style rap feel.",
+    "facts": [
+      "Mapped to Rakshit's Projects phase.",
+      "Style: rap, Eminem-style rap.",
+      "Available in the website music player."
+    ],
+    "metadata": {
+      "source": "music",
+      "sectionId": "projects",
+      "visibleOnPage": true,
+      "songId": "open-it-up",
+      "workContext": "music",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "music",
+        "song",
+        "Projects",
+        "rap",
+        "Eminem-style rap"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "music_play_track",
+        "songId": "open-it-up"
+      },
+      {
+        "type": "scroll_to_section",
+        "sectionId": "projects"
+      },
+      {
+        "type": "open_music_player"
+      }
+    ]
+  },
+  {
+    "id": "song:closer-to-the-choice",
+    "entityType": "song",
+    "entityId": "closer-to-the-choice",
+    "title": "Closer to the Choice",
+    "aliases": [
+      "Closer to the Choice",
+      "closer-to-the-choice",
+      "indmoney song",
+      "ind money song",
+      "rock song",
+      "hard rock song",
+      "rock",
+      "hard rock",
+      "arena rock"
+    ],
+    "retrievalText": "Closer to the Choice is tied to Rakshit's INDMoney phase. Style: rock, hard rock, arena rock. It is available in the website music player.",
+    "speechSummary": "Closer to the Choice is the INDMoney track with a rock, hard rock, arena rock feel.",
+    "facts": [
+      "Mapped to Rakshit's INDMoney phase.",
+      "Style: rock, hard rock, arena rock.",
+      "Available in the website music player."
+    ],
+    "metadata": {
+      "source": "music",
+      "sectionId": "my-story",
+      "visibleOnPage": true,
+      "companyId": "indmoney",
+      "songId": "closer-to-the-choice",
+      "workContext": "music",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "music",
+        "song",
+        "INDMoney",
+        "rock",
+        "hard rock",
+        "arena rock"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "music_play_track",
+        "songId": "closer-to-the-choice"
+      },
+      {
+        "type": "focus_experience",
+        "companyId": "indmoney"
+      },
+      {
+        "type": "open_music_player"
+      }
+    ]
+  },
+  {
+    "id": "song:make-it-to-the-end",
+    "entityType": "song",
+    "entityId": "make-it-to-the-end",
+    "title": "Make it to the end",
+    "aliases": [
+      "Make it to the end",
+      "make-it-to-the-end",
+      "learnapp song",
+      "learn app song",
+      "acoustic rock song",
+      "indie rock song",
+      "acoustic rock",
+      "indie rock",
+      "energetic rock"
+    ],
+    "retrievalText": "Make it to the end is tied to Rakshit's LearnApp phase. Style: acoustic rock, indie rock, energetic rock. It is available in the website music player.",
+    "speechSummary": "Make it to the end is the LearnApp track with a acoustic rock, indie rock, energetic rock feel.",
+    "facts": [
+      "Mapped to Rakshit's LearnApp phase.",
+      "Style: acoustic rock, indie rock, energetic rock.",
+      "Available in the website music player."
+    ],
+    "metadata": {
+      "source": "music",
+      "sectionId": "my-story",
+      "visibleOnPage": true,
+      "companyId": "learnapp",
+      "songId": "make-it-to-the-end",
+      "workContext": "music",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "music",
+        "song",
+        "LearnApp",
+        "acoustic rock",
+        "indie rock",
+        "energetic rock"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "music_play_track",
+        "songId": "make-it-to-the-end"
+      },
+      {
+        "type": "focus_experience",
+        "companyId": "learnapp"
+      },
+      {
+        "type": "open_music_player"
+      }
+    ]
+  },
+  {
+    "id": "song:what-good-looks-like",
+    "entityType": "song",
+    "entityId": "what-good-looks-like",
+    "title": "What Good Looks Like",
+    "aliases": [
+      "What Good Looks Like",
+      "what-good-looks-like",
+      "et money song",
+      "etmoney song",
+      "boom bap song",
+      "hip hop song",
+      "rap",
+      "boom bap",
+      "hip hop"
+    ],
+    "retrievalText": "What Good Looks Like is tied to Rakshit's ET Money phase. Style: rap, boom bap, hip hop. It is available in the website music player.",
+    "speechSummary": "What Good Looks Like is the ET Money track with a rap, boom bap, hip hop feel.",
+    "facts": [
+      "Mapped to Rakshit's ET Money phase.",
+      "Style: rap, boom bap, hip hop.",
+      "Available in the website music player."
+    ],
+    "metadata": {
+      "source": "music",
+      "sectionId": "my-story",
+      "visibleOnPage": true,
+      "companyId": "etmoney",
+      "songId": "what-good-looks-like",
+      "workContext": "music",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "music",
+        "song",
+        "ET Money",
+        "rap",
+        "boom bap",
+        "hip hop"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "music_play_track",
+        "songId": "what-good-looks-like"
+      },
+      {
+        "type": "focus_experience",
+        "companyId": "etmoney"
+      },
+      {
+        "type": "open_music_player"
+      }
+    ]
+  }
+]

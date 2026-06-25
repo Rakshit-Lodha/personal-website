@@ -6,17 +6,20 @@ import { useEffect, useRef } from "react";
 
 type Chapter = {
   id: string;
+  companyId: string;
   company: string;
   date: string;
   description: string;
   icon: string;
   achievements: string[];
+  outcomeIds: string[];
   chatQuery: string;
 };
 
 const CHAPTERS: Chapter[] = [
   {
     id: "learnapp",
+    companyId: "learnapp",
     company: "LearnApp - Core Team Member",
     date: "2018–2020",
     icon: "/landing/learnapp.png",
@@ -27,10 +30,12 @@ const CHAPTERS: Chapter[] = [
       "50% course completion rate (category average: ~10%)",
       "₹1.2Cr ARR",
     ],
+    outcomeIds: ["learnapp-courses", "learnapp-courses", "learnapp-courses"],
     chatQuery: "Tell me about Rakshit's work on the LearnApp course library",
   },
   {
     id: "ind-money",
+    companyId: "indmoney",
     company: "IND MONEY - ASSOCIATE PRODUCT MANAGER",
     date: "2020–2022",
     icon: "/landing/ind-money-v2.png",
@@ -41,10 +46,16 @@ const CHAPTERS: Chapter[] = [
       "Enabled 20,000+ advisory plans",
       "Built personalized insurance recommendation engine aligned to user goals — ₹1.5Cr ARR in year one",
     ],
+    outcomeIds: [
+      "indmoney-financial-planning",
+      "indmoney-financial-planning",
+      "indmoney-insurance-recommendations",
+    ],
     chatQuery: "Tell me about the financial planning module at INDMoney",
   },
   {
     id: "et-money",
+    companyId: "etmoney",
     company: "ET Money - Product Manager",
     date: "2022–Present",
     icon: "/landing/et-money-v2.png",
@@ -56,6 +67,13 @@ const CHAPTERS: Chapter[] = [
       "Built Loan Against Mutual Funds from zero — ₹100Cr disbursals in 7 months",
       "Led ET Money Earn from 0 to ₹300Cr AUM",
       "Built execution-only Mutual Fund Platform — projected ₹10Cr annual revenue",
+    ],
+    outcomeIds: [
+      "etmoney-support-automation",
+      "etmoney-offline-distribution",
+      "etmoney-lamf",
+      "etmoney-earn",
+      "etmoney-mf-platform",
     ],
     chatQuery: "Tell me about the support bot eval pipeline at ET Money",
   },
@@ -167,6 +185,7 @@ export default function MyStory() {
           {CHAPTERS.map((ch, i) => (
             <div
               key={ch.id}
+              data-jj-company-id={ch.companyId}
               ref={(el) => {
                 itemRefs.current[i] = el;
               }}
@@ -253,6 +272,7 @@ export default function MyStory() {
                     {ch.achievements.map((a, j) => (
                       <div
                         key={j}
+                        data-jj-outcome-id={ch.outcomeIds[j]}
                         className="flex items-start"
                         style={{ gap: "clamp(6px,.52vw,9px)" }}
                       >

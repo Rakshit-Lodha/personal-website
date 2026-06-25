@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:jj-chunks": "node scripts/build-jj-chunks.mjs",
+    "build:jj-index": "node scripts/build-jj-index.mjs",
+    "eval:jj-retrieval": "node scripts/eval-jj-retrieval.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
