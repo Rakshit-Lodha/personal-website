@@ -24,6 +24,7 @@ type Ctx = {
   volume: number;
   currentLineIndex: number;
   currentWordIndex: number;
+  summonedBy: "jj" | "user" | null;
   play: () => void;
   pause: () => void;
   toggle: () => void;
@@ -31,9 +32,10 @@ type Ctx = {
   prev: () => void;
   seek: (t: number) => void;
   setVolume: (v: number) => void;
-  setSong: (i: number) => void;
+  setSong: (i: number, opts?: { summonedBy?: "jj" }) => void;
   openSheet: () => void;
   closeSheet: () => void;
+  resetSummonedBy: () => void;
 };
 
 const MusicCtx = createContext<Ctx | null>(null);
@@ -62,6 +64,7 @@ export default function MusicPlayerProvider({
   const [hasInteracted, setHasInteracted] = useState(false);
   const [currentLineIndex, setCurrentLineIndex] = useState(-1);
   const [currentWordIndex, setCurrentWordIndex] = useState(-1);
+  const [summonedBy, setSummonedBy] = useState<"jj" | "user" | null>(null);
 
   const song = SONGS[songIndex];
 
@@ -147,6 +150,7 @@ export default function MusicPlayerProvider({
     const a = audioRef.current;
     if (!a) return;
     setHasInteracted(true);
+    setSummonedBy(null);
     a.pause();
     setIsPlaying(false);
   }, []);
@@ -157,12 +161,13 @@ export default function MusicPlayerProvider({
   }, [isPlaying, play, pause]);
 
   const setSong = useCallback(
-    (i: number) => {
+    (i: number, opts?: { summonedBy?: "jj" }) => {
       const n = ((i % SONGS.length) + SONGS.length) % SONGS.length;
       setSongIndex(n);
       setCurrentTime(0);
       setCurrentLineIndex(-1);
       setCurrentWordIndex(-1);
+      setSummonedBy(opts?.summonedBy ?? null);
     },
     []
   );
@@ -185,13 +190,18 @@ export default function MusicPlayerProvider({
   const setVolume = useCallback((v: number) => {
     const clamped = Math.max(0, Math.min(1, v));
     setVolumeState(clamped);
+    setSummonedBy(null);
   }, []);
 
   const openSheet = useCallback(() => {
     setHasInteracted(true);
     setIsSheetOpen(true);
   }, []);
-  const closeSheet = useCallback(() => setIsSheetOpen(false), []);
+  const closeSheet = useCallback(() => {
+    setSummonedBy(null);
+    setIsSheetOpen(false);
+  }, []);
+  const resetSummonedBy = useCallback(() => setSummonedBy(null), []);
 
   // When song changes, reset audio element to start. If we were playing, keep playing.
   useEffect(() => {
@@ -234,6 +244,7 @@ export default function MusicPlayerProvider({
       volume,
       currentLineIndex,
       currentWordIndex,
+      summonedBy,
       play,
       pause,
       toggle,
@@ -244,6 +255,7 @@ export default function MusicPlayerProvider({
       setSong,
       openSheet,
       closeSheet,
+      resetSummonedBy,
     }),
     [
       songIndex,
@@ -257,6 +269,7 @@ export default function MusicPlayerProvider({
       volume,
       currentLineIndex,
       currentWordIndex,
+      summonedBy,
       play,
       pause,
       toggle,
@@ -267,6 +280,7 @@ export default function MusicPlayerProvider({
       setSong,
       openSheet,
       closeSheet,
+      resetSummonedBy,
     ]
   );
 

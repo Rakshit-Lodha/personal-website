@@ -1,0 +1,132 @@
+.shell {
+  position: relative;
+  display: inline-grid;
+  width: var(--jj-orb-size);
+  height: var(--jj-orb-size);
+  place-items: center;
+  border-radius: 999px;
+  isolation: isolate;
+}
+
+.orb {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 35% 30%, #ffffff 0%, rgba(255, 255, 255, 0.6) 12%, transparent 32%),
+    radial-gradient(circle at 50% 50%, #5e8aff 0%, var(--blue) 45%, #0c44c2 100%);
+  box-shadow:
+    inset 0 -8px 18px rgba(0, 0, 0, 0.18),
+    inset 0 6px 14px rgba(255, 255, 255, 0.25),
+    0 12px 28px rgba(27, 106, 231, 0.42),
+    0 0 0 6px rgba(27, 106, 231, 0.08);
+  animation: jj-orb-breathe 3.6s ease-in-out infinite;
+  filter: brightness(1);
+  transition: box-shadow 0.5s ease, filter 0.25s ease;
+}
+
+.orb::after {
+  position: absolute;
+  inset: 8%;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent 40%,
+    rgba(94, 138, 255, 0.4) 70%,
+    transparent
+  );
+  content: "";
+  mix-blend-mode: screen;
+  opacity: 0.8;
+  animation: jj-orb-swirl 6s linear infinite;
+}
+
+.speaking .orb {
+  filter: brightness(1.15);
+  animation-duration: 1.4s;
+}
+
+.fullscreen .orb {
+  box-shadow:
+    inset 0 -16px 36px rgba(0, 0, 0, 0.22),
+    inset 0 12px 28px rgba(255, 255, 255, 0.28),
+    0 30px 80px rgba(27, 106, 231, 0.55),
+    0 0 0 12px rgba(27, 106, 231, 0.12),
+    0 0 0 28px rgba(27, 106, 231, 0.06);
+}
+
+.orbRing,
+.fullscreenRing {
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  animation: jj-orb-ping 2.6s ease-out infinite;
+}
+
+.orbRing {
+  inset: -8%;
+  border: 2px solid rgba(27, 106, 231, 0.35);
+}
+
+.fullscreenRing {
+  inset: -18%;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  animation-duration: 2.8s;
+}
+
+.ringTwo {
+  inset: -32%;
+  border-color: rgba(94, 138, 255, 0.22);
+  animation-delay: 0.6s;
+}
+
+.ringThree {
+  inset: -48%;
+  border-color: rgba(94, 138, 255, 0.14);
+  animation-delay: 1.2s;
+}
+
+.speaking .orbRing,
+.speaking .fullscreenRing {
+  animation-duration: 1.4s;
+}
+
+@keyframes jj-orb-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes jj-orb-swirl {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes jj-orb-ping {
+  0% {
+    opacity: 0.75;
+    transform: scale(0.88);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb,
+  .orb::after,
+  .orbRing,
+  .fullscreenRing {
+    animation: none;
+  }
+}

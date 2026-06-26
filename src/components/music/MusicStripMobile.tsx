@@ -4,18 +4,25 @@ import Image from "next/image";
 import { useMusic } from "./MusicPlayerProvider";
 
 export default function MusicStripMobile() {
-  const { song, isPlaying, isDocked, isSheetOpen, openSheet } = useMusic();
+  const { song, isPlaying, isDocked, isSheetOpen, summonedBy, openSheet, resetSummonedBy } =
+    useMusic();
 
   if (isSheetOpen) return null;
 
   return (
     <div
       className="music-strip-mobile"
-      onClick={openSheet}
+      onClick={() => {
+        resetSummonedBy();
+        openSheet();
+      }}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") openSheet();
+        if (e.key === "Enter" || e.key === " ") {
+          resetSummonedBy();
+          openSheet();
+        }
       }}
       aria-label={`Open music player. Now playing: ${song.title}`}
       style={{
@@ -30,16 +37,50 @@ export default function MusicStripMobile() {
         borderRadius: isDocked ? "0 0 12px 12px" : 12,
         border: "1px solid rgba(23,15,73,.08)",
         borderTop: isDocked ? "1px solid rgba(23,15,73,.06)" : "1px solid rgba(23,15,73,.08)",
-        boxShadow: isDocked
-          ? "0 23px 23px rgba(0,0,0,.07), 0 53px 32px rgba(0,0,0,.04)"
-          : "0 4px 14px rgba(8,13,40,.22), 0 2px 6px rgba(8,13,40,.10)",
-        overflow: "hidden",
+        boxShadow:
+          summonedBy === "jj"
+            ? "0 0 0 4px rgba(27,106,231,.22), 0 4px 14px rgba(8,13,40,.18)"
+            : isDocked
+              ? "0 23px 23px rgba(0,0,0,.07), 0 53px 32px rgba(0,0,0,.04)"
+              : "0 4px 14px rgba(8,13,40,.22), 0 2px 6px rgba(8,13,40,.10)",
+        overflow: summonedBy === "jj" ? "visible" : "hidden",
         cursor: "pointer",
         zIndex: 49, // just under the nav
         transition:
           "top .35s cubic-bezier(.2,.8,.2,1), height .35s cubic-bezier(.2,.8,.2,1), border-radius .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, background .35s ease",
       }}
     >
+      {summonedBy === "jj" && (
+        <span
+          style={{
+            position: "absolute",
+            top: -10,
+            left: 10,
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 5,
+            borderRadius: 99,
+            background: "#EFF4FF",
+            padding: "2px 7px",
+            fontFamily: "var(--font-figtree), ui-sans-serif, system-ui, sans-serif",
+            fontSize: 9,
+            fontWeight: 700,
+            color: "#1B6AE7",
+            boxShadow: "0 2px 8px rgba(8,13,40,.12)",
+          }}
+        >
+          <span
+            aria-hidden
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: 99,
+              background: "#1B6AE7",
+            }}
+          />
+          Summoned by JJ
+        </span>
+      )}
       <div
         style={{
           display: "flex",

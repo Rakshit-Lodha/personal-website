@@ -14,10 +14,11 @@ export type MusicCommandControls = {
   pause: () => void;
   next: () => void;
   prev: () => void;
-  setSong: (index: number) => void;
+  setSong: (index: number, opts?: { summonedBy?: "jj" }) => void;
   setVolume: (volume: number) => void;
   openSheet: () => void;
   closeSheet: () => void;
+  resetSummonedBy: () => void;
 };
 
 export type SiteCommandHandlerOptions = {
@@ -30,8 +31,10 @@ export type SiteCommandResult =
   | { ok: true; message: string }
   | { ok: false; message: string };
 
-const HIGHLIGHT_CLASS = "jj-command-highlight";
+const HIGHLIGHT_CLASS = "jj-highlight";
+const LEGACY_HIGHLIGHT_CLASS = "jj-command-highlight";
 const SCROLL_OFFSET_PX = 112;
+let clearHighlightTimer: number | null = null;
 
 function scrollToElement(element: Element): void {
   const top = element.getBoundingClientRect().top + window.scrollY - SCROLL_OFFSET_PX;
@@ -42,9 +45,17 @@ function scrollToElement(element: Element): void {
 }
 
 function flashElement(element: Element): void {
+  document.querySelectorAll(`.${HIGHLIGHT_CLASS}, .${LEGACY_HIGHLIGHT_CLASS}`).forEach((target) => {
+    target.classList.remove(HIGHLIGHT_CLASS, LEGACY_HIGHLIGHT_CLASS);
+  });
+  if (clearHighlightTimer !== null) window.clearTimeout(clearHighlightTimer);
+
   element.classList.remove(HIGHLIGHT_CLASS);
   window.setTimeout(() => element.classList.add(HIGHLIGHT_CLASS), 20);
-  window.setTimeout(() => element.classList.remove(HIGHLIGHT_CLASS), 1800);
+  clearHighlightTimer = window.setTimeout(() => {
+    element.classList.remove(HIGHLIGHT_CLASS, LEGACY_HIGHLIGHT_CLASS);
+    clearHighlightTimer = null;
+  }, 6000);
 }
 
 function targetBySelector(selector: string): Element | null {
@@ -122,8 +133,12 @@ function runValidatedCommand(
     case "music_play_track": {
       const index = SONGS.findIndex((song) => song.id === command.songId);
       if (index < 0) return { ok: false, message: `Song not found: ${command.songId}` };
-      options.music.setSong(index);
-      window.setTimeout(options.music.play, 80);
+      options.music.setSong(index, { summonedBy: "jj" });
+      if (window.matchMedia("(max-width: 1023px)").matches) {
+        window.setTimeout(options.music.play, 80);
+      } else {
+        options.music.openSheet();
+      }
       return { ok: true, message: `Playing ${command.songId}` };
     }
     case "music_set_volume":

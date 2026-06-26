@@ -25,6 +25,13 @@ declare global {
   interface Window {
     __JJ_DISPATCH_SITE_COMMAND__?: (command: SiteCommand) => SiteCommandResult;
   }
+
+  interface WindowEventMap {
+    "jj:site-command-result": CustomEvent<{
+      command: SiteCommand;
+      result: SiteCommandResult;
+    }>;
+  }
 }
 
 const SiteActionContext = createContext<SiteActionContextValue | null>(null);
@@ -40,12 +47,21 @@ export default function SiteActionProvider({ children }: { children: ReactNode }
   const [agentVolume, setAgentVolume] = useState(1);
 
   const dispatchSiteCommand = useCallback<SiteActionContextValue["dispatchSiteCommand"]>(
-    (command, options) =>
-      handleSiteCommand(command, {
+    (command, options) => {
+      const result = handleSiteCommand(command, {
         music,
         setAgentVolume,
         explicitUserIntent: options?.explicitUserIntent,
-      }),
+      });
+
+      window.dispatchEvent(
+        new CustomEvent("jj:site-command-result", {
+          detail: { command, result },
+        })
+      );
+
+      return result;
+    },
     [music]
   );
 

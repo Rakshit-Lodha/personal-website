@@ -1,0 +1,162 @@
+.surface {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.dim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    80% 70% at 50% 45%,
+    rgba(15, 20, 40, 0.55),
+    rgba(8, 10, 28, 0.85) 80%
+  );
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.fullscreen .dim {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.orbHost {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  z-index: 1;
+  width: var(--jj-surface-orb-size);
+  height: var(--jj-surface-orb-size);
+  cursor: pointer;
+  pointer-events: auto;
+  transform: var(--jj-surface-orb-transform);
+  transition:
+    width 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    right 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    bottom 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fullscreenClose,
+.dockClose,
+.micButton {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.fullscreenClose {
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.dockClose {
+  right: 30px;
+  bottom: 102px;
+  width: 26px;
+  height: 26px;
+  border-color: var(--border);
+  background: #ffffff;
+  color: #444444;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.micButton {
+  bottom: 36px;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fullscreen .fullscreenClose,
+.fullscreen .micButton,
+.docked .dockClose {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fullscreenClose:hover,
+.micButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dockClose:hover {
+  border-color: var(--blue);
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+.micButton:hover {
+  transform: translateX(-50%) translateY(-1px);
+}
+
+.muted {
+  border-color: rgba(220, 60, 60, 0.4);
+  background: rgba(220, 60, 60, 0.18);
+  color: #ffb4b4;
+}
+
+.fullscreenClose:focus-visible,
+.dockClose:focus-visible,
+.micButton:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .orbHost {
+    right: 16px;
+    bottom: 92px;
+  }
+
+  .dockClose {
+    right: 12px;
+    bottom: 162px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dim,
+  .orbHost,
+  .fullscreenClose,
+  .dockClose,
+  .micButton {
+    transition: opacity 0.2s ease;
+  }
+}

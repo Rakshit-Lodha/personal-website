@@ -8,17 +8,20 @@ import KaraokeView from "./KaraokeView";
 import PlayerControls from "./PlayerControls";
 
 export default function MusicSheet() {
-  const { isSheetOpen, closeSheet, song } = useMusic();
+  const { isSheetOpen, closeSheet, resetSummonedBy, song } = useMusic();
 
   // ESC closes
   useEffect(() => {
     if (!isSheetOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeSheet();
+      if (e.key === "Escape") {
+        resetSummonedBy();
+        closeSheet();
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [isSheetOpen, closeSheet]);
+  }, [isSheetOpen, closeSheet, resetSummonedBy]);
 
   // Lock body scroll while sheet is open
   useEffect(() => {
@@ -72,7 +75,10 @@ export default function MusicSheet() {
             <button
               type="button"
               aria-label="Close player"
-              onClick={closeSheet}
+              onClick={() => {
+                resetSummonedBy();
+                closeSheet();
+              }}
               style={{
                 width: 36,
                 height: 36,

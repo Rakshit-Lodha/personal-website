@@ -102,6 +102,7 @@
   }
 }
 
+.jj-highlight,
 .jj-command-highlight {
   outline: 3px solid rgba(73, 109, 255, 0.75);
   outline-offset: 6px;

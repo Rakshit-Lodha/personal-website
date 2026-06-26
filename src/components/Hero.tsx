@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { useJJSession } from "@/components/jj/JJSessionProvider";
 
 const VS = `attribute vec2 a;void main(){gl_Position=vec4(a,0,1);}`;
 
@@ -84,6 +84,7 @@ void main(){
 export default function Hero() {
   const meshRef = useRef<HTMLCanvasElement>(null);
   const partRef = useRef<HTMLCanvasElement>(null);
+  const { open } = useJJSession();
 
   useEffect(() => {
     const mesh = meshRef.current;
@@ -266,8 +267,9 @@ export default function Hero() {
             className="flex flex-wrap items-center"
             style={{ gap: "clamp(10px,1.39vw,24px)" }}
           >
-            <Link
-              href="/chat"
+            <button
+              type="button"
+              onClick={open}
               className="font-figtree inline-flex items-center justify-center bg-white text-[#194ddd] font-medium no-underline transition-transform hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(0,0,0,.18)] whitespace-nowrap"
               style={{
                 borderRadius: "clamp(10px,1.11vw,19px)",
@@ -277,9 +279,9 @@ export default function Hero() {
                 fontSize: "clamp(13px,1.16vw,20px)",
               }}
             >
-              Chat with my AI
+              Talk to JJ
               <span style={{ fontSize: "1em" }}>✦</span>
-            </Link>
+            </button>
             <a
               href="#my-story"
               className="font-figtree inline-flex items-center justify-center border-white bg-transparent text-white font-medium no-underline transition-all hover:bg-white/10 hover:-translate-y-0.5 whitespace-nowrap"

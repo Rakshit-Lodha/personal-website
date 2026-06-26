@@ -19,7 +19,17 @@ type Props = {
 };
 
 export default function MusicChipDesktop({ collapsedHeight = 56 }: Props) {
-  const { song, isPlaying, isSheetOpen, hasInteracted, openSheet, closeSheet, toggle } = useMusic();
+  const {
+    song,
+    isPlaying,
+    isSheetOpen,
+    hasInteracted,
+    summonedBy,
+    openSheet,
+    closeSheet,
+    resetSummonedBy,
+    toggle,
+  } = useMusic();
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
 
@@ -30,11 +40,15 @@ export default function MusicChipDesktop({ collapsedHeight = 56 }: Props) {
       const el = ref.current;
       if (!el) return;
       if (e.target instanceof Node && !el.contains(e.target)) {
+        resetSummonedBy();
         closeSheet();
       }
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeSheet();
+      if (e.key === "Escape") {
+        resetSummonedBy();
+        closeSheet();
+      }
     };
     window.addEventListener("mousedown", onDown);
     window.addEventListener("keydown", onKey);
@@ -42,13 +56,16 @@ export default function MusicChipDesktop({ collapsedHeight = 56 }: Props) {
       window.removeEventListener("mousedown", onDown);
       window.removeEventListener("keydown", onKey);
     };
-  }, [isSheetOpen, closeSheet]);
+  }, [isSheetOpen, closeSheet, resetSummonedBy]);
 
   return (
     <motion.div
       ref={ref}
       onClick={() => {
-        if (!isSheetOpen) openSheet();
+        if (!isSheetOpen) {
+          resetSummonedBy();
+          openSheet();
+        }
       }}
       initial={false}
       animate={{
@@ -59,7 +76,10 @@ export default function MusicChipDesktop({ collapsedHeight = 56 }: Props) {
       style={{
         background: "white",
         borderRadius: isSheetOpen ? 18 : "clamp(10px,1.04vw,18px)",
-        boxShadow: SHADOW,
+        boxShadow:
+          summonedBy === "jj"
+            ? `${SHADOW}, 0 0 0 4px rgba(27,106,231,.22)`
+            : SHADOW,
         overflow: "hidden",
         cursor: isSheetOpen ? "default" : "pointer",
         position: "relative",
@@ -156,6 +176,7 @@ export default function MusicChipDesktop({ collapsedHeight = 56 }: Props) {
                 aria-label={isPlaying ? "Pause" : "Play"}
                 onClick={(e) => {
                   e.stopPropagation();
+                  resetSummonedBy();
                   toggle();
                 }}
                 style={{
@@ -240,6 +261,9 @@ export default function MusicChipDesktop({ collapsedHeight = 56 }: Props) {
               />
               <div
                 style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 4,
                   fontFamily: "var(--font-instrument-serif), Georgia, serif",
                   fontStyle: "italic",
                   fontSize: 22,
@@ -249,13 +273,41 @@ export default function MusicChipDesktop({ collapsedHeight = 56 }: Props) {
                   minWidth: 0,
                 }}
               >
-                {song.title}
+                <span>{song.title}</span>
+                {summonedBy === "jj" && (
+                  <span
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 5,
+                      alignSelf: "flex-start",
+                      fontFamily: "var(--font-figtree), ui-sans-serif, system-ui, sans-serif",
+                      fontStyle: "normal",
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: "#1B6AE7",
+                    }}
+                  >
+                    <span
+                      aria-hidden
+                      style={{
+                        width: 8,
+                        height: 8,
+                        borderRadius: 99,
+                        background: "#1B6AE7",
+                        boxShadow: "0 0 0 3px rgba(27,106,231,.15)",
+                      }}
+                    />
+                    Summoned by JJ
+                  </span>
+                )}
               </div>
               <button
                 type="button"
                 aria-label="Close player"
                 onClick={(e) => {
                   e.stopPropagation();
+                  resetSummonedBy();
                   closeSheet();
                 }}
                 style={{

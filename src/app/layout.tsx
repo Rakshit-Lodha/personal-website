@@ -6,6 +6,8 @@ import { Geist_Mono } from "next/font/google";
 import { Figtree } from "next/font/google";
 import localFont from "next/font/local";
 import Analytics from "@/components/Analytics";
+import MusicPlayerProvider from "@/components/music/MusicPlayerProvider";
+import SiteActionProvider from "@/components/jj/SiteActionProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -54,7 +56,11 @@ export default function RootLayout({
       className={`${inter.variable} ${instrumentSerif.variable} ${geistMono.variable} ${figtree.variable} ${offbitDisplay.variable} antialiased`}
     >
       <body className="min-h-screen bg-background">
-        {children}
+        <MusicPlayerProvider>
+          <SiteActionProvider>
+            {children}
+          </SiteActionProvider>
+        </MusicPlayerProvider>
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>
