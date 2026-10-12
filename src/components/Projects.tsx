@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import NextLink from "next/link";
 
 type Link = { label: string; href: string };
 
@@ -33,7 +32,6 @@ const PROJECTS: Project[] = [
     links: [
       { label: "GitHub", href: "https://github.com/Rakshit-Lodha/ai-times" },
       { label: "Live Demo", href: "https://krux.news/" },
-      { label: "Know More", href: `/chat?q=${encodeURIComponent("Tell me more about Krux")}` },
     ],
   },
   {
@@ -49,7 +47,6 @@ const PROJECTS: Project[] = [
     links: [
       { label: "GitHub", href: "https://github.com/Rakshit-Lodha/mf-search" },
       { label: "Live Demo", href: "https://mf-ai-search.streamlit.app/" },
-      { label: "Know More", href: `/chat?q=${encodeURIComponent("Tell me more about MF Search")}` },
     ],
   },
   {
@@ -58,15 +55,13 @@ const PROJECTS: Project[] = [
     tags: "AGENTS SDK | SSE STREAMING | JD PARSING",
     desc: "ChatGPT-style hiring assistant for recruiters to evaluate fit from a company URL, JD, upload, or question.",
     bullets: [
-      "Built a standalone /chat interface with zero-state prompts, persistent composer, file chips, and streamed responses.",
+      "Built a standalone chat interface with zero-state prompts, persistent composer, file chips, and streamed responses.",
       "Shipped a V3 agent pipeline with intent planning, optional company research, evidence gathering, and intent-specific answer agents.",
       "Kept V1, V2, and V3 eval history visible so quality, fit calibration, and latency tradeoffs can be compared over time.",
       "Supports PDF, DOCX, and TXT job descriptions with structured SSE final events for fit-level UI.",
     ],
     links: [
       { label: "GitHub", href: "https://github.com/Rakshit-Lodha/personal-website" },
-      { label: "Live Demo", href: "/chat" },
-      { label: "Know More", href: `/chat?q=${encodeURIComponent("How does the AI hiring chat work?")}` },
     ],
   },
 ];
@@ -77,7 +72,6 @@ const MORE_PROJECTS: MoreProject[] = [
     desc: "RAG product grounded in 700 Bhagavad Gita verses with a 50-question eval suite.",
     links: [
       { label: "Read me", href: "https://github.com/Rakshit-Lodha/talktokrishna" },
-      { label: "Know More", href: `/chat?q=${encodeURIComponent("Tell me more about TalkToKrishna")}` },
     ],
   },
   {
@@ -85,7 +79,6 @@ const MORE_PROJECTS: MoreProject[] = [
     desc: "LLM-as-judge and voice evaluation system for quality, safety, and ASR accuracy.",
     links: [
       { label: "Read me", href: "https://github.com/Rakshit-Lodha/evals" },
-      { label: "Know More", href: `/chat?q=${encodeURIComponent("Tell me more about Evaluation Framework")}` },
     ],
   },
 ];
@@ -103,12 +96,11 @@ function LinkRow({ links, compact = false }: { links: Link[]; compact?: boolean 
       }}
     >
       {links.map((l) => {
-        const isInternal = l.href.startsWith("/");
         const className =
-          "font-figtree inline-flex items-center text-[#456aff] no-underline transition-opacity hover:opacity-70";
+          "font-figtree inline-flex min-h-11 items-center text-[#456aff] no-underline transition-opacity hover:opacity-70";
         const style = {
           gap: "2px",
-          fontSize: "clamp(11px,1.04vw,18px)",
+          fontSize: "clamp(14px,1.04vw,18px)",
           fontWeight: 500,
         };
         const content = (
@@ -123,11 +115,7 @@ function LinkRow({ links, compact = false }: { links: Link[]; compact?: boolean 
             </span>
           </>
         );
-        return isInternal ? (
-          <NextLink key={l.label} href={l.href} className={className} style={style}>
-            {content}
-          </NextLink>
-        ) : (
+        return (
           <a
             key={l.label}
             href={l.href}
@@ -168,7 +156,7 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
       <div className="flex flex-col" style={{ gap: "clamp(10px,1vw,16px)" }}>
         <p
-          className="font-figtree uppercase text-[#8d8d8d]"
+          className="font-figtree uppercase text-[#666]"
           style={{
             fontSize: "clamp(9px,0.87vw,15px)",
             letterSpacing: "0.22em",
@@ -193,7 +181,7 @@ function ProjectCard({ project }: { project: Project }) {
               className="flex items-start font-figtree text-[#404040]"
               style={{
                 gap: "clamp(6px,0.52vw,9px)",
-                fontSize: "clamp(11px,1.04vw,18px)",
+                fontSize: "clamp(14px,1.04vw,18px)",
                 lineHeight: 1.4,
               }}
             >
@@ -243,7 +231,7 @@ function MoreCard() {
       </div>
       <div className="flex flex-col" style={{ gap: "clamp(10px,1vw,16px)" }}>
         <p
-          className="font-figtree uppercase text-[#8d8d8d]"
+          className="font-figtree uppercase text-[#666]"
           style={{
             fontSize: "clamp(9px,0.87vw,15px)",
             letterSpacing: "0.22em",
@@ -273,7 +261,7 @@ function MoreCard() {
             </p>
             <p
               className="font-figtree m-0 text-[#404040]"
-              style={{ fontSize: "clamp(11px,1.04vw,18px)", lineHeight: 1.4 }}
+              style={{ fontSize: "clamp(14px,1.04vw,18px)", lineHeight: 1.4 }}
             >
               {m.desc}
             </p>

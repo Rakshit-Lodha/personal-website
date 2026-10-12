@@ -1,0 +1,214 @@
+/* Isometric city landing — scoped to the /city route. */
+
+.city-pin {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  padding: 4px 10px 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 14px rgba(17, 17, 17, 0.1);
+  color: #111111;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transform: translateY(0) scale(0.92);
+  opacity: 0.78;
+  transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+.city-pin__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--pin, #1b6ae7);
+}
+.city-pin[data-active="true"] {
+  transform: translateY(-4px) scale(1.06);
+  opacity: 1;
+  box-shadow: 0 10px 26px rgba(17, 17, 17, 0.18);
+}
+.city-pin[data-dimmed="true"] {
+  opacity: 0.5;
+}
+
+.city-shell {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #efebe3;
+  transition: background 0.9s ease;
+}
+.city-shell[data-dusk="true"] {
+  background: #2a2f4a;
+}
+
+.city-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 30; /* above the in-scene <Html> pins */
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.city-hud > * {
+  pointer-events: none;
+}
+.city-hud button,
+.city-hud a,
+.city-hud [data-interactive] {
+  pointer-events: auto;
+}
+
+.city-glass {
+  border-radius: 16px;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #FBFAF8;
+  backdrop-filter: blur(18px) saturate(1.1);
+  box-shadow: 0 12px 40px rgba(17, 17, 17, 0.1);
+}
+[data-dusk="true"] .city-glass {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: #161A2C;
+  color: #f2f2f4;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.36);
+}
+[data-dusk="true"] .city-ink {
+  color: #f4f4f6;
+}
+[data-dusk="true"] .city-ink-muted {
+  color: rgba(244, 244, 246, 0.66);
+}
+[data-dusk="true"] .city-pin {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(24, 28, 46, 0.9);
+  color: #f2f2f4;
+}
+
+.city-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: rgba(255, 255, 255, 0.78);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #111111;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+.city-chip:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+}
+.city-chip[data-on="true"] {
+  border-color: currentColor;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(17, 17, 17, 0.12);
+}
+[data-dusk="true"] .city-chip {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(24, 28, 46, 0.72);
+  color: #eff0f4;
+}
+[data-dusk="true"] .city-chip:hover,
+[data-dusk="true"] .city-chip[data-on="true"] {
+  background: rgba(38, 44, 70, 0.95);
+}
+
+.city-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.city-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .city-pin,
+  .city-chip,
+  .city-shell {
+    transition: none;
+  }
+}
+
+/* ── Place panel ── */
+.city-panel {
+  max-height: min(52vh, 28rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* the content is taller than the box, so fade the cut edge */
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent 100%);
+}
+.city-panel:not(:hover) {
+  scrollbar-width: thin;
+}
+
+.city-floor {
+  display: block;
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+.city-floor:hover {
+  border-color: var(--accent);
+}
+.city-floor[data-open="true"] {
+  border-color: var(--accent);
+  background: #ffffff;
+}
+.city-floor__row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.city-floor__label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #111111;
+}
+.city-floor__metric {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--accent);
+}
+.city-floor__impact {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #6b6860;
+}
+/* A floor that did not work out reads as muted, not celebratory. */
+.city-floor[data-failed="true"] .city-floor__metric {
+  color: #8a8a94;
+}
+.city-floor[data-failed="true"] .city-floor__label::before {
+  content: "◍ ";
+  color: #8a8a94;
+}
+[data-dusk="true"] .city-floor {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+}
+[data-dusk="true"] .city-floor[data-open="true"] {
+  background: rgba(255, 255, 255, 0.12);
+}
+[data-dusk="true"] .city-floor__label {
+  color: #f2f2f4;
+}
+[data-dusk="true"] .city-floor__impact {
+  color: rgba(244, 244, 246, 0.7);
+}

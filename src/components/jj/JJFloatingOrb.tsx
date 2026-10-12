@@ -22,14 +22,18 @@ function shouldShowOrb() {
   return window.scrollY > heroTop + heroHeight * 0.6;
 }
 
-export default function JJFloatingOrb() {
+/**
+ * `alwaysVisible` is for surfaces that never scroll (the city), where the
+ * scroll-past-hero rule would keep the orb hidden forever.
+ */
+export default function JJFloatingOrb({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
   const { isActive, open } = useJJSession();
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(alwaysVisible);
   const [size, setSize] = useState(64);
 
   useEffect(() => {
     const sync = () => {
-      setVisible(shouldShowOrb());
+      setVisible(alwaysVisible || shouldShowOrb());
       setSize(getOrbSize());
     };
 
@@ -41,7 +45,7 @@ export default function JJFloatingOrb() {
       window.removeEventListener("scroll", sync);
       window.removeEventListener("resize", sync);
     };
-  }, []);
+  }, [alwaysVisible]);
 
   const openJJ = useCallback(() => {
     open();

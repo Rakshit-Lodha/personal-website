@@ -142,7 +142,7 @@
   will-change: height;
 }
 .tl-item {
-  opacity: 0.35;
+  opacity: 1;
   transform: translateY(12px);
   transition: opacity 0.45s ease, transform 0.45s ease;
   will-change: opacity, transform;

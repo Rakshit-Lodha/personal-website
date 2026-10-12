@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import { useJJSession } from "@/components/jj/JJSessionProvider";
 import { useEffect, useRef, useState } from "react";
 import type { LottieRefCurrentProps } from "lottie-react";
 
@@ -10,6 +10,7 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 const REST_MS = 2800;
 
 export default function Footer() {
+  const { open } = useJJSession();
   const [animationData, setAnimationData] = useState<unknown>(null);
   const lottieRef = useRef<LottieRefCurrentProps>(null);
 
@@ -74,8 +75,9 @@ export default function Footer() {
           margin: "clamp(16px,2vw,32px) auto clamp(40px,5vw,80px)",
         }}
       >
-        <Link
-          href="/chat"
+        <button
+          type="button"
+          onClick={open}
           className="font-figtree flex items-center justify-center bg-[#456aff] text-white no-underline transition-all hover:opacity-90 hover:-translate-y-0.5"
           style={{
             borderRadius: "clamp(12px,1.11vw,19px)",
@@ -86,9 +88,9 @@ export default function Footer() {
             fontWeight: 500,
           }}
         >
-          <span>Chat with my AI</span>
+          <span>Talk to JJ</span>
           <span style={{ fontSize: "1.1em" }}>✦</span>
-        </Link>
+        </button>
         <a
           href="mailto:rlodha1@gmail.com"
           className="font-figtree flex items-center justify-center bg-transparent text-[#456aff] no-underline transition-all hover:bg-[rgba(69,106,255,.1)] hover:-translate-y-0.5"
@@ -106,7 +108,7 @@ export default function Footer() {
       </div>
 
       <div
-        className="flex w-full items-center justify-between"
+        className="flex w-full flex-wrap items-center justify-between gap-4"
         style={{
           borderTop: "1.5px solid rgba(255,255,255,0.18)",
           padding: "clamp(20px,2.3vw,32px) 0",
@@ -120,7 +122,7 @@ export default function Footer() {
             letterSpacing: "0.02em",
           }}
         >
-          © 2025 Rakshit Lodha. All rights reserved.
+          © 2026 Rakshit Lodha. All rights reserved.
         </span>
         <div className="flex items-center" style={{ gap: "clamp(8px,0.7vw,12px)" }}>
           <SocialBtn href="https://www.youtube.com/" label="YouTube">

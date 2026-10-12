@@ -50,6 +50,14 @@ const VISUAL_COMMAND_PRIORITY: SiteCommand["type"][] = [
   "music_play_track",
 ];
 
+const OPENING_INSTRUCTIONS = [
+  "Begin the conversation with a brief spoken welcome.",
+  "Introduce yourself as JJ, Rakshit's voice-first portfolio guide.",
+  "Explain that you can answer questions about Rakshit's work, guide visitors around the site, highlight relevant projects and experience, and control the music player.",
+  "Keep it warm and polished, use no more than three short sentences, and end by asking what the visitor would like to explore.",
+  "Do not call any tools during this welcome.",
+].join(" ");
+
 function parseJsonObject<T>(value: string | undefined): T | null {
   if (!value) return null;
   try {
@@ -122,6 +130,7 @@ export default function JJRealtimeController() {
   const dcRef = useRef<RTCDataChannel | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const hasIntroducedRef = useRef(false);
 
   const stop = useCallback(() => {
     dcRef.current?.close();
@@ -265,7 +274,23 @@ export default function JJRealtimeController() {
         const event = parseJsonObject<RealtimeEvent>(message.data as string);
         if (event) handleRealtimeEvent(event);
       });
-      channel.addEventListener("open", () => setState("listening"));
+      channel.addEventListener("open", () => {
+        if (hasIntroducedRef.current) {
+          setState("listening");
+          return;
+        }
+
+        hasIntroducedRef.current = true;
+        setState("thinking");
+        channel.send(
+          JSON.stringify({
+            type: "response.create",
+            response: {
+              instructions: OPENING_INSTRUCTIONS,
+            },
+          })
+        );
+      });
 
       pcRef.current = pc;
       dcRef.current = channel;

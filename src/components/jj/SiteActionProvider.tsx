@@ -6,12 +6,14 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
 import { useMusic } from "@/components/music/MusicPlayerProvider";
 import { handleSiteCommand, type SiteCommandResult } from "@/lib/jj/commandHandlers";
 import type { SiteCommand } from "@/lib/jj/commands";
+import type { SurfaceAdapter } from "@/lib/jj/surfaces/types";
 
 type SiteActionContextValue = {
   agentVolume: number;
@@ -19,6 +21,12 @@ type SiteActionContextValue = {
     command: SiteCommand,
     options?: { explicitUserIntent?: boolean }
   ) => SiteCommandResult;
+  /**
+   * Swap how navigation commands are carried out. `/city` registers its own
+   * adapter on mount; unregistering falls back to the scroll site's behaviour.
+   * Returns the unregister function.
+   */
+  registerSurface: (adapter: SurfaceAdapter) => () => void;
 };
 
 declare global {
@@ -45,6 +53,14 @@ export function useSiteActions() {
 export default function SiteActionProvider({ children }: { children: ReactNode }) {
   const music = useMusic();
   const [agentVolume, setAgentVolume] = useState(1);
+  const surfaceRef = useRef<SurfaceAdapter | null>(null);
+
+  const registerSurface = useCallback((adapter: SurfaceAdapter) => {
+    surfaceRef.current = adapter;
+    return () => {
+      if (surfaceRef.current === adapter) surfaceRef.current = null;
+    };
+  }, []);
 
   const dispatchSiteCommand = useCallback<SiteActionContextValue["dispatchSiteCommand"]>(
     (command, options) => {
@@ -52,6 +68,7 @@ export default function SiteActionProvider({ children }: { children: ReactNode }
         music,
         setAgentVolume,
         explicitUserIntent: options?.explicitUserIntent,
+        surface: surfaceRef.current ?? undefined,
       });
 
       window.dispatchEvent(
@@ -80,8 +97,8 @@ export default function SiteActionProvider({ children }: { children: ReactNode }
   }, [dispatchSiteCommand]);
 
   const value = useMemo(
-    () => ({ agentVolume, dispatchSiteCommand }),
-    [agentVolume, dispatchSiteCommand]
+    () => ({ agentVolume, dispatchSiteCommand, registerSurface }),
+    [agentVolume, dispatchSiteCommand, registerSurface]
   );
 
   return <SiteActionContext.Provider value={value}>{children}</SiteActionContext.Provider>;

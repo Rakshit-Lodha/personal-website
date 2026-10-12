@@ -33,9 +33,9 @@ const sectionChunks: KnowledgeChunk[] = [
     title: "My Story",
     aliases: ["my story", "story", "experience", "career", "work history"],
     retrievalText:
-      "The My Story section contains Rakshit's LearnApp, INDMoney, and ET Money experience timeline.",
-    speechSummary: "My Story shows Rakshit's career timeline across LearnApp, INDMoney, and ET Money.",
-    facts: ["Contains visible career cards.", "Includes outcomes from LearnApp, INDMoney, and ET Money."],
+      "The My Story section contains Rakshit's LearnApp, INDMoney, ET Money, and Paytm Money experience timeline.",
+    speechSummary: "My Story shows Rakshit's career timeline across LearnApp, INDMoney, ET Money, and Paytm Money.",
+    facts: ["Contains visible career cards.", "Includes outcomes from LearnApp, INDMoney, ET Money, and Paytm Money."],
     metadata: {
       source: "site",
       sectionId: "my-story",
@@ -123,7 +123,7 @@ const songMeaning: Record<
     style: string[];
     aliases: string[];
     commands: SiteCommand[];
-    companyId?: "etmoney" | "indmoney" | "learnapp";
+    companyId?: "paytmmoney" | "etmoney" | "indmoney" | "learnapp";
     sectionId?: "projects" | "my-story";
   }
 > = {
@@ -288,7 +288,7 @@ export function buildKnowledgeChunks(): KnowledgeChunk[] {
         visibleOnPage: true,
         companyId: experience.id,
         workContext: "professional",
-        evidenceStrength: "direct_shipped",
+        evidenceStrength: experience.outcomes.length ? "direct_shipped" : "direct_claim",
         tags: ["experience", experience.company, experience.role, ...experience.tags],
         priority: 100,
       },

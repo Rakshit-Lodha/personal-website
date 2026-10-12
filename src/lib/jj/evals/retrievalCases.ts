@@ -2,6 +2,12 @@ import type { RetrievalEvalCase } from "../knowledgeTypes";
 
 export const JJ_RETRIEVAL_CASES: RetrievalEvalCase[] = [
   {
+    id: "paytm-current-role",
+    query: "What is Rakshit working on at Paytm Money?",
+    expectedChunks: ["experience:paytmmoney"],
+    expectedCommands: [{ type: "focus_experience", companyId: "paytmmoney" }],
+  },
+  {
     id: "krux-exact",
     query: "Tell me about Krux",
     expectedChunks: ["project:krux-new"],

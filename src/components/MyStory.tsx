@@ -1,83 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { CHAPTERS } from "@/lib/profile/chapters";
 
-type Chapter = {
-  id: string;
-  companyId: string;
-  company: string;
-  date: string;
-  description: string;
-  icon: string;
-  achievements: string[];
-  outcomeIds: string[];
-  chatQuery: string;
-};
-
-const CHAPTERS: Chapter[] = [
-  {
-    id: "learnapp",
-    companyId: "learnapp",
-    company: "LearnApp - Core Team Member",
-    date: "2018–2020",
-    icon: "/landing/learnapp.png",
-    description:
-      "I joined LearnApp as a college student because I believed that financial education was broken in India and the only way to bring change in financial habits was through education.",
-    achievements: [
-      "Designed library of investing and finance courses",
-      "50% course completion rate (category average: ~10%)",
-      "₹1.2Cr ARR",
-    ],
-    outcomeIds: ["learnapp-courses", "learnapp-courses", "learnapp-courses"],
-    chatQuery: "Tell me about Rakshit's work on the LearnApp course library",
-  },
-  {
-    id: "ind-money",
-    companyId: "indmoney",
-    company: "IND MONEY - ASSOCIATE PRODUCT MANAGER",
-    date: "2020–2022",
-    icon: "/landing/ind-money-v2.png",
-    description:
-      "Joined INDMoney because I realised that while financial education was important, it only changes what people know. But the real leverage in personal finance is at the moment of decision when you're buying a product, not before it.",
-    achievements: [
-      "Built financial planning module with recommendation algorithms — 4–5 hours to 15 minutes per plan",
-      "Enabled 20,000+ advisory plans",
-      "Built personalized insurance recommendation engine aligned to user goals — ₹1.5Cr ARR in year one",
-    ],
-    outcomeIds: [
-      "indmoney-financial-planning",
-      "indmoney-financial-planning",
-      "indmoney-insurance-recommendations",
-    ],
-    chatQuery: "Tell me about the financial planning module at INDMoney",
-  },
-  {
-    id: "et-money",
-    companyId: "etmoney",
-    company: "ET Money - Product Manager",
-    date: "2022–Present",
-    icon: "/landing/et-money-v2.png",
-    description:
-      "Four years at ET Money taught me one thing about AI products: the model is interchangeable, the eval is the product. The rubric is where the judgment lives. It's also where I now spend most of my time.",
-    achievements: [
-      "Built AI support automation — 19K to 9K monthly tickets, a 55% reduction, and 30% CSAT improvement",
-      "Built 0-to-1 offline distribution business — 12% of SIP book, 10% of gross sales within 4 months",
-      "Built Loan Against Mutual Funds from zero — ₹100Cr disbursals in 7 months",
-      "Led ET Money Earn from 0 to ₹300Cr AUM",
-      "Built execution-only Mutual Fund Platform — projected ₹10Cr annual revenue",
-    ],
-    outcomeIds: [
-      "etmoney-support-automation",
-      "etmoney-offline-distribution",
-      "etmoney-lamf",
-      "etmoney-earn",
-      "etmoney-mf-platform",
-    ],
-    chatQuery: "Tell me about the support bot eval pipeline at ET Money",
-  },
-];
 
 export default function MyStory() {
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -215,23 +141,23 @@ export default function MyStory() {
                     gap: "clamp(16px,1.62vw,32px)",
                   }}
                 >
-                  <div className="flex items-center justify-between gap-3">
+                  <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
                     <div
                       className="flex flex-1 min-w-0 items-center"
                       style={{ gap: "clamp(8px,.69vw,12px)" }}
                     >
-                      <Image
+                      {ch.icon ? <Image
                         src={ch.icon}
                         alt={ch.company}
                         width={42}
                         height={42}
-                        className="flex-shrink-0 object-cover"
+                        className="flex-shrink-0 object-contain"
                         style={{
                           width: "clamp(24px,2.43vw,42px)",
                           height: "clamp(24px,2.43vw,42px)",
                           borderRadius: "clamp(4px,.46vw,8px)",
                         }}
-                      />
+                      /> : <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#e6f8ff] font-figtree font-bold text-[#002970]">P</span>}
                       <span
                         className="font-figtree text-[#222]"
                         style={{
@@ -254,7 +180,7 @@ export default function MyStory() {
                   </div>
                   <p
                     className="font-figtree text-[#666]"
-                    style={{ fontSize: "clamp(12px,1.39vw,24px)", lineHeight: 1.32 }}
+                    style={{ fontSize: "clamp(15px,1.39vw,24px)", lineHeight: 1.5 }}
                   >
                     {ch.description}
                   </p>
@@ -291,8 +217,8 @@ export default function MyStory() {
                         <span
                           className="font-figtree text-[#404040]"
                           style={{
-                            fontSize: "clamp(11px,1.16vw,20px)",
-                            lineHeight: 1.3,
+                            fontSize: "clamp(14px,1.16vw,20px)",
+                            lineHeight: 1.5,
                           }}
                         >
                           {a}
@@ -300,20 +226,6 @@ export default function MyStory() {
                       </div>
                     ))}
                   </div>
-                  <Link
-                    href={`/chat?q=${encodeURIComponent(ch.chatQuery)}`}
-                    className="font-figtree inline-flex items-center self-start justify-center border border-[#496dff] text-[#496dff] no-underline transition-all hover:bg-[rgba(73,109,255,.06)] hover:-translate-y-0.5 whitespace-nowrap"
-                    style={{
-                      gap: "clamp(5px,.58vw,10px)",
-                      borderRadius: "clamp(5px,.52vw,9px)",
-                      padding: "clamp(7px,.81vw,14px) clamp(12px,1.74vw,30px)",
-                      fontSize: "clamp(10px,.93vw,16px)",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Know More
-                    <span>→</span>
-                  </Link>
                 </div>
               </div>
             </div>

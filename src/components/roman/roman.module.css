@@ -1,0 +1,1500 @@
+/* Roman preview. Mobile-first; desktop composition starts at 900px (same breakpoint as Scene art direction). */
+
+.site {
+  --paper: #f2ebdf;
+  --ivory: #f7f1e6;
+  --ink: #2b2620;
+  --muted: #62574a;
+  --red: #6e1f1a;
+  --red-2: #7a2a22;
+  --line: rgba(43, 38, 32, 0.16);
+  --line-strong: rgba(43, 38, 32, 0.4);
+  --gutter: clamp(20px, 6vw, 40px);
+  --caps: var(--font-cinzel), "Trajan Pro", Georgia, serif;
+  --serif: var(--font-cormorant), Georgia, serif;
+  --sans: var(--font-figtree), system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.55;
+  font-variant-numeric: lining-nums;
+  overflow-x: clip;
+}
+.site *,
+.site *::before,
+.site *::after {
+  box-sizing: border-box;
+}
+.site :where(a) {
+  color: inherit;
+  text-decoration: none;
+}
+.site :where(button) {
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+.site :where(button):disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+.site :is(a, button, summary, input):focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}
+.site :where(h1, h2, h3, h4, p, ul, dl, dd, figure, blockquote) {
+  margin: 0;
+  padding: 0;
+}
+.site :where(ul) {
+  list-style: none;
+}
+.site :is(section, article) {
+  scroll-margin-top: 72px;
+}
+
+.skip {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 60;
+  padding: 12px 16px;
+  background: var(--red);
+  color: var(--ivory) !important;
+  transform: translateY(-200%);
+}
+.skip:focus {
+  transform: none;
+}
+
+.desktopOnly {
+  display: none !important;
+}
+
+/* ---------- Shared pieces ---------- */
+
+.scene {
+  display: block;
+  pointer-events: none;
+  overflow: hidden;
+}
+.scene img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+.fill {
+  position: absolute;
+  inset: 0;
+}
+
+.section {
+  position: relative;
+  padding: 72px var(--gutter);
+  overflow: hidden;
+}
+/* The ground of every room: the sunlit plaster wall cut from the journey scene. */
+.plaster {
+  position: relative;
+  background: #ead9bf;
+}
+.plaster::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/roman/plaster-wall-mobile-v1.webp") center / cover;
+  pointer-events: none;
+}
+/* Dedicated plates (projects, reading, writing, contact). On phones the same plate is used twice,
+   anchored top and bottom as fixed bands, with plaster between; it is never stretched behind content. */
+.plate,
+.plateBottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.plate {
+  top: 0;
+  height: var(--band-top);
+  -webkit-mask-image: linear-gradient(#000 72%, transparent);
+  mask-image: linear-gradient(#000 72%, transparent);
+}
+.plate img {
+  object-position: center top;
+}
+.plateBottom {
+  bottom: 0;
+  height: var(--band-bottom);
+  -webkit-mask-image: linear-gradient(transparent, #000 28%);
+  mask-image: linear-gradient(transparent, #000 28%);
+}
+.plateBottom img {
+  object-position: center bottom;
+}
+.room {
+  --band-top: 30vw;
+  --band-bottom: 44vw;
+  padding-top: calc(var(--band-top) + 32px);
+  padding-bottom: calc(var(--band-bottom) + 24px);
+}
+/* Band heights follow where each 2:3 plate keeps its architecture (plate height is 150vw). */
+.projects {
+  --band-bottom: 50vw;
+}
+.reading {
+  --band-top: 0px;
+  --band-bottom: 58vw;
+  padding-top: 72px;
+}
+.writing {
+  --band-bottom: 46vw;
+}
+.closing {
+  --band-top: 26vw;
+  --band-bottom: 56vw;
+}
+/* Projects and contact only have a column at the top right, so the label can share the band. */
+.projects,
+.closing {
+  padding-top: 72px;
+}
+.projects .label,
+.closing .label {
+  margin-right: 16vw;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.grid {
+  display: grid;
+  gap: 36px;
+}
+.grid > * {
+  min-width: 0;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px !important;
+  font-family: var(--caps);
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.label::after {
+  content: "";
+  flex: 1;
+  max-width: 360px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.h2 {
+  font-family: var(--serif);
+  font-size: clamp(40px, 11.5vw, 56px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.lede {
+  margin-top: 18px !important;
+  max-width: 34ch;
+  color: var(--muted);
+  font-size: 18px;
+}
+.h3 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 7vw, 36px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+.kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px !important;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.kicker span {
+  color: var(--muted);
+  font-weight: 500;
+}
+.body {
+  margin-top: 12px !important;
+  color: var(--muted);
+}
+
+.tag,
+.tagNeutral {
+  display: inline-block;
+  padding: 6px 9px;
+  background: var(--red);
+  color: var(--ivory) !important;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.tagNeutral {
+  background: rgba(43, 38, 32, 0.09);
+  color: var(--ink) !important;
+}
+
+.panel {
+  background: rgba(247, 241, 230, 0.93);
+  border: 1px solid rgba(43, 38, 32, 0.1);
+  box-shadow: 0 24px 48px -32px rgba(70, 45, 20, 0.45);
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 52px;
+  padding: 0 28px;
+  border: 1px solid var(--red);
+  background: var(--red);
+  color: var(--ivory) !important;
+  font-size: 16px;
+  transition: background 0.2s, color 0.2s;
+}
+.primary:hover {
+  background: var(--red-2);
+}
+.secondary {
+  border-color: var(--line-strong);
+  background: transparent;
+  color: var(--ink) !important;
+}
+.secondary:hover {
+  border-color: var(--red);
+  color: var(--red) !important;
+}
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.rows {
+  margin-top: 28px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 58px;
+  padding: 10px 18px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+}
+.row > span {
+  flex: 1;
+}
+.row svg {
+  flex: none;
+}
+.row:hover {
+  background: rgba(110, 31, 26, 0.06);
+  color: var(--red);
+}
+.rows > :last-child,
+.rows > li:last-child .row {
+  border-bottom: 0;
+}
+
+/* ---------- Loader ---------- */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f5efe4;
+}
+.loader[hidden] {
+  display: none;
+}
+
+.loaderVideo {
+  width: 160%;
+  max-width: none;
+  height: auto;
+}
+.loaderCredit {
+  position: absolute;
+  bottom: 26%;
+  font-family: var(--caps);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+}
+.loaderSkip {
+  position: absolute;
+  right: var(--gutter);
+  bottom: max(24px, env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--line-strong);
+  background: rgba(247, 241, 230, 0.8);
+  font-size: 14px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    display: none;
+  }
+}
+
+/* ---------- Nav ---------- */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 var(--gutter);
+  background: rgba(242, 235, 223, 0.8);
+  border-bottom: 1px solid rgba(43, 38, 32, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--caps);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  white-space: nowrap;
+}
+.menuButton {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  border: 0;
+  background: none;
+}
+.links {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  padding: 8px var(--gutter) 20px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 24px 40px -28px rgba(43, 38, 32, 0.5);
+}
+.linksOpen {
+  display: flex;
+}
+.links :is(a, button) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+  text-align: left;
+}
+.links :is(a, button):hover {
+  color: var(--red);
+}
+.links > :last-child {
+  border-bottom: 0;
+}
+
+/* ---------- 01 Arrival ---------- */
+
+.arrival {
+  position: relative;
+  /* Tall enough that the copy clears the relief on short phones. */
+  min-height: max(100svh, 800px, 178vw);
+  overflow: hidden;
+  background: var(--paper);
+}
+.arrivalCopy {
+  position: absolute;
+  top: 28.5%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 0 var(--gutter);
+}
+/* Soft plaster wash so the copy never fights the arch edge or relief on short phones. */
+.arrivalCopy::before {
+  content: "";
+  position: absolute;
+  inset: -28px 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at 35% 50%, rgba(242, 235, 223, 0.82), rgba(242, 235, 223, 0) 72%);
+}
+.name {
+  font-family: var(--caps);
+  font-size: clamp(44px, 14vw, 76px);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.headline {
+  margin-top: 14px !important;
+  font-size: clamp(24px, 6.8vw, 30px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.subline {
+  margin-top: 8px !important;
+  max-width: 30ch;
+  font-size: 17px;
+}
+.arrivalActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 18px;
+}
+.talk {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 48px;
+  border: 0;
+  background: none;
+  font-size: 17px;
+}
+.talk span {
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line-strong);
+}
+.talk:hover {
+  color: var(--red);
+}
+.peek {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  height: 120px;
+  padding: 0 var(--gutter) 22px;
+  background: linear-gradient(to top, rgba(242, 235, 223, 0.95) 25%, rgba(242, 235, 223, 0));
+}
+.peek .label {
+  flex: 1;
+  margin-bottom: 0 !important;
+}
+
+/* ---------- 02 Work journey ---------- */
+
+/* The walk. Arrival is pinned over the journey stage (also pinned) while --walk of scroll is spent
+   pushing in through the arch; native scroll only. Reduced motion: --walk is 0 and both are static. */
+.walk {
+  position: relative;
+  --walk: 0px;
+  /* Centre of the arch opening in the arrival scene, and how far that is from the middle of the screen. */
+  --arch: 42% 16%;
+  --arch-dx: 8vw;
+  --arch-dy: 30svh;
+}
+/* The scroll distance is a spacer after the stage: a sticky box can only travel inside its parent's content box. */
+.journeyWalk::after {
+  content: "";
+  display: block;
+  height: var(--walk);
+}
+.journeyWalk {
+  /* Anchor links land where the walk ends, with the wall settled. */
+  scroll-margin-top: calc(var(--walk) * -1) !important;
+}
+.journey {
+  min-height: 100svh;
+  overflow: hidden;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .walk {
+    --walk: 90svh;
+  }
+  .arrivalRail {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .arrivalRail .arrival {
+    position: sticky;
+    top: 0;
+    pointer-events: auto;
+  }
+  .arrivalScene {
+    transform-origin: var(--arch);
+    will-change: transform;
+  }
+  .journey {
+    position: sticky;
+    top: 0;
+  }
+}
+
+.journeyIntro {
+  position: relative;
+  z-index: 2;
+  padding: 84px var(--gutter) 28px;
+}
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+}
+.stepper button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+}
+.counter {
+  margin-right: auto;
+  padding: 6px 10px;
+  background: rgba(247, 241, 230, 0.7);
+  font-family: var(--caps);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+}
+.dot {
+  display: none !important;
+}
+
+/* The hall: one wall bay per company on a horizontal track. Phones swipe it (native scroll snap);
+   desktop walks it from the selector. Its height follows the active wall. */
+.hall {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pan-y;
+  scrollbar-width: none;
+  transform-origin: 50% 0;
+  transition: height 0.5s ease;
+}
+.hall::-webkit-scrollbar {
+  display: none;
+}
+/* A bay is the journey plate twice: one copy hangs from the top, one stands on the bottom. They coincide
+   when the bay matches the plate's ratio; when a long chapter makes it taller the column shafts run on. */
+.bay {
+  position: relative;
+  flex: 0 0 100%;
+  min-height: 120vw;
+  padding: calc(42vw + 20px) 13.5vw 24vw;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+.bayTop,
+.bayFloor {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 941 / 1672;
+}
+.bayTop {
+  top: 0;
+  -webkit-mask-image: linear-gradient(#000 50%, transparent 70%);
+  mask-image: linear-gradient(#000 50%, transparent 70%);
+}
+.bayFloor {
+  bottom: 0;
+  -webkit-mask-image: linear-gradient(transparent 12%, #000 28%);
+  mask-image: linear-gradient(transparent 12%, #000 28%);
+}
+.friezeWindow {
+  display: none;
+}
+.bayPanel {
+  position: relative;
+  padding: 20px 18px 22px;
+}
+.bayPanel .h3 {
+  margin: 12px 0 4px;
+}
+.chapterPeriod {
+  color: var(--muted);
+  font-size: 14px;
+}
+.chapterRole {
+  font-weight: 500;
+}
+.bayPanel h4 {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.bayPanel h4 + p,
+.chapterRole + p {
+  margin-top: 8px;
+  color: var(--muted);
+}
+.outcomes li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 12px;
+  scroll-margin-top: 120px;
+}
+.outcomes span {
+  color: var(--muted);
+  font-size: 15px;
+}
+.outcomes strong {
+  font-weight: 500;
+}
+.flash {
+  animation: flash 2.4s ease-out;
+}
+@keyframes flash {
+  0%,
+  60% {
+    background: rgba(110, 31, 26, 0.14);
+    box-shadow: 0 0 0 8px rgba(110, 31, 26, 0.14);
+  }
+}
+
+/* ---------- 03 Projects ---------- */
+
+.project {
+  margin-top: 12px;
+}
+.projectHead button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 60px;
+  padding: 12px 20px;
+  border: 0;
+  background: none;
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: left;
+}
+.projectBody {
+  display: none;
+  padding: 0 20px 20px;
+}
+.open .projectBody {
+  display: block;
+}
+.projectTagline {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.projectImage {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 40px -28px rgba(43, 38, 32, 0.6);
+}
+
+/* ---------- 04 Reading ---------- */
+
+.edition {
+  padding: 24px 20px;
+}
+.player {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+  padding: 8px 14px 8px 8px;
+  background: rgba(43, 38, 32, 0.05);
+  border-radius: 999px;
+}
+.player button {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--red);
+  color: var(--ivory);
+}
+.player input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  accent-color: var(--red);
+}
+.player span {
+  flex: none;
+  color: var(--muted);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.sources {
+  margin-top: 12px;
+  border: 1px solid var(--line-strong);
+}
+.sources summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 52px;
+  padding: 0 18px;
+  cursor: pointer;
+  list-style: none;
+}
+.sources summary::-webkit-details-marker {
+  display: none;
+}
+.sources summary span {
+  flex: 1;
+}
+.sources[open] summary svg:last-child {
+  transform: rotate(45deg);
+}
+.sources li a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 18px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+.sources li a:hover {
+  color: var(--red);
+}
+
+/* ---------- 05 Writing ---------- */
+
+.entry {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+.entry > div {
+  flex: 1;
+  min-width: 0;
+}
+.entry h3 {
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.12;
+}
+.entry p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 16px;
+}
+.entryMeta {
+  font-size: 13px !important;
+  letter-spacing: 0.04em;
+}
+a.entry:hover h3 {
+  color: var(--red);
+}
+.note {
+  margin-top: 18px !important;
+  color: var(--muted);
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* ---------- 06 Playground + WHOOP ---------- */
+
+.playground {
+  padding-bottom: 62vw;
+}
+.playgroundArt {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  aspect-ratio: 941 / 1150;
+  -webkit-mask-image: linear-gradient(transparent, #000 35%);
+  mask-image: linear-gradient(transparent, #000 35%);
+}
+.playgroundArt img {
+  object-position: center bottom;
+}
+.whoop {
+  padding: 24px 20px;
+  background: var(--ivory);
+  border: 1px solid rgba(43, 38, 32, 0.1);
+  box-shadow: 0 24px 48px -32px rgba(70, 45, 20, 0.45);
+}
+.whoopHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+.whoopHead h3 {
+  font-family: var(--caps);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+}
+.whoopStatus {
+  color: var(--muted);
+  font-size: 13px;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 16px !important;
+}
+.metrics > div {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.metrics > div:nth-child(even) {
+  padding-left: 16px;
+  border-left: 1px solid var(--line);
+}
+.metrics dt {
+  color: var(--muted);
+  font-size: 14px;
+}
+.metrics dd {
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+/* ---------- 07 JJ ---------- */
+
+.jj {
+  position: relative;
+  background: var(--paper);
+}
+.jjArt {
+  position: relative;
+  aspect-ratio: 1 / 0.92;
+}
+.jjArt img {
+  object-position: center top;
+}
+.jjPanel {
+  position: relative;
+  padding: 36px var(--gutter) 72px;
+}
+.micButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 28px auto 0;
+  border: 0;
+  background: none;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+}
+.micButton > span:first-child {
+  display: grid;
+  place-items: center;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: var(--red);
+  color: var(--ivory);
+  box-shadow: 0 0 0 10px rgba(110, 31, 26, 0.1), 0 18px 32px -16px rgba(110, 31, 26, 0.7);
+  transition: background 0.2s, transform 0.2s;
+}
+.micButton:hover > span:first-child {
+  background: var(--red-2);
+  transform: scale(1.04);
+}
+.or {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0 16px !important;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 16px;
+}
+.or::before,
+.or::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line-strong);
+}
+.typing {
+  border: 1px solid var(--line-strong);
+}
+.chips li:first-child {
+  margin-bottom: 12px;
+}
+.jjPanel .rows {
+  margin-top: 12px;
+  background: rgba(247, 241, 230, 0.7);
+}
+
+/* ---------- 08 Contact + quote ---------- */
+
+.closingGrid.grid {
+  gap: 56px;
+}
+.contactRows .row {
+  padding-left: 0;
+  padding-right: 0;
+}
+.quote {
+  padding-top: 32px;
+  border-top: 1px solid var(--line-strong);
+}
+.quote blockquote {
+  font-family: var(--serif);
+  font-size: clamp(34px, 9.5vw, 56px);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.quote figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 28px;
+}
+.quoteAuthor {
+  font-family: var(--caps);
+  font-size: 18px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.quote cite {
+  color: var(--muted);
+  font-style: normal;
+}
+.backTop {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: fit-content;
+  min-height: 56px;
+  margin: 64px auto 0;
+  padding: 0 16px;
+  font-family: var(--serif);
+  font-size: 17px;
+}
+.backTop:hover {
+  color: var(--red);
+}
+
+/* ---------- Desktop ---------- */
+
+@media (min-width: 900px) {
+  .site {
+    --gutter: clamp(40px, 8vw, 140px);
+    font-size: 17px;
+  }
+  .mobileOnly {
+    display: none !important;
+  }
+  .desktopOnly {
+    display: revert !important;
+  }
+  .section {
+    padding-block: clamp(88px, 9vw, 136px);
+  }
+  .grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+  }
+  .h2 {
+    font-size: clamp(46px, 4.4vw, 68px);
+  }
+  .h3 {
+    font-size: clamp(30px, 2.8vw, 40px);
+  }
+  .actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .loaderVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .loaderCredit {
+    bottom: 12%;
+  }
+
+  .nav {
+    height: 68px;
+  }
+  .menuButton {
+    display: none;
+  }
+  .links,
+  .linksOpen {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(20px, 3vw, 44px);
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+  .links :is(a, button) {
+    min-height: 44px;
+    border: 0;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .arrival {
+    min-height: max(640px, 100svh);
+  }
+  .arrival .scene img {
+    object-position: 30% center;
+  }
+  .arrivalCopy {
+    top: max(104px, 15svh);
+    padding-left: max(var(--gutter), 12vw);
+  }
+  .arrivalCopy::before {
+    display: none;
+  }
+  .name {
+    font-size: clamp(56px, min(7.4vw, 12.5svh), 116px);
+    line-height: 0.92;
+  }
+  .headline {
+    margin-top: 18px !important;
+    font-size: clamp(24px, 2.2vw, 32px);
+  }
+  .subline {
+    max-width: none;
+    font-size: 18px;
+  }
+  .arrivalActions {
+    flex-direction: row;
+    align-items: center;
+    gap: 36px;
+    margin-top: 32px;
+  }
+  .peek {
+    padding-left: max(var(--gutter), 12vw);
+    padding-bottom: 30px;
+  }
+  .peek .label {
+    font-size: 15px;
+  }
+  .peek .label::after {
+    max-width: 640px;
+  }
+
+  .plaster::before {
+    background-image: url("/roman/plaster-wall-v1.webp");
+  }
+
+  .walk {
+    --arch: 77% 42%;
+    --arch-dx: -27vw;
+    --arch-dy: 8svh;
+  }
+  .journeyIntro {
+    position: absolute;
+    top: calc(11vw + 40px);
+    left: max(var(--gutter), 11vw);
+    width: 34%;
+    padding: 0;
+  }
+  .stepper {
+    gap: 10px;
+    margin-top: 40px;
+  }
+  .counter {
+    display: none;
+  }
+  .dot {
+    display: grid !important;
+    border: 1px solid var(--line-strong) !important;
+    background: rgba(247, 241, 230, 0.7) !important;
+    font-family: var(--caps);
+    font-size: 12px;
+  }
+  .dotActive {
+    border-color: var(--red) !important;
+    background: var(--red) !important;
+    color: var(--ivory);
+  }
+  .hall {
+    overflow-x: hidden;
+    scroll-snap-type: none;
+  }
+  .bay {
+    min-height: max(56.25vw, 100svh);
+    padding: calc(11vw + 40px) max(var(--gutter), 11vw) 10vw 50%;
+  }
+  .bayTop,
+  .bayFloor {
+    aspect-ratio: 16 / 9;
+  }
+  /* The frieze between the pilasters sits in its own window so it can travel slower than the wall. */
+  .friezeWindow {
+    position: absolute;
+    top: 0;
+    left: 7.775%;
+    display: block;
+    width: 84.63%;
+    aspect-ratio: 1415 / 195;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .friezeStrip {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 100%;
+    background: url("/roman/frieze-v1.webp") repeat-x;
+    background-size: 33.3334% 100%;
+  }
+  .bayPanel {
+    padding: clamp(28px, 3vw, 44px);
+  }
+  .outcomes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 28px;
+  }
+
+  .projectTabs {
+    display: block !important;
+    margin-top: 36px;
+    max-width: 420px;
+  }
+  .projectTabs .row {
+    border: 1px solid var(--line);
+    border-top-width: 0;
+    background: rgba(247, 241, 230, 0.7);
+  }
+  .projectTabs .row:first-child {
+    border-top-width: 1px;
+  }
+  .projectTabs .rowActive,
+  .projectTabs .rowActive:hover {
+    border-color: var(--red);
+    background: var(--red);
+    color: var(--ivory);
+    font-family: var(--caps);
+    font-size: 17px;
+    letter-spacing: 0.14em;
+  }
+  .project {
+    display: none;
+    margin: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+  .project.shown {
+    display: block;
+  }
+  .project .projectBody {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  .projectFigure {
+    order: -1;
+    margin-bottom: 24px;
+  }
+  .projectImage {
+    margin-top: 0;
+  }
+  .projectTagline {
+    font-size: 30px;
+  }
+
+  .edition {
+    padding: clamp(28px, 3vw, 44px);
+  }
+  .sources {
+    display: inline-block;
+    min-width: 260px;
+  }
+
+  .entry:first-child {
+    padding-top: 0;
+  }
+  .writingList {
+    padding: clamp(24px, 3vw, 40px);
+    background: rgba(247, 241, 230, 0.93);
+    border: 1px solid rgba(43, 38, 32, 0.1);
+    box-shadow: 0 24px 48px -32px rgba(70, 45, 20, 0.45);
+  }
+  .writingList .entry:last-of-type {
+    border-bottom: 0;
+  }
+
+  /* Desktop rooms: the plate fills the section (cover, never stretched); min-height keeps most of the 3:2 plate in view.
+     Padding keeps content on the plaster and off each plate's architecture. */
+  .room {
+    min-height: 60vw;
+    padding-top: clamp(96px, 9vw, 140px);
+    padding-bottom: 12vw;
+  }
+  .plate {
+    inset: 0;
+    height: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .room .label {
+    margin-right: 0;
+  }
+  .projects {
+    padding-top: clamp(96px, 9vw, 140px);
+    padding-left: max(var(--gutter), 14vw);
+    padding-bottom: 15vw;
+  }
+  .projects .plate img {
+    object-position: left bottom;
+  }
+  .reading {
+    padding-top: clamp(96px, 9vw, 140px);
+    padding-right: 17vw;
+    padding-bottom: 14vw;
+  }
+  .reading .plate img {
+    object-position: right bottom;
+  }
+  .writing {
+    padding-left: max(var(--gutter), 10vw);
+    padding-right: 31vw;
+    padding-bottom: 17vw;
+  }
+  .writing .grid {
+    gap: 48px;
+  }
+  .writing .plate img {
+    object-position: right bottom;
+  }
+  .closing {
+    padding-top: clamp(96px, 9vw, 140px);
+    padding-right: 13vw;
+    padding-bottom: 29vw;
+  }
+  .closing .plate img {
+    object-position: right bottom;
+  }
+
+  .playground {
+    display: flex;
+    align-items: flex-start;
+    min-height: min(56.25vw, 860px);
+    padding-bottom: clamp(88px, 9vw, 136px);
+  }
+  .playground .inner {
+    flex: 1;
+  }
+  .playgroundArt {
+    inset: 0;
+    aspect-ratio: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .playgroundArt img {
+    object-position: left center;
+  }
+  .playgroundGrid.grid {
+    align-items: end;
+  }
+  .whoop {
+    padding: clamp(24px, 2.6vw, 36px);
+  }
+  .metrics {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 20px;
+  }
+  .metrics > div,
+  .metrics > div:nth-child(even) {
+    padding: 14px 0 0;
+    border: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  /* The arch and sunset lead; controls sit directly in the sky with only a soft glow behind them. */
+  .jj {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: max(720px, 56.25vw);
+    padding: max(104px, 8.5vw) var(--gutter) 80px;
+    overflow: hidden;
+  }
+  .jj::before {
+    display: none;
+  }
+  .jjArt {
+    position: absolute;
+    inset: 0;
+    aspect-ratio: auto;
+  }
+  .jjArt img {
+    object-position: center;
+  }
+  .jjPanel {
+    z-index: 1;
+    width: min(100%, 720px);
+    padding: 0;
+    text-align: center;
+  }
+  .jjPanel::before {
+    content: "";
+    position: absolute;
+    inset: -48px -64px 20%;
+    z-index: -1;
+    background: radial-gradient(closest-side, rgba(250, 240, 226, 0.7), rgba(250, 240, 226, 0));
+  }
+  .jjPanel .lede {
+    margin-inline: auto;
+    color: var(--ink);
+  }
+  .or {
+    display: none;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 28px -140px 0 !important;
+  }
+  .chips li:first-child {
+    margin: 0;
+  }
+  .chips .row {
+    width: auto;
+    min-height: 46px;
+    padding: 8px 22px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(250, 244, 233, 0.94);
+    box-shadow: 0 10px 20px -12px rgba(60, 30, 10, 0.7);
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .chips .row svg {
+    width: 16px;
+    height: 16px;
+  }
+  .jjPanel .label {
+    justify-content: center;
+  }
+  .jjPanel .label::after {
+    display: none;
+  }
+  .jjPanel .lede {
+    max-width: none;
+  }
+  .jjPanel .rows {
+    background: none;
+  }
+
+  .closingGrid.grid {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    gap: clamp(56px, 8vw, 128px);
+  }
+  .quote {
+    padding-top: 0;
+    padding-left: clamp(32px, 5vw, 80px);
+    border-top: 0;
+    border-left: 1px solid var(--line-strong);
+  }
+  .quote blockquote {
+    font-size: clamp(44px, 4.6vw, 72px);
+  }
+}

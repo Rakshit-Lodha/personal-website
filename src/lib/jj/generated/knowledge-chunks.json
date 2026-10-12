@@ -51,11 +51,11 @@
       "career",
       "work history"
     ],
-    "retrievalText": "The My Story section contains Rakshit's LearnApp, INDMoney, and ET Money experience timeline.",
-    "speechSummary": "My Story shows Rakshit's career timeline across LearnApp, INDMoney, and ET Money.",
+    "retrievalText": "The My Story section contains Rakshit's LearnApp, INDMoney, ET Money, and Paytm Money experience timeline.",
+    "speechSummary": "My Story shows Rakshit's career timeline across LearnApp, INDMoney, ET Money, and Paytm Money.",
     "facts": [
       "Contains visible career cards.",
-      "Includes outcomes from LearnApp, INDMoney, and ET Money."
+      "Includes outcomes from LearnApp, INDMoney, ET Money, and Paytm Money."
     ],
     "metadata": {
       "source": "site",
@@ -273,8 +273,7 @@
       ],
       "priority": 95,
       "links": {
-        "github": "https://github.com/Rakshit-Lodha/personal-website",
-        "demo": "/chat"
+        "github": "https://github.com/Rakshit-Lodha/personal-website"
       }
     },
     "preferredCommands": [
@@ -290,11 +289,6 @@
         "type": "open_project_link",
         "projectId": "ai-hiring-chat",
         "linkType": "github"
-      },
-      {
-        "type": "open_project_link",
-        "projectId": "ai-hiring-chat",
-        "linkType": "demo"
       }
     ]
   },
@@ -795,6 +789,54 @@
     ]
   },
   {
+    "id": "experience:paytmmoney",
+    "entityType": "experience",
+    "entityId": "paytmmoney",
+    "title": "Paytm Money - Senior Product Manager",
+    "aliases": [
+      "Paytm Money",
+      "paytmmoney",
+      "Senior Product Manager",
+      "agents",
+      "app experience",
+      "fintech"
+    ],
+    "retrievalText": "Paytm Money\nSenior Product Manager\n\nJul 2026\nPresent\nWorking on agents and improving the overall app experience at Paytm Money since July 2026.\nagents\napp experience\nfintech",
+    "speechSummary": "Working on agents and improving the overall app experience at Paytm Money since July 2026.",
+    "facts": [
+      "Senior Product Manager at Paytm Money",
+      "Working on agents and improving the overall app experience at Paytm Money since July 2026."
+    ],
+    "metadata": {
+      "source": "profile",
+      "sectionId": "my-story",
+      "pageAnchor": "#my-story",
+      "visibleOnPage": true,
+      "companyId": "paytmmoney",
+      "workContext": "professional",
+      "evidenceStrength": "direct_claim",
+      "tags": [
+        "experience",
+        "Paytm Money",
+        "Senior Product Manager",
+        "agents",
+        "app experience",
+        "fintech"
+      ],
+      "priority": 100
+    },
+    "preferredCommands": [
+      {
+        "type": "scroll_to_section",
+        "sectionId": "my-story"
+      },
+      {
+        "type": "focus_experience",
+        "companyId": "paytmmoney"
+      }
+    ]
+  },
+  {
     "id": "experience:etmoney",
     "entityType": "experience",
     "entityId": "etmoney",
@@ -810,7 +852,7 @@
       "mutual funds",
       "distribution"
     ],
-    "retrievalText": "ET Money\nProduct Manager\nGurugram\nDec 2022\nPresent\nScaled AI support automation, lending, wealth, insurance, and mutual fund products.\nAI support automation\nlending\nwealth\ninsurance\nmutual funds\ndistribution\nAI support automation\n19,000 -> 9,000 monthly tickets; 55% reduction; 30% CSAT improvement\nReduced monthly ticket volume by designing intent classification, 100+ resolution workflows, and an LLM-as-judge eval pipeline.\nBuilt and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.\nsupport automation\nagentic workflows\neval systems\nLLM products\nOffline distribution business\n12% of SIP book and 10% of gross sales within 4 months\nEnabled relationship managers to create goal-based investment plans and execute transactions on ET Money's platform.\nBuilt a 0-to-1 offline distribution business on top of ET Money's platform for relationship-manager-led planning and transactions.\n0-to-1\nwealth\nadvisory\ndistribution\nLoan Against Mutual Funds\nINR 100Cr disbursals in 7 months\nBuilt and scaled Loan Against Mutual Funds from the ground up.\nBuilt and scaled Loan Against Mutual Funds from ground up to INR 100Cr disbursals in 7 months.\nlending\nmutual funds\n0-to-1\nET Money Earn\nINR 300Cr AUM\nLed 0-to-1 development and scaling of ET Money Earn.\nLed 0-to-1 development and scaling of ET Money Earn to INR 300Cr AUM.\nwealth\n0-to-1\nAUM\nExecution-only Mutual Fund Platform\nProjected INR 10Cr annual revenue\nBuilt an execution-only mutual fund platform with meaningful revenue potential.\nBuilt execution-only Mutual Fund Platform, projected to generate INR 10Cr annual revenue.\nmutual funds\nwealth\nrevenue\nHealth & Term Insurance\nIncreased term and health insurance policy sales by 100%\nIncreased insurance revenue from INR 1.5Cr to INR 3Cr by revamping term and health insurance journeys, adding partners, and introducing a new 1Cr health insurance product.\nIncreased revenue of insurance as a vertical from INR 1.5Cr to INR 3Cr.\ninsurance\nterm insurance\nhealth insurance\nrevenue\nET Money Earn (P2P Investment)\n0 -> INR 100Cr AUM in 1 month\nBuilt ET Money Earn from the ground up, reached INR 100Cr AUM in 1 month, and had the product showcased in an IPL ad.\nGenerated INR 3Cr in annual income in the first year.\ninvestments\nP2P investment\nrevenue\n0-to-1",
+    "retrievalText": "ET Money\nProduct Manager\nGurugram\nDec 2022\n2026\nScaled AI support automation, lending, wealth, insurance, and mutual fund products.\nAI support automation\nlending\nwealth\ninsurance\nmutual funds\ndistribution\nAI support automation\n19,000 -> 9,000 monthly tickets; 55% reduction; 30% CSAT improvement\nReduced monthly ticket volume by designing intent classification, 100+ resolution workflows, and an LLM-as-judge eval pipeline.\nBuilt and scaled AI support automation that reduced monthly tickets from 19,000 to 9,000, a 55% reduction, and improved CSAT by 30%. Designed intent classification, 100+ resolution workflows, and an eval pipeline for empathy, answer quality, policy compliance, and regression testing using an LLM-as-judge method.\nsupport automation\nagentic workflows\neval systems\nLLM products\nOffline distribution business\n12% of SIP book and 10% of gross sales within 4 months\nEnabled relationship managers to create goal-based investment plans and execute transactions on ET Money's platform.\nBuilt a 0-to-1 offline distribution business on top of ET Money's platform for relationship-manager-led planning and transactions.\n0-to-1\nwealth\nadvisory\ndistribution\nLoan Against Mutual Funds\nINR 100Cr disbursals in 7 months\nBuilt and scaled Loan Against Mutual Funds from the ground up.\nBuilt and scaled Loan Against Mutual Funds from ground up to INR 100Cr disbursals in 7 months.\nlending\nmutual funds\n0-to-1\nET Money Earn\nINR 300Cr AUM\nLed 0-to-1 development and scaling of ET Money Earn.\nLed 0-to-1 development and scaling of ET Money Earn to INR 300Cr AUM.\nwealth\n0-to-1\nAUM\nExecution-only Mutual Fund Platform\nProjected INR 10Cr annual revenue\nBuilt an execution-only mutual fund platform with meaningful revenue potential.\nBuilt execution-only Mutual Fund Platform, projected to generate INR 10Cr annual revenue.\nmutual funds\nwealth\nrevenue\nHealth & Term Insurance\nIncreased term and health insurance policy sales by 100%\nIncreased insurance revenue from INR 1.5Cr to INR 3Cr by revamping term and health insurance journeys, adding partners, and introducing a new 1Cr health insurance product.\nIncreased revenue of insurance as a vertical from INR 1.5Cr to INR 3Cr.\ninsurance\nterm insurance\nhealth insurance\nrevenue\nET Money Earn (P2P Investment)\n0 -> INR 100Cr AUM in 1 month\nBuilt ET Money Earn from the ground up, reached INR 100Cr AUM in 1 month, and had the product showcased in an IPL ad.\nGenerated INR 3Cr in annual income in the first year.\ninvestments\nP2P investment\nrevenue\n0-to-1",
     "speechSummary": "Scaled AI support automation, lending, wealth, insurance, and mutual fund products.",
     "facts": [
       "Product Manager at ET Money",

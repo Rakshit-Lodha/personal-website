@@ -25,6 +25,9 @@ export const JJ_COMPANY_IDS = EXPERIENCE.map((item) => item.id);
 export type JJCompanyId = (typeof JJ_COMPANY_IDS)[number];
 
 export const JJ_COMPANY_ALIASES: Record<string, JJCompanyId> = {
+  paytmmoney: "paytmmoney",
+  "paytm-money": "paytmmoney",
+  "paytm money": "paytmmoney",
   etmoney: "etmoney",
   "et-money": "etmoney",
   "et money": "etmoney",

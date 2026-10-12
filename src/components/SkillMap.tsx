@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 type Tag = { label: string; bold?: boolean };
 type Card = { category: string; tags: Tag[] };
@@ -94,12 +93,9 @@ function SkillCard({ card }: { card: Card }) {
         }}
       >
         {card.tags.map((t) => (
-          <Link
+          <span
             key={t.label}
-            href={`/chat?q=${encodeURIComponent(
-              `Tell me about Rakshit's experience with ${t.label}`
-            )}`}
-            className="skill-tag font-figtree whitespace-nowrap text-[#111]"
+            className="font-figtree whitespace-nowrap text-[#111]"
             style={{
               fontSize: t.bold ? "clamp(11px,1.04vw,18px)" : "clamp(10px,0.93vw,16px)",
               fontWeight: t.bold ? 700 : 400,
@@ -107,7 +103,7 @@ function SkillCard({ card }: { card: Card }) {
             }}
           >
             {t.label}
-          </Link>
+          </span>
         ))}
       </div>
     </div>

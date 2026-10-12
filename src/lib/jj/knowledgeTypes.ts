@@ -24,7 +24,7 @@ export type KnowledgeChunk = {
     sectionId?: "hero" | "my-story" | "projects" | "skill-map" | "education";
     pageAnchor?: string;
     visibleOnPage: boolean;
-    companyId?: "etmoney" | "indmoney" | "learnapp";
+    companyId?: "paytmmoney" | "etmoney" | "indmoney" | "learnapp";
     projectId?: string;
     outcomeId?: string;
     songId?: string;

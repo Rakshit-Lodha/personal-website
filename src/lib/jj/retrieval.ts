@@ -112,7 +112,10 @@ export function detectCommands(query: string): SiteCommand[] {
       indmoney: "closer-to-the-choice",
       learnapp: "make-it-to-the-end",
     } as const;
-    commands.push({ type: "music_play_track", songId: songByCompany[normalizedCompanyId] });
+    if (normalizedCompanyId in songByCompany) {
+      const songId = songByCompany[normalizedCompanyId as keyof typeof songByCompany];
+      commands.push({ type: "music_play_track", songId });
+    }
   }
 
   const songId = Object.keys(JJ_SONG_ALIASES).find((alias) => hasPhrase(query, alias));

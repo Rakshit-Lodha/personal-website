@@ -44,7 +44,7 @@ const offbitDisplay = localFont({
 export const metadata: Metadata = {
   title: "Rakshit Lodha — AI Product Manager",
   description:
-    "AI Product Manager with 5+ years in fintech. Built LLM products across RAG, semantic search, agentic workflows, and eval systems.",
+    "Rakshit Lodha is building agents and improving the app experience at Paytm Money. Previously at ET Money, INDMoney, and LearnApp.",
 };
 
 export default function RootLayout({

@@ -8,6 +8,8 @@ import {
   type SiteCommand,
   type ValidatedSiteCommand,
 } from "./commands";
+import { domSurfaceAdapter } from "./surfaces/dom";
+import type { SurfaceAdapter } from "./surfaces/types";
 
 export type MusicCommandControls = {
   play: () => void;
@@ -25,42 +27,13 @@ export type SiteCommandHandlerOptions = {
   music: MusicCommandControls;
   setAgentVolume?: (volume: number) => void;
   explicitUserIntent?: boolean;
+  /** Defaults to the scroll site's DOM behaviour. */
+  surface?: SurfaceAdapter;
 };
 
 export type SiteCommandResult =
   | { ok: true; message: string }
   | { ok: false; message: string };
-
-const HIGHLIGHT_CLASS = "jj-highlight";
-const LEGACY_HIGHLIGHT_CLASS = "jj-command-highlight";
-const SCROLL_OFFSET_PX = 112;
-let clearHighlightTimer: number | null = null;
-
-function scrollToElement(element: Element): void {
-  const top = element.getBoundingClientRect().top + window.scrollY - SCROLL_OFFSET_PX;
-  window.scrollTo({
-    top: Math.max(0, top),
-    behavior: "smooth",
-  });
-}
-
-function flashElement(element: Element): void {
-  document.querySelectorAll(`.${HIGHLIGHT_CLASS}, .${LEGACY_HIGHLIGHT_CLASS}`).forEach((target) => {
-    target.classList.remove(HIGHLIGHT_CLASS, LEGACY_HIGHLIGHT_CLASS);
-  });
-  if (clearHighlightTimer !== null) window.clearTimeout(clearHighlightTimer);
-
-  element.classList.remove(HIGHLIGHT_CLASS);
-  window.setTimeout(() => element.classList.add(HIGHLIGHT_CLASS), 20);
-  clearHighlightTimer = window.setTimeout(() => {
-    element.classList.remove(HIGHLIGHT_CLASS, LEGACY_HIGHLIGHT_CLASS);
-    clearHighlightTimer = null;
-  }, 6000);
-}
-
-function targetBySelector(selector: string): Element | null {
-  return document.querySelector(selector);
-}
 
 function projectLink(projectId: string, linkType: "github" | "demo" | "caseStudy"): string | null {
   const project = PROJECTS.find((item) => item.id === projectId);
@@ -75,22 +48,16 @@ function runValidatedCommand(
   command: ValidatedSiteCommand,
   options: SiteCommandHandlerOptions
 ): SiteCommandResult {
+  const surface = options.surface ?? domSurfaceAdapter;
   switch (command.type) {
-    case "scroll_to_section": {
-      const target = document.getElementById(command.sectionId);
-      if (!target) return { ok: false, message: `Section not found: ${command.sectionId}` };
-      scrollToElement(target);
-      flashElement(target);
-      return { ok: true, message: `Scrolled to ${command.sectionId}` };
-    }
+    case "scroll_to_section":
+      return surface.focusSection(command.sectionId);
     case "focus_project":
-    case "highlight_project": {
-      const target = targetBySelector(`[data-jj-project-id="${command.projectId}"]`);
-      if (!target) return { ok: false, message: `Project not found: ${command.projectId}` };
-      scrollToElement(target);
-      flashElement(target);
-      return { ok: true, message: `Focused project ${command.projectId}` };
-    }
+    case "highlight_project":
+      return surface.focusProject(
+        command.projectId,
+        command.type === "focus_project" ? "focus" : "highlight"
+      );
     case "open_project_link": {
       const href = projectLink(command.projectId, command.linkType);
       if (!href) {
@@ -102,20 +69,10 @@ function runValidatedCommand(
       window.open(href, href.startsWith("/") ? "_self" : "_blank", "noopener,noreferrer");
       return { ok: true, message: `Opened ${command.linkType} for ${command.projectId}` };
     }
-    case "focus_experience": {
-      const target = targetBySelector(`[data-jj-company-id="${command.companyId}"]`);
-      if (!target) return { ok: false, message: `Experience not found: ${command.companyId}` };
-      scrollToElement(target);
-      flashElement(target);
-      return { ok: true, message: `Focused experience ${command.companyId}` };
-    }
-    case "highlight_outcome": {
-      const target = targetBySelector(`[data-jj-outcome-id="${command.outcomeId}"]`);
-      if (!target) return { ok: false, message: `Outcome not found: ${command.outcomeId}` };
-      scrollToElement(target);
-      flashElement(target);
-      return { ok: true, message: `Highlighted outcome ${command.outcomeId}` };
-    }
+    case "focus_experience":
+      return surface.focusExperience(command.companyId);
+    case "highlight_outcome":
+      return surface.focusOutcome(command.outcomeId);
     case "music_play":
       options.music.play();
       return { ok: true, message: "Music playing" };

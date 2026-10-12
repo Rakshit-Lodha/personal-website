@@ -1,11 +1,22 @@
 export const EXPERIENCE = [
   {
+    id: "paytmmoney",
+    company: "Paytm Money",
+    location: "",
+    role: "Senior Product Manager",
+    start: "Jul 2026",
+    end: "Present",
+    headline: "Working on agents and improving the overall app experience at Paytm Money since July 2026.",
+    tags: ["agents", "app experience", "fintech"],
+    outcomes: [],
+  },
+  {
     id: "etmoney",
     company: "ET Money",
     location: "Gurugram",
     role: "Product Manager",
     start: "Dec 2022",
-    end: "Present",
+    end: "2026",
     headline: "Scaled AI support automation, lending, wealth, insurance, and mutual fund products.",
     tags: ["AI support automation", "lending", "wealth", "insurance", "mutual funds", "distribution"],
     outcomes: [

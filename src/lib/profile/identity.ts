@@ -1,10 +1,10 @@
 export const IDENTITY = {
   name: "Rakshit Lodha",
-  title: "AI Product Manager",
+  title: "Senior Product Manager",
   location: "Gurugram",
   locationPreference: "Based in Gurugram and open to relocating anywhere for the right opportunity.",
   summary:
-    "AI Product Manager with 5+ years of fintech product experience and hands-on experience building LLM products across RAG, semantic search, agentic workflows, voice interfaces, and eval systems.",
+    "Senior Product Manager at Paytm Money since July 2026, working on agents and improving the overall app experience. Brings 5+ years of fintech product experience and hands-on experience building LLM products across RAG, semantic search, agentic workflows, voice interfaces, and eval systems.",
   positioning:
     "Strong in translating ambiguous user and business problems into AI-powered workflows, evaluation frameworks, and scalable product systems.",
   domains: ["wealth", "lending", "advisory", "support automation"],

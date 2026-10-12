@@ -51,7 +51,7 @@ export const PROJECTS = [
     ],
     links: {
       github: "https://github.com/Rakshit-Lodha/personal-website",
-      demo: "/chat",
+      demo: null,
     },
   },
   {

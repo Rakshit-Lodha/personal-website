@@ -1,0 +1,192 @@
+{
+  "created": "2026-10-12",
+  "assets": [
+    {
+      "id": "arrival-desktop",
+      "source": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-6554514c-116e-4260-b870-605862132b68.png",
+      "prompt": "Use case: stylized-concept. Production architectural background asset for a Roman-themed website. Reference image is STYLE AND MATERIAL reference only, NOT a layout to reproduce. Render ONE single scene filling the canvas, NOT desktop/mobile side by side. Absolutely NO TEXT, letters, numbers, UI, borders, buttons, watermarks, plants or furniture. Faithful Roman coffered semicircular arches, carved civic relief frieze, warm ivory travertine, restrained Pompeian red, small aged bronze details, soft daylight. Photoreal architectural art, historically inspired, consistent eye-level lens, precise carving, subtle grain. Preserve broad low-detail areas for later HTML overlays. Wide landscape 16:9. Arrival scene: left 60% quiet pale plaster wall for headline and introduction, relief band near bottom, shallow steps along bottom edge. A grand arch occupies right third, framing distant colonnades and blue sky. Same spatial mood as reference left panel, but NO typography or controls. Light from upper right. No black shadows behind intended text.",
+      "mode": "built-in imagegen",
+      "reference": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-764f2072-c541-429d-a165-e48b666c01ac.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated using built-in imagegen; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "arrival-mobile",
+      "source": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-a85eea33-74f3-4ff4-b2e2-28e05f7a7e87.png",
+      "prompt": "Use case: stylized-concept. Production architectural background asset for a Roman-themed website. Reference image is STYLE AND MATERIAL reference only, NOT a layout to reproduce. Render ONE single scene filling the canvas, NOT desktop/mobile side by side. Absolutely NO TEXT, letters, numbers, UI, borders, buttons, watermarks, plants or furniture. Faithful Roman coffered semicircular arches, carved civic relief frieze, warm ivory travertine, restrained Pompeian red, small aged bronze details, soft daylight. Photoreal architectural art, historically inspired, consistent eye-level lens, precise carving, subtle grain. Preserve broad low-detail areas for later HTML overlays. Tall portrait 9:16. Arrival scene deliberately composed for mobile: upper quarter a coffered arch framing pale sky and distant colonnade, middle 55% expansive calm uninterrupted ivory plaster wall for later name/copy/buttons, bottom fifth a carved relief and shallow steps. Roman architecture hugs edges, no central columns obstructing text. Single vertical composition, not a crop or collage.",
+      "mode": "built-in imagegen",
+      "reference": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-764f2072-c541-429d-a165-e48b666c01ac.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated using built-in imagegen; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "journey-desktop",
+      "source": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-d6eca164-4d0c-44ec-8a38-ad0bab877eee.png",
+      "prompt": "Use case: stylized-concept. Production architectural background asset for a Roman-themed website. Reference image is STYLE AND MATERIAL reference only, NOT a layout to reproduce. Render ONE single scene filling the canvas, NOT desktop/mobile side by side. Absolutely NO TEXT, letters, numbers, UI, borders, buttons, watermarks, plants or furniture. Faithful Roman coffered semicircular arches, carved civic relief frieze, warm ivory travertine, restrained Pompeian red, small aged bronze details, soft daylight. Photoreal architectural art, historically inspired, consistent eye-level lens, precise carving, subtle grain. Preserve broad low-detail areas for later HTML overlays. Wide landscape 16:9 career-section background. Mostly flat pale ivory Roman plaster, 75% unobstructed low-contrast content area. Narrow engaged stone pilasters at extreme left and right, a thin detailed narrative relief frieze across top 15%, modest oxblood plaster visible only at outer edges. No big arch, no objects at center. Shallow architectural shadows, gentle daylight consistent with arrival. Suitable for HTML accordion and role/outcome text overlaid later.",
+      "mode": "built-in imagegen",
+      "reference": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-764f2072-c541-429d-a165-e48b666c01ac.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated using built-in imagegen; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "journey-mobile",
+      "source": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-0fe3e083-e93b-4054-9f9d-b1d264a8b3fd.png",
+      "prompt": "Use case: stylized-concept. Production architectural background asset for a Roman-themed website. Reference image is STYLE AND MATERIAL reference only, NOT a layout to reproduce. Render ONE single scene filling the canvas, NOT desktop/mobile side by side. Absolutely NO TEXT, letters, numbers, UI, borders, buttons, watermarks, plants or furniture. Faithful Roman coffered semicircular arches, carved civic relief frieze, warm ivory travertine, restrained Pompeian red, small aged bronze details, soft daylight. Photoreal architectural art, historically inspired, consistent eye-level lens, precise carving, subtle grain. Preserve broad low-detail areas for later HTML overlays. Tall portrait 9:16 career-section background. Very quiet pale ivory Roman plaster across 85% of image, two narrow carved stone borders at edges and a shallow bas-relief frieze only in top 12%. Large completely unobstructed vertical content region from 18% to 95% height. Minimal texture contrast for readable phone typography. Same stone warmth as reference. NO stairs consuming text space.",
+      "mode": "built-in imagegen",
+      "reference": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-764f2072-c541-429d-a165-e48b666c01ac.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated using built-in imagegen; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "playground-desktop",
+      "source": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-3f5275b0-d0a9-4932-859f-8bf1e54645a3.png",
+      "prompt": "Use case: stylized-concept. Production architectural background asset for a Roman-themed website. Reference image is STYLE AND MATERIAL reference only, NOT a layout to reproduce. Render ONE single scene filling the canvas, NOT desktop/mobile side by side. Absolutely NO TEXT, letters, numbers, UI, borders, buttons, watermarks, plants or furniture. Faithful Roman coffered semicircular arches, carved civic relief frieze, warm ivory travertine, restrained Pompeian red, small aged bronze details, soft daylight. Photoreal architectural art, historically inspired, consistent eye-level lens, precise carving, subtle grain. Preserve broad low-detail areas for later HTML overlays. Wide landscape 16:9. Quiet open Roman civic courtyard, strong horizontal paving and shallow steps in lower quarter; arcaded colonnades recede along right edge, restrained Pompeian red plaster. Upper left and center 65% is a low-detail warm ivory stone wall for live music/experiments and plain WHOOP data to be overlaid later. Afternoon light slightly warmer than arrival. No people except distant carved relief, no fountains or garden, no furniture or data art.",
+      "mode": "built-in imagegen",
+      "reference": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-764f2072-c541-429d-a165-e48b666c01ac.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated using built-in imagegen; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "playground-mobile",
+      "source": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-ac1adf0c-46b4-4760-9545-fb9fc8c3e7da.png",
+      "prompt": "Use case: stylized-concept. Production architectural background asset for a Roman-themed website. Reference image is STYLE AND MATERIAL reference only, NOT a layout to reproduce. Render ONE single scene filling the canvas, NOT desktop/mobile side by side. Absolutely NO TEXT, letters, numbers, UI, borders, buttons, watermarks, plants or furniture. Faithful Roman coffered semicircular arches, carved civic relief frieze, warm ivory travertine, restrained Pompeian red, small aged bronze details, soft daylight. Photoreal architectural art, historically inspired, consistent eye-level lens, precise carving, subtle grain. Preserve broad low-detail areas for later HTML overlays. Tall portrait 9:16. Mobile backdrop, center 75% calm warm ivory plaster for long vertically stacked content, a narrow architectural pilaster at right edge. Only bottom fifth opens onto shallow steps and a receding arcade of Roman courtyard. Afternoon daylight. No ceiling taking up top half; very subtle grain so all plain WHOOP and music text can be HTML later.",
+      "mode": "built-in imagegen",
+      "reference": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-764f2072-c541-429d-a165-e48b666c01ac.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated using built-in imagegen; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "closing-desktop",
+      "source": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-a4548dec-a968-4e49-9a83-44e79b831d25.png",
+      "prompt": "Use case: stylized-concept. Production text-free architectural background. Wide 16:9 Roman arcade at dusk for personal website JJ voice section and closing. Reference provided ONLY for stone material and classical detailing. A symmetrical grand coffered Roman arch frames a calm pale peach sky over distant ANCIENT forum buildings, no modern domes or church towers. Bottom third quiet ivory stone parapet/wall for later dark HTML text. Center upper-middle open softly colored sky for voice button. Columns at far edges, bronze details, muted Pompeian red, soft rose-gold twilight. Keep middle low contrast and uncluttered, no silhouettes of people. One scene, no screen mockup, no text, buttons, plants, UI, typography, watermarks. Beautiful photoreal architecture coherent with reference but a clearly different open sunset scene, NOT another blank wall with right arch.",
+      "mode": "built-in imagegen",
+      "reference": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-764f2072-c541-429d-a165-e48b666c01ac.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated using built-in imagegen; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "closing-mobile",
+      "source": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-2a864ebf-9192-4cf8-83c9-4775fe80a247.png",
+      "prompt": "Use case: stylized-concept. Production text-free architectural background. Tall portrait 9:16 Roman arcade at dusk for mobile JJ and closing. Reference ONLY stone/material style. TOP THIRD: coffered semicircular arch at edges, pale peach sunset sky over distant ancient Roman colonnades, no modern churches or domes. LOWER TWO THIRDS: calm blank ivory stone parapet wall, extremely restrained texture and gentle fading shadows, designed for long readable HTML quote, contact links and voice controls later. Columns narrowly frame edges without eating content width. Small carved relief band only at very bottom. No central objects, no text, no buttons, no data, no UI, no plant, no watermark. Single portrait artwork not a board. Soft cinematic dusk transitions into warm ivory.",
+      "mode": "built-in imagegen",
+      "reference": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-764f2072-c541-429d-a165-e48b666c01ac.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated using built-in imagegen; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "plaster-texture",
+      "source": "/Users/rakshitlodha/.codex/generated_images/01a123c5-1324-7e20-874f-11303c57709d/exec-c8bfabf5-9f64-4588-ab12-44cc2e60f507.png",
+      "prompt": "Use case: stylized-concept. Asset type: production seamless material texture for website reading and writing backgrounds. Generate one square 1:1 orthographic, evenly illuminated, very subtle warm ivory Roman lime-plaster surface. Extremely fine natural mineral grain and barely visible age variation, near-monochrome pale cream, intended to sit at low opacity behind long readable text. Texture must tile seamlessly at all four edges, no directional light, shadows, vignettes, cracks, architectural objects, divisions, frames, paper edges, text, markings, plants, or watermarks. Color centered on warm #f1e8d8. This is a flat material texture, NOT a photograph of a wall in a room.",
+      "mode": "built-in imagegen",
+      "reference": null,
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated using built-in imagegen; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "projects-desktop",
+      "source": "design/roman/masters/projects-desktop-v1.png",
+      "prompt": "Production architectural background plate for a Roman-themed website. The reference image is a STYLE, MATERIAL AND LIGHT reference only, NOT a layout to reproduce: match its warm ivory travertine and sunlit lime plaster, restrained Pompeian oxblood-red marble, small aged bronze details, soft late-morning daylight with gentle diagonal light shafts, eye-level lens, photoreal historically inspired Roman architecture with precise carving and subtle grain. Render ONE single scene filling the whole canvas. Absolutely NO text, letters, numerals, inscriptions, UI, frames, borders, watermarks, people, plants or furniture. Keep the stated empty plaster region genuinely quiet, flat and low-contrast because HTML text will be overlaid there. Wide landscape. Interior of a Roman portico. At the far left edge, one fluted travertine column with its base on a low plinth, occupying only the left 9% of the width. In the top-right corner, a panel of veined oxblood-red marble occupying roughly the right 10% and top 30%. A pale polished travertine floor with a single shallow step runs along the bottom 14%. Everything else, about 75% of the image in the centre, is unobstructed pale sunlit plaster wall with one soft diagonal shaft of light.",
+      "mode": "OpenAI Images API (gpt-image-2.5-sunburst, images/edits, 1536x1024, quality high)",
+      "reference": "design/roman/masters/journey-desktop-v1.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated via OpenAI Images API; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "reading-desktop",
+      "source": "design/roman/masters/reading-desktop-v1.png",
+      "prompt": "Production architectural background plate for a Roman-themed website. The reference image is a STYLE, MATERIAL AND LIGHT reference only, NOT a layout to reproduce: match its warm ivory travertine and sunlit lime plaster, restrained Pompeian oxblood-red marble, small aged bronze details, soft late-morning daylight with gentle diagonal light shafts, eye-level lens, photoreal historically inspired Roman architecture with precise carving and subtle grain. Render ONE single scene filling the whole canvas. Absolutely NO text, letters, numerals, inscriptions, UI, frames, borders, watermarks, people, plants or furniture. Keep the stated empty plaster region genuinely quiet, flat and low-contrast because HTML text will be overlaid there. Wide landscape. A quiet Roman library wall. The right 16% of the image is a tall wall panel of richly veined Pompeian red marble with a thin gilt-bronze inlay band, separated from the plaster by a slim travertine pilaster. A narrow plain travertine moulding runs along the very top and a low stone base course along the bottom 8%. The left 80% is unobstructed pale sunlit plaster.",
+      "mode": "OpenAI Images API (gpt-image-2.5-sunburst, images/edits, 1536x1024, quality high)",
+      "reference": "design/roman/masters/journey-desktop-v1.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated via OpenAI Images API; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "writing-desktop",
+      "source": "design/roman/masters/writing-desktop-v1.png",
+      "prompt": "Production architectural background plate for a Roman-themed website. The reference image is a STYLE, MATERIAL AND LIGHT reference only, NOT a layout to reproduce: match its warm ivory travertine and sunlit lime plaster, restrained Pompeian oxblood-red marble, small aged bronze details, soft late-morning daylight with gentle diagonal light shafts, eye-level lens, photoreal historically inspired Roman architecture with precise carving and subtle grain. Render ONE single scene filling the whole canvas. Absolutely NO text, letters, numerals, inscriptions, UI, frames, borders, watermarks, people, plants or furniture. Keep the stated empty plaster region genuinely quiet, flat and low-contrast because HTML text will be overlaid there. Wide landscape. A Roman scriptorium wall. In the right 20% of the image, a tall rectangular carved marble bas-relief niche showing two draped classical figures in conversation, framed by a simple travertine moulding. Below it at the bottom right, three shallow travertine steps occupying the bottom 14% of the right half. The left 72% is unobstructed pale sunlit plaster with a soft diagonal light shaft.",
+      "mode": "OpenAI Images API (gpt-image-2.5-sunburst, images/edits, 1536x1024, quality high)",
+      "reference": "design/roman/masters/journey-desktop-v1.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated via OpenAI Images API; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "contact-desktop",
+      "source": "design/roman/masters/contact-desktop-v1.png",
+      "prompt": "Production architectural background plate for a Roman-themed website. The reference image is a STYLE, MATERIAL AND LIGHT reference only, NOT a layout to reproduce: match its warm ivory travertine and sunlit lime plaster, restrained Pompeian oxblood-red marble, small aged bronze details, soft late-morning daylight with gentle diagonal light shafts, eye-level lens, photoreal historically inspired Roman architecture with precise carving and subtle grain. Render ONE single scene filling the whole canvas. Absolutely NO text, letters, numerals, inscriptions, UI, frames, borders, watermarks, people, plants or furniture. Keep the stated empty plaster region genuinely quiet, flat and low-contrast because HTML text will be overlaid there. Wide landscape, warm golden-hour light. The lower 30% of the image is a long carved marble bas-relief frieze of draped classical figures in procession, set on a travertine base with veined oxblood-red marble panels at both ends and a strip of polished floor beneath. At the far right edge, one fluted travertine column rising full height, occupying the right 8%. The upper 65% (excluding the column) is unobstructed pale warm plaster.",
+      "mode": "OpenAI Images API (gpt-image-2.5-sunburst, images/edits, 1536x1024, quality high)",
+      "reference": "design/roman/masters/journey-desktop-v1.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated via OpenAI Images API; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "projects-mobile",
+      "source": "design/roman/masters/projects-mobile-v1.png",
+      "prompt": "Production architectural background plate for a Roman-themed website. The reference image is a STYLE, MATERIAL AND LIGHT reference only, NOT a layout to reproduce: match its warm ivory travertine and sunlit lime plaster, restrained Pompeian oxblood-red marble, small aged bronze details, soft late-morning daylight with gentle diagonal light shafts, eye-level lens, photoreal historically inspired Roman architecture with precise carving and subtle grain. Render ONE single scene filling the whole canvas. Absolutely NO text, letters, numerals, inscriptions, UI, frames, borders, watermarks, people, plants or furniture. Keep the stated empty plaster region genuinely quiet, flat and low-contrast because HTML text will be overlaid there. Tall portrait. Roman portico. In the top-right corner only, a Corinthian column capital and the top of its fluted shaft against a coffered soffit, occupying the right 22% and top 18%. The bottom 20% is a flight of broad travertine steps with a sliver of oxblood-red marble wall at the bottom-right. The entire region between 18% and 80% of the height is unobstructed pale sunlit plaster.",
+      "mode": "OpenAI Images API (gpt-image-2.5-sunburst, images/edits, 1024x1536, quality high)",
+      "reference": "design/roman/masters/journey-desktop-v1.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated via OpenAI Images API; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "reading-mobile",
+      "source": "design/roman/masters/reading-mobile-v1.png",
+      "prompt": "Production architectural background plate for a Roman-themed website. The reference image is a STYLE, MATERIAL AND LIGHT reference only, NOT a layout to reproduce: match its warm ivory travertine and sunlit lime plaster, restrained Pompeian oxblood-red marble, small aged bronze details, soft late-morning daylight with gentle diagonal light shafts, eye-level lens, photoreal historically inspired Roman architecture with precise carving and subtle grain. Render ONE single scene filling the whole canvas. Absolutely NO text, letters, numerals, inscriptions, UI, frames, borders, watermarks, people, plants or furniture. Keep the stated empty plaster region genuinely quiet, flat and low-contrast because HTML text will be overlaid there. Tall portrait. Roman library wall. The bottom 24% shows broad travertine steps rising to a base course, with a block of veined Pompeian red marble wall at the right side of that bottom band. A slim plain travertine moulding across the very top 4%. Everything between 5% and 76% of the height is unobstructed pale sunlit plaster.",
+      "mode": "OpenAI Images API (gpt-image-2.5-sunburst, images/edits, 1024x1536, quality high)",
+      "reference": "design/roman/masters/journey-desktop-v1.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated via OpenAI Images API; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "writing-mobile",
+      "source": "design/roman/masters/writing-mobile-v1.png",
+      "prompt": "Production architectural background plate for a Roman-themed website. The reference image is a STYLE, MATERIAL AND LIGHT reference only, NOT a layout to reproduce: match its warm ivory travertine and sunlit lime plaster, restrained Pompeian oxblood-red marble, small aged bronze details, soft late-morning daylight with gentle diagonal light shafts, eye-level lens, photoreal historically inspired Roman architecture with precise carving and subtle grain. Render ONE single scene filling the whole canvas. Absolutely NO text, letters, numerals, inscriptions, UI, frames, borders, watermarks, people, plants or furniture. Keep the stated empty plaster region genuinely quiet, flat and low-contrast because HTML text will be overlaid there. Tall portrait. The top 16% is a horizontal carved marble bas-relief frieze of draped classical figures in procession under a plain cornice. The bottom 16% shows stepped travertine blocks alternating with two panels of oxblood-red marble. Everything between 17% and 84% of the height is unobstructed pale sunlit plaster.",
+      "mode": "OpenAI Images API (gpt-image-2.5-sunburst, images/edits, 1024x1536, quality high)",
+      "reference": "design/roman/masters/journey-desktop-v1.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated via OpenAI Images API; retain provenance; no claim of exclusive rights"
+    },
+    {
+      "id": "contact-mobile",
+      "source": "design/roman/masters/contact-mobile-v1.png",
+      "prompt": "Production architectural background plate for a Roman-themed website. The reference image is a STYLE, MATERIAL AND LIGHT reference only, NOT a layout to reproduce: match its warm ivory travertine and sunlit lime plaster, restrained Pompeian oxblood-red marble, small aged bronze details, soft late-morning daylight with gentle diagonal light shafts, eye-level lens, photoreal historically inspired Roman architecture with precise carving and subtle grain. Render ONE single scene filling the whole canvas. Absolutely NO text, letters, numerals, inscriptions, UI, frames, borders, watermarks, people, plants or furniture. Keep the stated empty plaster region genuinely quiet, flat and low-contrast because HTML text will be overlaid there. Tall portrait, warm golden-hour light. At the right edge, one fluted travertine column with a Corinthian capital, occupying the right 14% from the top down to 60% of the height where it meets a ledge. The bottom 30% is a carved marble bas-relief frieze of draped classical figures in procession, with veined oxblood-red marble panels at both ends and a strip of polished stone floor beneath. The remaining left and centre region from the top to 68% of the height is unobstructed pale warm plaster.",
+      "mode": "OpenAI Images API (gpt-image-2.5-sunburst, images/edits, 1024x1536, quality high)",
+      "reference": "design/roman/masters/journey-desktop-v1.png",
+      "status": "generated; layout integration pending",
+      "decorative": true,
+      "alt": "",
+      "license": "AI-generated via OpenAI Images API; retain provenance; no claim of exclusive rights"
+    }
+  ]
+}

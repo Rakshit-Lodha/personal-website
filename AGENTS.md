@@ -6,11 +6,9 @@ Engineering constraints and definition of done for the chat feature and agent pi
 
 ### PDF Parsing
 
-- `pdf-parse` v2.4.5 depends on `pdfjs-dist`, which uses a web worker (`pdf.worker.mjs`).
-- Turbopack cannot resolve the worker file at bundle time, causing a runtime crash.
-- Fix: `serverExternalPackages: ["pdf-parse", "pdfjs-dist"]` in `next.config.ts` — this loads both packages natively via Node.js require, bypassing Turbopack bundling.
-- Do not remove this config. Removing it will silently break PDF uploads.
-- `pdf-parse` exports a single CJS function — there is no `PDFParse` named export and no class-based API (`.getText()`, `.destroy()`). The correct import and usage is:
+- `pdf-parse` is pinned to v1.1.1 to preserve the CJS function API used by the upload route. v2.4.5 exports an object and is not compatible with this call site.
+- Keep `serverExternalPackages: ["pdf-parse", "pdfjs-dist"]` in `next.config.ts` so PDF parsing stays outside Turbopack bundling.
+- Do not upgrade the parser without verifying PDF uploads end to end. The required import and usage is:
   ```ts
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const pdfParse = require("pdf-parse") as (buf: Buffer) => Promise<{ text: string }>;

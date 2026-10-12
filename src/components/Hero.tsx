@@ -319,7 +319,7 @@ export default function Hero() {
             min-height: 0;
           }
           .hero-inner {
-            padding: 92px 20px 48px;
+            padding: 152px 20px 48px;
           }
           .hero-content {
             justify-content: flex-start;
