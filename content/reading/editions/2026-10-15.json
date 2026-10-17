@@ -107,8 +107,8 @@
       "author": "@ClaudeDevs"
     }
   ],
-  "audioAssetId": null,
-  "audioDurationSeconds": null,
+  "audioAssetId": "2026-10-15.mp3",
+  "audioDurationSeconds": 437,
   "audioTranscript": null,
   "status": "published",
   "htmlAssetId": "2026-10-15.html"

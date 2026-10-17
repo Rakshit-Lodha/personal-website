@@ -97,8 +97,8 @@
       "author": "@alaymanguy"
     }
   ],
-  "audioAssetId": null,
-  "audioDurationSeconds": null,
+  "audioAssetId": "2026-10-06.mp3",
+  "audioDurationSeconds": 425,
   "audioTranscript": null,
   "status": "published",
   "htmlAssetId": "2026-10-06.html"

@@ -52,8 +52,8 @@
       "author": "@elonmusk"
     }
   ],
-  "audioAssetId": null,
-  "audioDurationSeconds": null,
+  "audioAssetId": "2026-10-10.mp3",
+  "audioDurationSeconds": 446,
   "audioTranscript": null,
   "status": "published",
   "htmlAssetId": "2026-10-10.html"

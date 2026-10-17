@@ -47,8 +47,8 @@
       "author": "@charmiekapoor"
     }
   ],
-  "audioAssetId": null,
-  "audioDurationSeconds": null,
+  "audioAssetId": "2026-10-11.mp3",
+  "audioDurationSeconds": 512,
   "audioTranscript": null,
   "status": "published",
   "htmlAssetId": "2026-10-11.html"

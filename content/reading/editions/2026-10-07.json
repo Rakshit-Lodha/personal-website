@@ -12,8 +12,8 @@
       "author": "@bcherny"
     }
   ],
-  "audioAssetId": null,
-  "audioDurationSeconds": null,
+  "audioAssetId": "2026-10-07.mp3",
+  "audioDurationSeconds": 375,
   "audioTranscript": null,
   "status": "published",
   "htmlAssetId": "2026-10-07.html"
