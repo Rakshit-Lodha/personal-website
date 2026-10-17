@@ -1,11 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { Link2 } from "lucide-react";
 import AudioPlayer from "@/components/roman/AudioPlayer";
-import { ActionArrowIcon, actionClassName } from "@/components/roman-v2/AvailabilityAction";
-import { audioSrc, getPublishedEdition, getPublishedEditions } from "@/lib/reading/store";
+import EditionFrame from "@/components/roman-v2/EditionFrame";
+import { audioSrc, getEditionHtml, getPublishedEdition, getPublishedEditions } from "@/lib/reading/store";
 import shared from "@/components/roman-v2/contemporary-roman.module.css";
 import s from "../reading.module.css";
 
@@ -36,6 +34,7 @@ export default async function ReadingEditionPage({ params }: { params: Promise<{
   const { date } = await params;
   const edition = getPublishedEdition(date);
   if (!edition) notFound();
+  const fullHtml = getEditionHtml(date);
 
   return (
     <main className={`${shared.container} ${s.page}`}>
@@ -53,24 +52,13 @@ export default async function ReadingEditionPage({ params }: { params: Promise<{
         </div>
       )}
 
-      {edition.htmlAssetId && (
+      {fullHtml ? (
         <div className={s.fullEdition}>
-          <a
-            href={`/reading/editions/${edition.date}`}
-            className={actionClassName("primary")}
-          >
-            <span>Read the full visual edition</span>
-            <ActionArrowIcon arrow="up-right" />
-          </a>
-          <p className={s.fullEditionNote}>
-            The complete newspaper — visuals, charts and all. Below is the plain-text version.
-          </p>
+          <EditionFrame html={fullHtml} title={`${edition.title} — full visual edition`} />
         </div>
+      ) : (
+        <p className={s.empty}>The full visual edition is on its way.</p>
       )}
-
-      <div className={s.body}>
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{edition.bodyMarkdown}</ReactMarkdown>
-      </div>
 
       {edition.sources.length > 0 && (
         <section className={s.sources} aria-label="Original sources">

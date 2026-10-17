@@ -48,6 +48,14 @@ export function getPublishedEdition(date: string): MuseEdition | null {
   return edition && edition.status !== "draft" ? edition : null;
 }
 
+/** Full visual HTML of an edition, for embedding. Build-time only. */
+export function getEditionHtml(date: string): string | null {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
+  const file = join(process.cwd(), "content", "reading", "editions-html", `${date}.html`);
+  if (!existsSync(file)) return null;
+  return readFileSync(file, "utf8");
+}
+
 /** Committed audio file name -> public URL served from /public. */
 export function audioSrc(audioAssetId: string): string {
   return `/reading/audio/${audioAssetId}`;

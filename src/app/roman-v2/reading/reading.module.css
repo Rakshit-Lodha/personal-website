@@ -27,17 +27,7 @@
 }
 
 .fullEdition {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: flex-start;
-}
-
-.fullEditionNote {
-  font-size: 0.9375rem;
-  color: var(--ink-soft, #6b6860);
-  max-width: 40rem;
+  margin-top: 2.5rem;
 }
 
 .body {
