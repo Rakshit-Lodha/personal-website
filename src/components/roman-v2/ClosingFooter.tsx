@@ -3,7 +3,7 @@ import AvailabilityAction from "./AvailabilityAction";
 import shared from "./contemporary-roman.module.css";
 import s from "./ClosingFooter.module.css";
 
-/** Final invitation and site footer in one contentinfo landmark, so the invitation sits outside <main>. */
+/** Closing motto and contact links in one contentinfo landmark, so they sit outside <main>. */
 export default function ClosingFooter({ closing }: { closing: RomanV2Closing }) {
   return (
     <footer id="contact" aria-labelledby="contact-title" className={s.root}>
@@ -35,53 +35,23 @@ export default function ClosingFooter({ closing }: { closing: RomanV2Closing }) 
       <div className={`${shared.container} ${s.inner}`}>
         <div className={s.invite}>
           <h2 id="contact-title" className={`${shared.h2} ${s.title}`}>
-            <span className={s.lead}>{closing.heading.lead}</span>{" "}
+            <span className={s.lead} lang="la">
+              {closing.heading.lead}
+            </span>{" "}
             <span className={shared.accent}>{closing.heading.accent}</span>
           </h2>
+          <p className={s.attribution}>— {closing.attribution}</p>
           <div className={s.ctas}>
             <AvailabilityAction action={closing.conversationAction} variant="text" className={s.conversation} />
-            <AvailabilityAction action={closing.scheduleAction} variant="outline" className={s.schedule} />
-          </div>
-        </div>
-
-        <div className={s.grid}>
-          <div className={s.brand}>
-            <p className={`${shared.inscription} ${s.wordmark}`}>{closing.wordmark}</p>
-            <p className={s.tagline}>{closing.tagline}</p>
-          </div>
-          <nav aria-label="Footer" className={s.cell}>
-            <ul className={s.list}>
-              {closing.navItems.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href} className={s.link}>
-                    {item.label}
-                  </a>
+            <ul aria-label="Social profiles" className={s.socials}>
+              {closing.socials.map((social) => (
+                <li key={social.label}>
+                  <AvailabilityAction action={social} variant="outline" disabledAs="span" className={s.social} />
                 </li>
               ))}
-              <li>
-                <a href="/privacy" className={s.link}>Privacy</a>
-              </li>
             </ul>
-          </nav>
-          <ul aria-label="Social profiles" className={`${s.cell} ${s.list}`}>
-            {closing.socials.map((social) => (
-              <li key={social.label}>
-                <AvailabilityAction action={social} variant="text" arrow="none" disabledAs="span" className={s.link} />
-              </li>
-            ))}
-          </ul>
-          <p className={`${s.cell} ${s.timezone}`}>{closing.timezone}</p>
-          <div className={`${s.cell} ${s.top}`}>
-            <AvailabilityAction action={closing.backToTop} variant="text" arrow="up" className={s.link} />
           </div>
         </div>
-
-        <p className={s.motto}>
-          <span className={`${shared.inscription} ${s.latin}`} lang="la">
-            {closing.inscription.latin.replace(/\.$/, "")}
-          </span>
-          <span className={s.translation}>{closing.inscription.translation}</span>
-        </p>
       </div>
     </footer>
   );

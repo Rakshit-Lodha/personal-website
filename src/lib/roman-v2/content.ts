@@ -21,32 +21,46 @@ function action(label: string, href: string | null | undefined): AvailableAction
   return href ? { available: true, label, href } : { available: false, label };
 }
 
-/** Presentation of each chapter. Figures restate EXPERIENCE outcomes; a missing sourceId drops the figure. */
-const CHAPTER_COPY: Record<string, { title: string; narrative?: string; outcomes: RomanV2Outcome[] }> = {
-  paytmmoney: { title: "Agents and app experience", outcomes: [] },
+/** Presentation of each chapter. `company`, `role` and `period` override EXPERIENCE where the copy differs. */
+const CHAPTER_COPY: Record<
+  string,
+  { title: string; narrative: string; company?: string; role?: string; period?: string; outcomes: RomanV2Outcome[] }
+> = {
+  paytmmoney: {
+    title: "App experience + Agents",
+    narrative: "Improving the app experience and building consumer-facing agents.",
+    period: "FAFOing",
+    outcomes: [],
+  },
   etmoney: {
-    title: "Scaled AI + financial products",
+    title: "Scaled numbers beyond the powerpoint",
     narrative:
-      "Support automation, lending and wealth products — built from first principles and scaled to real outcomes.",
+      "Built AI, lending and wealth products that deliver real numbers. Taught customer support AI empathy along the way. Humans remain a work in progress.",
     outcomes: [
-      { sourceId: "etmoney-support-automation", value: "55%", label: "fewer monthly support tickets" },
-      { sourceId: "etmoney-earn", value: "₹300Cr", label: "AUM on ET Money Earn" },
-      { sourceId: "etmoney-lamf", value: "₹100Cr", label: "disbursed in 7 months" },
+      { value: "53%", label: "fewer tickets" },
+      { value: "₹300Cr", label: "AUM for ET Money Earn" },
+      { value: "₹250Cr", label: "disbursals in 12 months" },
     ],
   },
   indmoney: {
-    title: "Advice, turned into products",
+    title: "From “someday” to a plan",
+    company: "INDmoney",
+    narrative:
+      "Built the goal planning tool from zero and grew it to 2 million users, contributing 30% of total subscription revenue and almost ₹1.5Cr in insurance sales. “Someday” turned out to be a sizeable product opportunity.",
     outcomes: [
-      { sourceId: "indmoney-financial-planning", value: "15 min", label: "per financial plan, down from 4–5 hours" },
-      { sourceId: "indmoney-financial-planning", value: "20,000+", label: "advisory plans enabled" },
-      { sourceId: "indmoney-insurance-recommendations", value: "₹1.5Cr", label: "insurance ARR in year one" },
+      { value: "2M", label: "goal planning users" },
+      { value: "30%", label: "of subscription revenue" },
+      { value: "₹1.5Cr", label: "in insurance sales" },
     ],
   },
   learnapp: {
-    title: "Financial education, early team",
+    title: "Bunking classes to build a business",
+    role: "Core team member",
+    narrative:
+      "Joined in my second year of college and built its live-class business and investing catalog from zero, together contributing almost 40% of subscription revenue. Along the way, I grew an investing community and built custom content with AMCs.",
     outcomes: [
-      { sourceId: "learnapp-courses", value: "50%", label: "course completion" },
-      { sourceId: "learnapp-courses", value: "₹1.2Cr", label: "ARR from the course library" },
+      { value: "40%", label: "of subscription revenue" },
+      { value: "₹10L", label: "MRR" },
     ],
   },
 };
@@ -56,16 +70,15 @@ const year = (value: string) => (value === "Present" ? "Now" : value.slice(-4));
 // EXPERIENCE is already ordered newest first.
 const chapters: RomanV2Chapter[] = EXPERIENCE.map((experience) => {
   const copy = CHAPTER_COPY[experience.id];
-  const outcomeIds = new Set<string>(experience.outcomes.map((outcome) => outcome.id));
   return {
     id: experience.id,
-    company: experience.company,
-    role: experience.role,
-    period: `${year(experience.start)} — ${year(experience.end)}`,
+    company: copy?.company ?? experience.company,
+    role: copy?.role ?? experience.role,
+    period: copy?.period ?? `${year(experience.start)} — ${year(experience.end)}`,
     current: experience.end === "Present",
     title: copy?.title ?? experience.company,
     narrative: copy?.narrative ?? experience.headline,
-    outcomes: (copy?.outcomes ?? []).filter((outcome) => outcomeIds.has(outcome.sourceId)).slice(0, 3),
+    outcomes: (copy?.outcomes ?? []).slice(0, 3),
   };
 });
 
@@ -80,13 +93,19 @@ const PRODUCT_COPY: {
   id: string;
   tagline: string;
   actionLabel?: string;
+  /** Hover panel; products without one show none. */
+  details?: RomanV2Product["details"];
   href?: string | null;
   screenshot?: RomanV2Product["screenshot"];
 }[] = [
   {
     id: "ai-hiring-chat",
     tagline: "A portfolio that can evaluate the fit.",
-    actionLabel: "Try the product",
+    actionLabel: "Try Now",
+    details: {
+      title: "Hiring Assistant",
+      body: "Helping recruiters assess fit using a job description, company link, or question.",
+    },
     href: "/chat",
     screenshot: {
       src: `${SCREENS}/ai-hiring-chat`,
@@ -99,6 +118,10 @@ const PRODUCT_COPY: {
   {
     id: "krux-new",
     tagline: "AI news in 100 words",
+    details: {
+      title: "Krux.news",
+      body: "Multi-stage AI pipeline combines ingestion, web research, curation, and publishing into swipeable news stories.",
+    },
     screenshot: {
       src: `${SCREENS}/krux-new`,
       alt: "Krux.news introduction card: everything about AI in 100 words",
@@ -111,6 +134,10 @@ const PRODUCT_COPY: {
   {
     id: "mf-semantic-search",
     tagline: "Find funds by intent",
+    details: {
+      title: "Fund Finder",
+      body: "Embeddings, intent routing, and ChromaDB power semantic lookup, comparison, and discovery across 16,197 mutual funds.",
+    },
     screenshot: {
       src: `${SCREENS}/mf-semantic-search`,
       alt: "MF Semantic Search with example queries and a fund search box",
@@ -129,9 +156,9 @@ const products: RomanV2Product[] = PRODUCT_COPY.flatMap((copy, index) => {
     name: project.name,
     tagline: copy.tagline,
     summary: project.summary,
-    status: project.status,
     featured: index === 0,
     screenshot: copy.screenshot ?? null,
+    details: copy.details ?? null,
     primaryAction: action(copy.actionLabel ?? `Open ${project.name}`, copy.href !== undefined ? copy.href : project.links.demo),
     sourceAction: action(`View ${project.name} source`, project.links.github),
   };
@@ -192,24 +219,24 @@ export async function getRomanV2Content(): Promise<RomanV2Content> {
     },
     hero: {
       heading: { lead: "Product", accent: "judgment." },
-      body: "I build AI and financial products that turn complicated systems into things people can use.",
+      body: "Building consumer products which people actually love and use",
       primaryAction: action("Explore my work", "#work"),
       jjLabel: "Talk to JJ",
     },
     career: {
       heading: { lead: "Work,", accent: "over time." },
-      body: "A career spent turning difficult systems into useful products.",
+      body: "",
       chapters,
       initialChapterId: "etmoney",
     },
     products: {
       heading: { lead: "Selected", accent: "products" },
-      body: "Useful ideas, shipped.",
+      body: "",
       items: products,
     },
     beyond: {
       heading: { lead: "Beyond", accent: "work" },
-      body: "Things I read, write, make and measure.",
+      body: "",
       reading: {
         eyebrow: "Daily reading",
         heading: "From my corner of the internet",
@@ -235,30 +262,15 @@ export async function getRomanV2Content(): Promise<RomanV2Content> {
       whoop: whoopModule,
     },
     jj: {
-      heading: { lead: "The portfolio", accent: "can answer back." },
-      body: "Ask JJ about my work, decisions, failures and what I’d build next.",
+      heading: { lead: "Have more", accent: "questions?" },
+      body: "Ask JJ about my work, decisions, failures and how I think",
       voiceLabel: "Talk to JJ",
-      questionLabel: "Ask JJ a question",
-      questionPlaceholder: "Type a question",
-      chatPath: "/chat",
     },
     closing: {
-      heading: { lead: "Let’s build something", accent: "people actually want to use." },
+      heading: { lead: "Festina Lente", accent: "Make haste slowly" },
+      attribution: "Augustus",
       conversationAction: action("Start a conversation", `mailto:${IDENTITY.contact.email}`),
-      // No verified scheduling URL exists in the repository.
-      scheduleAction: action("Schedule a call", null),
-      wordmark: IDENTITY.name,
-      tagline: "AI product builder. Fintech operator. Curious human.",
-      navItems: [
-        { label: "Work", href: "#work" },
-        { label: "Products", href: "#products" },
-        { label: "Beyond work", href: "#beyond" },
-        { label: "Talk to JJ", href: "#jj" },
-      ],
       socials: IDENTITY.contact.socials.map(({ label, url }) => action(label, url)),
-      timezone: "India · IST",
-      backToTop: action("Back to top", "#top"),
-      inscription: { latin: "Festina lente.", translation: "Make haste slowly." },
     },
   };
 }

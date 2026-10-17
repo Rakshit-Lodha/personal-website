@@ -35,34 +35,23 @@
   gap: 4px;
   height: 64px;
   padding: 0 30px 0 32px;
-  border: 1px solid rgba(23, 22, 20, 0.06);
+  border: 1px solid transparent;
   border-radius: 999px;
-  background: rgba(247, 242, 233, 0.78);
-  box-shadow: 0 10px 30px -18px rgba(60, 40, 25, 0.35);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* Transparent over the hero; frosted once the page scrolls content beneath it. */
+  background: transparent;
   transition:
     background-color 300ms var(--ease),
+    border-color 300ms var(--ease),
     box-shadow 300ms var(--ease);
   animation: navIn 700ms var(--ease) 80ms both;
 }
 
 .pill[data-scrolled] {
+  border-color: rgba(23, 22, 20, 0.06);
   background: rgba(247, 242, 233, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 12px 32px -16px rgba(60, 40, 25, 0.45);
-}
-
-.emblem {
-  width: 38px;
-  height: 23px;
-  color: var(--oxblood);
-}
-
-.divider {
-  width: 1px;
-  height: 30px;
-  margin-inline: 36px 18px;
-  background: var(--line);
 }
 
 .menuToggle {
@@ -142,10 +131,6 @@
     padding: 0 18px 0 20px;
   }
 
-  .divider {
-    margin-inline: 18px 8px;
-  }
-
   .link {
     padding-inline: 14px;
   }
@@ -157,7 +142,7 @@
   }
 }
 
-/* Compact pill: emblem and links collapse behind a disclosure, JJ stays visible. */
+/* Compact pill: links collapse behind a disclosure, JJ stays visible. */
 @media (max-width: 899px) {
   .root {
     height: 76px;
@@ -174,11 +159,6 @@
     right: 12px;
     height: 52px;
     padding: 0 4px;
-  }
-
-  .emblem,
-  .divider {
-    display: none;
   }
 
   .menuToggle {

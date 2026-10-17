@@ -110,6 +110,11 @@
   color: #2b2925;
 }
 
+/* An empty line still holds its height, so the section keeps its spacing. */
+.lede:empty {
+  min-height: 1lh;
+}
+
 /* Desktop: timeline + card */
 
 .desktop {
@@ -503,6 +508,11 @@
     font-weight: 600;
     line-height: 0.95;
     letter-spacing: -0.04em;
+  }
+
+  /* The desktop cap measures against the section, not the card, so it would squeeze the story here. */
+  .region .narrative {
+    max-width: none;
   }
 
   .region .outcomes {

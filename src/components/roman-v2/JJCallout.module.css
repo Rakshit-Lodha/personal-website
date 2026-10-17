@@ -91,64 +91,6 @@
   background: var(--paper);
 }
 
-.ask {
-  display: flex;
-  align-items: center;
-  width: clamp(260px, 20vw, 340px);
-  min-height: clamp(56px, 4.1vw, 70px);
-  border: 1px solid rgba(247, 242, 233, 0.62);
-  border-radius: var(--radius);
-  transition: border-color 200ms var(--ease);
-}
-
-.ask:focus-within {
-  border-color: var(--paper-light);
-}
-
-/* The input itself has no ring; the field shows it (the mic button keeps its own). */
-.ask:has(.input:focus-visible) {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: 3px;
-}
-
-.input {
-  flex: 1;
-  min-width: 0;
-  align-self: stretch;
-  padding: 0 16px 0 28px;
-  border: 0;
-  background: transparent;
-  color: var(--paper-light);
-  font: 400 clamp(1rem, 1.2vw, 1.25rem) / 1.2 var(--font-body);
-}
-
-.input::placeholder {
-  color: rgba(247, 242, 233, 0.55);
-}
-
-.input:focus-visible {
-  outline: none;
-}
-
-.askButton {
-  display: grid;
-  place-items: center;
-  width: 64px;
-  min-height: 44px;
-  align-self: stretch;
-  margin-block: 12px;
-  padding: 0;
-  border: 0;
-  border-left: 1px solid rgba(247, 242, 233, 0.35);
-  background: transparent;
-  color: var(--paper-light);
-  cursor: pointer;
-}
-
-.askButton:hover {
-  color: var(--jj-accent);
-}
-
 /*
  * Artwork, sized from the section height: hair top at 6% and the bust cut by the section bottom,
  * head centred at 67% of the width (concept head x 880-1360 at 1672).
@@ -213,7 +155,7 @@
     scale 300ms var(--ease);
 }
 
-.section:has(.voice:hover, .voice:focus-visible, .askButton:hover) .orb,
+.section:has(.voice:hover, .voice:focus-visible) .orb,
 .orb:hover {
   --glow: 0.95;
   --bar-scale: 1.15;
@@ -344,8 +286,7 @@
     gap: 12px;
   }
 
-  .actions .voice,
-  .ask {
+  .actions .voice {
     width: 100%;
   }
 

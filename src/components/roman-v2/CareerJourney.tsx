@@ -9,8 +9,8 @@ import Reveal from "./Reveal";
 import shared from "./contemporary-roman.module.css";
 import s from "./CareerJourney.module.css";
 
-// The content contract has no chapter destination yet, so the action stays inert.
-const VIEW_CHAPTER: AvailableAction = { available: false, label: "View chapter" };
+// Every chapter's follow-up questions go to JJ's chat.
+const LEARN_MORE: AvailableAction = { available: true, label: "Learn More", href: "/chat" };
 
 /** Periods read as one unit in the timeline ("2026—NOW"); the content keeps its spaced dash. */
 const tightPeriod = (period: string) => period.replace(/\s*—\s*/g, "—");
@@ -35,10 +35,10 @@ function CareerArt({ sizes }: { sizes: string }) {
   );
 }
 
-/** Verified outcomes; a chapter without any shows its tenure instead of empty slots. */
+/** Outcomes; a chapter without any shows its tenure instead of empty slots. */
 function Outcomes({ chapter }: { chapter: RomanV2Chapter }) {
   const items = chapter.outcomes.length
-    ? chapter.outcomes.map((outcome) => ({ key: `${outcome.sourceId}-${outcome.value}`, ...outcome }))
+    ? chapter.outcomes.map((outcome) => ({ key: outcome.value, ...outcome }))
     : [{ key: "tenure", value: chapter.period, label: chapter.current ? "Current chapter" : "Tenure" }];
   return (
     <dl className={s.outcomes}>
@@ -168,7 +168,7 @@ export default function CareerJourney({ career }: { career: RomanV2Career }) {
                     <div className={s.footer}>
                       <Outcomes chapter={chapter} />
                       <div className={s.actions}>
-                        <AvailabilityAction action={VIEW_CHAPTER} variant="primary" arrow="right" className={s.viewAction} />
+                        <AvailabilityAction action={LEARN_MORE} variant="primary" arrow="right" className={s.viewAction} />
                         <Progress chapters={chapters} activeId={chapter.id} />
                       </div>
                     </div>
@@ -216,7 +216,7 @@ export default function CareerJourney({ career }: { career: RomanV2Career }) {
                   <p className={s.role}>{chapter.role}</p>
                   <p className={s.narrative}>{chapter.narrative}</p>
                   <Outcomes chapter={chapter} />
-                  <AvailabilityAction action={VIEW_CHAPTER} variant="primary" arrow="right" className={s.viewAction} />
+                  <AvailabilityAction action={LEARN_MORE} variant="primary" arrow="right" className={s.viewAction} />
                 </div>
               </li>
             );

@@ -91,6 +91,11 @@
   color: #2b2a27;
 }
 
+/* An empty line still holds its height, so the section keeps its spacing. */
+.subtitle:empty {
+  min-height: 1lh;
+}
+
 /* Grid: two rows with different splits, as in the approved composition. */
 
 .grid {
