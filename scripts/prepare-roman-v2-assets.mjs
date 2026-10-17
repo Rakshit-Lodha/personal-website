@@ -48,10 +48,10 @@ const ASSETS = [
     masterNotes: 'Approved generated desktop hero. Figure, hands and laptop all face left; left copy field is intentionally clear. Draw the large faint circle and all interface elements in CSS/HTML.',
   },
   {
-    id: 'hero-hands-mobile', section: 'hero', concept: C.hero, crop: [770, 95, 850, 748], widths: [480, 860], matte: { lo: 3, hi: 7 }, 
+    id: 'hero-hands-mobile', section: 'hero', concept: C.hero, crop: [770, 95, 850, 748], widths: [480, 780], matte: { lo: 3, hi: 7 }, 
     // Laptop and typing hands only (no head), cut from the mobile master; the right and bottom edges
     // run off the viewport, so only the cut top fades.
-    master: 'hero-figure-mobile', masterCrop: [0, 580, 860, 640], masterFade: { top: 60 },
+    master: 'hero-figure-mobile', masterCrop: [0, 640, 780, 614], masterFade: { top: 60 },
     bg: PALETTE.hero.paper, fade: { left: 90, top: 60, right: 30 },
     ops: [],
     placement: 'Mobile hero: full-bleed laptop + hands crop anchored to the bottom of the first fold, below the headline/CTA stack.',

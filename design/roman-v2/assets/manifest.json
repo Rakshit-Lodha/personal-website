@@ -145,37 +145,37 @@
           "url": "/roman-v2/hero/hero-hands-mobile-480.avif",
           "format": "avif",
           "width": 480,
-          "height": 357,
-          "bytes": 29086
+          "height": 378,
+          "bytes": 29972
         },
         {
           "path": "public/roman-v2/hero/hero-hands-mobile-480.webp",
           "url": "/roman-v2/hero/hero-hands-mobile-480.webp",
           "format": "webp",
           "width": 480,
-          "height": 357,
-          "bytes": 59376
+          "height": 378,
+          "bytes": 62848
         },
         {
-          "path": "public/roman-v2/hero/hero-hands-mobile-860.avif",
-          "url": "/roman-v2/hero/hero-hands-mobile-860.avif",
+          "path": "public/roman-v2/hero/hero-hands-mobile-780.avif",
+          "url": "/roman-v2/hero/hero-hands-mobile-780.avif",
           "format": "avif",
-          "width": 860,
-          "height": 640,
-          "bytes": 55186
+          "width": 780,
+          "height": 614,
+          "bytes": 49267
         },
         {
-          "path": "public/roman-v2/hero/hero-hands-mobile-860.webp",
-          "url": "/roman-v2/hero/hero-hands-mobile-860.webp",
+          "path": "public/roman-v2/hero/hero-hands-mobile-780.webp",
+          "url": "/roman-v2/hero/hero-hands-mobile-780.webp",
           "format": "webp",
-          "width": 860,
-          "height": 640,
-          "bytes": 123432
+          "width": 780,
+          "height": 614,
+          "bytes": 111282
         }
       ],
       "sourcePixels": {
-        "width": 860,
-        "height": 640
+        "width": 780,
+        "height": 614
       },
       "hasAlpha": true,
       "placement": "Mobile hero: full-bleed laptop + hands crop anchored to the bottom of the first fold, below the headline/CTA stack.",
@@ -192,9 +192,9 @@
         "master": "design/roman-v2/assets/masters/hero-figure-mobile.png",
         "crop": {
           "left": 0,
-          "top": 580,
-          "width": 860,
-          "height": 640
+          "top": 640,
+          "width": 780,
+          "height": 614
         }
       },
       "cleanup": [],
