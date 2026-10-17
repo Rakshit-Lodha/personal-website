@@ -226,7 +226,7 @@ export default function BeyondWork({ beyond }: { beyond: RomanV2Beyond }) {
                           <span className={shared.visuallyHidden}>Not available</span>
                         </>
                       ) : (
-                        `${metric.value}${metric.unit}`
+                        `${metric.key === "strain" ? metric.value.toFixed(1) : metric.value}${metric.unit}`
                       )}
                     </dd>
                   </div>

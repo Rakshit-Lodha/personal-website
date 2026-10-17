@@ -123,7 +123,7 @@ return `200 audio/wav` when `SARVAM_API_KEY` is configured.
 The private setup page at `/whoop` connects the site owner's WHOOP account. It
 requests only `read:recovery`, `read:sleep`, `read:cycles`, and `offline`. The
 OAuth callback immediately creates the first public snapshot; Vercel Hobby then
-calls the sync job daily at 00:30 UTC (06:00 IST). Public pages receive only the five allowlisted
+calls the sync job daily at 18:25 UTC (23:55 IST). Public pages receive only the five allowlisted
 metrics, their measurement times, and the last sync time.
 
 Required server-side environment variables:

@@ -210,7 +210,7 @@ export async function getRomanV2Content(): Promise<RomanV2Content> {
     return realWhoop && metric ? metric.value : null;
   };
   const whoopModule: RomanV2Whoop = {
-    eyebrow: "WHOOP",
+    eyebrow: "Health Maxxing",
     status: realWhoop ? (whoop.status as "live" | "stale") : "unavailable",
     metrics: [
       { key: "recovery", label: "Recovery", value: reading("recovery"), unit: "%" },

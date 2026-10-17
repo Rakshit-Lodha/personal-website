@@ -2,8 +2,9 @@ import type { WhoopMetric, WhoopSnapshot as Snapshot } from "@/lib/roman/types";
 import s from "./roman.module.css";
 
 /** null is "no reading", shown as an em dash. It must never read as zero. */
-function reading({ value, unit }: WhoopMetric) {
+function reading({ key, value, unit }: WhoopMetric) {
   if (value === null) return "—";
+  if (key === "strain") return value.toFixed(1);
   return unit === "" || unit === "%" ? `${value}${unit}` : `${value} ${unit}`;
 }
 
@@ -20,7 +21,7 @@ export default function WhoopSnapshot({ snapshot }: { snapshot: Snapshot }) {
   return (
     <aside className={s.whoop} aria-labelledby="whoop-title">
       <div className={s.whoopHead}>
-        <h3 id="whoop-title">WHOOP</h3>
+        <h3 id="whoop-title">Health Maxxing</h3>
         <span className={s.whoopStatus}>{status(snapshot)}</span>
       </div>
       <p className={s.body}>A snapshot of my current state.</p>
