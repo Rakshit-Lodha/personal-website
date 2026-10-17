@@ -2,8 +2,8 @@
   "hero": {
     "width": 1665,
     "height": 944,
-    "meanAbsDiff": 43.05,
-    "pctPixelsOver32": 37.1,
+    "meanAbsDiff": 33.56,
+    "pctPixelsOver32": 28.9,
     "section": {
       "top": 0,
       "height": 845,
@@ -14,11 +14,11 @@
   "career": {
     "width": 1672,
     "height": 941,
-    "meanAbsDiff": 38.53,
-    "pctPixelsOver32": 32.2,
+    "meanAbsDiff": 34.29,
+    "pctPixelsOver32": 28.1,
     "section": {
       "top": 849,
-      "height": 1091,
+      "height": 940,
       "viewportTop": 0
     },
     "consoleErrors": []
@@ -26,11 +26,11 @@
   "products": {
     "width": 1672,
     "height": 941,
-    "meanAbsDiff": 39.88,
-    "pctPixelsOver32": 31.9,
+    "meanAbsDiff": 58.79,
+    "pctPixelsOver32": 38.6,
     "section": {
-      "top": 1939,
-      "height": 950,
+      "top": 1789,
+      "height": 943,
       "viewportTop": 0
     },
     "consoleErrors": []
@@ -38,11 +38,11 @@
   "beyond": {
     "width": 1672,
     "height": 941,
-    "meanAbsDiff": 41.71,
-    "pctPixelsOver32": 37.8,
+    "meanAbsDiff": 37.36,
+    "pctPixelsOver32": 33,
     "section": {
-      "top": 2889,
-      "height": 950,
+      "top": 2731,
+      "height": 943,
       "viewportTop": 0
     },
     "consoleErrors": []
@@ -50,11 +50,11 @@
   "jj": {
     "width": 1672,
     "height": 941,
-    "meanAbsDiff": 38.93,
-    "pctPixelsOver32": 28.1,
+    "meanAbsDiff": 31.22,
+    "pctPixelsOver32": 24.6,
     "section": {
-      "top": 3839,
-      "height": 738,
+      "top": 3674,
+      "height": 714,
       "viewportTop": 0
     },
     "consoleErrors": []
@@ -62,15 +62,15 @@
   "footer": {
     "width": 1672,
     "height": 941,
-    "meanAbsDiff": 27.8,
-    "pctPixelsOver32": 19.9,
+    "meanAbsDiff": 28.67,
+    "pctPixelsOver32": 19.5,
     "section": {
-      "top": 4577,
-      "height": 864,
+      "top": 4388,
+      "height": 877,
       "viewportTop": 0
     },
     "consoleErrors": []
   },
-  "capturedAt": "2026-10-17T05:08:31.625Z",
-  "base": "http://localhost:3030"
+  "capturedAt": "2026-10-17T06:21:12.470Z",
+  "base": "http://localhost:3060"
 }

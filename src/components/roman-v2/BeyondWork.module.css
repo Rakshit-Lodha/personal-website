@@ -362,9 +362,10 @@
 
 .player {
   position: absolute;
-  right: 30px;
+  /* Inset 24px inside .musicPanel, whose left edge is min(stage − 240px, 513px). */
+  left: min(calc(100% - 216px), 537px);
+  right: 24px;
   bottom: 18px;
-  width: min(303px, calc(100% - 60px));
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -375,7 +376,7 @@
   align-items: center;
   justify-content: space-between;
   align-self: flex-end;
-  width: 225px;
+  width: min(225px, 100%);
   height: 90px;
   margin-bottom: 22px;
 }
@@ -475,6 +476,7 @@
 /* WHOOP */
 
 .whoopCard {
+  container-type: inline-size;
   min-height: 210px;
   padding: 32px 35px 28px 36px;
 }
@@ -526,7 +528,23 @@
   position: absolute;
   right: 1px;
   bottom: 1px;
-  width: 144px;
+  /* Shrinks with the card so the fragment never sits on the “Strain” column. */
+  width: clamp(72px, calc(100cqi - 340px), 144px);
+}
+
+/* Narrow desktop cards (≈1101–1400px viewports): tighter columns keep the labels clear of the fragment. */
+@container (max-width: 440px) {
+  .metrics {
+    grid-template-columns: repeat(3, max-content);
+  }
+
+  .metric {
+    padding-right: 18px;
+  }
+
+  .metric + .metric {
+    padding-left: 18px;
+  }
 }
 
 /* Tablet: one module per row keeps each composition intact. */

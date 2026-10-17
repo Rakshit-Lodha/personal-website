@@ -70,7 +70,8 @@
   margin-top: clamp(8px, 0.6vw, 10px);
   font-size: clamp(1.125rem, 1.75vw, 1.8rem);
   line-height: 1.2;
-  color: #4b3b33;
+  /* ≥4.5:1 on the band, including where the disc edge meets it at 1280. */
+  color: #3f312a;
 }
 
 .featuredActions {

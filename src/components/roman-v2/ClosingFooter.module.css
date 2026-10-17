@@ -229,9 +229,10 @@ nav.cell,
 /* Tablet: hand shrinks behind the copy; grid becomes brand row + three columns. */
 
 @media (max-width: 1023px) {
+  /* Smaller and higher, so the fingertip stays above “use.” instead of behind it. */
   .art {
-    top: 24px;
-    width: 38vw;
+    top: -2.5vw;
+    width: 30vw;
   }
 
   .artImage {

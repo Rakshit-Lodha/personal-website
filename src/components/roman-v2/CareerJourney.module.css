@@ -297,7 +297,8 @@
 }
 
 .narrative {
-  max-width: max(35.2cqi, 24rem);
+  /* The 39cqi cap keeps narrow-desktop copy clear of the art's halftone edge (art box starts at 44.5cqi). */
+  max-width: max(35.2cqi, min(24rem, 39cqi));
   margin-top: 0.75em;
   font-size: clamp(1rem, 1.9cqi, 1.65625rem);
   line-height: 1.28;
@@ -416,10 +417,16 @@
     width: 120vw;
   }
 
+  /* Capped so the dots stay above the first accordion row (2.9:1 behind “2026—Now” at 768). */
   .halftone {
     left: 40vw;
     width: 60vw;
-    height: 50vw;
+    height: min(50vw, 180px);
+  }
+
+  /* Softer glow: the last accordion row sits on it. */
+  .backdrop::after {
+    opacity: 0.5;
   }
 
   .accordion {

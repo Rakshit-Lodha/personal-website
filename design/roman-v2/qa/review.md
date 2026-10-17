@@ -1,168 +1,196 @@
-# Roman v2 — reference comparison and design review (J1–J3)
+# Roman v2 — final reference comparison and design review (J4 close-out)
 
-- **Date:** 17 Oct 2026, 10:38–10:44 IST. **Branch/commit:** `roman-v2` @ `bc9d958`. Production server `:3030` (`.next/BUILD_ID` 10:25).
-- **Result:** **Review required. Not approved.** Material mismatches remain in every section (listed below). J4 and J5 stay open.
-- **Reproduce:** `PW_MODULE=<dir>/node_modules/playwright-core node scripts/roman-v2-qa.mjs --base http://localhost:3030 [--only hero,career]`. See the script header. It captures with Chromium headless shell 1217 at DPR 1 with `prefers-reduced-motion: reduce`. It forces lazy images to load and waits for fonts and image decode.
-- **Artifacts:** `qa/<section>-{reference,actual,overlay,diff}.png` for hero, career, products, beyond, jj and footer. Also `qa/full-page-desktop.png`, `qa/full-page-vs-structure.png` (00 concept beside our page scaled to 498 px), `qa/metrics.json`, `qa/responsive/full-{1440,1280,1024,768,430,390,360}.png` and `qa/responsive/metrics.json`. The diff gain is ×3.
+- **Date:** 17 Oct 2026. **Branch:** `roman-v2`, base `4456c97` (alpha-keyed artwork) plus the final-pass fixes listed below. Production build served by `next start -p 3060`.
+- **Result:** **J4 complete. No material unexplained deviation remains.** Every remaining difference is classified below as intentional, an accepted font difference, blocked on input or noise. **J5 is open: awaiting the user's visual approval.** This review does not approve the page.
+- **Reproduce:** `npm run build && npx next start -p 3060`, then `PW_MODULE=<dir>/node_modules/playwright-core node scripts/roman-v2-qa.mjs --base http://localhost:3060`. Chromium headless shell 1217, DPR 1, `prefers-reduced-motion: reduce`. Lazy images are forced to load and decoded before capture. Diff gain ×3.
+- **Artifacts (regenerated in this pass):** `qa/<section>-{reference,actual,overlay,diff}.png` for hero, career, products, beyond, jj and footer. Also `qa/full-page-desktop.png`, `qa/full-page-vs-structure.png`, `qa/metrics.json`, `qa/responsive/full-{1920,1440,1280,1024,768,430,390,360}.png` and `qa/responsive/metrics.json`. 1920 was added to the script's responsive widths in this pass.
+- **Inspection:** every overlay and diff was read at full resolution as reference-over-actual crops and zooms. Each responsive capture was sliced and read section by section. Element probes and focused screenshots covered the edge cases.
 
-## Capture method and alignment
+## Summary
 
-| Section | Reference (w×h) | Viewport | Alignment | Notes |
-| --- | --- | --- | --- | --- |
-| hero | 01 · 1665×944 | 1665×944 | scrollY 0, nav visible | Our hero is 845 px tall, so rows 845–944 show the career sage. The reference shows a terracotta band there, which the 00 structure contradicts. Treat as noise. |
-| career | 02 · 1672×941 | 1672×941 | `#work` top at y=0, nav hidden | |
-| products | 03 · 1672×941 | 1672×941 | `#products` top at y=0, nav hidden | 03 shows an obsolete full-width nav variant with a “Ideas” item. Not built, intentionally. |
-| beyond | 04 · 1672×941 | 1672×941 | `#beyond` top at y=0, nav hidden | |
-| jj | 05 · 1672×941 | 1672×941 | `#jj` top at y=0, nav hidden | The strip below the oxblood in 05 is an older footer variant. 06 is authoritative. |
-| footer | 06 · 1672×941 | 1672×941 | `#contact` top at y=0, nav hidden, black spacer below the page | 06 shows a dark band below the footer that 00 does not have. Treat as noise. |
+Mean absolute RGB difference (0–255) at each reference's exact size. Most of what remains is concept paper grain, halftone jitter, generated-artwork differences and the light product screenshot.
 
-Mean absolute RGB diff per section (0–255): hero 43, career 39, products 40, beyond 42, jj 39, footer 28. These numbers are dominated by artwork and grain, so judge each section by the tables below rather than by them.
+| Section | Ref (w×h) | Height (ref) | Mean diff (J3 → before this pass → **final**) | >32 px share | Status |
+| --- | --- | --- | --- | --- | --- |
+| Hero + nav | 01 · 1665×944 | 845 (846) | 43.05 → 33.56 → **33.56** | 28.9 % | Pass. Awaiting approval |
+| Work, over time | 02 · 1672×941 | 940 (933–941) | 38.53 → 34.29 → **34.29** | 28.1 % | Pass. Awaiting approval |
+| Selected products | 03 · 1672×941 | 943 (941) | 39.88 → 58.78 → **58.79** | 38.6 % | Pass with intentional P-2 deviation. Awaiting approval |
+| Beyond work | 04 · 1672×941 | 943 (941) | 41.71 → 37.24 → **37.36** | 33.0 % | Pass. +0.12 is the intentional music-player fix (see B-F1). Awaiting approval |
+| Talk to JJ | 05 · 1672×941 | 714 (713) | 38.93 → 31.22 → **31.22** | 24.6 % | Pass. Awaiting approval |
+| Invitation + footer | 06 · 1672×941 | 877 (845) | 27.80 → 28.67 → **28.67** | 19.5 % | Pass. +32 px height is the intentional Privacy link. Awaiting approval |
 
-> **Artwork note (coordinator, 10:4x):** the 11 artwork layers were replaced with generated masters (new aspect ratios) **while this pass was running**. The public files on disk changed at 10:37, and `next start` serves `public/` from disk, so the **captures above already show the new art**. Every artwork crop, scale or placement finding is tagged **`stale – artwork replaced`**. Each one records the **reference position** so fix agents can place the new art against it. Typography, layout, spacing, colour, responsive, a11y and performance findings are not affected.
+No section regressed, apart from two documented changes: beyond +0.12 (B-F1) and products +0.01, which is noise from the tagline colour (P-F1).
 
-Severity: **material**, **minor**, **noise** (rasterisation, grain or concept artefact) or **intentional** (accepted deviation). Unless stated otherwise, coordinates are px in the 1672-wide capture with the section top at y=0.
+Classes used below: **intentional** (deliberate, with a reason), **font** (accepted Instrument Serif face difference, X-6), **blocked** (waiting on a real input from BUILD_PLAN §17), **noise** (grain, rasterisation or a concept artefact), **copy** (deferred to the later copy pass).
 
 ---
 
-## 1. Hero + floating nav (`Hero.module.css`, `FloatingNav.module.css`)
+## 1. Hero + floating nav
 
-| # | Category | Reference | Actual | Severity | Fix |
-| --- | --- | --- | --- | --- | --- |
-| H-1 | Headline scale / line height | “Product” ascender→baseline 231→339 (108 px), width 106–570 (464). “judgment.” ink 347–487, x 88–682. Gap between lines: 8 px. | “Product” 206→339 (133 px, **+23 %** taller), width 110–555 (445). “judgment.” ink 330–497. The **j-dot (y 330) rises 9 px above the “Product” baseline (339)**, so the lines collide. | material | `Hero.module.css .title`: font-size `calc(10.9*var(--u))`→`calc(9.6*var(--u))` (≈160 px at 1665). line-height `0.66`→`0.76`. letter-spacing `-0.035em`→`-0.012em` so width stays ≈450–460. Move the block so the “Product” ascender sits at y≈231: `.copy bottom` `7.8u`→`7.4u`, then re-check that the CTAs stay at y 658. |
-| H-2 | Body copy | Lines at y 514/553/591 (pitch 38.5). Line 1 x 110–540. | 509/548/587 (pitch 39). Line 1 ends ≈527. | minor | `.body font-size` `1.8u`→`1.85u` (≈30.8 px). Settles once H-1 moves the block. |
-| H-3 | CTAs | Explore 109–344 × 658–715. Talk to JJ 368–541. | 107–341 × 658–714. 366–544. | noise | none |
-| H-4 | Wordmark / nav pill | Wordmark ink x 109–345, y 44–59. Pill x 921–1583, y 22–86. | 111–342, y 45–60. Pill 919–1584, 22–86. Active marker absent at the top (correct). | noise | none |
-| H-5 | Artwork scale / placement — `stale – artwork replaced` | Figure (concept): hair top y≈115, head x 1005–1290, laptop left edge x≈615, chair right x≈1590, bottom-aligned at y 845. The crop box is 560,95 → 1665,843. The circle `#ecdecf` has centre (1247,450) and r 507 and is visible behind the head. | New master: head x 1215–1425, hair top y≈145, laptop left x≈870. Figure ≈0.79× the reference size and pushed right. The CSS circle is almost hidden: only a sliver at the top right. Faint ghost tiles and a lighter rectangular box show at x 600–900 (art box edge, `#f4e8d8` vs paper `#f4ebdf`). At 1024 the box edge shows at x≈355. | material (stale) | Re-crop the master in `scripts/prepare-roman-v2-assets.mjs` so the figure fills the 1105-wide export like the reference (laptop left edge at about 5 % of the width, hair top at about 3 %). Alternatively raise `.art width` to ≈84u and offset right. Fade the master background to full transparency. Keep `.circle` centred at (1247,450) with r 507. |
-| H-6 | Image dimensions | — | `<img width=1105 height=748>` but the file is 1105×737. The mobile `<source>` says 850×748 but the file is 850×850. | minor (stale) | `Hero.tsx`: update the `width`/`height` attributes to the new files (1105×737, mobile 850×850). |
-| H-7 | Wide screens (≥1800) | — | `--u` caps at 18 px. At 1920 the hero copy sits at x 115 and the wordmark at 125, but every 1680-container section starts at x 192–223. | material (cross-section) | `Hero.module.css .copy left`: `calc(max(0px, (100vw - 1680px)/2) + 6.4*var(--u))`. Apply the same to `.root` wordmark padding in `FloatingNav.module.css`. |
+**Status:** pass. The overlay registers the figure, laptop, circle, CTAs, body copy, wordmark and pill to within ±2–5 px of the reference.
 
-## 2. Work, over time (`CareerJourney.module.css`)
+| Remaining deviation | Class | Reason |
+| --- | --- | --- |
+| “Product” is ≈0.9× the reference width, and its ascender sits ≈10 px above the reference at a matched baseline (≈336 vs 339) | font | Instrument Serif vs the concept face (X-6). Making the hero larger brings the line collision back (H-1). |
+| Chair ends at x≈1550 (ref 1590). The head is proportionally smaller than the concept's | intentional | Accepted generated master (B1). The 1.2× placement fits the body and focal points (hair top 115, laptop 615, brooch ≈1304/403). |
+| Rows 845–944 show the career sage, where the reference shows a terracotta band | noise | Reference 01 contradicts 00. 00 is authoritative. |
+| Paper grain and halftone dot jitter | noise | — |
 
-| # | Category | Reference | Actual | Severity | Fix |
-| --- | --- | --- | --- | --- | --- |
-| C-1 | Section height | 00 rhythm: 933 px. The 02 card ends at y 889 inside a 941 frame. | **1091 px**. The card is 338→1041 (703 tall vs 562), so the metric labels fall below the 941 frame. | material | Fix C-2 to C-5. Target section height ≈940 and card height ≈560. |
-| C-2 | Card height driver | — | All four tabpanels are stacked in one grid cell, so the card takes the **tallest** chapter. LearnApp’s title wraps to 3 lines (246 px) and the ET Money label “fewer monthly support tickets” wraps to 2 lines. | material | `.chapterTitle`: `max-width` 486→≈540 px (or `text-wrap: balance` with a 2-line cap) so no title exceeds 2 lines. `.outcomeLabel`: single line, either wider columns (see C-5) or `white-space: nowrap` with font 21 px. |
-| C-3 | Card vertical rhythm | Title ink 374–520. Role 538–567. Narrative lines 593/627/661. Rule y 710. Values 740–815. Labels 831–852. Card bottom 889. | Title 386–539. Role 575–598. Narrative 636/669/703. Rule 798. Values ≈840–915. Labels 937+. | material | `.role margin-top` → 14 px. `.narrative margin-top` → 22 px. `.footer` (outcome row) margin-top → 26 px with rule-to-value gap 30 px. Card padding-bottom → 36 px. |
-| C-4 | Role / narrative type | Role ≈30 px. Narrative ≈26.5 px, line pitch 34 px, wraps “…lending and wealth / products — built from first principles / and scaled to real outcomes.” (line 1 width 480 px). | Role 26.9 px. Narrative 23.4 px, 33.2 lh, wraps differently (line 1 width 417). | material | `.role font-size` → 30 px. `.narrative font-size` → 26.5 px, `line-height: 34px`, `max-width: 490px`. |
-| C-5 | Metrics row | Values cap 740–815 (≈75 px). Columns at x 343 / 660 / 1038, separators at 622 / 996. Labels ≈24.7 px. | Values 94.6 px Instrument Serif. Columns 348 / 682 / 995, separators 644 / 957. Labels 22.6 px. | minor | `.footer` grid columns → `316px 376px 1fr auto` (from x 343). `.outcomeLabel font-size` → 24 px, one line. |
-| C-6 | Headline | “Work, over time.” x 79–1027 (948 wide). “over time.” t-top→baseline 123–227. Lede x 92–1058 at y 256–287. | x 70–825 (755 wide, **0.80×**), 108–216. Lede x 73–936 at 260–288. | material | `.title`: font-size 152→≈162 px (`clamp(…, 9.7vw, …)`), letter-spacing −0.035em→−0.005em. That gives ≈880–900 px width with cap height still within ±6 %. **Shift left edge +18 px**: the headline and lede should start at x≈90 (now 72). Set `.inner padding-inline` to 90 px at ≥1600 (or `clamp(16px, 5.4vw, 90px)`). |
-| C-7 | Timeline | Dots centred x≈75 at y 365/484/607/731. Labels uppercase, period “2026—NOW” with no spaces, letter-spaced. | Dots centred x 81 at 380/499/619/738. Period “2026 — Now” mixed case. | minor | `.dot` left −6 px. Timeline top −14 px. `.period { text-transform: uppercase; }`. Use `—` without spaces in content or CSS. |
-| C-8 | Active chapter marker | Oxblood filled dot ≈19 px, oxblood label and period. | Same. | — | none |
-| C-9 | “View chapter” | Enabled oxblood button 1386–1605 × 744–804, 4 progress dashes below. | Disabled (opacity .5) at 1318–1538 × 834–894. | intentional (no destination) + minor position | Position follows C-3. The right edge should align to the card padding at 1605 (now 1538): `.footer` right padding 0. |
-| C-10 | Card left/right | Card x 279–1605, top 327. | 286–1600, top 338. | minor | `.card margin-left` −7 px, top −11 px. |
-| C-11 | Hands artwork — `stale – artwork replaced` | Concept crop 860,333 → 1672,690. Left hand x 870–1180, right hand and drape 1230–1672, block baseline y≈670. The art bleeds past the card’s right edge to 1672. | New master shows the right hand only, x≈1110–1665, y 343–790. A light rectangular box shows outside the card at x 1600–1665 (box edge). Ghost tiles at x 870–1100. | material (stale) | Fade the master’s left, bottom and right edges to transparent in the prepare script. Match the bounds 860–1672 × 333–690 at 1672. Update `width/height` attrs 812×357 → 812×457. |
-| C-12 | Bottom transition | Terracotta glow at the bottom right of 02 and 00 (lead-in to products). | None. Flat sage. | minor | Optional `radial-gradient(… #c98b72 0.25 …)` at the bottom right of `.section`. |
+**Resolved:** H-1 headline collision, H-2 body, H-3/H-4 (kept), H-5 art scale, placement and visible box (now alpha-keyed, no box at any width), H-6 image dimensions, H-7 ≥1800 alignment, A11y-4 wordmark target.
 
-## 3. Selected products (`SelectedProducts.module.css`)
+## 2. Work, over time
 
-| # | Category | Reference | Actual | Severity | Fix |
-| --- | --- | --- | --- | --- | --- |
-| P-1 | Featured screenshot | Window shows the product UI inside the frame. Concept opening ≈ (984,158)→(1467,562). | **The window is solid black. The real AI Hiring Chat screenshot is invisible** because the new frame master has an opaque dark opening that covers `.window`. | **material** | Either key the opening to alpha in `prepare-roman-v2-assets.mjs` (luminance < 35 connected to the centre) or put `.window` above `.frame` (`z-index`). Then refit `.window` to the new opening, measured at 1672 with the frame box at (689,27) 966×644: opening bbox (983,150)→(1517,519), i.e. **left 30.4 %, top 19.1 %, width 55.3 %, height 57.3 %**. Recompute `clip-path` (the top edge slopes from y≈204 at x 1050 to y≈150 at x 1450, and the left edge is hidden by the head at x 983–1075). |
-| P-2 | Featured screenshot tone | Dark UI in the frame. | The real capture is a light UI. On the old art it read as a bright white slab. | minor | Prefer a dark-mode capture of `/chat` if the product supports it. Otherwise keep it, since it is real UI. |
-| P-3 | Headline width | “Selected” 105–536 (431), “products” 98–546 (448). Ascender y 116. | 104–445 (341, **0.79×**), 101–475 (374). Ascender y 102. | material | `.title`: letter-spacing → −0.008em, font-size +6 %. Keep the baseline of “products” at y≈330 (now 331). |
-| P-4 | “AI Hiring Chat” | x 141–667 (526 px), cap 450–517. | x 135–459 (324 px, **0.62×**), cap 448–517. | material | `.featuredTitle`: font-size +12 % (≈80 px at 1672), letter-spacing 0. Accept the residual face difference. Left edge +6 px (to 141). |
-| P-5 | Featured band | Band x 76–(behind frame), y 401–665. | x 72–1672, y 401–669. | minor | `.featured` left +4 px. |
-| P-6 | Supporting cards | Cards 76–559 / 581–1076 / 1097–1596, y 684–911. Titles at 104/606/1122 x, y≈720. Arrow boxes 104–158 × 827–867. | 72–566 / 589–1082 / 1105–1599, y 690–915. Titles 100/616/1133. Arrows 100–154 × 841–885. | minor | Gap 22→20 px, cards top −6 px. `.cardAction margin-top` −14 px. |
-| P-7 | Feedback Intelligence thumbnail | Device mock with dashboard. | Empty: circle and dots only. No screenshot exists in `content.ts` (`feedback-agent`). | intentional / ⛔ input | Needs a real capture (BUILD_PLAN §17). Layout is already final. Do not add fake UI. |
-| P-8 | Card plinth / marble art | Marble plinths under each device. | None. Dropped in ASSETS.md because the art contained fake UI. | intentional | — |
-| P-9 | Frame art — `stale – artwork replaced` | Concept crop 690,78 → 1650,668. Head profile x 740–1000, frame outer 790–1595 × 85–655. Terracotta circle `#b26e58` behind. | The new master ground `#ab694e` vs CSS circle `#b26e58` leaves a visible rectangle edge at y≈30 (x 700–1672). Image 960×640 vs attrs 960×590. | material (stale) | Fade the master ground to alpha or match `--products-circle` to `#ab694e`. Update attrs to 960×640. |
+**Status:** pass. Card 327–890 (ref 327–889). Title, role, narrative, rule, values and labels are within ±5 px vertically. Timeline dots are within 4 px.
 
-## 4. Beyond work (`BeyondWork.module.css`)
+| Remaining deviation | Class | Reason |
+| --- | --- | --- |
+| “Work, over time.” ink ≈877 px wide (ref 948) | font | X-6 |
+| Metric columns at 345 / 744 / 1073 (ref 343 / 660 / 1038) | copy | The real labels (“fewer monthly support tickets”, “AUM on ET Money Earn”) are longer than the concept's, so the columns are content-sized. They settle in the copy pass. |
+| The progress dash marks the 2nd chapter (ref marks the 1st while ET Money is active) | intentional | Our dash matches the active chapter. The concept is inconsistent here. |
+| “View chapter” is faded and inert | intentional | No chapter destination exists (availability rule). |
+| The hands master's forearm and drape rise over the sage above the card. The backdrop's hairline and oxblood marker show faintly through the drape's faded top edge (x≈1285–1530, y≈160) | noise / intentional | Accepted master (B2), placed to the concept box. The line work is at 22 % alpha. |
+| At 1280 and 1024 the “View chapter” action wraps to a second row | intentional | Container < 1150 px. The card height absorbs it. |
 
-| # | Category | Reference | Actual | Severity | Fix |
-| --- | --- | --- | --- | --- | --- |
-| B-1 | Grid | Reading 36–1133 × 267–692. Writing 1146–1636 × 267–692. Music 36–1060 × 706–916. WHOOP 1072–1636 × 706–916. | Reading 36–1135 × 272–699. Writing 1149–1636. Music 36–1051 × 713–922. WHOOP 1064–1636 × 713–922. | minor | Row 1 top −5 px, row 2 top −7 px. Music/WHOOP split at 1060/1072: `grid-template-columns` → `1024fr 564fr`. |
-| B-2 | Headline | “Beyond” 91–459. “work” 501–781 (280 wide). | “Beyond” 95–459. “work” 437–665 (228). Word-space is narrower. | minor | `.title` letter-spacing → −0.01em, `word-spacing: 0.08em`. |
-| B-3 | Daily Reading copy block | Eyebrow y 314. Title ink 350–480. Dek y 517. CTA 76–382 × 567–629. | Eyebrow 321. Title 365–505. Dek 549. CTA 75–359 × 595–656. | material | `.readingTitle margin-top` −14 px. `.readingDek` margin −8 px. CTA: padding-inline 30 px so the width is 306, and top −28 px. |
-| B-4 | Writing module | Lede y 337. Rows 372–455 / 460–540 / 546–612. See-all 1180–1602 × 628–672. | Lede 349. Rows 390 / 475 / 560. See-all 1183–1601 × 637–682. | minor | `.writingLede` −12 px. Row block −18 px. See-all −9 px. |
-| B-5 | WHOOP columns | Labels baseline y≈800 (card-relative 86). Columns at x 1109 / 1265 / 1405. Separators 1234 / 1370. | Labels at y≈815 (card-relative 102). Columns 1098 / 1238 / 1348. Separators 1207 / 1316. | material | `.whoopGrid`: padding-left +11 px, columns `156px 140px 1fr`, `margin-top` −16 px. Em dashes are **intentional** (no reading). |
-| B-6 | WHOOP sage circle | Sage circle (`#c0bfae`) behind the fragment at the top right of the card. | Missing. | minor | Add a `::before` circle with r≈90 centred at (1590,740) in `.whoop`. |
-| B-7 | Music | Hand and knob in 300–800. Player panel 800–1060. Waveform, scrubber and transport. | Panel 802–1051. Player content matches. | minor | Follows B-1. |
-| B-8 | Music on mobile (≤767) | — | **The player panel renders as an empty black slab** at the right of the art strip (390 capture, y≈4400). The waveform and controls are missing. | material | `BeyondWork.module.css @media (max-width:767px)`: either show the waveform/controls in the panel or hide the panel and let `.musicArt` fill the width. |
-| B-9 | “PREVIEW” badges | — | Present on Daily Reading and Writing. | intentional (fixture marker) | Heading accessible name reads “WritingPreview” (see A11y-6). |
-| B-10 | Artwork — `stale – artwork replaced` | Column/leaf crop 860,0 → 1672,266. Reading 548,272 → 1132,691. Music 290,706 → 806,916. WHOOP fragment 1492,708 → 1636,914. | The column box shows a hard vertical edge at x≈890 (`#c0bcaa` art vs `#ddd7c9`). Reading has ghost tiles at x 560–760. Music art 516×290 vs attrs 516×210. Column 812×457 vs attrs 812×266. Reading 584×389 vs attrs 584×419. | material (stale) | Fade the master edges. Update `width/height` attrs in `BeyondWork.tsx`. |
-| B-11 | Mobile header art | — | At 390 the column art sits behind “work” and the lede. Lede contrast p05 3.4:1. | minor | At ≤767 cap the column art to the right 40 % or add a paper scrim behind `.header` text. |
+**Resolved:** C-1 height, C-2 card driver, C-3 rhythm, C-4 type, C-5 metric row, C-6 headline and left edge, C-7 timeline, C-9 action position, C-10 card bleed, C-11 hands art (now alpha-keyed and cropped in the asset script), C-12/X-5 terracotta glow, A11y-5 inactive label contrast.
 
-## 5. Talk to JJ (`JJCallout.module.css`)
+**Fixed in this pass:**
 
-| # | Category | Reference | Actual | Severity | Fix |
-| --- | --- | --- | --- | --- | --- |
-| J-1 | Section height | 713 (05). 00 rhythm: 708. | **738** (+25). The copy, actions and art all sit ≈23 px lower. | material | Reduce `.section` padding-block so the height is 713 (−25 px, split between top and bottom). |
-| J-2 | Headline | Ink x 92–850, lines “The portfolio” / “can answer back.” | x 96–762 (0.88×). | minor | letter-spacing → −0.01em, font-size +4 %. |
-| J-3 | Body / actions | Body lines 419–446, 459–480. Talk 95–305 × 525–593. Input 320–654 × 525–593. | Body 442/482. Talk 94–304 × 548–617. Input 319–654 × 548–617. | material | Follows J-1. Sizes already match (±1 px). |
-| J-4 | Orb | Centre (1481,430), r≈80, glow ring. | Centre (1481,466). Size matches. | minor | Follows J-1. Keep at 1481/430. |
-| J-5 | Listener art — `stale – artwork replaced` | Concept crop 670,20 → 1672,712. Head x 880–1360, hair top y≈45, ear/hand x 950–1080, bottom-aligned. Darker circle `#491614` behind the head. | New master: head x 1060–1340, top y≈190 (smaller, further right). **The art box shows as a lighter rectangle** x 720–1672 × 85–738 (`#591210` vs section `#4f1816`). | material (stale) | Key the master ground to alpha or set the section bg to the master ground. Scale so the head spans 880–1360. Update attrs 1002×692 → 1002×668 and mobile 560×682 → 560×700. |
+- **C-F1 (material):** at 1024–1150 the narrative ran onto the art's halftone edge (“products —” and “outcomes.” over the dots). `.narrative` is now `max(35.2cqi, min(24rem, 39cqi))`. The copy clears the art box (44.5cqi) at every desktop width. 1672 is unchanged.
+- **C-F2 (material, contrast):** in the ≤899 accordion, “2026—Now” sat on the halftone at 768 (2.9:1 at the 5th-percentile background pixel). The halftone is capped at `min(50vw, 180px)`. “2018—2020” sat on the terracotta glow (4.1:1). The glow is at 0.5 opacity below 900. Both now sample ≥4.5:1.
 
-## 6. Final invitation + footer (`ClosingFooter.module.css`)
+## 3. Selected products
 
-| # | Category | Reference | Actual | Severity | Fix |
-| --- | --- | --- | --- | --- | --- |
-| F-1 | Headline | Line 1 “Let’s build something” x 91–1021, ascender y 187, baseline ≈279. Line 2 x 82–1202, ink 290–405. | Line 1 x 90–939 (0.91×), ascender 170. Line 2 89–1174 (0.97×), 289–408. | minor | `.title` letter-spacing −0.025em → −0.012em. Line 1 starts 17 px too high: `padding-block-start` +10 px and line-height 0.94 → 0.9. |
-| F-2 | CTAs | Start a conversation 90–426 (serif, ≈36 px, 2 px underline at y≈490). Schedule 474–729 × 438–501. | 88–362. Schedule 411–667 × 452–515 (**63 px left, 14 px low**). | material | `.ctas .conversation` font-size `clamp(…, 2.2vw, 2.375rem)` → 40 px at 1672 (`2.4vw`), letter-spacing 0. `.ctas margin-top` −14 px. Schedule then lands at ≈474. |
-| F-3 | Top rule / grid | Rule y 590. Column separators 542 / 818 / 1094 / 1354. Bottom rule 788. | Rule 604, separators 542 / 818 / 1094 / 1354 (exact), bottom rule 793. | minor | `.grid margin-top` −14 px. `padding-block` 34/36 → 34/27. |
-| F-4 | Footer nav list | Work / Products / Beyond work / Talk to JJ at y 642 / 675 / 707 / 739 (pitch 32), top-aligned. | 653 / 682 / 712 / 741 (pitch 29.5). | minor | `.list` gap → 6 px (line pitch 32), `justify-content: flex-start`, top +11 px. |
-| F-5 | Socials | Order LinkedIn, X, GitHub at y 642 / 679 / 716, top-aligned. | LinkedIn, GitHub, X at 664 / 696 / 728 (centred). | minor | Content order in `content.ts` → LinkedIn, X, GitHub, top-aligned like F-4. |
-| F-6 | Timezone / back to top | “India · IST” x 1151, “Back to top” 1460–1600. | 1183 (centred), 1473–1605. | minor | `.timezone` → `align-items: flex-start`, padding-left 56 px. `.top` padding-right 0 (ends at 1600). |
-| F-7 | Motto | “FESTINA LENTE | Make haste slowly.” baseline y≈820, latin x 72. | y≈829. | minor | Follows F-3. |
-| F-8 | Cursor | Red arrow cursor at (1195,497) with glow. README says the cursor “remains native UI”. | Missing (removed from the art, never rebuilt). | minor | Add an inline SVG cursor (`aria-hidden`), 30×40, `#7d211d`, with a drop-shadow glow, at `left: 71.5vw; top: 497px` on desktop. Hide below 1024. |
-| F-9 | Hand art — `stale – artwork replaced` | Concept crop 1182,30 → 1672,570. Fingertip at (1200,470), forearm exits at the top right. Circle `#e5d9cc` with centre (1295,345) and r 320 (CSS circle matches: 975–1615 × 25–665). | New master: fingertip at (1292,345), much smaller. **The square art box shows** x 1187–1672 × 35–515 (`#e2d4c7` over the circle `#e6dacd` and the paper `#f0e8dd`). File 490×490 vs attrs 490×540. | material (stale) | Key the ground to alpha. Scale so the fingertip lands at (1200,470). Attrs → 490×490. |
+**Status:** pass with an intentional deviation. Headline, band 401–665, featured title x 140, cards 685–913, arrow boxes and section height 943 all match within ±1–6 px. The real AI Hiring Chat screen sits inside the frame opening. The polygon clip follows the head profile.
+
+| Remaining deviation | Class | Reason |
+| --- | --- | --- |
+| A light-theme `/chat` screenshot sits where the concept has a fake dark UI. This dominates the mean diff (58.8) | intentional (P-2) | `/chat` has no dark theme, and no fake UI may ship. |
+| The Feedback Intelligence card has no device screenshot (only the disc and dots) | blocked (P-7) | The service is suspended. The layout is final. |
+| No marble plinths under the supporting devices | intentional (P-8) | The concept plinths contained fake UI. |
+| Headline ≈0.8× width. The lede sits ≈14 px below the reference because of the face's deep `p` descender | font | X-6 |
+| Band and card left edge at x 67 (ref 76) | intentional | Shared container edge |
+| A thin dark rim around the screenshot, and a small dark notch at the window's top centre (the clipped chat avatar) | noise | Real UI clipped by the frame opening |
+| The obsolete full-width nav with an “Ideas” item in reference 03 | noise | Not built. 01 is authoritative. |
+
+**Resolved:** P-1 (black window), P-3, P-4, P-5 (vertical), P-6, P-9 (rectangle edge, now alpha-keyed), A11y-5 mobile tagline contrast.
+
+**Fixed in this pass:** **P-F1 (contrast).** At 1280 the featured tagline sampled 4.45:1 where the disc edge meets the band. It is now `#3f312a` (≥4.5:1 at every width).
+
+## 4. Beyond work
+
+**Status:** pass. The grid is within 1 px of the reference (reading 36–1133 × 267–692, writing 1146–1636, music 36–1060 × 706–916, WHOOP 1073–1636). WHOOP labels sit at 1109 / 1267 / 1403 with separators at 1234 / 1370.
+
+| Remaining deviation | Class | Reason |
+| --- | --- | --- |
+| The music scrubber spans 826–1036 (ref 725–1030), inside the dark panel | intentional (B-F1) | The concept's panel starts at ≈700 with a gradient into the art, but our music master has an opaque card ground. Keeping every player element inside the panel beats letting a line float on the paper. |
+| WHOOP shows em dashes plus “Not available” for screen readers, not the reference's placeholder bars | intentional | No reading. Values are never invented. |
+| Daily Reading and Writing are PREVIEW fixtures. “Read the latest edition”, the writing rows and “See all writing” are inert | intentional | Availability rule. Fixtures are marked. |
+| Writing thumbnails and the WHOOP fragment are interim concept crops | blocked | Real writing entries and WHOOP art are needed (§17). |
+| The reading book and column masters differ in scale from the concept. The column continues behind the writing card in the right gutter (x 1636–1672, down to y≈445, soft fade) | intentional | Accepted masters (B4). This reads as depth. |
+| “Beyond work” is ≈0.85× width | font | X-6 |
+
+**Resolved:** B-1 to B-11, A11y-6 (“WritingPreview” name), the mobile WHOOP overlap.
+
+**Fixed in this pass:**
+
+- **B-F1 (material):** the player was 303 px wide inside a 240–258 px panel. The scrubber and waveform ran onto the paper card at every width: 75 px at 1672, 93 px at 1280, 125 px at 1920. `.player` is now inset 24 px inside the panel (`left: min(100% − 216px, 537px)`), and the waveform is `min(225px, 100%)`. Verified at 1101, 1280, 1440, 1672, 1920, 1024 and 800.
+- **B-F2 (material, text/art overlap):** at 1101–1500 the WHOOP fragment (144 px) covered the “Strain” label (art from x 340 vs label to 379 at 1440). The card is a size container. The fragment is `clamp(72px, 100cqi − 340px, 144px)`, and cards ≤440 px use `max-content` columns with 18 px gutters. The “Strain” text now ends left of the fragment at every width (1101: 275 vs 299, 1280: 275 vs 359, 1440: 275 vs 410). 1672 is unchanged.
+- **B-F3 (minor):** the `writing-thumb-mountain` attributes were 100×68 but the file is 100×61. Per-thumb heights are now passed.
+
+## 5. Talk to JJ
+
+**Status:** pass. Height 714 (ref 713). Copy, Talk to JJ (94–304 × 525–595) and the input (319–654) are within 2 px. The orb is centred at (1481, 430).
+
+| Remaining deviation | Class | Reason |
+| --- | --- | --- |
+| The listener faces left, down toward the copy. The concept's head faces right. Head x≈905–1330 (ref 880–1360) | intentional | Accepted generated master (B5). |
+| The headline ink is ≈0.96× width | font | X-6 |
+| At 1024–1100, “back.” comes within ≈15–20 px of the hair. It does not overlap | intentional (minor) | The art anchors at 64 % there so the orb stays inside the viewport. |
+| The strip below the oxblood in 05 is an older footer variant | noise | 06 is authoritative. |
+
+**Resolved:** J-1 height, J-2, J-3, J-4 orb, J-5 art box (alpha-keyed, concept oxblood `#4f1816` with the darker disc), A11y-3 focus ring on oxblood.
+
+## 6. Final invitation + footer
+
+**Status:** pass. Headline line 2 ink, CTAs (Schedule 474–730 × 437–501), rule 589, separators 542 / 818 / 1094 / 1354, timezone x 1151, fingertip ≈(1200, 470) and cursor tip ≈(1177, 476) all match.
+
+| Remaining deviation | Class | Reason |
+| --- | --- | --- |
+| Section height 877 (ref 845, +32) | intentional | A fifth footer nav item, **Privacy**, was added with the WHOOP privacy policy (`cdafe3c`). It is required content. |
+| Socials order is LinkedIn, GitHub, X (ref LinkedIn, X, GitHub) | copy (F-5) | Data-driven in `content.ts` |
+| “Schedule a call” is faded and inert | blocked | No verified scheduling URL (§17) |
+| The hand master is smaller relative to the concept's forearm. The fingertip and cursor are aligned | intentional | Accepted master (B5) |
+| The dark band below the footer in 06 (black spacer in the capture) | noise | — |
+| Line 1 ascender ≈8 px high, ≈0.9× width | font | X-6 |
+
+**Resolved:** F-1 to F-4, F-6 to F-9, A11y-4 footer touch targets, X-4 containers.
+
+**Fixed in this pass:** **F-F1 (material, text/art overlap).** On tablet (768–1023) the 38 vw hand sat behind “use.” in the headline. It is now 30 vw at `top: −2.5vw`, so the fingertip ends above line 2 and right of “something”. Checked at 768, 900 and 1020.
 
 ---
 
-## Cross-section consistency
+## Full-page rhythm (vs `00-full-page-structure.png`)
 
-| # | Item | Measurement | Severity | Fix |
-| --- | --- | --- | --- | --- |
-| X-1 | Section heights vs 00 rhythm (×3.357 → 1672 px) | Hero 846 → **849** ✓. Career 933 → **1091 (+158)**. Products 849 → **950 (+101)** (but 03 itself is ≈941, so follow 03). Beyond 933 → 950 (+17). JJ 708 → **738 (+30)**. Footer 843 → 864 (+21). Page 5113 → 5441. | material (career, jj) | C-1, J-1. Footer: F-2/F-3 recover ≈25 px. |
-| X-2 | Left edge of the first text column at 1672 | Ref: hero 108, career **90**, products 100, beyond 90 (cards 36), jj 94, footer 88 (rule 67). Actual: 107, **72**, 99, 92 (36), 94, 87 (67). | material (career only) | C-6. |
-| X-3 | Wide viewport (1920) | Hero copy 115 and wordmark 125, while career/products/footer start at 192–219 and beyond at 216. | material | H-7. |
-| X-4 | Containers | Career, products, JJ and footer use a local `max-width: 1680px`. Beyond uses `1600 + 2·pad`. Hero is unbounded (`--u`). The shared `.container` (1440) is overridden everywhere. At 1440 the left edges are 92 / 65 / 88 / 81 / 81 / 75. That roughly matches the reference variance, so this is not by itself an error. | minor | Introduce a single `--content-max: 1680px` token in `contemporary-roman.module.css` and use it in all six sections, so edges move together above 1680. |
-| X-5 | Transitions | Hero paper → career sage ✓. Career → products: the reference has a terracotta glow at the bottom right, actual is flat (C-12). Products → beyond ✓. Beyond sage → JJ oxblood ✓. JJ → footer ✓. | minor | C-12. |
-| X-6 | Headline face | Instrument Serif renders **0.62–0.97× the reference width** at equal cap height. Hero is the exception: it is 23 % taller. Section headings average ≈0.82×. | material (aggregate) | Accepted face difference. Apply the per-section compensation above: letter-spacing −0.035em → ≈−0.01em, plus a 4–12 % size increase where noted. Do **not** change the hero size upward. |
+`qa/full-page-vs-structure.png`: same seven-part order, alternating grounds (paper → sage → paper/terracotta → sage → oxblood → paper), the same artwork side per section and the same transitions, including the career-to-products terracotta glow. Page height at 1672 is 5265 against the 00 rhythm of ≈5113 (×3.357). The difference is products (+94, following 03 rather than the 00 thumbnail) and the footer (+32, Privacy). **Hierarchy, rhythm and transitions are preserved.**
+
+## Cross-section
+
+| # | Item | Final |
+| --- | --- | --- |
+| X-1 | Section heights | Hero 845, career 940, products 943, beyond 943, JJ 714, footer 877. All within ±3 px of their reference, except the footer (intentional, +32). |
+| X-2 | First text column at 1672 | 107 / 89 / 99 / 90 / 94 / 87. Matches the reference variance. |
+| X-3 | ≥1800 alignment | At 1920: hero copy 235, wordmark 237, container sections 192. The hero keeps the reference's +20 px offset. |
+| X-4 | Containers | The shared `--container-max` 1680 everywhere. Beyond keeps its own wider inner container by design. |
+| X-6 | Headline face | Accepted font difference. Per-section letter-spacing and size compensation is applied. |
 
 ## Responsive (H1–H3)
 
-`document.documentElement.scrollWidth === clientWidth` at **1672, 1440, 1280, 1024, 768, 430, 390 and 360: no horizontal overflow ✓**. All off-canvas decorative elements are clipped by `overflow:hidden` ancestors.
+`scrollWidth === clientWidth` and no unclipped overflowing element at **1920, 1440, 1280, 1024, 768, 430, 390 and 360** (`qa/responsive/metrics.json`). Each capture was reviewed section by section after the fixes:
 
-| Width | Result | Issues |
-| --- | --- | --- |
-| 1440 / 1280 | Pass with section issues above | Same composition issues as 1672. The footer hand box seam is visible (F-9). |
-| 1024 | Pass | The hero art box edge is visible at x≈355 (H-5). The products frame is very large and the window is black (P-1). |
-| 768 | Pass (tablet stacked) | Footer nav/social/back-to-top links are 26 px tall (**< 44 px touch target**). See A11y-4. The JJ sculpture stacks below the copy ✓. Career becomes an accordion ✓. |
-| 430 / 390 / 360 | Pass with issues | Hero copy and art stack with no overlap ✓. Career accordion ✓. Products: the featured tagline sits on terracotta (**2.7:1**, A11y-5) and the window is black (P-1). Beyond: music player slab is empty (B-8). Column art sits behind the heading (B-11). The WHOOP fragment overlaps the “Strain” column (minor: move the fragment below the metrics or reduce it to 96 px). JJ and footer CTAs are full width ✓. The wordmark link is 22 px tall (A11y-4). |
+| Width | Result |
+| --- | --- |
+| 1920 / 1440 / 1280 | No text/art overlap. The career card bleeds to the viewport up to 1680, then ends with the container. The art fades at the card edge. The music player sits inside its panel. The WHOOP fragment clears “Strain”. |
+| 1024 | No overlap. The career narrative clears the art (C-F1). The JJ heading is ≈15–20 px from the hair. Products uses the large stacked stage, as designed. |
+| 768 | No overlap. The tablet footer hand clears the headline (F-F1). The career accordion contrast is fixed (C-F2). JJ stacks below the copy. |
+| 430 / 390 / 360 | No overlap. The hero stacks copy above art. Accordions, full-width CTAs, music art fill and the 56 px WHOOP fragment all work. On Krux the dot texture (not artwork) sits behind the wrapped tagline. That is decorative texture, and contrast passes. |
 
 ## Accessibility (I1)
 
-| # | Check | Result | Severity | Fix |
-| --- | --- | --- | --- | --- |
-| A11y-1 | Landmarks / skip link | `header`, `nav[Primary]`, `main#main` (hero, work, products, beyond, jj), `footer#contact` with `nav[Footer]`. The skip link “Skip to content” is the first tab stop ✓. | pass | — |
-| A11y-2 | Heading order | h1 Product judgment → h2 Work, over time → h3 ×4 chapters (3 inert) → h2 Selected products → h3 ×4 → h2 Beyond work → h3 ×4 → h2 JJ → h2 footer. No skips ✓. | pass | — |
-| A11y-3 | Focus visibility | Every enabled stop shows a ring. **JJ section: the global ring is `2px var(--oxblood)` on `#4f1816` (≈1.4:1), so it is effectively invisible on the “Talk to JJ” button.** The JJ input has `outline:none`, and `.ask:focus-within` only changes the border alpha from 0.62 to 1, which is not a visible indicator. The skip link, wordmark, career tab, mic button and footer nav fall back to the UA ring (inconsistent but visible). | **material** | `JJCallout.module.css`: `.section :focus-visible { outline-color: var(--paper-light); }` and `.ask:focus-within { outline: 2px solid var(--paper-light); outline-offset: 3px; }`. Make the global rule in `contemporary-roman.module.css` cover the UA-ring elements, or remove the competing reset. |
-| A11y-4 | Touch targets (enabled) | At 390, all ≥44 except the **wordmark link (142×22)**. At 768, the **footer nav, social and back-to-top links are 26 px tall**. Nav pill links are 44 tall ✓. The menu toggle is 44×44 ✓. | material (768) / minor | `ClosingFooter.module.css .link`: `min-height: 44px; display:inline-flex; align-items:center` below 1024. `FloatingNav .wordmark`: `min-height:44px` with inline-flex. |
-| A11y-5 | Contrast over the actual background (WCAG, sampled behind each text box) | Pass: hero body 15.3, nav 16.1, career lede 10.9, narrative 12.7, products lede 14.8, beyond lede 7.7, JJ lead 12.5, JJ accent `#e0baa3` 7.9, JJ body 12.8, footer tagline 5.2, latin 8.2. **Fail:** inactive career company/period `rgb(107,102,94)` on sage `#e2dfd6` = **4.27** (15/14 px text). Featured tagline `rgb(75,59,51)` on terracotta at **390 = 2.67** (desktop 4.53 on `#d09e89`, which passes as large text). | material | `CareerJourney.module.css` inactive `.company/.period` → `#5c5750` (5.37:1 on `#e2dfd6`). `SelectedProducts.module.css` ≤767: keep `.featuredTagline` off the circle (`background: #d6a48e` band behind the copy) or use `--ink`. |
-| A11y-6 | Labels | The Writing heading’s accessible name is “WritingPreview” because the badge is inside the `h3`. | minor | Move the badge out of the heading or give it a leading visually-hidden space/“(preview)”. |
-| A11y-7 | Disabled actions | “View chapter”, “Open Feedback Intelligence”, “Read the latest edition”, “See all writing” and “Schedule a call” are `button[disabled]`. Writing rows have `aria-disabled` with tabIndex −1. None appears in the tab walk ✓. cursor default ✓, no hover motion ✓. Nothing has `href="#"` or an empty href ✓. | pass | — |
-| A11y-8 | Career tabs | `role=tablist/tab/tabpanel`, roving tabIndex. ArrowDown moves selection and focus ET → INDMoney ✓. Home/End ✓. `aria-selected` and `aria-current` update ✓. Inactive panels are `inert` ✓. | pass | — |
-| A11y-9 | Nav state | `aria-current="location"` on Products while products is in view ✓. The pill gets `data-scrolled` after scrolling ✓. The mobile menu opens (3 links, 182×44), Escape closes it, `aria-expanded` syncs ✓. | pass | — |
-| A11y-10 | Reduced motion | All content visible with `reduce`. With motion on, every `[data-reveal]` ends “shown”/“idle” after scrolling ✓. | pass | — |
+| Check | Result |
+| --- | --- |
+| Landmarks | `header`, `nav[Primary]`, `main#main`, `footer#contact` with `nav[Footer]`, and labelled accordion regions. The skip link is the first stop. ✓ |
+| Heading order | h1 → h2 (Work) → h3 chapters → h2 Products → h3 ×4 → h2 Beyond → h3 ×4 → h2 JJ → h2 footer. No skipped levels. ✓ |
+| Focus visible | Keyboard Tab walk at 1672, 1024, 768, 390 and 360: 26–27 stops, **every stop has an outline**. In JJ, Talk to JJ, the question field (ring on `.ask`) and the mic button show a 2 px `#f7f2e9` ring, confirmed by screenshot. ✓ |
+| Disabled not focusable | 0 disabled or `aria-disabled` elements in any Tab walk. ✓ |
+| Touch targets | 0 enabled controls under 44×44 at 768, 390 and 360. Accordion headers are 68 px. Below-1024 checks are clean. ✓ |
+| Contrast over the actual background | 5th-percentile background luminance sampled under every text run with text hidden, at 1920, 1440, 1280, 1024, 768, 430, 390 and 360. **All visible text is ≥4.5:1** (≥3:1 for large) after C-F2 and P-F1. Inert actions are excluded because they are disabled by design. ✓ |
+| Career tabs | ArrowDown moves selection and focus (ET Money → INDMoney). End and Home work. Inactive panels are `inert`. ✓ |
+| Mobile accordions | Click and Enter toggle `aria-expanded`. ✓ |
+| Mobile menu | Opens with `aria-expanded=true`. Escape closes it. ✓ |
+| Reduced motion | All captures use `reduce` and render fully. With motion on, all 6 `[data-reveal]` end `shown` after scrolling. ✓ |
 
-## Behaviour, regression and performance (I2–I4)
+## Behaviour and performance (I2, I3)
 
 | Check | Result |
 | --- | --- |
-| Explore my work | Navigates to `#work`. Section top lands at y 96 (nav offset) ✓ |
-| JJ question form | “What did you build at ET Money?” + Enter → `/chat?q=What%20did%20you%20build%20at%20ET%20Money%3F` ✓. Empty submit stays on `/roman-v2` ✓ |
-| Music | “Play a track: Open It Up” drives the existing provider. There is exactly **one `<audio>`** before and after, and it plays `open-it-up.mp3` (paused=false) ✓ |
-| Console | 0 errors and 0 page errors at 1672, 1440 and through all interactions ✓ |
-| Images | Only the hero `<img>` is `loading=eager fetchpriority=high` ✓. All others are lazy ✓. **Every new-art `<img>/<source>` has stale `width/height` attributes** (hero 1105×748→737, hero mobile 850×748→850, career 812×357→457, frame 960×590→640, column 812×266→457, reading 584×419→389, music 516×210→290, JJ 1002×692→668, JJ mobile 560×682→700, footer 490×540→490). These layers are absolutely positioned, so measured **CLS = 0**, but the aspect boxes are wrong until load. Update the attrs, tagged stale. Career renders 5 `<img>` of the same art (one per chapter). Same URL, so it is cached once (minor). |
-| LCP | 116 ms (local), element = hero `<img>` ✓ |
-| Static checks | `tsc --noEmit` passes. `eslint` on `src/{app,components,lib}/roman-v2` and `scripts/roman-v2-qa.mjs` passes ✓ |
+| Explore my work | `#work`, section top at y 96 (nav offset). ✓ |
+| JJ question | “What did you build at ET Money?” + Enter → `/chat?q=What%20did%20you%20build%20at%20ET%20Money%3F`. An empty submit stays on the page. ✓ |
+| Music | “Play a track” drives the existing provider. Exactly **one `<audio>`** before and after, playing `open-it-up.mp3` (not paused). ✓ |
+| Console | 0 errors and 0 page errors at every width and through all interactions. ✓ |
+| Loading | Only the hero `<img>` is `eager` with `fetchpriority=high`. All 18 other images are `lazy`. ✓ |
+| Dimensions | Every `<img>` width/height ratio matches the decoded file (after B-F3). The mobile `<source>` attributes match (hero 1254², JJ 1122×1402). ✓ |
+| CLS | 0 (layout-shift observer, full scroll). ✓ |
+| Nav active marker | `aria-current="location"` on Work, Products and Beyond in turn. JJ has no nav link: “Talk to JJ” is an action. ✓ |
+| Static checks | `tsc --noEmit`, `eslint src/components/roman-v2 src/lib/roman-v2 scripts` and `npm run build` pass. ✓ |
 
-## Noise and intentional items (not to be fixed)
+## Needs the user's input
 
-- Concept paper grain and halftone dot jitter. Diff energy across all backgrounds.
-- Font rasterisation (Figtree vs the concept sans): ±1–3 px glyph-edge diffs on body copy, nav and buttons.
-- Bands outside the section in references 01 (terracotta), 05 (old footer) and 06 (dark band), and the obsolete nav in 03.
-- Interim crop-derived art, now replaced. Writing thumbnails and the WHOOP fragment are still interim.
-- Inert or faded unavailable actions. WHOOP em dashes. Writing and reading preview fixtures with PREVIEW badges.
-- Missing Feedback Intelligence screenshot (input required, §17).
+1. **J5 visual approval** of `/roman-v2` against the references (only the user can approve).
+2. Inputs from §17 that would activate the remaining inert or interim items: a Feedback Intelligence screenshot, real Daily Reading and writing entries, a verified scheduling URL, WHOOP readings, and the final footer socials order.
+3. The copy pass, for example the outcome labels that make the career metric columns wider than the concept's.
+
+## Artifact sizes
+
+- `qa/*.png`: 26 files, **55.6 MB**. That is 24 section artifacts at **48.7 MB** plus the two full-page images at 7.0 MB.
+- `qa/responsive/*.png`: 8 files, **20.7 MB**. The 1920 capture is the largest at 4.9 MB.
+- The PNGs are regenerable and are not committed.

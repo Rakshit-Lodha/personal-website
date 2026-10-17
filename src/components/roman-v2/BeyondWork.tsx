@@ -7,7 +7,11 @@ import shared from "./contemporary-roman.module.css";
 import s from "./BeyondWork.module.css";
 
 const ART = "/roman-v2/beyond";
-const THUMBS = ["writing-thumb-head", "writing-thumb-column", "writing-thumb-mountain"];
+const THUMBS = [
+  { name: "writing-thumb-head", height: 68 },
+  { name: "writing-thumb-column", height: 68 },
+  { name: "writing-thumb-mountain", height: 61 },
+];
 const WAVEFORM = [18, 34, 52, 26, 70, 44, 88, 36, 60, 96, 48, 74, 30, 82, 56, 100, 40, 66, 28, 90, 50, 78, 34, 62, 86, 42, 70, 24, 58, 38, 80, 46, 64, 30, 52, 22];
 
 /** Decorative artwork layer: AVIF with WebP fallback, hidden from assistive technology. */
@@ -51,9 +55,10 @@ function PreviewTag() {
 }
 
 function WritingRow({ row, index }: { row: RomanV2WritingRow; index: number }) {
+  const thumb = THUMBS[index % THUMBS.length];
   const body = (
     <>
-      <Art name={THUMBS[index % THUMBS.length]} widths={[100]} width={100} height={68} sizes="104px" className={s.thumb} />
+      <Art name={thumb.name} widths={[100]} width={100} height={thumb.height} sizes="104px" className={s.thumb} />
       {row.fixture ? (
         <span className={s.rowText}>
           <span className={s.skeleton} aria-hidden="true" />

@@ -5,7 +5,7 @@
  * Captures every approved section of /roman-v2 at the exact pixel size of its concept reference,
  * then writes <section>-{reference,actual,overlay,diff}.png to design/roman-v2/qa/, a full-page
  * desktop capture + side-by-side with 00-full-page-structure.png, and full-page responsive
- * captures (1440 … 360) to design/roman-v2/qa/responsive/ with a metrics.json (scrollWidth etc.).
+ * captures (1920 … 360) to design/roman-v2/qa/responsive/ with a metrics.json (scrollWidth etc.).
  *
  * Run (from the repo root, against a production server — `npm run build && npx next start -p 3030`):
  *
@@ -51,7 +51,7 @@ const SECTIONS = [
   { name: "jj", ref: "05-jj-approved.png", selector: "#jj" },
   { name: "footer", ref: "06-footer-approved.png", selector: "#contact" },
 ];
-const RESPONSIVE_WIDTHS = [1440, 1280, 1024, 768, 430, 390, 360];
+const RESPONSIVE_WIDTHS = [1920, 1440, 1280, 1024, 768, 430, 390, 360];
 const DIFF_GAIN = 3;
 
 async function loadPlaywright() {

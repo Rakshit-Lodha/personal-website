@@ -494,11 +494,11 @@ This tracker is the source of truth for execution progress. The implementing age
 | Detailed implementation plan | ✅ Done | This document |
 | Production artwork layers | 🔎 Review required | 11 generated masters passed asset QA; four small support crops remain explicitly interim and product UI captures still need verification. See `assets/QA.md` and `assets/manifest.json`. |
 | Mobile visual references | ✅ Done | Dedicated hero and JJ mobile compositions generated, corrected where needed, and accepted in `assets/QA.md` |
-| `/roman-v2` application code | 🔎 Review required | Track A foundation and section stubs in place; Tracks C–G next |
-| Data and provider integration | ⬜ Not started | Begins after section shells exist |
-| Responsive implementation | ⬜ Not started | Begins with each section, completed in Track H |
-| Accessibility and performance QA | ⬜ Not started | Track I |
-| Pixel-by-pixel design review | 🔎 Review required | J1–J3 done ([qa/review.md](qa/review.md)); J4 fix loop and J5 approval open |
+| `/roman-v2` application code | 🔎 Review required | Tracks A–I implemented and verified; final comparison passed J4 ([qa/review.md](qa/review.md)); awaiting user visual approval (J5) |
+| Data and provider integration | ✅ Done | JJ session, `/chat?q=` and music provider reused (one `<audio>`); fixtures isolated and marked |
+| Responsive implementation | ✅ Done | No overflow or text/art overlap at 1920–360; see [qa/review.md](qa/review.md) §Responsive |
+| Accessibility and performance QA | ✅ Done | Track I passed in the final pass; see [qa/review.md](qa/review.md) |
+| Pixel-by-pixel design review | 🔎 Review required | J1–J4 done ([qa/review.md](qa/review.md)); J5 awaiting user visual approval |
 | `/roman` cutover | ⬜ Not started | Only after Track J approval |
 
 ### Master execution tracker
@@ -515,36 +515,36 @@ This tracker is the source of truth for execution progress. The implementing age
 | B4 | Prepare Beyond Work artwork set | Book, writing crops, music hand and decorative layers | Asset map | 🔎 Review required — reading, music and column masters accepted; writing thumbnails and WHOOP fragment remain explicitly interim until real content/assets arrive |
 | B5 | Prepare JJ and footer artwork | Listening sculpture, orb treatment and reaching hand | Asset map | ✅ Done — corrected desktop listener, mobile listener and footer hand accepted and optimized |
 | B6 | Optimize and inventory runtime images | Dimensions, AVIF/WebP variants, sizes and source notes recorded | B1–B5 | ✅ Done — preparation script produced 44 runtime files across 15 assets (994 KB total; largest WebP 70 KB) and refreshed `assets/manifest.json` |
-| C1 | Build floating navigation | Desktop pill, mobile menu, active section and JJ action work | A3–A4 | ⬜ Not started |
-| C2 | Build hero structure | Native headline/copy/actions, responsive artwork and first reveal | B1, C1 | ⬜ Not started |
-| C3 | Verify hero functionality | Scroll CTA, JJ CTA, keyboard and reduced-motion behaviour pass | C2 | ⬜ Not started |
-| D1 | Build desktop career selector and active chapter | Four chapters, verified copy, integrated metrics and artwork | A2–A4, B2 | ⬜ Not started |
-| D2 | Build mobile career accordions | Native vertical flow with equivalent content and controls | D1 | ⬜ Not started |
-| D3 | Verify chapter interactions | Pointer, keyboard and touch checks pass | D1–D2 | ⬜ Not started |
-| E1 | Add four selected products to Roman v2 adapter | AI Hiring Chat, Krux.news, Feedback Intelligence and MF Semantic Search | A2 | ⬜ Not started |
-| E2 | Build featured and supporting product cards | Native text/actions; no generated fake UI shipped | B3, E1 | ⬜ Not started |
-| E3 | Apply action availability rules to products | Missing destination remains visually complete and inert | A3, E2 | ⬜ Not started |
-| F1 | Build Daily Reading module in final layout | Real content preferred; preview fixture is clearly isolated; CTA conditional | A2–A4, B4 | ⬜ Not started |
-| F2 | Build Writing module in final layout | Fixture rows isolated; unavailable rows and index CTA inert | A2–A4, B4 | ⬜ Not started |
-| F3 | Build Music module and connect existing provider | Real track enables playback; missing track leaves inert final composition | A2–A4, B4 | ⬜ Not started |
-| F4 | Build WHOOP module | Labels persist; absent readings show em dashes; no invented values | A2–A4, B4 | ⬜ Not started |
-| F5 | Compose responsive Beyond Work section | Desktop editorial grid and mobile reading order match spec | F1–F4 | ⬜ Not started |
-| G1 | Build JJ callout | Oxblood composition, voice action and text-question action | A3–A4, B5 | ⬜ Not started |
-| G2 | Connect JJ and `/chat?q=` behaviour | Existing session opens; valid typed question routes correctly | G1 | ⬜ Not started |
-| G3 | Build final invitation and footer | Verified links enabled; unavailable scheduler inert | A3–A4, B5 | ⬜ Not started |
-| H1 | Complete desktop layout pass | 1280, 1440 and reference-size captures have no overflow or overlap | C–G | 🔎 Review required — QA 17 Oct: no horizontal overflow at 1672/1440/1280 (scrollWidth = clientWidth); composition mismatches remain (career +158 px tall, JJ +25 px, hero copy misaligned ≥1800 px). See [qa/review.md](qa/review.md) §Responsive and X-1–X-3 |
-| H2 | Complete tablet layout pass | 768 and 1024px layouts preserve hierarchy and interactions | C–G | 🔎 Review required — 768/1024: no overflow, hierarchy preserved, career accordion at 768; footer links 26 px tall at 768 (<44 px). See [qa/review.md](qa/review.md) §Responsive, A11y-4 |
-| H3 | Complete mobile layout pass | 360, 390 and 430px layouts use approved mobile compositions | Mobile refs, C–G | 🔎 Review required — 360/390/430: no overflow, hero stacks without overlap; open: featured tagline contrast 2.7:1, empty music player slab, column art behind Beyond heading. See [qa/review.md](qa/review.md) §Responsive, B-8, B-11 |
-| H4 | Add restrained motion and reduced-motion alternatives | Motion matches Section 10; disabled actions never animate | H1–H3 | ⬜ Not started |
-| I1 | Accessibility review | Landmarks, heading order, focus, keyboard, labels and contrast pass | H1–H4 | 🔎 Review required — landmarks, skip link, heading order, tab keyboard, disabled-not-focusable and nav state pass; fails: invisible focus ring in JJ (oxblood on oxblood, 1.43:1), inactive career labels 4.27:1, small footer targets at 768. See [qa/review.md](qa/review.md) §Accessibility |
-| I2 | Performance review | Responsive loading, lazy loading and layout-shift checks pass | B6, H1–H4 | 🔎 Review required — only the hero is eager/high priority; others lazy; CLS 0; LCP = hero image; stale width/height attributes on all regenerated art. See [qa/review.md](qa/review.md) §Behaviour |
-| I3 | Regression checks | JJ, music and `/chat` continue to work | G2, F3 | ✅ Done — 17 Oct QA: JJ form → `/chat?q=…`; empty submit is inert; music plays via provider with exactly one `<audio>`; 0 console errors. See [qa/review.md](qa/review.md) §Behaviour |
-| I4 | Static checks | TypeScript and lint pass | C–G | ✅ Done — `tsc --noEmit` and eslint (roman-v2 sources + QA script) pass, 17 Oct |
+| C1 | Build floating navigation | Desktop pill, mobile menu, active section and JJ action work | A3–A4 | ✅ Done — pill, mobile menu (Escape closes, `aria-expanded` syncs), `aria-current` on Work/Products/Beyond while in view, Talk to JJ action; wordmark 44 px target. See [qa/review.md](qa/review.md) §1, §Accessibility |
+| C2 | Build hero structure | Native headline/copy/actions, responsive artwork and first reveal | B1, C1 | ✅ Done — native headline/copy/CTAs, alpha-keyed responsive art (eager + `fetchpriority=high`), circle behind head; mean diff 33.56. See [qa/review.md](qa/review.md) §1 |
+| C3 | Verify hero functionality | Scroll CTA, JJ CTA, keyboard and reduced-motion behaviour pass | C2 | ✅ Done — Explore my work → `#work` (top at nav offset 96), Talk to JJ opens the existing session, keyboard focus visible, reduced-motion renders fully. See [qa/review.md](qa/review.md) §Behaviour |
+| D1 | Build desktop career selector and active chapter | Four chapters, verified copy, integrated metrics and artwork | A2–A4, B2 | ✅ Done — four chapters, card 327–890 (ref 327–889), integrated metrics and hands art; narrative capped at narrow desktop so it clears the art (C-F1); mean diff 34.29. See [qa/review.md](qa/review.md) §2 |
+| D2 | Build mobile career accordions | Native vertical flow with equivalent content and controls | D1 | ✅ Done — ≤899 accordions with equivalent content; halftone/glow contrast fixed (C-F2). See [qa/review.md](qa/review.md) §2, §Responsive |
+| D3 | Verify chapter interactions | Pointer, keyboard and touch checks pass | D1–D2 | ✅ Done — tabs: ArrowDown/Home/End move selection and focus, inactive panels `inert`; accordions toggle by click and Enter; 68 px headers. See [qa/review.md](qa/review.md) §Accessibility |
+| E1 | Add four selected products to Roman v2 adapter | AI Hiring Chat, Krux.news, Feedback Intelligence and MF Semantic Search | A2 | ✅ Done — AI Hiring Chat, Krux.news, Feedback Intelligence and MF Semantic Search in the Roman v2 adapter |
+| E2 | Build featured and supporting product cards | Native text/actions; no generated fake UI shipped | B3, E1 | ✅ Done — real `/chat`, Krux and MF captures; no generated UI shipped; screenshot clipped to the frame opening; mean diff 58.79 (light real UI vs concept's fake dark UI, P-2 intentional). See [qa/review.md](qa/review.md) §3 |
+| E3 | Apply action availability rules to products | Missing destination remains visually complete and inert | A3, E2 | ✅ Done — Feedback Intelligence renders complete with an inert action; its screenshot remains an input (§17, service suspended). See [qa/review.md](qa/review.md) §3 |
+| F1 | Build Daily Reading module in final layout | Real content preferred; preview fixture is clearly isolated; CTA conditional | A2–A4, B4 | ✅ Done — final layout with isolated, PREVIEW-marked fixture and inert CTA; real content pending (§17). See [qa/review.md](qa/review.md) §4 |
+| F2 | Build Writing module in final layout | Fixture rows isolated; unavailable rows and index CTA inert | A2–A4, B4 | ✅ Done — fixture rows `aria-disabled`, index CTA inert, thumbnail dims corrected (B-F3); real entries pending (§17). See [qa/review.md](qa/review.md) §4 |
+| F3 | Build Music module and connect existing provider | Real track enables playback; missing track leaves inert final composition | A2–A4, B4 | ✅ Done — Play a track drives the existing provider with exactly one `<audio>`; player chrome now stays inside its panel at every width (B-F1). See [qa/review.md](qa/review.md) §4, §Behaviour |
+| F4 | Build WHOOP module | Labels persist; absent readings show em dashes; no invented values | A2–A4, B4 | ✅ Done — labels persist, em dashes + “Not available” for screen readers; fragment no longer covers “Strain” at 1101–1500 (B-F2). See [qa/review.md](qa/review.md) §4 |
+| F5 | Compose responsive Beyond Work section | Desktop editorial grid and mobile reading order match spec | F1–F4 | ✅ Done — desktop grid within 1 px of ref; ≤1100 one module per row; mobile reading order; mean diff 37.36. See [qa/review.md](qa/review.md) §4, §Responsive |
+| G1 | Build JJ callout | Oxblood composition, voice action and text-question action | A3–A4, B5 | ✅ Done — oxblood composition (714 vs 713), orb at (1481,430), voice action and text-question field; mean diff 31.22. See [qa/review.md](qa/review.md) §5 |
+| G2 | Connect JJ and `/chat?q=` behaviour | Existing session opens; valid typed question routes correctly | G1 | ✅ Done — existing session opens; typed question → `/chat?q=…`; empty submit inert. See [qa/review.md](qa/review.md) §Behaviour |
+| G3 | Build final invitation and footer | Verified links enabled; unavailable scheduler inert | A3–A4, B5 | ✅ Done — verified links enabled, scheduler inert (URL pending §17), Privacy link added (+32 px, intentional); tablet hand cleared from headline (F-F1); mean diff 28.67. See [qa/review.md](qa/review.md) §6 |
+| H1 | Complete desktop layout pass | 1280, 1440 and reference-size captures have no overflow or overlap | C–G | ✅ Done — 1920/1440/1280 and 1672 captures: no overflow (`scrollWidth = clientWidth`), no text/art overlap after B-F1/B-F2. See [qa/review.md](qa/review.md) §Responsive, `qa/responsive/` |
+| H2 | Complete tablet layout pass | 768 and 1024px layouts preserve hierarchy and interactions | C–G | ✅ Done — 1024/768: no overflow or overlap (C-F1, F-F1 fixed), hierarchy and interactions preserved, ≥44 px targets below 1024. See [qa/review.md](qa/review.md) §Responsive |
+| H3 | Complete mobile layout pass | 360, 390 and 430px layouts use approved mobile compositions | Mobile refs, C–G | ✅ Done — 430/390/360: no overflow or overlap; approved mobile hero/JJ compositions; full-width CTAs; all text ≥4.5:1. See [qa/review.md](qa/review.md) §Responsive |
+| H4 | Add restrained motion and reduced-motion alternatives | Motion matches Section 10; disabled actions never animate | H1–H3 | ✅ Done — reveals settle to `shown` with motion on; reduced-motion renders all content; disabled actions have no hover motion. See [qa/review.md](qa/review.md) §Accessibility |
+| I1 | Accessibility review | Landmarks, heading order, focus, keyboard, labels and contrast pass | H1–H4 | ✅ Done — landmarks, heading order, visible focus on every stop (incl. paper-light ring in JJ), disabled not focusable, ≥44 px targets, all text ≥4.5:1 over the actual background at 8 widths. See [qa/review.md](qa/review.md) §Accessibility |
+| I2 | Performance review | Responsive loading, lazy loading and layout-shift checks pass | B6, H1–H4 | ✅ Done — only the hero eager/high priority, 18 lazy images, all width/height ratios match the files, CLS 0. See [qa/review.md](qa/review.md) §Behaviour |
+| I3 | Regression checks | JJ, music and `/chat` continue to work | G2, F3 | ✅ Done — final pass: JJ form → `/chat?q=…`, one `<audio>` playing via the provider, 0 console errors at every width. See [qa/review.md](qa/review.md) §Behaviour |
+| I4 | Static checks | TypeScript and lint pass | C–G | ✅ Done — `tsc --noEmit`, `eslint src/components/roman-v2 src/lib/roman-v2 scripts` and `npm run build` pass (final pass, 17 Oct) |
 | J1 | Capture final same-size section screenshots | One implementation capture per approved reference | H–I | ✅ Done — `scripts/roman-v2-qa.mjs` captures all six sections at exact reference size (DPR 1, reduced motion) plus full-page and 7 responsive widths: `qa/*-actual.png`, `qa/responsive/`. Re-run after each fix; art changed mid-capture (10:37) |
 | J2 | Generate overlay and pixel-difference images | `actual`, `overlay` and `diff` images stored for every section | J1 | ✅ Done — `qa/<section>-{reference,actual,overlay,diff}.png` for hero, career, products, beyond, jj, footer; `qa/full-page-vs-structure.png`; `qa/metrics.json` |
 | J3 | Perform design review and log mismatches | Review covers every category in Section 19 | J2 | ✅ Done — [qa/review.md](qa/review.md) logs measured mismatches across all §19 categories with severity and fixes; result: Review required (material issues open) |
-| J4 | Correct and repeat comparison loop | No material unexplained deviation remains | J3 | ⬜ Not started |
-| J5 | Approve `/roman-v2` against references | QA report marked approved | J4 | ⬜ Not started |
+| J4 | Correct and repeat comparison loop | No material unexplained deviation remains | J3 | ✅ Done — final pass regenerated all J1/J2 artifacts (plus 1920), fixed C-F1, C-F2, P-F1, B-F1–F3, F-F1; no material unexplained deviation remains; every remaining item classified (intentional / font / blocked / noise / copy). See [qa/review.md](qa/review.md) |
+| J5 | Approve `/roman-v2` against references | QA report marked approved | J4 | 🔎 Review required — awaiting user visual approval |
 | K1 | Switch `/roman` to approved v2 composition | Existing functionality remains intact after cutover | J5 | ⬜ Not started |
 | K2 | Post-cutover smoke test | Production route, navigation, actions and integrations pass | K1 | ⬜ Not started |
 
