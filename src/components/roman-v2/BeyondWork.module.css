@@ -1,4 +1,640 @@
 /* BeyondWork styles. Shared tokens, container and actions live in contemporary-roman.module.css. */
 
 .section {
+  --beyond-sage: #c0bfae;
+  --beyond-card: #f2eae0;
+  --beyond-rule: #dcd4c9;
+  --beyond-player: #222322;
+  --beyond-pad: clamp(16px, 2.2vw, 36px);
+
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(48px, 4.4vw, 72px) clamp(24px, 1.6vw, 28px);
+  background: var(--beyond-sage);
+  isolation: isolate;
+}
+
+/* Pale paper circle behind the title, built in CSS. */
+.backdrop {
+  position: absolute;
+  z-index: -1;
+  top: calc(320px - 452px);
+  left: calc(50% - 76px - 452px);
+  width: 904px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 45%, #f3ece2 0%, #ebe3d6 60%, #e2dbce 100%);
+}
+
+.column {
+  position: absolute;
+  z-index: -1;
+  top: 4px;
+  right: 0;
+  width: min(812px, 48.6vw);
+}
+
+.column img,
+.readingArt img,
+.musicArt img,
+.whoopArt img,
+.thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.inner {
+  max-width: calc(1600px + 2 * var(--beyond-pad));
+  margin-inline: auto;
+  padding-inline: var(--beyond-pad);
+}
+
+/* Header */
+
+.header {
+  min-height: clamp(150px, 12vw, 200px);
+  padding-left: clamp(4px, 3.4vw, 56px);
+}
+
+.title {
+  font-size: clamp(3.5rem, 8vw, 8.4rem);
+  line-height: 0.95;
+}
+
+.subtitle {
+  margin-top: clamp(4px, 0.4vw, 6px);
+  font-size: clamp(1.125rem, 1.85vw, 1.95rem);
+  line-height: 1.25;
+  color: #2b2a27;
+}
+
+/* Grid: two rows with different splits, as in the approved composition. */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1023fr 73fr 491fr;
+  grid-template-areas:
+    "reading reading writing"
+    "music whoop whoop";
+  gap: 13px;
+}
+
+.reading {
+  grid-area: reading;
+}
+
+.writing {
+  grid-area: writing;
+}
+
+.music {
+  grid-area: music;
+}
+
+.whoop {
+  grid-area: whoop;
+}
+
+.reading,
+.writing,
+.music,
+.whoop {
+  display: flex;
+}
+
+.card {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--beyond-card);
+  box-shadow: 0 1px 2px rgba(23, 22, 20, 0.12);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9375rem;
+  letter-spacing: 0.3em;
+  line-height: 1;
+}
+
+.previewTag {
+  padding: 4px 7px 3px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+/* Daily Reading */
+
+.readingCard {
+  min-height: 424px;
+}
+
+.readingCopy {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  padding: 40px 0 32px 39px;
+}
+
+.readingTitle {
+  max-width: 5.6em;
+  margin-top: 28px;
+  font-size: clamp(3rem, 4.85vw, 5.05rem);
+  text-wrap: balance;
+  line-height: 0.96;
+}
+
+.readingBody {
+  margin-top: 22px;
+  font-size: 1.375rem;
+  line-height: 1.3;
+  color: #2b2a27;
+}
+
+.edition {
+  margin-top: 8px;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+.readingAction {
+  margin-top: 30px;
+  min-height: 61px;
+  padding-inline: 29px;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.readingArt {
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  width: 53.3%;
+}
+
+/* Writing */
+
+.writingCard {
+  display: flex;
+  flex-direction: column;
+  padding: 34px 35px 18px 34px;
+}
+
+.writingBody {
+  margin-top: 14px;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  color: #2b2a27;
+}
+
+.rows {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--beyond-rule);
+}
+
+.rows li + li {
+  border-top: 1px solid var(--beyond-rule);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 104px 1fr auto;
+  align-items: center;
+  gap: 26px;
+  min-height: 84px;
+  padding-block: 3px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.rowLink:hover .rowArrow {
+  transform: translate(2px, -2px);
+}
+
+.rowArrow {
+  margin-right: 1px;
+  transition: transform 200ms var(--ease);
+}
+
+.thumb {
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.thumb img {
+  aspect-ratio: 104 / 71;
+  object-fit: cover;
+}
+
+.rowText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.skeleton {
+  display: block;
+  width: 62%;
+  height: 11px;
+  background: #e3dcd2;
+}
+
+.skeletonWide {
+  width: 100%;
+}
+
+.rowTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.rowMeta {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.writingAction {
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: auto;
+  min-height: 45px;
+  padding-inline: 25px;
+  font-size: 1.0625rem;
+  font-weight: 400;
+}
+
+.row[aria-disabled="true"] {
+  opacity: 0.85;
+}
+
+/* Music */
+
+.musicCard {
+  min-height: 210px;
+}
+
+.musicCopy {
+  position: relative;
+  z-index: 1;
+  max-width: 250px;
+  padding: 28px 0 12px 39px;
+}
+
+.musicTitle {
+  max-width: 5.2em;
+  margin-top: 10px;
+  font-size: clamp(2.25rem, 2.75vw, 2.875rem);
+  line-height: 0.94;
+}
+
+.musicAction {
+  margin-top: 14px;
+  min-height: 42px;
+  padding-inline: 30px 34px;
+  gap: 18px;
+  font-size: 1.1875rem;
+  font-weight: 400;
+}
+
+.musicStage {
+  position: absolute;
+  inset: 0 0 0 253px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.musicArt {
+  flex: none;
+  width: 516px;
+}
+
+.musicPanel {
+  flex: 1 0 240px;
+  margin-left: -3px; /* covers the artwork's soft right edge */
+  align-self: stretch;
+  background: var(--beyond-player);
+}
+
+.player {
+  position: absolute;
+  right: 30px;
+  bottom: 18px;
+  width: min(303px, calc(100% - 60px));
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.waveform {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: flex-end;
+  width: 225px;
+  height: 90px;
+  margin-bottom: 22px;
+}
+
+.waveform span {
+  width: 2px;
+  border-radius: 1px;
+  background: #9fa58f;
+}
+
+.progress {
+  position: relative;
+  height: 2px;
+  background: rgba(247, 242, 233, 0.22);
+}
+
+.progress span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 51%;
+  background: rgba(247, 242, 233, 0.75);
+}
+
+.progress span::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f7f2e9;
+}
+
+.transport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-top: 17px;
+  margin-left: 30px;
+  height: 18px;
+}
+
+.playIcon {
+  width: 0;
+  height: 0;
+  border-block: 8px solid transparent;
+  border-left: 14px solid #e9e4da;
+}
+
+.skipBack,
+.skipForward {
+  position: relative;
+  width: 12px;
+  height: 12px;
+}
+
+.skipBack::before,
+.skipForward::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-block: 6px solid transparent;
+}
+
+.skipBack::after,
+.skipForward::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 12px;
+  background: #8d8b84;
+}
+
+.skipBack::before {
+  right: 0;
+  border-right: 10px solid #8d8b84;
+}
+
+.skipBack::after {
+  left: 0;
+}
+
+.skipForward::before {
+  left: 0;
+  border-left: 10px solid #8d8b84;
+}
+
+.skipForward::after {
+  right: 0;
+}
+
+/* WHOOP */
+
+.whoopCard {
+  min-height: 210px;
+  padding: 32px 35px 28px;
+}
+
+.metrics {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  margin: 38px 0 0;
+}
+
+.metric {
+  min-width: 104px;
+  padding-block: 4px 10px;
+}
+
+.metric + .metric {
+  padding-left: 32px;
+  border-left: 1px solid var(--beyond-rule);
+}
+
+.metric:not(:last-child) {
+  padding-right: 34px;
+}
+
+.metricLabel {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+.metricValue {
+  margin: 14px 0 0;
+  font-family: var(--font-headline);
+  font-size: 2.25rem;
+  line-height: 1;
+  color: var(--muted);
+}
+
+.whoopArt {
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  width: 144px;
+}
+
+/* Tablet: one module per row keeps each composition intact. */
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: "reading" "writing" "music" "whoop";
+  }
+
+  .column {
+    width: min(560px, 60vw);
+  }
+}
+
+/* Mobile: modules stack in reading order with artwork below the copy. */
+
+@media (max-width: 767px) {
+  .backdrop {
+    top: -220px;
+    left: -40%;
+    width: 140vw;
+  }
+
+  .column {
+    width: 72vw;
+    opacity: 0.55;
+  }
+
+  .header {
+    min-height: 0;
+    padding-bottom: 28px;
+  }
+
+  .readingCard {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .readingCopy {
+    padding: 28px 22px 0;
+  }
+
+  .readingTitle {
+    margin-top: 20px;
+    font-size: clamp(2.5rem, 11vw, 3rem);
+  }
+
+  .readingBody {
+    margin-top: 16px;
+    font-size: 1.125rem;
+  }
+
+  .readingAction {
+    width: 100%;
+    margin-top: 24px;
+    min-height: 52px;
+  }
+
+  .readingArt {
+    position: static;
+    width: 100%;
+    margin-top: -8px;
+  }
+
+  .writingCard {
+    padding: 28px 22px 22px;
+  }
+
+  .row {
+    grid-template-columns: 84px 1fr auto;
+    gap: 16px;
+    min-height: 76px;
+  }
+
+  .writingAction {
+    margin-top: 16px;
+  }
+
+  .musicCard {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .musicCopy {
+    max-width: none;
+    padding: 28px 22px 24px;
+  }
+
+  .musicAction {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .musicStage {
+    position: relative;
+    inset: auto;
+    height: 160px;
+  }
+
+  .musicArt {
+    width: auto;
+    height: 160px;
+  }
+
+  .musicPanel {
+    flex-basis: 0;
+  }
+
+  .player {
+    display: none;
+  }
+
+  .musicArt img {
+    width: auto;
+    height: 100%;
+  }
+
+
+  .whoopCard {
+    padding: 28px 22px 24px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 28px;
+  }
+
+  .metric {
+    min-width: 0;
+  }
+
+  .metric + .metric {
+    padding-left: 14px;
+  }
+
+  .metric:not(:last-child) {
+    padding-right: 14px;
+  }
+
+  .metricLabel {
+    font-size: 1.25rem;
+  }
+
+  .whoopArt {
+    width: 80px;
+    opacity: 0.45;
+  }
 }
