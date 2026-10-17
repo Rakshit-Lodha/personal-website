@@ -80,7 +80,7 @@
 .title {
   font-size: clamp(2.5rem, 6.08vw, 6.6rem);
   line-height: 1.02;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 .lead::after {

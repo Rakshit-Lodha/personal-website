@@ -99,7 +99,7 @@
 
 .title {
   font-size: clamp(2.5rem, 8vw, 8.375rem);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   line-height: 0.92;
 }
 
@@ -502,7 +502,7 @@
     font-size: clamp(2rem, 8.2vw, 2.75rem);
     font-weight: 600;
     line-height: 0.95;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
   }
 
   .region .outcomes {
