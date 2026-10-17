@@ -12,6 +12,9 @@ import s from "./CareerJourney.module.css";
 // The content contract has no chapter destination yet, so the action stays inert.
 const VIEW_CHAPTER: AvailableAction = { available: false, label: "View chapter" };
 
+/** Periods read as one unit in the timeline ("2026—NOW"); the content keeps its spaced dash. */
+const tightPeriod = (period: string) => period.replace(/\s*—\s*/g, "—");
+
 const KEY_STEP: Record<string, number> = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
 
 function CareerArt({ sizes }: { sizes: string }) {
@@ -27,7 +30,7 @@ function CareerArt({ sizes }: { sizes: string }) {
         srcSet="/roman-v2/career/career-hands-560.webp 560w, /roman-v2/career/career-hands-812.webp 812w"
         sizes={sizes}
       />
-      <img src="/roman-v2/career/career-hands-812.webp" alt="" width={812} height={357} loading="lazy" decoding="async" />
+      <img src="/roman-v2/career/career-hands-812.webp" alt="" width={812} height={457} loading="lazy" decoding="async" />
     </picture>
   );
 }
@@ -134,7 +137,7 @@ export default function CareerJourney({ career }: { career: RomanV2Career }) {
                 >
                   <span className={s.dot} aria-hidden="true" />
                   <span className={s.company}>{chapter.company}</span>
-                  <span className={s.period}>{chapter.period}</span>
+                  <span className={s.period}>{tightPeriod(chapter.period)}</span>
                 </button>
               );
             })}
@@ -194,7 +197,7 @@ export default function CareerJourney({ career }: { career: RomanV2Career }) {
                     <span className={s.dot} aria-hidden="true" />
                     <span className={s.itemLabel}>
                       <span className={s.company}>{chapter.company}</span>
-                      <span className={s.period}>{chapter.period}</span>
+                      <span className={s.period}>{tightPeriod(chapter.period)}</span>
                     </span>
                     <ChevronDown className={s.chevron} size={20} strokeWidth={1.75} aria-hidden="true" />
                   </button>
