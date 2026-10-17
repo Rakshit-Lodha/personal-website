@@ -7,23 +7,23 @@ export default function Hero({ hero }: { hero: RomanV2Hero }) {
   return (
     <section id="top" aria-labelledby="hero-title" className={s.section}>
       <div className={s.circle} aria-hidden="true" />
-      {/* The page's only eager, high-priority image. Mobile gets a dedicated portrait crop. */}
+      {/* The page's only eager, high-priority image. Mobile gets a laptop-and-hands crop. */}
       <picture className={s.art}>
         <source
           media="(max-width: 899px)"
           type="image/avif"
-          srcSet="/roman-v2/hero/hero-figure-mobile-480.avif 480w, /roman-v2/hero/hero-figure-mobile-850.avif 850w, /roman-v2/hero/hero-figure-mobile-1254.avif 1254w"
-          sizes="(max-width: 699px) 100vw, 640px"
-          width={1254}
-          height={1254}
+          srcSet="/roman-v2/hero/hero-hands-mobile-480.avif 480w, /roman-v2/hero/hero-hands-mobile-860.avif 860w"
+          sizes="100vw"
+          width={860}
+          height={640}
         />
         <source
           media="(max-width: 899px)"
           type="image/webp"
-          srcSet="/roman-v2/hero/hero-figure-mobile-480.webp 480w, /roman-v2/hero/hero-figure-mobile-850.webp 850w, /roman-v2/hero/hero-figure-mobile-1254.webp 1254w"
-          sizes="(max-width: 699px) 100vw, 640px"
-          width={1254}
-          height={1254}
+          srcSet="/roman-v2/hero/hero-hands-mobile-480.webp 480w, /roman-v2/hero/hero-hands-mobile-860.webp 860w"
+          sizes="100vw"
+          width={860}
+          height={640}
         />
         <source
           type="image/avif"
