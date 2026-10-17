@@ -56,7 +56,7 @@ export default async function ReadingEditionPage({ params }: { params: Promise<{
       {edition.htmlAssetId && (
         <div className={s.fullEdition}>
           <a
-            href={`/reading/editions/${edition.htmlAssetId}`}
+            href={`/reading/editions/${edition.date}`}
             className={actionClassName("primary")}
           >
             <span>Read the full visual edition</span>
