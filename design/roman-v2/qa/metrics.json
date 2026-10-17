@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "width": 1665,
+    "height": 944,
+    "meanAbsDiff": 43.05,
+    "pctPixelsOver32": 37.1,
+    "section": {
+      "top": 0,
+      "height": 845,
+      "viewportTop": 0
+    },
+    "consoleErrors": []
+  },
+  "career": {
+    "width": 1672,
+    "height": 941,
+    "meanAbsDiff": 38.53,
+    "pctPixelsOver32": 32.2,
+    "section": {
+      "top": 849,
+      "height": 1091,
+      "viewportTop": 0
+    },
+    "consoleErrors": []
+  },
+  "products": {
+    "width": 1672,
+    "height": 941,
+    "meanAbsDiff": 39.88,
+    "pctPixelsOver32": 31.9,
+    "section": {
+      "top": 1939,
+      "height": 950,
+      "viewportTop": 0
+    },
+    "consoleErrors": []
+  },
+  "beyond": {
+    "width": 1672,
+    "height": 941,
+    "meanAbsDiff": 41.71,
+    "pctPixelsOver32": 37.8,
+    "section": {
+      "top": 2889,
+      "height": 950,
+      "viewportTop": 0
+    },
+    "consoleErrors": []
+  },
+  "jj": {
+    "width": 1672,
+    "height": 941,
+    "meanAbsDiff": 38.93,
+    "pctPixelsOver32": 28.1,
+    "section": {
+      "top": 3839,
+      "height": 738,
+      "viewportTop": 0
+    },
+    "consoleErrors": []
+  },
+  "footer": {
+    "width": 1672,
+    "height": 941,
+    "meanAbsDiff": 27.8,
+    "pctPixelsOver32": 19.9,
+    "section": {
+      "top": 4577,
+      "height": 864,
+      "viewportTop": 0
+    },
+    "consoleErrors": []
+  },
+  "capturedAt": "2026-10-17T05:08:31.625Z",
+  "base": "http://localhost:3030"
+}

@@ -17,8 +17,9 @@
   --font-body: var(--font-figtree), system-ui, sans-serif;
   --font-inscription: var(--font-cinzel), "Times New Roman", serif;
 
-  --container-max: 1440px;
-  --gutter: clamp(16px, 4.5vw, 72px);
+  --container-max: 1680px;
+  --gutter: clamp(16px, 4vw, 72px);
+  --focus-ring: var(--oxblood);
   --section-space: clamp(72px, 10vw, 144px);
   --radius: 2px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -137,7 +138,7 @@
 }
 
 .root :where(a, button, input, select, textarea, [tabindex]):focus-visible {
-  outline: 2px solid var(--oxblood);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
