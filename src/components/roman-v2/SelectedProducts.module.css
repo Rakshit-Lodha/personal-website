@@ -55,6 +55,8 @@
 /* Featured product */
 
 .featured {
+  /* Flex so the copy box (and its hover panel) runs the band's full height. */
+  display: flex;
   min-height: clamp(220px, 15.8vw, 264px);
   background: linear-gradient(90deg, var(--products-band) 0%, #cf9a83 40%, rgba(207, 154, 131, 0) 62%);
 }
