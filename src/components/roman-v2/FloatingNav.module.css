@@ -1,4 +1,229 @@
 /* FloatingNav styles. Shared tokens, container and actions live in contemporary-roman.module.css. */
 
+/* The wordmark scrolls with the hero; only the pill floats. */
 .root {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  height: 108px;
+  padding-inline: 6.5vw 4.9vw;
+}
+
+.wordmark {
+  font-size: clamp(1.125rem, 1.35vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+  text-decoration: none;
+  animation: navIn 700ms var(--ease) both;
+}
+
+.pill {
+  position: fixed;
+  top: 22px;
+  right: 4.9vw;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 64px;
+  padding: 0 30px 0 32px;
+  border: 1px solid rgba(23, 22, 20, 0.06);
+  border-radius: 999px;
+  background: rgba(247, 242, 233, 0.78);
+  box-shadow: 0 10px 30px -18px rgba(60, 40, 25, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    background-color 300ms var(--ease),
+    box-shadow 300ms var(--ease);
+  animation: navIn 700ms var(--ease) 80ms both;
+}
+
+.pill[data-scrolled] {
+  background: rgba(247, 242, 233, 0.95);
+  box-shadow: 0 12px 32px -16px rgba(60, 40, 25, 0.45);
+}
+
+.emblem {
+  width: 38px;
+  height: 23px;
+  color: var(--oxblood);
+}
+
+.divider {
+  width: 1px;
+  height: 30px;
+  margin-inline: 36px 18px;
+  background: var(--line);
+}
+
+.menuToggle {
+  display: none;
+}
+
+.links ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 23px;
+  font-size: 1.0625rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 200ms var(--ease);
+}
+
+.link:hover,
+.link[aria-current] {
+  color: var(--oxblood);
+}
+
+/* Restrained active marker: a short oxblood rule under the label. */
+.link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 14px;
+  height: 2px;
+  background: var(--oxblood);
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 250ms var(--ease);
+}
+
+.link[aria-current]::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.jj {
+  height: 48px;
+  margin-left: 14px;
+  padding-inline: 34px 18px;
+  gap: 22px;
+  border-radius: 6px;
+  font-size: 1.1875rem;
+  font-weight: 400;
+}
+
+.jj svg {
+  box-sizing: content-box;
+  width: 13px;
+  height: 13px;
+  padding: 4px;
+  border: 1px solid rgba(247, 242, 233, 0.7);
+  border-radius: 50%;
+}
+
+@keyframes navIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+/* Compact pill: emblem and links collapse behind a disclosure, JJ stays visible. */
+@media (max-width: 899px) {
+  .root {
+    height: 76px;
+    padding-inline: 16px;
+  }
+
+  .wordmark {
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+  }
+
+  .pill {
+    top: 14px;
+    right: 12px;
+    height: 52px;
+    padding: 0 4px;
+  }
+
+  .emblem,
+  .divider {
+    display: none;
+  }
+
+  .menuToggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .links {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 200px;
+    padding: 8px;
+    border: 1px solid rgba(23, 22, 20, 0.08);
+    border-radius: 16px;
+    background: rgba(247, 242, 233, 0.98);
+    box-shadow: 0 16px 36px -18px rgba(60, 40, 25, 0.45);
+  }
+
+  .links:not([data-open]) {
+    display: none;
+  }
+
+  .links ul {
+    flex-direction: column;
+  }
+
+  .link {
+    display: flex;
+    padding-inline: 16px;
+  }
+
+  .link::after {
+    left: 4px;
+    bottom: 50%;
+    width: 2px;
+    height: 14px;
+    transform: translateY(50%) scaleY(0);
+  }
+
+  .link[aria-current]::after {
+    transform: translateY(50%) scaleY(1);
+  }
+
+  .jj {
+    height: 44px;
+    margin-left: 0;
+    padding-inline: 16px 12px;
+    gap: 10px;
+    border-radius: 999px;
+    font-size: 0.9375rem;
+  }
+
+  .jj svg {
+    width: 11px;
+    height: 11px;
+    padding: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wordmark,
+  .pill {
+    animation: none;
+  }
 }
