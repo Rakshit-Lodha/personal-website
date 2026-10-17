@@ -32,9 +32,9 @@
 }
 
 .title {
-  font-size: clamp(3.5rem, 8.5vw, 9rem);
-  line-height: 0.78;
-  letter-spacing: -0.008em;
+  font-size: clamp(3rem, 7.225vw, 7.65rem);
+  line-height: 0.83;
+  letter-spacing: -0.03em;
 }
 
 .title span {
@@ -62,8 +62,8 @@
 }
 
 .featuredTitle {
-  font-size: clamp(2.75rem, 4.9vw, 5.15rem);
-  letter-spacing: 0;
+  font-size: clamp(2.25rem, 3.9vw, 4.1rem);
+  letter-spacing: -0.03em;
 }
 
 .featuredTagline {

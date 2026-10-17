@@ -60,11 +60,11 @@
   bottom: calc(7.8 * var(--u));
 }
 
-/* Instrument Serif runs taller and narrower than the concept face: size to the concept baselines. */
+/* Newsreader runs slightly wider than the concept face: size to the concept widths and baselines. */
 .title {
-  font-size: calc(9.3 * var(--u));
-  line-height: 0.76;
-  letter-spacing: 0;
+  font-size: calc(7.9 * var(--u));
+  line-height: 0.87;
+  letter-spacing: -0.03em;
 }
 
 .lead,
@@ -151,8 +151,8 @@
   }
 
   .title {
-    font-size: clamp(4.25rem, 19vw, 8.5rem);
-    line-height: 0.8;
+    font-size: clamp(3.625rem, 16.2vw, 7.25rem);
+    line-height: 0.9;
   }
 
   .body {
