@@ -122,8 +122,8 @@ return `200 audio/wav` when `SARVAM_API_KEY` is configured.
 
 The private setup page at `/whoop` connects the site owner's WHOOP account. It
 requests only `read:recovery`, `read:sleep`, `read:cycles`, and `offline`. The
-OAuth callback immediately creates the first public snapshot; Vercel then calls
-the sync job every 30 minutes. Public pages receive only the five allowlisted
+OAuth callback immediately creates the first public snapshot; Vercel Hobby then
+calls the sync job daily at 00:30 UTC (06:00 IST). Public pages receive only the five allowlisted
 metrics, their measurement times, and the last sync time.
 
 Required server-side environment variables:
@@ -143,5 +143,8 @@ UPSTASH_REDIS_REST_TOKEN=...
 variable names. OAuth credentials are encrypted with AES-256-GCM before storage.
 WHOOP rotates refresh tokens, so the sync process uses a Redis lock before every
 refresh and atomically replaces the stored credential while holding that lock.
-If sync stops, the last good snapshot is marked stale after 90 minutes; if no
+If sync stops, the last good snapshot is marked stale after 26 hours; if no
 snapshot exists, the site displays unavailable values rather than samples.
+
+The authenticated `/api/jobs/whoop-sync` endpoint can be invoked every 30 minutes
+by Vercel Pro or an external scheduler without further code changes.

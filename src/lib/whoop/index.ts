@@ -13,7 +13,7 @@ export async function getPublicWhoopSnapshot(): Promise<WhoopSnapshot> {
   try {
     const snapshot = await whoopStore.getSnapshot();
     if (!snapshot?.syncedAt) return { status: "unavailable", metrics: EMPTY_METRICS };
-    const stale = Date.now() - new Date(snapshot.syncedAt).getTime() > 90 * 60 * 1000;
+    const stale = Date.now() - new Date(snapshot.syncedAt).getTime() > 26 * 60 * 60 * 1000;
     return { ...snapshot, status: stale ? "stale" : "live" };
   } catch {
     return { status: "unavailable", metrics: EMPTY_METRICS };
