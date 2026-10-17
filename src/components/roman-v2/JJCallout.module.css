@@ -1,15 +1,18 @@
 /* JJCallout styles. Shared tokens, container and actions live in contemporary-roman.module.css. */
 
 .section {
-  --jj-bg: #4f1816;
+  /* Sampled ground of the jj-listener exports, so the art box has no visible edge. */
+  --jj-bg: #591311;
   --jj-accent: #e0baa3;
+  /* The shared oxblood ring is invisible on this field. */
+  --focus-ring: var(--paper-light);
 
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   min-height: clamp(560px, 42.6vw, 780px);
-  padding-block: clamp(120px, 9.9vw, 170px) clamp(96px, 7.2vw, 124px);
+  padding-block: clamp(120px, 10.4vw, 180px) clamp(96px, 7.1vw, 124px);
   background:
     radial-gradient(ellipse 60% 70% at 0% 0%, rgba(122, 40, 36, 0.35), transparent 70%),
     var(--jj-bg);
@@ -31,19 +34,17 @@
 .inner {
   position: relative;
   z-index: 2;
-  max-width: 1680px;
-  padding-inline: clamp(16px, 4vw, 72px);
 }
 
 .copy {
-  max-width: 46rem;
+  max-width: 54rem;
   padding-left: 1.6vw;
 }
 
 .title {
-  font-size: clamp(3rem, 7.4vw, 8rem);
-  line-height: 0.94;
-  letter-spacing: -0.025em;
+  font-size: clamp(3rem, 7.7vw, 8.4rem);
+  line-height: 0.86;
+  letter-spacing: -0.01em;
 }
 
 .lead {
@@ -61,7 +62,7 @@
 
 .body {
   max-width: 24ch;
-  margin-top: clamp(20px, 2vw, 34px);
+  margin-top: clamp(12px, 0.8vw, 20px);
   font-size: clamp(1.125rem, 1.75vw, 1.8125rem);
   line-height: 1.4;
   color: var(--paper-light);
@@ -103,6 +104,12 @@
   border-color: var(--paper-light);
 }
 
+/* The input itself has no ring; the field shows it (the mic button keeps its own). */
+.ask:has(.input:focus-visible) {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
 .input {
   flex: 1;
   min-width: 0;
@@ -141,20 +148,30 @@
   color: var(--jj-accent);
 }
 
-/* Artwork: right ~60%, flush to the right and bottom edges. */
+/*
+ * Artwork, sized from the section height: hair top at 6% and the bust cut by the section bottom,
+ * head centred at 67% of the width (concept head x 880-1360 at 1672).
+ */
 
 .art {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  width: min(60vw, 1120px);
+  top: -22.9%;
+  left: 67%;
+  height: 149.9%;
+  aspect-ratio: 1002 / 668;
+  translate: -52.8% 0;
   pointer-events: none;
+}
+
+.art picture {
+  display: block;
+  height: 100%;
 }
 
 .artImage {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 /* Voice orb, positioned where the concept places it over the artwork. */
@@ -164,9 +181,9 @@
   --bar-scale: 1;
 
   position: absolute;
-  left: 80.9%;
-  top: 59.2%;
-  width: 16%;
+  left: 75.3%;
+  top: 55.5%;
+  width: 10%;
   aspect-ratio: 1;
   translate: -50% -50%;
   border-radius: 50%;
@@ -245,6 +262,14 @@
   }
 }
 
+/* Narrow desktop: keep the orb inside the viewport. */
+
+@media (min-width: 1024px) and (max-width: 1179px) {
+  .art {
+    left: 64%;
+  }
+}
+
 /* Tablet: copy first, then the artwork across the full width. */
 
 @media (max-width: 1023px) {
@@ -264,8 +289,24 @@
 
   .art {
     position: relative;
+    top: auto;
+    left: auto;
     width: 100%;
-    margin-top: 24px;
+    height: auto;
+    aspect-ratio: auto;
+    /* The export's top ~16% is empty ground; pull it under the actions. */
+    margin-top: -10%;
+    translate: none;
+  }
+
+  .orb {
+    left: 82%;
+    top: 40%;
+    width: 11%;
+  }
+
+  .artImage {
+    height: auto;
   }
 }
 
@@ -305,9 +346,9 @@
 
   .orb {
     left: auto;
-    right: 4%;
-    top: 46%;
-    width: 22%;
+    right: 3%;
+    top: 22%;
+    width: 20%;
     translate: 0 -50%;
   }
 }
