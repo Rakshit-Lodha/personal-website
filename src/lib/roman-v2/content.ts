@@ -29,8 +29,8 @@ const CHAPTER_COPY: Record<
   paytmmoney: {
     title: "App experience + Agents",
     narrative: "Improving the app experience and building consumer-facing agents.",
-    period: "FAFOing",
-    outcomes: [],
+    period: "Present",
+    outcomes: [{ value: "FAFO", label: "" }],
   },
   etmoney: {
     title: "Scaled numbers beyond the powerpoint",
