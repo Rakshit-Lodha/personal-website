@@ -1,10 +1,8 @@
 // Roman v2 runtime artwork (Track B, B1–B6).
 //
-// FIRST-PASS / INTERIM: every layer below is cut out of the approved concept PNGs in
-// design/roman-v2/concepts/. Baked-in text, nav, buttons, chart lines and fake UI are removed by
-// tight crops, feathered alpha erasure, flat-colour paint-overs or small onion-peel inpaints.
-// When regenerated art exists at design/roman-v2/assets/masters/<id>.png it is used instead of
-// the concept crop (only the edge fades are applied to it).
+// Regenerated masters in design/roman-v2/assets/masters/<id>.png are preferred and receive only
+// the configured edge fades. Assets without a master still fall back to approved concept crops;
+// those fallback entries are explicitly marked interim in the generated manifest.
 //
 // Run: node scripts/prepare-roman-v2-assets.mjs        (writes public/roman-v2/** + manifest)
 //      node scripts/prepare-roman-v2-assets.mjs --preview <dir>   (also writes flattened PNG previews)
@@ -47,6 +45,7 @@ const ASSETS = [
     ops: [{ op: 'erase', rect: [540, 300, 165, 192], feather: 18, why: 'tail of headline “judgment.”' }],
     placement: 'Desktop hero: right ~60% of the hero, bottom-aligned to the hero bottom edge (the terracotta band sits directly below). Copy sits to the left.',
     notes: 'Contains part of the large faint circle (#ecdecf). Full circle in concept px ≈ centre (1247, 450), r ≈ 507 – draw it in CSS behind the figure. Nav pill, headline, copy, buttons and terracotta band excluded.',
+    masterNotes: 'Approved generated desktop hero. Figure, hands and laptop all face left; left copy field is intentionally clear. Draw the large faint circle and all interface elements in CSS/HTML.',
   },
   {
     id: 'hero-figure-mobile', section: 'hero', concept: C.hero, crop: [770, 95, 850, 748], widths: [480, 850],
@@ -54,6 +53,7 @@ const ASSETS = [
     ops: [],
     placement: 'Mobile hero: full-width portrait-ish crop (head → hands on keyboard) placed below the headline/CTA stack, bottom-aligned.',
     notes: 'Laptop lid is partially cropped and fades out on the left.',
+    masterNotes: 'Approved corrected mobile hero. The complete laptop is visible with ivory margin; all interface elements remain CSS/HTML.',
   },
   {
     id: 'career-hands', section: 'career', concept: C.career, crop: [860, 333, 812, 357], widths: [560, 812],
@@ -69,6 +69,7 @@ const ASSETS = [
     ],
     placement: 'Active chapter card: top-right of the card, top edge aligned to the card top, right-aligned to the card edge; chapter copy to the left, metrics row below.',
     notes: 'Chart nodes/curve/axis inpainted; faint blueprint grid inside the halftone remains (reads as texture). Hands’ upper sleeve (on the sage band above the card) is cut by the top edge.',
+    masterNotes: 'Approved generated career artwork: hands assemble geometric blocks; no charts, grids, text or UI are baked into the image.',
   },
   {
     id: 'projects-frame', section: 'projects', concept: C.projects, crop: [690, 78, 960, 590], widths: [640, 960],
@@ -80,6 +81,7 @@ const ASSETS = [
     ],
     placement: 'Featured product: right ~60% of the featured block over the CSS terracotta circle; real product screenshot goes BEHIND this layer inside the transparent window.',
     notes: 'Frame interior is a transparent window – see `window` (output px at full width). Terracotta background keyed to alpha so it can sit on a CSS terracotta circle. Darker marble shadows are partly translucent after keying, so this layer MUST sit over terracotta #b26e58 (not paper).',
+    masterNotes: 'Approved generated frame. The inner #141413 opening is a placement area; render real product UI above the raster within that opening.',
   },
   {
     id: 'projects-head', section: 'projects', concept: C.projects, crop: [690, 120, 300, 548], widths: [300],
@@ -91,6 +93,7 @@ const ASSETS = [
     ],
     placement: 'Fallback / mobile: the sculpture head fragment alone (if the frame layer is not used). Left of the product screenshot.',
     notes: 'Right edge crosses the dark gap between head and frame and fades out. Keyed like projects-frame – place over terracotta #b26e58.',
+    masterNotes: 'Approved generated right-facing marble head on terracotta; no frame or product UI is baked in.',
   },
   {
     id: 'beyond-reading', section: 'beyond', concept: C.beyond, crop: [548, 272, 584, 419], widths: [584],
@@ -98,6 +101,7 @@ const ASSETS = [
     ops: [],
     placement: 'Daily Reading card: right half of the card, bottom- and right-aligned; heading/CTA on the left.',
     notes: 'Paper sheets carry abstract grey “ruled lines” (not readable text) as in the concept.',
+    masterNotes: 'Approved generated reading collage with no readable text and a clear left copy field.',
   },
   {
     id: 'beyond-music', section: 'beyond', concept: C.beyond, crop: [290, 706, 516, 210], widths: [516],
@@ -107,6 +111,7 @@ const ASSETS = [
     ],
     placement: 'Music card: middle band, bottom-aligned; its right edge butts directly against the HTML player panel (#222322) that holds waveform/controls.',
     notes: 'Right portion is the dark player panel corner; waveform, progress bar and transport controls excluded/inpainted.',
+    masterNotes: 'Approved generated hand and rotary knob. Waveform, labels and player controls must be rendered separately in HTML/CSS.',
   },
   {
     id: 'beyond-column', section: 'beyond', concept: C.beyond, crop: [860, 0, 812, 266], widths: [560, 812],
@@ -114,6 +119,7 @@ const ASSETS = [
     ops: [],
     placement: 'Section header decoration: top-right of Beyond Work, top- and right-aligned, behind the section title row.',
     notes: 'Includes part of the light sage circle behind the foliage.',
+    masterNotes: 'Approved generated column and olive branch with a clear left field for section copy.',
   },
   {
     id: 'beyond-whoop-fragment', section: 'beyond', concept: C.beyond, crop: [1492, 708, 144, 206], widths: [144],
@@ -267,7 +273,7 @@ async function build(a) {
     sectionBackgroundSampled: a.bg,
     source: useMaster ? { master: path.relative(root, masterPath) } : { concept: `design/roman-v2/concepts/${a.concept}`, crop: { left: L, top: T, width: W, height: H } },
     cleanup: ops.map((s) => `${s.op}: ${s.why}`),
-    notes: a.notes,
+    notes: useMaster ? (a.masterNotes ?? a.notes) : a.notes,
   };
   if (a.id === 'projects-frame' && !useMaster) {
     const win = a.ops.find((s) => s.op === 'erase').poly.map(([x, y]) => [x - L, y - T]);
@@ -283,8 +289,8 @@ const manifest = {
   version: 1,
   generated: new Date().toISOString().slice(0, 10),
   script: 'scripts/prepare-roman-v2-assets.mjs',
-  provenance: 'Cropped/masked from the approved concept PNGs (no image generation available in this pass).',
-  status: STATUS,
+  provenance: 'Mixed pipeline: approved generated masters are used when present; remaining small support assets are cropped from approved concepts and marked interim per asset.',
+  status: assets.every((a) => a.status === 'regenerated master') ? 'all regenerated masters' : 'mixed – regenerated masters plus explicitly marked interim support assets',
   palette: PALETTE,
   cssRecommendations: ['Large section circles, rules, grain and the JJ voice orb are CSS, not raster.', 'Use <picture> with AVIF then WebP; alt=""; aria-hidden; lazy-load all but hero.'],
   assets,
