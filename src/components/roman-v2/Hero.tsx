@@ -12,18 +12,18 @@ export default function Hero({ hero }: { hero: RomanV2Hero }) {
         <source
           media="(max-width: 899px)"
           type="image/avif"
-          srcSet="/roman-v2/hero/hero-hands-mobile-480.avif 480w, /roman-v2/hero/hero-hands-mobile-860.avif 860w"
+          srcSet="/roman-v2/hero/hero-hands-mobile-480.avif 480w, /roman-v2/hero/hero-hands-mobile-780.avif 780w"
           sizes="100vw"
-          width={860}
-          height={640}
+          width={780}
+          height={614}
         />
         <source
           media="(max-width: 899px)"
           type="image/webp"
-          srcSet="/roman-v2/hero/hero-hands-mobile-480.webp 480w, /roman-v2/hero/hero-hands-mobile-860.webp 860w"
+          srcSet="/roman-v2/hero/hero-hands-mobile-480.webp 480w, /roman-v2/hero/hero-hands-mobile-780.webp 780w"
           sizes="100vw"
-          width={860}
-          height={640}
+          width={780}
+          height={614}
         />
         <source
           type="image/avif"

@@ -179,7 +179,7 @@
     font-size: 1rem;
   }
 
-  /* Grows to fill the fold up to the crop's natural 860:640 height; the auto margin then takes the rest. */
+  /* Fills the rest of the fold; tall screens zoom into the laptop and hands rather than leaving a gap above them. */
   .art {
     position: relative;
     left: auto;
@@ -187,8 +187,6 @@
     display: block;
     flex: 1 0 160px;
     width: 100%;
-    max-height: calc(100vw * 640 / 860);
-    margin-top: auto;
   }
 
   .art img {
@@ -196,9 +194,9 @@
     inset: 0;
     height: 100%;
     object-fit: cover;
-    object-position: 40% 60%;
+    object-position: 62% 70%;
     /* Cover can crop away the baked top fade on short screens; keep the top edge soft. */
-    mask-image: linear-gradient(transparent, #000 32px);
+    mask-image: linear-gradient(transparent, #000 56px);
   }
 
   .circle {
