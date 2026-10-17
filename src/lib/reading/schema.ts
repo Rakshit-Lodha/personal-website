@@ -19,6 +19,8 @@ export const museEditionSchema = z.object({
   audioAssetId: z.string().min(1).nullable(),
   /** Seconds of audio; null when there is no audio or duration is unknown. */
   audioDurationSeconds: z.number().int().positive().nullish(),
+  /** Full visual HTML edition file name under public/reading/editions/, when published. */
+  htmlAssetId: z.string().min(1).nullish(),
   audioTranscript: z.string().min(1).nullable(),
   status: z.enum(["draft", "published", "text-only"]),
 });
