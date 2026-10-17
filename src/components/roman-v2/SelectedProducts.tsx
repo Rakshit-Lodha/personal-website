@@ -1,40 +1,9 @@
-import type { RomanV2Image, RomanV2Product, RomanV2Products } from "@/lib/roman-v2/types";
+import type { RomanV2Product, RomanV2Products } from "@/lib/roman-v2/types";
 import AvailabilityAction from "./AvailabilityAction";
 import shared from "./contemporary-roman.module.css";
 import s from "./SelectedProducts.module.css";
 
-const SCREENS = "/roman-v2/projects/screens";
-
-/**
- * Real product captures (1440×900 viewport). Local until content.ts carries `screenshot`;
- * Feedback Intelligence has none because its Render service is suspended.
- */
-const SCREENSHOTS: Record<string, RomanV2Image & { widths: number[] }> = {
-  "ai-hiring-chat": {
-    src: `${SCREENS}/ai-hiring-chat`,
-    alt: "AI Hiring Chat welcome screen with suggested questions and a message box",
-    width: 1100,
-    height: 866,
-    widths: [560, 1100],
-  },
-  "krux-new": {
-    src: `${SCREENS}/krux-new`,
-    alt: "Krux.news introduction card: everything about AI in 100 words",
-    width: 960,
-    height: 900,
-    widths: [480, 960],
-  },
-  "mf-semantic-search": {
-    src: `${SCREENS}/mf-semantic-search`,
-    alt: "MF Semantic Search with example queries and a fund search box",
-    width: 900,
-    height: 833,
-    widths: [450, 900],
-  },
-};
-
-function Screenshot({ id, sizes, className }: { id: string; sizes: string; className: string }) {
-  const shot = SCREENSHOTS[id];
+function Screenshot({ shot, sizes, className }: { shot: RomanV2Product["screenshot"]; sizes: string; className: string }) {
   if (!shot) return null;
   return (
     // Pre-sized WebP exports with an explicit srcset, like the <picture> artwork.
@@ -82,7 +51,7 @@ function Featured({ item }: { item: RomanV2Product }) {
       </div>
       <div className={s.stage}>
         <div className={s.window}>
-          <Screenshot id={item.id} sizes="(min-width: 900px) 34vw, 60vw" className={s.windowShot} />
+          <Screenshot shot={item.screenshot} sizes="(min-width: 900px) 34vw, 60vw" className={s.windowShot} />
         </div>
         <Art
           name="projects-frame"
@@ -107,23 +76,11 @@ function Card({ item }: { item: RomanV2Product }) {
       <div className={s.thumb} aria-hidden="true">
         <span className={s.thumbSun} />
         <span className={s.thumbDots} />
-        {SCREENSHOTS[item.id] && (
+        {item.screenshot && (
           <div className={s.thumbScreen}>
-            <Screenshot id={item.id} sizes="(min-width: 900px) 15vw, 50vw" className={s.thumbShot} />
+            <Screenshot shot={item.screenshot} sizes="(min-width: 900px) 15vw, 50vw" className={s.thumbShot} />
           </div>
         )}
-        <picture>
-          <source type="image/avif" srcSet="/roman-v2/projects/projects-card-plinth-300.avif" />
-          <img
-            className={s.plinth}
-            src="/roman-v2/projects/projects-card-plinth-300.webp"
-            width={300}
-            height={58}
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-        </picture>
       </div>
     </li>
   );

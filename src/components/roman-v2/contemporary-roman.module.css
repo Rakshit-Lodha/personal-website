@@ -239,6 +239,12 @@
     transform 600ms var(--ease);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  :global(html):has(.root) {
+    scroll-behavior: smooth;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .root *,
   .root *::before,

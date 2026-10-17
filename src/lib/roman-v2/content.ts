@@ -69,12 +69,56 @@ const chapters: RomanV2Chapter[] = EXPERIENCE.map((experience) => {
   };
 });
 
-/** Display order; first is featured. `href` overrides the profile demo link for on-site products. */
-const PRODUCT_COPY = [
-  { id: "ai-hiring-chat", tagline: "A portfolio that can evaluate the fit.", actionLabel: "Try the product", href: "/chat" },
-  { id: "krux-new", tagline: "AI news in 100 words" },
-  { id: "feedback-agent", tagline: "Signals from customer noise" },
-  { id: "mf-semantic-search", tagline: "Find funds by intent" },
+const SCREENS = "/roman-v2/projects/screens";
+
+/**
+ * Display order; first is featured. `href` overrides the profile demo link: on-site products, or null
+ * while a hosted demo is down (Feedback Intelligence's Render service is suspended).
+ * Screenshots are real 1440×900 captures.
+ */
+const PRODUCT_COPY: {
+  id: string;
+  tagline: string;
+  actionLabel?: string;
+  href?: string | null;
+  screenshot?: RomanV2Product["screenshot"];
+}[] = [
+  {
+    id: "ai-hiring-chat",
+    tagline: "A portfolio that can evaluate the fit.",
+    actionLabel: "Try the product",
+    href: "/chat",
+    screenshot: {
+      src: `${SCREENS}/ai-hiring-chat`,
+      alt: "AI Hiring Chat welcome screen with suggested questions and a message box",
+      width: 1100,
+      height: 866,
+      widths: [560, 1100],
+    },
+  },
+  {
+    id: "krux-new",
+    tagline: "AI news in 100 words",
+    screenshot: {
+      src: `${SCREENS}/krux-new`,
+      alt: "Krux.news introduction card: everything about AI in 100 words",
+      width: 960,
+      height: 900,
+      widths: [480, 960],
+    },
+  },
+  { id: "feedback-agent", tagline: "Signals from customer noise", href: null },
+  {
+    id: "mf-semantic-search",
+    tagline: "Find funds by intent",
+    screenshot: {
+      src: `${SCREENS}/mf-semantic-search`,
+      alt: "MF Semantic Search with example queries and a fund search box",
+      width: 900,
+      height: 833,
+      widths: [450, 900],
+    },
+  },
 ];
 
 const products: RomanV2Product[] = PRODUCT_COPY.flatMap((copy, index) => {
@@ -87,8 +131,8 @@ const products: RomanV2Product[] = PRODUCT_COPY.flatMap((copy, index) => {
     summary: project.summary,
     status: project.status,
     featured: index === 0,
-    screenshot: null,
-    primaryAction: action(copy.actionLabel ?? `Open ${project.name}`, copy.href ?? project.links.demo),
+    screenshot: copy.screenshot ?? null,
+    primaryAction: action(copy.actionLabel ?? `Open ${project.name}`, copy.href !== undefined ? copy.href : project.links.demo),
     sourceAction: action(`View ${project.name} source`, project.links.github),
   };
 });

@@ -69,8 +69,8 @@ export type RomanV2Product = {
   summary: string;
   status: string;
   featured: boolean;
-  /** Real product capture; null until one exists. */
-  screenshot: RomanV2Image | null;
+  /** Real product capture, exported as `${src}-${width}.webp` for each width; null until one exists. */
+  screenshot: (RomanV2Image & { widths: number[] }) | null;
   primaryAction: AvailableAction;
   sourceAction: AvailableAction;
 };

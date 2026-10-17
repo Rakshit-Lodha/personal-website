@@ -5,6 +5,7 @@ import ClosingFooter from "./ClosingFooter";
 import FloatingNav from "./FloatingNav";
 import Hero from "./Hero";
 import JJCallout from "./JJCallout";
+import RomanV2Surface from "./RomanV2Surface";
 import SelectedProducts from "./SelectedProducts";
 import s from "./contemporary-roman.module.css";
 
@@ -24,6 +25,7 @@ export default function ContemporaryRomanSite({ content }: { content: RomanV2Con
         <JJCallout jj={content.jj} />
       </main>
       <ClosingFooter closing={content.closing} />
+      <RomanV2Surface />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
-import { useId, useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
+import { onSelect } from "@/components/roman/select";
 import { ChevronDown } from "lucide-react";
 import type { AvailableAction, RomanV2Career, RomanV2Chapter } from "@/lib/roman-v2/types";
 import AvailabilityAction from "./AvailabilityAction";
@@ -64,6 +65,17 @@ export default function CareerJourney({ career }: { career: RomanV2Career }) {
   const [activeId, setActiveId] = useState(career.initialChapterId);
   const [openIds, setOpenIds] = useState<string[]>([career.initialChapterId]);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // JJ asks for a chapter: select it on desktop and open it on mobile.
+  useEffect(
+    () =>
+      onSelect("experience", (id) => {
+        if (!chapters.some((chapter) => chapter.id === id)) return;
+        setActiveId(id);
+        setOpenIds((ids) => (ids.includes(id) ? ids : [...ids, id]));
+      }),
+    [chapters]
+  );
 
   const onTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
     const last = chapters.length - 1;

@@ -278,15 +278,6 @@
   object-position: 50% 0;
 }
 
-.plinth {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  display: block;
-  width: 70%;
-  height: auto;
-}
-
 .card.enabled:hover .thumbScreen {
   transform: perspective(700px) rotateY(-14deg) scale(1.04);
 }
