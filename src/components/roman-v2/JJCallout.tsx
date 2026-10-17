@@ -70,30 +70,30 @@ export default function JJCallout({ jj }: { jj: RomanV2JJ }) {
           <source
             media="(max-width: 767px)"
             type="image/avif"
-            srcSet="/roman-v2/jj/jj-listener-mobile-420.avif 420w, /roman-v2/jj/jj-listener-mobile-560.avif 560w"
+            srcSet="/roman-v2/jj/jj-listener-mobile-420.avif 420w, /roman-v2/jj/jj-listener-mobile-560.avif 560w, /roman-v2/jj/jj-listener-mobile-1122.avif 1122w"
             sizes="100vw"
-            width={560}
-            height={700}
+            width={1122}
+            height={1402}
           />
           <source
             media="(max-width: 767px)"
             type="image/webp"
-            srcSet="/roman-v2/jj/jj-listener-mobile-420.webp 420w, /roman-v2/jj/jj-listener-mobile-560.webp 560w"
+            srcSet="/roman-v2/jj/jj-listener-mobile-420.webp 420w, /roman-v2/jj/jj-listener-mobile-560.webp 560w, /roman-v2/jj/jj-listener-mobile-1122.webp 1122w"
             sizes="100vw"
-            width={560}
-            height={700}
+            width={1122}
+            height={1402}
           />
           <source
             type="image/avif"
-            srcSet="/roman-v2/jj/jj-listener-680.avif 680w, /roman-v2/jj/jj-listener-1002.avif 1002w"
-            sizes="(min-width: 1024px) 96vw, 100vw"
+            srcSet="/roman-v2/jj/jj-listener-680.avif 680w, /roman-v2/jj/jj-listener-1002.avif 1002w, /roman-v2/jj/jj-listener-1536.avif 1536w"
+            sizes="(min-width: 1024px) max(96vw, 1260px), 100vw"
           />
           <img
             src="/roman-v2/jj/jj-listener-1002.webp"
-            srcSet="/roman-v2/jj/jj-listener-680.webp 680w, /roman-v2/jj/jj-listener-1002.webp 1002w"
-            sizes="(min-width: 1024px) 96vw, 100vw"
-            width={1002}
-            height={668}
+            srcSet="/roman-v2/jj/jj-listener-680.webp 680w, /roman-v2/jj/jj-listener-1002.webp 1002w, /roman-v2/jj/jj-listener-1536.webp 1536w"
+            sizes="(min-width: 1024px) max(96vw, 1260px), 100vw"
+            width={1536}
+            height={1024}
             alt=""
             loading="lazy"
             decoding="async"

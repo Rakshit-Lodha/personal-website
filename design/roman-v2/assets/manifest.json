@@ -67,7 +67,7 @@
           "format": "avif",
           "width": 720,
           "height": 480,
-          "bytes": 17944
+          "bytes": 49062
         },
         {
           "path": "public/roman-v2/hero/hero-figure-720.webp",
@@ -75,7 +75,7 @@
           "format": "webp",
           "width": 720,
           "height": 480,
-          "bytes": 38204
+          "bytes": 78322
         },
         {
           "path": "public/roman-v2/hero/hero-figure-1105.avif",
@@ -83,7 +83,7 @@
           "format": "avif",
           "width": 1105,
           "height": 737,
-          "bytes": 31938
+          "bytes": 91672
         },
         {
           "path": "public/roman-v2/hero/hero-figure-1105.webp",
@@ -91,7 +91,23 @@
           "format": "webp",
           "width": 1105,
           "height": 737,
-          "bytes": 71718
+          "bytes": 154276
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-1536.avif",
+          "url": "/roman-v2/hero/hero-figure-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 99077
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-1536.webp",
+          "url": "/roman-v2/hero/hero-figure-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 195700
         }
       ],
       "sourcePixels": {
@@ -110,6 +126,7 @@
         "intendedBackground": "#f4ebdf"
       },
       "sectionBackgroundSampled": "#f4ebdf",
+      "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
       "source": {
         "master": "design/roman-v2/assets/masters/hero-figure.png"
       },
@@ -129,7 +146,7 @@
           "format": "avif",
           "width": 480,
           "height": 480,
-          "bytes": 13897
+          "bytes": 26551
         },
         {
           "path": "public/roman-v2/hero/hero-figure-mobile-480.webp",
@@ -137,7 +154,7 @@
           "format": "webp",
           "width": 480,
           "height": 480,
-          "bytes": 27312
+          "bytes": 48050
         },
         {
           "path": "public/roman-v2/hero/hero-figure-mobile-850.avif",
@@ -145,7 +162,7 @@
           "format": "avif",
           "width": 850,
           "height": 850,
-          "bytes": 30749
+          "bytes": 60430
         },
         {
           "path": "public/roman-v2/hero/hero-figure-mobile-850.webp",
@@ -153,7 +170,23 @@
           "format": "webp",
           "width": 850,
           "height": 850,
-          "bytes": 67262
+          "bytes": 116000
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-mobile-1254.avif",
+          "url": "/roman-v2/hero/hero-figure-mobile-1254.avif",
+          "format": "avif",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 74572
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-mobile-1254.webp",
+          "url": "/roman-v2/hero/hero-figure-mobile-1254.webp",
+          "format": "webp",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 168558
         }
       ],
       "sourcePixels": {
@@ -172,6 +205,7 @@
         "intendedBackground": "#f4ebdf"
       },
       "sectionBackgroundSampled": "#f4ebdf",
+      "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
       "source": {
         "master": "design/roman-v2/assets/masters/hero-figure-mobile.png"
       },
@@ -190,51 +224,75 @@
           "url": "/roman-v2/career/career-hands-560.avif",
           "format": "avif",
           "width": 560,
-          "height": 315,
-          "bytes": 10119
+          "height": 413,
+          "bytes": 42182
         },
         {
           "path": "public/roman-v2/career/career-hands-560.webp",
           "url": "/roman-v2/career/career-hands-560.webp",
           "format": "webp",
           "width": 560,
-          "height": 315,
-          "bytes": 19518
+          "height": 413,
+          "bytes": 77002
         },
         {
           "path": "public/roman-v2/career/career-hands-812.avif",
           "url": "/roman-v2/career/career-hands-812.avif",
           "format": "avif",
           "width": 812,
-          "height": 457,
-          "bytes": 18171
+          "height": 598,
+          "bytes": 76359
         },
         {
           "path": "public/roman-v2/career/career-hands-812.webp",
           "url": "/roman-v2/career/career-hands-812.webp",
           "format": "webp",
           "width": 812,
-          "height": 457,
-          "bytes": 36940
+          "height": 598,
+          "bytes": 139896
+        },
+        {
+          "path": "public/roman-v2/career/career-hands-1072.avif",
+          "url": "/roman-v2/career/career-hands-1072.avif",
+          "format": "avif",
+          "width": 1072,
+          "height": 790,
+          "bytes": 80215
+        },
+        {
+          "path": "public/roman-v2/career/career-hands-1072.webp",
+          "url": "/roman-v2/career/career-hands-1072.webp",
+          "format": "webp",
+          "width": 1072,
+          "height": 790,
+          "bytes": 172448
         }
       ],
       "sourcePixels": {
-        "width": 1672,
-        "height": 941
+        "width": 1072,
+        "height": 790
       },
       "hasAlpha": true,
       "placement": "Active chapter card: top-right of the card, top edge aligned to the card top, right-aligned to the card edge; chapter copy to the left, metrics row below.",
       "fade": {
         "sides": {
-          "left": "120px",
-          "bottom": "24px"
+          "left": "140px",
+          "top": "90px",
+          "right": "48px"
         },
         "fadesTo": "transparent (alpha)",
         "intendedBackground": "#f6efe5"
       },
       "sectionBackgroundSampled": "#f6efe5",
+      "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
       "source": {
-        "master": "design/roman-v2/assets/masters/career-hands.png"
+        "master": "design/roman-v2/assets/masters/career-hands.png",
+        "crop": {
+          "left": 600,
+          "top": 90,
+          "width": 1072,
+          "height": 790
+        }
       },
       "cleanup": [],
       "notes": "Approved generated career artwork: hands assemble geometric blocks; no charts, grids, text or UI are baked into the image."
@@ -252,7 +310,7 @@
           "format": "avif",
           "width": 640,
           "height": 427,
-          "bytes": 20661
+          "bytes": 38523
         },
         {
           "path": "public/roman-v2/projects/projects-frame-640.webp",
@@ -260,7 +318,7 @@
           "format": "webp",
           "width": 640,
           "height": 427,
-          "bytes": 34084
+          "bytes": 63824
         },
         {
           "path": "public/roman-v2/projects/projects-frame-960.avif",
@@ -268,7 +326,7 @@
           "format": "avif",
           "width": 960,
           "height": 640,
-          "bytes": 37827
+          "bytes": 70932
         },
         {
           "path": "public/roman-v2/projects/projects-frame-960.webp",
@@ -276,7 +334,23 @@
           "format": "webp",
           "width": 960,
           "height": 640,
-          "bytes": 65044
+          "bytes": 122196
+        },
+        {
+          "path": "public/roman-v2/projects/projects-frame-1536.avif",
+          "url": "/roman-v2/projects/projects-frame-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 110964
+        },
+        {
+          "path": "public/roman-v2/projects/projects-frame-1536.webp",
+          "url": "/roman-v2/projects/projects-frame-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 195496
         }
       ],
       "sourcePixels": {
@@ -296,6 +370,7 @@
         "intendedBackground": "#b26e58"
       },
       "sectionBackgroundSampled": "#b26e58",
+      "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
       "source": {
         "master": "design/roman-v2/assets/masters/projects-frame.png"
       },
@@ -343,6 +418,7 @@
         "intendedBackground": "#b26e58"
       },
       "sectionBackgroundSampled": "#b26e58",
+      "transparency": "edge fades only",
       "source": {
         "master": "design/roman-v2/assets/masters/projects-head.png"
       },
@@ -362,7 +438,7 @@
           "format": "avif",
           "width": 584,
           "height": 389,
-          "bytes": 17114
+          "bytes": 33563
         },
         {
           "path": "public/roman-v2/beyond/beyond-reading-584.webp",
@@ -370,7 +446,23 @@
           "format": "webp",
           "width": 584,
           "height": 389,
-          "bytes": 33874
+          "bytes": 58492
+        },
+        {
+          "path": "public/roman-v2/beyond/beyond-reading-1168.avif",
+          "url": "/roman-v2/beyond/beyond-reading-1168.avif",
+          "format": "avif",
+          "width": 1168,
+          "height": 779,
+          "bytes": 100422
+        },
+        {
+          "path": "public/roman-v2/beyond/beyond-reading-1168.webp",
+          "url": "/roman-v2/beyond/beyond-reading-1168.webp",
+          "format": "webp",
+          "width": 1168,
+          "height": 779,
+          "bytes": 182910
         }
       ],
       "sourcePixels": {
@@ -381,13 +473,14 @@
       "placement": "Daily Reading card: right half of the card, bottom- and right-aligned; heading/CTA on the left.",
       "fade": {
         "sides": {
-          "left": "80px",
+          "left": "460px",
           "top": "10px"
         },
         "fadesTo": "transparent (alpha)",
         "intendedBackground": "#f2eae0"
       },
       "sectionBackgroundSampled": "#f2eae0",
+      "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
       "source": {
         "master": "design/roman-v2/assets/masters/beyond-reading.png"
       },
@@ -432,6 +525,7 @@
         "intendedBackground": "#f2eae0"
       },
       "sectionBackgroundSampled": "#f2eae0",
+      "transparency": "edge fades only",
       "source": {
         "master": "design/roman-v2/assets/masters/beyond-music.png"
       },
@@ -451,7 +545,7 @@
           "format": "avif",
           "width": 560,
           "height": 315,
-          "bytes": 11619
+          "bytes": 29330
         },
         {
           "path": "public/roman-v2/beyond/beyond-column-560.webp",
@@ -459,7 +553,7 @@
           "format": "webp",
           "width": 560,
           "height": 315,
-          "bytes": 22058
+          "bytes": 49156
         },
         {
           "path": "public/roman-v2/beyond/beyond-column-812.avif",
@@ -467,7 +561,7 @@
           "format": "avif",
           "width": 812,
           "height": 457,
-          "bytes": 21108
+          "bytes": 52575
         },
         {
           "path": "public/roman-v2/beyond/beyond-column-812.webp",
@@ -475,7 +569,23 @@
           "format": "webp",
           "width": 812,
           "height": 457,
-          "bytes": 39602
+          "bytes": 90750
+        },
+        {
+          "path": "public/roman-v2/beyond/beyond-column-1672.avif",
+          "url": "/roman-v2/beyond/beyond-column-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "bytes": 107922
+        },
+        {
+          "path": "public/roman-v2/beyond/beyond-column-1672.webp",
+          "url": "/roman-v2/beyond/beyond-column-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 199880
         }
       ],
       "sourcePixels": {
@@ -486,13 +596,14 @@
       "placement": "Section header decoration: top-right of Beyond Work, top- and right-aligned, behind the section title row.",
       "fade": {
         "sides": {
-          "left": "110px",
+          "left": "570px",
           "bottom": "36px"
         },
         "fadesTo": "transparent (alpha)",
         "intendedBackground": "#c0bfae"
       },
       "sectionBackgroundSampled": "#c0bfae",
+      "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
       "source": {
         "master": "design/roman-v2/assets/masters/beyond-column.png"
       },
@@ -538,6 +649,7 @@
         "intendedBackground": "#f2eae0"
       },
       "sectionBackgroundSampled": "#f2eae0",
+      "transparency": "edge fades only",
       "source": {
         "concept": "design/roman-v2/concepts/04-beyond-work-approved.png",
         "crop": {
@@ -582,6 +694,7 @@
       "placement": "Writing row thumbnail (≈100×68).",
       "fade": null,
       "sectionBackgroundSampled": null,
+      "transparency": "opaque",
       "source": {
         "concept": "design/roman-v2/concepts/04-beyond-work-approved.png",
         "crop": {
@@ -626,6 +739,7 @@
       "placement": "Writing row thumbnail (≈100×68).",
       "fade": null,
       "sectionBackgroundSampled": null,
+      "transparency": "opaque",
       "source": {
         "concept": "design/roman-v2/concepts/04-beyond-work-approved.png",
         "crop": {
@@ -670,6 +784,7 @@
       "placement": "Writing row thumbnail (≈100×61).",
       "fade": null,
       "sectionBackgroundSampled": null,
+      "transparency": "opaque",
       "source": {
         "concept": "design/roman-v2/concepts/04-beyond-work-approved.png",
         "crop": {
@@ -695,7 +810,7 @@
           "format": "avif",
           "width": 680,
           "height": 453,
-          "bytes": 12742
+          "bytes": 25043
         },
         {
           "path": "public/roman-v2/jj/jj-listener-680.webp",
@@ -703,7 +818,7 @@
           "format": "webp",
           "width": 680,
           "height": 453,
-          "bytes": 25622
+          "bytes": 45090
         },
         {
           "path": "public/roman-v2/jj/jj-listener-1002.avif",
@@ -711,7 +826,7 @@
           "format": "avif",
           "width": 1002,
           "height": 668,
-          "bytes": 22602
+          "bytes": 45049
         },
         {
           "path": "public/roman-v2/jj/jj-listener-1002.webp",
@@ -719,7 +834,23 @@
           "format": "webp",
           "width": 1002,
           "height": 668,
-          "bytes": 48066
+          "bytes": 83242
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-1536.avif",
+          "url": "/roman-v2/jj/jj-listener-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 72888
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-1536.webp",
+          "url": "/roman-v2/jj/jj-listener-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 133448
         }
       ],
       "sourcePixels": {
@@ -738,6 +869,7 @@
         "intendedBackground": "#4f1816"
       },
       "sectionBackgroundSampled": "#4f1816",
+      "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
       "source": {
         "master": "design/roman-v2/assets/masters/jj-listener.png"
       },
@@ -757,7 +889,7 @@
           "format": "avif",
           "width": 420,
           "height": 525,
-          "bytes": 17786
+          "bytes": 32371
         },
         {
           "path": "public/roman-v2/jj/jj-listener-mobile-420.webp",
@@ -765,7 +897,7 @@
           "format": "webp",
           "width": 420,
           "height": 525,
-          "bytes": 33514
+          "bytes": 59278
         },
         {
           "path": "public/roman-v2/jj/jj-listener-mobile-560.avif",
@@ -773,7 +905,7 @@
           "format": "avif",
           "width": 560,
           "height": 700,
-          "bytes": 28594
+          "bytes": 50694
         },
         {
           "path": "public/roman-v2/jj/jj-listener-mobile-560.webp",
@@ -781,7 +913,23 @@
           "format": "webp",
           "width": 560,
           "height": 700,
-          "bytes": 52954
+          "bytes": 93476
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-mobile-1122.avif",
+          "url": "/roman-v2/jj/jj-listener-mobile-1122.avif",
+          "format": "avif",
+          "width": 1122,
+          "height": 1402,
+          "bytes": 118327
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-mobile-1122.webp",
+          "url": "/roman-v2/jj/jj-listener-mobile-1122.webp",
+          "format": "webp",
+          "width": 1122,
+          "height": 1402,
+          "bytes": 214692
         }
       ],
       "sourcePixels": {
@@ -800,6 +948,7 @@
         "intendedBackground": "#4f1816"
       },
       "sectionBackgroundSampled": "#4f1816",
+      "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
       "source": {
         "master": "design/roman-v2/assets/masters/jj-listener-mobile.png"
       },
@@ -819,7 +968,7 @@
           "format": "avif",
           "width": 490,
           "height": 490,
-          "bytes": 8032
+          "bytes": 23832
         },
         {
           "path": "public/roman-v2/footer/footer-hand-490.webp",
@@ -827,7 +976,39 @@
           "format": "webp",
           "width": 490,
           "height": 490,
-          "bytes": 14462
+          "bytes": 39686
+        },
+        {
+          "path": "public/roman-v2/footer/footer-hand-980.avif",
+          "url": "/roman-v2/footer/footer-hand-980.avif",
+          "format": "avif",
+          "width": 980,
+          "height": 980,
+          "bytes": 60241
+        },
+        {
+          "path": "public/roman-v2/footer/footer-hand-980.webp",
+          "url": "/roman-v2/footer/footer-hand-980.webp",
+          "format": "webp",
+          "width": 980,
+          "height": 980,
+          "bytes": 112610
+        },
+        {
+          "path": "public/roman-v2/footer/footer-hand-1254.avif",
+          "url": "/roman-v2/footer/footer-hand-1254.avif",
+          "format": "avif",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 60179
+        },
+        {
+          "path": "public/roman-v2/footer/footer-hand-1254.webp",
+          "url": "/roman-v2/footer/footer-hand-1254.webp",
+          "format": "webp",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 117528
         }
       ],
       "sourcePixels": {
@@ -846,6 +1027,7 @@
         "intendedBackground": "#e5d9cc"
       },
       "sectionBackgroundSampled": "#e5d9cc",
+      "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
       "source": {
         "master": "design/roman-v2/assets/masters/footer-hand.png"
       },

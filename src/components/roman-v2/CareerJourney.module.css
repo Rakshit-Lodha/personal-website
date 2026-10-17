@@ -91,6 +91,9 @@
 /* Header */
 
 .header {
+  /* Above the career art, whose halftone rises beside the headline. */
+  position: relative;
+  z-index: 1;
   padding-left: clamp(0px, 1.35vw, 24px);
 }
 
@@ -220,13 +223,15 @@
 
 .art {
   position: absolute;
-  top: -4.3cqi;
+  /*
+   * Transparent 1072×790 crop at 0.72x (772 px at 1672): the plinth baseline (crop y 744) sits at
+   * ≈y 672 above the rule, and the forearms and drape rise over the sage above the card as in the
+   * concept. Left fingertips land at ≈x 1008; the halftone dissolves from ≈x 900.
+   */
+  top: -13.73cqi;
   right: 0;
-  width: 58.4cqi;
-  /* The master's empty top rows sit above the card and are clipped at its edge; the left and bottom fade into the card. */
-  clip-path: inset(4.3cqi 0 0 0);
-  mask-image: linear-gradient(90deg, transparent, #000 30%), linear-gradient(#000 85%, transparent);
-  mask-composite: intersect;
+  width: 55.5cqi;
+  pointer-events: none;
   animation: careerArtIn 700ms var(--ease);
 }
 

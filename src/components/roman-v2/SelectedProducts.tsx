@@ -26,8 +26,8 @@ function Art({ name, width, height, sizes, className }: { name: string; width: n
   const base = `/roman-v2/projects/${name}`;
   return (
     <picture>
-      <source type="image/avif" srcSet={`${base}-640.avif 640w, ${base}-960.avif 960w`} sizes={sizes} />
-      <source type="image/webp" srcSet={`${base}-640.webp 640w, ${base}-960.webp 960w`} sizes={sizes} />
+      <source type="image/avif" srcSet={`${base}-640.avif 640w, ${base}-960.avif 960w, ${base}-1536.avif 1536w`} sizes={sizes} />
+      <source type="image/webp" srcSet={`${base}-640.webp 640w, ${base}-960.webp 960w, ${base}-1536.webp 1536w`} sizes={sizes} />
       <img className={className} src={`${base}-960.webp`} width={width} height={height} alt="" loading="lazy" decoding="async" />
     </picture>
   );
@@ -54,8 +54,8 @@ function Featured({ item }: { item: RomanV2Product }) {
         <div className={s.art}>
           <Art
             name="projects-frame"
-            width={960}
-            height={640}
+            width={1536}
+            height={1024}
             sizes="(min-width: 900px) 63vw, 110vw"
             className={s.frame}
           />

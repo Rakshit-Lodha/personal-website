@@ -100,9 +100,9 @@ export default function BeyondWork({ beyond }: { beyond: RomanV2Beyond }) {
       <div className={s.backdrop} aria-hidden="true" />
       <Art
         name="beyond-column"
-        widths={[560, 812]}
-        width={812}
-        height={457}
+        widths={[560, 812, 1672]}
+        width={1672}
+        height={941}
         sizes="(max-width: 767px) 46vw, min(812px, 49vw)"
         className={s.column}
       />
@@ -136,9 +136,9 @@ export default function BeyondWork({ beyond }: { beyond: RomanV2Beyond }) {
               </div>
               <Art
                 name="beyond-reading"
-                widths={[584]}
-                width={584}
-                height={389}
+                widths={[584, 1168]}
+                width={1536}
+                height={1024}
                 sizes="(max-width: 767px) 100vw, 584px"
                 className={s.readingArt}
               />

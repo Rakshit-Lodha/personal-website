@@ -1,8 +1,9 @@
 /* JJCallout styles. Shared tokens, container and actions live in contemporary-roman.module.css. */
 
 .section {
-  /* Sampled ground of the jj-listener exports, so the art box has no visible edge. */
-  --jj-bg: #591311;
+  /* Concept oxblood; the artwork is transparent, so the section no longer matches the art ground. */
+  --jj-bg: #4f1816;
+  --jj-circle: #441412;
   --jj-accent: #e0baa3;
   /* The shared oxblood ring is invisible on this field. */
   --focus-ring: var(--paper-light);
@@ -163,7 +164,20 @@
   pointer-events: none;
 }
 
+/* Concept's darker disc behind the head: centre (1150, 400), r 410 at 1672, in art-box units. */
+.art::before {
+  content: "";
+  position: absolute;
+  left: 29.05%;
+  top: 14.3%;
+  width: 51.1%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--jj-circle);
+}
+
 .art picture {
+  position: relative;
   display: block;
   height: 100%;
 }
@@ -342,6 +356,11 @@
   .art {
     width: min(100%, 560px);
     margin: 8px 0 0 auto;
+  }
+
+  /* The portrait crop has its own framing; the disc is a desktop/tablet device. */
+  .art::before {
+    content: none;
   }
 
   .orb {

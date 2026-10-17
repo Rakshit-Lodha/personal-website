@@ -40,7 +40,7 @@ const STATUS = 'interim – derived from approved concept; replace with regenera
 // Shapes are in CONCEPT pixel coordinates. rect = [x, y, w, h]; poly = [[x,y],...]; circle = [cx, cy, r]; line = [[x,y],...] polyline.
 const ASSETS = [
   {
-    id: 'hero-figure', section: 'hero', concept: C.hero, crop: [560, 95, 1105, 748], widths: [720, 1105],
+    id: 'hero-figure', section: 'hero', concept: C.hero, crop: [560, 95, 1105, 748], widths: [720, 1105, 1536], matte: { lo: 3, hi: 7 }, 
     bg: PALETTE.hero.paper, fade: { left: 110, top: 70, right: 30 },
     ops: [{ op: 'erase', rect: [540, 300, 165, 192], feather: 18, why: 'tail of headline “judgment.”' }],
     placement: 'Desktop hero: right ~60% of the hero, bottom-aligned to the hero bottom edge (the terracotta band sits directly below). Copy sits to the left.',
@@ -48,7 +48,7 @@ const ASSETS = [
     masterNotes: 'Approved generated desktop hero. Figure, hands and laptop all face left; left copy field is intentionally clear. Draw the large faint circle and all interface elements in CSS/HTML.',
   },
   {
-    id: 'hero-figure-mobile', section: 'hero', concept: C.hero, crop: [770, 95, 850, 748], widths: [480, 850],
+    id: 'hero-figure-mobile', section: 'hero', concept: C.hero, crop: [770, 95, 850, 748], widths: [480, 850, 1254], matte: { lo: 3, hi: 7 }, 
     bg: PALETTE.hero.paper, fade: { left: 90, top: 60, right: 30 },
     ops: [],
     placement: 'Mobile hero: full-width portrait-ish crop (head → hands on keyboard) placed below the headline/CTA stack, bottom-aligned.',
@@ -56,7 +56,13 @@ const ASSETS = [
     masterNotes: 'Approved corrected mobile hero. The complete laptop is visible with ivory margin; all interface elements remain CSS/HTML.',
   },
   {
-    id: 'career-hands', section: 'career', concept: C.career, crop: [860, 333, 812, 357], widths: [560, 812],
+    id: 'career-hands', section: 'career', concept: C.career, crop: [860, 333, 812, 357], widths: [560, 812, 1072], matte: { lo: 3, hi: 7 },
+    // The master puts the hands in its right ~60%: drop the empty left field (x < 600), the sparse top
+    // rows and the empty rows under the plinth, so the hands fill the right of the concept's 860–1672
+    // box (left fingertips ≈14% in) with the halftone dissolving to their left. The drape's cut top
+    // and right edges fade out (the right edge shows above the card once it stops at the container).
+    masterCrop: [600, 90, 1072, 790], masterFade: { left: 140, top: 90, right: 48 },
+
     bg: PALETTE.career.card, fade: { left: 120, bottom: 24 },
     ops: [
       { op: 'inpaint', circle: [1237, 399, 9], why: 'chart node' },
@@ -72,7 +78,7 @@ const ASSETS = [
     masterNotes: 'Approved generated career artwork: hands assemble geometric blocks; no charts, grids, text or UI are baked into the image.',
   },
   {
-    id: 'projects-frame', section: 'projects', concept: C.projects, crop: [690, 78, 960, 590], widths: [640, 960],
+    id: 'projects-frame', section: 'projects', concept: C.projects, crop: [690, 78, 960, 590], widths: [640, 960, 1536], matte: { lo: 3, hi: 7 },
     bg: PALETTE.projects.terracotta, fade: { left: 70, top: 16, bottom: 16, right: 16 },
     ops: [
       { op: 'paint', color: '#b26e58', poly: [[690, 78], [860, 78], [800, 160], [740, 260], [700, 360], [690, 360]], feather: 30, why: 'paper outside the terracotta circle' },
@@ -96,8 +102,10 @@ const ASSETS = [
     masterNotes: 'Approved generated right-facing marble head on terracotta; no frame or product UI is baked in.',
   },
   {
-    id: 'beyond-reading', section: 'beyond', concept: C.beyond, crop: [548, 272, 584, 419], widths: [584],
+    id: 'beyond-reading', section: 'beyond', concept: C.beyond, crop: [548, 272, 584, 419], widths: [584, 1168], matte: { lo: 3, hi: 7 }, 
     bg: PALETTE.beyond.card, fade: { left: 80, top: 10 },
+    // Master: dissolve the left-hand halftone tiles over the left 30% (was a CSS mask).
+    masterFade: { left: 460, top: 10 },
     ops: [],
     placement: 'Daily Reading card: right half of the card, bottom- and right-aligned; heading/CTA on the left.',
     notes: 'Paper sheets carry abstract grey “ruled lines” (not readable text) as in the concept.',
@@ -114,8 +122,10 @@ const ASSETS = [
     masterNotes: 'Approved generated hand and rotary knob. Waveform, labels and player controls must be rendered separately in HTML/CSS.',
   },
   {
-    id: 'beyond-column', section: 'beyond', concept: C.beyond, crop: [860, 0, 812, 266], widths: [560, 812],
+    id: 'beyond-column', section: 'beyond', concept: C.beyond, crop: [860, 0, 812, 266], widths: [560, 812, 1672], matte: { lo: 3, hi: 7 }, 
     bg: PALETTE.beyond.sage, fade: { left: 110, bottom: 36 },
+    // Master: dissolve the halftone and leaf tips over the left 34% into the paper circle (was a CSS mask).
+    masterFade: { left: 570, bottom: 36 },
     ops: [],
     placement: 'Section header decoration: top-right of Beyond Work, top- and right-aligned, behind the section title row.',
     notes: 'Includes part of the light sage circle behind the foliage.',
@@ -132,7 +142,7 @@ const ASSETS = [
   { id: 'writing-thumb-column', section: 'beyond', concept: C.beyond, crop: [1183, 462, 100, 68], widths: [100], bg: null, fade: {}, ops: [], opaque: true, placement: 'Writing row thumbnail (≈100×68).', notes: '' },
   { id: 'writing-thumb-mountain', section: 'beyond', concept: C.beyond, crop: [1183, 548, 100, 61], widths: [100], bg: null, fade: {}, ops: [], opaque: true, placement: 'Writing row thumbnail (≈100×61).', notes: '' },
   {
-    id: 'jj-listener', section: 'jj', concept: C.jj, crop: [670, 20, 1002, 692], widths: [680, 1002],
+    id: 'jj-listener', section: 'jj', concept: C.jj, crop: [670, 20, 1002, 692], widths: [680, 1002, 1536], matte: { lo: 3, hi: 7 }, 
     bg: PALETTE.jj.oxblood, fade: { left: 160, top: 40, right: 24 },
     ops: [
       { op: 'erase', rect: [650, 180, 205, 215], feather: 40, why: 'headline “portfolio / back.”' },
@@ -142,14 +152,14 @@ const ASSETS = [
     notes: 'Orb removed (concept px centre ≈ (1481, 430), r ≈ 80 + glow) – place the CSS orb there. Darker oxblood circle (#491614) behind the head is baked in.',
   },
   {
-    id: 'jj-listener-mobile', section: 'jj', concept: C.jj, crop: [860, 30, 560, 682], widths: [420, 560],
+    id: 'jj-listener-mobile', section: 'jj', concept: C.jj, crop: [860, 30, 560, 682], widths: [420, 560, 1122], matte: { lo: 3, hi: 7 }, 
     bg: PALETTE.jj.oxblood, fade: { left: 50, top: 40, right: 40 },
     ops: [],
     placement: 'Mobile JJ: head + listening hand, full width below the copy, bottom-aligned.',
     notes: 'No orb in this crop.',
   },
   {
-    id: 'footer-hand', section: 'footer', concept: C.footer, crop: [1182, 30, 490, 540], widths: [490],
+    id: 'footer-hand', section: 'footer', concept: C.footer, crop: [1182, 30, 490, 540], widths: [490, 980, 1254], matte: { lo: 3, hi: 7 }, 
     bg: PALETTE.footer.circle, fade: { left: 30, top: 50, bottom: 40 },
     ops: [
       { op: 'erase', rect: [1170, 280, 45, 115], feather: 8, why: 'full stop of headline' },
@@ -200,13 +210,105 @@ function inpaint(rgb, W, H, mask) {
   }
 }
 
+// Least-squares plane per channel through ground samples: the masters' flat grounds carry a faint
+// gradient, so a single colour would leave a ramp of residual alpha. (A quadratic extrapolates badly
+// into corners the artwork covers.)
+function fitGround(rgb, w, h) {
+  const border = [];
+  for (let x = 0; x < w; x += 2) border.push(x, (h - 1) * w + x);
+  for (let y = 0; y < h; y += 2) border.push(y * w, y * w + w - 1);
+  const g0 = [0, 1, 2].map((ch) => { const v = border.map((i) => rgb[i * 3 + ch]).sort((p, q) => p - q); return v[v.length >> 1]; });
+  const basis = (x, y) => [1, x / w - 0.5, y / h - 0.5];
+  let model = [0, 1, 2].map((ch) => [g0[ch], 0, 0]);
+  const at = (m, x, y) => { const b = basis(x, y); return m.map((c) => c.reduce((n, k, j) => n + k * b[j], 0)); };
+  for (const tol of [24, 10]) {
+    const A = Array.from({ length: 3 }, () => new Float64Array(3)), B = [0, 1, 2].map(() => new Float64Array(3));
+    for (let y = 0; y < h; y += 4) for (let x = 0; x < w; x += 4) {
+      const i = y * w + x, g = at(model, x, y);
+      if (Math.max(...[0, 1, 2].map((ch) => Math.abs(rgb[i * 3 + ch] - g[ch]))) >= tol) continue;
+      const b = basis(x, y);
+      for (let r = 0; r < 3; r++) { for (let c = 0; c < 3; c++) A[r][c] += b[r] * b[c]; for (let ch = 0; ch < 3; ch++) B[ch][r] += b[r] * rgb[i * 3 + ch]; }
+    }
+    model = B.map((rhs) => { // Gauss–Jordan on a copy of the 3×3 normal equations
+      const M = A.map((row, r) => [...row, rhs[r]]);
+      for (let c = 0; c < 3; c++) {
+        let p = c; for (let r = c + 1; r < 3; r++) if (Math.abs(M[r][c]) > Math.abs(M[p][c])) p = r;
+        [M[c], M[p]] = [M[p], M[c]];
+        for (let r = 0; r < 3; r++) if (r !== c) { const f = M[r][c] / M[c][c]; for (let k = c; k < 4; k++) M[r][k] -= f * M[c][k]; }
+      }
+      return M.map((row, r) => row[3] / row[r]);
+    });
+  }
+  return (x, y) => at(model, x, y);
+}
+
+// Key a master's flat ground to alpha. Ground = everything within `hi` of the fitted ground colour
+// that is connected to the image border, plus small enclosed ground-coloured holes (inside halftone
+// squares). Edge pixels get alpha from their distance relative to the strongest neighbour and are
+// un-mixed from the ground colour, so dots and marble edges keep their colour without a light halo.
+function matte(rgb, alpha, w, h, { lo, hi, hole = 600 }) {
+  const ground = fitGround(rgb, w, h);
+  const G = new Float32Array(w * h * 3), d = new Float32Array(w * h);
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const i = y * w + x, g = ground(x, y);
+    let m = 0; for (let ch = 0; ch < 3; ch++) { G[i * 3 + ch] = g[ch]; m = Math.max(m, Math.abs(rgb[i * 3 + ch] - g[ch])); }
+    d[i] = m;
+  }
+  const bg = new Uint8Array(w * h); // 1 = ground
+  const flood = (seeds, mark) => { const q = seeds; while (q.length) { const i = q.pop(); const x = i % w, y = (i / w) | 0; for (const j of [x > 0 && i - 1, x < w - 1 && i + 1, y > 0 && i - w, y < h - 1 && i + w]) if (j !== false && !bg[j] && d[j] < hi) { bg[j] = mark; q.push(j); } } };
+  // Seed only from long flat runs (or flat 9×9 patches) along the border, so a highlight where the artwork is cut by the
+  // frame edge cannot leak the ground into the figure.
+  const seeds = [];
+  const edges = [
+    Array.from({ length: w }, (_, x) => x), Array.from({ length: w }, (_, x) => (h - 1) * w + x),
+    Array.from({ length: h }, (_, y) => y * w), Array.from({ length: h }, (_, y) => y * w + w - 1),
+  ];
+  const flatAround = (i) => { const x = i % w, y = (i / w) | 0; for (let dy = -4; dy <= 4; dy++) for (let dx = -4; dx <= 4; dx++) { const X = x + dx, Y = y + dy; if (X >= 0 && Y >= 0 && X < w && Y < h && d[Y * w + X] >= lo) return false; } return true; };
+  for (const edge of edges) {
+    let run = [];
+    for (const i of [...edge, -1]) {
+      if (i >= 0 && d[i] < lo) { run.push(i); continue; }
+      for (const j of run) if (run.length >= 24 || flatAround(j)) { bg[j] = 1; seeds.push(j); }
+      run = [];
+    }
+  }
+  flood(seeds, 1);
+  // enclosed holes: small, near-flat ground-coloured components
+  for (let s = 0; s < w * h; s++) {
+    if (bg[s] || d[s] >= lo) continue;
+    bg[s] = 2; const comp = [s], q = [s];
+    while (q.length) { const i = q.pop(); const x = i % w, y = (i / w) | 0; for (const j of [x > 0 && i - 1, x < w - 1 && i + 1, y > 0 && i - w, y < h - 1 && i + w]) if (j !== false && !bg[j] && d[j] < hi) { bg[j] = 2; comp.push(j); q.push(j); } }
+    // A real hole (the ground inside a halftone square) is flat and ringed by strong ink;
+    // a marble highlight is ringed by stone close to the ground colour.
+    let ring = 0, rn = 0;
+    for (const i of comp) { const x = i % w, y = (i / w) | 0; for (const j of [x > 0 && i - 1, x < w - 1 && i + 1, y > 0 && i - w, y < h - 1 && i + w]) if (j !== false && bg[j] !== 2) { ring += d[j]; rn++; } }
+    const flat = comp.reduce((n, i) => n + d[i], 0) / comp.length < lo && rn > 0 && ring / rn > hi * 3;
+    for (const i of comp) bg[i] = comp.length >= 6 && comp.length <= hole && flat ? 1 : 3; // 3 = visited, kept opaque
+  }
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const i = y * w + x;
+    let near = bg[i] === 1, dl = 0;
+    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+      const X = x + dx, Y = y + dy; if (X < 0 || Y < 0 || X >= w || Y >= h) continue;
+      const j = Y * w + X; if (bg[j] === 1) near = true; dl = Math.max(dl, d[j]);
+    }
+    if (!near) continue;
+    const k = dl >= hi * 1.5 ? Math.min(1, Math.max(0, (d[i] - lo) / (dl - lo))) : bg[i] === 1 ? smooth(lo, hi, d[i]) : 1;
+    alpha[i] *= k;
+    if (k > 0.02 && k < 1) for (let ch = 0; ch < 3; ch++) rgb[i * 3 + ch] = G[i * 3 + ch] + (rgb[i * 3 + ch] - G[i * 3 + ch]) / k;
+    else if (k <= 0.02) for (let ch = 0; ch < 3; ch++) rgb[i * 3 + ch] = G[i * 3 + ch];
+  }
+}
+
 async function build(a) {
   const masterPath = path.join(masterDir, `${a.id}.png`);
   const useMaster = await fs.access(masterPath).then(() => true, () => false);
   const [L, T, W, H] = useMaster ? [0, 0, 0, 0] : a.crop;
   let rgb, w, h;
   if (useMaster) {
-    const { data, info } = await sharp(masterPath).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+    let img = sharp(masterPath).removeAlpha();
+    if (a.masterCrop) { const [left, top, width, height] = a.masterCrop; img = img.extract({ left, top, width, height }); }
+    const { data, info } = await img.raw().toBuffer({ resolveWithObject: true });
     rgb = new Float32Array(data); w = info.width; h = info.height;
   } else {
     const { data } = await sharp(path.join(conceptDir, a.concept)).removeAlpha().extract({ left: L, top: T, width: W, height: H }).raw().toBuffer({ resolveWithObject: true });
@@ -234,7 +336,8 @@ async function build(a) {
       for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const k = coverage(s, x + L, y + T); if (!k) continue; const i = y * w + x; alpha[i] *= 1 - k; for (let ch = 0; ch < 3; ch++) rgb[i * 3 + ch] += (bgc[ch] - rgb[i * 3 + ch]) * k; } // also scrub hidden RGB so removed text can't resurface
     }
   }
-  const f = a.fade ?? {};
+  if (useMaster && a.matte) matte(rgb, alpha, w, h, a.matte);
+  const f = (useMaster && a.masterFade) || a.fade || {};
   for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
     let k = 1;
     if (f.left) k *= smooth(0, f.left, x); if (f.right) k *= smooth(0, f.right, w - 1 - x);
@@ -264,6 +367,7 @@ async function build(a) {
     await fs.mkdir(previewDir, { recursive: true });
     const bg = a.bg ? hexToRgb(a.bg) : [255, 255, 255];
     await sharp(buf, raw).flatten({ background: { r: bg[0], g: bg[1], b: bg[2] } }).png().toFile(path.join(previewDir, `${a.id}.png`));
+    if (!opaque) await sharp(buf, raw).flatten({ background: { r: 255, g: 0, b: 255 } }).png().toFile(path.join(previewDir, `${a.id}-magenta.png`));
   }
   const entry = {
     id: a.id, section: a.section, alt: '', decorative: true, status: useMaster ? 'regenerated master' : STATUS,
@@ -271,7 +375,8 @@ async function build(a) {
     placement: a.placement,
     fade: opaque ? null : { sides: Object.fromEntries(Object.entries(f).map(([k, v]) => [k, `${v}px`])), fadesTo: 'transparent (alpha)', intendedBackground: a.bg },
     sectionBackgroundSampled: a.bg,
-    source: useMaster ? { master: path.relative(root, masterPath) } : { concept: `design/roman-v2/concepts/${a.concept}`, crop: { left: L, top: T, width: W, height: H } },
+    transparency: opaque ? 'opaque' : useMaster && a.matte ? `master ground keyed to alpha (lo ${a.matte.lo}, hi ${a.matte.hi}) plus edge fades` : 'edge fades only',
+    source: useMaster ? { master: path.relative(root, masterPath), ...(a.masterCrop && { crop: Object.fromEntries(['left', 'top', 'width', 'height'].map((k, i) => [k, a.masterCrop[i]])) }) } : { concept: `design/roman-v2/concepts/${a.concept}`, crop: { left: L, top: T, width: W, height: H } },
     cleanup: ops.map((s) => `${s.op}: ${s.why}`),
     notes: useMaster ? (a.masterNotes ?? a.notes) : a.notes,
   };

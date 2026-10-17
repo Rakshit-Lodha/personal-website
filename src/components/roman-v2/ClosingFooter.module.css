@@ -30,12 +30,6 @@
   pointer-events: none;
 }
 
-.filters {
-  position: absolute;
-  width: 0;
-  height: 0;
-}
-
 .backdrop {
   position: absolute;
   inset: 0;
@@ -62,8 +56,6 @@
   display: block;
   width: 100%;
   height: auto;
-  filter: url("#roman-v2-footer-ground");
-  mix-blend-mode: darken;
 }
 
 /* Concept cursor: tip at (1177, 476) at 1672, just below and left of the fingertip. */
@@ -242,7 +234,6 @@ nav.cell,
     width: 38vw;
   }
 
-  /* Opacity sits on the blended image itself, so the darken blend still reaches the paper. */
   .artImage {
     opacity: 0.45;
   }

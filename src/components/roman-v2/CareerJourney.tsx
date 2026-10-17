@@ -22,15 +22,15 @@ function CareerArt({ sizes }: { sizes: string }) {
     <picture>
       <source
         type="image/avif"
-        srcSet="/roman-v2/career/career-hands-560.avif 560w, /roman-v2/career/career-hands-812.avif 812w"
+        srcSet="/roman-v2/career/career-hands-560.avif 560w, /roman-v2/career/career-hands-812.avif 812w, /roman-v2/career/career-hands-1072.avif 1072w"
         sizes={sizes}
       />
       <source
         type="image/webp"
-        srcSet="/roman-v2/career/career-hands-560.webp 560w, /roman-v2/career/career-hands-812.webp 812w"
+        srcSet="/roman-v2/career/career-hands-560.webp 560w, /roman-v2/career/career-hands-812.webp 812w, /roman-v2/career/career-hands-1072.webp 1072w"
         sizes={sizes}
       />
-      <img src="/roman-v2/career/career-hands-812.webp" alt="" width={812} height={457} loading="lazy" decoding="async" />
+      <img src="/roman-v2/career/career-hands-812.webp" alt="" width={1072} height={790} loading="lazy" decoding="async" />
     </picture>
   );
 }

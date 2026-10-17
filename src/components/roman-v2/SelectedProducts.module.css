@@ -108,7 +108,7 @@
 }
 
 /*
- * Artwork stage (960x640 export). The ground below the frame's marble (bottom 7.7%) hangs below the
+ * Artwork stage (3:2 export). The empty ground below the frame's marble (bottom 7.7%) hangs below the
  * band and is clipped there, so the marble sits on the band's bottom edge as in the concept.
  */
 .stage {
@@ -125,10 +125,7 @@
   pointer-events: none;
 }
 
-/*
- * Terracotta disc, in stage units so the frame's mask below can use the same circle. The art's
- * opaque ground is clipped to it, so no rectangle edge shows on the paper or the band.
- */
+/* Terracotta disc, in stage units; the frame art is transparent and sits on it. */
 .sun {
   position: absolute;
   top: -31.7%;
@@ -149,11 +146,6 @@
   display: block;
   width: 100%;
   height: auto;
-  mask-image:
-    radial-gradient(ellipse 65.2% 97.8% at 68.8% 66.1%, #000 99.6%, transparent 100%),
-    linear-gradient(180deg, transparent 2%, #000 6%),
-    linear-gradient(270deg, transparent 1%, #000 4%);
-  mask-composite: intersect;
 }
 
 /* Bounding box of the frame's dark opening; the polygon traces its outline (head profile included). */
