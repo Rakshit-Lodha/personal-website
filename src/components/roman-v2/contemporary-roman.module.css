@@ -1,0 +1,256 @@
+/* Shared Contemporary Roman tokens, layout and actions. Everything is scoped under .root. */
+
+.root {
+  --paper: #f1eadf;
+  --paper-light: #f7f2e9;
+  --sage: #d8ddd2;
+  --terracotta: #c98b72;
+  --oxblood: #7d211d;
+  --oxblood-deep: #5e1714;
+  --ink: #171614;
+  --muted: #655f57;
+  --stone: #d8cdbd;
+  --line: rgba(23, 22, 20, 0.16);
+  --on-oxblood: #f7f2e9;
+
+  --font-headline: var(--font-instrument-serif), "Times New Roman", serif;
+  --font-body: var(--font-figtree), system-ui, sans-serif;
+  --font-inscription: var(--font-cinzel), "Times New Roman", serif;
+
+  --container-max: 1440px;
+  --gutter: clamp(16px, 4.5vw, 72px);
+  --section-space: clamp(72px, 10vw, 144px);
+  --radius: 2px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --nav-offset: 96px;
+
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.root :where(h1, h2, h3) {
+  margin: 0;
+  font-family: var(--font-headline);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.root :where(p) {
+  margin: 0;
+}
+
+.root :where(section[id], footer[id]) {
+  scroll-margin-top: var(--nav-offset);
+}
+
+/* Shared type */
+
+.display {
+  font-size: clamp(3.25rem, 9vw, 8.5rem);
+}
+
+.h2 {
+  font-size: clamp(2.75rem, 7vw, 6.5rem);
+}
+
+.h3 {
+  font-size: clamp(1.875rem, 3.4vw, 3.25rem);
+  line-height: 1;
+}
+
+.accent {
+  color: var(--oxblood);
+}
+
+.lede {
+  max-width: 40ch;
+  font-size: clamp(1.0625rem, 1.6vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.inscription {
+  font-family: var(--font-inscription);
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* Layout */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-space);
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Accessibility */
+
+.skipLink {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 12px 18px;
+  background: var(--ink);
+  color: var(--paper-light);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-160%);
+}
+
+.skipLink:focus {
+  transform: none;
+}
+
+.root :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--oxblood);
+  outline-offset: 3px;
+}
+
+/* Actions (AvailabilityAction and JJButton) */
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 22px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font: 500 1rem/1.2 var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 200ms var(--ease),
+    color 200ms var(--ease),
+    border-color 200ms var(--ease);
+}
+
+.actionIcon {
+  flex: none;
+  transition: transform 200ms var(--ease);
+}
+
+.primary {
+  background: var(--oxblood);
+  color: var(--on-oxblood);
+}
+
+.primary:hover {
+  background: var(--oxblood-deep);
+}
+
+.outline {
+  border-color: currentColor;
+  background: transparent;
+  color: var(--ink);
+}
+
+.outline:hover {
+  background: rgba(23, 22, 20, 0.05);
+}
+
+.text {
+  min-height: 44px;
+  padding: 0;
+  color: var(--oxblood);
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+}
+
+.iconOnly {
+  width: 44px;
+  padding: 0;
+  border-color: currentColor;
+  background: transparent;
+  color: var(--ink);
+}
+
+.action:hover .actionIcon {
+  transform: translate(2px, -2px);
+}
+
+.disabled,
+.disabled:hover {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.disabled.primary:hover {
+  background: var(--oxblood);
+}
+
+.disabled.outline:hover,
+.disabled.iconOnly:hover {
+  background: transparent;
+}
+
+.disabled:hover .actionIcon {
+  transform: none;
+}
+
+/* Reveal */
+
+.reveal[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.reveal[data-reveal="shown"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 600ms var(--ease),
+    transform 600ms var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root *,
+  .root *::before,
+  .root *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal[data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

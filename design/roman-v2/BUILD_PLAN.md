@@ -494,7 +494,7 @@ This tracker is the source of truth for execution progress. The implementing age
 | Detailed implementation plan | ✅ Done | This document |
 | Production artwork layers | 🟡 Pending | Generate clean section assets without baked-in UI |
 | Mobile visual references | 🟡 Pending | Produce and approve dedicated mobile compositions |
-| `/roman-v2` application code | ⬜ Not started | Begin with Track A below |
+| `/roman-v2` application code | 🔎 Review required | Track A foundation and section stubs in place; Tracks C–G next |
 | Data and provider integration | ⬜ Not started | Begins after section shells exist |
 | Responsive implementation | ⬜ Not started | Begins with each section, completed in Track H |
 | Accessibility and performance QA | ⬜ Not started | Track I |
@@ -505,10 +505,10 @@ This tracker is the source of truth for execution progress. The implementing age
 
 | ID | Task | Output / acceptance evidence | Dependency | Status |
 | --- | --- | --- | --- | --- |
-| A1 | Create `/roman-v2` route and scoped metadata | Route renders, is `noindex`, and does not change `/roman` | None | ⬜ Not started |
-| A2 | Create Roman v2 types, content adapter and fixture boundary | Typed server payload; fixtures cannot enter canonical profile or JJ data | A1 | ⬜ Not started |
-| A3 | Implement `AvailabilityAction` | Enabled link, disabled button and `aria-disabled` cases tested | A2 | ⬜ Not started |
-| A4 | Establish CSS tokens, typography and responsive container | Token sheet matches Section 8; no global style leakage | A1 | ⬜ Not started |
+| A1 | Create `/roman-v2` route and scoped metadata | Route renders, is `noindex`, and does not change `/roman` | None | ✅ Done — `src/app/roman-v2/`; dev server returned 200 for `/roman-v2` (with `noindex, nofollow`) and `/roman` |
+| A2 | Create Roman v2 types, content adapter and fixture boundary | Typed server payload; fixtures cannot enter canonical profile or JJ data | A1 | ✅ Done — `src/lib/roman-v2/{types,content,fixtures}.ts`; fixtures imported only by `content.ts` |
+| A3 | Implement `AvailabilityAction` | Enabled link, disabled button and `aria-disabled` cases tested | A2 | 🔎 Review required — `src/components/roman-v2/AvailabilityAction.tsx`; SSR output shows enabled links and a disabled button; no automated tests exist in the repo |
+| A4 | Establish CSS tokens, typography and responsive container | Token sheet matches Section 8; no global style leakage | A1 | ✅ Done — `contemporary-roman.module.css` scoped under `.root`; tsc and lint pass |
 | B1 | Prepare final hero artwork | Desktop and mobile AVIF/WebP assets; no baked-in text or controls | Asset map | 🟡 Pending |
 | B2 | Prepare final career artwork | Hands-and-blocks assets with clean masks and responsive crops | Asset map | 🟡 Pending |
 | B3 | Prepare project framing artwork and real UI captures | Marble frame layers plus verified screenshots | Product URLs/screens | 🟡 Pending |
