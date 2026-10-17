@@ -134,72 +134,54 @@
       "notes": "Approved generated desktop hero. Figure, hands and laptop all face left; left copy field is intentionally clear. Draw the large faint circle and all interface elements in CSS/HTML."
     },
     {
-      "id": "hero-figure-mobile",
+      "id": "hero-hands-mobile",
       "section": "hero",
       "alt": "",
       "decorative": true,
       "status": "regenerated master",
       "files": [
         {
-          "path": "public/roman-v2/hero/hero-figure-mobile-480.avif",
-          "url": "/roman-v2/hero/hero-figure-mobile-480.avif",
+          "path": "public/roman-v2/hero/hero-hands-mobile-480.avif",
+          "url": "/roman-v2/hero/hero-hands-mobile-480.avif",
           "format": "avif",
           "width": 480,
-          "height": 480,
-          "bytes": 26551
+          "height": 357,
+          "bytes": 29086
         },
         {
-          "path": "public/roman-v2/hero/hero-figure-mobile-480.webp",
-          "url": "/roman-v2/hero/hero-figure-mobile-480.webp",
+          "path": "public/roman-v2/hero/hero-hands-mobile-480.webp",
+          "url": "/roman-v2/hero/hero-hands-mobile-480.webp",
           "format": "webp",
           "width": 480,
-          "height": 480,
-          "bytes": 48050
+          "height": 357,
+          "bytes": 59376
         },
         {
-          "path": "public/roman-v2/hero/hero-figure-mobile-850.avif",
-          "url": "/roman-v2/hero/hero-figure-mobile-850.avif",
+          "path": "public/roman-v2/hero/hero-hands-mobile-860.avif",
+          "url": "/roman-v2/hero/hero-hands-mobile-860.avif",
           "format": "avif",
-          "width": 850,
-          "height": 850,
-          "bytes": 60430
+          "width": 860,
+          "height": 640,
+          "bytes": 55186
         },
         {
-          "path": "public/roman-v2/hero/hero-figure-mobile-850.webp",
-          "url": "/roman-v2/hero/hero-figure-mobile-850.webp",
+          "path": "public/roman-v2/hero/hero-hands-mobile-860.webp",
+          "url": "/roman-v2/hero/hero-hands-mobile-860.webp",
           "format": "webp",
-          "width": 850,
-          "height": 850,
-          "bytes": 116000
-        },
-        {
-          "path": "public/roman-v2/hero/hero-figure-mobile-1254.avif",
-          "url": "/roman-v2/hero/hero-figure-mobile-1254.avif",
-          "format": "avif",
-          "width": 1254,
-          "height": 1254,
-          "bytes": 74572
-        },
-        {
-          "path": "public/roman-v2/hero/hero-figure-mobile-1254.webp",
-          "url": "/roman-v2/hero/hero-figure-mobile-1254.webp",
-          "format": "webp",
-          "width": 1254,
-          "height": 1254,
-          "bytes": 168558
+          "width": 860,
+          "height": 640,
+          "bytes": 123432
         }
       ],
       "sourcePixels": {
-        "width": 1254,
-        "height": 1254
+        "width": 860,
+        "height": 640
       },
       "hasAlpha": true,
-      "placement": "Mobile hero: full-width portrait-ish crop (head → hands on keyboard) placed below the headline/CTA stack, bottom-aligned.",
+      "placement": "Mobile hero: full-bleed laptop + hands crop anchored to the bottom of the first fold, below the headline/CTA stack.",
       "fade": {
         "sides": {
-          "left": "90px",
-          "top": "60px",
-          "right": "30px"
+          "top": "60px"
         },
         "fadesTo": "transparent (alpha)",
         "intendedBackground": "#f4ebdf"
@@ -207,10 +189,16 @@
       "sectionBackgroundSampled": "#f4ebdf",
       "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
       "source": {
-        "master": "design/roman-v2/assets/masters/hero-figure-mobile.png"
+        "master": "design/roman-v2/assets/masters/hero-figure-mobile.png",
+        "crop": {
+          "left": 0,
+          "top": 580,
+          "width": 860,
+          "height": 640
+        }
       },
       "cleanup": [],
-      "notes": "Approved corrected mobile hero. The complete laptop is visible with ivory margin; all interface elements remain CSS/HTML."
+      "notes": "Crop of the approved mobile hero master: halftone, laptop and hands typing; head and armrest excluded. All interface elements remain CSS/HTML."
     },
     {
       "id": "career-hands",
@@ -495,31 +483,32 @@
       "status": "regenerated master",
       "files": [
         {
-          "path": "public/roman-v2/beyond/beyond-music-516.avif",
-          "url": "/roman-v2/beyond/beyond-music-516.avif",
+          "path": "public/roman-v2/beyond/beyond-music-536.avif",
+          "url": "/roman-v2/beyond/beyond-music-536.avif",
           "format": "avif",
-          "width": 516,
-          "height": 290,
-          "bytes": 7217
+          "width": 536,
+          "height": 215,
+          "bytes": 7950
         },
         {
-          "path": "public/roman-v2/beyond/beyond-music-516.webp",
-          "url": "/roman-v2/beyond/beyond-music-516.webp",
+          "path": "public/roman-v2/beyond/beyond-music-536.webp",
+          "url": "/roman-v2/beyond/beyond-music-536.webp",
           "format": "webp",
-          "width": 516,
-          "height": 290,
-          "bytes": 13780
+          "width": 536,
+          "height": 215,
+          "bytes": 15860
         }
       ],
       "sourcePixels": {
-        "width": 1672,
-        "height": 941
+        "width": 536,
+        "height": 215
       },
       "hasAlpha": true,
-      "placement": "Music card: middle band, bottom-aligned; its right edge butts directly against the HTML player panel (#222322) that holds waveform/controls.",
+      "placement": "Music card: full card height, right of the copy; the HTML player panel (#222322) continues from its right edge and holds waveform/progress/controls.",
       "fade": {
         "sides": {
-          "left": "40px"
+          "left": "16px",
+          "right": "6px"
         },
         "fadesTo": "transparent (alpha)",
         "intendedBackground": "#f2eae0"
@@ -530,7 +519,7 @@
         "master": "design/roman-v2/assets/masters/beyond-music.png"
       },
       "cleanup": [],
-      "notes": "Approved generated hand and rotary knob. Waveform, labels and player controls must be rendered separately in HTML/CSS."
+      "notes": "Cropped from the approved music close-up (oxblood circle, halftone-dissolving marble hand, knob); progress line removed. Waveform, labels and player controls are HTML/CSS."
     },
     {
       "id": "beyond-column",

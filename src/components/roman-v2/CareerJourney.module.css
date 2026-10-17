@@ -98,8 +98,8 @@
 }
 
 .title {
-  font-size: clamp(3rem, 9.7vw, 10.125rem);
-  letter-spacing: -0.005em;
+  font-size: clamp(2.5rem, 8vw, 8.375rem);
+  letter-spacing: -0.03em;
   line-height: 0.92;
 }
 
@@ -284,8 +284,9 @@
 }
 
 .chapterTitle {
-  font-size: clamp(2.5rem, 6.4cqi, 5.625rem);
-  line-height: 0.82;
+  font-size: clamp(2rem, 4.5cqi, 3.95rem);
+  font-weight: 600;
+  line-height: 0.88;
   letter-spacing: -0.04em;
   text-wrap: balance;
 }
@@ -341,7 +342,8 @@
   order: -1;
   margin: 0;
   font-family: var(--font-headline);
-  font-size: clamp(2.5rem, 6.87cqi, 6rem);
+  font-size: clamp(2.125rem, 5.85cqi, 5.1rem);
+  font-weight: 600;
   line-height: 0.8;
   letter-spacing: -0.035em;
   white-space: nowrap;
@@ -497,7 +499,8 @@
 
   .itemTitle {
     font-family: var(--font-headline);
-    font-size: clamp(2.25rem, 9vw, 3rem);
+    font-size: clamp(2rem, 8.2vw, 2.75rem);
+    font-weight: 600;
     line-height: 0.95;
     letter-spacing: -0.03em;
   }

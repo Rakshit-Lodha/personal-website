@@ -12,7 +12,8 @@ const THUMBS = [
   { name: "writing-thumb-column", height: 68 },
   { name: "writing-thumb-mountain", height: 61 },
 ];
-const WAVEFORM = [18, 34, 52, 26, 70, 44, 88, 36, 60, 96, 48, 74, 30, 82, 56, 100, 40, 66, 28, 90, 50, 78, 34, 62, 86, 42, 70, 24, 58, 38, 80, 46, 64, 30, 52, 22];
+// Bar heights (% of the tallest) traced from the approved music close-up.
+const WAVEFORM = [8, 59, 43, 49, 69, 47, 19, 32, 77, 100, 83, 59, 38, 62, 80, 70, 28, 15, 24, 66, 86, 61, 33, 44, 20, 32, 34, 62, 88, 76, 56, 32, 45, 65, 87, 62, 25, 13, 45];
 
 /** Decorative artwork layer: AVIF with WebP fallback, hidden from assistive technology. */
 function Art({
@@ -183,10 +184,10 @@ export default function BeyondWork({ beyond }: { beyond: RomanV2Beyond }) {
               <div className={s.musicStage} aria-hidden="true">
                 <Art
                   name="beyond-music"
-                  widths={[516]}
-                  width={516}
-                  height={290}
-                  sizes="(max-width: 767px) 100vw, 516px"
+                  widths={[536]}
+                  width={536}
+                  height={215}
+                  sizes="(max-width: 767px) 419px, 521px"
                   className={s.musicArt}
                 />
                 <span className={s.musicPanel} />

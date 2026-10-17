@@ -48,12 +48,15 @@ const ASSETS = [
     masterNotes: 'Approved generated desktop hero. Figure, hands and laptop all face left; left copy field is intentionally clear. Draw the large faint circle and all interface elements in CSS/HTML.',
   },
   {
-    id: 'hero-figure-mobile', section: 'hero', concept: C.hero, crop: [770, 95, 850, 748], widths: [480, 850, 1254], matte: { lo: 3, hi: 7 }, 
+    id: 'hero-hands-mobile', section: 'hero', concept: C.hero, crop: [770, 95, 850, 748], widths: [480, 860], matte: { lo: 3, hi: 7 }, 
+    // Laptop and typing hands only (no head), cut from the mobile master; the right and bottom edges
+    // run off the viewport, so only the cut top fades.
+    master: 'hero-figure-mobile', masterCrop: [0, 580, 860, 640], masterFade: { top: 60 },
     bg: PALETTE.hero.paper, fade: { left: 90, top: 60, right: 30 },
     ops: [],
-    placement: 'Mobile hero: full-width portrait-ish crop (head → hands on keyboard) placed below the headline/CTA stack, bottom-aligned.',
+    placement: 'Mobile hero: full-bleed laptop + hands crop anchored to the bottom of the first fold, below the headline/CTA stack.',
     notes: 'Laptop lid is partially cropped and fades out on the left.',
-    masterNotes: 'Approved corrected mobile hero. The complete laptop is visible with ivory margin; all interface elements remain CSS/HTML.',
+    masterNotes: 'Crop of the approved mobile hero master: halftone, laptop and hands typing; head and armrest excluded. All interface elements remain CSS/HTML.',
   },
   {
     id: 'career-hands', section: 'career', concept: C.career, crop: [860, 333, 812, 357], widths: [560, 812, 1072], matte: { lo: 3, hi: 7 },
@@ -112,14 +115,16 @@ const ASSETS = [
     masterNotes: 'Approved generated reading collage with no readable text and a clear left copy field.',
   },
   {
-    id: 'beyond-music', section: 'beyond', concept: C.beyond, crop: [290, 706, 516, 210], widths: [516],
+    id: 'beyond-music', section: 'beyond', concept: C.beyond, crop: [290, 706, 516, 210], widths: [536],
     bg: PALETTE.beyond.card, fade: { left: 40 },
+    // Master: the halftone hand-on-knob strip cropped from the approved music close-up; cream sits on the card, the right edge on the player panel.
+    masterFade: { left: 16, right: 6 },
     ops: [
       { op: 'inpaint', line: [[712, 860], [806, 860]], width: 6, why: 'player progress bar' },
     ],
-    placement: 'Music card: middle band, bottom-aligned; its right edge butts directly against the HTML player panel (#222322) that holds waveform/controls.',
+    placement: 'Music card: full card height, right of the copy; the HTML player panel (#222322) continues from its right edge and holds waveform/progress/controls.',
     notes: 'Right portion is the dark player panel corner; waveform, progress bar and transport controls excluded/inpainted.',
-    masterNotes: 'Approved generated hand and rotary knob. Waveform, labels and player controls must be rendered separately in HTML/CSS.',
+    masterNotes: 'Cropped from the approved music close-up (oxblood circle, halftone-dissolving marble hand, knob); progress line removed. Waveform, labels and player controls are HTML/CSS.',
   },
   {
     id: 'beyond-column', section: 'beyond', concept: C.beyond, crop: [860, 0, 812, 266], widths: [560, 812, 1672], matte: { lo: 3, hi: 7 }, 
@@ -301,7 +306,7 @@ function matte(rgb, alpha, w, h, { lo, hi, hole = 600 }) {
 }
 
 async function build(a) {
-  const masterPath = path.join(masterDir, `${a.id}.png`);
+  const masterPath = path.join(masterDir, `${a.master ?? a.id}.png`);
   const useMaster = await fs.access(masterPath).then(() => true, () => false);
   const [L, T, W, H] = useMaster ? [0, 0, 0, 0] : a.crop;
   let rgb, w, h;

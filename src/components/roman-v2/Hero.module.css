@@ -60,11 +60,11 @@
   bottom: calc(7.8 * var(--u));
 }
 
-/* Instrument Serif runs taller and narrower than the concept face: size to the concept baselines. */
+/* Newsreader runs slightly wider than the concept face: size to the concept widths and baselines. */
 .title {
-  font-size: calc(9.3 * var(--u));
-  line-height: 0.76;
-  letter-spacing: 0;
+  font-size: calc(7.9 * var(--u));
+  line-height: 0.87;
+  letter-spacing: -0.03em;
 }
 
 .lead,
@@ -134,11 +134,16 @@
   }
 }
 
-/* Tablet and mobile: copy first, then the dedicated crop below it — never overlapping. */
+/*
+ * Tablet and mobile: copy first, then the laptop-and-hands crop filling the rest of the first fold,
+ * full-bleed and anchored to its bottom — never overlapping. On short screens the crop shrinks
+ * (cover, keeping laptop and hands) down to 160px before the hero grows past the fold.
+ */
 @media (max-width: 899px) {
   .section {
     height: auto;
-    min-height: 0;
+    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     padding-top: 112px;
@@ -148,11 +153,12 @@
     position: static;
     order: -1;
     padding-inline: var(--gutter);
+    padding-bottom: 24px;
   }
 
   .title {
-    font-size: clamp(4.25rem, 19vw, 8.5rem);
-    line-height: 0.8;
+    font-size: clamp(3.625rem, 16.2vw, 7.25rem);
+    line-height: 0.9;
   }
 
   .body {
@@ -173,25 +179,30 @@
     font-size: 1rem;
   }
 
+  /* Grows to fill the fold up to the crop's natural 860:640 height; the auto margin then takes the rest. */
   .art {
     position: relative;
     left: auto;
     bottom: auto;
     display: block;
-    align-self: flex-end;
-    width: min(100%, 640px);
-    margin-top: 24px;
+    flex: 1 0 160px;
+    width: 100%;
+    max-height: calc(100vw * 640 / 860);
+    margin-top: auto;
   }
 
-  /*
-   * The square crop sits bottom-right, min(100vw, 640px) wide. The circle follows it: centre at
-   * (66%, 41%) of the art, r 49%, so it sits behind the head as on desktop.
-   */
+  .art img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: cover;
+    object-position: 40% 60%;
+    /* Cover can crop away the baked top fade on short screens; keep the top edge soft. */
+    mask-image: linear-gradient(transparent, #000 32px);
+  }
+
   .circle {
-    right: calc(min(100vw, 640px) * -0.15);
-    bottom: calc(min(100vw, 640px) * 0.1);
-    left: auto;
-    width: calc(min(100vw, 640px) * 0.98);
+    display: none;
   }
 }
 
