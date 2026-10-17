@@ -3,9 +3,14 @@
 /*
  * Desktop composition is measured from the 1665px concept and scales in --u (1vw, capped at 18px),
  * so the artwork, its CSS circle and the copy keep their relationship at every desktop width.
+ * Above the shared container width the composition is offset by --edge so the copy lines up with
+ * the other sections' container edge.
  */
 .section {
   --u: min(1vw, 18px);
+  --edge: max(0px, (100% - var(--container-max)) / 2);
+  /* Below 1400 the CTAs stop scaling down (44px / 16px floors); nudge the art right to keep clear. */
+  --shift: max(0px, (1400px - 100vw) * 0.2);
   --hero-paper: #f4ebdf;
   --hero-circle: #ecdecf;
 
@@ -17,11 +22,18 @@
   isolation: isolate;
 }
 
+.filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* Concept circle: centre (1247, 450), r 507 at 1665, anchored to the hero bottom like the art. */
 .circle {
   position: absolute;
   z-index: -1;
-  top: calc(-3.42 * var(--u));
-  right: calc(25.1 * var(--u) - 30.45 * var(--u));
+  bottom: calc(-6.73 * var(--u));
+  left: calc(var(--edge) + var(--shift) + 44.45 * var(--u));
   width: calc(60.9 * var(--u));
   aspect-ratio: 1;
   border-radius: 50%;
@@ -29,15 +41,22 @@
   animation: heroFade 1200ms var(--ease) both;
 }
 
+/*
+ * Figure at 1.2x the 1105 export so it matches the concept: hair top y 115, laptop left x 615,
+ * brooch (1300, 410). The lap runs past the hero bottom, as in the concept.
+ */
 .art {
   position: absolute;
   z-index: -1;
-  right: 0;
-  bottom: 0;
-  width: calc(66.37 * var(--u));
-  /* Soften the crop's left and top edges into the paper. */
-  mask-image: linear-gradient(to right, transparent, #000 9%), linear-gradient(to bottom, transparent, #000 5%);
+  left: calc(var(--edge) + var(--shift) + 14.51 * var(--u));
+  bottom: calc(-6.37 * var(--u));
+  width: calc(79.64 * var(--u));
+  /* Soften the crop's left and top edges into the paper and drop the export's 1–2% edge fringe. */
+  mask-image:
+    linear-gradient(to right, transparent 1.5%, #000 9%), linear-gradient(to bottom, transparent 1.5%, #000 5%),
+    linear-gradient(to left, transparent 1%, #000 3%);
   mask-composite: intersect;
+  mix-blend-mode: darken;
   animation: heroArt 1400ms var(--ease) 100ms both;
 }
 
@@ -45,18 +64,20 @@
   display: block;
   width: 100%;
   height: auto;
+  filter: url("#roman-v2-hero-ground");
 }
 
 .copy {
   position: absolute;
-  left: calc(6.4 * var(--u));
+  left: calc(var(--edge) + 6.4 * var(--u));
   bottom: calc(7.8 * var(--u));
 }
 
+/* Instrument Serif runs taller and narrower than the concept face: size to the concept baselines. */
 .title {
-  font-size: calc(10.9 * var(--u));
-  line-height: 0.66;
-  letter-spacing: -0.035em;
+  font-size: calc(9.3 * var(--u));
+  line-height: 0.76;
+  letter-spacing: 0;
 }
 
 .lead,
@@ -78,7 +99,7 @@
 .body {
   max-width: 14.6em;
   margin-top: calc(2.6 * var(--u));
-  font-size: calc(1.8 * var(--u));
+  font-size: calc(1.85 * var(--u));
   line-height: 1.3;
   color: var(--ink);
   animation: heroIn 900ms var(--ease) 400ms both;
@@ -88,7 +109,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: calc(1.44 * var(--u));
-  margin-top: calc(2.4 * var(--u));
+  margin-top: calc(2 * var(--u));
   animation: heroIn 900ms var(--ease) 520ms both;
 }
 
@@ -139,12 +160,12 @@
   .copy {
     position: static;
     order: -1;
-    padding-inline: max(16px, 5vw);
+    padding-inline: var(--gutter);
   }
 
   .title {
     font-size: clamp(4.25rem, 19vw, 8.5rem);
-    line-height: 0.72;
+    line-height: 0.8;
   }
 
   .body {
@@ -167,30 +188,26 @@
 
   .art {
     position: relative;
-    right: auto;
+    left: auto;
     bottom: auto;
     display: block;
     align-self: flex-end;
     width: min(100%, 640px);
     margin-top: 24px;
-    mask-image: none;
+    mask-image:
+      linear-gradient(to right, transparent 1.5%, #000 4%), linear-gradient(to bottom, transparent 1.5%, #000 4%),
+      linear-gradient(to left, transparent 1.5%, #000 4%);
   }
 
-  /* On the portrait crop the circle travels with the art so it meets the circle baked into it. */
+  /*
+   * The square crop sits bottom-right, min(100vw, 640px) wide. The circle follows it: centre at
+   * (66%, 41%) of the art, r 49%, so it sits behind the head as on desktop.
+   */
   .circle {
-    display: none;
-  }
-
-  .art::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: -3.6%;
-    top: -20.2%;
-    width: 119%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: var(--hero-circle);
+    right: calc(min(100vw, 640px) * -0.15);
+    bottom: calc(min(100vw, 640px) * 0.1);
+    left: auto;
+    width: calc(min(100vw, 640px) * 0.98);
   }
 }
 

@@ -3,25 +3,37 @@
 .root {
   --footer-rule: rgba(125, 33, 29, 0.9);
   --footer-divider: rgba(23, 22, 20, 0.2);
+  /* Art scale: 1vw, frozen at the container width so the circle and hand stop growing with it. */
+  --fu: min(1vw, 16.8px);
 
   position: relative;
+  isolation: isolate;
   overflow: hidden;
-  padding-block: clamp(96px, 9.6vw, 164px) 28px;
+  padding-block: clamp(96px, calc(9.6vw + 10px), 174px) 15px;
   background: #f0e8dd;
   color: var(--ink);
 }
 
-/* Engraved circle and faint construction grid behind the hand. */
+/*
+ * Engraved circle and faint construction grid behind the hand. Concept circle at 1672:
+ * centre (1295, 345), r 320. Right-anchored with the hand, which exits the right edge.
+ */
 .root::before {
   content: "";
   position: absolute;
-  top: 25px;
-  left: 58.3vw;
-  width: 38.3vw;
+  top: calc(1.5 * var(--fu));
+  right: calc(3.41 * var(--fu));
+  width: calc(38.28 * var(--fu));
   aspect-ratio: 1;
   border-radius: 50%;
   background: #e6dacd;
   pointer-events: none;
+}
+
+.filters {
+  position: absolute;
+  width: 0;
+  height: 0;
 }
 
 .backdrop {
@@ -34,11 +46,15 @@
   mask-image: linear-gradient(90deg, transparent 40%, #000 75%);
 }
 
+/*
+ * Hand at 1.242x the 490 export: fingertip (110, 318) in the export lands on the concept fingertip
+ * (1200, 470) at 1672, and the drape's cut edge sits on the viewport's right edge.
+ */
 .art {
   position: absolute;
-  top: 30px;
+  top: calc(4.37 * var(--fu));
   right: 0;
-  width: min(29.3vw, 560px);
+  width: calc(36.4 * var(--fu));
   pointer-events: none;
 }
 
@@ -46,12 +62,23 @@
   display: block;
   width: 100%;
   height: auto;
+  filter: url("#roman-v2-footer-ground");
+  mix-blend-mode: darken;
+}
+
+/* Concept cursor: tip at (1177, 476) at 1672, just below and left of the fingertip. */
+.cursor {
+  position: absolute;
+  left: 18.7%;
+  top: 66.2%;
+  width: 4.9%;
+  height: auto;
+  color: #7d211d;
+  filter: drop-shadow(0 0 6px rgba(214, 96, 72, 0.55));
 }
 
 .inner {
   position: relative;
-  max-width: 1680px;
-  padding-inline: clamp(16px, 4vw, 72px);
 }
 
 .invite {
@@ -60,8 +87,8 @@
 
 .title {
   font-size: clamp(3rem, 7.6vw, 8.25rem);
-  line-height: 0.94;
-  letter-spacing: -0.025em;
+  line-height: 0.9;
+  letter-spacing: -0.012em;
 }
 
 .lead::after {
@@ -73,15 +100,15 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px clamp(32px, 2.9vw, 48px);
-  margin-top: clamp(28px, 3.2vw, 52px);
+  gap: 16px clamp(32px, 4.5vw, 76px);
+  margin-top: clamp(22px, 2.3vw, 38px);
 }
 
 .ctas .conversation {
   padding-bottom: 4px;
   border-bottom-width: 2px;
-  font: 400 clamp(1.75rem, 2.2vw, 2.375rem) / 1 var(--font-headline);
-  letter-spacing: -0.02em;
+  font: 400 clamp(1.75rem, 2.4vw, 2.5rem) / 1 var(--font-headline);
+  letter-spacing: 0;
   gap: 24px;
 }
 
@@ -99,7 +126,7 @@
   display: grid;
   grid-template-columns: 1.72fr 1fr 1fr 0.94fr 0.91fr;
   margin-top: clamp(56px, 5.3vw, 90px);
-  padding-block: 34px 36px;
+  padding-block: 38px 36px;
   border-top: 1px solid var(--footer-rule);
   border-bottom: 1px solid var(--footer-rule);
 }
@@ -114,7 +141,7 @@
 }
 
 .brand {
-  padding: 0 24px 0 6px;
+  padding: 6px 24px 0 6px;
 }
 
 .wordmark {
@@ -126,13 +153,21 @@
 
 .tagline {
   max-width: 22rem;
-  margin-top: 14px;
+  margin-top: 18px;
   font-size: clamp(1rem, 1.2vw, 1.25rem);
   line-height: 1.4;
   color: var(--muted);
 }
 
+/* Link lists sit top-aligned in their cells; timezone and back-to-top stay centred. */
+nav.cell,
+.cell.list {
+  justify-content: flex-start;
+}
+
 .list {
+  display: flex;
+  flex-direction: column;
   gap: 6px;
   list-style: none;
 }
@@ -142,7 +177,10 @@
 }
 
 .grid .link {
+  display: inline-flex;
+  align-items: center;
   min-height: 26px;
+  line-height: 1.2;
   border: 0;
   color: var(--ink);
   font-size: clamp(1rem, 1.15vw, 1.1875rem);
@@ -153,9 +191,15 @@
   color: var(--oxblood);
 }
 
+/* Timezone and back-to-top sit a little below the cell centre, as in the concept. */
+.timezone,
+.top {
+  padding-top: 16px;
+}
+
 .timezone {
-  align-items: center;
-  padding-inline: 16px;
+  align-items: flex-start;
+  padding-inline: clamp(24px, 3.4vw, 56px) 16px;
   font-size: clamp(1rem, 1.15vw, 1.1875rem);
 }
 
@@ -196,7 +240,15 @@
   .art {
     top: 24px;
     width: 38vw;
+  }
+
+  /* Opacity sits on the blended image itself, so the darken blend still reaches the paper. */
+  .artImage {
     opacity: 0.45;
+  }
+
+  .cursor {
+    display: none;
   }
 
   .invite {
@@ -219,6 +271,20 @@
   .cell:nth-child(2) {
     border-left: 0;
     padding-left: 6px;
+  }
+
+  /* Touch targets: 44px rows once the footer is reached by touch. */
+  .list {
+    gap: 0;
+  }
+
+  .grid .link {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .list .link {
+    justify-content: flex-start;
   }
 }
 
@@ -269,13 +335,8 @@
     border-top: 1px solid var(--footer-divider);
   }
 
-  .list {
-    gap: 0;
-  }
-
   .grid .link {
     width: 100%;
-    min-height: 44px;
     justify-content: flex-start;
   }
 
