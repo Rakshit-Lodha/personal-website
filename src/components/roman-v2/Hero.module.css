@@ -60,11 +60,11 @@
   bottom: calc(7.8 * var(--u));
 }
 
-/* Newsreader runs slightly wider than the concept face: size to the concept widths and baselines. */
+/* Gelasio runs slightly wider than the concept face: size to the concept widths and baselines. */
 .title {
   font-size: calc(7.9 * var(--u));
   line-height: 0.87;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 .lead,

@@ -13,7 +13,7 @@
   --line: rgba(23, 22, 20, 0.16);
   --on-oxblood: #f7f2e9;
 
-  --font-headline: var(--font-newsreader), Georgia, serif;
+  --font-headline: var(--font-gelasio), Georgia, serif;
   --font-body: var(--font-figtree), system-ui, sans-serif;
   --font-inscription: var(--font-cinzel), "Times New Roman", serif;
 
@@ -37,7 +37,7 @@
 .root :where(h1, h2, h3) {
   margin: 0;
   font-family: var(--font-headline);
-  font-weight: 500;
+  font-weight: 550;
   line-height: 0.95;
   letter-spacing: -0.02em;
 }

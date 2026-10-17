@@ -45,7 +45,7 @@
 .title {
   font-size: clamp(2.5rem, 6.12vw, 6.7rem);
   line-height: 0.98;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 .lead {
