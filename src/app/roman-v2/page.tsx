@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+// WHOOP snapshots are refreshed independently of deployments.
+export const dynamic = "force-dynamic";
+
 export default async function RomanV2Page() {
   const content = await getRomanV2Content();
 

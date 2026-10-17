@@ -117,3 +117,31 @@ curl -s -X POST http://127.0.0.1:3000/api/speak \
 
 The first command should return a `400` for malformed input. The second should
 return `200 audio/wav` when `SARVAM_API_KEY` is configured.
+
+## WHOOP owner feed
+
+The private setup page at `/whoop` connects the site owner's WHOOP account. It
+requests only `read:recovery`, `read:sleep`, `read:cycles`, and `offline`. The
+OAuth callback immediately creates the first public snapshot; Vercel then calls
+the sync job every 30 minutes. Public pages receive only the five allowlisted
+metrics, their measurement times, and the last sync time.
+
+Required server-side environment variables:
+
+```bash
+WHOOP_CLIENT_ID=...
+WHOOP_CLIENT_SECRET=...
+WHOOP_REDIRECT_URI=https://your-domain.example/api/whoop/callback
+WHOOP_ENCRYPTION_KEY=...                 # openssl rand -base64 32
+WHOOP_ADMIN_SECRET=...                  # protects /whoop owner onboarding
+CRON_SECRET=...                         # Vercel cron bearer secret
+UPSTASH_REDIS_REST_URL=...
+UPSTASH_REDIS_REST_TOKEN=...
+```
+
+`KV_REST_API_URL` and `KV_REST_API_TOKEN` are accepted as alternate Redis
+variable names. OAuth credentials are encrypted with AES-256-GCM before storage.
+WHOOP rotates refresh tokens, so the sync process uses a Redis lock before every
+refresh and atomically replaces the stored credential while holding that lock.
+If sync stops, the last good snapshot is marked stale after 90 minutes; if no
+snapshot exists, the site displays unavailable values rather than samples.

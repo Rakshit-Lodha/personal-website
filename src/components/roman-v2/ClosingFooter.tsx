@@ -61,6 +61,9 @@ export default function ClosingFooter({ closing }: { closing: RomanV2Closing }) 
                   </a>
                 </li>
               ))}
+              <li>
+                <a href="/privacy" className={s.link}>Privacy</a>
+              </li>
             </ul>
           </nav>
           <ul aria-label="Social profiles" className={`${s.cell} ${s.list}`}>

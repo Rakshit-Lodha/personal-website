@@ -124,6 +124,13 @@ export default function Footer() {
         >
           © 2026 Rakshit Lodha. All rights reserved.
         </span>
+        <a
+          href="/privacy"
+          className="font-figtree text-white/80 underline underline-offset-4 transition-colors hover:text-white"
+          style={{ fontSize: "clamp(10px,0.82vw,14px)" }}
+        >
+          Privacy
+        </a>
         <div className="flex items-center" style={{ gap: "clamp(8px,0.7vw,12px)" }}>
           <SocialBtn href="https://www.youtube.com/" label="YouTube">
             <svg viewBox="0 0 25 18" fill="none" style={{ width: "clamp(14px,1.16vw,20px)", height: "auto" }}>
