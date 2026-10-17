@@ -8,19 +8,31 @@ export default function ClosingFooter({ closing }: { closing: RomanV2Closing }) 
   return (
     <footer id="contact" aria-labelledby="contact-title" className={s.root}>
       <div className={s.backdrop} aria-hidden="true" />
+      {/*
+        The hand ships on an opaque ground darker than the paper. This filter lifts that ground just
+        above the paper and circle so the `darken` blend on the image drops it: no art box shows.
+      */}
+      <svg className={s.filters} aria-hidden="true" focusable="false">
+        <filter id="roman-v2-footer-ground" colorInterpolationFilters="sRGB">
+          <feColorMatrix type="matrix" values="1.08 0 0 0 0  0 1.11 0 0 0  0 0 1.13 0 0  0 0 0 1 0" />
+        </filter>
+      </svg>
       <div className={s.art} aria-hidden="true">
         <picture>
-          <source type="image/avif" srcSet="/roman-v2/footer/footer-hand-490.avif" width={490} height={540} />
+          <source type="image/avif" srcSet="/roman-v2/footer/footer-hand-490.avif" width={490} height={490} />
           <img
             src="/roman-v2/footer/footer-hand-490.webp"
             width={490}
-            height={540}
+            height={490}
             alt=""
             loading="lazy"
             decoding="async"
             className={s.artImage}
           />
         </picture>
+        <svg className={s.cursor} viewBox="0 0 30 40" focusable="false">
+          <path d="M1 1 28 25 16.5 26.5 9 39Z" fill="currentColor" />
+        </svg>
       </div>
 
       <div className={`${shared.container} ${s.inner}`}>
