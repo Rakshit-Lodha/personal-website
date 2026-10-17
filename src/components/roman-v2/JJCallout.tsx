@@ -73,7 +73,7 @@ export default function JJCallout({ jj }: { jj: RomanV2JJ }) {
             srcSet="/roman-v2/jj/jj-listener-mobile-420.avif 420w, /roman-v2/jj/jj-listener-mobile-560.avif 560w"
             sizes="100vw"
             width={560}
-            height={682}
+            height={700}
           />
           <source
             media="(max-width: 767px)"
@@ -81,19 +81,19 @@ export default function JJCallout({ jj }: { jj: RomanV2JJ }) {
             srcSet="/roman-v2/jj/jj-listener-mobile-420.webp 420w, /roman-v2/jj/jj-listener-mobile-560.webp 560w"
             sizes="100vw"
             width={560}
-            height={682}
+            height={700}
           />
           <source
             type="image/avif"
             srcSet="/roman-v2/jj/jj-listener-680.avif 680w, /roman-v2/jj/jj-listener-1002.avif 1002w"
-            sizes="(min-width: 1024px) 60vw, 100vw"
+            sizes="(min-width: 1024px) 96vw, 100vw"
           />
           <img
             src="/roman-v2/jj/jj-listener-1002.webp"
             srcSet="/roman-v2/jj/jj-listener-680.webp 680w, /roman-v2/jj/jj-listener-1002.webp 1002w"
-            sizes="(min-width: 1024px) 60vw, 100vw"
+            sizes="(min-width: 1024px) 96vw, 100vw"
             width={1002}
-            height={692}
+            height={668}
             alt=""
             loading="lazy"
             decoding="async"

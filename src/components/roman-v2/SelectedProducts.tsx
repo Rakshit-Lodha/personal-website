@@ -50,16 +50,20 @@ function Featured({ item }: { item: RomanV2Product }) {
         </div>
       </div>
       <div className={s.stage}>
-        <div className={s.window}>
-          <Screenshot shot={item.screenshot} sizes="(min-width: 900px) 34vw, 60vw" className={s.windowShot} />
+        <span className={s.sun} aria-hidden="true" />
+        <div className={s.art}>
+          <Art
+            name="projects-frame"
+            width={960}
+            height={640}
+            sizes="(min-width: 900px) 63vw, 110vw"
+            className={s.frame}
+          />
+          {/* Above the frame, clipped to the traced outline of its dark opening. */}
+          <div className={s.window}>
+            <Screenshot shot={item.screenshot} sizes="(min-width: 900px) 40vw, 75vw" className={s.windowShot} />
+          </div>
         </div>
-        <Art
-          name="projects-frame"
-          width={960}
-          height={590}
-          sizes="(min-width: 900px) 63vw, 110vw"
-          className={s.frame}
-        />
       </div>
     </article>
   );
@@ -92,9 +96,6 @@ export default function SelectedProducts({ products }: { products: RomanV2Produc
     <section id="products" aria-labelledby="products-title" className={s.section}>
       <div className={`${shared.container} ${s.inner}`}>
         <div className={s.top}>
-          <div className={s.backdrop} aria-hidden="true">
-            <span className={s.sun} />
-          </div>
           <header className={s.header}>
             <h2 id="products-title" className={s.title}>
               {products.heading.lead} <span className={shared.accent}>{products.heading.accent}</span>
