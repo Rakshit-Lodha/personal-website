@@ -31,11 +31,9 @@ export type RomanV2Hero = {
 };
 
 export type RomanV2Outcome = {
-  /** EXPERIENCE outcome id the figure comes from. */
-  sourceId: string;
-  /** Display figure, e.g. "55%". */
+  /** Display figure, e.g. "53%". */
   value: string;
-  /** Caption under the figure, e.g. "fewer monthly support tickets". */
+  /** Caption under the figure, e.g. "fewer tickets". */
   label: string;
 };
 
@@ -44,12 +42,12 @@ export type RomanV2Chapter = {
   id: string;
   company: string;
   role: string;
-  /** Year range, e.g. "2022 — 2026". */
+  /** Year range, e.g. "2022 — 2026", or a label such as "FAFOing". */
   period: string;
   current: boolean;
   title: string;
   narrative: string;
-  /** Verified outcomes only, at most three. May be empty (no invented metrics). */
+  /** At most three. May be empty (no invented metrics). */
   outcomes: RomanV2Outcome[];
 };
 
@@ -67,10 +65,11 @@ export type RomanV2Product = {
   name: string;
   tagline: string;
   summary: string;
-  status: string;
   featured: boolean;
   /** Real product capture, exported as `${src}-${width}.webp` for each width; null until one exists. */
   screenshot: (RomanV2Image & { widths: number[] }) | null;
+  /** Panel shown over the card on hover; null shows none. */
+  details: { title: string; body: string; actionLabel: string } | null;
   primaryAction: AvailableAction;
   sourceAction: AvailableAction;
 };
@@ -150,23 +149,14 @@ export type RomanV2JJ = {
   heading: RomanV2Heading;
   body: string;
   voiceLabel: string;
-  questionLabel: string;
-  questionPlaceholder: string;
-  /** Typed questions go to `${chatPath}?q=...`. */
-  chatPath: string;
 };
 
 export type RomanV2Closing = {
+  /** `lead` is the Latin motto, `accent` its translation. */
   heading: RomanV2Heading;
+  attribution: string;
   conversationAction: AvailableAction;
-  scheduleAction: AvailableAction;
-  wordmark: string;
-  tagline: string;
-  navItems: { label: string; href: `#${string}` }[];
   socials: AvailableAction[];
-  timezone: string;
-  backToTop: AvailableAction;
-  inscription: { latin: string; translation: string };
 };
 
 export type RomanV2Content = {

@@ -110,6 +110,11 @@
   color: #2b2925;
 }
 
+/* An empty line still holds its height, so the section keeps its spacing. */
+.lede:empty {
+  min-height: 1lh;
+}
+
 /* Desktop: timeline + card */
 
 .desktop {
@@ -286,7 +291,10 @@
 .chapterTitle {
   font-size: clamp(2rem, 4.5cqi, 3.95rem);
   font-weight: 600;
-  line-height: 0.88;
+  /* Stays clear of the art, which starts at 44.5cqi (see .narrative). */
+  max-width: 39cqi;
+  /* Gelasio's long descenders need more than 0.9 or two-line titles touch. */
+  line-height: 0.98;
   letter-spacing: -0.04em;
   text-wrap: balance;
 }
@@ -358,6 +366,11 @@
   color: #2b2925;
 }
 
+/* A figure can stand alone (Paytm Money's "FAFO"). */
+.outcomeLabel:empty {
+  display: none;
+}
+
 .actions {
   display: flex;
   flex-direction: column;
@@ -393,6 +406,24 @@
 @container (min-width: 1150px) {
   .footer {
     flex-wrap: nowrap;
+  }
+}
+
+/* Narrower cards: figures take the full row; Learn More starts a row of its own, left-aligned. */
+@container (max-width: 1149.98px) {
+  .footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions {
+    flex-direction: row;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  .progress {
+    flex: 0 1 220px;
   }
 }
 
@@ -503,6 +534,11 @@
     font-weight: 600;
     line-height: 0.95;
     letter-spacing: -0.04em;
+  }
+
+  /* The desktop cap measures against the section, not the card, so it would squeeze the story here. */
+  .region .narrative {
+    max-width: none;
   }
 
   .region .outcomes {

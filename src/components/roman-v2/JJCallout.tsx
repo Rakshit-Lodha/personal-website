@@ -1,8 +1,6 @@
 "use client";
 
-import { useState, type CSSProperties, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
-import { ArrowRight, Mic } from "lucide-react";
+import type { CSSProperties } from "react";
 import { useJJSession } from "@/components/jj/JJSessionProvider";
 import type { RomanV2JJ } from "@/lib/roman-v2/types";
 import JJButton from "./JJButton";
@@ -13,15 +11,7 @@ import s from "./JJCallout.module.css";
 const BARS = [0.28, 0.46, 0.72, 0.5, 0.86, 1, 0.78, 0.94, 0.56, 0.4, 0.24];
 
 export default function JJCallout({ jj }: { jj: RomanV2JJ }) {
-  const router = useRouter();
-  const { isActive, state, open } = useJJSession();
-  const [question, setQuestion] = useState("");
-  const trimmed = question.trim();
-
-  function submit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (trimmed) router.push(`${jj.chatPath}?q=${encodeURIComponent(trimmed)}`);
-  }
+  const { isActive, state } = useJJSession();
 
   return (
     <section id="jj" aria-labelledby="jj-title" className={s.section}>
@@ -33,34 +23,6 @@ export default function JJCallout({ jj }: { jj: RomanV2JJ }) {
           <p className={s.body}>{jj.body}</p>
           <div className={s.actions}>
             <JJButton label={jj.voiceLabel} variant="outline" className={s.voice} />
-            {/* Native GET keeps typed questions working before hydration; JS adds the non-empty check. */}
-            <form className={s.ask} action={jj.chatPath} method="get" onSubmit={submit}>
-              <label htmlFor="jj-question" className={shared.visuallyHidden}>
-                {jj.questionLabel}
-              </label>
-              <input
-                id="jj-question"
-                name="q"
-                type="text"
-                required
-                autoComplete="off"
-                enterKeyHint="send"
-                placeholder={jj.questionPlaceholder}
-                value={question}
-                onChange={(event) => setQuestion(event.target.value)}
-                className={s.input}
-              />
-              {trimmed ? (
-                <button type="submit" className={s.askButton} aria-label={jj.questionLabel}>
-                  <ArrowRight size={20} strokeWidth={1.75} aria-hidden="true" />
-                </button>
-              ) : (
-                // The microphone is only requested after this click.
-                <button type="button" className={s.askButton} aria-label={`${jj.voiceLabel} by voice`} onClick={open}>
-                  <Mic size={20} strokeWidth={1.75} aria-hidden="true" />
-                </button>
-              )}
-            </form>
           </div>
         </div>
       </div>

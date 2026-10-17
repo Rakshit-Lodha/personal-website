@@ -9,7 +9,6 @@ import { getRomanV2Content } from "@/lib/roman-v2/content";
 export const metadata: Metadata = {
   title: "Rakshit Lodha — Product judgment",
   description: "AI and financial products by Rakshit Lodha.",
-  robots: { index: false, follow: false },
 };
 
 // WHOOP snapshots are refreshed independently of deployments.

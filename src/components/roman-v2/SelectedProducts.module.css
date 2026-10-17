@@ -47,9 +47,16 @@
   line-height: 1.1;
 }
 
+/* An empty line still holds its height, so the section keeps its spacing. */
+.lede:empty {
+  min-height: 1lh;
+}
+
 /* Featured product */
 
 .featured {
+  /* Flex so the copy box (and its hover panel) runs the band's full height. */
+  display: flex;
   min-height: clamp(220px, 15.8vw, 264px);
   background: linear-gradient(90deg, var(--products-band) 0%, #cf9a83 40%, rgba(207, 154, 131, 0) 62%);
 }
@@ -84,28 +91,6 @@
 .featuredActions > :last-child {
   min-height: 52px;
   padding-inline: 30px;
-}
-
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 52px;
-  padding: 0 22px;
-  border: 1px solid rgba(23, 22, 20, 0.12);
-  border-radius: var(--radius);
-  background: #e6e2d1;
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.statusDot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #2f6b3a;
 }
 
 /*
@@ -282,6 +267,73 @@
 }
 
 /* Tablet and mobile: stack in reading order, featured first and dominant. */
+
+/* Detail panel: fades in over a card, or the featured copy box, on hover. Pointer devices only. */
+.details {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(18px, 1.6vw, 28px) clamp(18px, 1.6vw, 28px);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1.4px) 0 0 / 9px 9px,
+    #a6bbb4;
+  color: var(--ink);
+  opacity: 0;
+  transition: opacity 250ms var(--ease);
+}
+
+@media (hover: hover) {
+  .details {
+    display: flex;
+  }
+
+  .featured:hover .details,
+  .card:hover .details {
+    opacity: 1;
+  }
+}
+
+/* Over the featured copy, the panel keeps the copy box's own inset. */
+.featuredCopy .details {
+  padding-left: clamp(24px, 4.4vw, 76px);
+}
+
+.detailsTitle {
+  font-family: var(--font-headline);
+  font-size: clamp(1.5rem, 1.9vw, 2.125rem);
+  font-weight: 550;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.detailsBody {
+  max-width: 36rem;
+  margin-top: 8px;
+  font-size: clamp(0.875rem, 0.95vw, 1rem);
+  line-height: 1.4;
+}
+
+.detailsAction {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: clamp(12px, 1.1vw, 18px);
+  padding-inline: 24px;
+  border-radius: 999px;
+  background: #2b2a28;
+  color: #f4ede3;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.detailsAction:hover {
+  background: var(--ink);
+}
 
 @media (max-width: 1024px) {
   /* Room for the disc, which rises above the stage, so it stays clear of the lede. */

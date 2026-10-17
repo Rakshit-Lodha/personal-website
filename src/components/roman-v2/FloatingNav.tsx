@@ -7,17 +7,6 @@ import JJButton from "./JJButton";
 import shared from "./contemporary-roman.module.css";
 import s from "./FloatingNav.module.css";
 
-/** Small Roman arch rising over a horizon — the pill's emblem. */
-function SunriseIcon() {
-  return (
-    <svg className={s.emblem} viewBox="0 0 40 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-      <path d="M12 20v-6a8 8 0 0 1 16 0v6" />
-      <path d="M20 2v4M10.5 5.5l2.5 2.5M29.5 5.5 27 8M4 13h4M32 13h4" strokeLinecap="round" />
-      <path d="M2 21h36" strokeWidth="2.2" />
-    </svg>
-  );
-}
-
 export default function FloatingNav({ nav }: { nav: RomanV2Nav }) {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
@@ -63,8 +52,6 @@ export default function FloatingNav({ nav }: { nav: RomanV2Nav }) {
         {nav.wordmark}
       </a>
       <div className={s.pill} data-scrolled={scrolled || undefined}>
-        <SunriseIcon />
-        <span className={s.divider} aria-hidden="true" />
         <button
           type="button"
           className={s.menuToggle}

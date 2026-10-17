@@ -33,6 +33,27 @@ function Art({ name, width, height, sizes, className }: { name: string; width: n
   );
 }
 
+/** Hover-only detail panel. The card's own action stays the keyboard and touch path, so this is hidden from both. */
+function Details({ item }: { item: RomanV2Product }) {
+  if (!item.details) return null;
+  return (
+    <div className={s.details} aria-hidden="true">
+      <p className={s.detailsTitle}>{item.details.title}</p>
+      <p className={s.detailsBody}>{item.details.body}</p>
+      {item.primaryAction.available && (
+        <a
+          href={item.primaryAction.href}
+          tabIndex={-1}
+          className={s.detailsAction}
+          {...(/^https?:\/\//.test(item.primaryAction.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {item.details.actionLabel}
+        </a>
+      )}
+    </div>
+  );
+}
+
 function Featured({ item }: { item: RomanV2Product }) {
   return (
     <article className={`${s.featured} ${item.primaryAction.available ? s.enabled : ""}`} aria-labelledby={`product-${item.id}`}>
@@ -42,12 +63,9 @@ function Featured({ item }: { item: RomanV2Product }) {
         </h3>
         <p className={s.featuredTagline}>{item.tagline}</p>
         <div className={s.featuredActions}>
-          <span className={s.status}>
-            <span className={s.statusDot} aria-hidden="true" />
-            {item.status}
-          </span>
           <AvailabilityAction action={item.primaryAction} variant="primary" arrow="up-right" />
         </div>
+        <Details item={item} />
       </div>
       <div className={s.stage}>
         <span className={s.sun} aria-hidden="true" />
@@ -86,6 +104,7 @@ function Card({ item }: { item: RomanV2Product }) {
           </div>
         )}
       </div>
+      <Details item={item} />
     </li>
   );
 }
