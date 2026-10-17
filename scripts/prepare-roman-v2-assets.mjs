@@ -115,14 +115,16 @@ const ASSETS = [
     masterNotes: 'Approved generated reading collage with no readable text and a clear left copy field.',
   },
   {
-    id: 'beyond-music', section: 'beyond', concept: C.beyond, crop: [290, 706, 516, 210], widths: [516],
+    id: 'beyond-music', section: 'beyond', concept: C.beyond, crop: [290, 706, 516, 210], widths: [536],
     bg: PALETTE.beyond.card, fade: { left: 40 },
+    // Master: the halftone hand-on-knob strip cropped from the approved music close-up; cream sits on the card, the right edge on the player panel.
+    masterFade: { left: 16, right: 6 },
     ops: [
       { op: 'inpaint', line: [[712, 860], [806, 860]], width: 6, why: 'player progress bar' },
     ],
-    placement: 'Music card: middle band, bottom-aligned; its right edge butts directly against the HTML player panel (#222322) that holds waveform/controls.',
+    placement: 'Music card: full card height, right of the copy; the HTML player panel (#222322) continues from its right edge and holds waveform/progress/controls.',
     notes: 'Right portion is the dark player panel corner; waveform, progress bar and transport controls excluded/inpainted.',
-    masterNotes: 'Approved generated hand and rotary knob. Waveform, labels and player controls must be rendered separately in HTML/CSS.',
+    masterNotes: 'Cropped from the approved music close-up (oxblood circle, halftone-dissolving marble hand, knob); progress line removed. Waveform, labels and player controls are HTML/CSS.',
   },
   {
     id: 'beyond-column', section: 'beyond', concept: C.beyond, crop: [860, 0, 812, 266], widths: [560, 812, 1672], matte: { lo: 3, hi: 7 }, 

@@ -483,31 +483,32 @@
       "status": "regenerated master",
       "files": [
         {
-          "path": "public/roman-v2/beyond/beyond-music-516.avif",
-          "url": "/roman-v2/beyond/beyond-music-516.avif",
+          "path": "public/roman-v2/beyond/beyond-music-536.avif",
+          "url": "/roman-v2/beyond/beyond-music-536.avif",
           "format": "avif",
-          "width": 516,
-          "height": 290,
-          "bytes": 7217
+          "width": 536,
+          "height": 215,
+          "bytes": 7950
         },
         {
-          "path": "public/roman-v2/beyond/beyond-music-516.webp",
-          "url": "/roman-v2/beyond/beyond-music-516.webp",
+          "path": "public/roman-v2/beyond/beyond-music-536.webp",
+          "url": "/roman-v2/beyond/beyond-music-536.webp",
           "format": "webp",
-          "width": 516,
-          "height": 290,
-          "bytes": 13780
+          "width": 536,
+          "height": 215,
+          "bytes": 15860
         }
       ],
       "sourcePixels": {
-        "width": 1672,
-        "height": 941
+        "width": 536,
+        "height": 215
       },
       "hasAlpha": true,
-      "placement": "Music card: middle band, bottom-aligned; its right edge butts directly against the HTML player panel (#222322) that holds waveform/controls.",
+      "placement": "Music card: full card height, right of the copy; the HTML player panel (#222322) continues from its right edge and holds waveform/progress/controls.",
       "fade": {
         "sides": {
-          "left": "40px"
+          "left": "16px",
+          "right": "6px"
         },
         "fadesTo": "transparent (alpha)",
         "intendedBackground": "#f2eae0"
@@ -518,7 +519,7 @@
         "master": "design/roman-v2/assets/masters/beyond-music.png"
       },
       "cleanup": [],
-      "notes": "Approved generated hand and rotary knob. Waveform, labels and player controls must be rendered separately in HTML/CSS."
+      "notes": "Cropped from the approved music close-up (oxblood circle, halftone-dissolving marble hand, knob); progress line removed. Waveform, labels and player controls are HTML/CSS."
     },
     {
       "id": "beyond-column",

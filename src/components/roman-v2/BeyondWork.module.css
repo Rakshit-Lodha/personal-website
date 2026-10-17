@@ -57,7 +57,6 @@
 
 .column img,
 .readingArt img,
-.musicArt img,
 .whoopArt img,
 .thumb img {
   display: block;
@@ -339,65 +338,86 @@
   font-weight: 400;
 }
 
+/*
+ * Artwork strip and player, measured from the approved music close-up at a 1024 × 210 card.
+ * --music-rig is the artwork's left edge in the stage: it stays at 0 while the waveform can
+ * keep at least 150px, then slides left under the stage's faded edge.
+ */
 .musicStage {
+  --music-rig: min(0px, calc(100% - 696px));
+
   position: absolute;
   inset: 0 0 0 253px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
   overflow: hidden;
-}
-
-.musicArt {
-  flex: none;
-  width: 516px;
+  /* Softens the artwork's cut edge more the further it has slid left. */
+  mask-image: linear-gradient(to right, transparent, #000 calc(16px - var(--music-rig) / 2));
 }
 
 .musicPanel {
-  flex: 1 0 240px;
-  margin-left: -3px; /* covers the artwork's soft right edge */
-  align-self: stretch;
+  position: absolute;
+  z-index: -1; /* behind the artwork; the stage's mask makes it a stacking context */
+  inset: 0 0 0 calc(var(--music-rig) + 300px);
   background: var(--beyond-player);
+}
+
+.musicArt {
+  position: absolute;
+  top: 0;
+  left: var(--music-rig);
+  width: 521px;
+  height: 100%;
+}
+
+.musicArt picture {
+  display: block;
+  height: 100%;
+}
+
+.musicArt img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
 }
 
 .player {
   position: absolute;
-  /* Inset 24px inside .musicPanel, whose left edge is min(stage − 240px, 513px). */
-  left: min(calc(100% - 216px), 537px);
-  right: 24px;
-  bottom: 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  inset: 0;
 }
 
 .waveform {
+  position: absolute;
+  top: 38px;
+  left: calc(var(--music-rig) + 523px);
+  right: 23px;
+  height: 102px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  align-self: flex-end;
-  width: min(225px, 100%);
-  height: 90px;
-  margin-bottom: 22px;
+  background: linear-gradient(rgba(154, 158, 140, 0.45), rgba(154, 158, 140, 0.45)) center / 100% 1px no-repeat;
 }
 
 .waveform span {
   width: 2px;
   border-radius: 1px;
-  background: #9fa58f;
+  background: #9a9e8c;
 }
 
 .progress {
-  position: relative;
+  position: absolute;
+  top: 153px;
+  left: calc(var(--music-rig) + 435px);
+  right: 32px;
   height: 2px;
-  background: rgba(247, 242, 233, 0.22);
+  background: rgba(247, 242, 233, 0.14);
 }
 
 .progress span {
   position: absolute;
   inset: 0 auto 0 0;
-  width: 51%;
-  background: rgba(247, 242, 233, 0.75);
+  width: 50%;
+  background: linear-gradient(to right, rgba(247, 242, 233, 0.04), rgba(247, 242, 233, 0.6));
 }
 
 .progress span::after {
@@ -408,24 +428,24 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #f7f2e9;
+  background: #dedbce;
 }
 
 .transport {
+  position: absolute;
+  top: 172px;
+  left: calc(var(--music-rig) + 554px);
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 32px;
-  margin-top: 17px;
-  margin-left: 30px;
   height: 18px;
 }
 
 .playIcon {
   width: 0;
   height: 0;
-  border-block: 8px solid transparent;
-  border-left: 14px solid #e9e4da;
+  border-block: 9px solid transparent;
+  border-left: 15px solid #cdcfc0;
 }
 
 .skipBack,
@@ -452,12 +472,12 @@
   top: 0;
   width: 2px;
   height: 12px;
-  background: #8d8b84;
+  background: #85887d;
 }
 
 .skipBack::before {
   right: 0;
-  border-right: 10px solid #8d8b84;
+  border-right: 10px solid #85887d;
 }
 
 .skipBack::after {
@@ -466,7 +486,7 @@
 
 .skipForward::before {
   left: 0;
-  border-left: 10px solid #8d8b84;
+  border-left: 10px solid #85887d;
 }
 
 .skipForward::after {
@@ -641,19 +661,65 @@
     min-height: 48px;
   }
 
-  /* The player chrome needs desktop width; on phones the artwork fills the strip on its own. */
+  /* Phones: the artwork strip (right-aligned, so the hand and knob stay in view) above a compact player. */
   .musicStage {
     position: relative;
     inset: auto;
+    background: var(--beyond-player);
+    mask-image: none;
+  }
+
+  .musicPanel {
+    display: none;
   }
 
   .musicArt {
+    position: relative;
+    left: auto;
+    display: block;
     width: 100%;
+    height: 168px;
+    overflow: hidden;
   }
 
-  .musicPanel,
+  .musicArt picture {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 419px;
+  }
+
+  .musicArt img {
+    object-position: right center;
+  }
+
   .player {
-    display: none;
+    position: relative;
+    inset: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 22px 20px;
+  }
+
+  .waveform {
+    position: static;
+    align-self: stretch;
+    height: 64px;
+  }
+
+  .progress {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    align-self: stretch;
+    margin-top: 18px;
+  }
+
+  .transport {
+    position: static;
+    margin-top: 16px;
   }
 
   .whoopCard {
