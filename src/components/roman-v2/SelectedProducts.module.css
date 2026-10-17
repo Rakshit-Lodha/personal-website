@@ -1,4 +1,363 @@
 /* SelectedProducts styles. Shared tokens, container and actions live in contemporary-roman.module.css. */
 
 .section {
+  --products-paper: #efe7dc;
+  --products-terracotta: #b26e58;
+  --products-band: #d6a48e;
+  --products-card: #f4ede3;
+  --products-screen: #141413;
+
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(88px, 6.2vw, 104px) clamp(28px, 2vw, 34px);
+  background: var(--products-paper);
+}
+
+/* Large terracotta disc behind the frame, clipped at the bottom of the featured band. */
+.backdrop {
+  position: absolute;
+  top: -160px;
+  bottom: 0;
+  left: 36%;
+  width: 100vw;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sun {
+  position: absolute;
+  top: -11vw;
+  left: 5vw;
+  width: 78vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--products-terracotta);
+}
+
+.inner {
+  position: relative;
+  max-width: 1680px;
+}
+
+/* Header + featured band; the artwork stage is positioned against this box. */
+.top {
+  position: relative;
+}
+
+.header {
+  position: relative;
+  z-index: 2;
+  padding-left: 1.75%;
+  padding-bottom: clamp(20px, 1.8vw, 28px);
+}
+
+.title {
+  font-size: clamp(3.5rem, 8vw, 8.4rem);
+  line-height: 0.78;
+  letter-spacing: -0.02em;
+}
+
+.title span {
+  display: block;
+}
+
+.lede {
+  margin-top: clamp(12px, 1.2vw, 20px);
+  font-size: clamp(1.375rem, 2.2vw, 2.3rem);
+  line-height: 1.1;
+}
+
+/* Featured product */
+
+.featured {
+  min-height: clamp(220px, 17.5vw, 266px);
+  background: linear-gradient(90deg, var(--products-band) 0%, #cf9a83 40%, rgba(207, 154, 131, 0) 62%);
+}
+
+.featuredCopy {
+  position: relative;
+  z-index: 3;
+  max-width: 34rem;
+  padding: clamp(28px, 2.6vw, 42px) 0 clamp(28px, 2vw, 32px) clamp(24px, 4.2vw, 64px);
+}
+
+.featuredTitle {
+  font-size: clamp(2.5rem, 4.4vw, 4.6rem);
+  letter-spacing: -0.03em;
+}
+
+.featuredTagline {
+  margin-top: clamp(10px, 1vw, 16px);
+  font-size: clamp(1.125rem, 1.75vw, 1.8rem);
+  line-height: 1.2;
+  color: #4b3b33;
+}
+
+.featuredActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  margin-top: clamp(18px, 1.3vw, 22px);
+}
+
+.featuredActions > :last-child {
+  min-height: 52px;
+  padding-inline: 30px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0 22px;
+  border: 1px solid rgba(23, 22, 20, 0.12);
+  border-radius: var(--radius);
+  background: #e6e2d1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.statusDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #2f6b3a;
+}
+
+.stage {
+  position: absolute;
+  right: -3.6%;
+  bottom: -2px;
+  z-index: 1;
+  width: 63.2%;
+  aspect-ratio: 960 / 590;
+  pointer-events: none;
+}
+
+/* Transparent window of the frame layer (manifest bbox), the real capture sits behind it. */
+.window {
+  position: absolute;
+  left: 30.6%;
+  top: 13.6%;
+  width: 53.6%;
+  height: 68.4%;
+  background: var(--products-screen);
+  clip-path: polygon(0 22.8%, 12.8% 19.8%, 99.4% 0, 100% 72.8%, 94.2% 77.2%, 87.9% 88.6%, 79.4% 94.6%, 6% 100%, 0 97.5%);
+}
+
+.windowShot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.frame,
+.thumbScreen {
+  transition: transform 500ms var(--ease);
+}
+
+.stage .window {
+  transition: transform 500ms var(--ease);
+}
+
+.featured.enabled:hover .frame,
+.featured.enabled:hover .window {
+  transform: scale(1.015);
+}
+
+/* Supporting cards */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.3vw, 22px);
+  margin: clamp(14px, 1.2vw, 20px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  min-height: clamp(200px, 13.6vw, 228px);
+  overflow: hidden;
+  border: 1px solid rgba(23, 22, 20, 0.08);
+  border-radius: var(--radius);
+  background: var(--products-card);
+  box-shadow: 0 1px 2px rgba(23, 22, 20, 0.06);
+}
+
+.cardCopy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+  padding: clamp(22px, 1.9vw, 30px) 0 clamp(22px, 1.9vw, 30px) clamp(20px, 1.6vw, 28px);
+}
+
+.cardTitle {
+  font-size: clamp(1.75rem, 2.4vw, 2.5rem);
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+}
+
+.cardTagline {
+  margin-top: 14px;
+  font-size: clamp(0.9375rem, 1.05vw, 1.0625rem);
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.cardAction {
+  margin-top: auto;
+  width: 54px;
+  height: 40px;
+  min-height: 44px;
+  border-color: rgba(23, 22, 20, 0.7);
+}
+
+.thumb {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 56%;
+}
+
+.thumbSun {
+  position: absolute;
+  top: -30%;
+  right: -14%;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--products-terracotta);
+}
+
+/* CSS halftone field fading into the card on the left. */
+.thumbDots {
+  position: absolute;
+  inset: 4% 0 0 0;
+  background: radial-gradient(circle, rgba(23, 22, 20, 0.85) 1.4px, transparent 1.8px) 0 0 / 9px 9px;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 45%, transparent 100%);
+  opacity: 0.55;
+}
+
+.thumbScreen {
+  position: absolute;
+  top: 12%;
+  right: 7%;
+  width: 66%;
+  aspect-ratio: 1.08;
+  overflow: hidden;
+  border: 3px solid #2a2826;
+  border-radius: 6px;
+  background: var(--products-screen);
+  box-shadow: -10px 14px 28px rgba(23, 22, 20, 0.28);
+  transform: perspective(700px) rotateY(-14deg);
+}
+
+.thumbShot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
+.plinth {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 70%;
+  height: auto;
+}
+
+.card.enabled:hover .thumbScreen {
+  transform: perspective(700px) rotateY(-14deg) scale(1.04);
+}
+
+/* Tablet and mobile: stack in reading order, featured first and dominant. */
+
+@media (max-width: 1024px) {
+  .backdrop {
+    left: calc(var(--gutter) * -1);
+  }
+
+  .sun {
+    top: calc(160px + 4vw);
+    left: 18vw;
+    width: 110vw;
+  }
+
+  .header {
+    padding-left: 0;
+  }
+
+  .featured {
+    display: flex;
+    flex-direction: column;
+    margin-inline: calc(var(--gutter) * -1);
+    background: linear-gradient(180deg, transparent 0%, transparent 34%, var(--products-band) 34%);
+  }
+
+  .stage {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    order: -1;
+    width: min(112%, 900px);
+    margin-inline: auto;
+  }
+
+  .featuredCopy {
+    max-width: none;
+    padding: 8px var(--gutter) 32px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 200px;
+  }
+
+  .cardCopy {
+    width: 48%;
+  }
+
+  .thumb {
+    width: 52%;
+  }
+}
+
+@media (max-width: 767px) {
+  .sun {
+    top: calc(160px + 24vw);
+    width: 120vw;
+  }
+
+  .stage {
+    width: 112%;
+    margin-left: -6%;
+  }
+
+  .card {
+    min-height: 188px;
+  }
 }
