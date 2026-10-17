@@ -38,6 +38,7 @@ export default async function ReadingEditionPage({ params }: { params: Promise<{
 
   return (
     <main className={`${shared.container} ${s.page}`}>
+      {/* unread-pile build-marker: 2026-10-17-embed-v1 */}
       <p className={shared.eyebrow}>Daily reading</p>
       <p className={s.date}>{editionDate(edition.date)}</p>
       <h1 className={s.title}>{edition.title}</h1>
