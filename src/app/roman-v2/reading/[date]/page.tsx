@@ -35,6 +35,13 @@ export default async function ReadingEditionPage({ params }: { params: Promise<{
   const edition = getPublishedEdition(date);
   if (!edition) notFound();
   const fullHtml = getEditionHtml(date);
+  // Fail the build loudly if the edition's HTML is missing (e.g. excluded by
+  // .vercelignore). A silent fallback here once hid broken deploys for hours.
+  if (edition.htmlAssetId && !fullHtml) {
+    throw new Error(
+      `Reading edition ${date}: htmlAssetId "${edition.htmlAssetId}" is set but the file is missing from content/reading/editions-html/. Check .vercelignore.`,
+    );
+  }
 
   return (
     <main className={`${shared.container} ${s.page}`}>
