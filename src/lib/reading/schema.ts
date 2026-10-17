@@ -15,8 +15,10 @@ export const museEditionSchema = z.object({
       author: z.string().min(1).optional(),
     }),
   ),
-  /** null for a text-only edition. */
+  /** null for a text-only edition. Committed MP3 file name under public/reading/audio/. */
   audioAssetId: z.string().min(1).nullable(),
+  /** Seconds of audio; null when there is no audio or duration is unknown. */
+  audioDurationSeconds: z.number().int().positive().nullish(),
   audioTranscript: z.string().min(1).nullable(),
   status: z.enum(["draft", "published", "text-only"]),
 });
