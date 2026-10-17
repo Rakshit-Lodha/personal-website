@@ -1,4 +1,298 @@
 /* ClosingFooter styles. Shared tokens, container and actions live in contemporary-roman.module.css. */
 
 .root {
+  --footer-rule: rgba(125, 33, 29, 0.9);
+  --footer-divider: rgba(23, 22, 20, 0.2);
+
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(96px, 9.6vw, 164px) 28px;
+  background: #f0e8dd;
+  color: var(--ink);
+}
+
+/* Engraved circle and faint construction grid behind the hand. */
+.root::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 58.3vw;
+  width: 38.3vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #e6dacd;
+  pointer-events: none;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(23, 22, 20, 0.045) 0 1px, transparent 1px 280px) 1340px 0,
+    repeating-linear-gradient(0deg, rgba(23, 22, 20, 0.035) 0 1px, transparent 1px 280px) 0 80px;
+  mask-image: linear-gradient(90deg, transparent 40%, #000 75%);
+}
+
+.art {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: min(29.3vw, 560px);
+  pointer-events: none;
+}
+
+.artImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.inner {
+  position: relative;
+  max-width: 1680px;
+  padding-inline: clamp(16px, 4vw, 72px);
+}
+
+.invite {
+  padding-left: 1.2vw;
+}
+
+.title {
+  font-size: clamp(3rem, 7.6vw, 8.25rem);
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+}
+
+.lead::after {
+  content: "\A";
+  white-space: pre;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px clamp(32px, 2.9vw, 48px);
+  margin-top: clamp(28px, 3.2vw, 52px);
+}
+
+.ctas .conversation {
+  padding-bottom: 4px;
+  border-bottom-width: 2px;
+  font: 400 clamp(1.75rem, 2.2vw, 2.375rem) / 1 var(--font-headline);
+  letter-spacing: -0.02em;
+  gap: 24px;
+}
+
+.ctas .schedule {
+  min-width: clamp(220px, 15.3vw, 260px);
+  min-height: clamp(52px, 3.8vw, 64px);
+  border-color: var(--ink);
+  font: 400 clamp(1.375rem, 1.6vw, 1.6875rem) / 1 var(--font-headline);
+  gap: 24px;
+}
+
+/* Footer grid */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.72fr 1fr 1fr 0.94fr 0.91fr;
+  margin-top: clamp(56px, 5.3vw, 90px);
+  padding-block: 34px 36px;
+  border-top: 1px solid var(--footer-rule);
+  border-bottom: 1px solid var(--footer-rule);
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding-inline: clamp(24px, 3.4vw, 58px) 16px;
+  border-left: 1px solid var(--footer-divider);
+}
+
+.brand {
+  padding: 0 24px 0 6px;
+}
+
+.wordmark {
+  font-size: clamp(1.375rem, 1.65vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 1.1;
+}
+
+.tagline {
+  max-width: 22rem;
+  margin-top: 14px;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.list {
+  gap: 6px;
+  list-style: none;
+}
+
+.list > li {
+  display: flex;
+}
+
+.grid .link {
+  min-height: 26px;
+  border: 0;
+  color: var(--ink);
+  font-size: clamp(1rem, 1.15vw, 1.1875rem);
+  font-weight: 400;
+}
+
+.grid .link:hover {
+  color: var(--oxblood);
+}
+
+.timezone {
+  align-items: center;
+  padding-inline: 16px;
+  font-size: clamp(1rem, 1.15vw, 1.1875rem);
+}
+
+.top {
+  align-items: flex-end;
+  padding-right: 0;
+}
+
+.top .link {
+  gap: 16px;
+}
+
+/* Inscription row */
+
+.motto {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 0 0 6px;
+}
+
+.latin {
+  font-size: 0.9375rem;
+  letter-spacing: 0.3em;
+  color: var(--oxblood);
+}
+
+.translation {
+  padding-left: 24px;
+  border-left: 1px solid var(--muted);
+  font: italic 400 1.1875rem/1.3 var(--font-headline);
+  color: var(--muted);
+}
+
+/* Tablet: hand shrinks behind the copy; grid becomes brand row + three columns. */
+
+@media (max-width: 1023px) {
+  .art {
+    top: 24px;
+    width: 38vw;
+    opacity: 0.45;
+  }
+
+  .invite {
+    padding-left: 0;
+  }
+
+  .title {
+    font-size: clamp(3rem, 9.4vw, 6rem);
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 28px;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+
+  .cell:nth-child(2) {
+    border-left: 0;
+    padding-left: 6px;
+  }
+}
+
+/* Mobile: stacked CTAs and grid as full-width rows. */
+
+@media (max-width: 767px) {
+  .root::before,
+  .backdrop,
+  .art {
+    display: none;
+  }
+
+  .title {
+    font-size: clamp(2.75rem, 12.6vw, 3.5rem);
+  }
+
+  .lead::after {
+    content: none;
+  }
+
+  .ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ctas .conversation,
+  .ctas .schedule {
+    justify-content: space-between;
+    width: 100%;
+    min-height: 56px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+    padding-block: 28px 8px;
+  }
+
+  .brand {
+    padding: 0 0 20px;
+  }
+
+  .cell,
+  .cell:nth-child(2) {
+    align-items: stretch;
+    padding: 12px 0;
+    border-left: 0;
+    border-top: 1px solid var(--footer-divider);
+  }
+
+  .list {
+    gap: 0;
+  }
+
+  .grid .link {
+    width: 100%;
+    min-height: 44px;
+    justify-content: flex-start;
+  }
+
+  .timezone {
+    min-height: 68px;
+  }
+
+  .top .link {
+    justify-content: space-between;
+  }
+
+  .motto {
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+
+  .translation {
+    padding-left: 16px;
+  }
 }
