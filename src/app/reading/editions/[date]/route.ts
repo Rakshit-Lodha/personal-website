@@ -1,12 +1,21 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 /**
  * Serves a published edition's full visual HTML newspaper.
  * The file lives in the repo (not public/) so its .html extension can't
  * collide with static-file serving quirks; this route sets the content type.
+ * Pre-rendered at build time via generateStaticParams (files are only
+ * guaranteed readable during the build).
  */
 const HTML_DIR = join(process.cwd(), "content", "reading", "editions-html");
+
+export function generateStaticParams() {
+  if (!existsSync(HTML_DIR)) return [];
+  return readdirSync(HTML_DIR)
+    .filter((name) => name.endsWith(".html"))
+    .map((name) => ({ date: name.replace(/\.html$/, "") }));
+}
 
 export async function GET(
   _request: Request,
