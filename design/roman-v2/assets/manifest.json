@@ -1,0 +1,1001 @@
+{
+  "version": 1,
+  "generated": "2026-10-17",
+  "script": "scripts/prepare-roman-v2-assets.mjs",
+  "provenance": "Cropped/masked from the approved concept PNGs (no image generation available in this pass).",
+  "status": "interim – derived from approved concept; replace with regenerated art",
+  "palette": {
+    "hero": {
+      "paper": "#f4ebdf",
+      "paperLight": "#f7f1e9",
+      "circle": "#ecdecf",
+      "terracottaBand": "#b5644b",
+      "oxblood": "#671816"
+    },
+    "career": {
+      "sage": "#dcd8cc",
+      "sageCircle": "#c2c1b1",
+      "card": "#f6efe5",
+      "cardWarmEdge": "#d9baa8",
+      "oxblood": "#681816"
+    },
+    "projects": {
+      "paper": "#efe7dc",
+      "terracotta": "#b26e58",
+      "terracottaDeep": "#a2604b",
+      "featureCard": "#d6a48e",
+      "oxblood": "#66211e",
+      "frameInterior": "#141413"
+    },
+    "beyond": {
+      "sage": "#c0bfae",
+      "paper": "#ede5da",
+      "card": "#f2eae0",
+      "oxblood": "#6b2624",
+      "musicCircle": "#662823",
+      "playerDark": "#222322"
+    },
+    "jj": {
+      "oxblood": "#4f1816",
+      "oxbloodCircle": "#491614",
+      "oxbloodDeep": "#3a1110",
+      "ivoryButton": "#f4ebe0",
+      "footerPaper": "#ece2d5"
+    },
+    "footer": {
+      "paper": "#f0e8dd",
+      "circle": "#e5d9cc",
+      "rule": "#7d211d",
+      "darkBand": "#1c1b1b"
+    }
+  },
+  "cssRecommendations": [
+    "Large section circles, rules, grain and the JJ voice orb are CSS, not raster.",
+    "Use <picture> with AVIF then WebP; alt=\"\"; aria-hidden; lazy-load all but hero."
+  ],
+  "assets": [
+    {
+      "id": "hero-figure",
+      "section": "hero",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/hero/hero-figure-720.avif",
+          "url": "/roman-v2/hero/hero-figure-720.avif",
+          "format": "avif",
+          "width": 720,
+          "height": 487,
+          "bytes": 33971
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-720.webp",
+          "url": "/roman-v2/hero/hero-figure-720.webp",
+          "format": "webp",
+          "width": 720,
+          "height": 487,
+          "bytes": 67540
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-1105.avif",
+          "url": "/roman-v2/hero/hero-figure-1105.avif",
+          "format": "avif",
+          "width": 1105,
+          "height": 748,
+          "bytes": 56680
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-1105.webp",
+          "url": "/roman-v2/hero/hero-figure-1105.webp",
+          "format": "webp",
+          "width": 1105,
+          "height": 748,
+          "bytes": 117456
+        }
+      ],
+      "sourcePixels": {
+        "width": 1105,
+        "height": 748
+      },
+      "hasAlpha": true,
+      "placement": "Desktop hero: right ~60% of the hero, bottom-aligned to the hero bottom edge (the terracotta band sits directly below). Copy sits to the left.",
+      "fade": {
+        "sides": {
+          "left": "110px",
+          "top": "70px",
+          "right": "30px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#f4ebdf"
+      },
+      "sectionBackgroundSampled": "#f4ebdf",
+      "source": {
+        "concept": "design/roman-v2/concepts/01-hero-approved.png",
+        "crop": {
+          "left": 560,
+          "top": 95,
+          "width": 1105,
+          "height": 748
+        }
+      },
+      "cleanup": [
+        "erase: tail of headline “judgment.”"
+      ],
+      "notes": "Contains part of the large faint circle (#ecdecf). Full circle in concept px ≈ centre (1247, 450), r ≈ 507 – draw it in CSS behind the figure. Nav pill, headline, copy, buttons and terracotta band excluded."
+    },
+    {
+      "id": "hero-figure-mobile",
+      "section": "hero",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/hero/hero-figure-mobile-480.avif",
+          "url": "/roman-v2/hero/hero-figure-mobile-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 422,
+          "bytes": 22810
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-mobile-480.webp",
+          "url": "/roman-v2/hero/hero-figure-mobile-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 422,
+          "bytes": 44446
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-mobile-850.avif",
+          "url": "/roman-v2/hero/hero-figure-mobile-850.avif",
+          "format": "avif",
+          "width": 850,
+          "height": 748,
+          "bytes": 47445
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-mobile-850.webp",
+          "url": "/roman-v2/hero/hero-figure-mobile-850.webp",
+          "format": "webp",
+          "width": 850,
+          "height": 748,
+          "bytes": 97044
+        }
+      ],
+      "sourcePixels": {
+        "width": 850,
+        "height": 748
+      },
+      "hasAlpha": true,
+      "placement": "Mobile hero: full-width portrait-ish crop (head → hands on keyboard) placed below the headline/CTA stack, bottom-aligned.",
+      "fade": {
+        "sides": {
+          "left": "90px",
+          "top": "60px",
+          "right": "30px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#f4ebdf"
+      },
+      "sectionBackgroundSampled": "#f4ebdf",
+      "source": {
+        "concept": "design/roman-v2/concepts/01-hero-approved.png",
+        "crop": {
+          "left": 770,
+          "top": 95,
+          "width": 850,
+          "height": 748
+        }
+      },
+      "cleanup": [],
+      "notes": "Laptop lid is partially cropped and fades out on the left."
+    },
+    {
+      "id": "career-hands",
+      "section": "career",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/career/career-hands-560.avif",
+          "url": "/roman-v2/career/career-hands-560.avif",
+          "format": "avif",
+          "width": 560,
+          "height": 246,
+          "bytes": 19052
+        },
+        {
+          "path": "public/roman-v2/career/career-hands-560.webp",
+          "url": "/roman-v2/career/career-hands-560.webp",
+          "format": "webp",
+          "width": 560,
+          "height": 246,
+          "bytes": 35336
+        },
+        {
+          "path": "public/roman-v2/career/career-hands-812.avif",
+          "url": "/roman-v2/career/career-hands-812.avif",
+          "format": "avif",
+          "width": 812,
+          "height": 357,
+          "bytes": 31484
+        },
+        {
+          "path": "public/roman-v2/career/career-hands-812.webp",
+          "url": "/roman-v2/career/career-hands-812.webp",
+          "format": "webp",
+          "width": 812,
+          "height": 357,
+          "bytes": 58450
+        }
+      ],
+      "sourcePixels": {
+        "width": 812,
+        "height": 357
+      },
+      "hasAlpha": true,
+      "placement": "Active chapter card: top-right of the card, top edge aligned to the card top, right-aligned to the card edge; chapter copy to the left, metrics row below.",
+      "fade": {
+        "sides": {
+          "left": "120px",
+          "bottom": "24px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#f6efe5"
+      },
+      "sectionBackgroundSampled": "#f6efe5",
+      "source": {
+        "concept": "design/roman-v2/concepts/02-work-over-time-approved.png",
+        "crop": {
+          "left": 860,
+          "top": 333,
+          "width": 812,
+          "height": 357
+        }
+      },
+      "cleanup": [
+        "inpaint: chart node",
+        "inpaint: chart curve",
+        "inpaint: chart segment",
+        "inpaint: chart node",
+        "inpaint: chart node",
+        "inpaint: chart axis",
+        "inpaint: chart drop line"
+      ],
+      "notes": "Chart nodes/curve/axis inpainted; faint blueprint grid inside the halftone remains (reads as texture). Hands’ upper sleeve (on the sage band above the card) is cut by the top edge."
+    },
+    {
+      "id": "projects-frame",
+      "section": "projects",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/projects/projects-frame-640.avif",
+          "url": "/roman-v2/projects/projects-frame-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 393,
+          "bytes": 105212
+        },
+        {
+          "path": "public/roman-v2/projects/projects-frame-640.webp",
+          "url": "/roman-v2/projects/projects-frame-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 393,
+          "bytes": 162742
+        },
+        {
+          "path": "public/roman-v2/projects/projects-frame-960.avif",
+          "url": "/roman-v2/projects/projects-frame-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 590,
+          "bytes": 229409
+        },
+        {
+          "path": "public/roman-v2/projects/projects-frame-960.webp",
+          "url": "/roman-v2/projects/projects-frame-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 590,
+          "bytes": 222758
+        }
+      ],
+      "sourcePixels": {
+        "width": 960,
+        "height": 590
+      },
+      "hasAlpha": true,
+      "placement": "Featured product: right ~60% of the featured block over the CSS terracotta circle; real product screenshot goes BEHIND this layer inside the transparent window.",
+      "fade": {
+        "sides": {
+          "left": "70px",
+          "top": "16px",
+          "bottom": "16px",
+          "right": "16px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#b26e58"
+      },
+      "sectionBackgroundSampled": "#b26e58",
+      "source": {
+        "concept": "design/roman-v2/concepts/03-selected-products-approved.png",
+        "crop": {
+          "left": 690,
+          "top": 78,
+          "width": 960,
+          "height": 590
+        }
+      },
+      "cleanup": [
+        "paint: paper outside the terracotta circle",
+        "key: terracotta background → alpha",
+        "erase: fake product UI inside the frame → transparent window"
+      ],
+      "notes": "Frame interior is a transparent window – see `window` (output px at full width). Terracotta background keyed to alpha so it can sit on a CSS terracotta circle. Darker marble shadows are partly translucent after keying, so this layer MUST sit over terracotta #b26e58 (not paper).",
+      "window": {
+        "description": "Transparent window for the real product screenshot, in px of the full-width export; place the screenshot BEHIND the layer covering this box.",
+        "polygon": [
+          [
+            294,
+            172
+          ],
+          [
+            360,
+            160
+          ],
+          [
+            805,
+            80
+          ],
+          [
+            808,
+            374
+          ],
+          [
+            778,
+            392
+          ],
+          [
+            746,
+            438
+          ],
+          [
+            702,
+            462
+          ],
+          [
+            325,
+            484
+          ],
+          [
+            294,
+            474
+          ]
+        ],
+        "bbox": {
+          "left": 294,
+          "top": 80,
+          "right": 808,
+          "bottom": 484
+        },
+        "bboxPercent": {
+          "left": 30.6,
+          "top": 13.6,
+          "right": 84.2,
+          "bottom": 82
+        }
+      }
+    },
+    {
+      "id": "projects-head",
+      "section": "projects",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/projects/projects-head-300.avif",
+          "url": "/roman-v2/projects/projects-head-300.avif",
+          "format": "avif",
+          "width": 300,
+          "height": 548,
+          "bytes": 95040
+        },
+        {
+          "path": "public/roman-v2/projects/projects-head-300.webp",
+          "url": "/roman-v2/projects/projects-head-300.webp",
+          "format": "webp",
+          "width": 300,
+          "height": 548,
+          "bytes": 99550
+        }
+      ],
+      "sourcePixels": {
+        "width": 300,
+        "height": 548
+      },
+      "hasAlpha": true,
+      "placement": "Fallback / mobile: the sculpture head fragment alone (if the frame layer is not used). Left of the product screenshot.",
+      "fade": {
+        "sides": {
+          "left": "40px",
+          "right": "50px",
+          "top": "16px",
+          "bottom": "16px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#b26e58"
+      },
+      "sectionBackgroundSampled": "#b26e58",
+      "source": {
+        "concept": "design/roman-v2/concepts/03-selected-products-approved.png",
+        "crop": {
+          "left": 690,
+          "top": 120,
+          "width": 300,
+          "height": 548
+        }
+      },
+      "cleanup": [
+        "paint: paper outside the terracotta circle",
+        "key: terracotta background → alpha",
+        "erase: edge of fake UI"
+      ],
+      "notes": "Right edge crosses the dark gap between head and frame and fades out. Keyed like projects-frame – place over terracotta #b26e58."
+    },
+    {
+      "id": "beyond-reading",
+      "section": "beyond",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/beyond/beyond-reading-584.avif",
+          "url": "/roman-v2/beyond/beyond-reading-584.avif",
+          "format": "avif",
+          "width": 584,
+          "height": 419,
+          "bytes": 24940
+        },
+        {
+          "path": "public/roman-v2/beyond/beyond-reading-584.webp",
+          "url": "/roman-v2/beyond/beyond-reading-584.webp",
+          "format": "webp",
+          "width": 584,
+          "height": 419,
+          "bytes": 48226
+        }
+      ],
+      "sourcePixels": {
+        "width": 584,
+        "height": 419
+      },
+      "hasAlpha": true,
+      "placement": "Daily Reading card: right half of the card, bottom- and right-aligned; heading/CTA on the left.",
+      "fade": {
+        "sides": {
+          "left": "80px",
+          "top": "10px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#f2eae0"
+      },
+      "sectionBackgroundSampled": "#f2eae0",
+      "source": {
+        "concept": "design/roman-v2/concepts/04-beyond-work-approved.png",
+        "crop": {
+          "left": 548,
+          "top": 272,
+          "width": 584,
+          "height": 419
+        }
+      },
+      "cleanup": [],
+      "notes": "Paper sheets carry abstract grey “ruled lines” (not readable text) as in the concept."
+    },
+    {
+      "id": "beyond-music",
+      "section": "beyond",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/beyond/beyond-music-516.avif",
+          "url": "/roman-v2/beyond/beyond-music-516.avif",
+          "format": "avif",
+          "width": 516,
+          "height": 210,
+          "bytes": 9193
+        },
+        {
+          "path": "public/roman-v2/beyond/beyond-music-516.webp",
+          "url": "/roman-v2/beyond/beyond-music-516.webp",
+          "format": "webp",
+          "width": 516,
+          "height": 210,
+          "bytes": 17366
+        }
+      ],
+      "sourcePixels": {
+        "width": 516,
+        "height": 210
+      },
+      "hasAlpha": true,
+      "placement": "Music card: middle band, bottom-aligned; its right edge butts directly against the HTML player panel (#222322) that holds waveform/controls.",
+      "fade": {
+        "sides": {
+          "left": "40px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#f2eae0"
+      },
+      "sectionBackgroundSampled": "#f2eae0",
+      "source": {
+        "concept": "design/roman-v2/concepts/04-beyond-work-approved.png",
+        "crop": {
+          "left": 290,
+          "top": 706,
+          "width": 516,
+          "height": 210
+        }
+      },
+      "cleanup": [
+        "inpaint: player progress bar"
+      ],
+      "notes": "Right portion is the dark player panel corner; waveform, progress bar and transport controls excluded/inpainted."
+    },
+    {
+      "id": "beyond-column",
+      "section": "beyond",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/beyond/beyond-column-560.avif",
+          "url": "/roman-v2/beyond/beyond-column-560.avif",
+          "format": "avif",
+          "width": 560,
+          "height": 183,
+          "bytes": 15916
+        },
+        {
+          "path": "public/roman-v2/beyond/beyond-column-560.webp",
+          "url": "/roman-v2/beyond/beyond-column-560.webp",
+          "format": "webp",
+          "width": 560,
+          "height": 183,
+          "bytes": 29322
+        },
+        {
+          "path": "public/roman-v2/beyond/beyond-column-812.avif",
+          "url": "/roman-v2/beyond/beyond-column-812.avif",
+          "format": "avif",
+          "width": 812,
+          "height": 266,
+          "bytes": 25533
+        },
+        {
+          "path": "public/roman-v2/beyond/beyond-column-812.webp",
+          "url": "/roman-v2/beyond/beyond-column-812.webp",
+          "format": "webp",
+          "width": 812,
+          "height": 266,
+          "bytes": 47914
+        }
+      ],
+      "sourcePixels": {
+        "width": 812,
+        "height": 266
+      },
+      "hasAlpha": true,
+      "placement": "Section header decoration: top-right of Beyond Work, top- and right-aligned, behind the section title row.",
+      "fade": {
+        "sides": {
+          "left": "110px",
+          "bottom": "36px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#c0bfae"
+      },
+      "sectionBackgroundSampled": "#c0bfae",
+      "source": {
+        "concept": "design/roman-v2/concepts/04-beyond-work-approved.png",
+        "crop": {
+          "left": 860,
+          "top": 0,
+          "width": 812,
+          "height": 266
+        }
+      },
+      "cleanup": [],
+      "notes": "Includes part of the light sage circle behind the foliage."
+    },
+    {
+      "id": "beyond-whoop-fragment",
+      "section": "beyond",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/beyond/beyond-whoop-fragment-144.avif",
+          "url": "/roman-v2/beyond/beyond-whoop-fragment-144.avif",
+          "format": "avif",
+          "width": 144,
+          "height": 206,
+          "bytes": 3906
+        },
+        {
+          "path": "public/roman-v2/beyond/beyond-whoop-fragment-144.webp",
+          "url": "/roman-v2/beyond/beyond-whoop-fragment-144.webp",
+          "format": "webp",
+          "width": 144,
+          "height": 206,
+          "bytes": 6590
+        }
+      ],
+      "sourcePixels": {
+        "width": 144,
+        "height": 206
+      },
+      "hasAlpha": true,
+      "placement": "WHOOP card: right edge decoration, bottom-right aligned.",
+      "fade": {
+        "sides": {
+          "left": "36px",
+          "top": "10px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#f2eae0"
+      },
+      "sectionBackgroundSampled": "#f2eae0",
+      "source": {
+        "concept": "design/roman-v2/concepts/04-beyond-work-approved.png",
+        "crop": {
+          "left": 1492,
+          "top": 708,
+          "width": 144,
+          "height": 206
+        }
+      },
+      "cleanup": [],
+      "notes": "Small sculpture fragment + halftone."
+    },
+    {
+      "id": "writing-thumb-head",
+      "section": "beyond",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/beyond/writing-thumb-head-100.avif",
+          "url": "/roman-v2/beyond/writing-thumb-head-100.avif",
+          "format": "avif",
+          "width": 100,
+          "height": 68,
+          "bytes": 979
+        },
+        {
+          "path": "public/roman-v2/beyond/writing-thumb-head-100.webp",
+          "url": "/roman-v2/beyond/writing-thumb-head-100.webp",
+          "format": "webp",
+          "width": 100,
+          "height": 68,
+          "bytes": 1442
+        }
+      ],
+      "sourcePixels": {
+        "width": 100,
+        "height": 68
+      },
+      "hasAlpha": false,
+      "placement": "Writing row thumbnail (≈100×68).",
+      "fade": null,
+      "sectionBackgroundSampled": null,
+      "source": {
+        "concept": "design/roman-v2/concepts/04-beyond-work-approved.png",
+        "crop": {
+          "left": 1183,
+          "top": 375,
+          "width": 100,
+          "height": 68
+        }
+      },
+      "cleanup": [],
+      "notes": ""
+    },
+    {
+      "id": "writing-thumb-column",
+      "section": "beyond",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/beyond/writing-thumb-column-100.avif",
+          "url": "/roman-v2/beyond/writing-thumb-column-100.avif",
+          "format": "avif",
+          "width": 100,
+          "height": 68,
+          "bytes": 982
+        },
+        {
+          "path": "public/roman-v2/beyond/writing-thumb-column-100.webp",
+          "url": "/roman-v2/beyond/writing-thumb-column-100.webp",
+          "format": "webp",
+          "width": 100,
+          "height": 68,
+          "bytes": 1460
+        }
+      ],
+      "sourcePixels": {
+        "width": 100,
+        "height": 68
+      },
+      "hasAlpha": false,
+      "placement": "Writing row thumbnail (≈100×68).",
+      "fade": null,
+      "sectionBackgroundSampled": null,
+      "source": {
+        "concept": "design/roman-v2/concepts/04-beyond-work-approved.png",
+        "crop": {
+          "left": 1183,
+          "top": 462,
+          "width": 100,
+          "height": 68
+        }
+      },
+      "cleanup": [],
+      "notes": ""
+    },
+    {
+      "id": "writing-thumb-mountain",
+      "section": "beyond",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/beyond/writing-thumb-mountain-100.avif",
+          "url": "/roman-v2/beyond/writing-thumb-mountain-100.avif",
+          "format": "avif",
+          "width": 100,
+          "height": 61,
+          "bytes": 1322
+        },
+        {
+          "path": "public/roman-v2/beyond/writing-thumb-mountain-100.webp",
+          "url": "/roman-v2/beyond/writing-thumb-mountain-100.webp",
+          "format": "webp",
+          "width": 100,
+          "height": 61,
+          "bytes": 1852
+        }
+      ],
+      "sourcePixels": {
+        "width": 100,
+        "height": 61
+      },
+      "hasAlpha": false,
+      "placement": "Writing row thumbnail (≈100×61).",
+      "fade": null,
+      "sectionBackgroundSampled": null,
+      "source": {
+        "concept": "design/roman-v2/concepts/04-beyond-work-approved.png",
+        "crop": {
+          "left": 1183,
+          "top": 548,
+          "width": 100,
+          "height": 61
+        }
+      },
+      "cleanup": [],
+      "notes": ""
+    },
+    {
+      "id": "jj-listener",
+      "section": "jj",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/jj/jj-listener-680.avif",
+          "url": "/roman-v2/jj/jj-listener-680.avif",
+          "format": "avif",
+          "width": 680,
+          "height": 470,
+          "bytes": 28516
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-680.webp",
+          "url": "/roman-v2/jj/jj-listener-680.webp",
+          "format": "webp",
+          "width": 680,
+          "height": 470,
+          "bytes": 58324
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-1002.avif",
+          "url": "/roman-v2/jj/jj-listener-1002.avif",
+          "format": "avif",
+          "width": 1002,
+          "height": 692,
+          "bytes": 45840
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-1002.webp",
+          "url": "/roman-v2/jj/jj-listener-1002.webp",
+          "format": "webp",
+          "width": 1002,
+          "height": 692,
+          "bytes": 96444
+        }
+      ],
+      "sourcePixels": {
+        "width": 1002,
+        "height": 692
+      },
+      "hasAlpha": true,
+      "placement": "JJ callout: right ~60%, bottom-aligned to the oxblood section bottom; copy + actions on the left.",
+      "fade": {
+        "sides": {
+          "left": "160px",
+          "top": "40px",
+          "right": "24px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#4f1816"
+      },
+      "sectionBackgroundSampled": "#4f1816",
+      "source": {
+        "concept": "design/roman-v2/concepts/05-jj-approved.png",
+        "crop": {
+          "left": 670,
+          "top": 20,
+          "width": 1002,
+          "height": 692
+        }
+      },
+      "cleanup": [
+        "erase: headline “portfolio / back.”",
+        "erase: voice orb (rebuild in CSS)"
+      ],
+      "notes": "Orb removed (concept px centre ≈ (1481, 430), r ≈ 80 + glow) – place the CSS orb there. Darker oxblood circle (#491614) behind the head is baked in."
+    },
+    {
+      "id": "jj-listener-mobile",
+      "section": "jj",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/jj/jj-listener-mobile-420.avif",
+          "url": "/roman-v2/jj/jj-listener-mobile-420.avif",
+          "format": "avif",
+          "width": 420,
+          "height": 512,
+          "bytes": 30089
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-mobile-420.webp",
+          "url": "/roman-v2/jj/jj-listener-mobile-420.webp",
+          "format": "webp",
+          "width": 420,
+          "height": 512,
+          "bytes": 52406
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-mobile-560.avif",
+          "url": "/roman-v2/jj/jj-listener-mobile-560.avif",
+          "format": "avif",
+          "width": 560,
+          "height": 682,
+          "bytes": 42152
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-mobile-560.webp",
+          "url": "/roman-v2/jj/jj-listener-mobile-560.webp",
+          "format": "webp",
+          "width": 560,
+          "height": 682,
+          "bytes": 75448
+        }
+      ],
+      "sourcePixels": {
+        "width": 560,
+        "height": 682
+      },
+      "hasAlpha": true,
+      "placement": "Mobile JJ: head + listening hand, full width below the copy, bottom-aligned.",
+      "fade": {
+        "sides": {
+          "left": "50px",
+          "top": "40px",
+          "right": "40px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#4f1816"
+      },
+      "sectionBackgroundSampled": "#4f1816",
+      "source": {
+        "concept": "design/roman-v2/concepts/05-jj-approved.png",
+        "crop": {
+          "left": 860,
+          "top": 30,
+          "width": 560,
+          "height": 682
+        }
+      },
+      "cleanup": [],
+      "notes": "No orb in this crop."
+    },
+    {
+      "id": "footer-hand",
+      "section": "footer",
+      "alt": "",
+      "decorative": true,
+      "status": "interim – derived from approved concept; replace with regenerated art",
+      "files": [
+        {
+          "path": "public/roman-v2/footer/footer-hand-490.avif",
+          "url": "/roman-v2/footer/footer-hand-490.avif",
+          "format": "avif",
+          "width": 490,
+          "height": 540,
+          "bytes": 16451
+        },
+        {
+          "path": "public/roman-v2/footer/footer-hand-490.webp",
+          "url": "/roman-v2/footer/footer-hand-490.webp",
+          "format": "webp",
+          "width": 490,
+          "height": 540,
+          "bytes": 36058
+        }
+      ],
+      "sourcePixels": {
+        "width": 490,
+        "height": 540
+      },
+      "hasAlpha": true,
+      "placement": "Closing invitation: right edge, vertically centred on the headline/CTA block, right-aligned (hand enters from the viewport edge).",
+      "fade": {
+        "sides": {
+          "left": "30px",
+          "top": "50px",
+          "bottom": "40px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#e5d9cc"
+      },
+      "sectionBackgroundSampled": "#e5d9cc",
+      "source": {
+        "concept": "design/roman-v2/concepts/06-footer-approved.png",
+        "crop": {
+          "left": 1182,
+          "top": 30,
+          "width": 490,
+          "height": 540
+        }
+      },
+      "cleanup": [
+        "erase: full stop of headline",
+        "erase: cursor"
+      ],
+      "notes": "Cursor removed – rebuild as a CSS/SVG element near the fingertip if wanted. Large light circle (#e5d9cc) partially baked in; concept px ≈ centre (1295, 345), r ≈ 320."
+    }
+  ]
+}
