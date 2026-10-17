@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-07",
+  "timezone": "Asia/Kolkata",
+  "title": "Talk to Claude the way you would a coworker",
+  "summary": "Cherny’s brief has exactly three parts, and every one of them is something you would say to a smart colleague. One: what you want it to do. Two: how much effort to spend on it. Three: how it should verify the work.",
+  "bodyMarkdown": "## Talk to Claude the way you would a coworker\n\nThere is no secret to prompting. That is the whole post, more or less — and it is the one thing Rakshit both liked and bookmarked since yesterday’s edition. Boris Cherny’s argument: talk to Claude the way you would a coworker. Give Claude a goal, and it will figure it out. Prompting mattered more in the Sonnet 3.5 era, when models were brittle and needed coaxing. Now the models are capable enough that the bottleneck has moved — from clever incantations to clear delegation.\n\nCherny’s brief has exactly three parts, and every one of them is something you would say to a smart colleague. One: what you want it to do. Two: how much effort to spend on it. Three: how it should verify the work. That is a management brief, not a spell — and the fact that it works on Claude tells you how far the models have come. You would never hand a good engineer a 500-word incantation full of “you are a world-class expert” throat-clearing. You would tell them what done looks like, what it is worth spending, and how you will check.\n\nThe era shift is the load-bearing claim. In the Sonnet 3.5 days, the model needed the perfect incantation because it could not recover from ambiguity — prompting was the skill. Now ambiguity is still the enemy, but the fix is not a better spell, it is a better brief. Underspecify the goal and you get confident garbage; overspecify the method and you cap a capable model at your own understanding. The sweet spot is exactly the coworker brief: the goal is the thing only you can supply, so supply it crisply and let the model choose the route.\n\nNote which of the three parts does the most work: verification. “How it should verify the work” is what turns a capable model into a reliable one — tests to run, checks to perform, a definition of done. It is also the part most briefs skip, because humans verify by vibes and models cannot. Write the verification step first and the other two get easier: once you know how you will check the work, you usually know what you actually want.\n\n- Delegation beats incantation. The management skill transfers directly: clear goal, effort budget, verification plan. If you can brief a smart junior, you can brief Claude.\n\n- Specify the what, never the how. Overspecifying the method caps the model at your own understanding. The goal is the one thing only you can supply — make it crisp and let the model pick the route.\n\n- Verification is the real prompt. “How should it check its work” is the highest-leverage sentence in any brief. Write the definition of done first; the rest follows.\n\nA short edition today: the pile yielded a single new save since Edition 12 — Cherny’s prompting post, above, which earned both a like and a bookmark. Everything else in the scan was already covered in earlier editions. Tomorrow’s pile should be back to full size.",
+  "sources": [
+    {
+      "url": "https://x.com/bcherny/status/2107565388250874193",
+      "label": "Post by @bcherny",
+      "author": "@bcherny"
+    }
+  ],
+  "audioAssetId": null,
+  "audioDurationSeconds": null,
+  "audioTranscript": null,
+  "status": "published",
+  "htmlAssetId": "2026-10-07.html"
+}

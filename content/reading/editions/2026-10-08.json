@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-08",
+  "timezone": "Asia/Kolkata",
+  "title": "OpenAI’s launch week: GPT-6 in Chat, interfaces that build themselves",
+  "summary": "The marathon is the forcing function. Tibo committed to shipping one clear Codex/Work improvement every day for 28 days — or users get a free reset.",
+  "bodyMarkdown": "## OpenAI’s launch week: GPT-6 in Chat, interfaces that build themselves\n\nTwo posts, one morning, same message: the model is no longer the product. Tibo’s Day 3 dispatch from the 28-day Codex marathon puts GPT-6 inside Chat and celebrates a new high of forty million active users across Codex and ChatGPT Work — while Greg Brockman unveils Intelligent UI, answers that arrive as fully interactive interfaces. The race has moved up the stack: from who has the best model to who ships the best surface.\n\nThe marathon is the forcing function. Tibo committed to shipping one clear Codex/Work improvement every day for 28 days — or users get a free reset. Day 3’s headline: “The big one is GPT-6 in Chat,” plus “a new high of 40M active users,” plus “loading a banked reset in everyone’s paid accounts.” His Day 2 roundup, quoted in the post, shows where the streak is aimed: 2.1 “Approve for me” — auto-review of agent actions, now included without touching usage (worth two to ten percent of a plan); 2.2 a simplified API for builders; 2.3 meeting notes integrated; 2.4 the Decisions API live for builders.\n\nThen the surface move. Brockman: “Introducing Intelligent UI, a new capability in ChatGPT for answering quickly with fully interactive user interfaces.” OpenAI’s own words: “GPT-6 and Intelligent UI, now rolling out in ChatGPT for everyone. Intelligent UI in ChatGPT delivers fast, interactive answers that make everyday questions more visual, complex topics easier to grasp, and interactive tools for your task available on the spot.” The chat bubble is being commoditised from the inside — answers that assemble their own UI per question.\n\n- Distribution compounds. Forty million users is the number everything else serves — every launch lands on an installed base that competitors cannot rent.\n\n- The interface is the new model. Interactive answers commoditise the chat bubble; the surface becomes the product and the differentiator.\n\n- Public cadence is a trust device. A 28-day public shipping streak with a built-in penalty — a free reset if a day is missed — is marketing you cannot fake.\n\n## Even SpaceX shops for backends\n\nThe week’s most honest enterprise-AI signal arrived as a product note: going forward, the Grok account at SpaceX will use the best backend model for any given task — naming Claude Opus 5.5, MidJourney and Suno outright. “Whatever is most likely to give you the best outcome.” Loyalty, even to your own lab, is now officially a cost centre.\n\nRead it literally: the bot will route per task. Best text model for text, best image model for images, best audio model for audio — regardless of logo. Claude Opus 5.5 is named first among the text options; MidJourney covers images; Suno covers audio. This is a procurement architecture wearing a tweet: classify the task, send it to the winner, take the best outcome.\n\nWhy it matters beyond the gossip: when the founder of a frontier lab publicly multi-sources, single-model loyalty is over as a strategy. The durable layer is the routing and evaluation layer — knowing which model wins which task, and switching without ceremony. Naming competitors in public is also the new procurement flex: it tells every lab that the buyer has options and the market has depth.\n\n- Multi-model is the default architecture now — even inside the AI labs themselves.\n\n- The moat moved to routing and evals. Picking well, per task, beats building everything yourself.\n\n- Public multi-sourcing pressures every lab. Your best customer is also your competitor’s customer — act accordingly.\n\n## The ₹1,000-crore agency hiding inside a razor brand\n\nIf you have seen a digital ad for Durex, Neurogum or Levi’s, the same team probably made it — and they started out selling razors. Rahul Mathur’s thread traces how Bombay Shaving Company’s services arm, now called 100Days, quietly became the business: over ₹1,000 crore of quick-commerce GMV, 12 crore annual D2C visitors, 60 lakh shipments a year, across 15+ brands.\n\nThe origin is the tell. In January 2021, Reckitt — Durex’s owner — led a ₹45 crore round into Bombay Shaving Company, then asked Shantanu and team to build a services business to fix Durex’s online sales. An investor buying the team, not the product. It worked: roughly ₹20 crore of D2C sales for Durex in FY24 alone, and the services arm kept expanding until it outgrew its parent — 15+ brands, >₹1,000 crore GMV on quick commerce, >12 crore annual D2C visitors, >60 lakh annual shipments.\n\nThe pattern generalises: services fund the product, then the services become the product. The D2C brand was the laboratory where the growth playbook got written; the agency is where it gets monetised at scale. Every new brand sharpens the playbook — more spend data, more creative winners, more fulfilment edge — which makes the next brand cheaper to win. That is a flywheel, not a side hustle.\n\n- Your side capability may be the business. BSC’s growth team outgrew its razors — the lab became less valuable than what the lab learned.\n\n- Investors buy teams, not just TAM. Reckitt’s ask created the company; the funding round was really an acqui-hire with a balance sheet.\n\n- Playbooks compound. Fifteen brands of spend data is a moat no single-brand operator can replicate.\n\n## The playbook for running marketing on agents\n\nA full-length X Article laying out how to run a marketing team on AI agents — the playbook. The article’s step-by-step lives behind the link, but the bookmark is itself the signal: operators have stopped experimenting with agents in marketing and started staffing around them.\n\nWhy marketing is first in line for the agent re-architecture: every marketing output is measurable — copy converts or it doesn’t, spend attributes or it doesn’t — so agents can be graded like employees. Volume is the job — more variants, more channels, more tests — which is exactly what agents are for. And the feedback loops are days, not quarters, so the system learns fast.\n\nThe org shape the playbook points at: agents as roles — strategist, creator, distributor, analyst — with a human editor holding taste and the final call. The human moves from doing to directing; from drafting to grading. The analyst closes the loop, feeding attribution back into strategy, which is the loop that used to take a quarterly review and now takes a day.\n\n- Measurable work gets agentified first. Marketing’s attribution is its destiny — what can be graded can be delegated.\n\n- The human’s job becomes taste. Directing, not drafting; grading, not writing.\n\n- Bookmarks are votes. This one says the shift is staffing, not experimenting.\n\n## An org chart for the AI company\n\n“Internal structure of AI companies…” plus a diagram that is doing the rounds. The bookmark-and-like double is the review: whatever its boxes say, it rings true to people inside the industry. Read it against your own org chart and notice what is missing — the eval team, the router, the human-in-the-loop layer.\n\n## RIP jev: eaten by a platform API\n\n“RIP jev / Early August 2026 – Late August 2026” — a joke obituary riffing on the OpenAIDevs announcement that apps can “choose the right model, tool, or action in near real-time” with the Decisions API. The joke lands because the economics are real: a whole category of prompt routers gets absorbed the moment routing becomes a platform primitive. Build on the durable layer, not the gap the platform will close.\n\n## Gaming is the gateway to AI\n\nPlayground, a new Google Labs experiment: create playable games in seconds with no coding experience, remix them with friends, publish to Play. US only, 18+. The thesis in the tagline — “gaming is the gateway to AI” — is the interesting part: games as the onboarding ramp for AI creation, the way spreadsheets were the ramp for computing.\n\n## $2M ARR in five hours: the agent inbox\n\n“Meet One, the new way for talking with your agents” — an inbox for questions from your agents — with a launch-day claim of “$2m ARR in 5 hours.” Treat the number as marketing, but not the category: as agents multiply, the inbox that triages what they need from you becomes the scarcest interface. Approve-for-me, but for everything.\n\n## The $1 trillion AI services opportunity\n\n“Are you building vertical AI products? Then this report is worth your time. It has a strong POV on where AI services will win vs fail,” quoting Seed2Scale’s “Beyond Agents: The $1 Trillion AI Services Opportunity.” Pairs naturally with the week’s vertical-software thread: the money isn’t in the agent, it’s in the service the agent delivers.\n\n## Career advice from @sama, on repeat\n\n“Career advice from @sama i keep coming back to” — plus an image that didn’t come through in the scan. The bookmark is the signal here: whatever the specific advice, it has survived multiple re-reads, which is the only endorsement that matters. Worth opening for the image alone.\n\n## The FOMO is gone\n\n“It’s like something changed overnight at Anthropic. They are giving offers on top of offers… Now, the FOMO is gone.” A talent-market signal from the newest save in the pile: Anthropic is hiring aggressively enough that builder FOMO is evaporating. When the labs start bidding, the market has decided where the leverage sits.",
+  "sources": [
+    {
+      "url": "https://x.com/thsottiaux/status/2107913674593644711",
+      "label": "Post by @thsottiaux",
+      "author": "@thsottiaux"
+    },
+    {
+      "url": "https://x.com/gdb/status/2107899150247616531",
+      "label": "Post by @gdb",
+      "author": "@gdb"
+    },
+    {
+      "url": "https://x.com/elonmusk/status/2107724314451878104",
+      "label": "Post by @elonmusk",
+      "author": "@elonmusk"
+    },
+    {
+      "url": "https://x.com/Rahul_J_Mathur/status/2107684555704717516",
+      "label": "Post by @Rahul_J_Mathur",
+      "author": "@Rahul_J_Mathur"
+    },
+    {
+      "url": "https://x.com/aashatwt/status/2107804480234455433",
+      "label": "Post by @aashatwt",
+      "author": "@aashatwt"
+    },
+    {
+      "url": "https://x.com/adnaannasir_/status/2107686316033085594",
+      "label": "Post by @adnaannasir_",
+      "author": "@adnaannasir_"
+    },
+    {
+      "url": "https://x.com/arvidkahl/status/2107822519684104374",
+      "label": "Post by @arvidkahl",
+      "author": "@arvidkahl"
+    },
+    {
+      "url": "https://x.com/GoogleLabs/status/2107800195748737042",
+      "label": "Post by @GoogleLabs",
+      "author": "@GoogleLabs"
+    },
+    {
+      "url": "https://x.com/ky__zo/status/2107630504359203324",
+      "label": "Post by @ky__zo",
+      "author": "@ky__zo"
+    },
+    {
+      "url": "https://x.com/skirani/status/2107667342373326853",
+      "label": "Post by @skirani",
+      "author": "@skirani"
+    },
+    {
+      "url": "https://x.com/probablyaayushi/status/2107764806694678951",
+      "label": "Post by @probablyaayushi",
+      "author": "@probablyaayushi"
+    },
+    {
+      "url": "https://x.com/pbteja1998/status/2107974229182607711",
+      "label": "Post by @pbteja1998",
+      "author": "@pbteja1998"
+    }
+  ],
+  "audioAssetId": null,
+  "audioDurationSeconds": null,
+  "audioTranscript": null,
+  "status": "published",
+  "htmlAssetId": "2026-10-08.html"
+}

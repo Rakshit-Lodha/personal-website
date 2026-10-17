@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-02",
+  "timezone": "Asia/Kolkata",
+  "title": "A Year of Go: What High Performers Do That Low Performers Don’t",
+  "summary": "The list reads like a field manual for building anything hard. Observation one: he has never seen an excellent performer tolerate incompetence — not once. Not the CEO’s son, not the best coder on the team. The high performer either gets the person to step it up or gets them off the team.",
+  "bodyMarkdown": "## A Year of Go: What High Performers Do That Low Performers Don’t\n\nDuring covid, Slava Akhmechet played Go “reasonably seriously” for about a year — a teacher, studied puzzles, the works. Out of it came ten observations on what separates high from low performers, and the striking thing is how few of them are about the game. They are about teams, work, and the discipline of getting better at anything.\n\nThe list reads like a field manual for building anything hard. Observation one: he has never seen an excellent performer tolerate incompetence — not once. Not the CEO’s son, not the best coder on the team. The high performer either gets the person to step it up or gets them off the team. There is no third option. It’s the harshest sentence in the thread and the most useful: tolerated incompetence is a choice the leader made, not a fact about the team.\n\nObservation two is the quiet bombshell: the most important meta skill is knowing what to work on. You can always figure out how to do something once you decide to do it; the hard part is figuring out what to do in the first place. That single line reframes the entire productivity genre. Most “how to learn faster” advice optimises the second half of a two-part problem and ignores the part that actually decides outcomes.\n\nThe rest is a training philosophy: learn by doing (reading about Go never improved his Go); get a teacher or sparring partner to see your blind spots; study the boring fundamentals — tsumego puzzles in Go, algorithms and data structures in programming, unit economics in business — because they compound; do a lot of reps; review every game afterwards (“this is where the learning happens; most people skip this”); don’t fear losing (“losing is data”); find stronger opponents. And finally: have fun, because without it you won’t stick around long enough for the compounding to kick in.\n\n- The meta skill is selection, not execution — deciding what to work on beats optimising how.\n\n- Improvement has a loop: volume of reps → review → treat losses as data → stronger opponents. Skip the review and the loop breaks.\n\n- Boring fundamentals compound; glamorous tactics don’t. Unit economics is the tsumego of business.\n\n- A teacher or sparring partner is a force multiplier because blind spots are, by definition, invisible to you.\n\n## Sequoia’s Compounding Outlier Machine\n\nIn 2014, Sequoia-backed companies accounted for 20% of the Nasdaq. Today it’s more than 30%. Sit with that for a second: one firm’s portfolio is nearly a third of America’s flagship tech index. The post is a teaser for Patrick O’Shaughnessy’s 94-minute conversation with Michael Moritz — Sequoia partner since 1986, co-leader of the firm with Doug Leone from 1995 to 2012, and the investor behind Google, Yahoo, PayPal and Stripe — around his new book, Ausländer.\n\nThe mechanism underneath is selection, compounding, and time. The 20%-to-30% climb happened across a decade that included the post-2008 mobile wave, cloud, and now AI — meaning the firm didn’t just ride one cycle, it kept picking the winners of successive ones. The episode chapters tell the story behind the numbers: “Family History & Identity,” “Survival & Outsider Instinct,” “Studying Exceptional People,” “Self-Doubt & Success,” “Steve Jobs & Obsession,” “Joining Sequoia,” “Leadership & Alex Ferguson,” “Elon Musk & AI.” It’s a portrait of judgement as the real asset — note the resonance with this edition’s product story: the scarce resource is knowing what to back, not the capital to back it.\n\n- Outlier firms compound through cycles, not within them — the portfolio share grew across mobile, cloud and AI waves alike.\n\n- Moritz’s lens is people-centric (“studying exceptional people”, “survival & outsider instinct”) — the bet is on the human, the cycle is the tailwind.\n\n- One-and-a-half hours of deep conversation with one great practitioner beats a hundred shallow takes.\n\n## The Artifact of a Product Manager Is the Story, Not the Spec\n\nTwo saves, one argument. First, Josh Elman’s long-form essay — “Product Management is still about telling stories” — opens with the interview question he’ll never forget. Reid Hoffman, interviewing him for LinkedIn, asked: “What is the artifact that a product manager produces?” Engineers produce code, designers produce visuals, the CEO produces the org chart and the vision. Elman’s young answer: the spec — the blueprint document that unlocks every team. He was wrong, and spent the next two decades figuring out why.\n\nThe 120-page spec he wrote at LinkedIn proved it. A spec describes a system: what it must do, which boxes get checked before it’s done. That is not the art of product management. The art is telling the story of the people who will use the product and why it will matter in their lives — a story so immediately understandable and repeatable that others can carry it faithfully without you in the room. His one-sentence definition of the job: “A product manager helps their team (and company) ship the right product to their users.”\n\nThen a16z’s post lands the punchline for the AI era: the old loop was spec, scope, build; the new loop is build, play, design, ship. “Prototypes are cheap. Great products still require taste, judgment, and a clear understanding of what users actually need.” Read the two together and you get the full thesis: building got cheap, so the scarce artifact — the repeatable story about what’s right for users — got more valuable, not less. When everyone can ship in a weekend, the differentiator is knowing what deserves to exist.\n\n- The PM’s true output is a story others can repeat faithfully — specs rot, stories propagate.\n\n- The AI-era loop (build, play, design, ship) makes taste and user judgment the bottleneck; the build step is no longer the moat.\n\n- The interview question is a career filter: if you can’t name your artifact, you can’t improve it.\n\n## His WHOOP Subscription Expired, So He Built His Own\n\nAlex Holovach’s WHOOP subscription expired. Instead of renewing, he had Codex reverse-engineer it and built his own app. Telemetry flows into his Prometheus server; Grafana and the app visualise it; Hermes — his own agent — monitors the metrics and plans his workouts. He open-sourced everything (github.com/alex-holovach/life). Next on the list: building his own Zwift and Strava.\n\nThe mechanism is the “personal software” era in miniature. A subscription product is, at its core, an API + a dashboard + some intelligence on top. When an AI agent can reconstruct all three over a weekend, the bundle unbundles into parts you own: the data (your Prometheus), the presentation (your Grafana), and the coaching (your Hermes). The cost structure flips — you pay in compute and weekends instead of rent forever — and so does the relationship: the product becomes infrastructure, not a landlord. His kicker line says it all:\n\n- Any subscription that’s mostly software + data is now replicable as a personal stack — the moat was distribution and polish, not the underlying function.\n\n- The stack pattern is reusable: capture telemetry → store it yourself → visualise → add an agent on top that acts on it.\n\n- Open-sourcing it (alex-holovach/life) turns a weekend hack into a template others can fork.\n\n## The Big Lie About Competition\n\nPeople tell themselves lies to protect their ego, writes Shaan Puri. Yesterday’s specimen: “it’s hard to succeed, it’s soooo competitive nowadays.” Is it? A lot of people want things, he counters, but they are mostly unserious people. Imagine 1,000 people who all want the same thing as you. Here’s what your competition actually looks like: a funnel where almost everyone is filtered out by unseriousness long before talent, capital, or luck enter the picture.\n\nThe closing quote is Charlie Munger’s: “take a simple idea, and take it seriously.” That’s the whole mechanism — the advantage isn’t out-competing the field, it’s out-seriousing it. Most of the “competition” never applies sustained effort to a simple idea, so the effective field is a tiny fraction of the apparent one. Uncle Shaan’s sign-off is characteristically blunt: the lie is comforting because it absolves you; the truth is demanding because it doesn’t.\n\n- Apparent competition ≠ effective competition — unseriousness filters out most of the field before the real contest begins.\n\n- Seriousness is a bigger differentiator than cleverness: sustained effort on a simple idea beats spasmodic effort on brilliant ones.\n\n- The “too competitive” story is an ego-protection device; discarding it is the first move.\n\n## Courage > IQ in the Age of Free Intelligence\n\nSumit Behal’s line, amplified by Ankit: “The shortage of big balls is greater than the shortage of intelligence. OpenAI & Anthropic have already given access to intelligence to all individuals and this makes courage a far more important factor than IQ. The guaranteed way to lose is play it safe and not being delusional.”\n\nThe mechanism is supply and demand applied to human traits. When intelligence was scarce, IQ was the binding constraint — smart people won by default. Now that frontier intelligence is a commodity API, the constraint moved. What’s scarce is the willingness to act on an unfashionable conviction, to ship the thing everyone says won’t work, to look foolish in public. “The guaranteed way to lose is play it safe” is the contrapositive: in a world of abundant intelligence, safety is the one strategy everyone can copy, which makes it worthless.\n\n- Commoditised intelligence inverts the trait market: courage and conviction are the new IQ.\n\n- Playing it safe is now the consensus strategy — and consensus strategies have no edge.\n\n- “Delusional” is doing real work in the quote: it means conviction beyond what the evidence currently supports.\n\n## Boring Work Gets Over-Engineered. Ambitious Work Gets Simple.\n\nJake’s whole post is three lines: “When you do boring shit, you tend to over engineer it. When you do ambitious shit, you’re forced to keep it simple. Great lessons in there.”\n\nThe mechanism: boring work has slack — time, attention, no real pressure — so the mind fills the vacuum with architecture. Ambitious work has none; the scope is so large relative to resources that every non-essential element dies by necessity. Simplicity isn’t a virtue you choose; it’s a discipline imposed by stakes. The practical read: if you catch yourself gold-plating, ask whether the work is too boring to deserve your full ambition — then either raise the ambition or ship the boring version fast.\n\n## Three Types of Friends\n\nAnother Shaan taxonomy, this one about the people around you: 1/ hot tub friends → fun, but unproductive. 2/ cold plunge friends → productive, but no fun. 3/ sauna friends → enjoy challenges, fun, leave you energised.\n\nThe sauna friend is the rare one because the other two axes usually trade off: fun people resist difficulty, driven people drain the room. The person who genuinely enjoys hard things and leaves you with more energy than they took is the one worth protecting. It’s a friendship audit in three lines.\n\n## On 27 to 33: the Heavy Years Are Also the Good Ones\n\nLuxi wrote: “Nobody prepares you for how deep and heavy age 27 to 33 is.” John Fadule’s reply reframes it as a love letter to the same years: jacked, crushing it at work, a developed frontal lobe so you stop shooting yourself in the foot, disposable income for trips and concerts, still in your physical prime — “27 to 33 is amazing.”\n\nThe two posts together are the whole truth about a life stage: it’s heavy because the stakes are real now — career, relationships, money, identity — and it’s amazing because you finally have the agency to handle them. The depth and the joy are the same phenomenon wearing two coats. Bookmark-worthy as a reminder for exactly the years Rakshit is living.\n\nAnushank Jain is working with a startup that lets you negotiate flight fares in real time — literally click a button and it negotiates to get you the best price on that flight. Ex-Cleartrip founders, “solid background.” The app (Away AI) is live on iOS and Android. Airline pricing is famously opaque and dynamic; a consumer-side negotiation agent turns the traveler from price-taker into a counterparty. Watch this space — if it works, every comparison site becomes the opening bid, not the answer. Original →\n\nDilip Kumar pulled three founder-grade quotes from Colossus’s profile of Zuckerberg (“Mark,” by @colossusjeremy — nearly a year in the making, three dozen interviews, spanning Meta HQ, the family homes, and a Manhattan warehouse party): “My main tool in the world is sitting down, building a team, and methodically improving something over a long period of time. It’s not a very sexy process.” — plus notes on doing what’s right despite near-term pain, and not needing to be liked by strangers. The profile’s own framing: the head of “history’s largest nonterritorial empire” who remains “a prisoner of his rivals.” Unsexy process, imperial scale. Original →\n\n“Muse is sort of proof that the amount of intelligence we have is enough already. It just needed to be more agentic and better with our daily tools and platforms,” writes @waiting4_asi. They still use ChatGPT and Claude on the PC, but “Muse is winning my phone” — and they call it exceptional product work. It’s the vertical-agent thesis in the wild: the winner isn’t the smartest model, it’s the one embedded where you actually live. Original →",
+  "sources": [
+    {
+      "url": "https://x.com/spakhm/status/2105673044962296135",
+      "label": "Post by @spakhm",
+      "author": "@spakhm"
+    },
+    {
+      "url": "https://x.com/InvestLikeBest/status/2100921298306101638",
+      "label": "Post by @InvestLikeBest",
+      "author": "@InvestLikeBest"
+    },
+    {
+      "url": "https://x.com/joshelman/status/2099498819914551344",
+      "label": "Post by @joshelman",
+      "author": "@joshelman"
+    },
+    {
+      "url": "https://x.com/a16z/status/2099501195006238899",
+      "label": "Post by @a16z",
+      "author": "@a16z"
+    },
+    {
+      "url": "https://x.com/alex_holovach/status/2099328065663082780",
+      "label": "Post by @alex_holovach",
+      "author": "@alex_holovach"
+    },
+    {
+      "url": "https://x.com/ShaanVP/status/2032568123556245834",
+      "label": "Post by @ShaanVP",
+      "author": "@ShaanVP"
+    },
+    {
+      "url": "https://x.com/ankitkr0/status/2099366661375795641",
+      "label": "Post by @ankitkr0",
+      "author": "@ankitkr0"
+    },
+    {
+      "url": "https://x.com/JustJake/status/2100723072563286207",
+      "label": "Post by @JustJake",
+      "author": "@JustJake"
+    },
+    {
+      "url": "https://x.com/ShaanVP/status/2100644180691472821",
+      "label": "Post by @ShaanVP",
+      "author": "@ShaanVP"
+    },
+    {
+      "url": "https://x.com/fadule_/status/2100656633185784094",
+      "label": "Post by @fadule_",
+      "author": "@fadule_"
+    },
+    {
+      "url": "https://x.com/anushankjain/status/2099371656833896850",
+      "label": "Post by @anushankjain",
+      "author": "@anushankjain"
+    },
+    {
+      "url": "https://x.com/kmr_dilip/status/2099493372239249760",
+      "label": "Post by @kmr_dilip",
+      "author": "@kmr_dilip"
+    },
+    {
+      "url": "https://x.com/waiting4_asi/status/2102016885185454118",
+      "label": "Post by @waiting4_asi",
+      "author": "@waiting4_asi"
+    }
+  ],
+  "audioAssetId": null,
+  "audioDurationSeconds": null,
+  "audioTranscript": null,
+  "status": "published",
+  "htmlAssetId": "2026-10-02.html"
+}

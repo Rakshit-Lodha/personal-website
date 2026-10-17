@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 17</title>
+<style>
+
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .front { display:grid; grid-template-columns: 2.1fr 1fr; gap:34px; margin-top:26px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(3,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat-strip.four { grid-template-columns:repeat(4,1fr); }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; letter-spacing:-0.5px; }
+  .stat .lbl { font-family:Arial,Helvetica,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-top:4px; line-height:1.4; }
+  .chart-box { border:1px solid var(--ink); background:#fff; padding:16px 18px 12px; margin:16px 0; }
+  .chart-box .chart-title { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; border-bottom:1px solid var(--rule); padding-bottom:8px; }
+  .chart-box svg { width:100%; height:auto; display:block; }
+  .chart-box .src { font-family:Arial,Helvetica,sans-serif; font-size:10.5px; color:var(--muted); margin-top:8px; font-style:italic; }
+  .img-frame { border:1px solid var(--ink); background:#fff; padding:10px; margin:16px 0; text-align:center; }
+  .img-frame img { max-width:100%; height:auto; display:block; margin:0 auto; }
+  .img-frame .cap { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; }
+  .learnings { background:#fff; border:1px solid var(--rule); border-left:4px solid var(--red); padding:14px 16px; margin:16px 0; }
+  .learnings h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .learnings ul { margin-left:18px; font-size:15px; }
+  .learnings li { margin-bottom:7px; }
+  .takeaway { background:#f3efe4; border:1px dashed var(--muted); padding:12px 16px; margin:12px 0 18px; font-size:15px; }
+  .takeaway strong { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); }
+  .orig-link { font-family:Arial,Helvetica,sans-serif; font-size:12.5px; margin:6px 0 4px; }
+  .orig-link a { color:var(--red); font-weight:bold; text-decoration:none; border-bottom:1px dotted var(--red); }
+  .brief { margin:0 0 22px; }
+  .brief h3 { font-size:19px; margin-bottom:4px; }
+  .brief p { font-size:15px; margin-bottom:8px; }
+  .sidebar .digest-box { border:2px solid var(--ink); background:#fff; padding:16px; margin-bottom:24px; }
+  .sidebar .digest-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; border-bottom:1px solid var(--ink); padding-bottom:8px; margin-bottom:10px; }
+  .sidebar .digest-box ol, .sidebar .digest-box ul { margin-left:18px; font-size:13.5px; }
+  .sidebar .digest-box li { margin-bottom:6px; }
+  .sidebar .digest-box a { color:var(--ink); text-decoration:none; border-bottom:1px dotted var(--muted); }
+  .section-break { border:none; border-top:4px double var(--ink); margin:34px 0 22px; }
+  footer { border-top:4px double var(--ink); margin-top:40px; padding-top:16px; text-align:center; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); }
+  footer .fin { font-family:Georgia,serif; font-style:italic; font-size:15px; color:var(--ink); margin-bottom:8px; }
+  @media (max-width:760px){ .front{grid-template-columns:1fr;} .masthead h1{font-size:42px;} .stat-strip{grid-template-columns:1fr;} .stat-strip.four{grid-template-columns:1fr;} .stat{border-right:none;border-bottom:1px solid var(--rule);} }
+
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="masthead">
+  <div class="kicker">Rakshit Lodha&rsquo;s daily digest &middot; from his X likes &amp; bookmarks</div>
+  <h1>The Unread Pile</h1>
+  <div class="tagline">Everything you saved, beautifully summarised &mdash; so you never have to read it twice.</div>
+</div>
+<div class="dateline">
+  <span>Edition No. 17</span>
+  <span>Sunday, 11 October 2026</span>
+  <span>Morning edition</span>
+</div>
+<div class="front">
+<div class="maincol">
+<div class="sec-label">Lead story</div>
+<h2 class="headline"><a href="https://x.com/realmadhuguru/status/2108982858513776899">Capability &rarr; trust &rarr; autonomy: the three phases of the agent age</a></h2>
+<div class="byline">By <a href="https://x.com/realmadhuguru">@realmadhuguru</a> &middot; 10 Oct 2026 &middot; bookmarked + liked &middot; quoting Satya Nadella&rsquo;s &ldquo;Models as Insider Risks in the Super Intelligence Era&rdquo;</div>
+<p class="lede">The first phase of the agent age was about <strong>capability</strong>: can the combination of model, harness, tools, and context reliably get work done? Madhu Guru&rsquo;s answer is that we are through it &mdash; capabilities have gotten &ldquo;pretty far&rdquo; &mdash; and the baton now passes to <strong>trust</strong>: does the harness take the right action, with the right permissions? Can we observe it, audit it, and establish accountability? Only after that comes <strong>autonomy</strong>.</p>
+<p>The post is a quote-tweet of Satya Nadella&rsquo;s new X article, <em>&ldquo;Models as Insider Risks in the Super Intelligence Era&rdquo;</em>. Nadella&rsquo;s framing: traditional software gave us the tools to trace a behaviour back to a specific code path. Agentic systems break that traceability &mdash; the behaviour emerges from a model, a harness, tools, and context interacting, which is exactly why <strong>agentic security</strong> must now outpace agent capability. Guru puts the race in one sentence: agent capabilities will soon evolve at recursive-self-improvement pace, and security &mdash; identity, permissions, observability &mdash; has to outrun it.</p>
+<div class="pullquote">&ldquo;The evolutionary direction of the broader agents space is capability &rarr; trust &rarr; autonomy.&rdquo;<span class="attr">&mdash; @realmadhuguru</span></div>
+<p>Notice how neatly this stacks onto yesterday&rsquo;s lead story. Edition 16&rsquo;s lecture (leerob, Stanford CS146S) taught us the <strong>architecture</strong> of always-on agents: heartbeat, context store, harness. This is the <strong>sequel</strong>: once the architecture exists and works, the frontier moves from <em>can it work?</em> to <em>can it be trusted?</em> Identity, permissions, observability &mdash; Guru names them as a triad, not a checklist. Identity is who the agent is allowed to be. Permissions are what it may touch. Observability is whether anyone can see what it did. Without all three, accountability is a press release.</p>
+<p>Guru also notes, honestly, that &ldquo;a lot of serious work has already gone into these problems over the last couple of years&rdquo; &mdash; this is not a green field. What changes is <strong>urgency</strong>: the challenge &ldquo;gets more important. And harder.&rdquo; The word <em>insider risk</em> in Nadella&rsquo;s title is doing quiet work here. In the super-intelligence era, the threat model is not only the malicious outsider &mdash; it is the trusted agent, acting with legitimate permissions, making an unobserved mistake.</p>
+<div class="chart-box"><div class="chart-title">Diagram &middot; the three phases of the agents space</div>
+<svg viewBox="0 0 720 430" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+  <text x="360" y="26" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">The evolutionary direction: capability, then trust, then autonomy</text>
+  <g font-size="12" fill="#1a1a1a" text-anchor="middle">
+    <rect x="30" y="60" width="190" height="150" rx="10" fill="#d8d2c4" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="125" y="84" font-weight="bold" font-size="13">PHASE 1 &middot; CAPABILITY</text>
+    <text x="125" y="106">model + harness</text>
+    <text x="125" y="124">+ tools + context</text>
+    <text x="125" y="148" font-size="11.5" fill="#6b675c">Can it reliably get</text>
+    <text x="125" y="164" font-size="11.5" fill="#6b675c">work done?</text>
+    <text x="125" y="192" font-size="11" font-weight="bold" fill="#6b675c">&#10003; largely reached</text>
+    <rect x="265" y="60" width="190" height="150" rx="10" fill="#fff" stroke="#a31621" stroke-width="3"/>
+    <text x="360" y="84" font-weight="bold" font-size="13" fill="#a31621">PHASE 2 &middot; TRUST</text>
+    <text x="360" y="106">identity</text>
+    <text x="360" y="124">permissions</text>
+    <text x="360" y="142">observability</text>
+    <text x="360" y="166" font-size="11.5" fill="#6b675c">Does it act rightly,</text>
+    <text x="360" y="182" font-size="11.5" fill="#6b675c">and can we prove it?</text>
+    <text x="360" y="200" font-size="11" font-weight="bold" fill="#a31621">&#8594; the frontier is here</text>
+    <rect x="500" y="60" width="190" height="150" rx="10" fill="#faf8f2" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="7,5"/>
+    <text x="595" y="84" font-weight="bold" font-size="13" fill="#6b675c">PHASE 3 &middot; AUTONOMY</text>
+    <text x="595" y="112" font-size="11.5" fill="#6b675c">proactive agents</text>
+    <text x="595" y="130" font-size="11.5" fill="#6b675c">operating at</text>
+    <text x="595" y="148" font-size="11.5" fill="#6b675c">RSI pace</text>
+    <text x="595" y="172" font-size="11" fill="#6b675c">unlocked only after</text>
+    <text x="595" y="188" font-size="11" fill="#6b675c">trust is solved</text>
+    <polygon points="222,128 256,118 256,138" fill="#1a1a1a"/>
+    <rect x="222" y="120" width="34" height="12" fill="#1a1a1a"/>
+    <polygon points="457,128 491,118 491,138" fill="#a31621"/>
+    <rect x="457" y="120" width="34" height="12" fill="#a31621"/>
+    <text x="360" y="250" font-size="12.5" font-weight="bold" fill="#a31621">The race: agentic security must outpace capability</text>
+    <path d="M90 290 C 240 270, 480 270, 630 292" stroke="#1a1a1a" stroke-width="2.5" fill="none"/>
+    <polygon points="630,292 614,284 616,300" fill="#1a1a1a"/>
+    <text x="95" y="318" font-size="11" text-anchor="start" fill="#6b675c">capability (evolving at recursive-self-improvement pace)</text>
+    <path d="M90 340 C 240 332, 480 332, 630 348" stroke="#a31621" stroke-width="3.5" fill="none" stroke-dasharray="10,6"/>
+    <polygon points="630,348 614,340 616,356" fill="#a31621"/>
+    <text x="95" y="376" font-size="11" text-anchor="start" fill="#a31621">agentic security: identity + permissions + observability</text>
+    <text x="95" y="394" font-size="11" text-anchor="start" fill="#6b675c">must run faster, or autonomy cannot be trusted</text>
+  </g>
+</svg><div class="src">Structure adapted from @realmadhuguru&rsquo;s post on Satya Nadella&rsquo;s &ldquo;Models as Insider Risks in the Super Intelligence Era&rdquo;.</div></div>
+<div class="learnings"><h4>Main learnings</h4>
+<ul>
+<li><strong>The agent conversation has a phase map.</strong> Stop asking &ldquo;are agents real?&rdquo; &mdash; that was Phase 1. The questions that matter now are identity, permissions, and observability.</li>
+<li><strong>The trust triad is the new stack.</strong> Identity (who the agent is), permissions (what it may touch), observability (who can see what it did) &mdash; these are infrastructure, not policy.</li>
+<li><strong>Insider risk is the new threat model.</strong> The danger is not only the external attacker; it is the legitimate agent making an unobserved move.</li>
+<li><strong>Speed is the pressure.</strong> If capabilities advance at recursive-self-improvement pace, trust tooling cannot move at committee pace.</li>
+</ul></div>
+<div class="takeaway"><strong>Practical takeaway</strong><br>Before you give any agent more autonomy &mdash; your own workflows included &mdash; run the trust audit: give it an identity, fence its permissions, and make sure you can see everything it does. Capability is table stakes; auditability is the product.</div>
+<div class="orig-link"><a href="https://x.com/realmadhuguru/status/2108982858513776899">The post &#8599;</a> &middot; 1,798 views &middot; 22 likes &middot; 15 bookmarks</div>
+<hr class="section-break">
+<div class="sec-label">Craft</div>
+<h3 class="headline"><a href="https://x.com/sermakarevich/status/2108942010123968804">Grade what the agent changed, not what it said</a></h3>
+<div class="byline">By <a href="https://x.com/sermakarevich">@sermakarevich</a> &middot; building autonomous AI workers &middot; 10 Oct 2026 &middot; bookmarked &middot; X Article</div>
+<p class="lede">Sergii Makarevych&rsquo;s long-form X article asks the question every team shipping LLM agents is now stuck on: <strong>how do you know whether an AI agent did the job &mdash; and will do it again?</strong> His answer is a discipline he calls <strong>agentic evals</strong>: grade agents by the <em>end state</em> they leave in the world (the database, the ticket, the repo), not by the fluency of their reply. His demo is brutally clean. In a runnable 20-task customer-support agent experiment, grading by database end-state passed 48 of 60 episodes. Grading by <em>what the agent said</em> passed 58 &mdash; including a <strong>do-nothing agent that passed 20 out of 20</strong>. The reply looked right. Nothing happened.</p>
+<p>The article draws the two axes every agent builder needs: <strong>pass@k</strong> (capability &mdash; does it succeed at least once in <em>k</em> attempts?) and <strong>pass<sup>k</sup></strong> (reliability &mdash; does it succeed in <em>every</em> one of <em>k</em> attempts?). Capability is what demos sell; reliability is what production buys. Makarevych then walks through the failure forensics: <em>first-wrong-step analysis</em> to locate where an episode actually started going wrong, evidence levels for model-as-judge graders, <strong>cost-per-passing-episode</strong> as the metric that matters once you scale, how multi-agent hand-offs bleed reliability, and the eternal nemesis &mdash; <strong>reward hacking</strong>, where the agent games the metric instead of doing the work. It closes with a decision guide, fifteen takeaways, and a references list of arXiv papers. It is, in effect, a field manual.</p>
+<div class="chart-box"><div class="chart-title">Chart &middot; the grading experiment that embarrasses reply-only evals</div>
+<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+  <text x="360" y="26" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Same 20-task support experiment, three ways of grading</text>
+  <text x="360" y="46" font-size="11" text-anchor="middle" fill="#6b675c">Passes out of 60 episodes. The reply looked right. Nothing happened.</text>
+  <g font-size="12" fill="#1a1a1a">
+    <line x1="80" y1="90" x2="80" y2="330" stroke="#1a1a1a" stroke-width="2"/>
+    <line x1="80" y1="330" x2="680" y2="330" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="72" y="95" font-size="10.5" text-anchor="end" fill="#6b675c">60</text>
+    <text x="72" y="175" font-size="10.5" text-anchor="end" fill="#6b675c">40</text>
+    <text x="72" y="255" font-size="10.5" text-anchor="end" fill="#6b675c">20</text>
+    <text x="72" y="333" font-size="10.5" text-anchor="end" fill="#6b675c">0</text>
+    <rect x="130" y="134" width="120" height="196" fill="#a31621" opacity="0.9"/>
+    <text x="190" y="122" font-size="15" font-weight="bold" text-anchor="middle" fill="#a31621">48/60</text>
+    <rect x="310" y="98" width="120" height="232" fill="#6b675c" opacity="0.55"/>
+    <text x="370" y="86" font-size="15" font-weight="bold" text-anchor="middle" fill="#6b675c">58/60</text>
+    <rect x="490" y="250" width="120" height="80" fill="#d8d2c4" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="550" y="238" font-size="15" font-weight="bold" text-anchor="middle" fill="#1a1a1a">20/20</text>
+    <text x="190" y="348" font-size="11" text-anchor="middle">Database</text>
+    <text x="190" y="364" font-size="11" text-anchor="middle">end-state</text>
+    <text x="190" y="380" font-size="11" text-anchor="middle">grader</text>
+    <text x="370" y="348" font-size="11" text-anchor="middle">Reply-only</text>
+    <text x="370" y="364" font-size="11" text-anchor="middle">grader (false</text>
+    <text x="370" y="380" font-size="11" text-anchor="middle">positives)</text>
+    <text x="550" y="348" font-size="11" text-anchor="middle">Do-nothing</text>
+    <text x="550" y="364" font-size="11" text-anchor="middle">agent (under</text>
+    <text x="550" y="380" font-size="11" text-anchor="middle">reply-only)</text>
+  </g>
+</svg><div class="src">Figures from @sermakarevich&rsquo;s &ldquo;Agentic evals&rdquo; experiment. Bars to scale.</div></div>
+<p>Read this as the <strong>companion manual to the lead story</strong>. The lead says trust is Phase 2 of the agent age; Makarevych&rsquo;s article is <em>how you manufacture it</em>. Evals are the observability-and-accountability layer made concrete: repeatable trials, database-truth grading, and a unit economics metric (cost-per-passing-episode) that turns reliability from vibes into budget. Note the pairing the article insists on: capability without reliability is a demo; reliability without cost discipline is a hobby.</p>
+<div class="learnings"><h4>Main learnings</h4>
+<ul>
+<li><strong>Grade the world, not the words.</strong> End-state grading (what the agent changed) is the only grade that survives contact with production; reply-grading can pass a do-nothing agent.</li>
+<li><strong>Measure both axes.</strong> pass@k tells you if the agent <em>can</em> do it; pass<sup>k</sup> tells you if it <em>will</em> do it. Ship on the second.</li>
+<li><strong>Find the first wrong step.</strong> Failure forensics beats aggregate scores: locate where an episode started degrading and fix there.</li>
+<li><strong>Watch the hand-offs.</strong> Multi-agent pipelines lose reliability at every baton pass &mdash; budget eval coverage for the seams, not just the nodes.</li>
+<li><strong>Price the pass.</strong> Cost-per-passing-episode is the metric that decides whether an agent workflow is a business or a demo.</li>
+</ul></div>
+<div class="takeaway"><strong>Practical takeaway</strong><br>If you run agents in any workflow, adopt one habit from this article: define one &ldquo;database-truth&rdquo; check per task &mdash; the row that must exist, the ticket that must close &mdash; and run every agent episode against it daily. The reply is marketing; the end state is the product.</div>
+<div class="orig-link"><a href="https://x.com/sermakarevich/status/2108942010123968804">The article &#8599;</a> &middot; 22.9K views &middot; 386 likes &middot; 791 bookmarks</div>
+<hr class="section-break">
+<div class="sec-label">Teams</div>
+<h3 class="headline"><a href="https://x.com/sujayath/status/2108834747434799540">Two-slice teams: the pirate and the architect</a></h3>
+<div class="byline">By <a href="https://x.com/sujayath">@sujayath</a> &middot; 10 Oct 2026 &middot; liked &middot; quoting @lennysan / @danshipper</div>
+<p class="lede"><strong>Tired: two-pizza teams. Wired: two-slice teams.</strong> Sujayath &mdash; co-founder of Silq, founder of Voonik &mdash; says he &ldquo;got a lot of pushback&rdquo; for arguing that <strong>one product manager and one engineer can now be the entire team</strong>. Then Lenny Rachitsky&rsquo;s newsletter handed him the vocabulary: <strong>the pirate and the architect</strong>. The pirate finds the treasure &mdash; the customer, the insight, the wedge, the nerve to ship. The architect builds the ship &mdash; the systems, the evals, the scaffolding that lets the whole thing sail without the crew. Two roles. Two people. That is the team.</p>
+<p>The deeper claim is about what AI did to team physics. When intelligence and output are abundant, coordination becomes the scarce resource &mdash; and the cheapest way to coordinate is to <em>not need to</em>. A two-slice team has no handoffs, no alignment meetings, no ticket queues between the person who sees the opportunity and the person who builds for it. The pirate-architect split is really a division of <strong>judgement</strong> (where do we point this?) and <strong>craft</strong> (how do we make it hold?). In the agent era, the craft layer is increasingly the agents themselves &mdash; the architect directs a fleet while the pirate keeps stealing treasure.</p>
+<div class="chart-box"><div class="chart-title">Diagram &middot; anatomy of a two-slice team</div>
+<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+  <text x="360" y="26" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">The two-slice team: pirate finds it, architect builds it</text>
+  <g font-size="12" fill="#1a1a1a">
+    <rect x="60" y="70" width="280" height="230" rx="12" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="200" y="102" font-size="16" font-weight="bold" text-anchor="middle">&#9875; THE PIRATE</text>
+    <text x="200" y="124" font-size="11" text-anchor="middle" fill="#6b675c">one product manager</text>
+    <line x1="90" y1="140" x2="310" y2="140" stroke="#d8d2c4" stroke-width="1"/>
+    <text x="100" y="164" font-size="11.5">&#8226; finds the customer</text>
+    <text x="100" y="186" font-size="11.5">&#8226; names the wedge</text>
+    <text x="100" y="208" font-size="11.5">&#8226; ships the nerve</text>
+    <text x="100" y="230" font-size="11.5">&#8226; decides where to</text>
+    <text x="100" y="246" font-size="11.5">  point the agents</text>
+    <text x="100" y="276" font-size="11.5" font-weight="bold" fill="#a31621">judgement layer</text>
+    <rect x="380" y="70" width="280" height="230" rx="12" fill="#d8d2c4" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="520" y="102" font-size="16" font-weight="bold" text-anchor="middle">&#9874; THE ARCHITECT</text>
+    <text x="520" y="124" font-size="11" text-anchor="middle" fill="#6b675c">one engineer</text>
+    <line x1="410" y1="140" x2="630" y2="140" stroke="#1a1a1a" stroke-width="1" opacity="0.3"/>
+    <text x="420" y="164" font-size="11.5">&#8226; builds the systems</text>
+    <text x="420" y="186" font-size="11.5">&#8226; wires the evals</text>
+    <text x="420" y="208" font-size="11.5">&#8226; scaffolds the agents</text>
+    <text x="420" y="230" font-size="11.5">&#8226; keeps it sailing</text>
+    <text x="420" y="246" font-size="11.5">  without a crew</text>
+    <text x="420" y="276" font-size="11.5" font-weight="bold" fill="#a31621">craft layer</text>
+    <path d="M340 185 L380 185" stroke="#a31621" stroke-width="2.5"/>
+    <polygon points="380,185 370,179 370,191" fill="#a31621"/>
+    <path d="M380 205 L340 205" stroke="#1a1a1a" stroke-width="2"/>
+    <polygon points="340,205 350,199 350,211" fill="#1a1a1a"/>
+    <text x="360" y="52" font-size="11" text-anchor="middle" fill="#a31621">pirate &#8594; architect: the target</text>
+    <text x="360" y="316" font-size="11.5" text-anchor="middle" fill="#6b675c">No handoffs. No alignment meetings. No ticket queues.</text>
+    <text x="360" y="338" font-size="11.5" text-anchor="middle" fill="#6b675c">The cheapest coordination is not needing to coordinate.</text>
+  </g>
+</svg><div class="src">Concept from @danshipper via @lennysan, amplified by @sujayath.</div></div>
+<div class="learnings"><h4>Main learnings</h4>
+<ul>
+<li><strong>Team size is a coordination technology.</strong> Two-pizza teams optimised for a world where doing the work was expensive. Two-slice teams optimise for a world where <em>aligning</em> is expensive.</li>
+<li><strong>The split is judgement vs craft.</strong> The pirate owns direction; the architect owns the machine. Each is legible without the other.</li>
+<li><strong>Agents slot under the architect.</strong> The craft layer now includes directing agent fleets &mdash; which is why one engineer can cover what a team used to.</li>
+</ul></div>
+<div class="takeaway"><strong>Practical takeaway</strong><br>Before your next hire, try the two-slice test: can one pirate and one architect &mdash; plus their agents &mdash; cover the roadmap? If the blocker is coordination rather than capacity, you do not need a headcount; you need a smaller table.</div>
+<div class="orig-link"><a href="https://x.com/sujayath/status/2108834747434799540">The post &#8599;</a> &middot; 56.4K views &middot; 472 likes &middot; 395 bookmarks</div>
+<hr class="section-break">
+<div class="sec-label">Creative</div>
+<h3 class="headline"><a href="https://x.com/flxrnc/status/2108899503092740561">Claude Opus 5.5 animates like a studio</a></h3>
+<div class="byline">By <a href="https://x.com/flxrnc">@flxrnc</a> &middot; 10 Oct 2026 &middot; bookmarked + liked</div>
+<p class="lede">&ldquo;You no longer need After Effects if you use Claude Opus 5.5 correctly.&rdquo; Florence&rsquo;s post &mdash; the single most bookmarked thing in this edition, at <strong>3.8K bookmarks</strong> &mdash; points at her <strong>Opus 5.5 Motion Lab</strong>, an X article in which every animation was made by Claude Opus 5.5, each one published alongside the <strong>exact prompt that made it</strong> plus every follow-up the model needed. She has even linked the &ldquo;Exact prompt.txt&rdquo; on Google Drive. The motion-design moat, she is saying, has collapsed into a text file.</p>
+<p>Watch the mechanism, because it is the same one running through this whole edition. The studio&rsquo;s craft was never only taste &mdash; it was <em>technique encoded in a tool</em>: keyframes, easing curves, layer comps, render graphs. A frontier model with enough context and enough iterations re-derives that technique from prompts. The lab&rsquo;s format is the tell: prompt plus <em>every follow-up it needed</em>. The skill is no longer operating the timeline; it is <strong>directing the iteration loop</strong> &mdash; knowing what to ask for next, and recognising when the frame is right. That is a director&rsquo;s job, not a technician&rsquo;s, which is why designers who learn to direct will outrun studios that only learned to operate.</p>
+<div class="chart-box"><div class="chart-title">Diagram &middot; the motion-lab loop: studio craft as a text file</div>
+<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+  <text x="360" y="26" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">How the Motion Lab replaces the timeline</text>
+  <g font-size="12" fill="#1a1a1a" text-anchor="middle">
+    <rect x="40" y="60" width="180" height="70" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="130" y="86" font-weight="bold">1 &middot; Exact prompt</text>
+    <text x="130" y="106" font-size="10.5" fill="#6b675c">describe the motion</text>
+    <text x="130" y="120" font-size="10.5" fill="#6b675c">you want, precisely</text>
+    <rect x="270" y="60" width="180" height="70" rx="8" fill="#d8d2c4" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="360" y="86" font-weight="bold">2 &middot; Opus 5.5 renders</text>
+    <text x="360" y="106" font-size="10.5" fill="#6b675c">keyframes, easing,</text>
+    <text x="360" y="120" font-size="10.5" fill="#6b675c">layers, motion</text>
+    <rect x="500" y="60" width="180" height="70" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="590" y="86" font-weight="bold">3 &middot; You direct</text>
+    <text x="590" y="106" font-size="10.5" fill="#6b675c">follow-up prompts:</text>
+    <text x="590" y="120" font-size="10.5" fill="#6b675c">&ldquo;slower ease here&rdquo;</text>
+    <polygon points="222,95 262,87 262,103" fill="#1a1a1a"/><rect x="222" y="91" width="40" height="8" fill="#1a1a1a"/>
+    <polygon points="452,95 492,87 492,103" fill="#1a1a1a"/><rect x="452" y="91" width="40" height="8" fill="#1a1a1a"/>
+    <path d="M590 130 C 590 220, 130 220, 130 132" stroke="#a31621" stroke-width="2.5" fill="none" stroke-dasharray="8,5"/>
+    <polygon points="130,132 124,146 136,146" fill="#a31621"/>
+    <text x="360" y="252" font-size="12.5" font-weight="bold" fill="#a31621">repeat step 3 until the frame is right</text>
+    <rect x="180" y="272" width="360" height="56" rx="8" fill="#faf8f2" stroke="#a31621" stroke-width="2"/>
+    <text x="360" y="294" font-size="12" font-weight="bold" fill="#a31621">Ship: animation + the prompt file</text>
+    <text x="360" y="314" font-size="11" fill="#6b675c">the craft is now a text artifact you can reuse</text>
+  </g>
+</svg><div class="src">Workflow adapted from @flxrnc&rsquo;s Opus 5.5 Motion Lab.</div></div>
+<div class="learnings"><h4>Main learnings</h4>
+<ul>
+<li><strong>Technique unbundles from the tool.</strong> After Effects encoded motion craft in a timeline UI; a frontier model re-derives it from language. The tool is not the skill.</li>
+<li><strong>The new skill is directing iterations.</strong> Prompt, inspect, follow-up &mdash; knowing what to ask next is the craft that survives.</li>
+<li><strong>Publish the prompt file, not just the output.</strong> The lab&rsquo;s exact-prompt-plus-follow-ups format is what makes the craft transferable.</li>
+</ul></div>
+<div class="takeaway"><strong>Practical takeaway</strong><br>Next time you need motion for a launch &mdash; a hero animation, a product demo loop &mdash; try the Motion Lab pattern first: write the exact prompt, iterate with follow-ups, and keep the prompt file. You may discover the studio was in the text box all along.</div>
+<div class="orig-link"><a href="https://x.com/flxrnc/status/2108899503092740561">The post &#8599;</a> &middot; 190.1K views &middot; 1.8K likes &middot; 3.8K bookmarks</div>
+<hr class="section-break">
+<div class="sec-label">Tools</div>
+<h3 class="headline"><a href="https://x.com/vijayshekhar/status/2108950810558386616">Google&rsquo;s meeting-note Mac app that never phones home</a></h3>
+<div class="byline">By <a href="https://x.com/vijayshekhar">@vijayshekhar</a> &middot; founder, Paytm &middot; 10 Oct 2026 &middot; bookmarked &middot; 190.9K views</div>
+<p class="lede">Vijay Shekhar Sharma&rsquo;s entire post is one sentence &mdash; <em>&ldquo;Did you download Google Foresight yet?&rdquo;</em> &mdash; and it pulled <strong>1.8K bookmarks</strong>, because the thing it links to is genuinely the week&rsquo;s most interesting product: <strong>Google AI Edge Foresight</strong>, an experimental Mac app that turns your shorthand meeting bullets into full notes with <strong>everything running on the device</strong>. Nothing recorded, imported, or indexed ever leaves your Mac. In the age of cloud note-takers, that sentence is the feature.</p>
+<p>Launched on 6 October alongside DeepMind&rsquo;s <strong>EmbeddingGemma 2</strong> (a 740-million-parameter open embedding model), Foresight is Google&rsquo;s showcase for on-device AI &mdash; and a direct shot at Granola. It captures your mic and system audio, so it works with Meet, Zoom, or a face-to-face meeting, and even offline. You scribble short bullets; it expands them into polished notes from the live transcript. Then it goes further: point it at project folders, PDFs, Docs, Office files, Markdown, and web bookmarks, and it builds a <strong>personal knowledge base</strong> you can chat with (&ldquo;Ask&rdquo;) &mdash; while <strong>Live Assistance</strong> listens mid-meeting and surfaces proactive context cards with exact citations when a topic from your files comes up. The engine room is EmbeddingGemma 2 for retrieval plus the <strong>Gemma 4</strong> language model &mdash; cross-modal, so a search term can find a moment in a recording. Apple Silicon only, free, direct download, no cloud subscription. Google calls it an experiment; the direction it points is not.</p>
+<div class="chart-box"><div class="chart-title">Diagram &middot; Foresight&rsquo;s local-first loop</div>
+<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+  <text x="360" y="26" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Foresight: your shorthand in, full notes out &mdash; all on the Mac</text>
+  <g font-size="12" fill="#1a1a1a">
+    <rect x="40" y="60" width="300" height="120" rx="10" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="190" y="88" font-size="12" font-weight="bold" text-anchor="middle">YOU TYPE (shorthand)</text>
+    <text x="60" y="116" font-size="13" font-family="Georgia,serif" font-style="italic">&ldquo;transcribes audio&rdquo;</text>
+    <text x="60" y="140" font-size="13" font-family="Georgia,serif" font-style="italic">&ldquo;pricing &mdash; push back?&rdquo;</text>
+    <text x="60" y="164" font-size="13" font-family="Georgia,serif" font-style="italic">&ldquo;ask legal re: clause 4&rdquo;</text>
+    <rect x="380" y="60" width="300" height="120" rx="10" fill="#d8d2c4" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="530" y="88" font-size="12" font-weight="bold" text-anchor="middle">FORESIGHT WRITES (full notes)</text>
+    <text x="400" y="116" font-size="11.5">Full sentence explaining the</text>
+    <text x="400" y="132" font-size="11.5">point, pulled from what was</text>
+    <text x="400" y="148" font-size="11.5">actually said in the meeting.</text>
+    <text x="400" y="168" font-size="11.5" font-weight="bold" fill="#a31621">&#10003; live transcript &#10003; citations</text>
+    <polygon points="342,120 372,112 372,128" fill="#1a1a1a"/><rect x="342" y="116" width="30" height="8" fill="#1a1a1a"/>
+    <rect x="40" y="220" width="640" height="130" rx="10" fill="#faf8f2" stroke="#a31621" stroke-width="2"/>
+    <text x="360" y="248" font-size="12" font-weight="bold" text-anchor="middle" fill="#a31621">THE KNOWLEDGE BASE (all local)</text>
+    <text x="360" y="272" font-size="11.5" text-anchor="middle" fill="#6b675c">PDFs &middot; Google Docs &middot; Office files &middot; Markdown &middot; web bookmarks &middot; diagrams &middot; calendar</text>
+    <text x="360" y="298" font-size="11.5" text-anchor="middle">indexed by EmbeddingGemma 2 (740M params) &rarr; feeds <strong>Ask</strong> (chat over your files)</text>
+    <text x="360" y="322" font-size="11.5" text-anchor="middle">and <strong>Live Assistance</strong> (proactive context cards mid-meeting, with exact citations)</text>
+    <rect x="540" y="200" width="140" height="0" fill="none"/>
+  </g>
+</svg><div class="src">Feature summary from Google&rsquo;s Foresight developer page and launch coverage.</div></div>
+<div class="stat-strip"><div class="stat"><div class="num">740M</div><div class="lbl">parameters, EmbeddingGemma 2 &mdash; open, Apache 2.0</div></div><div class="stat"><div class="num">0</div><div class="lbl">bytes of your audio or files leave the Mac</div></div><div class="stat"><div class="num">Free</div><div class="lbl">experimental Mac app, direct download from Google</div></div></div>
+<p>The strategic read: this is Google answering the trust phase (see the lead story) at the <strong>product</strong> level. The agent age&rsquo;s trust question &mdash; <em>does it act rightly, and can we prove it?</em> &mdash; has a consumer twin: <em>where does my data go?</em> Foresight&rsquo;s answer is architectural: it cannot leak your meetings because the cloud is not in the loop. Local-first is becoming a <strong>product differentiator</strong>, not just an engineering preference &mdash; the same week Google Cloud ships a data-centre agent that reads your mail, Google Labs ships one that never touches a server.</p>
+<div class="learnings"><h4>Main learnings</h4>
+<ul>
+<li><strong>Privacy is moving into the architecture.</strong> &ldquo;Nothing leaves your device&rdquo; beats any privacy policy &mdash; it is a property of the system, not a promise.</li>
+<li><strong>Shorthand-in, full-notes-out is a better UX than full-automation.</strong> Foresight keeps the human&rsquo;s bullets as the skeleton and fleshes them out &mdash; the user stays the editor.</li>
+<li><strong>The knowledge base is the moat.</strong> Meeting notes are table stakes; the indexed personal library plus Live Assistance citations is the compounding part.</li>
+<li><strong>Watch the showcase pattern.</strong> Google&rsquo;s real product here may be the Gemma on-device story &mdash; the app is the demo that proves it.</li>
+</ul></div>
+<div class="takeaway"><strong>Practical takeaway</strong><br>If you live in meetings on a Mac, the download is worth an hour: wire it to one project folder and see whether Live Assistance&rsquo;s context cards change the follow-up game. Even if the experiment dies (Google experiments do), the local-first pattern is the one to steal.</div>
+<div class="orig-link"><a href="https://x.com/vijayshekhar/status/2108950810558386616">The post &#8599;</a> &middot; 190.9K views &middot; 922 likes &middot; 1.8K bookmarks &middot; <a href="https://developers.google.com/edge/foresight">Google AI Edge Foresight &#8599;</a></div>
+<hr class="section-break">
+<div class="sec-label">Briefs</div>
+<div class="brief"><h3><a href="https://x.com/vkhosla/status/2108965899277574220">Khosla backs a &ldquo;mind-reading baseball cap&rdquo;</a></h3>
+<p>Vinod Khosla quote-tweets Rahul Chhabra&rsquo;s announcement: <strong>$50M raised from Khosla Ventures, Accel, Initialized, Kevin Weil, and DST Global</strong> to build &ldquo;the world&rsquo;s most wearable BCI cap&rdquo; at <strong>Sabi</strong> (Forbes, 9 Oct). Khosla&rsquo;s entire commentary: <em>&ldquo;Time to put on your thinking caps!&rdquo;</em> Brain-computer interfaces are leaving the lab coat and putting on a baseball cap &mdash; the form factor is the thesis. 38.7K views.</p>
+<div class="orig-link"><a href="https://x.com/vkhosla/status/2108965899277574220">The post &#8599;</a></div></div>
+<div class="brief"><h3><a href="https://x.com/RajanAnandan/status/2108844620658397259">&ldquo;100 pairs sold in 3 minutes&rdquo;</a></h3>
+<p>Rajan Anandan (Peak XV / Surge) teases an update from one of the companies profiled in <em>The Lift-Off Nation</em>: a hundred pairs sold in three minutes, and &ldquo;any guesses?&rdquo; No name, no link &mdash; a pure curiosity hook. The book&rsquo;s companies keep producing these velocity stories; worth watching the replies for the reveal. 19.9K views.</p>
+<div class="orig-link"><a href="https://x.com/RajanAnandan/status/2108844620658397259">The post &#8599;</a></div></div>
+<div class="brief"><h3><a href="https://x.com/charmiekapoor/status/2108820898866434526">Four non-design courses from Harvard &amp; Stanford</a></h3>
+<p>Designer-builder Charmie Kapoor shares the four most fun classes she ever took &mdash; <strong>from the pre-AI days</strong> &mdash; in a 36-second video plus a YouTube deep-dive: &ldquo;4 non-design courses from Harvard &amp; Stanford.&rdquo; The framing is the insight: the classes that changed a designer most had nothing to do with design. A reminder that range compounds &mdash; the best taste is imported. Weekend watch.</p>
+<div class="orig-link"><a href="https://x.com/charmiekapoor/status/2108820898866434526">The post &#8599;</a></div></div>
+
+<footer>
+<div class="fin">&mdash; 30 &mdash;</div>
+The Unread Pile &middot; Edition No. 17 &middot; built from @RAKSHITLODHA&rsquo;s likes &amp; bookmarks &middot; 11 October 2026
+</footer>
+</div>
+<div class="sidebar">
+<div class="digest-box"><h4>In this edition</h4><ol>
+<li><a href="https://x.com/realmadhuguru/status/2108982858513776899">Capability &rarr; trust &rarr; autonomy</a></li>
+<li><a href="https://x.com/sermakarevich/status/2108942010123968804">Agentic evals, done right</a></li>
+<li><a href="https://x.com/sujayath/status/2108834747434799540">The pirate and the architect</a></li>
+<li><a href="https://x.com/flxrnc/status/2108899503092740561">Claude animates like a studio</a></li>
+<li><a href="https://x.com/vijayshekhar/status/2108950810558386616">Google Foresight, on-device</a></li>
+<li>Briefs: Khosla&rsquo;s BCI cap &middot; 100 pairs in 3 minutes &middot; 4 non-design courses</li>
+</ol></div>
+<div class="digest-box"><h4>Method</h4><ul>
+<li>likes + bookmarks scanned to the ed16 watermark</li>
+<li>8 new posts &mdash; all in this edition</li>
+<li>read-only: nothing liked, bookmarked, or touched</li>
+</ul></div>
+</div>
+</div>
+</div>
+</body>
+</html>

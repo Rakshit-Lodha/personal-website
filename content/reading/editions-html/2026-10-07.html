@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 13</title>
+<style>
+
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .front { display:grid; grid-template-columns: 2.1fr 1fr; gap:34px; margin-top:26px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(3,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; letter-spacing:-0.5px; }
+  .stat .lbl { font-family:Arial,Helvetica,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-top:4px; line-height:1.4; }
+  .chart-box { border:1px solid var(--ink); background:#fff; padding:16px 18px 12px; margin:16px 0; }
+  .chart-box .chart-title { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; border-bottom:1px solid var(--rule); padding-bottom:8px; }
+  .chart-box svg { width:100%; height:auto; display:block; }
+  .chart-box .src { font-family:Arial,Helvetica,sans-serif; font-size:10.5px; color:var(--muted); margin-top:8px; font-style:italic; }
+  .learnings { background:#fff; border:1px solid var(--rule); border-left:4px solid var(--red); padding:14px 16px; margin:16px 0; }
+  .learnings h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .learnings ul { margin-left:18px; font-size:15px; }
+  .learnings li { margin-bottom:7px; }
+  .takeaway { background:#f3efe4; border:1px dashed var(--muted); padding:12px 16px; margin:12px 0 18px; font-size:15px; }
+  .takeaway strong { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); }
+  .orig-link { font-family:Arial,Helvetica,sans-serif; font-size:12.5px; margin:6px 0 4px; }
+  .orig-link a { color:var(--red); font-weight:bold; text-decoration:none; border-bottom:1px dotted var(--red); }
+  .sidebar .digest-box { border:2px solid var(--ink); background:#fff; padding:16px; margin-bottom:24px; }
+  .sidebar .digest-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; border-bottom:1px solid var(--ink); padding-bottom:8px; margin-bottom:10px; }
+  .sidebar .digest-box ol, .sidebar .digest-box ul { margin-left:18px; font-size:13.5px; }
+  .sidebar .digest-box li { margin-bottom:6px; }
+  .sidebar .digest-box a { color:var(--ink); text-decoration:none; border-bottom:1px dotted var(--muted); }
+  .section-break { border:none; border-top:4px double var(--ink); margin:34px 0 22px; }
+  footer { border-top:4px double var(--ink); margin-top:40px; padding-top:16px; text-align:center; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); }
+  footer .fin { font-family:Georgia,serif; font-style:italic; font-size:15px; color:var(--ink); margin-bottom:8px; }
+  @media (max-width:760px){ .front{grid-template-columns:1fr;} .masthead h1{font-size:42px;} .stat-strip{grid-template-columns:1fr;} .stat{border-right:none;border-bottom:1px solid var(--rule);} }
+
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="masthead">
+  <div class="kicker">Rakshit Lodha&rsquo;s daily digest &middot; from his X likes &amp; bookmarks</div>
+  <h1>The Unread Pile</h1>
+  <div class="tagline">Everything you saved, beautifully summarised &mdash; so you never have to read it twice.</div>
+</div>
+<div class="dateline">
+  <span>Edition No. 13</span>
+  <span>Wednesday, 7 October 2026</span>
+  <span>Morning edition</span>
+</div>
+<div class="front">
+<div class="maincol">
+<div class="sec-label">Lead story</div>
+<h2 class="headline"><a href="https://x.com/bcherny/status/2107565388250874193">Talk to Claude the way you would a coworker</a></h2>
+<div class="byline">By <a href="https://x.com/bcherny/status/2107565388250874193">@bcherny</a> &middot; 7 Oct 2026 &middot; liked + bookmarked</div><div class="orig-link"><a href="https://x.com/bcherny/status/2107565388250874193">Read the original post &#8599;</a></div>
+<p class="lede">There is no secret to prompting. That is the whole post, more or less &mdash; and it is the one thing Rakshit both liked <em>and</em> bookmarked since yesterday&rsquo;s edition. Boris Cherny&rsquo;s argument: <strong>talk to Claude the way you would a coworker</strong>. Give Claude a goal, and it will figure it out. Prompting mattered more in the Sonnet 3.5 era, when models were brittle and needed coaxing. Now the models are capable enough that the bottleneck has moved &mdash; from clever incantations to clear delegation.</p>
+
+<div class="stat-strip">
+  <div class="stat"><div class="num">3</div><div class="lbl">parts of the brief: goal, effort, verification</div></div>
+  <div class="stat"><div class="num">1</div><div class="lbl">goal is all Claude needs to start</div></div>
+  <div class="stat"><div class="num">0</div><div class="lbl">secrets to prompting, per Cherny</div></div>
+</div>
+
+<p>Cherny&rsquo;s brief has exactly three parts, and every one of them is something you would say to a smart colleague. <strong>One:</strong> what you want it to do. <strong>Two:</strong> how much effort to spend on it. <strong>Three:</strong> how it should verify the work. That is a management brief, not a spell &mdash; and the fact that it works on Claude tells you how far the models have come. You would never hand a good engineer a 500-word incantation full of &ldquo;you are a world-class expert&rdquo; throat-clearing. You would tell them what done looks like, what it is worth spending, and how you will check.</p>
+
+<div class="chart-box"><div class="chart-title">Diagram &middot; Cherny&rsquo;s three-part brief</div>
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+  <text x="360" y="26" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">The three-part brief: what you would tell a coworker</text>
+  <rect x="30" y="60" width="200" height="150" rx="10" fill="#a31621" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="130" y="100" font-weight="bold" fill="#fff" text-anchor="middle" font-size="15">1 &middot; WHAT</text>
+  <text x="130" y="126" font-size="11.5" fill="#fff" text-anchor="middle">the goal,</text>
+  <text x="130" y="144" font-size="11.5" fill="#fff" text-anchor="middle">stated plainly</text>
+  <text x="130" y="172" font-size="11" fill="#fff" text-anchor="middle" font-style="italic">what done</text>
+  <text x="130" y="188" font-size="11" fill="#fff" text-anchor="middle" font-style="italic">looks like</text>
+  <rect x="260" y="60" width="200" height="150" rx="10" fill="#faf8f2" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="360" y="100" font-weight="bold" text-anchor="middle" font-size="15">2 &middot; EFFORT</text>
+  <text x="360" y="126" font-size="11.5" text-anchor="middle" fill="#1a1a1a">how much to</text>
+  <text x="360" y="144" font-size="11.5" text-anchor="middle" fill="#1a1a1a">spend on it</text>
+  <text x="360" y="172" font-size="11" text-anchor="middle" fill="#6b675c" font-style="italic">the budget,</text>
+  <text x="360" y="188" font-size="11" text-anchor="middle" fill="#6b675c" font-style="italic">not the method</text>
+  <rect x="490" y="60" width="200" height="150" rx="10" fill="#faf8f2" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="590" y="100" font-weight="bold" text-anchor="middle" font-size="15">3 &middot; VERIFY</text>
+  <text x="590" y="126" font-size="11.5" text-anchor="middle" fill="#1a1a1a">how it should</text>
+  <text x="590" y="144" font-size="11.5" text-anchor="middle" fill="#1a1a1a">check its work</text>
+  <text x="590" y="172" font-size="11" text-anchor="middle" fill="#6b675c" font-style="italic">tests, checks,</text>
+  <text x="590" y="188" font-size="11" text-anchor="middle" fill="#6b675c" font-style="italic">definition of done</text>
+  <g stroke="#1a1a1a" stroke-width="2" fill="none">
+    <line x1="230" y1="135" x2="258" y2="135"/><polygon points="258,135 248,129 248,141" fill="#1a1a1a"/>
+    <line x1="460" y1="135" x2="488" y2="135"/><polygon points="488,135 478,129 478,141" fill="#1a1a1a"/>
+  </g>
+  <text x="360" y="250" font-size="12" fill="#1a1a1a" text-anchor="middle">&ldquo;Give Claude a goal, and it will figure it out.&rdquo;</text>
+  <text x="360" y="274" font-size="10.5" fill="#6b675c" text-anchor="middle" font-style="italic">Hand-drawn for The Unread Pile &middot; after @bcherny</text>
+</svg>
+<div class="src">Hand-drawn for The Unread Pile.</div></div>
+
+<p>The era shift is the load-bearing claim. In the Sonnet 3.5 days, the model needed the perfect incantation because it could not recover from ambiguity &mdash; prompting <em>was</em> the skill. Now ambiguity is still the enemy, but the fix is not a better spell, it is a better brief. Underspecify the goal and you get confident garbage; overspecify the method and you cap a capable model at your own understanding. The sweet spot is exactly the coworker brief: the goal is the thing only you can supply, so supply it crisply and let the model choose the route.</p>
+
+<div class="chart-box"><div class="chart-title">Diagram &middot; the era shift: spellcasting to management</div>
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+  <text x="360" y="26" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Then vs now: where the skill moved</text>
+  <rect x="30" y="55" width="320" height="190" rx="10" fill="#d8d2c4" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="190" y="86" font-weight="bold" fill="#1a1a1a" text-anchor="middle">Sonnet 3.5 era</text>
+  <text x="190" y="105" font-size="11" fill="#6b675c" text-anchor="middle">models were brittle</text>
+  <g font-size="11.5" fill="#1a1a1a" text-anchor="middle">
+    <text x="190" y="136">prompting = spellcasting</text>
+    <text x="190" y="158">clever incantations mattered</text>
+    <text x="190" y="180">ambiguity broke everything</text>
+    <text x="190" y="202">the perfect prompt was the skill</text>
+  </g>
+  <rect x="370" y="55" width="320" height="190" rx="10" fill="#a31621" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="530" y="86" font-weight="bold" fill="#fff" text-anchor="middle">Now</text>
+  <text x="530" y="105" font-size="11" fill="#fff" text-anchor="middle">models are capable</text>
+  <g font-size="11.5" fill="#fff" text-anchor="middle">
+    <text x="530" y="136">delegation = management</text>
+    <text x="530" y="158">clear briefs matter</text>
+    <text x="530" y="180">vague goals are the failure mode</text>
+    <text x="530" y="202">verification is the skill</text>
+  </g>
+  <text x="360" y="282" font-size="12" fill="#1a1a1a" text-anchor="middle">The bottleneck moved from the incantation to the brief.</text>
+  <text x="360" y="304" font-size="10.5" fill="#6b675c" text-anchor="middle" font-style="italic">Hand-drawn for The Unread Pile &middot; after @bcherny</text>
+</svg>
+<div class="src">Hand-drawn for The Unread Pile.</div></div>
+
+<p>Note which of the three parts does the most work: verification. &ldquo;How it should verify the work&rdquo; is what turns a capable model into a <em>reliable</em> one &mdash; tests to run, checks to perform, a definition of done. It is also the part most briefs skip, because humans verify by vibes and models cannot. Write the verification step first and the other two get easier: once you know how you will check the work, you usually know what you actually want.</p>
+
+<div class="pullquote">&ldquo;Talk to Claude the way you would a coworker. There&rsquo;s no secret to prompting &mdash; give Claude a goal, and it will figure it out.&rdquo;<span class="attr">&mdash; @bcherny</span></div>
+<div class="learnings"><h4>Learnings</h4><ul>
+<li><strong>Delegation beats incantation.</strong> The management skill transfers directly: clear goal, effort budget, verification plan. If you can brief a smart junior, you can brief Claude.</li>
+<li><strong>Specify the what, never the how.</strong> Overspecifying the method caps the model at your own understanding. The goal is the one thing only you can supply &mdash; make it crisp and let the model pick the route.</li>
+<li><strong>Verification is the real prompt.</strong> &ldquo;How should it check its work&rdquo; is the highest-leverage sentence in any brief. Write the definition of done first; the rest follows.</li>
+</ul></div>
+<div class="takeaway"><strong>The takeaway</strong> &mdash; Next time you catch yourself writing a 400-word system prompt, delete it and write a 40-word brief instead: the goal, the budget, and how you will know it is right. If a coworker could not act on it, Claude cannot either &mdash; and if they could, neither needs the incantation.</div>
+<div class="orig-link" style="margin-top:10px;"><a href="https://x.com/bcherny/status/2107565388250874193">Read the original post &#8599;</a> &middot; <a href="https://x.com/bcherny">More from @bcherny &#8599;</a></div>
+</div>
+
+<div class="sidebar">
+  <div class="digest-box"><h4>Inside</h4><ol>
+    <li><a href="#lead">Talk to Claude like a coworker</a></li>
+  </ol></div>
+  <div class="digest-box"><h4>A quiet day</h4><ul>
+    <li>Bookmarks: 6 scanned, 1 new (Oct 7 &rarr; Oct 2)</li>
+    <li>Likes: 11 scanned, 2 new (Oct 7 &rarr; Oct 3)</li>
+    <li>1 unique new post since Edition 12</li>
+    <li>The rest of the pile was already read &mdash; enjoy the short edition.</li>
+  </ul></div>
+  <div class="digest-box"><h4>The coworker test</h4><ul>
+    <li>&ldquo;Give Claude a goal, and it will figure it out.&rdquo; &mdash; @bcherny</li>
+    <li>If a smart junior could not act on your brief, rewrite the brief &mdash; not the model.</li>
+  </ul></div>
+</div>
+</div>
+
+<hr class="section-break" />
+<div class="page-section">
+<div class="sec-label" id="lead">Also noted</div>
+<p style="font-size:15.5px; color:var(--muted);"><em>A short edition today: the pile yielded a single new save since Edition 12 &mdash; Cherny&rsquo;s prompting post, above, which earned both a like and a bookmark. Everything else in the scan was already covered in earlier editions. Tomorrow&rsquo;s pile should be back to full size.</em></p>
+</div>
+
+<footer>
+  <div class="fin">&ldquo;The pile is empty &mdash; for today, at least.&rdquo;</div>
+  Built from Rakshit Lodha&rsquo;s X likes &amp; bookmarks &middot; Edition No. 13 &middot; Wednesday, 7 October 2026 &middot; 1 new post<br/>
+  Watermark: tweet 2107565388250874193 &middot; Read-only throughout &mdash; nothing was liked, bookmarked, or posted.
+</footer>
+</div>
+</body>
+</html>

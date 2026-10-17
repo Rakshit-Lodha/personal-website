@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "timezone": "Asia/Kolkata",
+  "title": "Three Billion Throwaway Computers",
+  "summary": "The mechanism underneath is beautifully simple, which is why Aakash’s thread is worth the slow read. AI coding tools can’t know whether generated code works until they run it — and you don’t want the bot running untested code on your own machine.",
+  "bodyMarkdown": "## Three Billion Throwaway Computers\n\nAakash Gupta’s opener is the kind of number that makes you re-read the sentence: “AI bots have now spun up almost 3 billion throwaway computers through one company most people have never heard of, and that company just got valued at $15.75 billion. A year ago it was worth $1.1 billion.” The company is Modal. The $750M Series D, led by Accel, values it at $15.75B — and Modal itself says it has crossed a $1B annualised run rate, with usage tripled since its Series C and 15x year-over-year growth.\n\nThe mechanism underneath is beautifully simple, which is why Aakash’s thread is worth the slow read. AI coding tools can’t know whether generated code works until they run it — and you don’t want the bot running untested code on your own machine. So the bot spins up a fresh cloud computer, runs the code, inspects the result, throws the machine away, and repeats. His phrase for it: “checking its own homework, and Modal rents it the scratch paper by the second.” Modal calls the product Sandboxes, and that one product alone now brings in $300M a year — as big as the whole company was in May. The agent economy doesn’t monetise at the point of generation. It monetises at the point of verification.\n\nThen the valuation walk, which Aakash lays out with unusual arithmetic honesty. Last fall: ~$60M in revenue at a $1.1B valuation — roughly 18x. May: $4.65B on $300M — about 15.5x, and the round was repriced mid-process from $2.5B on hot demand. Today: $1B in revenue at $15.75B — about 16x. The valuation is up ~14x in a year while the multiple actually fell — nearly the entire jump came from the business growing ~15x. That’s the healthy version of a mega-valuation: compounding revenue, not compounding fantasy.\n\nThe deeper engineering detail is the moat. Modal owns no data centres. It built its own filesystem, scheduler, container runtime and networking, and rents GPUs across more than twenty clouds — up from five a year ago. In a GPU crunch, that’s the better position: the meta-layer that routes around scarcity instead of the owner of scarce metal. Headcount is around 150, only ~30 more than May — $1B in run rate on a company the size of a Series A team. CEO Erik Bernhardsson said in May that coding had been driving everything for six months; five months later, the bots are still running up the tab. When the throwaway computer becomes the agent’s native resource, the company that rents the scratch paper by the second ends up taxing the whole agentic economy.\n\n- Verification is the revenue. Agents generate code for free; they pay for sandboxes to check it. The money in agentic software sits one layer below the flashy demo.\n\n- 14x on fundamentals, not multiples. Valuation up ~14x in a year while the revenue multiple fell from ~18x to ~16x — compounding revenue, not compounding fantasy.\n\n- Own the stack above the metal. No data centres, 20+ clouds, custom filesystem/scheduler/runtime: in a GPU crunch, the routing layer beats the metal owner.\n\n- ~150 people, $1B run rate. The harness-era leverage ratio — tiny teams renting out to millions of agents.\n\nAakash Gupta’s breakdown · Modal’s Series D announcement\n\n## Muse Spark Open: Meta Puts Its Weights on the Table\n\nLate on October 15th, Mark Zuckerberg and Alexandr Wang tag-teamed the launch the way only Meta does it now — from their own accounts. Zuck: “Muse Spark Open — weights releasing today — runs great on new Mac Studios thanks to work with @johnternus and Apple.” Wang, quote-posting him with the boast: “muse spark open — weights out today! best US open-source model, and runs on the new mac studio.” A photo, two posts, 1.5M views on Zuck’s in hours. Musk’s launch rule from last week’s Argon cycle — CEOs posting directly is the distribution — now has Meta as its proof.\n\nTwo things are genuinely new here. The first is the framing: “best US open-source model” — the nationality qualifier. Open-weight October has been the season (FishAudio’s Drama 3 went open-weight last week), but this is the first flagship open release that introduces itself with a passport. The open-model race now has a leaderboard with flags on it, and Meta wants to be America’s entry. The second is the surface: not a cloud API, but the Mac Studio on your desk. Frontier-class weights running locally, thanks to work with John Ternus and Apple — inference is moving to the edge, and the desk is becoming a deployment target, not just a client.\n\n- The passport era of open models. “Best US open-source model” concedes the race is global — and positions Meta as the American standard-bearer.\n\n- The desk is a deployment target. Weights optimised for Mac Studios mean inference leaves the data centre; the harness layer (Edition 21’s lead) now routes to hardware you own.\n\n- Two posts are the press release. Zuck announces, Wang boasts — Meta’s launch protocol is the feed itself.\n\nWang’s quote-post · Zuck’s announcement\n\n## The Network Was Never a Knot\n\nDeedy’s verdict last night: “This is one of the most important results in AI, period. TLDR: neural networks are not tangled knots (polysemanticity is wrong).” The paper behind it — one of the largest interpretability research efforts in history — says neurons can be studied directly, without first “unfolding” them with a second model. His headline number: 90% of neurons in Qwen-32B have one job. The messy, multi-purpose, polysemantic neuron — the thing that made interpretability feel hopeless — may have been mostly a measurement artefact.\n\nThe story inside the story is Nick Cammarata’s arc, and it reads like a correction the field has been waiting a decade to print. Cammarata co-authored early mechanistic-interpretability work at OpenAI and left pessimistic: neural networks looked like arbitrarily tangled knots. He then ran OpenAI’s first large-scale automated interpretability project — and with primitive tools, only ~2% of neurons were legible. That number defined the field’s mood for years. But with modern agentic tools and a closer look, he now says the vast majority of neurons — in models up to trillions of parameters — are legible, and their circuits are beautiful. Many famous examples of “tangled” neurons, he says, were simply misunderstood. The roadblocks he expected mostly aren’t there.\n\nWhy it matters, in one line of Cammarata’s: “interpretability might be the most important scientific problem in the world right now, as I don’t think we can solve alignment if we don’t know what we’re building.” His belief now is that ambitious interpretability will be solved by the time it’s most needed — possibly soon — as automated scientists improve. Deedy’s gloss is the one to pin: we’re close to a fully interpretable model; the “it’s just numbers” era is over; interpretability is going from art to science.\n\n- The pessimism was a tooling problem. 2% legible with primitive tools; the vast majority legible with agentic ones. The knot was in the microscope.\n\n- Polysemanticity may be mostly myth. 90% of Qwen-32B neurons with one job — neurons can be studied directly, no second-model “unfolding” needed.\n\n- Alignment gets its microscope in time. If ambitious interpretability lands before the systems that need it most, the field’s hardest problem gets its hardest tool.\n\n- Art becomes science. Deedy’s real claim: interpretability is crossing from craft to discipline — and it’s happening inside the largest research efforts in the field’s history.\n\nDeedy’s post · Cammarata’s thread\n\n## What Founder Salaries Tell You\n\nJanhavi Jain’s pitch for Inc42’s FY26 founder salary tracker is the best one-liner about disclosure this week: “you learn more about each founder from this list than from any podcast.” The two flags she pulled: Nykaa’s Falguni Nayar at ₹74 lakh fixed, down 14% per the tracker — and Lenskart’s Peyush Bansal at ₹5.7 crore fixed plus ₹12 crore in bonuses.\n\nFounder comp is the one number that VCs, employees and journalists all read differently — which is exactly why it’s a character test in spreadsheet form. A 14% fixed-pay cut at a public company reads as capital discipline from the top. A bonus-heavy structure reads as pay-for-performance. Neither tells you the full story, but both tell you something no founder interview will: how the person who set the number thinks about money when nobody’s watching. Bookmark the list; skim it before your next founder podcast, and see if you hear the same person. Janhavi’s post\n\n## The PPU: Advertising for the Agent Economy\n\nSajith Pai’s thesis in two lines: “Humans created ads to persuade humans. Agents will create _____ to persuade fellow agents. This ______ will be the new ad / persuasive unit.” His fill for the blank: the PPU — the persuasive programmable unit.\n\nThe sketch: an offer of shared value in exchange for a transaction, bundled with machine-verifiable proof — a data store — that dealing with it is cheaper, better or faster than dealing with a competitor. Not a banner; a contract with evidence. And his kicker: it’s likely being built somewhere already. Place it next to this week’s agentic-commerce arc (the Cheeky Pint playbook, Railway’s AI-SEO): persuasion is migrating from humans to agents, and machine-verifiable claims will beat human-readable pitches. Whoever standardises the PPU owns the agent web’s advertising layer. Sajith’s post\n\n## Help Those Who Have It: The Dream-Life Blueprint\n\nRyan’s intro is the pitch: “Jay Yang ran content strategy for Alex & Leila Hormozi. Today, he’s leaking the blueprint for building your dream life (from zero).” Yang’s article, “How to Build Your Dream Life,” opens with a hill he’s willing to die on: the fastest way to get the life you want is to help those who have it. His own trajectory is the receipt: writing online at 15, a cold-emailed startup internship at 16, a 19-slide pitch deck for Noah Kagan at 17 that landed him Head of Content, a ghostwriting agency to six figures+ at 18, dropping out at 19 to join the Hormozis’ media team at Acquisition.com.\n\nThe method is unfussy. Pick someone whose life you admire — three filters: their work, their life, their ideas (his example: James Clear). Audit their pain points. Match your skills to their problems. Reach out and raise the odds. For the reaching-out part he gives the Contact Quadrant: two axes — 1-to-1 vs 1-to-many, friendly vs stranger — giving four doors: referral, cold outreach, content, public pitch. And the math: reach out to a hundred people. Opportunities create leverage, leverage creates options, options create freedom. The closing TL;DR compresses to one sentence: pick someone you admire, find where you can be useful, put it in front of them.\n\n- Proximity is the strategy. Don’t optimise your life directly; make yourself useful to someone living the one you want.\n\n- Three filters for targets: their work, their life, their ideas — admire all three before you pitch.\n\n- Four doors of outreach: referral, cold outreach, content, public pitch — pick the quadrant that fits your relationship to the target.\n\n- Volume is the unlock: a hundred outreaches; opportunities → leverage → options → freedom.\n\nRyan’s post · Yang’s article\n\n## The board math of VCs\n\nOverheard in Indiranagar, via Ritesh Banglani: “The nice VC on your board won’t write the next cheque. The asshole will.” Follow-on capital doesn’t come from the liked; it comes from the convinced. Pick board members for the second cheque, not the first meeting. Banglani’s post\n\n## Zoho vs the builder\n\nAjit Gupta’s claim: with AI making development cheap, people now think it’s better to pay a developer once than keep paying Zoho subscriptions. Hrush Bhatt’s dry reply: “Lovely. Please keep us posted on how this holds up. Maintaining and debugging software is fun like you never seen…” The maintenance bill is the subscription you forgot you signed. Hrush’s reply · Ajit’s post\n\n## Costco for your API spend\n\nFlovia’s launch: group-buying for APIs — pool demand from builders, traders and startups to unlock bulk deals, then make the best everyday APIs free. Launch partners include OpenAI, CoinGecko, Nansen, Exa, Firecrawl, Quicknode and Zerion; CoinbaseDev is supporting on infra. When inference gets cheap enough to give away, distribution eats pricing. Flovia’s post\n\n## The week’s quiet through-line\n\nVerification is the currency. Agents verify code (Modal), science verifies models (interpretability), founders’ pay verifies character (Inc42), and agents will soon verify each other’s deals (PPUs). The expensive thing in 2026 isn’t intelligence — it’s knowing the intelligence checked out.",
+  "sources": [
+    {
+      "url": "https://x.com/aakashgupta/status/2110605589835657427",
+      "label": "Post by @aakashgupta",
+      "author": "@aakashgupta"
+    },
+    {
+      "url": "https://x.com/alexandr_wang/status/2110778579764285512",
+      "label": "Post by @alexandr_wang",
+      "author": "@alexandr_wang"
+    },
+    {
+      "url": "https://x.com/finkd/status/2110778025629347999",
+      "label": "Post by @finkd",
+      "author": "@finkd"
+    },
+    {
+      "url": "https://x.com/deedydas/status/2110785912074277221",
+      "label": "Post by @deedydas",
+      "author": "@deedydas"
+    },
+    {
+      "url": "https://x.com/nickcammarata/status/2110757819427574056",
+      "label": "Post by @nickcammarata",
+      "author": "@nickcammarata"
+    },
+    {
+      "url": "https://x.com/janwhyy/status/2110618716702708200",
+      "label": "Post by @janwhyy",
+      "author": "@janwhyy"
+    },
+    {
+      "url": "https://x.com/sajithpai/status/2110682030271054227",
+      "label": "Post by @sajithpai",
+      "author": "@sajithpai"
+    },
+    {
+      "url": "https://x.com/ryangrowthh/status/2110743339775738325",
+      "label": "Post by @ryangrowthh",
+      "author": "@ryangrowthh"
+    },
+    {
+      "url": "https://x.com/Jayyanginspires/status/2110733530321879482",
+      "label": "Post by @Jayyanginspires",
+      "author": "@Jayyanginspires"
+    },
+    {
+      "url": "https://x.com/banglani/status/2110575315517133121",
+      "label": "Post by @banglani",
+      "author": "@banglani"
+    },
+    {
+      "url": "https://x.com/hrushb/status/2110428296756535549",
+      "label": "Post by @hrushb",
+      "author": "@hrushb"
+    },
+    {
+      "url": "https://x.com/unfiltered_ajit/status/2110210141190807705",
+      "label": "Post by @unfiltered_ajit",
+      "author": "@unfiltered_ajit"
+    },
+    {
+      "url": "https://x.com/Flovia402/status/2110377331231510890",
+      "label": "Post by @Flovia402",
+      "author": "@Flovia402"
+    }
+  ],
+  "audioAssetId": null,
+  "audioDurationSeconds": null,
+  "audioTranscript": null,
+  "status": "published",
+  "htmlAssetId": "2026-10-16.html"
+}

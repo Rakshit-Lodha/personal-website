@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile — Edition No. 6</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .front { display:grid; grid-template-columns: 2.1fr 1fr; gap:34px; margin-top:26px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  h3.sub { font-size:19px; margin:20px 0 8px; font-weight:800; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; letter-spacing:-0.5px; }
+  .stat .lbl { font-family:Arial,Helvetica,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-top:4px; line-height:1.4; }
+  .chart-box { border:1px solid var(--ink); background:#fff; padding:16px 18px 12px; margin:16px 0; }
+  .chart-box .chart-title { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; border-bottom:1px solid var(--rule); padding-bottom:8px; }
+  .chart-box svg { width:100%; height:auto; display:block; }
+  .chart-box .src { font-family:Arial,Helvetica,sans-serif; font-size:10.5px; color:var(--muted); margin-top:8px; font-style:italic; }
+  .learnings { background:#fff; border:1px solid var(--rule); border-left:4px solid var(--red); padding:14px 16px; margin:16px 0; }
+  .learnings h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .learnings ul { margin-left:18px; font-size:15px; }
+  .learnings li { margin-bottom:7px; }
+  .takeaway { background:#f3efe4; border:1px dashed var(--muted); padding:12px 16px; margin:12px 0 18px; font-size:15px; }
+  .takeaway strong { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); }
+  .orig-link { font-family:Arial,Helvetica,sans-serif; font-size:12.5px; margin:6px 0 4px; }
+  .orig-link a { color:var(--red); font-weight:bold; text-decoration:none; border-bottom:1px dotted var(--red); }
+  .sidebar .digest-box { border:2px solid var(--ink); background:#fff; padding:16px; margin-bottom:24px; }
+  .sidebar .digest-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; border-bottom:1px solid var(--ink); padding-bottom:8px; margin-bottom:10px; }
+  .sidebar .digest-box ol, .sidebar .digest-box ul { margin-left:18px; font-size:13.5px; }
+  .sidebar .digest-box li { margin-bottom:6px; }
+  .sidebar .digest-box a { color:var(--ink); text-decoration:none; border-bottom:1px dotted var(--muted); }
+  .timeline { position:relative; margin:8px 0 4px 8px; padding-left:22px; border-left:2px solid var(--ink); }
+  .tl-item { position:relative; padding:0 0 14px; font-size:13px; }
+  .tl-item::before { content:""; position:absolute; left:-29px; top:4px; width:10px; height:10px; background:var(--red); border:2px solid var(--paper); border-radius:50%; box-shadow:0 0 0 1px var(--ink); }
+  .tl-item .d { font-family:Arial,Helvetica,sans-serif; font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); }
+  .tl-item .t { font-weight:bold; }
+  .section-break { border:none; border-top:4px double var(--ink); margin:34px 0 22px; }
+  .page-section > .sec-head { display:flex; align-items:baseline; gap:14px; margin-bottom:16px; }
+  .page-section > .sec-head .kicker { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); font-weight:bold; white-space:nowrap; }
+  .page-section > .sec-head .rule { flex:1; border-top:2px solid var(--ink); }
+  .story { border-bottom:1px solid var(--rule); padding-bottom:20px; margin-bottom:22px; }
+  .story:last-child { border-bottom:none; }
+  footer { border-top:4px double var(--ink); margin-top:40px; padding-top:16px; text-align:center; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); }
+  footer .fin { font-family:Georgia,serif; font-style:italic; font-size:15px; color:var(--ink); margin-bottom:8px; }
+  @media (max-width:760px){ .front{grid-template-columns:1fr;} .masthead h1{font-size:42px;} .stat-strip{grid-template-columns:repeat(2,1fr);} .stat:nth-child(2){border-right:none;} .stat{border-bottom:1px solid var(--rule);} }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">From Rakshit&rsquo;s likes &amp; bookmarks</div>
+    <h1>The Unread Pile</h1>
+    <div class="tagline">Everything you saved but never read &mdash; reported back to you.</div>
+  </div>
+  <div class="dateline">
+    <span>Wednesday, 30 September 2026</span>
+    <span>Edition No. 6</span>
+    <span>7 posts &middot; 6 stories</span>
+  </div>
+
+  <div class="front">
+    <div class="main">
+
+      <!-- LEAD STORY -->
+      <div class="story">
+        <div class="sec-label">The Lead &middot; AI Agents</div>
+        <h2 class="headline"><a href="https://x.com/OpenAI/status/2104984504133918973">OpenAI&rsquo;s &ldquo;dots&rdquo;: always-on agents with their own computer</a></h2>
+        <div class="byline">By <a href="https://x.com/OpenAI">OpenAI (@OpenAI)</a> &middot; Posted 29 September 2026</div>
+        <div class="orig-link">Original: <a href="https://x.com/OpenAI/status/2104984504133918973">x.com/OpenAI/status/2104984504133918973</a></div>
+        <p class="lede">OpenAI has introduced &ldquo;dots&rdquo;, always-on agents powered by GPT-6 Astra, built to handle everything &mdash; from booking a table to carrying your most ambitious work with the initiative of a high-agency engineer or chief of staff.</p>
+        <p>Each dot has its own computer and works across more than 4,000 apps through ChatGPT, using the plugins you connect. It learns what you need and gets to work before you ask &mdash; quietly, in the background, 24/7. The pitch is no longer an assistant you prompt; it is closer to an employee you onboard: create your first dot in the ChatGPT desktop app or desktop browser, connect your apps, and let it introduce itself.</p>
+        <p>Control is the headline feature next to capability. You set the boundaries: what your dot may do on its own, when it should ask first, and what it should never do. Safety, the company says, is built in &mdash; you choose which apps to connect, and because the dot runs on its own cloud computer, connecting your own machine is entirely optional. OpenAI published a companion note on <a href="https://openai.com">how it builds safety, security and privacy into dots</a>.</p>
+        <p>Dots will be available in ChatGPT on web, mobile and desktop for Pro, Business Premium and Enterprise users in eligible markets.</p>
+
+        <div class="pullquote">&ldquo;Your dot can do simple things like book a table &mdash; or take on your most ambitious work with the initiative of a high-agency engineer or chief of staff.&rdquo;<span class="attr">&mdash; OpenAI, announcing dots</span></div>
+
+        <div class="stat-strip">
+          <div class="stat"><div class="num">4,000+</div><div class="lbl">Apps a dot can work across</div></div>
+          <div class="stat"><div class="num">24/7</div><div class="lbl">Background operation</div></div>
+          <div class="stat"><div class="num">GPT-6</div><div class="lbl">Astra powers every dot</div></div>
+          <div class="stat"><div class="num">3</div><div class="lbl">Plans: Pro, Business Premium, Enterprise</div></div>
+        </div>
+
+        <div class="chart-box">
+          <div class="chart-title">Anatomy of a dot &mdash; how the always-on agent is put together</div>
+          <svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+            <rect x="20" y="150" width="130" height="90" rx="8" fill="#faf8f2" stroke="#1a1a1a" stroke-width="2"/>
+            <text x="85" y="180" text-anchor="middle" font-size="14" font-weight="bold">YOU</text>
+            <text x="85" y="200" text-anchor="middle" font-size="11" fill="#6b675c">set the rules:</text>
+            <text x="85" y="216" text-anchor="middle" font-size="11">do alone / ask first /</text>
+            <text x="85" y="230" text-anchor="middle" font-size="11">never do</text>
+            <rect x="200" y="120" width="230" height="150" rx="10" fill="#a31621"/>
+            <text x="315" y="150" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">YOUR DOT</text>
+            <text x="315" y="172" text-anchor="middle" font-size="12" fill="#fff">GPT-6 Astra</text>
+            <rect x="220" y="186" width="190" height="60" rx="6" fill="#fff" opacity="0.94"/>
+            <text x="315" y="208" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a1a">its own cloud computer</text>
+            <text x="315" y="226" text-anchor="middle" font-size="10" fill="#6b675c">your machine: optional</text>
+            <text x="315" y="240" text-anchor="middle" font-size="10" fill="#6b675c">to connect</text>
+            <line x1="150" y1="195" x2="200" y2="195" stroke="#1a1a1a" stroke-width="2" marker-end="url(#ah)"/>
+            <rect x="480" y="60" width="220" height="280" rx="8" fill="#faf8f2" stroke="#1a1a1a" stroke-width="2"/>
+            <text x="590" y="88" text-anchor="middle" font-size="13" font-weight="bold">4,000+ APPS</text>
+            <text x="590" y="112" text-anchor="middle" font-size="11" fill="#6b675c">via ChatGPT plugins</text>
+            <g font-size="11">
+              <rect x="500" y="126" width="90" height="30" rx="6" fill="#fff" stroke="#1a1a1a"/><text x="545" y="146" text-anchor="middle">Calendar</text>
+              <rect x="600" y="126" width="80" height="30" rx="6" fill="#fff" stroke="#1a1a1a"/><text x="640" y="146" text-anchor="middle">Email</text>
+              <rect x="500" y="164" width="90" height="30" rx="6" fill="#fff" stroke="#1a1a1a"/><text x="545" y="184" text-anchor="middle">Docs</text>
+              <rect x="600" y="164" width="80" height="30" rx="6" fill="#fff" stroke="#1a1a1a"/><text x="640" y="184" text-anchor="middle">Travel</text>
+              <rect x="500" y="202" width="90" height="30" rx="6" fill="#fff" stroke="#1a1a1a"/><text x="545" y="222" text-anchor="middle">Code</text>
+              <rect x="600" y="202" width="80" height="30" rx="6" fill="#fff" stroke="#1a1a1a"/><text x="640" y="222" text-anchor="middle">CRM</text>
+              <text x="590" y="262" text-anchor="middle" font-size="12" font-weight="bold" fill="#a31621">&hellip;and 3,994 more</text>
+            </g>
+            <line x1="430" y1="170" x2="480" y2="170" stroke="#1a1a1a" stroke-width="2" marker-end="url(#ah)"/>
+            <line x1="430" y1="220" x2="480" y2="220" stroke="#1a1a1a" stroke-width="2" marker-end="url(#ah)"/>
+            <path d="M 315 270 C 315 330, 150 330, 120 260" fill="none" stroke="#a31621" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#ah)"/>
+            <text x="180" y="330" text-anchor="middle" font-size="11" font-style="italic" fill="#6b675c">learns what you need,</text>
+            <text x="180" y="345" text-anchor="middle" font-size="11" font-style="italic" fill="#6b675c">acts before you ask &mdash; 24/7</text>
+            <text x="360" y="300" text-anchor="middle" font-size="12" font-weight="bold" fill="#a31621">the always-on loop</text>
+            <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#1a1a1a" stroke-width="1.5"/></marker></defs>
+          </svg>
+          <div class="src">Source: OpenAI&rsquo;s dots announcement thread, 29 Sep 2026 &middot; hand-drawn for The Unread Pile</div>
+        </div>
+
+        <div class="learnings">
+          <h4>Why it matters</h4>
+          <ul>
+            <li>The framing has shifted from &ldquo;assistant you prompt&rdquo; to &ldquo;colleague you onboard&rdquo; &mdash; create the dot, connect apps, let it introduce itself.</li>
+            <li>&ldquo;Its own computer&rdquo; is the architectural bet: the agent&rsquo;s blast radius lives in a cloud sandbox, not on your laptop.</li>
+            <li>The entire safety UX is three buckets &mdash; do alone, ask first, never do. Simple enough to actually configure.</li>
+          </ul>
+        </div>
+        <div class="takeaway"><strong>The takeaway:</strong> watch whether &ldquo;always-on&rdquo; survives contact with notification fatigue. The dots that win will be the ones you forget exist until the work is already done.</div>
+      </div>
+
+    </div>
+    <div class="sidebar">
+      <div class="digest-box">
+        <h4>In this edition</h4>
+        <ol>
+          <li><a href="https://x.com/OpenAI/status/2104984504133918973">OpenAI&rsquo;s &ldquo;dots&rdquo; &mdash; always-on agents on GPT-6 Astra</a></li>
+          <li><a href="https://x.com/amasad/status/2104996638817386820">&ldquo;Free the models&rdquo; &mdash; harness design at the frontier</a></li>
+          <li><a href="https://x.com/deedydas/status/2104957026199900220">Deedy&rsquo;s 10-hour Opus 5.5 video workflow</a></li>
+          <li><a href="https://x.com/spakhm/status/2104591043727446463">What made Stripe great, c. 2016 (Part II)</a></li>
+          <li><a href="https://x.com/ClaudeDevs/status/2104676099083190435">Hillclimbing evals with Claude</a></li>
+          <li><a href="https://x.com/MattPRD/status/2101361194183614611">50 prompts to &ldquo;musemax&rdquo;</a></li>
+        </ol>
+      </div>
+      <div class="digest-box">
+        <h4>The pile, this week</h4>
+        <div class="timeline">
+          <div class="tl-item"><div class="d">19 Sep</div><div class="t">The musemax thread</div>Matt Schlicht&rsquo;s 10-part prompt playbook lands &mdash; and gets bookmarked.</div>
+          <div class="tl-item"><div class="d">28 Sep</div><div class="t">Stripe, dissected</div>Slava Akhmechet publishes Part II of what made Stripe great, c. 2016.</div>
+          <div class="tl-item"><div class="d">29 Sep &middot; early</div><div class="t">Eval hillclimbing</div>ClaudeDevs shows Claude building evals; Maggie Appleton finds a new hobby.</div>
+          <div class="tl-item"><div class="d">29 Sep &middot; evening</div><div class="t">The agent rush</div>Deedy drops the video workflow, Masad amplifies the harness thesis &mdash; then OpenAI launches dots.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-break">
+
+  <div class="page-section">
+    <div class="sec-head"><span class="kicker">Model Strategy</span><span class="rule"></span></div>
+
+    <div class="story">
+      <div class="sec-label">Story 2 &middot; Model Strategy</div>
+      <h3 class="headline"><a href="https://x.com/amasad/status/2104996638817386820">&ldquo;Free the models&rdquo;: the harness, not the router, is the frontier</a></h3>
+      <div class="byline">By <a href="https://x.com/amasad">Amjad Masad (@amasad)</a>, quoting Michele Catasta (@pirroh) &middot; 29 September 2026</div>
+      <div class="orig-link">Original: <a href="https://x.com/amasad/status/2104996638817386820">x.com/amasad/status/2104996638817386820</a></div>
+      <p class="lede">&ldquo;How to design and build a harness to reach frontier performance at a fraction of the cost!&rdquo; &mdash; that is how Replit CEO Amjad Masad framed Michele Catasta&rsquo;s new article, <em>&ldquo;Free the models: harness design at the frontier.&rdquo;</em></p>
+      <p>The article&rsquo;s provocation, per its preview: model routers are everywhere right now, but they have a fundamental limitation. Whether a router is built on advanced heuristics or on a small model that reads each turn and picks which LLM to use, a router is still only <em>choosing</em> &mdash; it never changes what any single model is capable of doing.</p>
+      <p>The harness thesis flips the question. The performance frontier, it argues, is not only a property of the model weights &mdash; it is a property of the scaffolding around them: decomposition, tools, retries, verification, evaluation. Build the harness well, and a cheaper model can deliver frontier-grade results at a fraction of the cost.</p>
+      <p>Masad&rsquo;s amplification is itself a signal. Replit lives this thesis daily &mdash; agentic coding products <em>are</em> harnesses around models. When the person shipping one of the most-used agent harnesses in the world says &ldquo;read this,&rdquo; the industry&rsquo;s cost-performance conversation is moving from <em>which model</em> to <em>what surrounds the model</em>.</p>
+
+      <div class="pullquote">&ldquo;Model routers are everywhere right now, but they have a fundamental limitation.&rdquo;<span class="attr">&mdash; Michele Catasta, via Amjad Masad</span></div>
+
+      <div class="chart-box">
+        <div class="chart-title">Router vs harness &mdash; two different games</div>
+        <svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+          <text x="180" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#6b675c">THE ROUTER</text>
+          <text x="540" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#a31621">THE HARNESS</text>
+          <rect x="60" y="50" width="240" height="46" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+          <text x="180" y="78" text-anchor="middle" font-size="12">user prompt</text>
+          <polygon points="180,100 210,140 150,140" fill="#6b675c"/>
+          <rect x="90" y="146" width="180" height="60" rx="8" fill="#f3efe4" stroke="#1a1a1a" stroke-width="2"/>
+          <text x="180" y="168" text-anchor="middle" font-size="12" font-weight="bold">router decides</text>
+          <text x="180" y="186" text-anchor="middle" font-size="10" fill="#6b675c">heuristics or small model</text>
+          <g font-size="11">
+            <rect x="40" y="224" width="80" height="34" rx="6" fill="#fff" stroke="#1a1a1a"/><text x="80" y="246" text-anchor="middle">Model A</text>
+            <rect x="140" y="224" width="80" height="34" rx="6" fill="#fff" stroke="#1a1a1a"/><text x="180" y="246" text-anchor="middle">Model B</text>
+            <rect x="240" y="224" width="80" height="34" rx="6" fill="#fff" stroke="#1a1a1a"/><text x="280" y="246" text-anchor="middle">Model C</text>
+          </g>
+          <line x1="150" y1="206" x2="100" y2="224" stroke="#1a1a1a" stroke-width="1.5"/>
+          <line x1="180" y1="206" x2="180" y2="224" stroke="#1a1a1a" stroke-width="1.5"/>
+          <line x1="210" y1="206" x2="260" y2="224" stroke="#1a1a1a" stroke-width="1.5"/>
+          <text x="180" y="290" text-anchor="middle" font-size="12" font-style="italic" fill="#6b675c">chooses WHO answers</text>
+          <text x="180" y="308" text-anchor="middle" font-size="12" font-style="italic" fill="#6b675c">capability unchanged</text>
+          <rect x="420" y="50" width="240" height="46" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+          <text x="540" y="78" text-anchor="middle" font-size="12">user prompt</text>
+          <polygon points="540,100 570,140 510,140" fill="#a31621"/>
+          <rect x="400" y="146" width="280" height="118" rx="8" fill="#fff" stroke="#a31621" stroke-width="2.5"/>
+          <text x="540" y="168" text-anchor="middle" font-size="12" font-weight="bold" fill="#a31621">harness: decompose &rarr; tools</text>
+          <text x="540" y="188" text-anchor="middle" font-size="12" font-weight="bold" fill="#a31621">draft &rarr; verify &rarr; retry &rarr; eval</text>
+          <text x="540" y="212" text-anchor="middle" font-size="11" fill="#6b675c">around one cheaper model</text>
+          <text x="540" y="232" text-anchor="middle" font-size="11" fill="#6b675c">each step checked, each miss retried</text>
+          <rect x="470" y="246" width="140" height="16" fill="none"/>
+          <text x="540" y="290" text-anchor="middle" font-size="12" font-style="italic" fill="#1a1a1a">changes WHAT&rsquo;S possible</text>
+          <text x="540" y="308" text-anchor="middle" font-size="12" font-weight="bold" fill="#a31621">frontier results, fraction of the cost</text>
+          <line x1="360" y1="160" x2="400" y2="160" stroke="#d8d2c4" stroke-width="2" stroke-dasharray="5,5"/>
+        </svg>
+        <div class="src">Thesis as previewed in the quoted post &middot; hand-drawn for The Unread Pile</div>
+      </div>
+
+      <div class="learnings">
+        <h4>Why it matters</h4>
+        <ul>
+          <li>Routing optimises <em>cost per query</em>; harnessing optimises <em>capability per dollar</em>. Different games, different winners.</li>
+          <li>If the harness is the product, model swaps get commoditised &mdash; the moat moves to evals and scaffolding.</li>
+          <li>Read the full article before redesigning anything: the preview is the thesis, not the method.</li>
+        </ul>
+      </div>
+      <div class="takeaway"><strong>The takeaway:</strong> next time someone pitches &ldquo;intelligent model routing,&rdquo; ask what the harness around it looks like. That is where the frontier actually moved.</div>
+    </div>
+
+    <div class="story">
+      <div class="sec-label">Story 3 &middot; The Craft</div>
+      <h3 class="headline"><a href="https://x.com/deedydas/status/2104957026199900220">10+ hours with Opus 5.5: Deedy&rsquo;s complete AI video-generation workflow</a></h3>
+      <div class="byline">By <a href="https://x.com/deedydas">Deedy (@deedydas)</a> &middot; 29 September 2026</div>
+      <div class="orig-link">Original: <a href="https://x.com/deedydas/status/2104957026199900220">x.com/deedydas/status/2104957026199900220</a> (plus a thread of finished films)</div>
+      <p class="lede">&ldquo;I&rsquo;ve spent 10+ hrs perfecting how to get the best out of Opus 5.5 for video generation workflow&rdquo; &mdash; and then Deedy published the whole thing: the full pipeline, the exact model stack, the prompting rules, and four finished films as proof.</p>
+      <p><strong>The orchestration.</strong> Use Opus with Claude Code, not the app. Route everything else through the OpenRouter API &mdash; one key for image, video and audio models. One brain, many swappable hands.</p>
+      <p><strong>The visuals.</strong> Manim, Hyperframes and Motion Canvas for motion graphics and HTML web-grounded video. Keyframes from GPT 2.5 Image &ldquo;Sunburst&rdquo;; generation on Veo 3.1 or Seedance 2.5 &mdash; Seedance wins on motion shots. Keep reference images for consistency, and always generate an animatic before committing to the full video.</p>
+      <p><strong>Voice and sound.</strong> Gemini 3.8 TTS &mdash; but with a skill built from the API so it can put real emotion into the voice. ElevenLabs for background music.</p>
+      <p><strong>Assembly and QA.</strong> A script-writing planning skill up front. OpenTimelineIO to assemble. <span style="font-family:monospace">yt-dlp</span> with search to inject Creative Commons clips from real videos into the composition. A caption skill using any decent ASR model for word-level timed subtitles. And a critic skill that takes screenshots and uses transcription to validate the audio and video quality &mdash; the loop watches its own work.</p>
+      <p><strong>The prompting rules.</strong> Specify exactly what you want, the aspect ratio, the length and the style preferences. And explicitly ban &ldquo;Claudisms&rdquo; &mdash; the short punchy sentences and number-stuffed cadence &mdash; with one line: <em>&ldquo;Narrate like a university professor.&rdquo;</em> <span style="font-family:monospace">ffmpeg</span> handles most of the actual video manipulation.</p>
+      <p><strong>Proof it works</strong> &mdash; the thread underneath is a small film festival: a 4-minute Neocloud business explainer; <em>&ldquo;America: a 250 year tribute,&rdquo;</em> a 5-minute documentary orchestrated entirely by Opus from remastered iconic moments of US history; a 7-minute SQLite repo explainer with running code walkthroughs (&ldquo;every single open source repo should have an explainer video like this&rdquo;); and Paul Graham&rsquo;s <em>&ldquo;How to Do Great Work&rdquo;</em> compressed into under 200 seconds of video.</p>
+
+      <div class="pullquote">&ldquo;Narrate like a university professor.&rdquo;<span class="attr">&mdash; Deedy&rsquo;s antidote to &ldquo;Claudisms&rdquo;</span></div>
+
+      <div class="stat-strip">
+        <div class="stat"><div class="num">10+</div><div class="lbl">Hours perfecting the workflow</div></div>
+        <div class="stat"><div class="num">12</div><div class="lbl">Steps in the pipeline</div></div>
+        <div class="stat"><div class="num">4</div><div class="lbl">Finished films as proof</div></div>
+        <div class="stat"><div class="num">200s</div><div class="lbl">PG&rsquo;s best essay, on video</div></div>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">The pipeline &mdash; Opus orchestrates, everything else is a tool</div>
+        <svg viewBox="0 0 720 430" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+          <rect x="180" y="8" width="360" height="40" rx="8" fill="#a31621"/>
+          <text x="360" y="33" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">ORCHESTRATOR: Opus 5.5 in Claude Code</text>
+          <rect x="180" y="56" width="360" height="26" rx="6" fill="#f3efe4" stroke="#1a1a1a"/>
+          <text x="360" y="73" text-anchor="middle" font-size="11">all other models via OpenRouter &mdash; one key</text>
+          <g font-size="11">
+            <rect x="20" y="110" width="150" height="52" rx="6" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="95" y="130" text-anchor="middle" font-weight="bold">1. Script skill</text><text x="95" y="147" text-anchor="middle" fill="#6b675c">planning first</text>
+            <rect x="190" y="110" width="150" height="52" rx="6" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="265" y="130" text-anchor="middle" font-weight="bold">2. Keyframes</text><text x="265" y="147" text-anchor="middle" fill="#6b675c">GPT 2.5 Image Sunburst</text>
+            <rect x="360" y="110" width="150" height="52" rx="6" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="435" y="130" text-anchor="middle" font-weight="bold">3. Animatic</text><text x="435" y="147" text-anchor="middle" fill="#6b675c">before full render</text>
+            <rect x="530" y="110" width="150" height="52" rx="6" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="605" y="130" text-anchor="middle" font-weight="bold">4. Generate</text><text x="605" y="147" text-anchor="middle" fill="#6b675c">Veo 3.1 / Seedance 2.5</text>
+            <rect x="20" y="190" width="150" height="52" rx="6" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="95" y="210" text-anchor="middle" font-weight="bold">5. Motion gfx</text><text x="95" y="227" text-anchor="middle" fill="#6b675c">Manim / Hyperframes</text>
+            <rect x="190" y="190" width="150" height="52" rx="6" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="265" y="210" text-anchor="middle" font-weight="bold">6. Voice</text><text x="265" y="227" text-anchor="middle" fill="#6b675c">Gemini 3.8 TTS skill</text>
+            <rect x="360" y="190" width="150" height="52" rx="6" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="435" y="210" text-anchor="middle" font-weight="bold">7. Music</text><text x="435" y="227" text-anchor="middle" fill="#6b675c">ElevenLabs</text>
+            <rect x="530" y="190" width="150" height="52" rx="6" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="605" y="210" text-anchor="middle" font-weight="bold">8. Clips</text><text x="605" y="227" text-anchor="middle" fill="#6b675c">yt-dlp, CC-licensed</text>
+            <rect x="105" y="270" width="150" height="52" rx="6" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="180" y="290" text-anchor="middle" font-weight="bold">9. Assemble</text><text x="180" y="307" text-anchor="middle" fill="#6b675c">OpenTimelineIO+ffmpeg</text>
+            <rect x="285" y="270" width="150" height="52" rx="6" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="360" y="290" text-anchor="middle" font-weight="bold">10. Captions</text><text x="360" y="307" text-anchor="middle" fill="#6b675c">ASR word-level subs</text>
+            <rect x="465" y="270" width="150" height="52" rx="6" fill="#fff" stroke="#a31621" stroke-width="2.5"/><text x="540" y="290" text-anchor="middle" font-weight="bold" fill="#a31621">11. Critic skill</text><text x="540" y="307" text-anchor="middle" fill="#6b675c">screenshots + transcript</text>
+          </g>
+          <g stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#ah2)">
+            <line x1="170" y1="136" x2="190" y2="136"/><line x1="340" y1="136" x2="360" y2="136"/><line x1="510" y1="136" x2="530" y2="136"/>
+            <line x1="170" y1="216" x2="190" y2="216"/><line x1="340" y1="216" x2="360" y2="216"/><line x1="510" y1="216" x2="530" y2="216"/>
+            <line x1="255" y1="296" x2="285" y2="296"/><line x1="435" y1="296" x2="465" y2="296"/>
+          </g>
+          <path d="M 615 322 C 615 370, 105 370, 105 322" fill="none" stroke="#a31621" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#ah2)"/>
+          <text x="360" y="392" text-anchor="middle" font-size="12" font-style="italic" fill="#a31621">critic rejects &rarr; back to step 4: the loop that turns generation into production</text>
+          <text x="360" y="412" text-anchor="middle" font-size="11" fill="#6b675c">prompt rules: say what, aspect ratio, length, style &mdash; and &ldquo;narrate like a university professor&rdquo;</text>
+          <defs><marker id="ah2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#1a1a1a" stroke-width="1.5"/></marker></defs>
+        </svg>
+        <div class="src">Source: @deedydas workflow thread, 29 Sep 2026 &middot; hand-drawn for The Unread Pile</div>
+      </div>
+
+      <div class="learnings">
+        <h4>Why it matters</h4>
+        <ul>
+          <li>The workflow is model-agnostic plumbing with one brain: Opus orchestrates, everything else is a swappable tool behind one OpenRouter key.</li>
+          <li>Two quality gates do the heavy lifting: the animatic <em>before</em> expensive generation, and the critic skill <em>after</em> assembly.</li>
+          <li>&ldquo;Avoid Claudisms&rdquo; is a reminder that house style leaks from the orchestrator &mdash; you have to art-direct the narrator, not just the visuals.</li>
+        </ul>
+      </div>
+      <div class="takeaway"><strong>The takeaway:</strong> if you try one thing from this, build the critic skill first. A loop that watches and listens to its own output is what turns generation into production.</div>
+    </div>
+
+  </div>
+
+  <hr class="section-break">
+
+  <div class="page-section">
+    <div class="sec-head"><span class="kicker">Company Building</span><span class="rule"></span></div>
+
+    <div class="story">
+      <div class="sec-label">Story 4 &middot; Company Building</div>
+      <h3 class="headline"><a href="https://x.com/spakhm/status/2104591043727446463">What made Stripe great, c. 2016 &mdash; Part II</a></h3>
+      <div class="byline">By <a href="https://x.com/spakhm">Slava Akhmechet (@spakhm)</a> &middot; 28 September 2026</div>
+      <div class="orig-link">Original: <a href="https://x.com/spakhm/status/2104591043727446463">x.com/spakhm/status/2104591043727446463</a></div>
+      <p class="lede">Slava Akhmechet&rsquo;s second instalment on Stripe circa 2016 runs nine observations long and reads like an organisational x-ray: what the founders were like up close, and what the company felt like from the inside.</p>
+      <p><strong>Radically accessible founders.</strong> Patrick and John Collison would talk to anyone, any time &mdash; a DM got a near-instant response, and if you needed them they would always find fifteen minutes. &ldquo;It&rsquo;s impossible to overstate how accessible they were.&rdquo; Abstract it a little and those informal connections functioned like dozens of bidirectional probes inserted throughout the org: information flowed straight to the founders, and they could steer the company outside standard channels. That, Slava suggests, probably contributed to Stripe&rsquo;s success as much as the formal process.</p>
+      <p><strong>Optimism as operating system.</strong> Everyone was extremely optimistic &mdash; not just about Stripe but about the world as a whole. There was a conviction that the world can be improved, that there is no limit to this, that making it better is everyone&rsquo;s responsibility, and that big improvements are within reach. Stripe of that time, he writes, was brimming with <em>noblesse oblige</em>. Exhibit A: Stripe Press. There is no commercial reason for it to exist &mdash; why spend management bandwidth publishing a beautiful, meticulously typeset hardcover of <em>The Making of Prince of Persia</em>? The only reason is a conviction that putting such books on people&rsquo;s shelves materially improves the world.</p>
+      <p><strong>Egalitarian by default.</strong> In hypergrowth startups you have OGs holding $50M worth of options next to new employees who basically just got a normal job. &ldquo;Not one time did I sense even a shade of this in any interaction. All anyone ever thought about was contributing to building the rocket ship as best they could.&rdquo;</p>
+      <p><strong>Writing as leadership.</strong> Both founders were surprisingly good writers &mdash; Patrick maybe three essays to every one of John&rsquo;s, though Slava admits his memory might be off. Running Stripe demanded an insane rate of learning from them; every time they worked out some new problem they wrote about it, so in a sense everyone got to learn alongside them. The essays, he reckons, were typically far more perceptive than the best FT/Economist writing.</p>
+      <p><strong>Light-touch execs, bottom-up motion.</strong> Picture the company as a growing clump of cells: execs stood to its side, collecting vitals, reading signs, tending here, nudging there, pruning the occasional bad cell. They could be commanding when necessary, but reaching for the chain of command was not their first instinct. Patrick and John would declare a goal and at every level people reoriented their corner of the company toward it &mdash; remarkably agile, more fun, more inventive. The downside: it could be totally unobvious what to do. You figured it out yourself.</p>
+      <p><strong>The filter.</strong> &ldquo;This wasn&rsquo;t for everyone. If you needed a lot of structure you&rsquo;d be screwed. But if you loved it you <em>really</em> loved it. Stripe selected for those people.&rdquo; Scrappy, tenacious, intrepid colleagues &mdash; &ldquo;probably the best part of working there.&rdquo;</p>
+
+      <div class="pullquote">&ldquo;These informal connections functioned like dozens of bidirectional probes inserted throughout the org.&rdquo;<span class="attr">&mdash; Slava Akhmechet, on the Collisons&rsquo; accessibility</span></div>
+
+      <div class="stat-strip">
+        <div class="stat"><div class="num">9</div><div class="lbl">Observations in Part II</div></div>
+        <div class="stat"><div class="num">15m</div><div class="lbl">Founder time, on demand</div></div>
+        <div class="stat"><div class="num">$50M</div><div class="lbl">In options, zero shade sensed</div></div>
+        <div class="stat"><div class="num">3:1</div><div class="lbl">Patrick-to-John essay ratio (approx)</div></div>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">Anatomy of Stripe, c. 2016 &mdash; nine observations, one organism</div>
+        <svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+          <ellipse cx="360" cy="190" rx="105" ry="80" fill="#a31621"/>
+          <text x="360" y="172" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">P &amp; J</text>
+          <text x="360" y="192" text-anchor="middle" font-size="11" fill="#fff">accessible &middot; writing</text>
+          <text x="360" y="208" text-anchor="middle" font-size="11" fill="#fff">optimistic</text>
+          <g font-size="11">
+            <rect x="30" y="40" width="180" height="52" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="120" y="60" text-anchor="middle" font-weight="bold">bidirectional probes</text><text x="120" y="77" text-anchor="middle" fill="#6b675c">DMs as sensing network</text>
+            <rect x="510" y="40" width="180" height="52" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="600" y="60" text-anchor="middle" font-weight="bold">noblesse oblige</text><text x="600" y="77" text-anchor="middle" fill="#6b675c">optimism as OS</text>
+            <rect x="30" y="164" width="180" height="52" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="120" y="184" text-anchor="middle" font-weight="bold">egalitarian</text><text x="120" y="201" text-anchor="middle" fill="#6b675c">$50M options, zero shade</text>
+            <rect x="510" y="164" width="180" height="52" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="600" y="184" text-anchor="middle" font-weight="bold">Stripe Press</text><text x="600" y="201" text-anchor="middle" fill="#6b675c">no commercial reason</text>
+            <rect x="30" y="288" width="180" height="52" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="120" y="308" text-anchor="middle" font-weight="bold">light-touch execs</text><text x="120" y="325" text-anchor="middle" fill="#6b675c">tend, nudge, prune</text>
+            <rect x="510" y="288" width="180" height="52" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="600" y="308" text-anchor="middle" font-weight="bold">bottom-up goals</text><text x="600" y="325" text-anchor="middle" fill="#6b675c">declare, then reorient</text>
+            <rect x="255" y="306" width="210" height="52" rx="8" fill="#f3efe4" stroke="#1a1a1a" stroke-width="2"/><text x="360" y="326" text-anchor="middle" font-weight="bold">the filter</text><text x="360" y="343" text-anchor="middle" fill="#6b675c">structure-needers: screwed</text>
+          </g>
+          <g stroke="#1a1a1a" stroke-width="1.2">
+            <line x1="210" y1="70" x2="265" y2="140"/><line x1="510" y1="70" x2="455" y2="140"/>
+            <line x1="210" y1="190" x2="258" y2="190"/><line x1="510" y1="190" x2="462" y2="190"/>
+            <line x1="210" y1="314" x2="265" y2="250"/><line x1="510" y1="314" x2="455" y2="250"/>
+            <line x1="360" y1="306" x2="360" y2="270"/>
+          </g>
+          <text x="360" y="30" text-anchor="middle" font-size="12" font-style="italic" fill="#6b675c">nine observations, one organism: a growing clump of cells</text>
+        </svg>
+        <div class="src">Source: @spakhm, &ldquo;What made Stripe great, c. 2016 (Part II)&rdquo; &middot; hand-drawn for The Unread Pile</div>
+      </div>
+
+      <div class="learnings">
+        <h4>Why it matters</h4>
+        <ul>
+          <li>Accessibility was infrastructure, not kindness: the founders&rsquo; DMs were a sensing network.</li>
+          <li>Culture was a selection mechanism: the lack of structure wasn&rsquo;t a bug, it was the filter.</li>
+          <li>Writing scaled the founders: essays turned two people&rsquo;s learning rate into everyone&rsquo;s.</li>
+        </ul>
+      </div>
+      <div class="takeaway"><strong>The takeaway:</strong> you can&rsquo;t copy Stripe&rsquo;s 2016 culture, but you can copy its cheapest instruments: founders who answer DMs, and who write down what they learn.</div>
+    </div>
+
+  </div>
+
+  <hr class="section-break">
+
+  <div class="page-section">
+    <div class="sec-head"><span class="kicker">Evals &amp; Engineering</span><span class="rule"></span></div>
+
+    <div class="story">
+      <div class="sec-label">Story 5 &middot; Evals &amp; Engineering</div>
+      <h3 class="headline"><a href="https://x.com/ClaudeDevs/status/2104676099083190435">&ldquo;Hillclimbing is my new hobby&rdquo;: Claude learns to build your evals</a></h3>
+      <div class="byline">By <a href="https://x.com/ClaudeDevs">ClaudeDevs (@ClaudeDevs)</a>, quoted by <a href="https://x.com/Mappletons">Maggie Appleton (@Mappletons)</a> &middot; 29 September 2026</div>
+      <div class="orig-link">Originals: <a href="https://x.com/ClaudeDevs/status/2104676099083190435">ClaudeDevs</a> &middot; <a href="https://x.com/Mappletons/status/2104802468504952856">Mappletons&rsquo; quote</a> &middot; Guide: claude.dev/blog &mdash; &ldquo;Automating eval design and hillclimbing with Claude&rdquo;</div>
+      <p class="lede">&ldquo;Claude can now help you build evaluations and hillclimb on them.&rdquo; The ClaudeDevs account announced new guidance on eval design &mdash; plus skills that Claude Code can use to improve your applications. Maggie Appleton&rsquo;s verdict, quoting the announcement: &ldquo;Hillclimbing is my new hobby and this is beautiful.&rdquo;</p>
+      <p>The loop is simple to state and powerful to run: write an eval that scores what &ldquo;good&rdquo; looks like, let Claude propose changes to your application, re-run the eval, keep whatever scores higher. Repeat. The model climbs whatever hill your eval defines &mdash; which is exactly why the eval-design guidance matters as much as the loop itself.</p>
+      <p>Why it matters: evals have been the unglamorous bottleneck of applied AI. Everyone knows you need them; few build them well, and fewer maintain them. If the coding agent can scaffold the eval design and run the hillclimbing loop, the bottleneck loosens &mdash; and iteration gets a scoreboard.</p>
+      <p>Read it alongside this edition&rsquo;s harness story and the pattern sharpens: the &ldquo;which model?&rdquo; conversation keeps losing to the &ldquo;what surrounds the model?&rdquo; conversation. Evals are the harness&rsquo;s scoreboard &mdash; without one, you can&rsquo;t tell whether the scaffolding is helping.</p>
+
+      <div class="pullquote">&ldquo;Hillclimbing is my new hobby and this is beautiful.&rdquo;<span class="attr">&mdash; Maggie Appleton (@Mappletons)</span></div>
+
+      <div class="stat-strip">
+        <div class="stat"><div class="num">1</div><div class="lbl">New guide: automating eval design</div></div>
+        <div class="stat"><div class="num">4</div><div class="lbl">Steps in the hillclimb loop</div></div>
+        <div class="stat"><div class="num">1</div><div class="lbl">New hobby (Maggie&rsquo;s)</div></div>
+        <div class="stat"><div class="num">&infin;</div><div class="lbl">Hills to climb</div></div>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">The hillclimb loop &mdash; turn &ldquo;good&rdquo; from a vibe into a gradient</div>
+        <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+          <path d="M 60 260 C 200 260, 260 240, 340 180 C 420 120, 480 100, 660 60" fill="none" stroke="#d8d2c4" stroke-width="10" stroke-linecap="round"/>
+          <path d="M 60 260 C 200 260, 260 240, 340 180 C 420 120, 480 100, 660 60" fill="none" stroke="#a31621" stroke-width="2" stroke-dasharray="7,5"/>
+          <text x="660" y="48" text-anchor="middle" font-size="12" font-weight="bold" fill="#a31621">frontier</text>
+          <g font-size="11">
+            <circle cx="150" cy="252" r="26" fill="#fff" stroke="#1a1a1a" stroke-width="2"/><text x="150" y="248" text-anchor="middle" font-weight="bold">1</text><text x="150" y="292" text-anchor="middle">define eval:</text><text x="150" y="306" text-anchor="middle" fill="#6b675c">what is &ldquo;good&rdquo;?</text>
+            <circle cx="330" cy="196" r="26" fill="#fff" stroke="#1a1a1a" stroke-width="2"/><text x="330" y="192" text-anchor="middle" font-weight="bold">2</text><text x="330" y="236" text-anchor="middle">Claude proposes</text><text x="330" y="250" text-anchor="middle" fill="#6b675c">a change</text>
+            <circle cx="500" cy="118" r="26" fill="#fff" stroke="#1a1a1a" stroke-width="2"/><text x="500" y="114" text-anchor="middle" font-weight="bold">3</text><text x="500" y="158" text-anchor="middle">run eval</text><text x="500" y="172" text-anchor="middle" fill="#6b675c">&rarr; score</text>
+          </g>
+          <polygon points="600,84 636,84 618,116" fill="#a31621"/>
+          <text x="618" y="140" text-anchor="middle" font-size="12" font-weight="bold">4. better?</text>
+          <text x="618" y="158" text-anchor="middle" font-size="11" fill="#1a1a1a">keep &amp; climb &uarr;</text>
+          <text x="618" y="174" text-anchor="middle" font-size="11" fill="#6b675c">else discard &amp; retry</text>
+          <path d="M 636 100 C 660 160, 560 240, 200 280" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#ah3)"/>
+          <text x="420" y="292" text-anchor="middle" font-size="11" font-style="italic" fill="#6b675c">the loop: every kept change is a step uphill</text>
+          <defs><marker id="ah3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#1a1a1a" stroke-width="1.5"/></marker></defs>
+        </svg>
+        <div class="src">Source: ClaudeDevs eval-design announcement, 29 Sep 2026 &middot; hand-drawn for The Unread Pile</div>
+      </div>
+
+      <div class="learnings">
+        <h4>Why it matters</h4>
+        <ul>
+          <li>An eval is a specification you can execute &mdash; hillclimbing turns &ldquo;good&rdquo; from a vibe into a gradient.</li>
+          <li>The skill that <em>designs</em> the eval matters as much as the loop: a bad eval climbs the wrong hill, fast.</li>
+          <li>This is the practical companion to the harness thesis: evals are how you know the harness is working.</li>
+        </ul>
+      </div>
+      <div class="takeaway"><strong>The takeaway:</strong> pick one workflow, write the eval you&rsquo;d be embarrassed to show anyone, and let Claude climb it. The embarrassment is the point &mdash; v1 evals are supposed to be rough.</div>
+    </div>
+
+  </div>
+
+  <hr class="section-break">
+
+  <div class="page-section">
+    <div class="sec-head"><span class="kicker">The Playbook</span><span class="rule"></span></div>
+
+    <div class="story">
+      <div class="sec-label">Story 6 &middot; The Playbook</div>
+      <h3 class="headline"><a href="https://x.com/MattPRD/status/2101361194183614611">50 prompts to &ldquo;musemax&rdquo;: Matt Schlicht&rsquo;s complete Muse playbook</a></h3>
+      <div class="byline">By <a href="https://x.com/MattPRD">Matt Schlicht (@MattPRD)</a> &middot; 19 September 2026</div>
+      <div class="orig-link">Original: <a href="https://x.com/MattPRD/status/2101361194183614611">x.com/MattPRD/status/2101361194183614611</a> (a 10-part thread)</div>
+      <p class="lede">&ldquo;So you have a @muse (or you&rsquo;ll get one soon) and you want to know what to do with your new super smart helper friend. I&rsquo;ve got you covered. Buckle up. Bookmark this one.&rdquo; What follows is a ten-part thread of copy-paste prompts &mdash; billed as fifty, actually closer to seventy &mdash; across money, admin, travel, shopping, family, health, work, career, learning and &ldquo;force multipliers.&rdquo; The full playbook, preserved:</p>
+
+      <h3 class="sub">Musecases #1 &mdash; Money: bills, refunds, insurance, forgotten cash</h3>
+      <p>&bull; Audit the last 12 months of my email for subscriptions, free trials, and recurring charges. Table: what it is, amount, date of last charge, next charge date, cancel difficulty, cancel link. Flag anything I haven&rsquo;t used in 90 days.</p>
+      <p>&bull; You are an expert insurance agent. Find where I&rsquo;m likely overpaying on insurance [auto/home]. Search for competing quotes for [same coverage]. Show: current cost, best quote, tradeoffs, and a switching checklist.</p>
+      <p>&bull; Research the best cash-back credit card for my actual spending. Ask about: monthly spend by category, existing cards, credit score range. Then: top 3 cards with net value math after annual fees, plus what to do with my current cards.</p>
+      <p>&bull; Plan my health insurance for [open enrollment dates]. Input: my doctors, meds, expected procedures. Compare [PPO vs HDHP vs EPO]: total cost scenarios (healthy year, medium year, bad year), HSA math, network check for my doctors.</p>
+      <p>&bull; Review [bank/credit card/bill] for junk fees, rate hikes, or errors in the last [12 months]. Draft a call script to negotiate or dispute, including the phrases that work and who to ask for.</p>
+      <p>&bull; Be my tax strategist. Ask about: income sources, filing status, state, major life events. Then: moves to make before year-end, estimated quarterly payments, deductions I&rsquo;m probably missing.</p>
+      <p>&bull; Be my financial coach for [goal: pay off debt / build emergency fund / save $X]. Ask about income, debts, expenses. Build a month-by-month plan with milestones and rules for windfalls.</p>
+
+      <h3 class="sub">Musecases #2 &mdash; Admin and inbox: the &ldquo;errand pile&rdquo;</h3>
+      <p>&bull; Triage my inbox. Categories: action needed, waiting on others, FYI/archive, unsubscribe. Draft replies for the action-needed ones in my voice. Flag anything time-sensitive.</p>
+      <p>&bull; Plan and book [trip]. Dates: [X-Y]. Budget: [$Z]. Preferences: [window/aisle, hotel type, &hellip;]. Find flights + hotels, compare 3 options, then book the best one. Send me a confirmation summary.</p>
+      <p>&bull; Handle my calendar for [week]. Block focus time, move conflicts, find 30 min for [task]. Suggest what to decline or delegate.</p>
+      <p>&bull; You are my executive assistant. Each morning, brief me: today&rsquo;s schedule, prep needed, deadlines this week, and anything that needs a decision from me.</p>
+      <p>&bull; Draft [difficult email] to [person]. Context: [situation]. Tone: firm but professional. Give me 3 versions: direct, diplomatic, and middle ground.</p>
+      <p>&bull; Research [purchase decision]. Budget: [$X]. Needs: [list]. Compare top 5 options with pros/cons, best price right now, and your recommendation.</p>
+      <p>&bull; Clean up my [Google Drive / files]. Organize by project, archive old stuff, find duplicates. Give me a summary of what changed.</p>
+
+      <h3 class="sub">Musecases #3 &mdash; Travel that is actually booked</h3>
+      <p>&bull; Plan [destination] for [dates], budget [$X] total including flights. Preferences: [pace, hotel style, food]. Output: day-by-day itinerary with bookings-ready links, total cost breakdown, and 2 backup options per leg.</p>
+      <p>&bull; I&rsquo;m in [city] for [48 hours]. Build me an itinerary: [interests]. Include: food spots with price ranges, walking routes, and one &ldquo;only locals know&rdquo; thing per half-day.</p>
+      <p>&bull; Find the cheapest way to get from [A] to [B] on [dates]. Check: flights, trains, buses. Factor in baggage fees and travel time. Book the winner.</p>
+      <p>&bull; Plan a [road trip] from [start] to [end] over [N days]. Daily driving limit: [X hours]. Interests: [list]. Output: route with stops, hotel picks, food along the way.</p>
+      <p>&bull; I&rsquo;m traveling with [kids / elderly parents / dietary restrictions]. Adjust [existing itinerary] for accessibility, pacing, and food. Flag anything that won&rsquo;t work.</p>
+      <p>&bull; Build a packing list for [destination] in [season] for [N days]. Consider: weather, activities, laundry access. Organize by: wear, toiletries, tech, documents.</p>
+      <p>&bull; Find me a [hotel / Airbnb] in [neighborhood] for [dates]. Budget: [$X/night]. Must-haves: [list]. Compare 5 options with the catch on each.</p>
+
+      <h3 class="sub">Musecases #4 &mdash; Shopping, selling, negotiating</h3>
+      <p>&bull; Find [item] in size [X], budget [$Y], prefer [new/used]. Compare across [3 stores]. Include: price, shipping, return policy, and your pick.</p>
+      <p>&bull; Sell my [item]. Research: current resale value on [eBay/FB Marketplace], best listing title and photos tips, pricing strategy. Draft the listing for me.</p>
+      <p>&bull; Negotiate my [bill / salary / rent]. Context: [details]. Draft: opening script, BATNA, 3 concession moves, and responses to pushback.</p>
+      <p>&bull; I&rsquo;m at [store] looking at [item, price $X]. Is this a good deal? Check: price history, competitors, reviews. Give me a buy/wait/skip verdict in 60 seconds.</p>
+      <p>&bull; Plan [event: birthday / dinner party] for [N people], budget [$X]. Venue options, food, drinks math, timeline, and a shopping list.</p>
+      <p>&bull; Find a gift for [person, occasion, budget $X]. They like [interests]. Give me 5 ideas with links: 2 safe, 2 creative, 1 splurge.</p>
+
+      <h3 class="sub">Musecases #5 &mdash; Family, school, and relationships</h3>
+      <p>&bull; You own the family calendar. Resolve conflicts, draft RSVPs, plan logistics for [event]. Send reminders the day before.</p>
+      <p>&bull; Plan [kid&rsquo;s birthday party]: age [X], [N] kids, budget [$Y], theme [Z]. Venue, food quantities, activities timeline, and a shopping list.</p>
+      <p>&bull; Help [child] with [homework topic]. Explain at a [grade] level, then quiz them. Don&rsquo;t just give answers &mdash; teach.</p>
+      <p>&bull; Draft a [tough conversation] with [family member]. Situation: [context]. Give me: talking points, what not to say, and 2 ways it could go.</p>
+      <p>&bull; Plan our [holiday / vacation] with [extended family]. Dates: [X]. Budget per family: [$Y]. Find a house that fits [N] people, plan meals, activities for mixed ages.</p>
+      <p>&bull; Write [thank you notes / condolences / congratulations] for [occasion]. Tone: [warm/formal]. Personalize each for [list of people].</p>
+      <p>&bull; Research [school / camp / activity] options for [child, age]. Criteria: [list]. Compare top 5 with costs, schedules, and parent reviews.</p>
+
+      <h3 class="sub">Musecases #6 &mdash; Health, habits, training</h3>
+      <p>&bull; Build a 20-week [race] plan around my real calendar. 5 sessions/week, [current fitness]. Include: workout details, paces, strength work, rest days, and what to do when I miss a session.</p>
+      <p>&bull; You are my nutrition coach. Goals: [lose/gain/maintain]. Restrictions: [list]. Build a 7-day meal plan with grocery list, prep timeline, and macros per day.</p>
+      <p>&bull; I want to build [habit]. Design a 30-day plan: start embarrassingly small, weekly progressions, habit stacking, and a relapse protocol.</p>
+      <p>&bull; Analyze my [sleep / workout / health data]. Find patterns. What 3 changes would move the needle most?</p>
+      <p>&bull; Plan my [injury recovery]. Injury: [details]. Doctor said: [guidance]. Build: safe progression, what to avoid, when to escalate back to the doctor.</p>
+      <p>&bull; Be my [therapist / coach] for [issue]. Ask thoughtful questions. Don&rsquo;t rush to advice. Help me think clearly.</p>
+      <p>&bull; Design my ideal [morning / evening] routine. Constraints: [time, kids, commute]. Include: the non-negotiables, flexible blocks, and a 5-minute emergency version.</p>
+
+      <h3 class="sub">Musecases #7 &mdash; Work and small business</h3>
+      <p>&bull; You are back office for my [business]. Weekly: unpaid invoices, follow-ups to send, expenses to log, tax docs to organize. Monthly: P&amp;L draft, cash flow check.</p>
+      <p>&bull; Draft [contract / proposal / SOW] for [client]. Scope: [details]. Include: deliverables, timeline, payment terms, revision policy, kill clause.</p>
+      <p>&bull; Write my [job description / performance review / PIP]. Role: [title]. Context: [details]. Tone: [honest/kind/firm].</p>
+      <p>&bull; Prep me for [interview / negotiation / board meeting]. Research the [company/person]. Mock Q&amp;A with tough questions. Give me feedback on my answers.</p>
+      <p>&bull; You are my [marketing / sales / ops] lead. Goal: [X] in [timeframe]. Build the plan: channels, messaging, metrics, weekly actions.</p>
+      <p>&bull; Turn [meeting notes] into: decisions made, action items with owners and dates, open questions, and a follow-up email draft.</p>
+      <p>&bull; Audit my [pricing / offer / funnel]. Compare to [competitors]. Find the leaks. Give me 3 experiments to run this month.</p>
+
+      <h3 class="sub">Musecases #8 &mdash; Career and money moves</h3>
+      <p>&bull; Rewrite my resume for [target role]. Experience: [paste]. Rules: achievements with numbers, no buzzwords, tailored keywords. Also write the cover letter.</p>
+      <p>&bull; Find [role] jobs at [companies/stage]. Filters: [salary, remote, etc.]. Rank by fit. Draft outreach messages for the hiring managers.</p>
+      <p>&bull; You are my salary negotiator. Offer: [$X]. Market data: [research]. Draft: counter script, email version, and responses to &ldquo;this is our final offer.&rdquo;</p>
+      <p>&bull; Plan my [career pivot] from [A] to [B] in [timeframe]. Skills gap analysis, learning plan, portfolio projects, networking targets, timeline with milestones.</p>
+      <p>&bull; Review my [LinkedIn / portfolio]. Rewrite: headline, about section, featured items. Make it attract [target audience].</p>
+      <p>&bull; Should I [take this job / quit / go freelance]? Lay out: decision framework, financial runway math, pros/cons, and the questions I&rsquo;m not asking.</p>
+      <p>&bull; Build my personal brand. Niche: [X]. Platform: [Y]. 30-day content plan: topics, hooks, formats, posting cadence.</p>
+
+      <h3 class="sub">Musecases #9 &mdash; Learning and building</h3>
+      <p>&bull; Teach me [topic] from zero. Plan: prerequisites, 4-week curriculum, resources, checkpoints. Quiz me after each section.</p>
+      <p>&bull; Explain [hard concept] like I&rsquo;m [5 / a smart friend / an expert in another field]. Then test my understanding with questions.</p>
+      <p>&bull; You are my coding partner. Task: [build X]. Stack: [Y]. Rules: explain before coding, small steps, tests first. Review my code as we go.</p>
+      <p>&bull; Debug this: [paste error/code]. Explain: what&rsquo;s wrong, why it happened, the fix, and how to avoid it next time.</p>
+      <p>&bull; Learn [language] in [timeframe]. Daily plan: vocab, grammar, speaking practice. Correct my mistakes and explain why.</p>
+      <p>&bull; Summarize [book/paper/long doc]. Then: key arguments, strongest evidence, biggest weakness, and 3 questions it raises.</p>
+      <p>&bull; Build me a [spreadsheet / tracker / template] for [purpose]. Include: formulas, conditional formatting, instructions.</p>
+
+      <h3 class="sub">Musecases #10 &mdash; The force multipliers</h3>
+      <p>&bull; <strong>11. Universal skeleton</strong> &mdash; &ldquo;Take any task I give you and first ask me 5 clarifying questions before starting.&rdquo;</p>
+      <p>&bull; <strong>12. Devil&rsquo;s advocate</strong> &mdash; &ldquo;For every recommendation you make, also argue the opposite case. Steelman both sides.&rdquo;</p>
+      <p>&bull; <strong>13. 80/20 filter</strong> &mdash; &ldquo;Before answering, tell me the 20% of this that drives 80% of the result.&rdquo;</p>
+      <p>&bull; <strong>14. Second-order check</strong> &mdash; &ldquo;What are the second-order effects of this decision I&rsquo;m not seeing?&rdquo;</p>
+      <p>&bull; <strong>15. Premortem</strong> &mdash; &ldquo;Assume this failed spectacularly. Walk me backwards through what went wrong.&rdquo;</p>
+      <p>&bull; <strong>16. The rubber duck</strong> &mdash; &ldquo;Don&rsquo;t solve it. Just ask me questions until I solve it myself.&rdquo;</p>
+      <p>&bull; <strong>17. The translator</strong> &mdash; &ldquo;Explain this to me three ways: for a beginner, a practitioner, and a skeptic.&rdquo;</p>
+      <p>&bull; <strong>18. The time traveler</strong> &mdash; &ldquo;What would I regret about this decision in 1 year? In 10 years?&rdquo;</p>
+      <p>&bull; <strong>19. The constraint game</strong> &mdash; &ldquo;Solve this with half the budget / time. What changes?&rdquo;</p>
+      <p>&bull; <strong>20. The quiet audit</strong> &mdash; &ldquo;What am I avoiding asking about this? Name it directly.&rdquo;</p>
+
+      <div class="pullquote">&ldquo;Let&rsquo;s get musemaxxing.&rdquo;<span class="attr">&mdash; Matt Schlicht (@MattPRD)</span></div>
+
+      <div class="stat-strip">
+        <div class="stat"><div class="num">10</div><div class="lbl">Musecases</div></div>
+        <div class="stat"><div class="num">~72</div><div class="lbl">Prompts (billed as 50)</div></div>
+        <div class="stat"><div class="num">10</div><div class="lbl">Force multipliers</div></div>
+        <div class="stat"><div class="num">1</div><div class="lbl">Super smart helper friend</div></div>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">The musemax map &mdash; ten territories, one skeleton</div>
+        <svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+          <g font-size="12">
+            <rect x="20" y="20" width="160" height="56" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="100" y="43" text-anchor="middle" font-weight="bold">1. Money</text><text x="100" y="61" text-anchor="middle" fill="#6b675c">7 prompts</text>
+            <rect x="200" y="20" width="160" height="56" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="280" y="43" text-anchor="middle" font-weight="bold">2. Admin &amp; inbox</text><text x="280" y="61" text-anchor="middle" fill="#6b675c">7 prompts</text>
+            <rect x="380" y="20" width="160" height="56" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="460" y="43" text-anchor="middle" font-weight="bold">3. Travel</text><text x="460" y="61" text-anchor="middle" fill="#6b675c">7 prompts</text>
+            <rect x="560" y="20" width="140" height="56" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="630" y="43" text-anchor="middle" font-weight="bold">4. Shopping</text><text x="630" y="61" text-anchor="middle" fill="#6b675c">6 prompts</text>
+            <rect x="20" y="96" width="160" height="56" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="100" y="119" text-anchor="middle" font-weight="bold">5. Family</text><text x="100" y="137" text-anchor="middle" fill="#6b675c">7 prompts</text>
+            <rect x="200" y="96" width="160" height="56" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="280" y="119" text-anchor="middle" font-weight="bold">6. Health</text><text x="280" y="137" text-anchor="middle" fill="#6b675c">7 prompts</text>
+            <rect x="380" y="96" width="160" height="56" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="460" y="119" text-anchor="middle" font-weight="bold">7. Work</text><text x="460" y="137" text-anchor="middle" fill="#6b675c">7 prompts</text>
+            <rect x="560" y="96" width="140" height="56" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="630" y="119" text-anchor="middle" font-weight="bold">8. Career</text><text x="630" y="137" text-anchor="middle" fill="#6b675c">7 prompts</text>
+            <rect x="200" y="172" width="160" height="56" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="280" y="195" text-anchor="middle" font-weight="bold">9. Learning</text><text x="280" y="213" text-anchor="middle" fill="#6b675c">7 prompts</text>
+            <rect x="380" y="172" width="160" height="56" rx="8" fill="#a31621" stroke-width="1.5"/><text x="460" y="195" text-anchor="middle" font-weight="bold" fill="#fff">10. Force multipliers</text><text x="460" y="213" text-anchor="middle" fill="#fff">10 meta-prompts</text>
+          </g>
+          <rect x="60" y="252" width="600" height="64" rx="8" fill="#f3efe4" stroke="#1a1a1a" stroke-width="2"/>
+          <text x="360" y="276" text-anchor="middle" font-size="13" font-weight="bold">the skeleton under every prompt:</text>
+          <text x="360" y="300" text-anchor="middle" font-size="12">ROLE &rarr; CONTEXT YOU PROVIDE &rarr; EXACT OUTPUT FORMAT</text>
+        </svg>
+        <div class="src">Source: @MattPRD musemax thread, 19 Sep 2026 &middot; hand-drawn for The Unread Pile</div>
+      </div>
+
+      <div class="learnings">
+        <h4>Why it matters</h4>
+        <ul>
+          <li>The best prompts delegate <em>outcomes</em>, not tasks: &ldquo;audit 12 months of email&rdquo; beats &ldquo;help me save money.&rdquo;</li>
+          <li>Every prompt follows one skeleton: role, context to provide, exact output format. Steal the skeleton.</li>
+          <li>The force-multiplier ten (#11&ndash;#20) are the real payload &mdash; meta-prompts that upgrade every other prompt you&rsquo;ll ever write.</li>
+        </ul>
+      </div>
+      <div class="takeaway"><strong>The takeaway:</strong> don&rsquo;t read all seventy-two. Steal the skeleton (role &rarr; context &rarr; output format), plus the premortem (#15). Run those two this week.</div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="fin">That&rsquo;s the pile, cleared &mdash; for today.</div>
+    <div>The Unread Pile &middot; Edition No. 6 &middot; Compiled from Rakshit&rsquo;s X likes &amp; bookmarks, 30 September 2026.<br>Read-only research throughout: nothing was liked, reposted, bookmarked or altered. Original posts belong to their authors; links above lead back to each one.</div>
+  </footer>
+
+</div>
+</body>
+</html>
