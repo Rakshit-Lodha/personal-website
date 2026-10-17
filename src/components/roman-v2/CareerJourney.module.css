@@ -4,13 +4,11 @@
   --career-bg: #e2dfd6;
   --career-sage: #cfd0c2;
   --career-card: #f6efe5;
-  --career-muted: #6b665e;
+  --career-muted: #5c5750;
 
   overflow: clip;
   padding-block: clamp(56px, 5.7vw, 96px) clamp(48px, 3vw, 56px);
-  background:
-    radial-gradient(ellipse 45% 30% at 100% 100%, rgba(201, 139, 114, 0.38), transparent 70%),
-    var(--career-bg);
+  background: var(--career-bg);
 }
 
 /* Decorative backdrop: sage circle, halftone field and architectural line work */
@@ -23,6 +21,14 @@
 
 .backdrop > span {
   position: absolute;
+}
+
+/* Terracotta glow at the bottom right: the lead-in to Selected products. Painted above the sage circle. */
+.backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 24% at 88% 100%, rgba(201, 139, 114, 0.55), transparent 75%);
 }
 
 .circle {
@@ -80,19 +86,22 @@
 
 .inner {
   position: relative;
-  max-width: 1680px;
 }
 
 /* Header */
 
+.header {
+  padding-left: clamp(0px, 1.35vw, 24px);
+}
+
 .title {
-  font-size: clamp(3rem, 9.1vw, 9.75rem);
-  letter-spacing: -0.035em;
+  font-size: clamp(3rem, 9.7vw, 10.125rem);
+  letter-spacing: -0.005em;
   line-height: 0.92;
 }
 
 .lede {
-  margin-top: 0.55em;
+  margin-top: 0;
   font-size: clamp(1.125rem, 1.95vw, 2rem);
   line-height: 1.3;
   color: #2b2925;
@@ -103,7 +112,7 @@
 .desktop {
   display: grid;
   grid-template-columns: clamp(184px, 12.8vw, 214px) minmax(0, 1fr);
-  margin-top: clamp(28px, 2.6vw, 44px);
+  margin-top: clamp(28px, 2.45vw, 41px);
 }
 
 .accordion {
@@ -175,6 +184,7 @@
   font-size: clamp(0.875rem, 0.96vw, 1rem);
   letter-spacing: 0.1em;
   line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .tab:hover .company {
@@ -201,6 +211,8 @@
 .card {
   container-type: inline-size;
   position: relative;
+  /* The card runs into the gutter to the viewport edge, as in the approved composition. */
+  margin-right: calc(-1 * var(--gutter));
   border-radius: 6px;
   background: linear-gradient(100deg, var(--career-card) 55%, #f3e9dd);
   box-shadow: 0 1px 2px rgba(23, 22, 20, 0.06), 0 18px 40px -24px rgba(23, 22, 20, 0.28);
@@ -208,9 +220,13 @@
 
 .art {
   position: absolute;
-  top: 0.45cqi;
-  right: -5cqi;
-  width: 61.2cqi;
+  top: -4.3cqi;
+  right: 0;
+  width: 58.4cqi;
+  /* The master's empty top rows sit above the card and are clipped at its edge; the left and bottom fade into the card. */
+  clip-path: inset(4.3cqi 0 0 0);
+  mask-image: linear-gradient(90deg, transparent, #000 30%), linear-gradient(#000 85%, transparent);
+  mask-composite: intersect;
   animation: careerArtIn 700ms var(--ease);
 }
 
@@ -237,7 +253,7 @@
   grid-area: 1 / 1;
   display: flex;
   flex-direction: column;
-  padding: 3.3cqi 4.7cqi 3cqi;
+  padding: 3.3cqi var(--gutter) 2.1cqi 4.6cqi;
   opacity: 0;
   visibility: hidden;
   transform: translateY(8px);
@@ -259,26 +275,27 @@
 
 .copy {
   flex: 1;
-  max-width: 37cqi;
-  min-height: 25.6cqi;
+  max-width: max(39cqi, 26rem);
 }
 
 .chapterTitle {
-  font-size: clamp(2.5rem, 6.7cqi, 5.625rem);
-  line-height: 0.93;
+  font-size: clamp(2.5rem, 6.4cqi, 5.625rem);
+  line-height: 0.82;
   letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 .role {
-  margin-top: 0.85em;
-  font-size: clamp(1.125rem, 2.05cqi, 1.75rem);
-  line-height: 1.3;
+  margin-top: 0.6em;
+  font-size: clamp(1.125rem, 2.16cqi, 1.875rem);
+  line-height: 1.2;
 }
 
 .narrative {
-  margin-top: 1.1em;
-  font-size: clamp(1rem, 1.78cqi, 1.5rem);
-  line-height: 1.42;
+  max-width: max(35.2cqi, 24rem);
+  margin-top: 0.75em;
+  font-size: clamp(1rem, 1.9cqi, 1.65625rem);
+  line-height: 1.28;
   color: #2b2925;
 }
 
@@ -287,8 +304,8 @@
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 24px 2cqi;
-  margin-top: 1.6cqi;
-  padding-top: 2.4cqi;
+  margin-top: 1.1cqi;
+  padding-top: 2cqi;
   border-top: 1px solid rgba(125, 33, 29, 0.7);
 }
 
@@ -303,7 +320,7 @@
   flex-direction: column;
   flex: 0 1 auto;
   min-width: 0;
-  padding: 0.3cqi 2.8cqi 0.6cqi;
+  padding: 0.3cqi 2.7cqi 0.6cqi;
 }
 
 .outcome:first-child {
@@ -318,17 +335,17 @@
   order: -1;
   margin: 0;
   font-family: var(--font-headline);
-  font-size: clamp(2.5rem, 7.2cqi, 6rem);
-  line-height: 0.95;
+  font-size: clamp(2.5rem, 6.87cqi, 6rem);
+  line-height: 0.8;
   letter-spacing: -0.035em;
   white-space: nowrap;
   color: var(--oxblood);
 }
 
 .outcomeLabel {
-  max-width: 11.5em;
-  margin-top: 0.55em;
-  font-size: clamp(0.9375rem, 1.72cqi, 1.4375rem);
+  max-width: 16em;
+  margin-top: 0.15em;
+  font-size: clamp(0.9375rem, 1.73cqi, 1.5rem);
   line-height: 1.25;
   color: #2b2925;
 }
@@ -376,6 +393,10 @@
 @media (max-width: 899px) {
   .desktop {
     display: none;
+  }
+
+  .header {
+    padding-left: 0;
   }
 
   .pediment,

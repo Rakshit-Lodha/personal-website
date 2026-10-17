@@ -102,8 +102,8 @@ export default function BeyondWork({ beyond }: { beyond: RomanV2Beyond }) {
         name="beyond-column"
         widths={[560, 812]}
         width={812}
-        height={266}
-        sizes="(max-width: 767px) 72vw, min(812px, 49vw)"
+        height={457}
+        sizes="(max-width: 767px) 46vw, min(812px, 49vw)"
         className={s.column}
       />
 
@@ -138,7 +138,7 @@ export default function BeyondWork({ beyond }: { beyond: RomanV2Beyond }) {
                 name="beyond-reading"
                 widths={[584]}
                 width={584}
-                height={419}
+                height={389}
                 sizes="(max-width: 767px) 100vw, 584px"
                 className={s.readingArt}
               />
@@ -147,10 +147,13 @@ export default function BeyondWork({ beyond }: { beyond: RomanV2Beyond }) {
 
           <Reveal className={s.writing} delay={80}>
             <article className={`${s.card} ${s.writingCard}`} aria-labelledby="beyond-writing-title">
-              <h3 id="beyond-writing-title" className={`${shared.eyebrow} ${s.eyebrow}`}>
-                {writing.eyebrow}
+              {/* The badge sits beside the heading so the heading's name stays "Writing". */}
+              <div className={s.eyebrowRow}>
+                <h3 id="beyond-writing-title" className={`${shared.eyebrow} ${s.eyebrow}`}>
+                  {writing.eyebrow}
+                </h3>
                 {writingIsPreview && <PreviewTag />}
-              </h3>
+              </div>
               <p className={s.writingBody}>{writing.body}</p>
               <ul className={s.rows}>
                 {writing.rows.slice(0, 3).map((row, index) => (
@@ -177,8 +180,8 @@ export default function BeyondWork({ beyond }: { beyond: RomanV2Beyond }) {
                   name="beyond-music"
                   widths={[516]}
                   width={516}
-                  height={210}
-                  sizes="516px"
+                  height={290}
+                  sizes="(max-width: 767px) 100vw, 516px"
                   className={s.musicArt}
                 />
                 <span className={s.musicPanel} />
