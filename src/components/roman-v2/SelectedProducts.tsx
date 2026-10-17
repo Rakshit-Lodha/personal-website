@@ -41,8 +41,13 @@ function Details({ item }: { item: RomanV2Product }) {
       <p className={s.detailsTitle}>{item.details.title}</p>
       <p className={s.detailsBody}>{item.details.body}</p>
       {item.primaryAction.available && (
-        <a href={item.primaryAction.href} tabIndex={-1} className={s.detailsAction}>
-          Try it out
+        <a
+          href={item.primaryAction.href}
+          tabIndex={-1}
+          className={s.detailsAction}
+          {...(/^https?:\/\//.test(item.primaryAction.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {item.details.actionLabel}
         </a>
       )}
     </div>
@@ -60,6 +65,7 @@ function Featured({ item }: { item: RomanV2Product }) {
         <div className={s.featuredActions}>
           <AvailabilityAction action={item.primaryAction} variant="primary" arrow="up-right" />
         </div>
+        <Details item={item} />
       </div>
       <div className={s.stage}>
         <span className={s.sun} aria-hidden="true" />
@@ -77,7 +83,6 @@ function Featured({ item }: { item: RomanV2Product }) {
           </div>
         </div>
       </div>
-      <Details item={item} />
     </article>
   );
 }

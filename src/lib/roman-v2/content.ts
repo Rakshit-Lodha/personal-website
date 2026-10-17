@@ -85,8 +85,8 @@ const chapters: RomanV2Chapter[] = EXPERIENCE.map((experience) => {
 const SCREENS = "/roman-v2/projects/screens";
 
 /**
- * Display order; first is featured. `href` overrides the profile demo link: on-site products, or null
- * while a hosted demo is down (Feedback Intelligence's Render service is suspended).
+ * Display order; first is featured. `href` overrides the profile demo link: on-site products, or the
+ * source while a hosted demo is down (Feedback Intelligence's Render service is suspended).
  * Screenshots are real 1440×900 captures.
  */
 const PRODUCT_COPY: {
@@ -105,6 +105,7 @@ const PRODUCT_COPY: {
     details: {
       title: "Hiring Assistant",
       body: "Helping recruiters assess fit using a job description, company link, or question.",
+      actionLabel: "Try it out",
     },
     href: "/chat",
     screenshot: {
@@ -121,6 +122,7 @@ const PRODUCT_COPY: {
     details: {
       title: "Krux.news",
       body: "Multi-stage AI pipeline combines ingestion, web research, curation, and publishing into swipeable news stories.",
+      actionLabel: "Try it out",
     },
     screenshot: {
       src: `${SCREENS}/krux-new`,
@@ -130,13 +132,24 @@ const PRODUCT_COPY: {
       widths: [480, 960],
     },
   },
-  { id: "feedback-agent", tagline: "Signals from customer noise", href: null },
+  {
+    id: "feedback-agent",
+    tagline: "Signals from customer noise",
+    // The hosted demo is suspended, so the card links to the source.
+    href: "https://github.com/Rakshit-Lodha/managed-agents-review",
+    details: {
+      title: "Feedback Intelligence",
+      body: "Feedback agent built with OpenAI Agents SDK, Next.js onboarding, and a FastAPI preview backend.",
+      actionLabel: "Learn More",
+    },
+  },
   {
     id: "mf-semantic-search",
     tagline: "Find funds by intent",
     details: {
       title: "Fund Finder",
-      body: "Embeddings, intent routing, and ChromaDB power semantic lookup, comparison, and discovery across 16,197 mutual funds.",
+      body: "Embeddings and ChromaDB power semantic lookup, comparison, and discovery across all mutual funds.",
+      actionLabel: "Try it out",
     },
     screenshot: {
       src: `${SCREENS}/mf-semantic-search`,

@@ -69,7 +69,7 @@ export type RomanV2Product = {
   /** Real product capture, exported as `${src}-${width}.webp` for each width; null until one exists. */
   screenshot: (RomanV2Image & { widths: number[] }) | null;
   /** Panel shown over the card on hover; null shows none. */
-  details: { title: string; body: string } | null;
+  details: { title: string; body: string; actionLabel: string } | null;
   primaryAction: AvailableAction;
   sourceAction: AvailableAction;
 };
