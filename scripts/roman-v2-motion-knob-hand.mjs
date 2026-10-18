@@ -361,7 +361,7 @@ for (crf of [30, 33, 36, 39, 42, 45]) {
   crf = null;
 }
 for (q of [[50, 0.75], [40, 0.75], [40, 0.65], [36, 0.55], [32, 0.5]]) {
-  run([...input, "-c:v", "hevc_videotoolbox", "-pix_fmt", "bgra", "-alpha_quality", String(q[1]), "-q:v", String(q[0]), "-g", String(FRAMES), "-tag:v", "hvc1", "-movflags", "+faststart", "-an", mp4]);
+  run([...input, "-vf", "premultiply=inplace=1", "-c:v", "hevc_videotoolbox", "-pix_fmt", "bgra", "-alpha_quality", String(q[1]), "-q:v", String(q[0]), "-g", String(FRAMES), "-tag:v", "hvc1", "-movflags", "+faststart", "-an", mp4]);
   if ((await fs.stat(mp4)).size <= BUDGET) break;
   q = null;
 }

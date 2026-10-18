@@ -398,7 +398,8 @@ async function encodeClip(id) {
 const LOCK = (process.env.ROMAN_LOCK ?? "8,24").split(",").map(Number);
 const LOCK_GROW = 14, LOCK_FEATHER = 6; // px at output size
 const VP9_CRF = [30, 33, 36, 39, 42, 45, 48, 51, 54];
-// VideoToolbox HEVC: [q:v, alpha_quality]. The alpha layer is the expensive part (≈+270 KB per 4 s at 1080×720
+// VideoToolbox HEVC: frames are premultiplied first (Safari composites HEVC alpha as premultiplied, so straight
+// colour under transparent pixels would add a white wash). [q:v, alpha_quality]. The alpha layer is the expensive part (≈+270 KB per 4 s at 1080×720
 // going from 0.5 to 0.75), so alpha quality steps down from 0.75 only when the budget needs it.
 const HEVC_Q = [[50, 0.75], [40, 0.75], [40, 0.65], [36, 0.55], [32, 0.5], [28, 0.45], [24, 0.4]];
 
@@ -416,7 +417,7 @@ async function encodeOne(id, c, rawFile, W, H, frames, fps, reversed) {
   }
   if (crf == null) throw new Error(`BUDGET: ${id}.webm exceeds ${budget / KB} KB even at crf ${VP9_CRF.at(-1)}`);
   for (q of HEVC_Q) {
-    run(FFMPEG, ["-v", "error", "-y", ...input, "-c:v", "hevc_videotoolbox", "-pix_fmt", "bgra", "-alpha_quality", String(q[1]), "-q:v", String(q[0]), "-g", String(frames), "-tag:v", "hvc1", "-movflags", "+faststart", "-an", mp4]);
+    run(FFMPEG, ["-v", "error", "-y", ...input, "-vf", "premultiply=inplace=1", "-c:v", "hevc_videotoolbox", "-pix_fmt", "bgra", "-alpha_quality", String(q[1]), "-q:v", String(q[0]), "-g", String(frames), "-tag:v", "hvc1", "-movflags", "+faststart", "-an", mp4]);
     if ((await fs.stat(mp4)).size <= budget) break;
     q = null;
   }
