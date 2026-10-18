@@ -145,6 +145,16 @@
     background: rgba(247, 242, 233, 0.94);
   }
 
+  /* Once the full navigation is visible, the compact menu glyph is no longer needed. */
+  .pill[data-scrolled]:hover .compactToggle > svg,
+  .pill[data-scrolled]:focus-within .compactToggle > svg,
+  .pill[data-scrolled][data-expanded] .compactToggle > svg,
+  .pill[data-scrolled]:hover .compactDivider,
+  .pill[data-scrolled]:focus-within .compactDivider,
+  .pill[data-scrolled][data-expanded] .compactDivider {
+    display: none;
+  }
+
   .links,
   .jj {
     max-width: 580px;
