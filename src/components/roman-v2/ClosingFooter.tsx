@@ -1,5 +1,6 @@
 import type { RomanV2Closing } from "@/lib/roman-v2/types";
 import AvailabilityAction from "./AvailabilityAction";
+import FooterReach from "./FooterReach";
 import shared from "./contemporary-roman.module.css";
 import s from "./ClosingFooter.module.css";
 
@@ -30,6 +31,7 @@ export default function ClosingFooter({ closing }: { closing: RomanV2Closing }) 
         <svg className={s.cursor} viewBox="0 0 30 40" focusable="false">
           <path d="M1 1 28 25 16.5 26.5 9 39Z" fill="currentColor" />
         </svg>
+        <FooterReach />
       </div>
 
       <div className={`${shared.container} ${s.inner}`}>

@@ -525,6 +525,7 @@
   }
 
   .itemArt {
+    position: relative; /* holds the motion layer */
     margin: 0 -20px 4px;
   }
 

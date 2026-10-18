@@ -3,8 +3,10 @@
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 import { onSelect } from "@/components/roman/select";
 import { ChevronDown } from "lucide-react";
+import { MOTION, motionClip } from "@/lib/roman-v2/motion";
 import type { AvailableAction, RomanV2Career, RomanV2Chapter } from "@/lib/roman-v2/types";
 import AvailabilityAction from "./AvailabilityAction";
+import LoopVideo, { type MotionHandle, useMotionAllowed } from "./LoopVideo";
 import Reveal from "./Reveal";
 import shared from "./contemporary-roman.module.css";
 import s from "./CareerJourney.module.css";
@@ -17,21 +19,129 @@ const tightPeriod = (period: string) => period.replace(/\s*—\s*/g, "—");
 
 const KEY_STEP: Record<string, number> = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
 
-function CareerArt({ sizes }: { sizes: string }) {
+/**
+ * Art state per chapter: S4 is the full structure in the approved still; each older chapter has one piece fewer.
+ * Clips: career-rAB removes a piece (state A → B), career-rAB-rev puts it back, career-idle-sN loops on state N.
+ */
+const CAREER_STATE: Record<string, number> = { paytmmoney: 4, etmoney: 3, indmoney: 2, learnapp: 1 };
+const CAREER_MOTION = Object.values(MOTION.clips).some((clip) => clip.section === "career");
+
+/** The clip that builds each state from its neighbour: the cube goes onto S4, and each older state loses a piece. */
+const ENTRANCE: Record<number, { clip: string; from: number }> = {
+  4: { clip: "career-r43-rev", from: 3 },
+  3: { clip: "career-r43", from: 4 },
+  2: { clip: "career-r32", from: 3 },
+  1: { clip: "career-r21", from: 2 },
+};
+/** Entrance for a state, only when its clip exists. */
+const entrance = (stage: number) => (motionClip(ENTRANCE[stage]?.clip ?? "") ? ENTRANCE[stage] : undefined);
+
+type ArtState = { depicted: number; target: number; still: boolean; idle: number; busy: boolean; hurry: boolean };
+
+/** Shows state `to` directly with a crossfade: its idle loop, else the last frame of a clip ending on it, else the still. */
+async function jumpTo(player: MotionHandle, art: ArtState, to: number) {
+  const ok =
+    (await player.play(`career-idle-s${to}`, { loop: true, fade: 200 })) ||
+    (to < 4 && (await player.play(`career-r${to + 1}${to}`, { hold: true, fade: 200 }))) ||
+    (to > 1 && (await player.play(`career-r${to}${to - 1}-rev`, { hold: true, fade: 200 })));
+  // No clip shows this state: fall back to the one real still rather than inventing a state.
+  if (!ok) player.still();
+  art.depicted = to;
+  art.still = !ok;
+  art.idle = ok ? to : 0;
+}
+
+/**
+ * Walks the art towards the latest target one piece at a time. Two steps chain at 2×, three crossfade; a target
+ * that changes mid-clip lets the clip finish at 2× (clips always end on a state frame) and then reroutes.
+ */
+async function runArt(player: MotionHandle, art: ArtState) {
+  art.busy = true;
+  while (art.depicted !== art.target) {
+    const from = art.depicted;
+    const steps = art.target - from;
+    // 0 = not yet shown (first view); the still only shows S4 truthfully. Either way, crossfade.
+    if (Math.abs(steps) >= 3 || from === 0 || (art.still && from !== 4)) {
+      await jumpTo(player, art, art.target);
+      continue;
+    }
+    const next = from + Math.sign(steps);
+    const id = next < from ? `career-r${from}${next}` : `career-r${next}${from}-rev`;
+    // A multi-step jump keeps 2× for every hop, not just the first.
+    if (Math.abs(steps) > 1) art.hurry = true;
+    const rate = art.hurry ? 2 : 1;
+    // Cut from the still or a clip's end frame (they match the clip's first frame); blend out of a mid-loop idle.
+    if (!(await player.play(id, { rate, fade: art.idle ? 120 : 0 }))) {
+      await jumpTo(player, art, art.target);
+      continue;
+    }
+    art.depicted = next;
+    art.still = false;
+    art.idle = 0;
+  }
+  art.hurry = false;
+  if (!art.still && art.idle !== art.depicted && (await player.play(`career-idle-s${art.depicted}`, { loop: true, fade: 0 })))
+    art.idle = art.depicted;
+  art.busy = false;
+  if (art.depicted !== art.target) void runArt(player, art);
+}
+
+/** Drives the desktop card's art through the career clips; the chapter text never waits for it. */
+function useCareerArt(activeId: string) {
+  const player = useRef<MotionHandle>(null);
+  const [ready, setReady] = useState(false);
+  const art = useRef<ArtState>({ depicted: 4, target: 4, still: true, idle: 0, busy: false, hurry: false });
+  const first = useRef(true);
+  // Until the first view has played, the card's still shows the state the entrance clip starts from.
+  const [entered, setEntered] = useState(false);
+
+  useEffect(() => {
+    const target = CAREER_STATE[activeId];
+    if (!ready || !player.current || target === undefined) return;
+    const state = art.current;
+    state.target = target;
+    // The page can open on another chapter than the still's S4: crossfade there rather than play a transition.
+    if (first.current) {
+      first.current = false;
+      if (target !== 4) state.depicted = 0;
+      // Opening on S4: the hand places the top cube as the card comes into view, then the idle loop.
+      else if (entrance(4)) Object.assign(state, { depicted: entrance(4)!.from, still: false });
+    }
+    if (state.busy) {
+      state.hurry = true;
+      player.current.setRate(2);
+    } else void runArt(player.current, state).then(() => setEntered(true));
+  }, [activeId, ready]);
+
+  return [player, () => setReady(true), entered] as const;
+}
+
+/** Structure stills: stage 4 (Paytm Money, full) is the approved art; stages 1–3 remove one piece each. */
+function CareerArt({ sizes, stage = 4 }: { sizes: string; stage?: number }) {
+  const base = stage === 4 ? "/roman-v2/career/career-hands" : `/roman-v2/motion/career/career-s${stage}`;
+  const widths = stage === 4 ? [560, 812, 1072] : [1072];
+  const srcSet = (format: string) => widths.map((w) => `${base}-${w}.${format} ${w}w`).join(", ");
   return (
     <picture>
-      <source
-        type="image/avif"
-        srcSet="/roman-v2/career/career-hands-560.avif 560w, /roman-v2/career/career-hands-812.avif 812w, /roman-v2/career/career-hands-1072.avif 1072w"
-        sizes={sizes}
-      />
-      <source
-        type="image/webp"
-        srcSet="/roman-v2/career/career-hands-560.webp 560w, /roman-v2/career/career-hands-812.webp 812w, /roman-v2/career/career-hands-1072.webp 1072w"
-        sizes={sizes}
-      />
-      <img src="/roman-v2/career/career-hands-812.webp" alt="" width={1072} height={790} loading="lazy" decoding="async" />
+      <source type="image/avif" srcSet={srcSet("avif")} sizes={sizes} />
+      <source type="image/webp" srcSet={srcSet("webp")} sizes={sizes} />
+      <img src={`${base}-${widths[Math.min(1, widths.length - 1)]}.webp`} alt="" width={1072} height={790} loading="lazy" decoding="async" />
     </picture>
+  );
+}
+
+/**
+ * Mobile accordion art. Every time the item opens, its entrance clip builds the chapter's state from its neighbour
+ * (re-mounting the player replays it), then its idle loop runs. Without video, the chapter's own still.
+ */
+function AccordionArt({ stage, open, animated }: { stage?: number; open: boolean; animated: boolean }) {
+  if (stage === undefined) return <CareerArt sizes="calc(100vw - 32px)" />;
+  const enter = animated ? entrance(stage) : undefined;
+  return (
+    <>
+      <CareerArt sizes="calc(100vw - 32px)" stage={enter?.from ?? stage} />
+      {animated && <LoopVideo key={String(open)} intro={enter?.clip} loop={`career-idle-s${stage}`} startRatio={0.4} />}
+    </>
   );
 }
 
@@ -68,6 +178,9 @@ export default function CareerJourney({ career }: { career: RomanV2Career }) {
   const [activeId, setActiveId] = useState(career.initialChapterId);
   const [openIds, setOpenIds] = useState<string[]>([career.initialChapterId]);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const [artPlayer, onArtReady, artEntered] = useCareerArt(activeId);
+  // With video the motion layer carries every change; without it (reduced motion, Save-Data) show each stage's still.
+  const animated = useMotionAllowed() && CAREER_MOTION;
 
   // JJ asks for a chapter: select it on desktop and open it on mobile.
   useEffect(
@@ -144,8 +257,10 @@ export default function CareerJourney({ career }: { career: RomanV2Career }) {
           </div>
 
           <div className={s.card}>
-            <div key={activeId} className={s.art} aria-hidden="true">
-              <CareerArt sizes="49vw" />
+            {/* Without video the chapter's stage still swaps in on every change; with it the motion layer carries the change. */}
+            <div key={animated ? undefined : activeId} className={s.art} aria-hidden="true">
+              <CareerArt sizes="49vw" stage={animated ? (artEntered ? 4 : (entrance(4)?.from ?? 4)) : CAREER_STATE[activeId]} />
+              {CAREER_MOTION && <LoopVideo ref={artPlayer} onReady={onArtReady} startRatio={0.4} />}
             </div>
             <div className={s.stage}>
               {chapters.map((chapter) => {
@@ -210,7 +325,7 @@ export default function CareerJourney({ career }: { career: RomanV2Career }) {
                   hidden={!open}
                 >
                   <div className={s.itemArt} aria-hidden="true">
-                    <CareerArt sizes="calc(100vw - 32px)" />
+                    <AccordionArt stage={CAREER_STATE[chapter.id]} open={open} animated={animated} />
                   </div>
                   <p className={s.itemTitle}>{chapter.title}</p>
                   <p className={s.role}>{chapter.role}</p>

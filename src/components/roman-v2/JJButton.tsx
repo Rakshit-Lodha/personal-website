@@ -7,7 +7,7 @@ import { ActionArrowIcon, actionClassName, type ActionArrow, type ActionVariant 
 export default function JJButton({
   label,
   variant = "outline",
-  arrow = "up-right",
+  arrow = "none",
   className,
 }: {
   label: string;

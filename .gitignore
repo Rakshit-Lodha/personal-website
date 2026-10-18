@@ -44,3 +44,13 @@ next-env.d.ts
 /scripts/lyrics-align/venv
 /scripts/lyrics-align/__pycache__
 /scripts/lyrics-align/separated
+
+# Roman v2 raw generation output and regenerable previews/QA captures (scripts rebuild them)
+/design/roman-v2/motion/work/
+/design/roman-v2/motion/clips/draft/
+/design/roman-v2/motion/clips/final/
+/design/roman-v2/motion/encode-qa/
+/design/roman-v2/motion/previews/
+/design/roman-v2/motion/qa/
+/design/roman-v2/assets/previews/
+/design/roman-v2/qa/**/*.png

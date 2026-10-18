@@ -1,5 +1,6 @@
 import type { RomanV2Product, RomanV2Products } from "@/lib/roman-v2/types";
 import AvailabilityAction from "./AvailabilityAction";
+import LoopVideo from "./LoopVideo";
 import shared from "./contemporary-roman.module.css";
 import s from "./SelectedProducts.module.css";
 
@@ -63,7 +64,7 @@ function Featured({ item }: { item: RomanV2Product }) {
         </h3>
         <p className={s.featuredTagline}>{item.tagline}</p>
         <div className={s.featuredActions}>
-          <AvailabilityAction action={item.primaryAction} variant="primary" arrow="up-right" />
+          <AvailabilityAction action={item.primaryAction} variant="primary" />
         </div>
         <Details item={item} />
       </div>
@@ -77,6 +78,7 @@ function Featured({ item }: { item: RomanV2Product }) {
             sizes="(min-width: 900px) 63vw, 110vw"
             className={s.frame}
           />
+          <LoopVideo loop="products-reader-loop" className={s.motion} />
           {/* Above the frame, clipped to the traced outline of its dark opening. */}
           <div className={s.window}>
             <Screenshot shot={item.screenshot} sizes="(min-width: 900px) 40vw, 75vw" className={s.windowShot} />

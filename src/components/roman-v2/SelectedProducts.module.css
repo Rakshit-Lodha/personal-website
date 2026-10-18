@@ -134,6 +134,12 @@
   height: auto;
 }
 
+/* Motion layer over the frame image only (the art box can be taller than the frame). */
+.art > .motion {
+  bottom: auto;
+  aspect-ratio: 1536 / 1024;
+}
+
 /* Bounding box of the frame's dark opening; the polygon traces its outline (head profile included). */
 .window {
   position: absolute;

@@ -48,6 +48,14 @@ const ASSETS = [
     masterNotes: 'Approved generated desktop hero. Figure, hands and laptop all face left; left copy field is intentionally clear. Draw the large faint circle and all interface elements in CSS/HTML.',
   },
   {
+    id: 'hero-figure-typing', section: 'hero', concept: C.hero, crop: [560, 95, 1105, 748], widths: [720, 1105, 1536], matte: { lo: 3, hi: 7 },
+    bg: PALETTE.hero.paper, fade: { left: 110, top: 70, right: 30 },
+    ops: [],
+    placement: 'Same slot as hero-figure. The page still and IntroReveal art, so the typing loop (which starts on this pose) continues it without a jump.',
+    notes: 'Master = the motion TYPING keyframe (design/roman-v2/motion/keyframes/hero-typing-desktop-typing.png) cropped to the hero-figure master rect [284, 0, 1536, 1024].',
+    masterNotes: 'Approved hero figure with the head lowered to the laptop screen (identity-checked typing pose).',
+  },
+  {
     id: 'hero-hands-mobile', section: 'hero', concept: C.hero, crop: [770, 95, 850, 748], widths: [480, 780], matte: { lo: 3, hi: 7 }, 
     // Laptop and typing hands only (no head), cut from the mobile master; the right and bottom edges
     // run off the viewport, so only the cut top fades.

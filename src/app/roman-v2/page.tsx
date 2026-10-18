@@ -5,6 +5,7 @@ import JJSurface from "@/components/jj/JJSurface";
 import JJRealtimeController from "@/components/jj/JJRealtimeController";
 import MusicSheet from "@/components/music/MusicSheet";
 import { getRomanV2Content } from "@/lib/roman-v2/content";
+import IntroReveal from "@/components/IntroReveal";
 
 export const metadata: Metadata = {
   title: "Rakshit Lodha — Product judgment",
@@ -19,6 +20,7 @@ export default async function RomanV2Page() {
 
   return (
     <JJSessionProvider>
+      <IntroReveal />
       <ContemporaryRomanSite content={content} />
       <MusicSheet />
       <JJSurface />

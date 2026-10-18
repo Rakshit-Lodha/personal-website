@@ -1,0 +1,143 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  isolation: isolate;
+  background: #f4ebdf;
+  color: #25211f;
+  animation: revealSite 5.6s ease both;
+}
+.paperGrain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.52' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+}
+.name {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.45vw, 28px);
+  white-space: nowrap;
+  animation: nameAway 5.6s ease both;
+}
+.first {
+  font: 600 clamp(38px, 4.3vw, 88px)/1 var(--font-gelasio), Georgia, serif;
+  letter-spacing: -.065em;
+  animation: firstOut 5.6s cubic-bezier(.35,0,.75,1) both;
+}
+.last {
+  font: 650 clamp(32px, 3.75vw, 78px)/1 var(--font-figtree), sans-serif;
+  letter-spacing: -.055em;
+  animation: lastOut 5.6s cubic-bezier(.35,0,.75,1) both;
+}
+.emblem {
+  position: relative;
+  width: clamp(14px, 2vw, 35px);
+  height: clamp(14px, 2vw, 35px);
+  opacity: 0;
+  animation: emblemIn 5.6s ease both;
+}
+.emblem i { position: absolute; width: 46%; height: 46%; background: #7d211d; }
+.emblem i:nth-child(1) { left: 0; top: 0; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+.emblem i:nth-child(2) { right: 0; top: 0; clip-path: polygon(0 0, 100% 100%, 0 100%); }
+.emblem i:nth-child(3) { left: 0; bottom: 0; clip-path: polygon(0 0, 100% 0, 100% 100%); }
+.emblem i:nth-child(4) { right: 0; bottom: 0; clip-path: polygon(0 0, 100% 0, 0 100%); }
+.artwork {
+  --intro-width: min(45vw, 680px);
+  --intro-height: min(30vw, 453.333px);
+  position: absolute;
+  z-index: 4;
+  /* Final hero rect (set by IntroReveal.tsx); the fallback centres the intro-size box. */
+  left: var(--box-x, calc(50% - var(--intro-width) / 2));
+  top: var(--box-y, calc(50% - var(--intro-height) / 2));
+  width: var(--box-w, var(--intro-width));
+  height: var(--box-h, var(--intro-height));
+  background: #f4ebdf;
+  transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(0);
+  transform-origin: center;
+  overflow: hidden;
+  animation: artExpand 5.6s cubic-bezier(.22,1,.36,1) both;
+}
+.heroFigure { object-fit: contain; object-position: center bottom; }
+.heroHands { display: none; }
+.artwork > span { position: absolute; z-index: 2; width: 20px; height: 20px; border-color: #403731; opacity: .75; animation: cornersAway 5.6s ease both; }
+.cornerTopLeft { top: 0; left: 0; border-top: 2px solid; border-left: 2px solid; }
+.cornerTopRight { top: 0; right: 0; border-top: 2px solid; border-right: 2px solid; }
+.cornerBottomLeft { bottom: 0; left: 0; border-bottom: 2px solid; border-left: 2px solid; }
+.cornerBottomRight { bottom: 0; right: 0; border-bottom: 2px solid; border-right: 2px solid; }
+.fragment {
+  position: absolute;
+  z-index: 2;
+  width: min(16vw, 250px);
+  height: min(24vh, 230px);
+  opacity: 0;
+  overflow: hidden;
+  filter: drop-shadow(0 12px 15px rgba(63,42,30,.12));
+  animation: fragmentOut 5.6s cubic-bezier(.22,1,.36,1) both;
+}
+.fragment img { object-fit: cover; }
+.fragmentOne { left: 12%; top: 13%; --angle: -9deg; --x: -20vw; --y: -16vh; }
+.fragmentTwo { right: 8%; top: 8%; --angle: 7deg; --x: 23vw; --y: -20vh; animation-delay: .1s; }
+.fragmentThree { left: 15%; bottom: 6%; --angle: 5deg; --x: -18vw; --y: 23vh; animation-delay: .2s; }
+@keyframes revealSite { 0%, 80% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes nameAway { 0%, 38% { opacity: 1; } 57%, 100% { opacity: 0; } }
+@keyframes firstOut { 0%, 14% { transform: translateX(0); } 70%, 100% { transform: translateX(-42vw); } }
+@keyframes lastOut { 0%, 14% { transform: translateX(0); } 70%, 100% { transform: translateX(42vw); } }
+@keyframes emblemIn { 0%, 10% { opacity: 0; transform: scale(.3) rotate(-45deg); } 20%, 33% { opacity: 1; transform: scale(1) rotate(0); } 42%, 100% { opacity: 0; transform: scale(2.5); } }
+@keyframes artExpand {
+  0%, 22% { opacity: 0; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(calc(var(--s, 1) * .02)); background: #f4ebdf; }
+  34% { opacity: 1; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(calc(var(--s, 1) * .42)); background: #f4ebdf; }
+  51% { opacity: 1; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(var(--s, 1)); background: #f4ebdf; }
+  76%, 100% { opacity: 1; transform: translate(0, 0) scale(1); background: transparent; }
+}
+@keyframes cornersAway { 0%, 52% { opacity: .75; } 72%, 100% { opacity: 0; } }
+@keyframes fragmentOut {
+  0%, 37% { opacity: 0; transform: translate(0, 0) rotate(0) scale(.5); }
+  49%, 57% { opacity: .75; transform: translate(0, 0) rotate(var(--angle)) scale(1); }
+  73%, 100% { opacity: 0; transform: translate(var(--x), var(--y)) rotate(var(--angle)) scale(1.65); }
+}
+@media (max-width: 700px) {
+  .intro { animation: mobileRevealSite 4.4s ease both; }
+  .first { font-size: clamp(30px, 8vw, 48px); }
+  .last { font-size: clamp(27px, 7vw, 43px); }
+  .name { gap: 9px; }
+  .artwork {
+    --intro-width: 72vw;
+    --intro-height: 48vw;
+    background: transparent;
+  }
+  .fragment { display: none; }
+  .name { animation: mobileNameAway 4.4s ease both; }
+  .first { animation: mobileFirstOut 4.4s cubic-bezier(.35,0,.75,1) both; }
+  .last { animation: mobileLastOut 4.4s cubic-bezier(.35,0,.75,1) both; }
+  .emblem { animation-duration: 4.4s; }
+  .artwork { animation: mobileArtReveal 4.4s cubic-bezier(.42,0,.2,1) both; }
+  .artwork > span { animation-duration: 4.4s; }
+}
+@keyframes mobileRevealSite { 0%, 78% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes mobileArtReveal {
+  0%, 22% { opacity: 0; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(calc(var(--s, 1) * .02)); }
+  35% { opacity: 1; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(calc(var(--s, 1) * .52)); }
+  55% { opacity: 1; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(var(--s, 1)); }
+  78%, 100% { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+@keyframes mobileNameAway { 0%, 25% { opacity: 1; } 42%, 100% { opacity: 0; } }
+@keyframes mobileFirstOut { 0%, 12% { transform: translateX(0); } 55%, 100% { transform: translateX(-18vw); } }
+@keyframes mobileLastOut { 0%, 12% { transform: translateX(0); } 55%, 100% { transform: translateX(18vw); } }
+@media (max-width: 899px) {
+  .heroFigure { animation: figureToHands 5.6s ease both; }
+  .heroHands { display: block; object-fit: cover; object-position: 62% 70%; mask-image: linear-gradient(transparent, #000 56px); animation: handsIn 5.6s ease both; }
+}
+@media (max-width: 700px) {
+  .heroFigure { display: block; object-fit: cover; object-position: 70% center; animation: none; }
+  .heroHands { display: none; }
+}
+@keyframes figureToHands { 0%, 57% { opacity: 1; } 75%, 100% { opacity: 0; } }
+@keyframes handsIn { 0%, 57% { opacity: 0; } 75%, 100% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .intro { display: none; } }

@@ -1,0 +1,577 @@
+{
+  "version": 1,
+  "clips": {
+    "hero-intro-desktop": {
+      "id": "hero-intro-desktop",
+      "section": "hero",
+      "role": "intro",
+      "device": "desktop",
+      "width": 1080,
+      "height": 720,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/hero/hero-intro-desktop.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 412615
+        },
+        {
+          "src": "/roman-v2/motion/hero/hero-intro-desktop.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 418027
+        }
+      ],
+      "poster": "/roman-v2/hero/hero-figure-1105.webp"
+    },
+    "hero-loop-desktop": {
+      "id": "hero-loop-desktop",
+      "section": "hero",
+      "role": "loop",
+      "device": "desktop",
+      "width": 1080,
+      "height": 720,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/hero/hero-loop-desktop.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 406138
+        },
+        {
+          "src": "/roman-v2/motion/hero/hero-loop-desktop.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 375338
+        }
+      ],
+      "poster": "/roman-v2/hero/hero-figure-1105.webp"
+    },
+    "hero-intro-mobile": {
+      "id": "hero-intro-mobile",
+      "section": "hero",
+      "role": "intro",
+      "device": "mobile",
+      "width": 448,
+      "height": 352,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/hero/hero-intro-mobile.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 180222
+        },
+        {
+          "src": "/roman-v2/motion/hero/hero-intro-mobile.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 160430
+        }
+      ],
+      "poster": "/roman-v2/hero/hero-hands-mobile-480.webp"
+    },
+    "hero-loop-mobile": {
+      "id": "hero-loop-mobile",
+      "section": "hero",
+      "role": "loop",
+      "device": "mobile",
+      "width": 448,
+      "height": 352,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/hero/hero-loop-mobile.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 179674
+        },
+        {
+          "src": "/roman-v2/motion/hero/hero-loop-mobile.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 77714
+        }
+      ],
+      "poster": "/roman-v2/hero/hero-hands-mobile-480.webp"
+    },
+    "career-r43": {
+      "id": "career-r43",
+      "section": "career",
+      "role": "transition",
+      "device": "desktop",
+      "width": 820,
+      "height": 604,
+      "duration": 6,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/career/career-r43.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 303844
+        },
+        {
+          "src": "/roman-v2/motion/career/career-r43.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 261315
+        }
+      ],
+      "poster": "/roman-v2/career/career-hands-1072.webp"
+    },
+    "career-r43-rev": {
+      "id": "career-r43-rev",
+      "section": "career",
+      "role": "transition-reverse",
+      "device": "desktop",
+      "width": 820,
+      "height": 604,
+      "duration": 6,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/career/career-r43-rev.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 299562
+        },
+        {
+          "src": "/roman-v2/motion/career/career-r43-rev.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 261125
+        }
+      ],
+      "poster": "/roman-v2/motion/career/career-s3-1072.webp"
+    },
+    "career-r32": {
+      "id": "career-r32",
+      "section": "career",
+      "role": "transition",
+      "device": "desktop",
+      "width": 820,
+      "height": 604,
+      "duration": 6,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/career/career-r32.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 280535
+        },
+        {
+          "src": "/roman-v2/motion/career/career-r32.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 287300
+        }
+      ],
+      "poster": "/roman-v2/motion/career/career-s3-1072.webp"
+    },
+    "career-r32-rev": {
+      "id": "career-r32-rev",
+      "section": "career",
+      "role": "transition-reverse",
+      "device": "desktop",
+      "width": 820,
+      "height": 604,
+      "duration": 6,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/career/career-r32-rev.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 275774
+        },
+        {
+          "src": "/roman-v2/motion/career/career-r32-rev.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 287688
+        }
+      ],
+      "poster": "/roman-v2/motion/career/career-s2-1072.webp"
+    },
+    "career-idle-s4": {
+      "id": "career-idle-s4",
+      "section": "career",
+      "role": "idle",
+      "device": "desktop",
+      "width": 820,
+      "height": 604,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/career/career-idle-s4.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 314171
+        },
+        {
+          "src": "/roman-v2/motion/career/career-idle-s4.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 112854
+        }
+      ],
+      "poster": "/roman-v2/career/career-hands-1072.webp"
+    },
+    "career-idle-s3": {
+      "id": "career-idle-s3",
+      "section": "career",
+      "role": "idle",
+      "device": "desktop",
+      "width": 820,
+      "height": 604,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/career/career-idle-s3.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 367623
+        },
+        {
+          "src": "/roman-v2/motion/career/career-idle-s3.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 178860
+        }
+      ],
+      "poster": "/roman-v2/motion/career/career-s3-1072.webp"
+    },
+    "career-idle-s2": {
+      "id": "career-idle-s2",
+      "section": "career",
+      "role": "idle",
+      "device": "desktop",
+      "width": 820,
+      "height": 604,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/career/career-idle-s2.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 398476
+        },
+        {
+          "src": "/roman-v2/motion/career/career-idle-s2.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 205589
+        }
+      ],
+      "poster": "/roman-v2/motion/career/career-s2-1072.webp"
+    },
+    "career-idle-s1": {
+      "id": "career-idle-s1",
+      "section": "career",
+      "role": "idle",
+      "device": "desktop",
+      "width": 820,
+      "height": 604,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/career/career-idle-s1.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 441893
+        },
+        {
+          "src": "/roman-v2/motion/career/career-idle-s1.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 245923
+        }
+      ],
+      "poster": "/roman-v2/motion/career/career-s1-1072.webp"
+    },
+    "products-reader-loop": {
+      "id": "products-reader-loop",
+      "section": "products",
+      "role": "loop",
+      "device": "desktop",
+      "width": 1080,
+      "height": 720,
+      "duration": 6,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/products/products-reader-loop.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 227404
+        },
+        {
+          "src": "/roman-v2/motion/products/products-reader-loop.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 129363
+        }
+      ],
+      "poster": "/roman-v2/projects/projects-frame-1536.webp"
+    },
+    "beyond-book-loop": {
+      "id": "beyond-book-loop",
+      "section": "beyond",
+      "role": "loop",
+      "device": "desktop",
+      "width": 1080,
+      "height": 720,
+      "duration": 8,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/beyond/beyond-book-loop.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 470580
+        },
+        {
+          "src": "/roman-v2/motion/beyond/beyond-book-loop.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 347350
+        }
+      ],
+      "poster": "/roman-v2/beyond/beyond-reading-1168.webp"
+    },
+    "jj-listen-desktop": {
+      "id": "jj-listen-desktop",
+      "section": "jj",
+      "role": "intro",
+      "device": "desktop",
+      "width": 1080,
+      "height": 720,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/jj/jj-listen-desktop.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 505614
+        },
+        {
+          "src": "/roman-v2/motion/jj/jj-listen-desktop.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 496923
+        }
+      ],
+      "poster": "/roman-v2/jj/jj-listener-1536.webp"
+    },
+    "jj-idle-desktop": {
+      "id": "jj-idle-desktop",
+      "section": "jj",
+      "role": "idle",
+      "device": "desktop",
+      "width": 1080,
+      "height": 720,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/jj/jj-idle-desktop.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 496692
+        },
+        {
+          "src": "/roman-v2/motion/jj/jj-idle-desktop.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 503811
+        }
+      ],
+      "poster": "/roman-v2/jj/jj-listener-1536.webp"
+    },
+    "jj-listen-mobile": {
+      "id": "jj-listen-mobile",
+      "section": "jj",
+      "role": "intro",
+      "device": "mobile",
+      "width": 560,
+      "height": 700,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/jj/jj-listen-mobile.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 227599
+        },
+        {
+          "src": "/roman-v2/motion/jj/jj-listen-mobile.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 251371
+        }
+      ],
+      "poster": "/roman-v2/jj/jj-listener-mobile-560.webp"
+    },
+    "jj-idle-mobile": {
+      "id": "jj-idle-mobile",
+      "section": "jj",
+      "role": "idle",
+      "device": "mobile",
+      "width": 560,
+      "height": 700,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/jj/jj-idle-mobile.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 231988
+        },
+        {
+          "src": "/roman-v2/motion/jj/jj-idle-mobile.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 221307
+        }
+      ],
+      "poster": "/roman-v2/jj/jj-listener-mobile-560.webp"
+    },
+    "beyond-knob-hand": {
+      "id": "beyond-knob-hand",
+      "section": "beyond",
+      "role": "loop",
+      "device": "desktop",
+      "width": 1072,
+      "height": 430,
+      "duration": 4,
+      "fps": 24,
+      "alpha": true,
+      "sources": [
+        {
+          "src": "/roman-v2/motion/beyond/beyond-knob-hand.webm",
+          "type": "video/webm; codecs=\"vp09.00.10.08\"",
+          "bytes": 89979
+        },
+        {
+          "src": "/roman-v2/motion/beyond/beyond-knob-hand.mp4",
+          "type": "video/mp4; codecs=\"hvc1\"",
+          "bytes": 53117
+        }
+      ],
+      "poster": "/roman-v2/beyond/beyond-music-536.webp"
+    }
+  },
+  "knob": {
+    "size": [
+      536,
+      215
+    ],
+    "center": [
+      457.5,
+      94
+    ],
+    "face": "/roman-v2/motion/beyond/knob-face.webp",
+    "plate": "/roman-v2/motion/beyond/knob-plate.webp",
+    "highlight": "/roman-v2/motion/beyond/knob-highlight.webp",
+    "fingers": "/roman-v2/motion/beyond/knob-fingers.webp",
+    "scaleY": 1.1607,
+    "track": {
+      "fps": 24,
+      "angles": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.1,
+        0.24,
+        0.42,
+        0.68,
+        1.04,
+        1.5,
+        2.08,
+        2.76,
+        3.58,
+        4.58,
+        5.76,
+        7.08,
+        8.6,
+        10.32,
+        12.18,
+        14.28,
+        16.28,
+        18.1,
+        19.74,
+        21.14,
+        22.4,
+        23.54,
+        24.44,
+        25.28,
+        25.9,
+        26.44,
+        26.88,
+        27.18,
+        27.42,
+        27.62,
+        27.78,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84,
+        27.84
+      ]
+    }
+  }
+}

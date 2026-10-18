@@ -5,7 +5,7 @@ import s from "./reading.module.css";
 
 export const metadata = {
   title: "Daily reading — archive",
-  description: "Every edition of the daily one-pager, distilled by Muse.",
+  description: "Ideas discovered across the internet, distilled by Muse.",
 };
 
 /** Edition dates are calendar days in Asia/Kolkata. */
@@ -20,29 +20,53 @@ function editionDate(date: string) {
 
 export default function ReadingArchivePage() {
   const editions = getPublishedEditions();
+  const [latest, ...archive] = editions;
 
   return (
     <main className={`${shared.container} ${s.page}`}>
-      <p className={shared.eyebrow}>Daily reading</p>
-      <h1 className={s.title}>
-        From my corner <span className={shared.accent}>of the internet</span>
-      </h1>
-      <p className={shared.lede}>Today&rsquo;s ideas, distilled by Muse. Every edition, newest first.</p>
+      <section className={s.intro} aria-labelledby="archive-title">
+        <div className={s.introCopy}>
+          <p className={shared.eyebrow}>Daily reading · by Muse</p>
+          <h1 id="archive-title" className={s.title}>
+            From my corner <span className={shared.accent}>of the internet</span>
+          </h1>
+          <p className={shared.lede}>Ideas I discover across the internet, distilled by Muse.</p>
+        </div>
+        <div className={s.introArt} aria-hidden="true" />
+      </section>
 
       {editions.length === 0 ? (
         <p className={s.empty}>The first edition is on its way.</p>
       ) : (
-        <ul className={s.list}>
-          {editions.map((edition) => (
-            <li key={edition.date}>
-              <Link href={`/roman-v2/reading/${edition.date}`} className={s.row}>
-                <span className={s.rowDate}>{editionDate(edition.date)}</span>
-                <span className={s.rowTitle}>{edition.title}</span>
-                <span className={s.rowArrow} aria-hidden="true">→</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <>
+          {latest && (
+            <Link href={`/roman-v2/reading/${latest.date}`} className={s.featured}>
+              <span className={s.featuredLabel}>Latest edition</span>
+              <span className={s.featuredDate}>{editionDate(latest.date)}</span>
+              <span className={s.featuredTitle}>{latest.title}</span>
+            </Link>
+          )}
+
+          {archive.length > 0 && (
+            <section className={s.archive} aria-labelledby="archive-index-title">
+              <div className={s.archiveHeader}>
+                <h2 id="archive-index-title">The archive</h2>
+                <span>{archive.length} editions</span>
+              </div>
+              <ul className={s.list}>
+                {archive.map((edition) => (
+                  <li key={edition.date}>
+                    <Link href={`/roman-v2/reading/${edition.date}`} className={s.row}>
+                      <span className={s.rowDate}>{editionDate(edition.date)}</span>
+                      <span className={s.rowTitle}>{edition.title}</span>
+                      <span className={s.rowArrow} aria-hidden="true">→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </>
       )}
     </main>
   );

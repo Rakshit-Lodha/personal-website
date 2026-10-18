@@ -1,7 +1,11 @@
-import { ArrowUpRight } from "lucide-react";
+import type { ReactNode } from "react";
 import type { RomanV2Beyond, RomanV2WritingRow } from "@/lib/roman-v2/types";
 import AvailabilityAction from "./AvailabilityAction";
 import BeyondMusic from "./BeyondMusic";
+import BeyondWaveform from "./BeyondWaveform";
+import CardActivity from "./CardActivity";
+import LoopVideo from "./LoopVideo";
+import MusicKnob from "./MusicKnob";
 import Reveal from "./Reveal";
 import shared from "./contemporary-roman.module.css";
 import s from "./BeyondWork.module.css";
@@ -23,6 +27,7 @@ function Art({
   height,
   sizes,
   className,
+  children,
 }: {
   name: string;
   widths: number[];
@@ -30,6 +35,8 @@ function Art({
   height: number;
   sizes: string;
   className: string;
+  /** Motion layered over the still. */
+  children?: ReactNode;
 }) {
   const srcSet = (ext: string) => widths.map((w) => `${ART}/${name}-${w}.${ext} ${w}w`).join(", ");
   return (
@@ -47,6 +54,7 @@ function Art({
           decoding="async"
         />
       </picture>
+      {children}
     </span>
   );
 }
@@ -72,7 +80,6 @@ function WritingRow({ row, index }: { row: RomanV2WritingRow; index: number }) {
           <span className={s.rowMeta}>{row.date ? `${row.kind} · ${row.date}` : row.kind}</span>
         </span>
       )}
-      <ArrowUpRight className={s.rowArrow} size={20} strokeWidth={1.5} aria-hidden="true" />
     </>
   );
 
@@ -123,32 +130,37 @@ export default function BeyondWork({ beyond }: { beyond: RomanV2Beyond }) {
 
         <div className={s.grid}>
           <Reveal className={s.reading}>
-            <article className={`${s.card} ${s.readingCard}`} aria-labelledby="beyond-reading-title">
-              <div className={s.readingCopy}>
-                <p className={`${shared.eyebrow} ${s.eyebrow}`}>
-                  {reading.eyebrow}
-                  {edition.fixture && <PreviewTag />}
-                </p>
-                <h3 id="beyond-reading-title" className={s.readingTitle}>
-                  {reading.heading}
-                </h3>
-                <p className={s.readingBody}>{reading.body}</p>
-                {!edition.fixture && (
-                  <p className={s.edition}>
-                    {edition.title} · {edition.date}
+            <CardActivity>
+              <article className={`${s.card} ${s.readingCard}`} aria-labelledby="beyond-reading-title">
+                <div className={s.readingCopy}>
+                  <p className={`${shared.eyebrow} ${s.eyebrow}`}>
+                    {reading.eyebrow}
+                    {edition.fixture && <PreviewTag />}
                   </p>
-                )}
-                <AvailabilityAction action={reading.action} className={s.readingAction} />
-              </div>
-              <Art
-                name="beyond-reading"
-                widths={[584, 1168]}
-                width={1536}
-                height={1024}
-                sizes="(max-width: 767px) 100vw, 584px"
-                className={s.readingArt}
-              />
-            </article>
+                  <h3 id="beyond-reading-title" className={s.readingTitle}>
+                    {reading.heading}
+                  </h3>
+                  <p className={s.readingBody}>{reading.body}</p>
+                  {!edition.fixture && (
+                    <p className={s.edition}>
+                      {edition.title} · {edition.date}
+                    </p>
+                  )}
+                  <AvailabilityAction action={reading.action} className={s.readingAction} />
+                </div>
+                <Art
+                  name="beyond-reading"
+                  widths={[584, 1168]}
+                  width={1536}
+                  height={1024}
+                  sizes="(max-width: 767px) 100vw, 584px"
+                  className={s.readingArt}
+                >
+                  {/* Book clip loops while the card is hovered (or in view on touch screens). */}
+                  <LoopVideo loop="beyond-book-loop" />
+                </Art>
+              </article>
+            </CardActivity>
           </Reveal>
 
           <Reveal className={s.writing} delay={80}>
@@ -173,41 +185,41 @@ export default function BeyondWork({ beyond }: { beyond: RomanV2Beyond }) {
           </Reveal>
 
           <Reveal className={s.music} delay={120}>
-            <article className={`${s.card} ${s.musicCard}`} aria-labelledby="beyond-music-title">
-              <div className={s.musicCopy}>
-                <p className={`${shared.eyebrow} ${s.eyebrow}`}>{music.eyebrow}</p>
-                <h3 id="beyond-music-title" className={s.musicTitle}>
-                  {music.heading}
-                </h3>
-                <BeyondMusic label={music.actionLabel} track={music.track} />
-              </div>
-              <div className={s.musicStage} aria-hidden="true">
-                <Art
-                  name="beyond-music"
-                  widths={[536]}
-                  width={536}
-                  height={215}
-                  sizes="(max-width: 767px) 419px, 521px"
-                  className={s.musicArt}
-                />
-                <span className={s.musicPanel} />
-                <span className={s.player}>
-                  <span className={s.waveform}>
-                    {WAVEFORM.map((h, i) => (
-                      <span key={i} style={{ height: `${h}%` }} />
-                    ))}
+            <CardActivity>
+              <article className={`${s.card} ${s.musicCard}`} aria-labelledby="beyond-music-title">
+                <div className={s.musicCopy}>
+                  <p className={`${shared.eyebrow} ${s.eyebrow}`}>{music.eyebrow}</p>
+                  <h3 id="beyond-music-title" className={s.musicTitle}>
+                    {music.heading}
+                  </h3>
+                  <BeyondMusic label={music.actionLabel} track={music.track} />
+                </div>
+                <div className={s.musicStage} aria-hidden="true">
+                  <Art
+                    name="beyond-music"
+                    widths={[536]}
+                    width={536}
+                    height={215}
+                    sizes="(max-width: 767px) 419px, 521px"
+                    className={s.musicArt}
+                  >
+                    <MusicKnob />
+                  </Art>
+                  <span className={s.musicPanel} />
+                  <span className={s.player}>
+                    <BeyondWaveform bars={WAVEFORM} />
+                    <span className={s.progress}>
+                      <span />
+                    </span>
+                    <span className={s.transport}>
+                      <span className={s.skipBack} />
+                      <span className={s.playIcon} />
+                      <span className={s.skipForward} />
+                    </span>
                   </span>
-                  <span className={s.progress}>
-                    <span />
-                  </span>
-                  <span className={s.transport}>
-                    <span className={s.skipBack} />
-                    <span className={s.playIcon} />
-                    <span className={s.skipForward} />
-                  </span>
-                </span>
-              </div>
-            </article>
+                </div>
+              </article>
+            </CardActivity>
           </Reveal>
 
           <Reveal className={s.whoop} delay={160}>

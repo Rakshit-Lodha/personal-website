@@ -109,11 +109,6 @@
   font-weight: 400;
 }
 
-.cta svg {
-  width: 16px;
-  height: 16px;
-}
-
 @keyframes heroIn {
   from {
     opacity: 0;
@@ -199,6 +194,12 @@
     mask-image: linear-gradient(transparent, #000 56px);
   }
 
+  /* The motion layer crops exactly like the still. */
+  .motion video {
+    object-position: 62% 70%;
+    mask-image: linear-gradient(transparent, #000 56px);
+  }
+
   .circle {
     display: none;
   }
@@ -212,6 +213,20 @@
   .cta {
     width: 100%;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 700px) {
+  .art img {
+    object-position: 70% center;
+    mask-image: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .motion video {
+    object-position: 70% center;
+    mask-image: none;
   }
 }
 

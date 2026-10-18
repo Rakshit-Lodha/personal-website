@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 import { useJJSession } from "@/components/jj/JJSessionProvider";
 import type { RomanV2JJ } from "@/lib/roman-v2/types";
 import JJButton from "./JJButton";
+import LoopVideo from "./LoopVideo";
 import shared from "./contemporary-roman.module.css";
 import s from "./JJCallout.module.css";
 
@@ -62,6 +63,8 @@ export default function JJCallout({ jj }: { jj: RomanV2JJ }) {
             className={s.artImage}
           />
         </picture>
+        {/* Hand comes up to the ear once on first view (≥40% visible), then the idle loop. */}
+        <LoopVideo intro="jj-listen" loop="jj-idle" mobileQuery="(max-width: 767px)" startRatio={0.4} />
         <div className={s.orb} data-state={isActive ? state : "idle"}>
           <div className={s.bars}>
             {BARS.map((height, index) => (

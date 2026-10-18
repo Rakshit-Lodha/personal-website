@@ -1,0 +1,1229 @@
+{
+ "hero-loop-mobile": {
+  "id": "hero-loop-mobile",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/hero-loop-mobile-t2.mp4",
+    "plate": "hero-typing-mobile-typing",
+    "mask": "design/roman-v2/motion/clips/draft/post/hero-loop-mobile-t2.mask.png",
+    "frames": 96,
+    "drift": [
+     0,
+     1
+    ],
+    "driftScore": [
+     4.66,
+     3.67
+    ]
+   }
+  ],
+  "size": [
+   448,
+   352
+  ],
+  "results": [
+   {
+    "id": "hero-loop-mobile",
+    "reversed": false,
+    "W": 448,
+    "H": 352,
+    "frames": 96,
+    "fps": 24,
+    "crf": 30,
+    "q": [
+     50,
+     0.75
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/hero/hero-loop-mobile.webm",
+     "bytes": 179674,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 3.15
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/hero/hero-loop-mobile.mp4",
+     "bytes": 77714,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 3.46
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.022Z"
+ },
+ "hero-intro-mobile": {
+  "id": "hero-intro-mobile",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/hero-intro-mobile-t1.mp4",
+    "plate": "hero-typing-mobile-master",
+    "mask": "design/roman-v2/motion/clips/draft/post/hero-intro-mobile-t1.mask.png",
+    "frames": 96,
+    "drift": [
+     0,
+     1
+    ],
+    "driftScore": [
+     4.59,
+     3.57
+    ]
+   }
+  ],
+  "size": [
+   448,
+   352
+  ],
+  "results": [
+   {
+    "id": "hero-intro-mobile",
+    "reversed": false,
+    "W": 448,
+    "H": 352,
+    "frames": 96,
+    "fps": 24,
+    "crf": 48,
+    "q": [
+     32,
+     0.5
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/hero/hero-intro-mobile.webm",
+     "bytes": 180222,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 2.13
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/hero/hero-intro-mobile.mp4",
+     "bytes": 160430,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 4.73
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "hero-loop-desktop": {
+  "id": "hero-loop-desktop",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/hero-loop4-desktop-t2.mp4",
+    "plate": "hero-typing-desktop-typing",
+    "mask": "design/roman-v2/motion/clips/draft/post/hero-loop4-desktop-t2.mask.png",
+    "frames": 96,
+    "drift": [
+     1,
+     0
+    ],
+    "driftScore": [
+     3.75,
+     2.98
+    ]
+   }
+  ],
+  "size": [
+   1080,
+   720
+  ],
+  "results": [
+   {
+    "id": "hero-loop-desktop",
+    "reversed": false,
+    "W": 1080,
+    "H": 720,
+    "frames": 96,
+    "fps": 24,
+    "crf": 48,
+    "q": [
+     32,
+     0.5
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/hero/hero-loop-desktop.webm",
+     "bytes": 406138,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 1.71
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/hero/hero-loop-desktop.mp4",
+     "bytes": 375338,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 2.34
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "career-idle-s4": {
+  "id": "career-idle-s4",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/career-idle-s4-t2.mp4",
+    "plate": "career-s4",
+    "mask": "design/roman-v2/motion/clips/draft/post/career-idle-s4-t2.mask.png",
+    "frames": 96,
+    "drift": [
+     0,
+     0
+    ],
+    "driftScore": [
+     3.97,
+     3.97
+    ]
+   }
+  ],
+  "size": [
+   820,
+   604
+  ],
+  "results": [
+   {
+    "id": "career-idle-s4",
+    "reversed": false,
+    "W": 820,
+    "H": 604,
+    "frames": 96,
+    "fps": 24,
+    "crf": 30,
+    "q": [
+     50,
+     0.75
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/career/career-idle-s4.webm",
+     "bytes": 314171,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 0.46
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/career/career-idle-s4.mp4",
+     "bytes": 112854,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 1.01
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "career-idle-s3": {
+  "id": "career-idle-s3",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/career-idle-s3-t2.mp4",
+    "plate": "career-s3",
+    "mask": "design/roman-v2/motion/clips/draft/post/career-idle-s3-t2.mask.png",
+    "frames": 96,
+    "drift": [
+     0,
+     0
+    ],
+    "driftScore": [
+     3.88,
+     3.88
+    ]
+   }
+  ],
+  "size": [
+   820,
+   604
+  ],
+  "results": [
+   {
+    "id": "career-idle-s3",
+    "reversed": false,
+    "W": 820,
+    "H": 604,
+    "frames": 96,
+    "fps": 24,
+    "crf": 30,
+    "q": [
+     50,
+     0.75
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/career/career-idle-s3.webm",
+     "bytes": 367623,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 1.16
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/career/career-idle-s3.mp4",
+     "bytes": 178860,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 1.64
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "career-idle-s2": {
+  "id": "career-idle-s2",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/career-idle-s2-t2.mp4",
+    "plate": "career-s2",
+    "mask": "design/roman-v2/motion/clips/draft/post/career-idle-s2-t2.mask.png",
+    "frames": 96,
+    "drift": [
+     0,
+     0
+    ],
+    "driftScore": [
+     3.81,
+     3.81
+    ]
+   }
+  ],
+  "size": [
+   820,
+   604
+  ],
+  "results": [
+   {
+    "id": "career-idle-s2",
+    "reversed": false,
+    "W": 820,
+    "H": 604,
+    "frames": 96,
+    "fps": 24,
+    "crf": 30,
+    "q": [
+     50,
+     0.75
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/career/career-idle-s2.webm",
+     "bytes": 398476,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 0.91
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/career/career-idle-s2.mp4",
+     "bytes": 205589,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 1.4
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "career-idle-s1": {
+  "id": "career-idle-s1",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/career-idle-s1-t2.mp4",
+    "plate": "career-s1",
+    "mask": "design/roman-v2/motion/clips/draft/post/career-idle-s1-t2.mask.png",
+    "frames": 96,
+    "drift": [
+     0,
+     0
+    ],
+    "driftScore": [
+     3.53,
+     3.53
+    ]
+   }
+  ],
+  "size": [
+   820,
+   604
+  ],
+  "results": [
+   {
+    "id": "career-idle-s1",
+    "reversed": false,
+    "W": 820,
+    "H": 604,
+    "frames": 96,
+    "fps": 24,
+    "crf": 30,
+    "q": [
+     50,
+     0.75
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/career/career-idle-s1.webm",
+     "bytes": 441893,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 0.73
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/career/career-idle-s1.mp4",
+     "bytes": 245923,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 1.36
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "products-reader-loop": {
+  "id": "products-reader-loop",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/products-reader-loop-t1.mp4",
+    "plate": "products-reader-master",
+    "mask": "design/roman-v2/motion/clips/draft/post/masks/products-reader-eye.png",
+    "frames": 144,
+    "drift": [
+     0,
+     0
+    ],
+    "driftScore": [
+     3.51,
+     3.51
+    ]
+   }
+  ],
+  "size": [
+   1080,
+   720
+  ],
+  "results": [
+   {
+    "id": "products-reader-loop",
+    "reversed": false,
+    "W": 1080,
+    "H": 720,
+    "frames": 144,
+    "fps": 24,
+    "crf": 30,
+    "q": [
+     50,
+     0.75
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/products/products-reader-loop.webm",
+     "bytes": 227404,
+     "frames": 144,
+     "duration": 6,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 0.01
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/products/products-reader-loop.mp4",
+     "bytes": 129363,
+     "frames": 144,
+     "duration": 6,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 0.25
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "beyond-book-loop": {
+  "id": "beyond-book-loop",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/beyond-book-A-t4.mp4",
+    "plate": "beyond-book-master",
+    "mask": "design/roman-v2/motion/clips/draft/post/beyond-book-A-t4.mask.png",
+    "frames": 96,
+    "drift": [
+     1,
+     0
+    ],
+    "driftScore": [
+     5.17,
+     4.21
+    ]
+   },
+   {
+    "take": "design/roman-v2/motion/clips/draft/beyond-book-B-t3.mp4",
+    "plate": "beyond-book-master",
+    "mask": "design/roman-v2/motion/clips/draft/post/beyond-book-B-t3.mask.png",
+    "frames": 96,
+    "drift": [
+     1,
+     0
+    ],
+    "driftScore": [
+     8.31,
+     7.67
+    ]
+   }
+  ],
+  "size": [
+   1080,
+   720
+  ],
+  "results": [
+   {
+    "id": "beyond-book-loop",
+    "reversed": false,
+    "W": 1080,
+    "H": 720,
+    "frames": 192,
+    "fps": 24,
+    "crf": 39,
+    "q": [
+     50,
+     0.75
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/beyond/beyond-book-loop.webm",
+     "bytes": 470580,
+     "frames": 192,
+     "duration": 8,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 0.88
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/beyond/beyond-book-loop.mp4",
+     "bytes": 347350,
+     "frames": 192,
+     "duration": 8,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 1.58
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "jj-listen-desktop": {
+  "id": "jj-listen-desktop",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/jj-listen-desktop-t1.mp4",
+    "plate": "jj-desktop-start",
+    "mask": "design/roman-v2/motion/clips/draft/post/jj-listen-desktop-t1.mask.png",
+    "frames": 96,
+    "drift": [
+     1,
+     0
+    ],
+    "driftScore": [
+     5.88,
+     5.55
+    ]
+   }
+  ],
+  "size": [
+   1080,
+   720
+  ],
+  "results": [
+   {
+    "id": "jj-listen-desktop",
+    "reversed": false,
+    "W": 1080,
+    "H": 720,
+    "frames": 96,
+    "fps": 24,
+    "crf": 45,
+    "q": [
+     36,
+     0.55
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/jj/jj-listen-desktop.webm",
+     "bytes": 505614,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 6.77
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/jj/jj-listen-desktop.mp4",
+     "bytes": 496923,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 6.91
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "jj-idle-desktop": {
+  "id": "jj-idle-desktop",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/jj-idle-desktop-t3.mp4",
+    "plate": "jj-desktop-master",
+    "mask": "design/roman-v2/motion/clips/draft/post/jj-idle-desktop-t3.mask.png",
+    "frames": 96,
+    "drift": [
+     1,
+     0
+    ],
+    "driftScore": [
+     6.14,
+     5.69
+    ]
+   }
+  ],
+  "size": [
+   1080,
+   720
+  ],
+  "results": [
+   {
+    "id": "jj-idle-desktop",
+    "reversed": false,
+    "W": 1080,
+    "H": 720,
+    "frames": 96,
+    "fps": 24,
+    "crf": 36,
+    "q": [
+     40,
+     0.75
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/jj/jj-idle-desktop.webm",
+     "bytes": 496692,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 0.22
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/jj/jj-idle-desktop.mp4",
+     "bytes": 503811,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 0.54
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "jj-listen-mobile": {
+  "id": "jj-listen-mobile",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/jj-listen-mobile-t2.mp4",
+    "plate": "jj-mobile-start",
+    "mask": "design/roman-v2/motion/clips/draft/post/jj-listen-mobile-t2.mask.png",
+    "frames": 96,
+    "drift": [
+     0,
+     0
+    ],
+    "driftScore": [
+     4.67,
+     4.67
+    ]
+   }
+  ],
+  "size": [
+   560,
+   700
+  ],
+  "results": [
+   {
+    "id": "jj-listen-mobile",
+    "reversed": false,
+    "W": 560,
+    "H": 700,
+    "frames": 96,
+    "fps": 24,
+    "crf": 48,
+    "q": [
+     36,
+     0.55
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/jj/jj-listen-mobile.webm",
+     "bytes": 227599,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 9.31
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/jj/jj-listen-mobile.mp4",
+     "bytes": 251371,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 9.61
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "jj-idle-mobile": {
+  "id": "jj-idle-mobile",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/jj-idle-mobile-t2.mp4",
+    "plate": "jj-mobile-master",
+    "mask": "design/roman-v2/motion/clips/draft/post/jj-idle-mobile-t2.mask.png",
+    "frames": 96,
+    "drift": [
+     0,
+     0
+    ],
+    "driftScore": [
+     4.79,
+     4.79
+    ]
+   }
+  ],
+  "size": [
+   560,
+   700
+  ],
+  "results": [
+   {
+    "id": "jj-idle-mobile",
+    "reversed": false,
+    "W": 560,
+    "H": 700,
+    "frames": 96,
+    "fps": 24,
+    "crf": 51,
+    "q": [
+     28,
+     0.45
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/jj/jj-idle-mobile.webm",
+     "bytes": 231988,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 1.56
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/jj/jj-idle-mobile.mp4",
+     "bytes": 221307,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 2.84
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "hero-intro-desktop": {
+  "id": "hero-intro-desktop",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/hero-intro-desktop.mp4",
+    "plate": "hero-typing-desktop-master",
+    "mask": "design/roman-v2/motion/clips/draft/post/hero-intro-desktop.mask.png",
+    "frames": 96,
+    "drift": [
+     1,
+     0
+    ],
+    "driftScore": [
+     4,
+     3.1
+    ]
+   }
+  ],
+  "size": [
+   1080,
+   720
+  ],
+  "results": [
+   {
+    "id": "hero-intro-desktop",
+    "reversed": false,
+    "W": 1080,
+    "H": 720,
+    "frames": 96,
+    "fps": 24,
+    "crf": 54,
+    "q": [
+     24,
+     0.4
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/hero/hero-intro-desktop.webm",
+     "bytes": 412615,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 7.7
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/hero/hero-intro-desktop.mp4",
+     "bytes": 418027,
+     "frames": 96,
+     "duration": 4,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 8.24
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "career-r43": {
+  "id": "career-r43",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/career-r43-t3.mp4",
+    "plate": "career-s4",
+    "mask": "design/roman-v2/motion/clips/draft/post/career-r43-t3.mask.png",
+    "frames": 144,
+    "drift": [
+     0,
+     0
+    ],
+    "driftScore": [
+     4.29,
+     4.29
+    ]
+   }
+  ],
+  "size": [
+   820,
+   604
+  ],
+  "results": [
+   {
+    "id": "career-r43",
+    "reversed": false,
+    "W": 820,
+    "H": 604,
+    "frames": 144,
+    "fps": 24,
+    "crf": 48,
+    "q": [
+     32,
+     0.5
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/career/career-r43.webm",
+     "bytes": 303844,
+     "frames": 144,
+     "duration": 6,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 6.67
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/career/career-r43.mp4",
+     "bytes": 261315,
+     "frames": 144,
+     "duration": 6,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 7.18
+    }
+   },
+   {
+    "id": "career-r43-rev",
+    "reversed": true,
+    "W": 820,
+    "H": 604,
+    "frames": 144,
+    "fps": 24,
+    "crf": 48,
+    "q": [
+     32,
+     0.5
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/career/career-r43-rev.webm",
+     "bytes": 299562,
+     "frames": 144,
+     "duration": 6,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 6.69
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/career/career-r43-rev.mp4",
+     "bytes": 261125,
+     "frames": 144,
+     "duration": 6,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 7.17
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "career-r32": {
+  "id": "career-r32",
+  "parts": [
+   {
+    "take": "design/roman-v2/motion/clips/draft/career-r32-t1.mp4",
+    "plate": "career-s3",
+    "mask": "design/roman-v2/motion/clips/draft/post/career-r32-t1.mask.png",
+    "frames": 144,
+    "drift": [
+     0,
+     0
+    ],
+    "driftScore": [
+     4,
+     4
+    ]
+   }
+  ],
+  "size": [
+   820,
+   604
+  ],
+  "results": [
+   {
+    "id": "career-r32",
+    "reversed": false,
+    "W": 820,
+    "H": 604,
+    "frames": 144,
+    "fps": 24,
+    "crf": 48,
+    "q": [
+     36,
+     0.55
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/career/career-r32.webm",
+     "bytes": 280535,
+     "frames": 144,
+     "duration": 6,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 3.47
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/career/career-r32.mp4",
+     "bytes": 287300,
+     "frames": 144,
+     "duration": 6,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 4.74
+    }
+   },
+   {
+    "id": "career-r32-rev",
+    "reversed": true,
+    "W": 820,
+    "H": 604,
+    "frames": 144,
+    "fps": 24,
+    "crf": 48,
+    "q": [
+     36,
+     0.55
+    ],
+    "webm": {
+     "file": "public/roman-v2/motion/career/career-r32-rev.webm",
+     "bytes": 275774,
+     "frames": 144,
+     "duration": 6,
+     "alpha": true,
+     "probe": {
+      "codec_name": "vp9",
+      "pix_fmt": "yuv420p",
+      "tags": {
+       "alpha_mode": "1"
+      }
+     },
+     "seam": 3.45
+    },
+    "mp4": {
+     "file": "public/roman-v2/motion/career/career-r32-rev.mp4",
+     "bytes": 287688,
+     "frames": 144,
+     "duration": 6,
+     "alpha": true,
+     "probe": {
+      "codec_name": "hevc",
+      "pix_fmt": "yuv420p",
+      "tags": {}
+     },
+     "seam": 4.76
+    }
+   }
+  ],
+  "encodedAt": "2026-10-17T16:29:28.024Z"
+ },
+ "beyond-knob-hand": {
+  "source": "2d twist 28\u00b0",
+  "webm": {
+   "bytes": 89979
+  },
+  "mp4": {
+   "bytes": 53117
+  },
+  "track": {
+   "perLoop": 27.84
+  },
+  "note": "Live clip (2D twist). Its full numbers are in ENCODE.md; the Veo t4 trial is under beyond-knob-hand-veo-t4."
+ },
+ "beyond-knob-hand-veo-t4": {
+  "id": "beyond-knob-hand",
+  "size": [
+   1072,
+   430
+  ],
+  "frames": 96,
+  "crf": 30,
+  "q": [
+   50,
+   0.75
+  ],
+  "webm": {
+   "bytes": 181837,
+   "frames": 96,
+   "alpha": true,
+   "seam": 0.21,
+   "frame0VsStrip": 1.73,
+   "probe": {
+    "codec_name": "vp9",
+    "pix_fmt": "yuv420p",
+    "tags": {
+     "alpha_mode": "1"
+    }
+   }
+  },
+  "mp4": {
+   "bytes": 97399,
+   "frames": 96,
+   "alpha": true,
+   "seam": 1.01,
+   "frame0VsStrip": 13.28,
+   "probe": {
+    "codec_name": "hevc",
+    "pix_fmt": "yuv420p",
+    "tags": {}
+   }
+  },
+  "source": "design/roman-v2/motion/clips/draft/beyond-knob-hand-t4.mp4",
+  "track": {
+   "perLoop": 105.86,
+   "fingertipMax": 69.99999999999831,
+   "fingertipLast": -0.04999999999985025
+  },
+  "encodedAt": "2026-10-18T03:47:21.880Z"
+ }
+}

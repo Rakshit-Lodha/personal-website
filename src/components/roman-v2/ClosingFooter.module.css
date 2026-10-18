@@ -67,6 +67,26 @@
   filter: drop-shadow(0 0 6px rgba(214, 96, 72, 0.55));
 }
 
+/* Reach (FooterReach): the hand slides in from the right and settles; the cursor appears once it has landed. */
+.art[data-reach] .artImage {
+  transition:
+    transform 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 400ms ease-out;
+}
+
+.art[data-reach] .cursor {
+  transition: opacity 300ms ease-out 900ms;
+}
+
+.art[data-reach="out"] .artImage {
+  opacity: 0;
+  transform: translateX(45%);
+}
+
+.art[data-reach="out"] .cursor {
+  opacity: 0;
+}
+
 .inner {
   position: relative;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import type { RomanV2Nav } from "@/lib/roman-v2/types";
 import JJButton from "./JJButton";
@@ -11,9 +11,15 @@ export default function FloatingNav({ nav }: { nav: RomanV2Nav }) {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const pillRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      const isScrolled = window.scrollY > 96;
+      setScrolled(isScrolled);
+      if (!isScrolled) setExpanded(false);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -40,18 +46,47 @@ export default function FloatingNav({ nav }: { nav: RomanV2Nav }) {
   }, [nav.items]);
 
   useEffect(() => {
-    if (!open) return;
-    const onKey = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      if (!open && !expanded && !pillRef.current?.contains(document.activeElement)) return;
+      setOpen(false);
+      setExpanded(false);
+      if (pillRef.current?.contains(document.activeElement) && document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
+  }, [open, expanded]);
+
+  useEffect(() => {
+    if (!expanded) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (!pillRef.current?.contains(event.target as Node)) setExpanded(false);
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [expanded]);
 
   return (
     <header className={s.root}>
       <a href="#top" className={`${shared.inscription} ${s.wordmark}`}>
         {nav.wordmark}
       </a>
-      <div className={s.pill} data-scrolled={scrolled || undefined}>
+      <div ref={pillRef} className={s.pill} data-scrolled={scrolled || undefined} data-expanded={expanded || undefined}>
+        <button
+          type="button"
+          className={s.compactToggle}
+          aria-label="Expand navigation"
+          aria-expanded={expanded}
+          aria-hidden={!scrolled}
+          tabIndex={scrolled ? 0 : -1}
+          onClick={() => setExpanded((value) => !value)}
+        >
+          <span className={s.compactMonogram} aria-hidden="true">RL</span>
+          <span className={s.compactDivider} aria-hidden="true" />
+          <Menu size={19} strokeWidth={1.7} aria-hidden="true" />
+        </button>
         <button
           type="button"
           className={s.menuToggle}
@@ -70,7 +105,7 @@ export default function FloatingNav({ nav }: { nav: RomanV2Nav }) {
                   href={item.href}
                   className={s.link}
                   aria-current={active === item.id ? "location" : undefined}
-                  onClick={() => setOpen(false)}
+                  onClick={() => { setOpen(false); setExpanded(false); }}
                 >
                   {item.label}
                 </a>

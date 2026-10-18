@@ -228,19 +228,19 @@ export async function getRomanV2Content(): Promise<RomanV2Content> {
         { id: "products", label: "Products", href: "#products" },
         { id: "beyond", label: "Beyond", href: "#beyond" },
       ],
-      jjLabel: "Talk to JJ",
+      jjLabel: "Talk to A",
     },
     hero: {
       heading: { lead: "Product", accent: "judgment." },
       body: "Building consumer products which people actually love and use",
       primaryAction: action("Explore my work", "#work"),
-      jjLabel: "Talk to JJ",
+      jjLabel: "Talk to A",
     },
     career: {
       heading: { lead: "Work,", accent: "over time." },
       body: "",
       chapters,
-      initialChapterId: "etmoney",
+      initialChapterId: "paytmmoney",
     },
     products: {
       heading: { lead: "Selected", accent: "products" },
@@ -253,10 +253,10 @@ export async function getRomanV2Content(): Promise<RomanV2Content> {
       reading: {
         eyebrow: "Daily reading",
         heading: "From my corner of the internet",
-        body: "Today’s ideas, distilled by Muse.",
+        body: "Ideas I’m saving across the internet, distilled by Meta’s Muse agent.",
         edition,
         // Points at the latest published one-pager once an edition exists.
-        action: action("Read the latest edition", realEdition ? `/roman-v2/reading/${realEdition.date}` : null),
+        action: action("Read Now", realEdition ? `/roman-v2/reading/${realEdition.date}` : null),
       },
       writing: {
         eyebrow: "Writing",
@@ -276,8 +276,8 @@ export async function getRomanV2Content(): Promise<RomanV2Content> {
     },
     jj: {
       heading: { lead: "Have more", accent: "questions?" },
-      body: "Ask JJ about my work, decisions, failures and how I think",
-      voiceLabel: "Talk to JJ",
+      body: "Ask A about my work, decisions, failures and how I think",
+      voiceLabel: "Talk to A",
     },
     closing: {
       heading: { lead: "Festina Lente", accent: "Make haste slowly" },

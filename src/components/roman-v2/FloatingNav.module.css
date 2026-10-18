@@ -35,23 +35,47 @@
   gap: 4px;
   height: 64px;
   padding: 0 30px 0 32px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 999px;
-  /* Transparent over the hero; frosted once the page scrolls content beneath it. */
-  background: transparent;
+  background: rgba(247, 242, 233, 0.52);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.6), 0 12px 34px -24px rgba(60, 40, 25, 0.45);
   transition:
+    right 600ms var(--ease),
+    transform 600ms var(--ease),
+    height 400ms var(--ease),
+    padding 400ms var(--ease),
     background-color 300ms var(--ease),
-    border-color 300ms var(--ease),
     box-shadow 300ms var(--ease);
-  animation: navIn 700ms var(--ease) 80ms both;
 }
 
 .pill[data-scrolled] {
-  border-color: rgba(23, 22, 20, 0.06);
-  background: rgba(247, 242, 233, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 12px 32px -16px rgba(60, 40, 25, 0.45);
+  right: 50%;
+  height: 56px;
+  padding-inline: 9px;
+  border-color: rgba(125, 33, 29, 0.11);
+  background: rgba(247, 242, 233, 0.88);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.8), 0 18px 42px -22px rgba(60, 40, 25, 0.55);
+  transform: translateX(50%);
+}
+
+.compactToggle {
+  display: none;
+}
+
+.compactMonogram {
+  font-family: var(--font-inscription);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--oxblood);
+}
+
+.compactDivider {
+  width: 1px;
+  height: 20px;
+  background: rgba(23, 22, 20, 0.18);
 }
 
 .menuToggle {
@@ -63,6 +87,11 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.links,
+.jj {
+  white-space: nowrap;
 }
 
 .link {
@@ -102,20 +131,64 @@
 .jj {
   height: 48px;
   margin-left: 14px;
-  padding-inline: 34px 18px;
-  gap: 22px;
+  padding-inline: 26px;
   border-radius: 6px;
   font-size: 1.1875rem;
   font-weight: 400;
 }
 
-.jj svg {
-  box-sizing: content-box;
-  width: 13px;
-  height: 13px;
-  padding: 4px;
-  border: 1px solid rgba(247, 242, 233, 0.7);
-  border-radius: 50%;
+@media (min-width: 900px) {
+  .pill[data-scrolled]:hover,
+  .pill[data-scrolled]:focus-within,
+  .pill[data-scrolled][data-expanded] {
+    padding-inline: 20px;
+    background: rgba(247, 242, 233, 0.94);
+  }
+
+  .links,
+  .jj {
+    max-width: 580px;
+    overflow: hidden;
+    transition: max-width 450ms var(--ease), opacity 250ms ease, margin 450ms var(--ease), padding 450ms var(--ease);
+  }
+
+  .pill[data-scrolled]:not(:hover):not(:focus-within):not([data-expanded]) .links,
+  .pill[data-scrolled]:not(:hover):not(:focus-within):not([data-expanded]) .jj {
+    max-width: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .pill[data-scrolled]:not(:hover):not(:focus-within):not([data-expanded]) .jj {
+    margin-left: 0;
+    padding-inline: 0;
+    border-width: 0;
+  }
+
+  .compactToggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 0;
+    min-width: 0;
+    height: 40px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    opacity: 0;
+    cursor: pointer;
+    transition: width 450ms var(--ease), opacity 200ms ease;
+  }
+
+  .pill[data-scrolled] .compactToggle {
+    width: 88px;
+    opacity: 1;
+  }
 }
 
 @keyframes navIn {
@@ -161,6 +234,12 @@
     padding: 0 4px;
   }
 
+  .pill[data-scrolled] {
+    right: 50%;
+    height: 52px;
+    padding-inline: 4px;
+  }
+
   .menuToggle {
     display: inline-flex;
     align-items: center;
@@ -178,12 +257,15 @@
   .links {
     position: absolute;
     top: calc(100% + 8px);
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
     min-width: 200px;
     padding: 8px;
     border: 1px solid rgba(23, 22, 20, 0.08);
     border-radius: 16px;
-    background: rgba(247, 242, 233, 0.98);
+    background: rgba(247, 242, 233, 0.96);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
     box-shadow: 0 16px 36px -18px rgba(60, 40, 25, 0.45);
   }
 
@@ -215,22 +297,23 @@
   .jj {
     height: 44px;
     margin-left: 0;
-    padding-inline: 16px 12px;
-    gap: 10px;
+    padding-inline: 16px;
     border-radius: 999px;
     font-size: 0.9375rem;
   }
 
-  .jj svg {
-    width: 11px;
-    height: 11px;
-    padding: 3px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .wordmark,
   .pill {
     animation: none;
+    transition: none;
+  }
+
+  .links,
+  .jj,
+  .compactToggle {
+    transition: none;
   }
 }

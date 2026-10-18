@@ -1,0 +1,2785 @@
+{
+ "version": 1,
+ "imageModel": "gpt-image-2.5-sunburst",
+ "styleLock": "This is an approved illustration. Reproduce it exactly: same carved warm-ivory marble material with fine tan veining, same square-dot halftone pattern, same flat background colour, same soft light from the upper left, same camera position, framing and scale. Change ONLY what is described below, inside the editable area; everything else must stay identical. No text, letters, numbers, logos or watermarks. Hands are anatomically correct with exactly five fingers each.",
+ "masters": {
+  "hero-figure": {
+   "path": "design/roman-v2/assets/masters/hero-figure.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "ground": "#f3e7d8"
+  },
+  "hero-figure-mobile": {
+   "path": "design/roman-v2/assets/masters/hero-figure-mobile.png",
+   "size": [
+    1254,
+    1254
+   ],
+   "ground": "#f4e9db"
+  },
+  "career-hands": {
+   "path": "design/roman-v2/assets/masters/career-hands.png",
+   "size": [
+    1672,
+    941
+   ],
+   "ground": "#f6eee5",
+   "pageCrop": [
+    600,
+    90,
+    1072,
+    790
+   ]
+  },
+  "projects-frame": {
+   "path": "design/roman-v2/assets/masters/projects-frame.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "ground": "#ad6b51"
+  },
+  "beyond-reading": {
+   "path": "design/roman-v2/assets/masters/beyond-reading.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "ground": "#f1e8de"
+  },
+  "beyond-music": {
+   "path": "design/roman-v2/assets/masters/beyond-music.png",
+   "size": [
+    1608,
+    645
+   ],
+   "upscale": 3,
+   "ground": "#2a2827",
+   "padMode": "copy",
+   "note": "Round 2: the page master changed to the 536×215 strip (commit 4e2fb82); upscaled 3× (Lanczos) for Veo. The 16:9 canvas repeats the edge rows; crop back with the rect."
+  },
+  "jj-listener": {
+   "path": "design/roman-v2/assets/masters/jj-listener.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "ground": "#591210"
+  },
+  "jj-listener-mobile": {
+   "path": "design/roman-v2/assets/masters/jj-listener-mobile.png",
+   "size": [
+    1122,
+    1402
+   ],
+   "ground": "#521614"
+  },
+  "footer-hand": {
+   "path": "design/roman-v2/assets/masters/footer-hand.png",
+   "size": [
+    1254,
+    1254
+   ],
+   "ground": "#e2d4c6"
+  }
+ },
+ "frames": [
+  {
+   "id": "hero-typing-desktop-master",
+   "source": "master:hero-figure",
+   "canvas": "16:9",
+   "anchor": "right",
+   "canvasRect": {
+    "canvas": [
+     1820,
+     1024
+    ],
+    "content": [
+     284,
+     0,
+     1536,
+     1024
+    ],
+    "pageCrop": [
+     284,
+     0,
+     1536,
+     1024
+    ],
+    "pageCropNormalized": [
+     0.15604,
+     0,
+     0.84396,
+     1
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "hero-typing-desktop-typing",
+   "source": "master:hero-figure",
+   "canvas": "16:9",
+   "anchor": "right",
+   "round": 2,
+   "edit": {
+    "size": "1536x1024",
+    "n": 3,
+    "pick": 1,
+    "references": [
+     {
+      "path": "design/roman-v2/assets/masters/hero-figure.png",
+      "crop": [
+       860,
+       40,
+       400,
+       440
+      ]
+     },
+     {
+      "path": "design/roman-v2/source-media/rakshit-identity-reference.jpg",
+      "crop": [
+       1450,
+       650,
+       1300,
+       1300
+      ]
+     }
+    ],
+    "regions": [
+     [
+      790,
+      0,
+      500,
+      520
+     ]
+    ],
+    "feather": 50,
+    "prompt": "Image 1 is the approved artwork to edit. Image 2 is a close-up of HIS HEAD FROM IMAGE 1 — the exact face, hair and glasses to keep. Image 3 is an identity photo of the same man (face only; ignore clothes, colours, photo style). Re-pose ONLY his head and neck: he is looking at the laptop screen on the left — the head lowered about 20 degrees, chin dropped, turned slightly further left, so his eyes behind the glasses look down-left onto the screen. Keep the same three-quarter view from his left side as in image 2 (we see mostly his left cheek and his left ear), NOT a frontal face. He must be exactly the man in image 2: same slim face shape, nose, jaw, ear and gentle smile; the same tight voluminous dark-brown curls with the same carved rendering and colour; the same thin rectangular metal-rim glasses; the same head size — do not enlarge the head. The neck joins the same toga collar, and the round carved brooch stays on his left shoulder where it is. Everything else — hands on the keys, laptop, toga folds, armrest, halftone squares, flat background — stays exactly as in image 1."
+   },
+   "canvasRect": {
+    "canvas": [
+     1820,
+     1024
+    ],
+    "content": [
+     284,
+     0,
+     1536,
+     1024
+    ],
+    "pageCrop": [
+     284,
+     0,
+     1536,
+     1024
+    ],
+    "pageCropNormalized": [
+     0.15604,
+     0,
+     0.84396,
+     1
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "hero-typing-mobile-master",
+   "source": "master:hero-figure-mobile",
+   "canvas": "9:16",
+   "anchor": "bottom",
+   "canvasRect": {
+    "canvas": [
+     1254,
+     2229
+    ],
+    "content": [
+     0,
+     975,
+     1254,
+     1254
+    ],
+    "pageCrop": [
+     0,
+     975,
+     1254,
+     1254
+    ],
+    "pageCropNormalized": [
+     0,
+     0.43742,
+     1,
+     0.56258
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "hero-typing-mobile-typing",
+   "source": "master:hero-figure-mobile",
+   "canvas": "9:16",
+   "anchor": "bottom",
+   "round": 2,
+   "edit": {
+    "size": "1024x1024",
+    "n": 3,
+    "pick": 1,
+    "references": [
+     {
+      "path": "design/roman-v2/assets/masters/hero-figure-mobile.png",
+      "crop": [
+       540,
+       70,
+       440,
+       460
+      ]
+     },
+     {
+      "path": "design/roman-v2/source-media/rakshit-identity-reference.jpg",
+      "crop": [
+       1450,
+       650,
+       1300,
+       1300
+      ]
+     }
+    ],
+    "regions": [
+     [
+      540,
+      40,
+      480,
+      560
+     ]
+    ],
+    "feather": 50,
+    "prompt": "Image 1 is the approved artwork to edit. Image 2 is a close-up of HIS HEAD FROM IMAGE 1 — the exact face, hair and glasses to keep. Image 3 is an identity photo of the same man (face only; ignore clothes, colours, photo style). Re-pose ONLY his head and neck: he is looking at the laptop screen on the left — the head lowered about 20 degrees, chin dropped, turned slightly further left, so his eyes behind the glasses look down-left onto the screen. Keep the same three-quarter view from his left side as in image 2 (we see mostly his left cheek and his left ear), NOT a frontal face. He must be exactly the man in image 2: same slim face shape, nose, jaw, ear and gentle smile; the same tight voluminous dark-brown curls with the same carved rendering and colour; the same thin rectangular metal-rim glasses; the same head size — do not enlarge the head. The neck joins the same toga collar, and the round carved brooch stays on his left shoulder where it is. Everything else — hands on the keys, laptop, toga folds, armrest, halftone squares, flat background — stays exactly as in image 1.",
+    "compositeRegions": [
+     [
+      440,
+      30,
+      580,
+      570
+     ]
+    ]
+   },
+   "canvasRect": {
+    "canvas": [
+     1254,
+     2229
+    ],
+    "content": [
+     0,
+     975,
+     1254,
+     1254
+    ],
+    "pageCrop": [
+     0,
+     975,
+     1254,
+     1254
+    ],
+    "pageCropNormalized": [
+     0,
+     0.43742,
+     1,
+     0.56258
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "career-s4",
+   "source": "master:career-hands",
+   "canvas": "16:9",
+   "anchor": "center",
+   "note": "Paytm Money (2026–now): the full approved structure; the left hand sets the top cube.",
+   "canvasRect": {
+    "canvas": [
+     1673,
+     941
+    ],
+    "content": [
+     0,
+     0,
+     1672,
+     941
+    ],
+    "pageCrop": [
+     600,
+     90,
+     1072,
+     790
+    ],
+    "pageCropNormalized": [
+     0.35864,
+     0.09564,
+     0.64077,
+     0.83953
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "career-s3",
+   "source": "master:career-hands",
+   "canvas": "16:9",
+   "anchor": "center",
+   "note": "ET Money (2022–2026): Paytm Money (S4) minus the top cube; the left hand hovers empty.",
+   "edit": {
+    "size": "1536x1024",
+    "regions": [
+     [
+      740,
+      240,
+      390,
+      372
+     ]
+    ],
+    "prompt": "Remove the small marble cube that the left hand is holding on top of the left block. The top of the left block below it is now bare, flat and fully visible. The left hand is empty: it hovers just above that bare block top, fingers relaxed and slightly open, palm down, as if it has just let go and is about to fetch the next block. The forearm and sleeve are unchanged. Fill the space where the cube was with the same halftone squares and drapery that surround it. All other blocks, the arch, the tall upright block, the small steps, the sphere, the plinth and the right hand stay exactly the same."
+   },
+   "canvasRect": {
+    "canvas": [
+     1673,
+     941
+    ],
+    "content": [
+     0,
+     0,
+     1672,
+     941
+    ],
+    "pageCrop": [
+     600,
+     90,
+     1072,
+     790
+    ],
+    "pageCropNormalized": [
+     0.35864,
+     0.09564,
+     0.64077,
+     0.83953
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "career-s2",
+   "source": "career-s3",
+   "canvas": "16:9",
+   "anchor": "center",
+   "note": "INDMoney (2020–2022): ET Money (S3) minus the tall upright block.",
+   "edit": {
+    "size": "1536x1024",
+    "regions": [
+     [
+      1100,
+      295,
+      235,
+      312
+     ]
+    ],
+    "prompt": "Remove the tall upright rectangular marble block that stands behind the arch, and the small square block tucked behind it. Where it stood, continue the background that surrounds it: the marble drapery folds and the square halftone dots, matching the neighbouring areas. The arch top stays intact. The right hand's fingers keep exactly the same pose and position. All other blocks, the plinth and the left hand stay exactly the same."
+   },
+   "canvasRect": {
+    "canvas": [
+     1673,
+     941
+    ],
+    "content": [
+     0,
+     0,
+     1672,
+     941
+    ],
+    "pageCrop": [
+     600,
+     90,
+     1072,
+     790
+    ],
+    "pageCropNormalized": [
+     0.35864,
+     0.09564,
+     0.64077,
+     0.83953
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "career-s1",
+   "source": "career-s2",
+   "canvas": "16:9",
+   "anchor": "center",
+   "note": "LearnApp (2018–2020): S2 minus the large square block under the hovering left hand — only the arch, the low steps and the sphere remain on the plinth.",
+   "edit": {
+    "size": "1536x1024",
+    "regions": [
+     [
+      780,
+      560,
+      175,
+      250
+     ]
+    ],
+    "feather": 40,
+    "prompt": "Remove the large square marble block on the left end of the plinth (directly below the hovering left hand) completely — no outline, no ghost, no box shape of any kind remains. In its place: the bare flat top of the plinth, and above it the plain light background with the same scattered square halftone dots as the surrounding area to the left, fading out naturally, with no rectangular arrangement. The arch immediately to its right is NOT changed — same size, same left edge, same position. Both hands, the steps, the sphere and the plinth stay exactly the same.",
+    "n": 2,
+    "pick": 0,
+    "compositeRegions": [
+     [
+      700,
+      560,
+      255,
+      250
+     ]
+    ]
+   },
+   "canvasRect": {
+    "canvas": [
+     1673,
+     941
+    ],
+    "content": [
+     0,
+     0,
+     1672,
+     941
+    ],
+    "pageCrop": [
+     600,
+     90,
+     1072,
+     790
+    ],
+    "pageCropNormalized": [
+     0.35864,
+     0.09564,
+     0.64077,
+     0.83953
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   },
+   "round": 2
+  },
+  {
+   "id": "products-reader-master",
+   "source": "master:projects-frame",
+   "canvas": "16:9",
+   "anchor": "center",
+   "canvasRect": {
+    "canvas": [
+     1820,
+     1024
+    ],
+    "content": [
+     142,
+     0,
+     1536,
+     1024
+    ],
+    "pageCrop": [
+     142,
+     0,
+     1536,
+     1024
+    ],
+    "pageCropNormalized": [
+     0.07802,
+     0,
+     0.84396,
+     1
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "beyond-book-master",
+   "source": "master:beyond-reading",
+   "canvas": "16:9",
+   "anchor": "right",
+   "canvasRect": {
+    "canvas": [
+     1820,
+     1024
+    ],
+    "content": [
+     284,
+     0,
+     1536,
+     1024
+    ],
+    "pageCrop": [
+     284,
+     0,
+     1536,
+     1024
+    ],
+    "pageCropNormalized": [
+     0.15604,
+     0,
+     0.84396,
+     1
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "beyond-book-peak",
+   "source": "master:beyond-reading",
+   "canvas": "16:9",
+   "anchor": "right",
+   "edit": {
+    "size": "1536x1024",
+    "regions": [
+     [
+      1120,
+      330,
+      416,
+      400
+     ]
+    ],
+    "prompt": "Peak of a page-turn loop. Keep the whole illustration exactly as it is — the same open book, the same fanned pages on the left, the same loose sheets with the engraved Colosseum and landscape pictures, the same marble column. Make ONE change only: on the right half of the open book, a single blank cream page has lifted from the right-hand page block and is curling up and over toward the left in mid-turn, a soft arc catching the light on its edge. No pictures or writing on that page.",
+    "compositeRegions": [
+     [
+      1125,
+      445,
+      411,
+      285
+     ],
+     [
+      1150,
+      360,
+      215,
+      100
+     ]
+    ],
+    "feather": 24
+   },
+   "note": "Edit result composited only over the right page block and the curling page, so the loose sheets' engravings keep the master's pixels.",
+   "canvasRect": {
+    "canvas": [
+     1820,
+     1024
+    ],
+    "content": [
+     284,
+     0,
+     1536,
+     1024
+    ],
+    "pageCrop": [
+     284,
+     0,
+     1536,
+     1024
+    ],
+    "pageCropNormalized": [
+     0.15604,
+     0,
+     0.84396,
+     1
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "beyond-knob-master",
+   "source": "master:beyond-music",
+   "canvas": "16:9",
+   "anchor": "center",
+   "canvasRect": {
+    "canvas": [
+     1608,
+     905
+    ],
+    "content": [
+     0,
+     130,
+     1608,
+     645
+    ],
+    "pageCrop": [
+     0,
+     130,
+     1608,
+     645
+    ],
+    "pageCropNormalized": [
+     0,
+     0.14365,
+     1,
+     0.71271
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   },
+   "note": "Round 2: rebuilt from the new 536×215 music strip master (round-1 keyframe used the replaced 1672×941 master)."
+  },
+  {
+   "id": "beyond-knob-n0",
+   "source": "master:beyond-music",
+   "canvas": "16:9",
+   "anchor": "center",
+   "round": 2,
+   "note": "Master pose + a drawn engraved indicator groove at 1:30 (the image edit moved and resized the knob, see QA).",
+   "notch": {
+    "center": [
+     1368,
+     276
+    ],
+    "rx": 80,
+    "ry": 78,
+    "angle": 45,
+    "r0": 0.32,
+    "r1": 0.86,
+    "width": 5,
+    "neutralOnly": 18
+   },
+   "canvasRect": {
+    "canvas": [
+     1608,
+     905
+    ],
+    "content": [
+     0,
+     130,
+     1608,
+     645
+    ],
+    "pageCrop": [
+     0,
+     130,
+     1608,
+     645
+    ],
+    "pageCropNormalized": [
+     0,
+     0.14365,
+     1,
+     0.71271
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "beyond-knob-n120",
+   "source": "master:beyond-music",
+   "canvas": "16:9",
+   "anchor": "center",
+   "round": 2,
+   "note": "Notch turned +120° (5:30); hand in its home grip — fingers have re-gripped. Lighting on the brushed face is unchanged, as on a real knob.",
+   "notch": {
+    "center": [
+     1368,
+     276
+    ],
+    "rx": 80,
+    "ry": 78,
+    "angle": 165,
+    "r0": 0.32,
+    "r1": 0.86,
+    "width": 5,
+    "neutralOnly": 18
+   },
+   "canvasRect": {
+    "canvas": [
+     1608,
+     905
+    ],
+    "content": [
+     0,
+     130,
+     1608,
+     645
+    ],
+    "pageCrop": [
+     0,
+     130,
+     1608,
+     645
+    ],
+    "pageCropNormalized": [
+     0,
+     0.14365,
+     1,
+     0.71271
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "beyond-knob-n240",
+   "source": "master:beyond-music",
+   "canvas": "16:9",
+   "anchor": "center",
+   "round": 2,
+   "note": "Notch turned +240° (9:30, passing under the thumb); hand in its home grip.",
+   "notch": {
+    "center": [
+     1368,
+     276
+    ],
+    "rx": 80,
+    "ry": 78,
+    "angle": 285,
+    "r0": 0.32,
+    "r1": 0.86,
+    "width": 5,
+    "neutralOnly": 18
+   },
+   "canvasRect": {
+    "canvas": [
+     1608,
+     905
+    ],
+    "content": [
+     0,
+     130,
+     1608,
+     645
+    ],
+    "pageCrop": [
+     0,
+     130,
+     1608,
+     645
+    ],
+    "pageCropNormalized": [
+     0,
+     0.14365,
+     1,
+     0.71271
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "jj-desktop-start",
+   "source": "master:jj-listener",
+   "canvas": "16:9",
+   "anchor": "center",
+   "round": 2,
+   "note": "jj-listen START: hand lowered out of frame; ear, curls and neck rebuilt (edit composited only in the arm/ear region).",
+   "edit": {
+    "size": "1024x1536",
+    "crop": [
+     560,
+     140,
+     700,
+     840
+    ],
+    "regions": [
+     [
+      830,
+      330,
+      420,
+      650
+     ]
+    ],
+    "feather": 60,
+    "n": 3,
+    "pick": 0,
+    "prompt": "Image 1 is a crop of an approved artwork: a classical marble bust of a young man with tight carved curls, listening with his right hand cupped behind his ear. Edit ONLY his right arm: the hand and forearm are lowered and gone from the head — the arm hangs down at his side, so the hand is out of the picture below the bottom edge; only the top of the arm at the shoulder remains, draped by the same toga. Where the hand used to be, rebuild what it was covering, faithful to the rest of the head: the complete carved ear, the tight carved curls behind and above the ear continuing exactly the curls that are visible, the side of the neck and the jaw line. The face, its expression, the head position and size, the curls on the rest of the head, the bronze brooch, the drapery folds, the halftone squares on the right and the flat dark red background stay exactly as they are. No hand anywhere near the head.",
+    "compositeRegions": [
+     [
+      830,
+      330,
+      380,
+      650
+     ]
+    ]
+   },
+   "canvasRect": {
+    "canvas": [
+     1820,
+     1024
+    ],
+    "content": [
+     142,
+     0,
+     1536,
+     1024
+    ],
+    "pageCrop": [
+     142,
+     0,
+     1536,
+     1024
+    ],
+    "pageCropNormalized": [
+     0.07802,
+     0,
+     0.84396,
+     1
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "jj-desktop-master",
+   "source": "master:jj-listener",
+   "canvas": "16:9",
+   "anchor": "center",
+   "canvasRect": {
+    "canvas": [
+     1820,
+     1024
+    ],
+    "content": [
+     142,
+     0,
+     1536,
+     1024
+    ],
+    "pageCrop": [
+     142,
+     0,
+     1536,
+     1024
+    ],
+    "pageCropNormalized": [
+     0.07802,
+     0,
+     0.84396,
+     1
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "jj-mobile-start",
+   "source": "master:jj-listener-mobile",
+   "canvas": "9:16",
+   "anchor": "bottom",
+   "round": 2,
+   "note": "jj-listen START (mobile): hand lowered out of frame; ear, curls and neck rebuilt.",
+   "edit": {
+    "size": "1024x1536",
+    "regions": [
+     [
+      560,
+      330,
+      520,
+      1020
+     ]
+    ],
+    "feather": 60,
+    "n": 3,
+    "pick": 2,
+    "padAnchor": "bottom",
+    "prompt": "Image 1 is a crop of an approved artwork: a classical marble bust of a young man with tight carved curls, listening with his right hand cupped behind his ear. Edit ONLY his right arm: the hand and forearm are lowered and gone from the head — the arm hangs down at his side, so the hand is out of the picture below the bottom edge; only the top of the arm at the shoulder remains, draped by the same toga. Where the hand used to be, rebuild what it was covering, faithful to the rest of the head: the complete carved ear, the tight carved curls behind and above the ear continuing exactly the curls that are visible, the side of the neck and the jaw line. The face, its expression, the head position and size, the curls on the rest of the head, the bronze brooch, the drapery folds, the halftone squares on the right and the flat dark red background stay exactly as they are. No hand anywhere near the head.",
+    "compositeRegions": [
+     [
+      560,
+      330,
+      562,
+      1072
+     ]
+    ]
+   },
+   "canvasRect": {
+    "canvas": [
+     1122,
+     1995
+    ],
+    "content": [
+     0,
+     593,
+     1122,
+     1402
+    ],
+    "pageCrop": [
+     0,
+     593,
+     1122,
+     1402
+    ],
+    "pageCropNormalized": [
+     0,
+     0.29724,
+     1,
+     0.70276
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "jj-mobile-master",
+   "source": "master:jj-listener-mobile",
+   "canvas": "9:16",
+   "anchor": "bottom",
+   "canvasRect": {
+    "canvas": [
+     1122,
+     1995
+    ],
+    "content": [
+     0,
+     593,
+     1122,
+     1402
+    ],
+    "pageCrop": [
+     0,
+     593,
+     1122,
+     1402
+    ],
+    "pageCropNormalized": [
+     0,
+     0.29724,
+     1,
+     0.70276
+    ],
+    "note": "Multiply pageCropNormalized by the output video size (e.g. 1920×1080) to crop back to the page aspect."
+   }
+  },
+  {
+   "id": "footer-hand-start",
+   "source": "master:footer-hand",
+   "canvas": "page",
+   "shift": [
+    620,
+    70
+   ],
+   "shiftSource": "public/roman-v2/footer/footer-hand-1254.webp",
+   "note": "Code motion start: hand translated right/down, mostly outside the circle.",
+   "canvasRect": {
+    "canvas": [
+     1254,
+     1254
+    ],
+    "content": [
+     0,
+     0,
+     1254,
+     1254
+    ]
+   }
+  },
+  {
+   "id": "footer-hand-end",
+   "source": "master:footer-hand",
+   "canvas": "page",
+   "shift": [
+    0,
+    0
+   ],
+   "shiftSource": "public/roman-v2/footer/footer-hand-1254.webp",
+   "note": "Code motion end: the approved resting position.",
+   "canvasRect": {
+    "canvas": [
+     1254,
+     1254
+    ],
+    "content": [
+     0,
+     0,
+     1254,
+     1254
+    ]
+   }
+  }
+ ],
+ "shots": [
+  {
+   "id": "hero-typing-desktop",
+   "section": "Hero",
+   "device": "desktop",
+   "aspect_ratio": "16:9",
+   "round2": true,
+   "trigger": "Poster = the approved master. When the hero is in view (after LCP), play \"intro\" once, then loop \"loop\" while in view; paused offscreen or when the tab is hidden. Coming back into view resumes the loop — the intro never replays. Reduced motion / Save-Data: the master poster only.",
+   "loopMethod": "intro (master → TYPING, once) + single-clip loop (first = last = TYPING)",
+   "loopNote": "The TYPING pose is a real head re-pose (head lowered ~20°, eyes on the screen) generated with the identity photo and the master head as references and composited onto the master. The loop starts and ends on that same frame, so it is seamless and his gaze never returns to the viewer.",
+   "compose": "Crop with pageCropNormalized, then key the #f3e7d8 ground as for hero-figure and place right-aligned over the CSS circle exactly where the still sits.",
+   "subject": "Subject continuity: the same young man rendered as a carved warm-ivory marble statue in a draped toga — the same face, short wavy dark-brown hair, thin rectangular metal glasses, gentle smile, ear and jaw as in the first frame; he is seated with a matte-black laptop on his lap, hands on the keyboard. His identity must not change at any moment.",
+   "camera": "Locked-off camera: no zoom, no pan, no tilt, no dolly, no shake. Framing and scale identical to the provided frames for the whole clip.",
+   "lighting": "Lighting continuity: the same soft key light from the upper left, same soft shadows, no flicker, no exposure change.",
+   "background": "Background: perfectly flat #f3e7d8 with no texture, no gradient, no vignette, no colour drift. The left margin is empty flat ground and stays empty — do not extend the figure into it.",
+   "materials": "Materials: everything carved stays carved warm-ivory marble with fine tan veining (no skin, no cloth sheen); the laptop stays matte black with the same lid angle and the screen facing away from camera; The square-dot halftone dissolve stays static (each square in place; at most an imperceptible shimmer).",
+   "clips": [
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "hero-intro-desktop",
+     "kind": "intro (once)",
+     "first": "hero-typing-desktop-master",
+     "last": "hero-typing-desktop-typing",
+     "duration": 4,
+     "beats": [
+      [
+       "0–0.8 s",
+       "Still: he looks out to the left with his gentle smile, fingers resting on the keys."
+      ],
+      [
+       "0.8–2.6 s",
+       "He turns his head down and to the left, chin dropping about 20°, until his eyes land on the laptop screen; the smile softens into focus."
+      ],
+      [
+       "1.6–3.4 s",
+       "His fingers start typing: small alternating key taps, wrists still."
+      ],
+      [
+       "3.4–4.0 s",
+       "Settles exactly into the last frame: head lowered, eyes on the screen, fingers on the keys."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same young man rendered as a carved warm-ivory marble statue in a draped toga — the same face, short wavy dark-brown hair, thin rectangular metal glasses, gentle smile, ear and jaw as in the first frame; he is seated with a matte-black laptop on his lap, hands on the keyboard. His identity must not change at any moment.\nMotion beats: 0–0.8 s: Still: he looks out to the left with his gentle smile, fingers resting on the keys. 0.8–2.6 s: He turns his head down and to the left, chin dropping about 20°, until his eyes land on the laptop screen; the smile softens into focus. 1.6–3.4 s: His fingers start typing: small alternating key taps, wrists still. 3.4–4.0 s: Settles exactly into the last frame: head lowered, eyes on the screen, fingers on the keys.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake. Framing and scale identical to the provided frames for the whole clip.\nLighting continuity: the same soft key light from the upper left, same soft shadows, no flicker, no exposure change.\nBackground: perfectly flat #f3e7d8 with no texture, no gradient, no vignette, no colour drift. The left margin is empty flat ground and stays empty — do not extend the figure into it.\nMaterials: everything carved stays carved warm-ivory marble with fine tan veining (no skin, no cloth sheen); the laptop stays matte black with the same lid angle and the screen facing away from camera; The square-dot halftone dissolve stays static (each square in place; at most an imperceptible shimmer).\nLoop: the clip must end exactly on the provided last frame; it is concatenated with a matching clip into a seamless loop.\nNo text, no new objects, no identity change, no extra fingers, no camera motion, no background change. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/hero-typing-desktop-master.png",
+      "last_frame": "keyframes/hero-typing-desktop-typing.png"
+     },
+     "cropToPage": [
+      0.15604,
+      0,
+      0.84396,
+      1
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/hero-typing-desktop-master.png",
+       "last_frame": "keyframes/hero-typing-desktop-typing.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     }
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "hero-loop-desktop",
+     "kind": "loop",
+     "first": "hero-typing-desktop-typing",
+     "last": "hero-typing-desktop-typing",
+     "duration": 6,
+     "beats": [
+      [
+       "0–1.5 s",
+       "Continuous light typing with BOTH hands; eyes on the screen."
+      ],
+      [
+       "1.5–3.0 s",
+       "Head dips about 2° as if reading a line; fingers keep tapping."
+      ],
+      [
+       "3.0–4.5 s",
+       "Head tilts about 2° to his left, still reading the screen; typing continues."
+      ],
+      [
+       "4.5–6.0 s",
+       "Head eases back to exactly the first-frame pose while typing."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same young man rendered as a carved warm-ivory marble statue in a draped toga — the same face, short wavy dark-brown hair, thin rectangular metal glasses, gentle smile, ear and jaw as in the first frame; seated with a matte-black laptop on his lap. His identity must not change at any moment.\nMotion beats: 0–1.5 s: continuous light typing with both hands, eyes on the laptop screen. 1.5–3.0 s: his head dips about 2° as if reading a line; fingers keep tapping. 3.0–4.5 s: his head tilts about 2° to his left, still reading the screen; typing continues. 4.5–6.0 s: his head eases back to exactly the first-frame pose while typing.\nHard constraints: BOTH hands stay on the keyboard for the entire clip — no hand lifts, no gestures, no fist, no waving. His gaze stays on the laptop screen the entire time — he never raises his head, never looks up, never looks toward the viewer. Head movement stays within about 5° of the first frame. Only small finger taps and tiny head nods; the torso, toga folds, laptop and chair do not move.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat #f3e7d8, no texture, gradient, vignette or colour drift; the empty left margin stays empty.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; the laptop stays matte black with the same lid angle. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nLoop: the clip ends on a frame identical to its first frame.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/hero-typing-desktop-typing.png",
+      "last_frame": "keyframes/hero-typing-desktop-typing.png"
+     },
+     "cropToPage": [
+      0.15604,
+      0,
+      0.84396,
+      1
+     ],
+     "estCostUSD": {
+      "lite720p": 0.18,
+      "lite1080p": 0.3,
+      "fast720p": 0.48,
+      "fast1080p": 0.6
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 6,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/hero-typing-desktop-typing.png",
+       "last_frame": "keyframes/hero-typing-desktop-typing.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 2
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "hero-loop4-desktop",
+     "kind": "loop",
+     "first": "hero-typing-desktop-typing",
+     "last": "hero-typing-desktop-typing",
+     "duration": 4,
+     "beats": [
+      [
+       "0–2.0 s",
+       "Continuous light typing with both hands; head dips about 2° reading a line, eyes on the screen."
+      ],
+      [
+       "2.0–4.0 s",
+       "Typing continues; head eases back to exactly the first-frame pose."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same young man rendered as a carved warm-ivory marble statue in a draped toga — the same face, short wavy dark-brown hair, thin rectangular metal glasses, gentle smile, ear and jaw as in the first frame; seated with a matte-black laptop on his lap. His identity must not change at any moment.\nMotion beats: 0–2.0 s: continuous light typing with both hands; his head dips about 2° as if reading a line, eyes on the laptop screen. 2.0–4.0 s: typing continues and his head eases back to exactly the first-frame pose.\nHard constraints: BOTH hands stay on the keyboard for the entire clip — no hand lifts, no gestures, no fist, no waving. His gaze stays on the laptop screen the entire time — he never raises his head, never looks up, never looks toward the viewer. Head movement stays within about 5° of the first frame. Only small finger taps and tiny head nods; the torso, toga folds, laptop and chair do not move.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat #f3e7d8, no texture, gradient, vignette or colour drift; the empty left margin stays empty.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; the laptop stays matte black with the same lid angle. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nLoop: the clip ends on a frame identical to its first frame.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/hero-typing-desktop-typing.png",
+      "last_frame": "keyframes/hero-typing-desktop-typing.png"
+     },
+     "cropToPage": [
+      0.15604,
+      0,
+      0.84396,
+      1
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/hero-typing-desktop-typing.png",
+       "last_frame": "keyframes/hero-typing-desktop-typing.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 2
+    }
+   ],
+   "decision": {
+    "date": "2026-10-17",
+    "intro": "clips/draft/hero-intro-desktop.mp4",
+    "loop": "clips/draft/hero-loop4-desktop-t2.mp4 (4s)",
+    "post": "Locked-background cinemagraph: motion-map mask (head, torso, arms, hands, laptop edge) plays video; everything else comes from the loop's first frame, so halftone and background never flicker.",
+    "rejected": [
+     "hero-loop-desktop (8s: hand gesture, looks at viewer)",
+     "hero-loop-desktop-t1/t2 (6s: chin lift)",
+     "hero-loop4-desktop-t1",
+     "ping-pong of t1 (mechanical, reversed typing)"
+    ],
+    "learnings": [
+     "Keep loops to 4s",
+     "State hard constraints (hands stay on keys, gaze stays on target, head within 5°)",
+     "Describe halftone as a fixed printed texture",
+     "Always post-process with the locked-background mask"
+    ]
+   }
+  },
+  {
+   "id": "hero-typing-mobile",
+   "section": "Hero",
+   "device": "mobile",
+   "aspect_ratio": "9:16",
+   "round2": true,
+   "trigger": "Poster = the approved master. When the hero is in view (after LCP), play \"intro\" once, then loop \"loop\" while in view; paused offscreen or when the tab is hidden. Coming back into view resumes the loop — the intro never replays. Reduced motion / Save-Data: the master poster only.",
+   "loopMethod": "intro (master → TYPING, once) + single-clip loop (first = last = TYPING)",
+   "loopNote": "The TYPING pose is a real head re-pose (head lowered ~20°, eyes on the screen) generated with the identity photo and the master head as references and composited onto the master. The loop starts and ends on that same frame, so it is seamless and his gaze never returns to the viewer.",
+   "compose": "Crop with pageCropNormalized (the lower 1254×1254 square) and place where hero-figure-mobile sits.",
+   "subject": "Subject continuity: the same young man rendered as a carved warm-ivory marble statue in a draped toga — the same face, short wavy dark-brown hair, thin rectangular metal glasses, gentle smile, ear and jaw as in the first frame; he is seated with a matte-black laptop on his lap, hands on the keyboard. His identity must not change at any moment.",
+   "camera": "Locked-off camera: no zoom, no pan, no tilt, no dolly, no shake. Framing and scale identical to the provided frames for the whole clip.",
+   "lighting": "Lighting continuity: the same soft key light from the upper left, same soft shadows, no flicker, no exposure change.",
+   "background": "Background: perfectly flat #f4e9db with no texture, no gradient, no vignette, no colour drift. The top margin is empty flat ground and stays empty — do not extend the figure into it.",
+   "materials": "Materials: everything carved stays carved warm-ivory marble with fine tan veining (no skin, no cloth sheen); the laptop stays matte black with the same lid angle and the screen facing away from camera; The square-dot halftone dissolve stays static (each square in place; at most an imperceptible shimmer).",
+   "clips": [
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "hero-intro-mobile",
+     "kind": "intro (once)",
+     "first": "hero-typing-mobile-master",
+     "last": "hero-typing-mobile-typing",
+     "duration": 4,
+     "beats": [
+      [
+       "0–0.8 s",
+       "Still: he looks out to the left with his gentle smile, fingers resting on the keys."
+      ],
+      [
+       "0.8–2.6 s",
+       "He turns his head down and to the left, chin dropping about 20°, until his eyes land on the laptop screen; the smile softens into focus."
+      ],
+      [
+       "1.6–3.4 s",
+       "His fingers start typing: small alternating key taps, wrists still."
+      ],
+      [
+       "3.4–4.0 s",
+       "Settles exactly into the last frame: head lowered, eyes on the screen, fingers on the keys."
+      ]
+     ],
+     "aspect_ratio": "9:16",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same young man rendered as a carved warm-ivory marble statue in a draped toga — the same face, short wavy dark-brown hair, thin rectangular metal glasses, gentle smile, ear and jaw as in the first frame; seated with a matte-black laptop on his lap. His identity must not change at any moment.\nMotion beats: 0–0.8 s: Still: he looks out to the left with his gentle smile, fingers resting on the keys. 0.8–2.6 s: He turns his head down and to the left, chin dropping about 20°, until his eyes land on the laptop screen; the smile softens into focus. 1.6–3.4 s: His fingers start typing: small alternating key taps, wrists still. 3.4–4.0 s: Settles exactly into the last frame: head lowered, eyes on the screen, fingers on the keys.\nHard constraints: BOTH hands stay on the keyboard for the entire clip — no hand lifts, no gestures, no fist, no waving. The head makes ONE smooth turn down to the screen and stops there — no overshoot, no look back up, never toward the viewer. The torso, toga folds, laptop and chair do not move.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat warm cream, no texture, gradient, vignette or colour drift; the empty top area of the frame stays empty flat ground — do not extend the figure into it.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; the laptop stays matte black with the same lid angle and the screen facing away from camera. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame and holds it.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/hero-typing-mobile-master.png",
+      "last_frame": "keyframes/hero-typing-mobile-typing.png"
+     },
+     "cropToPage": [
+      0,
+      0.43742,
+      1,
+      0.56258
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "9:16",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/hero-typing-mobile-master.png",
+       "last_frame": "keyframes/hero-typing-mobile-typing.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "hero-loop-mobile",
+     "kind": "loop",
+     "first": "hero-typing-mobile-typing",
+     "last": "hero-typing-mobile-typing",
+     "duration": 4,
+     "beats": [
+      [
+       "0–2.0 s",
+       "Continuous light typing with both hands; his head dips about 2° as if reading a line, eyes on the laptop screen."
+      ],
+      [
+       "2.0–4.0 s",
+       "Typing continues and his head eases back to exactly the first-frame pose."
+      ]
+     ],
+     "aspect_ratio": "9:16",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same young man rendered as a carved warm-ivory marble statue in a draped toga — the same face, short wavy dark-brown hair, thin rectangular metal glasses, gentle smile, ear and jaw as in the first frame; seated with a matte-black laptop on his lap. His identity must not change at any moment.\nMotion beats: 0–2.0 s: Continuous light typing with both hands; his head dips about 2° as if reading a line, eyes on the laptop screen. 2.0–4.0 s: Typing continues and his head eases back to exactly the first-frame pose.\nHard constraints: BOTH hands stay on the keyboard for the entire clip — no hand lifts, no gestures, no fist, no waving. His gaze stays on the laptop screen the entire time — no chin lift and no upward glance at any point, he never raises his head, never looks up, never looks toward the viewer. Head movement stays within about 5° of the first frame. Only small finger taps and tiny head nods; the torso, toga folds, laptop and chair do not move.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat warm cream, no texture, gradient, vignette or colour drift; the empty top area of the frame stays empty flat ground — do not extend the figure into it.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; the laptop stays matte black with the same lid angle and the screen facing away from camera. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nLoop: the clip ends on a frame identical to its first frame.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/hero-typing-mobile-typing.png",
+      "last_frame": "keyframes/hero-typing-mobile-typing.png"
+     },
+     "cropToPage": [
+      0,
+      0.43742,
+      1,
+      0.56258
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "9:16",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/hero-typing-mobile-typing.png",
+       "last_frame": "keyframes/hero-typing-mobile-typing.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    }
+   ]
+  },
+  {
+   "id": "career",
+   "section": "Work, over time",
+   "device": "desktop (same crop reused in the ≤899 accordion)",
+   "aspect_ratio": "16:9",
+   "round2": true,
+   "trigger": "Chapter change. The page opens on Paytm Money (the latest, full structure). Moving DOWN the list towards LearnApp plays the removal clips; moving UP plays their reversed encodes. After any transition, that state's idle loop plays while in view.",
+   "loopMethod": "progressive removal: 3 removal clips (+ reversed encodes) + 4 single-clip idle loops (first = last = state)",
+   "loopNote": "Every step removes one sizeable, clearly visible piece, lifted away by a hand: the top cube (Paytm Money → ET Money), the tall upright block (→ INDMoney), the large square base block (→ LearnApp). Each lower state is a strict subset of the one above (pixel-diff checked); clips start and end exactly on state frames, so they chain without pops.",
+   "compose": "Crop with pageCropNormalized (= the asset masterCrop 600,90,1072,790) and key the #f6eee5 ground like career-hands.",
+   "subject": "Subject continuity: the same two carved marble hands and draped forearms over a long marble plinth, building a small structure of geometric marble blocks (a square block, an arch, low steps, a sphere, a tall upright block, a top cube). Every block that is in the first frame stays exactly where it is for the whole clip — apart from the one piece being lifted away, no block ever moves, rotates or resizes.",
+   "camera": "Locked-off camera: no zoom, no pan, no tilt, no dolly, no shake. Framing and scale identical to the provided frames for the whole clip.",
+   "lighting": "Lighting continuity: the same soft key light from the upper left, same soft shadows, no flicker, no exposure change.",
+   "background": "Background: perfectly flat #f6eee5 with no texture, no gradient, no vignette, no colour drift.",
+   "materials": "Materials: everything carved stays carved warm-ivory marble with fine tan veining (no skin, no cloth sheen); blocks are the same speckled ivory stone; The square-dot halftone dissolve stays static (each square in place; at most an imperceptible shimmer).",
+   "states": [
+    {
+     "frame": "career-s4",
+     "chapter": "Paytm Money",
+     "period": "2026–now",
+     "adds": "Full structure — the approved still; the left hand is setting the top cube."
+    },
+    {
+     "frame": "career-s3",
+     "chapter": "ET Money",
+     "period": "2022–2026",
+     "adds": "− the top cube (lifted off by the left hand, which now hovers empty)."
+    },
+    {
+     "frame": "career-s2",
+     "chapter": "INDMoney",
+     "period": "2020–2022",
+     "adds": "− the tall upright block behind the arch."
+    },
+    {
+     "frame": "career-s1",
+     "chapter": "LearnApp",
+     "period": "2018–2020",
+     "adds": "− the large square base block on the left: only the arch, the low steps and the sphere remain."
+    }
+   ],
+   "clips": [
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "career-r43",
+     "kind": "removal",
+     "first": "career-s4",
+     "last": "career-s3",
+     "duration": 6,
+     "beats": [
+      [
+       "0–0.5 s",
+       "Hold: nothing moves."
+      ],
+      [
+       "0.5–2.2 s",
+       "The left hand tightens its pinch on the small top cube and lifts it straight up off the square block."
+      ],
+      [
+       "2.2–3.8 s",
+       "The hand carries the cube up and out through the top edge of the frame."
+      ],
+      [
+       "3.8–5.4 s",
+       "The empty left hand comes back down into frame and hovers, relaxed and open, just above the now-bare block."
+      ],
+      [
+       "5.4–6.0 s",
+       "Hold on the exact last frame."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same two carved marble hands and draped forearms over a long marble plinth with a small structure of geometric marble blocks; every hand has exactly five fingers.\nMotion beats: 0–0.5 s: Hold: nothing moves. 0.5–2.2 s: The left hand tightens its pinch on the small top cube and lifts it straight up off the square block. 2.2–3.8 s: The hand carries the cube up and out through the top edge of the frame. 3.8–5.4 s: The empty left hand comes back down into frame and hovers, relaxed and open, just above the now-bare block. 5.4–6.0 s: Hold on the exact last frame.\nHard constraints: Only the left hand and small top cube move. The small top cube is carried away as one rigid object: it keeps its exact shape and size, does not rotate, and leaves through the top edge of the frame — it never fades, dissolves or vanishes in place. Every other block stays exactly where it is, with no shift or wobble, and no new block appears in its place. The right hand stays completely still. The forearms move only as the hand requires; the drapery does not move. The hand and forearm stay one continuous limb attached to the same sleeve the whole time: the hand leaves through the top edge with the cube and comes back down along the same path — it never pops in, fades in or enters from another side. Nothing is left behind where the hand was: no empty sleeve, no hanging cloth, no second hand. The cube never comes back into the frame.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat warm off-white, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; blocks are the same speckled ivory stone and stay rigid (no bending, melting, shrinking or fading). The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame and holds it.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, blocks moving, blocks fading or popping, new blocks. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/career-s4.png",
+      "last_frame": "keyframes/career-s3.png"
+     },
+     "cropToPage": [
+      0.35864,
+      0.09564,
+      0.64077,
+      0.83953
+     ],
+     "estCostUSD": {
+      "lite720p": 0.18,
+      "lite1080p": 0.3,
+      "fast720p": 0.48,
+      "fast1080p": 0.6
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 6,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/career-s4.png",
+       "last_frame": "keyframes/career-s3.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 4
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "career-r32",
+     "kind": "removal",
+     "first": "career-s3",
+     "last": "career-s2",
+     "duration": 6,
+     "beats": [
+      [
+       "0–0.5 s",
+       "Hold: nothing moves."
+      ],
+      [
+       "0.5–1.8 s",
+       "The right hand rises from the low steps and closes around the top of the tall upright block behind the arch."
+      ],
+      [
+       "1.8–3.8 s",
+       "It lifts the tall block straight up — perfectly upright, no rotation — and out through the top edge of the frame."
+      ],
+      [
+       "3.8–5.4 s",
+       "The empty right hand returns down into frame and settles its fingertips back on the steps exactly where they were."
+      ],
+      [
+       "5.4–6.0 s",
+       "Hold on the exact last frame."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same two carved marble hands and draped forearms over a long marble plinth with a small structure of geometric marble blocks; every hand has exactly five fingers.\nMotion beats: 0–0.5 s: Hold: nothing moves. 0.5–1.8 s: The right hand rises from the low steps and closes around the top of the tall upright block behind the arch. 1.8–3.8 s: It lifts the tall block straight up — perfectly upright, no rotation — and out through the top edge of the frame. 3.8–5.4 s: The empty right hand returns down into frame and settles its fingertips back on the steps exactly where they were. 5.4–6.0 s: Hold on the exact last frame.\nHard constraints: Only the right hand and tall upright block move. The tall upright block is carried away as one rigid object: it keeps its exact shape and size, does not rotate, and leaves through the top edge of the frame — it never fades, dissolves or vanishes in place. Every other block stays exactly where it is, with no shift or wobble, and no new block appears in its place. The left hand stays completely still. The forearms move only as the hand requires; the drapery does not move.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat warm off-white, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; blocks are the same speckled ivory stone and stay rigid (no bending, melting, shrinking or fading). The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame and holds it.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, blocks moving, blocks fading or popping, new blocks. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/career-s3.png",
+      "last_frame": "keyframes/career-s2.png"
+     },
+     "cropToPage": [
+      0.35864,
+      0.09564,
+      0.64077,
+      0.83953
+     ],
+     "estCostUSD": {
+      "lite720p": 0.18,
+      "lite1080p": 0.3,
+      "fast720p": 0.48,
+      "fast1080p": 0.6
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 6,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/career-s3.png",
+       "last_frame": "keyframes/career-s2.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "career-r21",
+     "kind": "removal",
+     "first": "career-s2",
+     "last": "career-s1",
+     "duration": 6,
+     "beats": [
+      [
+       "0–0.5 s",
+       "Hold: nothing moves."
+      ],
+      [
+       "0.5–1.8 s",
+       "The hovering left hand lowers and grips the large square block at the left end of the plinth."
+      ],
+      [
+       "1.8–3.8 s",
+       "It lifts the block (with the low step beside it) straight up and out through the top edge of the frame; the bare plinth and the halftone remain."
+      ],
+      [
+       "3.8–5.4 s",
+       "The empty left hand comes back down into frame and hovers in exactly its first-frame position."
+      ],
+      [
+       "5.4–6.0 s",
+       "Hold on the exact last frame."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same two carved marble hands and draped forearms over a long marble plinth with a small structure of geometric marble blocks; every hand has exactly five fingers.\nMotion beats: 0–0.5 s: Hold: nothing moves. 0.5–1.8 s: The hovering left hand lowers and grips the large square block at the left end of the plinth. 1.8–3.8 s: It lifts the block (with the low step beside it) straight up and out through the top edge of the frame; the bare plinth and the halftone remain. 3.8–5.4 s: The empty left hand comes back down into frame and hovers in exactly its first-frame position. 5.4–6.0 s: Hold on the exact last frame.\nHard constraints: Only the left hand and large square block at the left end of the plinth (together with the low step attached to its left side) move. The large square block at the left end of the plinth (together with the low step attached to its left side) is carried away as one rigid object: it keeps its exact shape and size, does not rotate, and leaves through the top edge of the frame — it never fades, dissolves or vanishes in place. Every other block stays exactly where it is, with no shift or wobble, and no new block appears in its place. The right hand stays completely still. The forearms move only as the hand requires; the drapery does not move. The hand and forearm stay one continuous limb attached to the same sleeve the whole time: the hand leaves through the top edge with the block and comes back down along the same path — it never pops in, fades in or enters from another side. Nothing is left behind where the hand was: no empty sleeve, no hanging cloth, no second hand. The block is never brought back or set down again.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat warm off-white, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; blocks are the same speckled ivory stone and stay rigid (no bending, melting, shrinking or fading). The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame and holds it.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, blocks moving, blocks fading or popping, new blocks. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/career-s2.png",
+      "last_frame": "keyframes/career-s1.png"
+     },
+     "cropToPage": [
+      0.35864,
+      0.09564,
+      0.64077,
+      0.83953
+     ],
+     "estCostUSD": {
+      "lite720p": 0.18,
+      "lite1080p": 0.3,
+      "fast720p": 0.48,
+      "fast1080p": 0.6
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 6,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/career-s2.png",
+       "last_frame": "keyframes/career-s1.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 4
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "career-r21-add",
+     "kind": "addition",
+     "first": "career-s1",
+     "last": "career-s2",
+     "duration": 6,
+     "beats": [
+      [
+       "0–0.5 s",
+       "Hold: nothing moves."
+      ],
+      [
+       "0.5–1.8 s",
+       "The hovering left hand rises straight up and out through the top edge of the frame."
+      ],
+      [
+       "1.8–4.0 s",
+       "The same left hand comes back down along the same path holding the large square block (with the low step attached to its left side), and sets it down flat on the bare plinth at the left end, just left of the tall block behind the arch."
+      ],
+      [
+       "4.0–5.4 s",
+       "The hand lets go; the block stays exactly where it was placed. The empty left hand settles back into exactly its first-frame hovering position."
+      ],
+      [
+       "5.4–6.0 s",
+       "Hold on the exact last frame."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same two carved marble hands and draped forearms over a long marble plinth with a small structure of geometric marble blocks; every hand has exactly five fingers.\nMotion beats: 0–0.5 s: Hold: nothing moves. 0.5–1.8 s: The hovering left hand rises straight up and out through the top edge of the frame. 1.8–4.0 s: The same left hand comes back down along the same path holding the large square block (with the low step attached to its left side), and sets it down flat on the bare plinth at the left end, just left of the tall block behind the arch. 4.0–5.4 s: The hand lets go; the block stays exactly where it was placed. The empty left hand settles back into exactly its first-frame hovering position. 5.4–6.0 s: Hold on the exact last frame.\nHard constraints: Only the left hand and the large square block (with the low step attached to its left side) move. The block is carried in as one rigid object: it keeps its exact shape and size, does not rotate, enters through the top edge of the frame in the left hand and is set down on the plinth — it never fades in, materialises or appears in place. Once placed, it stays exactly there for the rest of the clip and is never lifted again. Every other block stays exactly where it is, with no shift or wobble. The right hand stays completely still. The hand and forearm stay one continuous limb attached to the same sleeve the whole time: the hand leaves and returns along the same path through the top edge — it never pops in, fades in or enters from another side. There is only ever one left hand and one right hand: no extra arm, no second hand, no empty sleeve, no hanging cloth left behind. The forearms move only as the hand requires; the drapery does not move.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat warm off-white, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; blocks are the same speckled ivory stone and stay rigid (no bending, melting, shrinking or fading). The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame and holds it.\nAvoid: text, letters, logos, watermark, new objects, extra hands, extra arms or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, other blocks moving, blocks fading or popping, the block being lifted again. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/career-s1.png",
+      "last_frame": "keyframes/career-s2.png"
+     },
+     "cropToPage": [
+      0.35864,
+      0.09564,
+      0.64077,
+      0.83953
+     ],
+     "estCostUSD": {
+      "lite720p": 0.18,
+      "lite1080p": 0.3,
+      "fast720p": 0.48,
+      "fast1080p": 0.6
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 6,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/career-s1.png",
+       "last_frame": "keyframes/career-s2.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 1,
+     "note": "2026-10-18: removal (career-r21) failed 6/6, so generate the add (S1→S2). Manifest: career-r21 = this clip reversed (removal), career-r21-rev = as generated.",
+     "result": "2026-10-18: failed 2/2 (lite 720p). t1: the block appears at the top edge on its own before the hand reaches it, and a second left hand comes down from the top while the hovering hand is still there (4.4–5.0 s). t2: an oversized block is set down off the plinth at the far left, then fades out; ghost arm at the top edge. r21 is left out of the manifest; the page crossfades S2↔S1."
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "career-idle-s4",
+     "kind": "idle",
+     "first": "career-s4",
+     "last": "career-s4",
+     "duration": 4,
+     "beats": [
+      [
+       "0–2.0 s",
+       "The hands breathe: the fingers relax and flex by a few millimetres."
+      ],
+      [
+       "2.0–4.0 s",
+       "The fingers return to exactly their first-frame position."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same two carved marble hands and draped forearms over a long marble plinth with a small structure of geometric marble blocks; every hand has exactly five fingers.\nMotion beats: 0–2.0 s: The hands breathe: the fingers relax and flex by a few millimetres. 2.0–4.0 s: The fingers return to exactly their first-frame position.\nHard constraints: Throughout, the left hand keeps its pinch on the top cube and the right fingertips rest on the low steps; the hands stay in place and only the fingers move, by a few millimetres at most. No block moves, lifts, rotates or wobbles at any time; nothing is added or removed. The wrists, forearms and drapery do not move.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat warm off-white, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; blocks are the same speckled ivory stone and stay rigid (no bending, melting, shrinking or fading). The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nLoop: the clip ends on a frame identical to its first frame.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, blocks moving, grabbing or lifting a block. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/career-s4.png",
+      "last_frame": "keyframes/career-s4.png"
+     },
+     "cropToPage": [
+      0.35864,
+      0.09564,
+      0.64077,
+      0.83953
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/career-s4.png",
+       "last_frame": "keyframes/career-s4.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "career-idle-s3",
+     "kind": "idle",
+     "first": "career-s3",
+     "last": "career-s3",
+     "duration": 4,
+     "beats": [
+      [
+       "0–2.0 s",
+       "The hands breathe: the fingers relax and flex by a few millimetres."
+      ],
+      [
+       "2.0–4.0 s",
+       "The fingers return to exactly their first-frame position."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same two carved marble hands and draped forearms over a long marble plinth with a small structure of geometric marble blocks; every hand has exactly five fingers.\nMotion beats: 0–2.0 s: The hands breathe: the fingers relax and flex by a few millimetres. 2.0–4.0 s: The fingers return to exactly their first-frame position.\nHard constraints: Throughout, the left hand hovers open above the bare square block and the right fingertips rest on the low steps; the hands stay in place and only the fingers move, by a few millimetres at most. No block moves, lifts, rotates or wobbles at any time; nothing is added or removed. The wrists, forearms and drapery do not move.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat warm off-white, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; blocks are the same speckled ivory stone and stay rigid (no bending, melting, shrinking or fading). The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nLoop: the clip ends on a frame identical to its first frame.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, blocks moving, grabbing or lifting a block. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/career-s3.png",
+      "last_frame": "keyframes/career-s3.png"
+     },
+     "cropToPage": [
+      0.35864,
+      0.09564,
+      0.64077,
+      0.83953
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/career-s3.png",
+       "last_frame": "keyframes/career-s3.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "career-idle-s2",
+     "kind": "idle",
+     "first": "career-s2",
+     "last": "career-s2",
+     "duration": 4,
+     "beats": [
+      [
+       "0–2.0 s",
+       "The hands breathe: the fingers relax and flex by a few millimetres."
+      ],
+      [
+       "2.0–4.0 s",
+       "The fingers return to exactly their first-frame position."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same two carved marble hands and draped forearms over a long marble plinth with a small structure of geometric marble blocks; every hand has exactly five fingers.\nMotion beats: 0–2.0 s: The hands breathe: the fingers relax and flex by a few millimetres. 2.0–4.0 s: The fingers return to exactly their first-frame position.\nHard constraints: Throughout, the left hand hovers open above the square block and the right fingertips rest on the low steps; the hands stay in place and only the fingers move, by a few millimetres at most. No block moves, lifts, rotates or wobbles at any time; nothing is added or removed. The wrists, forearms and drapery do not move.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat warm off-white, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; blocks are the same speckled ivory stone and stay rigid (no bending, melting, shrinking or fading). The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nLoop: the clip ends on a frame identical to its first frame.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, blocks moving, grabbing or lifting a block. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/career-s2.png",
+      "last_frame": "keyframes/career-s2.png"
+     },
+     "cropToPage": [
+      0.35864,
+      0.09564,
+      0.64077,
+      0.83953
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/career-s2.png",
+       "last_frame": "keyframes/career-s2.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "career-idle-s1",
+     "kind": "idle",
+     "first": "career-s1",
+     "last": "career-s1",
+     "duration": 4,
+     "beats": [
+      [
+       "0–2.0 s",
+       "The hands breathe: the fingers relax and flex by a few millimetres."
+      ],
+      [
+       "2.0–4.0 s",
+       "The fingers return to exactly their first-frame position."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same two carved marble hands and draped forearms over a long marble plinth with a small structure of geometric marble blocks; every hand has exactly five fingers.\nMotion beats: 0–2.0 s: The hands breathe: the fingers relax and flex by a few millimetres. 2.0–4.0 s: The fingers return to exactly their first-frame position.\nHard constraints: Throughout, the left hand hovers open above the empty left end of the plinth and the right fingertips rest on the low steps; the hands stay in place and only the fingers move, by a few millimetres at most. No block moves, lifts, rotates or wobbles at any time; nothing is added or removed. The wrists, forearms and drapery do not move.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat warm off-white, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; blocks are the same speckled ivory stone and stay rigid (no bending, melting, shrinking or fading). The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nLoop: the clip ends on a frame identical to its first frame.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, blocks moving, grabbing or lifting a block. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/career-s1.png",
+      "last_frame": "keyframes/career-s1.png"
+     },
+     "cropToPage": [
+      0.35864,
+      0.09564,
+      0.64077,
+      0.83953
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/career-s1.png",
+       "last_frame": "keyframes/career-s1.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    }
+   ],
+   "playback": [
+    "State map: Paytm Money → S4 (default on load, the approved still as poster), ET Money → S3, INDMoney → S2, LearnApp → S1. The timeline lists newest first, so moving down the list = going back in time = removing pieces.",
+    "Down the list (to an older chapter): play the removal clips in order (r43, r32, r21). Up the list (to a newer chapter): play the same clips reversed (ffmpeg -vf reverse, no extra generation) — the hand brings the piece down from above and sets it in place.",
+    "Multi-step jumps (e.g. Paytm Money → LearnApp) chain the clips at playbackRate 2; three queued steps crossfade (200 ms) straight to the target still instead.",
+    "Rapid/keyboard switching (arrow keys over the tablist): keep only the latest target. A selection during a clip lets it finish at 2× (clips always end on a state frame), then routes toward the newest target. Chapter text updates immediately; the art catches up.",
+    "Idle: after a transition, the target state's 4 s idle loops while the section is in view; paused offscreen or with the tab hidden.",
+    "Reduced motion / Save-Data: no video. Each chapter swaps to its state still (S1–S4 previews as posters) with a 150 ms opacity crossfade."
+   ],
+   "alternative": "Round 1 accumulated chronologically (LearnApp emptiest, adding upward). Round 2 follows how people actually use the page — it opens on the current chapter and they read downward — so each step down is a visible removal, and the ET → INDMoney step now removes the large upright block (the round-1 INDMoney step only added a small sphere)."
+  },
+  {
+   "id": "products-reader",
+   "section": "Selected products",
+   "device": "desktop",
+   "aspect_ratio": "16:9",
+   "round2": true,
+   "trigger": "Autoplay muted loop while the product frame is in view.",
+   "loopMethod": "single clip, first = last = master",
+   "loopNote": "Reading and blinking are driven by the prompt. No eye-region keyframe: every image edit of this head re-rendered it at a different scale/position (round 1), so a small composited eye patch could not line up faithfully; the master is both ends of the loop.",
+   "compose": "Crop with pageCropNormalized (full master), key the #ad6b51 ground like projects-frame, keep the #141413 opening opaque; the real AI Hiring Chat screenshot is composited in HTML above the opening, so the screen interior in the video must stay flat dark.",
+   "subject": "Subject continuity: the same classical marble head in right-facing profile on the left, merging into a broken carved stone frame around a flat near-black screen opening; same face, curls and cracks at every moment. The carved eyes have eyelids that can close; the eyes themselves stay carved stone.",
+   "camera": "Locked-off camera: no zoom, no pan, no tilt, no dolly, no shake. Framing and scale identical to the provided frames for the whole clip.",
+   "lighting": "Lighting continuity: the same soft key light from the upper left, same soft shadows, no flicker, no exposure change.",
+   "background": "Background: perfectly flat #ad6b51 with no texture, no gradient, no vignette, no colour drift. The screen opening stays uniformly flat #141413 — nothing appears on it.",
+   "materials": "Materials: everything carved stays carved warm-ivory marble with fine tan veining (no skin, no cloth sheen); the frame stays the same cracked stone and does not move at all; The square-dot halftone dissolve stays static (each square in place; at most an imperceptible shimmer).",
+   "clips": [
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "products-reader-loop",
+     "first": "products-reader-master",
+     "last": "products-reader-master",
+     "duration": 6,
+     "beats": [
+      [
+       "0–0.3 s",
+       "Still, gaze resting at the top-left of the screen."
+      ],
+      [
+       "0.3–1.5 s",
+       "Reading line 1: the eyes track left → right across the screen in three small saccades."
+      ],
+      [
+       "1.5–1.8 s",
+       "Blink #1: the eyelids close and reopen naturally."
+      ],
+      [
+       "1.8–2.2 s",
+       "Return sweep: the eyes jump back to the left and drop one line."
+      ],
+      [
+       "2.2–3.4 s",
+       "Reading line 2: three small left → right saccades."
+      ],
+      [
+       "3.4–3.8 s",
+       "Return sweep, dropping another line."
+      ],
+      [
+       "3.8–4.8 s",
+       "Reading line 3: three small saccades."
+      ],
+      [
+       "4.8–5.1 s",
+       "Blink #2."
+      ],
+      [
+       "5.1–6.0 s",
+       "The gaze returns to the top-left of the screen — the exact first frame."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same classical marble head in right-facing profile on the left, merging into a broken carved stone frame around a flat near-black screen opening; same face, curls and cracks at every moment. The carved eyes have eyelids that can close; the eyes themselves stay carved stone.\nMotion beats: 0–0.3 s: Still, gaze resting at the top-left of the screen. 0.3–1.5 s: Reading line 1: the eyes track left → right across the screen in three small saccades. 1.5–1.8 s: Blink #1: the eyelids close and reopen naturally. 1.8–2.2 s: Return sweep: the eyes jump back to the left and drop one line. 2.2–3.4 s: Reading line 2: three small left → right saccades. 3.4–3.8 s: Return sweep, dropping another line. 3.8–4.8 s: Reading line 3: three small saccades. 4.8–5.1 s: Blink #2. 5.1–6.0 s: The gaze returns to the top-left of the screen — the exact first frame.\nHard constraints: Only the eyes and eyelids move. The head stays nearly still — at most a 1° drift that returns — with no nod, no chin lift and no turn toward the viewer; the gaze stays on the screen. The curls, cracks and the whole stone frame never move. The screen opening stays uniformly flat near-black: no text, no light, no reflection, nothing appears on it.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat terracotta, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; the eyes stay carved stone; the frame stays the same cracked stone. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nLoop: the clip ends on a frame identical to its first frame.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, anything on the screen, head turning. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/products-reader-master.png",
+      "last_frame": "keyframes/products-reader-master.png"
+     },
+     "cropToPage": [
+      0.07802,
+      0,
+      0.84396,
+      1
+     ],
+     "estCostUSD": {
+      "lite720p": 0.18,
+      "lite1080p": 0.3,
+      "fast720p": 0.48,
+      "fast1080p": 0.6
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 6,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/products-reader-master.png",
+       "last_frame": "keyframes/products-reader-master.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    }
+   ]
+  },
+  {
+   "id": "beyond-book",
+   "section": "Beyond work — Daily Reading",
+   "device": "desktop",
+   "aspect_ratio": "16:9",
+   "trigger": "Autoplay when the reading card is in view: play A+B (10 s), hold the still for 6 s, repeat. Paused offscreen.",
+   "loopMethod": "peak",
+   "loopNote": "A (master→page mid-turn) + B (page lands, sheets settle → master). The hold between cycles keeps the card calm.",
+   "compose": "Crop with pageCropNormalized, key the #f1e8de ground and apply the same left 460 px halftone fade as beyond-reading.",
+   "subject": "Subject continuity: the same large open antique book on a carved marble column capital, with loose engraved sheets (a Colosseum engraving, a landscape engraving, ruled sheets) standing behind it.",
+   "camera": "Locked-off camera: no zoom, no pan, no tilt, no dolly, no shake. Framing and scale identical to the provided frames for the whole clip.",
+   "lighting": "Lighting continuity: the same soft key light from the upper left, same soft shadows, no flicker, no exposure change.",
+   "background": "Background: perfectly flat #f1e8de with no texture, no gradient, no vignette, no colour drift. The left margin is empty flat ground and stays empty.",
+   "materials": "Materials: everything carved stays carved warm-ivory marble with fine tan veining (no skin, no cloth sheen); paper stays warm cream paper; the engravings keep the same pictures; The square-dot halftone dissolve stays static (each square in place; at most an imperceptible shimmer).",
+   "clips": [
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "beyond-book-A",
+     "first": "beyond-book-master",
+     "last": "beyond-book-peak",
+     "duration": 4,
+     "beats": [
+      [
+       "0–0.8 s",
+       "Still."
+      ],
+      [
+       "0.8–2.4 s",
+       "A single page at the right page block lifts at its corner, as if caught by a light breeze."
+      ],
+      [
+       "2.4–4.0 s",
+       "It rises and curls over into a soft standing arc leaning left, catching light on its edge — the exact last frame."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same large open antique book on a carved marble column capital, with loose engraved sheets (a Colosseum engraving, a landscape engraving, ruled sheets) standing behind it.\nMotion beats: 0–0.8 s: Still. 0.8–2.4 s: A single page at the right page block lifts at its corner, as if caught by a light breeze. 2.4–4.0 s: It rises and curls over into a soft standing arc leaning left, catching light on its edge — the exact last frame.\nHard constraints: Only ONE page turns; it stays a single sheet of paper with the same size. The book block, spine, cover and column capital never move. The loose sheets behind move only as described, by a few millimetres, and stay in their places with the same pictures. No new pages, no writing appears on any page. In this clip the loose sheets do not move at all. The page lifts and curls in one continuous motion with no back-and-forth; the other pages do not flutter. The empty background around the book never gains new halftone squares.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat warm cream, no texture, gradient, vignette or colour drift; the empty left margin stays empty.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; paper stays warm cream paper; the engravings keep exactly the same pictures and never redraw. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame and holds it.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, several pages flipping. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/beyond-book-master.png",
+      "last_frame": "keyframes/beyond-book-peak.png"
+     },
+     "cropToPage": [
+      0.15604,
+      0,
+      0.84396,
+      1
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/beyond-book-master.png",
+       "last_frame": "keyframes/beyond-book-peak.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 4
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "beyond-book-B",
+     "first": "beyond-book-peak",
+     "last": "beyond-book-master",
+     "duration": 4,
+     "beats": [
+      [
+       "0–1.6 s",
+       "The arched page continues over to the left and lays down onto the fanned left pages."
+      ],
+      [
+       "1.6–2.8 s",
+       "The air from the page makes the loose sheets behind tremble slightly; the ruled sheet lifts a few millimetres at its corner."
+      ],
+      [
+       "2.8–4.0 s",
+       "Everything settles to the exact last frame."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same large open antique book on a carved marble column capital, with loose engraved sheets (a Colosseum engraving, a landscape engraving, ruled sheets) standing behind it.\nMotion beats: 0–1.6 s: The arched page continues over to the left and lays down onto the fanned left pages. 1.6–2.8 s: The air from the page makes the loose sheets behind tremble slightly; the ruled sheet lifts a few millimetres at its corner. 2.8–4.0 s: Everything settles to the exact last frame.\nHard constraints: Only ONE page turns; it stays a single sheet of paper with the same size. The book block, spine, cover and column capital never move. The loose sheets behind move only as described, by a few millimetres, and stay in their places with the same pictures. No new pages, no writing appears on any page. Only the one arched page travels until it lies flat; no other page flips. The loose sheets tremble in place by a few millimetres — no sheet lifts off, flies, slides or leaves the frame, and the engravings never fade or change. The empty background around the book never gains new halftone squares.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat warm cream, no texture, gradient, vignette or colour drift; the empty left margin stays empty.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; paper stays warm cream paper; the engravings keep exactly the same pictures and never redraw. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame and holds it.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, several pages flipping. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/beyond-book-peak.png",
+      "last_frame": "keyframes/beyond-book-master.png"
+     },
+     "cropToPage": [
+      0.15604,
+      0,
+      0.84396,
+      1
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/beyond-book-peak.png",
+       "last_frame": "keyframes/beyond-book-master.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 4
+    }
+   ]
+  },
+  {
+   "id": "beyond-knob",
+   "section": "Beyond work — Music",
+   "device": "desktop",
+   "aspect_ratio": "16:9",
+   "round2": true,
+   "trigger": "Plays only while a song is playing (bind to the audio element's play/pause). Clips A → B → C loop (12 s). On pause, finish the current clip at 2× and hold its last frame (every clip ends on a valid rest pose); resume with the next clip.",
+   "loopMethod": "three-step full turn: n0 → n120 → n240 → n0 (each clip +120°)",
+   "loopNote": "The knob now carries an engraved indicator notch, so rotation reads against the fixed tick ring. Each clip turns the knob +120° in two 60° twists with a finger re-grip in between, ending with the hand back in its home grip; after three clips the notch has completed a full turn, so C ends on the n0 frame and the loop is seamless and feels like continuous scrolling.",
+   "compose": "Uses the CURRENT page master (the 536×215 strip from commit 4e2fb82), upscaled 3× for Veo. The 16:9 canvas repeats the strip's edge rows top and bottom; crop back with pageCropNormalized and downscale to 536×215 (opaque card ground with the existing edge fades).",
+   "subject": "Subject continuity: the same carved marble hand reaching from the left across a halftone dissolve and a deep red circle, thumb and index finger pinching a brushed-metal knob with an engraved indicator line, set in a dark ring with small tick marks on a dark panel.",
+   "camera": "Locked-off camera: no zoom, no pan, no tilt, no dolly, no shake. Framing and scale identical to the provided frames for the whole clip.",
+   "lighting": "Lighting continuity: the same soft key light from the upper left, same soft shadows, no flicker, no exposure change.",
+   "background": "Background: perfectly flat the provided strip colours (cream left, deep red circle, near-black panel right) with no texture, no gradient, no vignette, no colour drift. The repeated rows above and below the strip are static padding — they never move.",
+   "materials": "Materials: everything carved stays carved warm-ivory marble with fine tan veining (no skin, no cloth sheen); the knob stays brushed metal with the same size and position; the brushed highlight stays fixed to the light while the knob turns (only the notch moves); the tick ring never rotates; The square-dot halftone dissolve stays static (each square in place; at most an imperceptible shimmer).",
+   "clips": [
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "beyond-knob-A",
+     "first": "beyond-knob-n0",
+     "last": "beyond-knob-n120",
+     "duration": 4,
+     "beats": [
+      [
+       "0–0.3 s",
+       "Thumb and index finger tighten their pinch on the knob rim."
+      ],
+      [
+       "0.3–1.7 s",
+       "They twist the knob 60° clockwise, the wrist rolling slightly; the notch moves from 1:30 to 3:30."
+      ],
+      [
+       "1.7–2.2 s",
+       "The fingers release and slide back to their home grip; the knob stays where it was turned."
+      ],
+      [
+       "2.2–3.6 s",
+       "A second 60° clockwise twist brings the notch to 5:30."
+      ],
+      [
+       "3.6–4.0 s",
+       "Fingers release back to the home grip — the exact last frame."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same carved marble hand reaching from the left across a halftone dissolve and a deep red circle, thumb and index finger pinching a brushed-metal knob with an engraved indicator notch, set in a dark ring with small tick marks on a dark panel; the hand has exactly five fingers.\nMotion beats: 0–0.3 s: Thumb and index finger tighten their pinch on the knob rim. 0.3–1.7 s: They twist the knob 60° clockwise, the wrist rolling slightly; the notch moves from 1:30 to 3:30. 1.7–2.2 s: The fingers release and slide back to their home grip; the knob stays where it was turned. 2.2–3.6 s: A second 60° clockwise twist brings the notch to 5:30. 3.6–4.0 s: Fingers release back to the home grip — the exact last frame.\nHard constraints: The knob turns only clockwise and only about its own centre; the engraved notch stays clearly visible as one thin dark line the whole time (it never smears, doubles or disappears). The tick ring, the dark panel and the red circle never rotate or move. The knob does not change size or position. The thumb and index finger stay on the knob rim; the palm, wrist and forearm move only slightly; the other fingers stay curled where they are.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: the provided strip colours stay perfectly flat (cream left, deep red circle, near-black panel right); the repeated rows above and below the strip are static padding and never move.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; the knob stays brushed metal with the same size and position; the brushed highlight stays fixed to the light while the knob turns. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame and holds it.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, tick ring rotating, extra notches or lines. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/beyond-knob-n0.png",
+      "last_frame": "keyframes/beyond-knob-n120.png"
+     },
+     "cropToPage": [
+      0,
+      0.14365,
+      1,
+      0.71271
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/beyond-knob-n0.png",
+       "last_frame": "keyframes/beyond-knob-n120.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "beyond-knob-B",
+     "first": "beyond-knob-n120",
+     "last": "beyond-knob-n240",
+     "duration": 4,
+     "beats": [
+      [
+       "0–0.3 s",
+       "Thumb and index finger tighten their pinch on the knob rim."
+      ],
+      [
+       "0.3–1.7 s",
+       "They twist the knob 60° clockwise, the wrist rolling slightly; the notch moves from 5:30 to 7:30."
+      ],
+      [
+       "1.7–2.2 s",
+       "The fingers release and slide back to their home grip; the knob stays where it was turned."
+      ],
+      [
+       "2.2–3.6 s",
+       "A second 60° clockwise twist brings the notch to 9:30."
+      ],
+      [
+       "3.6–4.0 s",
+       "Fingers release back to the home grip — the exact last frame."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same carved marble hand reaching from the left across a halftone dissolve and a deep red circle, thumb and index finger pinching a brushed-metal knob with an engraved indicator notch, set in a dark ring with small tick marks on a dark panel; the hand has exactly five fingers.\nMotion beats: 0–0.3 s: Thumb and index finger tighten their pinch on the knob rim. 0.3–1.7 s: They twist the knob 60° clockwise, the wrist rolling slightly; the notch moves from 5:30 to 7:30. 1.7–2.2 s: The fingers release and slide back to their home grip; the knob stays where it was turned. 2.2–3.6 s: A second 60° clockwise twist brings the notch to 9:30. 3.6–4.0 s: Fingers release back to the home grip — the exact last frame.\nHard constraints: The knob turns only clockwise and only about its own centre; the engraved notch stays clearly visible as one thin dark line the whole time (it never smears, doubles or disappears). The tick ring, the dark panel and the red circle never rotate or move. The knob does not change size or position. The thumb and index finger stay on the knob rim; the palm, wrist and forearm move only slightly; the other fingers stay curled where they are.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: the provided strip colours stay perfectly flat (cream left, deep red circle, near-black panel right); the repeated rows above and below the strip are static padding and never move.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; the knob stays brushed metal with the same size and position; the brushed highlight stays fixed to the light while the knob turns. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame and holds it.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, tick ring rotating, extra notches or lines. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/beyond-knob-n120.png",
+      "last_frame": "keyframes/beyond-knob-n240.png"
+     },
+     "cropToPage": [
+      0,
+      0.14365,
+      1,
+      0.71271
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/beyond-knob-n120.png",
+       "last_frame": "keyframes/beyond-knob-n240.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "beyond-knob-C",
+     "first": "beyond-knob-n240",
+     "last": "beyond-knob-n0",
+     "duration": 4,
+     "beats": [
+      [
+       "0–0.3 s",
+       "Thumb and index finger tighten their pinch on the knob rim."
+      ],
+      [
+       "0.3–1.7 s",
+       "They twist the knob 60° clockwise, the wrist rolling slightly; the notch moves from 9:30 to 11:30."
+      ],
+      [
+       "1.7–2.2 s",
+       "The fingers release and slide back to their home grip; the knob stays where it was turned."
+      ],
+      [
+       "2.2–3.6 s",
+       "A second 60° clockwise twist brings the notch to 1:30."
+      ],
+      [
+       "3.6–4.0 s",
+       "Fingers release back to the home grip — the exact last frame."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same carved marble hand reaching from the left across a halftone dissolve and a deep red circle, thumb and index finger pinching a brushed-metal knob with an engraved indicator notch, set in a dark ring with small tick marks on a dark panel; the hand has exactly five fingers.\nMotion beats: 0–0.3 s: Thumb and index finger tighten their pinch on the knob rim. 0.3–1.7 s: They twist the knob 60° clockwise, the wrist rolling slightly; the notch moves from 9:30 to 11:30. 1.7–2.2 s: The fingers release and slide back to their home grip; the knob stays where it was turned. 2.2–3.6 s: A second 60° clockwise twist brings the notch to 1:30. 3.6–4.0 s: Fingers release back to the home grip — the exact last frame.\nHard constraints: The knob turns only clockwise and only about its own centre; the engraved notch stays clearly visible as one thin dark line the whole time (it never smears, doubles or disappears). The tick ring, the dark panel and the red circle never rotate or move. The knob does not change size or position. The thumb and index finger stay on the knob rim; the palm, wrist and forearm move only slightly; the other fingers stay curled where they are.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: the provided strip colours stay perfectly flat (cream left, deep red circle, near-black panel right); the repeated rows above and below the strip are static padding and never move.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; the knob stays brushed metal with the same size and position; the brushed highlight stays fixed to the light while the knob turns. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame and holds it.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, tick ring rotating, extra notches or lines. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/beyond-knob-n240.png",
+      "last_frame": "keyframes/beyond-knob-n0.png"
+     },
+     "cropToPage": [
+      0,
+      0.14365,
+      1,
+      0.71271
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/beyond-knob-n240.png",
+       "last_frame": "keyframes/beyond-knob-n0.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    }
+   ],
+   "fallback": "If Veo smears the notch or rotates the tick ring: render the knob as code. Cut the knob face (ellipse centre 1368,276, rx 80, ry 78 in the 3× master; 456,92 r≈27×26 on the page strip) into its own PNG with the notch, mask the fingers with a separate layer (warm pixels above the face, from the master), and stack: strip (with the face filled flat) → rotating face <img> (CSS rotate about its centre, scaleY 0.975 for the slight perspective, the brushed highlight as a non-rotating overlay) → fingers layer. Drive the rotation from the audio element (e.g. 30°/s while playing) with a 2-frame finger crossfade every 60° to suggest the re-grip."
+  },
+  {
+   "id": "jj-desktop",
+   "section": "JJ",
+   "device": "desktop",
+   "aspect_ratio": "16:9",
+   "round2": true,
+   "trigger": "Not tied to JJ on/off. When the JJ section first enters view, play \"listen\" once (hand comes up to the ear), then loop \"idle\" while in view. Reduced motion / Save-Data: the master still only.",
+   "loopMethod": "listen (START → master, once) + single-clip idle loop (first = last = master)",
+   "loopNote": "START has the hand lowered out of frame with the ear and curls rebuilt (edit composited only in the arm/ear region; the face stays the master's pixels). The speaking variant from round 1 is dropped.",
+   "compose": "Crop with pageCropNormalized and key the #591210 ground like jj-listener; the CSS disc stays behind. Use the START still as the poster before the section enters view, so the first frame matches.",
+   "subject": "Subject continuity: the same classical marble bust of a young man with tight carved curls, whose right hand comes up to cup behind his ear, bronze brooch on the shoulder — same face and proportions as the first frame at every moment; carved statue eyes (no pupils, no blinking).",
+   "camera": "Locked-off camera: no zoom, no pan, no tilt, no dolly, no shake. Framing and scale identical to the provided frames for the whole clip.",
+   "lighting": "Lighting continuity: the same soft key light from the upper left, same soft shadows, no flicker, no exposure change.",
+   "background": "Background: perfectly flat #591210 with no texture, no gradient, no vignette, no colour drift.",
+   "materials": "Materials: everything carved stays carved warm-ivory marble with fine tan veining (no skin, no cloth sheen); the brooch stays bronze; The square-dot halftone dissolve stays static (each square in place; at most an imperceptible shimmer).",
+   "clips": [
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "jj-listen-desktop",
+     "kind": "intro (once)",
+     "first": "jj-desktop-start",
+     "last": "jj-desktop-master",
+     "duration": 4,
+     "beats": [
+      [
+       "0–0.4 s",
+       "Still: head bowed, listening; no hand near the head."
+      ],
+      [
+       "0.4–2.6 s",
+       "His right hand rises from below the bottom edge of the frame, the forearm bending at the elbow, up past the shoulder and the brooch."
+      ],
+      [
+       "2.6–3.5 s",
+       "The hand cups behind his ear, fingers settling gently onto the curls."
+      ],
+      [
+       "3.5–4.0 s",
+       "Settles exactly into the last frame and holds."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same classical marble bust of a young man with tight carved curls, bronze brooch on the shoulder — same face and proportions as the first frame at every moment; carved statue eyes (no pupils, no blinking).\nMotion beats: 0–0.4 s: Still: head bowed, listening; no hand near the head. 0.4–2.6 s: His right hand rises from below the bottom edge of the frame, the forearm bending at the elbow, up past the shoulder and the brooch. 2.6–3.5 s: The hand cups behind his ear, fingers settling gently onto the curls. 3.5–4.0 s: Settles exactly into the last frame and holds.\nHard constraints: Only the right arm and hand move; it is ONE hand with exactly five fingers, entering from the bottom edge. The head stays bowed in the same pose (within about 3°): no chin lift, no turn toward the viewer; the face, curls and ear keep their shape. The shoulders, drapery and brooch do not move.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat deep oxblood red, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; the brooch stays bronze. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame and holds it.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, a second hand, head lifting. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/jj-desktop-start.png",
+      "last_frame": "keyframes/jj-desktop-master.png"
+     },
+     "cropToPage": [
+      0.07802,
+      0,
+      0.84396,
+      1
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/jj-desktop-start.png",
+       "last_frame": "keyframes/jj-desktop-master.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "jj-idle-desktop",
+     "kind": "loop",
+     "first": "jj-desktop-master",
+     "last": "jj-desktop-master",
+     "duration": 4,
+     "beats": [
+      [
+       "0–2.0 s",
+       "A slow, gentle sway: the head (with the hand at the ear) leans about 1.5° to his right with a barely visible nod, like softly listening to music; the shoulders breathe slightly."
+      ],
+      [
+       "2.0–4.0 s",
+       "Sways back and returns exactly to the first-frame pose."
+      ]
+     ],
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same classical marble bust of a young man with tight carved curls, bronze brooch on the shoulder — same face and proportions as the first frame at every moment; carved statue eyes (no pupils, no blinking).\nMotion beats: 0–2.0 s: A slow, gentle sway: the head (with the hand at the ear) leans about 1.5° to his right with a barely visible nod, like softly listening to music; the shoulders breathe slightly. 2.0–4.0 s: Sways back and returns exactly to the first-frame pose.\nHard constraints: The hand stays cupped behind the ear, touching the curls, for the entire clip — it never lifts away or gestures. The head stays bowed: head movement stays within about 3° of the first frame, no chin lift and no upward glance at any point, never toward the viewer. The face, curls, brooch and drapery keep their shape. The sway is gentle but clearly visible. There is no text, no numbers and no writing anywhere in the frame.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat deep oxblood red, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; the brooch stays bronze. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nLoop: the clip ends on a frame identical to its first frame.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, hand leaving the ear, head lifting. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/jj-desktop-master.png",
+      "last_frame": "keyframes/jj-desktop-master.png"
+     },
+     "cropToPage": [
+      0.07802,
+      0,
+      0.84396,
+      1
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "16:9",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/jj-desktop-master.png",
+       "last_frame": "keyframes/jj-desktop-master.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 4
+    }
+   ]
+  },
+  {
+   "id": "jj-mobile",
+   "section": "JJ",
+   "device": "mobile",
+   "aspect_ratio": "9:16",
+   "round2": true,
+   "trigger": "Not tied to JJ on/off. When the JJ section first enters view, play \"listen\" once (hand comes up to the ear), then loop \"idle\" while in view. Reduced motion / Save-Data: the master still only.",
+   "loopMethod": "listen (START → master, once) + single-clip idle loop (first = last = master)",
+   "loopNote": "START has the hand lowered out of frame with the ear and curls rebuilt (edit composited only in the arm/ear region; the face stays the master's pixels). The speaking variant from round 1 is dropped.",
+   "compose": "Crop with pageCropNormalized and key the #521614 ground like jj-listener-mobile; the CSS disc stays behind. Use the START still as the poster before the section enters view, so the first frame matches.",
+   "subject": "Subject continuity: the same classical marble bust of a young man with tight carved curls, whose right hand comes up to cup behind his ear, bronze brooch on the shoulder — same face and proportions as the first frame at every moment; carved statue eyes (no pupils, no blinking).",
+   "camera": "Locked-off camera: no zoom, no pan, no tilt, no dolly, no shake. Framing and scale identical to the provided frames for the whole clip.",
+   "lighting": "Lighting continuity: the same soft key light from the upper left, same soft shadows, no flicker, no exposure change.",
+   "background": "Background: perfectly flat #521614 with no texture, no gradient, no vignette, no colour drift.",
+   "materials": "Materials: everything carved stays carved warm-ivory marble with fine tan veining (no skin, no cloth sheen); the brooch stays bronze; The square-dot halftone dissolve stays static (each square in place; at most an imperceptible shimmer).",
+   "clips": [
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "jj-listen-mobile",
+     "kind": "intro (once)",
+     "first": "jj-mobile-start",
+     "last": "jj-mobile-master",
+     "duration": 4,
+     "beats": [
+      [
+       "0–0.4 s",
+       "Still: head bowed, listening; no hand near the head."
+      ],
+      [
+       "0.4–2.6 s",
+       "His right hand rises from below the bottom edge of the frame, the forearm bending at the elbow, up past the shoulder and the brooch."
+      ],
+      [
+       "2.6–3.5 s",
+       "The hand cups behind his ear, fingers settling gently onto the curls."
+      ],
+      [
+       "3.5–4.0 s",
+       "Settles exactly into the last frame and holds."
+      ]
+     ],
+     "aspect_ratio": "9:16",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same classical marble bust of a young man with tight carved curls, bronze brooch on the shoulder — same face and proportions as the first frame at every moment; carved statue eyes (no pupils, no blinking).\nMotion beats: 0–0.4 s: Still: head bowed, listening; no hand near the head. 0.4–2.6 s: His right hand rises from below the bottom edge of the frame, the forearm bending at the elbow, up past the shoulder and the brooch. 2.6–3.5 s: The hand cups behind his ear, fingers settling gently onto the curls. 3.5–4.0 s: Settles exactly into the last frame and holds.\nHard constraints: Only the right arm and hand move; it is ONE hand with exactly five fingers, entering from the bottom edge. The head stays bowed in the same pose (within about 3°): no chin lift, no turn toward the viewer; the face, curls and ear keep their shape. The shoulders, drapery and brooch do not move.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat deep oxblood red, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; the brooch stays bronze. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame and holds it.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, a second hand, head lifting. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/jj-mobile-start.png",
+      "last_frame": "keyframes/jj-mobile-master.png"
+     },
+     "cropToPage": [
+      0,
+      0.29724,
+      1,
+      0.70276
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "9:16",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/jj-mobile-start.png",
+       "last_frame": "keyframes/jj-mobile-master.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    },
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "jj-idle-mobile",
+     "kind": "loop",
+     "first": "jj-mobile-master",
+     "last": "jj-mobile-master",
+     "duration": 4,
+     "beats": [
+      [
+       "0–2.0 s",
+       "A slow, gentle sway: the head (with the hand at the ear) leans about 1.5° to his right with a barely visible nod, like softly listening to music; the shoulders breathe slightly."
+      ],
+      [
+       "2.0–4.0 s",
+       "Sways back and returns exactly to the first-frame pose."
+      ]
+     ],
+     "aspect_ratio": "9:16",
+     "prompt": "Animate this exact illustration; the first and last frames are provided and must be matched exactly. Subject continuity: the same classical marble bust of a young man with tight carved curls, bronze brooch on the shoulder — same face and proportions as the first frame at every moment; carved statue eyes (no pupils, no blinking).\nMotion beats: 0–2.0 s: A slow, gentle sway: the head (with the hand at the ear) leans about 1.5° to his right with a barely visible nod, like softly listening to music; the shoulders breathe slightly. 2.0–4.0 s: Sways back and returns exactly to the first-frame pose.\nHard constraints: The hand stays cupped behind the ear, touching the curls, for the entire clip — it never lifts away or gestures. The head stays bowed: head movement stays within about 3° of the first frame, no chin lift and no upward glance at any point, never toward the viewer. The face, curls, brooch and drapery keep their shape.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frames.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: perfectly flat deep oxblood red, no texture, gradient, vignette or colour drift.\nMaterials: everything carved stays warm-ivory marble with fine tan veining; the brooch stays bronze. The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nLoop: the clip ends on a frame identical to its first frame.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, identity change, camera motion, background change, halftone changes, morphing, cuts, hand leaving the ear, head lifting. Silent.",
+     "negative_prompt": "text, letters, numbers, captions, logos, watermark, subtitles, new objects, extra people, extra hands, extra fingers, six fingers, fused fingers, deformed hands, face change, identity change, different person, camera movement, zoom, pan, tilt, dolly, handheld shake, rack focus, depth-of-field change, background colour change, gradient, vignette, flicker, texture boiling, halftone pattern changing or crawling, lighting change, colour grading shift, morphing, melting, cuts, scene change, motion blur trails",
+     "frame_images": {
+      "first_frame": "keyframes/jj-mobile-master.png",
+      "last_frame": "keyframes/jj-mobile-master.png"
+     },
+     "cropToPage": [
+      0,
+      0.29724,
+      1,
+      0.70276
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12,
+      "lite1080p": 0.2,
+      "fast720p": 0.32,
+      "fast1080p": 0.4
+     },
+     "request": {
+      "model": "google/veo-3.1-lite",
+      "prompt": "(prompt above)",
+      "duration": 4,
+      "resolution": "720p",
+      "aspect_ratio": "9:16",
+      "generate_audio": false,
+      "frame_images": {
+       "first_frame": "keyframes/jj-mobile-master.png",
+       "last_frame": "keyframes/jj-mobile-master.png"
+      },
+      "negativePrompt": "(negative_prompt above)"
+     },
+     "revision": 3
+    }
+   ]
+  },
+  {
+   "id": "footer-hand",
+   "section": "Closing footer",
+   "device": "all",
+   "aspect_ratio": "page (1:1)",
+   "codeMotion": true,
+   "trigger": "Once, when the footer is ≥35 % in view (IntersectionObserver).",
+   "loopMethod": "none — CSS/Framer Motion transform, no generation",
+   "loopNote": "Start: the hand translated right by 49.4 % and down by 5.6 % of the art box (620, 70 px at 1254) — only the fingertips show at the circle edge; End: the approved position. 900 ms, ease \"easeOut\"; opacity 0→1 over the first 300 ms. The section clips overflow. Reduced motion: render the end position with no transform.",
+   "compose": "Uses the existing footer-hand export; start/end frames here are composited from it with sharp purely to preview the motion.",
+   "frames": [
+    "footer-hand-start",
+    "footer-hand-end"
+   ],
+   "clips": []
+  },
+  {
+   "id": "beyond-knob-hand",
+   "section": "Beyond work — Music",
+   "device": "desktop",
+   "aspect_ratio": "16:9",
+   "round3": true,
+   "trigger": "Loops while the music card is active (hover/focus; ≥40% in view on touch) or a song plays. The knob itself is code (MusicKnob): its face angle follows knob.track, measured from this clip's fingertip twist.",
+   "loopMethod": "single 4 s loop, first = last = beyond-knob-master (the current 536×215 strip ×3)",
+   "compose": "Same canvas as beyond-knob-master (1608×905, strip at content [0,130,1608,645]); crop with pageCropNormalized and downscale to 536×215. The knob as rendered in the video is covered by the code knob; only the hand and the fingertips matter.",
+   "clips": [
+    {
+     "resolution": {
+      "draft": "720p",
+      "final": "1080p"
+     },
+     "model": {
+      "draft": "google/veo-3.1-lite",
+      "final": "google/veo-3.1-fast"
+     },
+     "generate_audio": false,
+     "id": "beyond-knob-hand",
+     "first": "beyond-knob-master",
+     "last": "beyond-knob-master",
+     "duration": 4,
+     "aspect_ratio": "16:9",
+     "prompt": "Animate this exact illustration; the first and last frames are the same provided frame and must be matched exactly, so the clip loops seamlessly. Subject continuity: the same carved marble hand reaching from the left across a halftone dissolve and a deep red circle; the bent index fingertip rests on top of a small brushed-metal knob and the thumb tip on its lower left, pinching it; the knob is set in a dark ring on a dark panel; the hand has exactly five fingers.\nMotion beats: 0–0.5 s: the index fingertip and thumb tip tighten their pinch on the knob rim. 0.5–2.0 s: keeping the pinch, the wrist and hand rotate clockwise about 25 degrees around the knob's centre, as if slowly turning up a volume dial: the index fingertip rolls down and to the right along the top of the rim, the thumb tip rolls up and to the left along the bottom of the rim; the knuckles and the back of the hand follow slightly. 2.0–2.4 s: the pinch relaxes, both fingertips still touching the rim. 2.4–3.6 s: the fingertips slide back along the rim, counter-clockwise, to their starting places while the knob stays still. 3.6–4.0 s: the hand settles into exactly the starting pinch — the provided last frame.\nHard constraints: the index fingertip and the thumb tip touch the knob rim for the entire clip; they never lift off, never leave the knob and never point away from it. The index finger stays bent over the knob the whole time; it never straightens, extends or slides off. Only the hand and fingers move, by a small amount; the forearm stays almost still and the hand stays one continuous limb. The knob, its dark ring, the dark panel, the red circle and the cream ground never move, grow or change. No second hand, no new objects.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frame.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: the provided strip colours stay perfectly flat (cream left, deep red circle, near-black panel right); the repeated rows above and below the strip are static padding and never move.\nMaterials: the hand stays carved warm-ivory marble with fine tan veining (no skin, no flesh tones). The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, fingers lifting off the knob, pointing finger, camera motion, background change, halftone changes, morphing, cuts, the knob moving or changing size. Silent.",
+     "cropToPage": [
+      0,
+      0.14365,
+      1,
+      0.71271
+     ],
+     "estCostUSD": {
+      "lite720p": 0.12
+     },
+     "revision": 2,
+     "prompt_r1": "Animate this exact illustration; the first and last frames are the same provided frame and must be matched exactly, so the clip loops seamlessly. Subject continuity: the same carved marble hand reaching from the left across a halftone dissolve and a deep red circle, the index fingertip resting on top of a small brushed-metal knob and the thumb tip on its lower left, the knob set in a dark ring on a dark panel; the hand has exactly five fingers.\nMotion beats: 0–0.4 s: the index fingertip and thumb tip press in and grip the knob rim. 0.4–2.0 s: keeping that grip, the fingers and wrist twist clockwise about 25 to 30 degrees, as if slowly turning up a volume dial: the index fingertip slides down and to the right around the rim, the thumb tip slides up and to the left around the rim, the wrist rolls slightly. 2.0–2.5 s: the fingertips loosen and lift a hair off the rim. 2.5–3.6 s: the hand eases back counter-clockwise to its starting pose without touching the knob. 3.6–4.0 s: the fingertips settle back on the rim in exactly the starting grip — the provided last frame.\nHard constraints: only the hand and fingers move; the palm and forearm move only slightly and the hand stays one continuous limb; the fingertips stay on or just above the knob the whole time and never leave its outline. The knob, its dark ring, the dark panel, the red circle and the cream ground never move, rotate, grow or change. No second hand, no new objects.\nLocked-off camera: no zoom, no pan, no tilt, no dolly, no shake; framing and scale identical to the provided frame.\nLighting continuity: the same soft key light from the upper left; no flicker, no exposure change.\nBackground: the provided strip colours stay perfectly flat (cream left, deep red circle, near-black panel right); the repeated rows above and below the strip are static padding and never move.\nMaterials: the hand stays carved warm-ivory marble with fine tan veining (no skin, no flesh tones). The square-dot halftone pattern is a fixed printed texture: every square stays exactly in place and at the same density — it does not fade, flicker, crawl or disappear.\nEnd: the clip settles exactly on the provided last frame.\nAvoid: text, letters, logos, watermark, new objects, extra hands or fingers, deformed hands, camera motion, background change, halftone changes, morphing, cuts, the knob moving or changing size. Silent."
+    }
+   ],
+   "status": "2026-10-18: not generated — both lite 720p takes were refused at submit (OpenRouter 402, insufficient credits; $0 spent). The shipped loop is rendered from the strip by scripts/roman-v2-motion-knob-hand.mjs (see ENCODE.md). Re-run `node scripts/roman-v2-motion.mjs --tier draft --clips beyond-knob-hand --takes 2` once credits are added.",
+   "takesQA": {
+    "t1": "reject — index finger slides down the knob's left side, then lifts off and straightens to point past the knob (≈2.7 s); fingertips leave the knob.",
+    "t2": "reject — index finger vanishes behind the thumb (≈1.3 s), then straightens and points away from the knob (≈2.7 s)."
+   }
+  }
+ ],
+ "videoPricing": {
+  "source": "https://openrouter.ai/api/v1/videos/models (fetched 2026-10-17), USD per output second without audio",
+  "lite": {
+   "720p": 0.03,
+   "1080p": 0.05
+  },
+  "fast": {
+   "720p": 0.08,
+   "1080p": 0.1
+  }
+ },
+ "promptRules": {
+  "date": "2026-10-17",
+  "source": "Lessons from the approved hero D draft (revision 3 prompts).",
+  "rules": [
+   "Loops are 4 s unless the beats need more (career removals 6 s: lift, carry out of frame and return the empty hand; products-reader 6 s: two blinks in 4 s read as twitching).",
+   "Every prompt carries a \"Hard constraints\" line: what must not move, where the gaze stays, max head rotation (~3–5°), hands stay in place, explicit no chin-lift / no upward glance.",
+   "The halftone is described as a fixed printed texture that never fades, flickers or crawls.",
+   "Loops use first = last frame; one-shot clips end and hold on the provided last frame.",
+   "The \"Avoid:\" list is part of the prompt text (the API ignores a separate negative prompt).",
+   "Every take is post-processed with scripts/roman-v2-motion-post.mjs (locked-background cinemagraph) and cropped with cropToPage.",
+   "No hex colour codes in prompt text — Veo can render them as on-screen text (jj-idle-desktop-t2 drew \"#59112\"); name colours in words.",
+   "Hand removals: the hand and forearm stay one continuous limb and return along the same path; nothing is left behind where the hand was (round-1 drafts left an empty sleeve and popped the hand back in)."
+  ]
+ }
+}

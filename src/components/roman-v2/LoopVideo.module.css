@@ -1,0 +1,22 @@
+/* Motion layer over a section's still. The still stays in the DOM (layout, LCP, no-JS and reduced-motion paths). */
+.host {
+  position: absolute;
+  inset: 0;
+  /* Keeps the double-buffered videos' z-index inside the layer, under the section's own overlays. */
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.host video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
+
+.host video[data-on] {
+  opacity: 1;
+}

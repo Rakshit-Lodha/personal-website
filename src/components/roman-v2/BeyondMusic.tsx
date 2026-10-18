@@ -2,7 +2,7 @@
 
 import { useMusic } from "@/components/music/MusicPlayerProvider";
 import type { RomanV2Track } from "@/lib/roman-v2/types";
-import { ActionArrowIcon, actionClassName } from "./AvailabilityAction";
+import { actionClassName } from "./AvailabilityAction";
 import s from "./BeyondWork.module.css";
 
 /** Play control for the Music module. Drives the site-wide music provider; never owns audio itself. */
@@ -14,7 +14,6 @@ export default function BeyondMusic({ label, track }: { label: string; track: Ro
     return (
       <button type="button" className={actionClassName("primary", true, s.musicAction)} disabled>
         <span>{label}</span>
-        <ActionArrowIcon arrow="up-right" />
       </button>
     );
   }
@@ -36,7 +35,6 @@ export default function BeyondMusic({ label, track }: { label: string; track: Ro
       aria-label={`${label}: ${track.title}`}
     >
       <span>{label}</span>
-      <ActionArrowIcon arrow="up-right" />
     </button>
   );
 }

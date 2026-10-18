@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUp, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUp } from "lucide-react";
 import type { AvailableAction } from "@/lib/roman-v2/types";
 import s from "./contemporary-roman.module.css";
 
 export type ActionVariant = "primary" | "outline" | "text" | "icon";
-export type ActionArrow = "up-right" | "right" | "up" | "none";
+export type ActionArrow = "right" | "up" | "none";
 
 const VARIANT_CLASS: Record<ActionVariant, string> = {
   primary: s.primary,
@@ -13,7 +13,7 @@ const VARIANT_CLASS: Record<ActionVariant, string> = {
   icon: s.iconOnly,
 };
 
-const ARROWS = { "up-right": ArrowUpRight, right: ArrowRight, up: ArrowUp } as const;
+const ARROWS = { right: ArrowRight, up: ArrowUp } as const;
 
 export function actionClassName(variant: ActionVariant, disabled = false, className?: string) {
   return [s.action, VARIANT_CLASS[variant], disabled && s.disabled, className].filter(Boolean).join(" ");
@@ -41,7 +41,7 @@ type Props = {
 export default function AvailabilityAction({
   action,
   variant = "primary",
-  arrow = "up-right",
+  arrow = "none",
   disabledAs = "button",
   className,
 }: Props) {

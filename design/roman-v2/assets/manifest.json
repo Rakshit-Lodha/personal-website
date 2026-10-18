@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-10-17",
+  "generated": "2026-10-18",
   "script": "scripts/prepare-roman-v2-assets.mjs",
   "provenance": "Mixed pipeline: approved generated masters are used when present; remaining small support assets are cropped from approved concepts and marked interim per asset.",
   "status": "mixed – regenerated masters plus explicitly marked interim support assets",
@@ -134,6 +134,85 @@
       "notes": "Approved generated desktop hero. Figure, hands and laptop all face left; left copy field is intentionally clear. Draw the large faint circle and all interface elements in CSS/HTML."
     },
     {
+      "id": "hero-figure-typing",
+      "section": "hero",
+      "alt": "",
+      "decorative": true,
+      "status": "regenerated master",
+      "files": [
+        {
+          "path": "public/roman-v2/hero/hero-figure-typing-720.avif",
+          "url": "/roman-v2/hero/hero-figure-typing-720.avif",
+          "format": "avif",
+          "width": 720,
+          "height": 480,
+          "bytes": 46930
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-typing-720.webp",
+          "url": "/roman-v2/hero/hero-figure-typing-720.webp",
+          "format": "webp",
+          "width": 720,
+          "height": 480,
+          "bytes": 74996
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-typing-1105.avif",
+          "url": "/roman-v2/hero/hero-figure-typing-1105.avif",
+          "format": "avif",
+          "width": 1105,
+          "height": 737,
+          "bytes": 87134
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-typing-1105.webp",
+          "url": "/roman-v2/hero/hero-figure-typing-1105.webp",
+          "format": "webp",
+          "width": 1105,
+          "height": 737,
+          "bytes": 148530
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-typing-1536.avif",
+          "url": "/roman-v2/hero/hero-figure-typing-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 93130
+        },
+        {
+          "path": "public/roman-v2/hero/hero-figure-typing-1536.webp",
+          "url": "/roman-v2/hero/hero-figure-typing-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 186326
+        }
+      ],
+      "sourcePixels": {
+        "width": 1536,
+        "height": 1024
+      },
+      "hasAlpha": true,
+      "placement": "Same slot as hero-figure. The page still and IntroReveal art, so the typing loop (which starts on this pose) continues it without a jump.",
+      "fade": {
+        "sides": {
+          "left": "110px",
+          "top": "70px",
+          "right": "30px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#f4ebdf"
+      },
+      "sectionBackgroundSampled": "#f4ebdf",
+      "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
+      "source": {
+        "master": "design/roman-v2/assets/masters/hero-figure-typing.png"
+      },
+      "cleanup": [],
+      "notes": "Approved hero figure with the head lowered to the laptop screen (identity-checked typing pose)."
+    },
+    {
       "id": "hero-hands-mobile",
       "section": "hero",
       "alt": "",
@@ -146,7 +225,7 @@
           "format": "avif",
           "width": 480,
           "height": 378,
-          "bytes": 29972
+          "bytes": 30485
         },
         {
           "path": "public/roman-v2/hero/hero-hands-mobile-480.webp",
@@ -162,7 +241,7 @@
           "format": "avif",
           "width": 780,
           "height": 614,
-          "bytes": 49267
+          "bytes": 49780
         },
         {
           "path": "public/roman-v2/hero/hero-hands-mobile-780.webp",
@@ -488,7 +567,7 @@
           "format": "avif",
           "width": 536,
           "height": 215,
-          "bytes": 7950
+          "bytes": 8153
         },
         {
           "path": "public/roman-v2/beyond/beyond-music-536.webp",
