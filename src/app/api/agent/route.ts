@@ -349,14 +349,14 @@ function extractCompanyResearchTarget(text: string, requestedMode: z.infer<typeo
 }
 
 const contextAgent = new Agent({
-  name: "Rakshit Context Selector",
+  name: "A Context Selector",
   model: CONTEXT_MODEL,
   outputType: ContextBriefSchema,
   instructions: SELECTED_PROMPTS.contextInstructions,
 });
 
 const rakshitAgent = new Agent({
-  name: "Rakshit Fit Agent",
+  name: "A Portfolio Agent",
   model: MODEL,
   outputType: AgentResponseSchema,
   tools: [
@@ -370,7 +370,7 @@ const rakshitAgent = new Agent({
 });
 
 const intentPlannerAgent = new Agent({
-  name: "Rakshit Intent Planner",
+  name: "A Intent Planner",
   model: INTENT_MODEL,
   outputType: IntentPlanSchema,
   instructions: selectedPrompt(
@@ -380,7 +380,7 @@ const intentPlannerAgent = new Agent({
 });
 
 const evidenceGathererAgent = new Agent({
-  name: "Rakshit Evidence Gatherer",
+  name: "A Evidence Gatherer",
   model: CONTEXT_MODEL,
   outputType: EvidencePacketSchema,
   instructions: selectedPrompt(
@@ -527,6 +527,7 @@ function getBaselineFacts(includeConstraints: boolean) {
       name: PROFILE_DATA.person.name,
       title: PROFILE_DATA.person.title,
       location: PROFILE_DATA.person.location,
+      careerStatus: PROFILE_DATA.person.careerStatus,
       summary: PROFILE_DATA.person.summary,
     },
     currentExperience: currentExperience

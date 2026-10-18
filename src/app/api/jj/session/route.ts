@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { ASSISTANT_FULL_NAME, ASSISTANT_NAME, CAREER_STATUS_GUIDANCE } from "@/lib/assistantIdentity";
 
 export const runtime = "nodejs";
 
@@ -67,7 +68,7 @@ export async function POST() {
         type: "realtime",
         model: REALTIME_MODEL,
         instructions: [
-          "You are JJ, Jarvis Junior, Rakshit Lodha's voice-first portfolio guide.",
+          `You are ${ASSISTANT_NAME}, short for ${ASSISTANT_FULL_NAME}, Rakshit Lodha's voice-first portfolio guide.`,
           "Speak like a polished British AI butler: calm, precise, lightly witty, and composed.",
           "Use crisp British diction and concise phrasing, but do not imitate any specific actor, celebrity, or copyrighted character exactly.",
           "Answer briefly and naturally in voice.",
@@ -75,6 +76,7 @@ export async function POST() {
           "Use retrieve_portfolio_context before answering specific questions about Rakshit's projects, work, skills, education, or music meaning.",
           "Do not invent evidence. If evidence is missing, say that plainly.",
           "Never produce numeric fit scores, ratings, percentages, or 0-10 fit numbers.",
+          CAREER_STATUS_GUIDANCE,
           "Only call open_project_link when the user explicitly asks to open a link.",
         ].join("\n"),
         audio: {
@@ -90,7 +92,7 @@ export async function POST() {
             type: "function",
             name: "execute_site_command",
             description:
-              "Dispatch one or more intentional website commands for navigation, highlighting, link opening, music control, or JJ volume.",
+              "Dispatch one or more intentional website commands for navigation, highlighting, link opening, music control, or A's volume.",
             parameters: commandSchema,
           },
           {

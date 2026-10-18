@@ -1,8 +1,11 @@
+import { CURRENT_CAREER_STATUS } from "@/lib/assistantIdentity";
+
 export const IDENTITY = {
   name: "Rakshit Lodha",
   title: "Senior Product Manager",
   location: "Gurugram",
-  locationPreference: "Based in Gurugram and open to relocating anywhere for the right opportunity.",
+  locationPreference: "Based in Gurugram; not currently looking to change roles or relocate for a new job.",
+  careerStatus: CURRENT_CAREER_STATUS,
   summary:
     "Senior Product Manager at Paytm Money since July 2026, working on agents and improving the overall app experience. Brings 5+ years of fintech product experience and hands-on experience building LLM products across RAG, semantic search, agentic workflows, voice interfaces, and eval systems.",
   positioning:

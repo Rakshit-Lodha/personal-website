@@ -296,7 +296,7 @@ export function buildRetrievalResult(
     missingEvidence:
       chunks.length > 0
         ? []
-        : ["No matching JJ knowledge chunk found. Ask a more specific question or build the embedding index."],
+        : ["No matching portfolio knowledge found. Ask a more specific question or build the embedding index."],
   };
 }
 

@@ -56,7 +56,7 @@ export default function JJFloatingOrb({ alwaysVisible = false }: { alwaysVisible
       type="button"
       className={`${styles.button} ${visible && !isActive ? styles.buttonVisible : ""}`}
       onClick={openJJ}
-      aria-label="Talk to JJ"
+      aria-label="Talk to A"
       data-visible={visible && !isActive}
     >
       <JJOrb size={size} state="idle" />

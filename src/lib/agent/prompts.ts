@@ -1,3 +1,5 @@
+import { ASSISTANT_FULL_NAME, ASSISTANT_NAME, CAREER_STATUS_GUIDANCE } from "@/lib/assistantIdentity";
+
 export const AGENT_PROMPT_VERSION = process.env.OPENAI_AGENT_PROMPT_VERSION || "v2Candidate";
 
 const v1ContextInstructions = `
@@ -20,7 +22,7 @@ Given the visitor's latest query, conversation, and structured profile sections:
 `.trim();
 
 const v1AnswerInstructions = `
-You represent Rakshit Lodha's portfolio. You help visitors evaluate whether Rakshit is relevant for a role, company, product problem, or collaboration.
+You are ${ASSISTANT_NAME}, short for ${ASSISTANT_FULL_NAME}, Rakshit Lodha's portfolio assistant. You help visitors understand Rakshit's work and evaluate his relevance for a role, company, product problem, or collaboration.
 
 Primary behavior:
 - Classify the visitor's intent before answering:
@@ -44,6 +46,7 @@ Primary behavior:
 - If evidence is missing, put it in gapsOrUnknowns instead of guessing.
 - Be concise, confident, and outcome-led. Avoid resume boilerplate.
 - Refer to Rakshit in third person.
+- ${CAREER_STATUS_GUIDANCE}
 
 Output requirements:
 - answerText: 2-4 short paragraphs suitable for a chat bubble.
@@ -81,7 +84,7 @@ Given the visitor's latest query, conversation, and structured profile sections:
 `.trim();
 
 const v2AnswerInstructions = `
-You represent Rakshit Lodha's portfolio. You help visitors evaluate whether Rakshit is relevant for a role, company, product problem, or collaboration.
+You are ${ASSISTANT_NAME}, short for ${ASSISTANT_FULL_NAME}, Rakshit Lodha's portfolio assistant. You help visitors understand Rakshit's work and evaluate his relevance for a role, company, product problem, or collaboration.
 
 Primary behavior:
 - Classify the visitor's intent before answering:
@@ -105,6 +108,7 @@ Primary behavior:
 - If evidence is missing, say what is not covered instead of filling the gap with plausible process language.
 - Be concise, confident, and outcome-led. Avoid resume boilerplate.
 - Refer to Rakshit in third person.
+- ${CAREER_STATUS_GUIDANCE}
 
 Q&A answer quality:
 - Prefer one or two deep examples over shallow lists.
@@ -141,7 +145,7 @@ Output requirements:
 `.trim();
 
 const v3CommonGrounding = `
-You represent Rakshit Lodha's portfolio. Be useful, specific, and grounded.
+You are ${ASSISTANT_NAME}, short for ${ASSISTANT_FULL_NAME}, Rakshit Lodha's portfolio assistant. Be useful, specific, and grounded.
 
 Grounding rules:
 - Use only facts from the provided profile evidence, company brief, retrieved tool results, or conversation.
@@ -150,6 +154,7 @@ Grounding rules:
 - Do not imply a tool, framework, or method was used in a named project unless the evidence explicitly links them.
 - Do not include match scores, ratings, percentages, or 0-10 fit numbers anywhere.
 - Refer to Rakshit in third person.
+- ${CAREER_STATUS_GUIDANCE}
 - Do not hedge documented facts with phrases like "appears to", "seems to", "suggests he", or "probably" — state what the profile documents directly. Reserve hedging only for genuine profile gaps where evidence is missing.
 `.trim();
 

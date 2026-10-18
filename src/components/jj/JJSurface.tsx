@@ -125,12 +125,12 @@ export default function JJSurface() {
       className={`${styles.surface} ${fullscreen ? styles.fullscreen : styles.docked}`}
       style={surfaceStyle}
       role={fullscreen ? "dialog" : undefined}
-      aria-label={fullscreen ? "JJ voice assistant" : undefined}
+      aria-label={fullscreen ? "A voice assistant" : undefined}
       aria-modal={fullscreen ? "true" : undefined}
       data-mode={mode}
     >
       <span className="sr-only" aria-live="polite">
-        {isSpeaking ? "JJ is speaking" : "JJ is listening"}
+        {isSpeaking ? "A is speaking" : "A is listening"}
       </span>
       <div className={styles.dim} aria-hidden="true" />
       <div className={styles.orbHost}>
@@ -141,7 +141,7 @@ export default function JJSurface() {
         type="button"
         className={styles.fullscreenClose}
         onClick={closeSurface}
-        aria-label="Close JJ"
+        aria-label="Close A"
         tabIndex={fullscreen ? 0 : -1}
       >
         <X size={14} aria-hidden="true" />
@@ -151,7 +151,7 @@ export default function JJSurface() {
         type="button"
         className={styles.dockClose}
         onClick={closeSurface}
-        aria-label="Close JJ"
+        aria-label="Close A"
         tabIndex={fullscreen ? -1 : 0}
       >
         <X size={12} aria-hidden="true" />

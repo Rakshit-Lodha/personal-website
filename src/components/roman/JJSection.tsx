@@ -16,8 +16,8 @@ export default function JJSection() {
     <section id="jj" className={`${s.plaster} ${s.jj}`}>
       <SceneIn name="closing" className={s.jjArt} />
       <div className={s.jjPanel}>
-        <SectionLabel n="07" title="Talk to JJ" />
-        <h2 className={s.h2}>Ask JJ about me</h2>
+        <SectionLabel n="07" title="Talk to A" />
+        <h2 className={s.h2}>Ask A about me</h2>
         <p className={s.lede}>My AI voice guide.</p>
         {/* The microphone is only requested after this tap. */}
         <button className={s.micButton} onClick={open}>

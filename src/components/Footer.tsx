@@ -88,7 +88,7 @@ export default function Footer() {
             fontWeight: 500,
           }}
         >
-          <span>Talk to JJ</span>
+          <span>Talk to A</span>
           <span style={{ fontSize: "1.1em" }}>✦</span>
         </button>
         <a

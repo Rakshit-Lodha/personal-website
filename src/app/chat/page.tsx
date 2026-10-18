@@ -11,13 +11,11 @@ import type { AgentMode, AgentResponse, AgentStreamEvent } from "@/lib/agent/typ
 import { trackChatInteraction } from "@/lib/analytics";
 
 const PROMPT_CHIPS = [
-  "Drop a JD to see if Rakshit fits this role",
+  "What is Rakshit building at Paytm Money?",
   "Walk me through the most technical thing he's built",
-  "Where would he NOT be a good hire?",
-  "What kind of role is he looking for?",
+  "Where is his experience less relevant?",
 ];
 
-const AGENT_AVATAR_URL = "/rakshit-avatar.jpeg";
 const DEFAULT_FILE_PROMPT = "Assess fit against the attached job description.";
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const ACCEPTED_EXTENSIONS = [".pdf", ".docx", ".txt"];
@@ -113,16 +111,13 @@ function buildAgentContent(text: string, uploadedFile: UploadedFile | null) {
 function ZeroState({ onPromptSubmit }: { onPromptSubmit: (prompt: string) => void }) {
   return (
     <section className="mx-auto flex w-full max-w-[720px] flex-col items-center px-6 pt-10 pb-8 md:px-8">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={AGENT_AVATAR_URL} alt="Rakshit Lodha" className="h-16 w-16 rounded-full border border-[#d9d3ca] bg-white object-cover" />
+      <div aria-label="A, short for Augustus" className="flex h-16 w-16 items-center justify-center rounded-full border border-[#d9d3ca] bg-[#f1eadf] font-serif text-3xl text-[#7d211d]">
+        A
+      </div>
 
       <h1 className="mt-4 text-center text-xl font-semibold text-[#111111] md:text-2xl">
-        Hey, I&apos;m Rakshit&apos;s AI.
+        Hey, I&apos;m A. Short for Augustus.
       </h1>
-      <p className="mt-4 max-w-[480px] text-center text-[15px] leading-[1.55] text-[#34312c] md:text-base">
-        I&apos;ve been trained on every project, role, and decision in his career — including the things he got wrong.
-        Ask me anything, or drop a JD to see if he&apos;s a fit.
-      </p>
       <Link
         href="/evals"
         className="mt-4 rounded-full border border-[#e4e0da] bg-white/60 px-4 py-2 text-xs font-medium text-[#6b6860] transition-colors hover:border-[#cfc8be] hover:bg-white hover:text-[#111111] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B6AE7]"
@@ -161,7 +156,7 @@ function UserMessage({ text }: { text: string }) {
 
 function TypingDots() {
   return (
-    <span className="flex items-center gap-1 py-1" aria-label="Rakshit's AI is typing">
+    <span className="flex items-center gap-1 py-1" aria-label="A is typing">
       {[0, 1, 2].map((dot) => (
         <span
           key={dot}
@@ -569,7 +564,7 @@ function MessageInput({
               }
             }}
             rows={1}
-            aria-label="Message Rakshit's AI"
+            aria-label="Message A"
             placeholder="Ask anything, or drop a JD here…"
             className="max-h-[200px] min-h-7 flex-1 resize-none overflow-y-auto bg-transparent py-1 text-[15px] leading-6 text-[#111111] outline-none placeholder:text-[#9a948b]"
           />
@@ -753,7 +748,7 @@ function ChatPageContent() {
     } catch {
       updateAssistant(assistantId, (message) => ({
         ...message,
-        text: "I could not reach Rakshit's AI right now. Please try again in a moment.",
+        text: "I could not reach A right now. Please try again in a moment.",
       }));
     } finally {
       setStatus("");

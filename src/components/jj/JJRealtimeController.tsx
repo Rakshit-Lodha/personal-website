@@ -52,7 +52,7 @@ const VISUAL_COMMAND_PRIORITY: SiteCommand["type"][] = [
 
 const OPENING_INSTRUCTIONS = [
   "Begin the conversation with a brief spoken welcome.",
-  "Introduce yourself as JJ, Rakshit's voice-first portfolio guide.",
+  "Introduce yourself as A (short for Augustus), Rakshit's voice-first portfolio guide.",
   "Explain that you can answer questions about Rakshit's work, guide visitors around the site, highlight relevant projects and experience, and control the music player.",
   "Keep it warm and polished, use no more than three short sentences, and end by asking what the visitor would like to explore.",
   "Do not call any tools during this welcome.",
@@ -251,11 +251,11 @@ export default function JJRealtimeController() {
       const tokenResponse = await fetch("/api/jj/session", { method: "POST" });
       const sessionData = (await tokenResponse.json()) as RealtimeSessionResponse;
       if (!tokenResponse.ok) {
-        throw new Error(sessionData.error ?? "Could not create JJ session");
+        throw new Error(sessionData.error ?? "Could not create A session");
       }
 
       const ephemeralKey = getEphemeralKey(sessionData);
-      if (!ephemeralKey) throw new Error("JJ session did not return a client secret");
+      if (!ephemeralKey) throw new Error("A session did not return a client secret");
 
       const pc = new RTCPeerConnection();
       const audio = document.createElement("audio");

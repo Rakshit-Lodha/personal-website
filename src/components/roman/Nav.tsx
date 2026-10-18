@@ -45,7 +45,7 @@ export default function Nav() {
             open();
           }}
         >
-          <AudioLines size={18} aria-hidden="true" className={s.mobileOnly} /> Talk to JJ
+          <AudioLines size={18} aria-hidden="true" className={s.mobileOnly} /> Talk to A
         </button>
       </nav>
     </header>

@@ -45,7 +45,7 @@ export default function Arrival({ intro }: { intro: RomanContent["intro"] }) {
             </a>
             <button className={s.talk} onClick={open}>
               <AudioLines size={24} aria-hidden="true" />
-              <span>Talk to JJ</span>
+              <span>Talk to A</span>
             </button>
           </div>
         </motion.div>

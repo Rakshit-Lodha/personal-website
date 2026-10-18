@@ -244,11 +244,11 @@ export default function JJVoiceDemo() {
       const tokenResponse = await fetch("/api/jj/session", { method: "POST" });
       const sessionData = (await tokenResponse.json()) as RealtimeSessionResponse;
       if (!tokenResponse.ok) {
-        throw new Error(sessionData.error ?? "Could not create JJ session");
+        throw new Error(sessionData.error ?? "Could not create A session");
       }
 
       const ephemeralKey = getEphemeralKey(sessionData);
-      if (!ephemeralKey) throw new Error("JJ session did not return a client secret");
+      if (!ephemeralKey) throw new Error("A session did not return a client secret");
 
       const pc = new RTCPeerConnection();
       const audio = document.createElement("audio");
@@ -294,7 +294,7 @@ export default function JJVoiceDemo() {
       });
     } catch (err) {
       stop();
-      setError(err instanceof Error ? err.message : "Failed to start JJ");
+      setError(err instanceof Error ? err.message : "Failed to start A");
       setState("error");
     }
   }, [handleRealtimeEvent, stop]);
@@ -309,7 +309,7 @@ export default function JJVoiceDemo() {
         className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[#dbe3ff] bg-white px-4 font-figtree text-sm font-semibold text-[#18204a] shadow-[0_10px_34px_rgba(20,31,80,.18)] transition hover:-translate-y-0.5"
       >
         {active ? <Square size={17} /> : <Mic size={18} />}
-        <span>{active ? "Stop JJ" : "Talk to JJ"}</span>
+        <span>{active ? "Stop A" : "Talk to A"}</span>
       </button>
       {(active || error || transcript) && (
         <div className="w-full rounded-lg border border-[#e3e8fb] bg-white/95 p-3 font-figtree text-xs text-[#343743] shadow-[0_12px_38px_rgba(20,31,80,.14)] backdrop-blur">

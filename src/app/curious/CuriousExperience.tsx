@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Menu, Mic, Pause, Play, X } from "lucide-react";
+import { ArrowDown, Menu, Mic, Pause, Play, X } from "lucide-react";
 import { PointerEvent, useEffect, useRef, useState } from "react";
 import styles from "./curious.module.css";
 
@@ -34,7 +34,7 @@ const projects: Project[] = [
   },
   {
     id: "03",
-    title: "JJ",
+    title: "A",
     subtitle: "A voice-first guide to my work and thinking.",
     image: "/landing/ai-hiring-chat-banner.png",
     color: "#111111",
@@ -100,8 +100,8 @@ function JJControl({ expanded = false }: { expanded?: boolean }) {
       data-cursor={listening ? "stop" : "talk"}
       aria-pressed={listening}
     >
-      <span className={styles.jjBadge}>{listening ? <Pause size={15} /> : "JJ"}</span>
-      <span>{listening ? "Listening…" : "Talk to JJ"}</span>
+      <span className={styles.jjBadge}>{listening ? <Pause size={15} /> : "A"}</span>
+      <span>{listening ? "Listening…" : "Talk to A"}</span>
       <span className={`${styles.wave} ${listening ? styles.waveActive : ""}`} aria-hidden="true">
         {Array.from({ length: 12 }).map((_, index) => <i key={index} />)}
       </span>
@@ -163,7 +163,7 @@ function Hero({ displayClassName }: { displayClassName: string }) {
         <span>GOOD<br />IDEAS</span>
       </HeroObject>
       <HeroObject className={styles.speaker} dragLabel="talk">
-        <span className={styles.speakerGrille}>JJ</span>
+        <span className={styles.speakerGrille}>A</span>
         <i />
       </HeroObject>
       <div className={styles.heroNote}>01 / THINGS I BUILD</div>
@@ -203,9 +203,9 @@ function Work({ displayClassName }: { displayClassName: string }) {
               <p>{project.subtitle}</p>
               <div className={styles.projectActions}>
                 <a href={project.href} target={project.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" data-cursor="open">
-                  Open project <ArrowUpRight size={18} />
+                  Open project
                 </a>
-                <a href="/chat" data-cursor="ask"><Mic size={17} /> Ask JJ</a>
+                <a href="/chat" data-cursor="ask"><Mic size={17} /> Ask A</a>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -319,14 +319,14 @@ function Stay({ displayClassName }: { displayClassName: string }) {
           data-cursor="spin"
         ><span>GOOD IDEAS<br />PLAY LONGER :)</span></div>
         <div className={styles.giantSpring}>{Array.from({ length: 6 }).map((_, index) => <i key={index} />)}</div>
-        <div className={styles.giantSpeaker}><span>JJ</span><i /></div>
+        <div className={styles.giantSpeaker}><span>A</span><i /></div>
       </div>
       <div className={styles.stayControls}>
         <button onClick={toggleMusic} data-cursor={playing ? "pause" : "play"}>
           {playing ? <Pause size={17} /> : <Play size={17} fill="currentColor" />} {playing ? "Pause music" : "Play some music"}
         </button>
         <JJControl expanded />
-        <a href="mailto:rlodha1@gmail.com" data-cursor="hello">Say hello <ArrowUpRight size={17} /></a>
+        <a href="mailto:rlodha1@gmail.com" data-cursor="hello">Say hello</a>
       </div>
       <footer>
         <span>© 2026 Rakshit Lodha</span>

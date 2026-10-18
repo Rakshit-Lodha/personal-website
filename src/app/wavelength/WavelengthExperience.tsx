@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Menu, Mic, Pause, Play, Radio, X } from "lucide-react";
+import { ArrowDown, Menu, Mic, Pause, Play, Radio, X } from "lucide-react";
 import { PointerEvent, useEffect, useMemo, useRef, useState } from "react";
 import styles from "./wavelength.module.css";
 
@@ -17,7 +17,7 @@ type Project = {
 const projects: Project[] = [
   { id: "01", title: "KRUX", copy: "AI news, made digestible.", image: "/landing/krux-banner.png", href: "https://krux.news/" },
   { id: "02", title: "MF SEARCH", copy: "Intent-aware discovery across 16,197 mutual funds.", image: "/landing/mf-search-banner.png", href: "https://mf-ai-search.streamlit.app/" },
-  { id: "03", title: "JJ", copy: "A voice-first guide to my work and thinking.", image: "/landing/ai-hiring-chat-banner.png", href: "/chat" },
+  { id: "03", title: "A", copy: "Augustus, a voice-first guide to my work and thinking.", image: "/landing/ai-hiring-chat-banner.png", href: "/chat" },
 ];
 
 const story = [
@@ -108,7 +108,7 @@ function VoiceButton({ large = false }: { large?: boolean }) {
   return (
     <button className={`${styles.voiceButton} ${large ? styles.voiceLarge : ""}`} onClick={() => setListening((value) => !value)} data-active={listening} data-cursor={listening ? "stop" : "talk"}>
       <Mic size={large ? 23 : 17} />
-      <span>{listening ? "Listening…" : "Talk to JJ"}</span>
+      <span>{listening ? "Listening…" : "Talk to A"}</span>
       <i className={styles.voiceWave}>{Array.from({ length: 15 }).map((_, index) => <b key={index} />)}</i>
     </button>
   );
@@ -193,8 +193,8 @@ function Work({ serifClassName }: { serifClassName: string }) {
           {projects.map((item, index) => <button key={item.title} onClick={() => setActive(index)} role="tab" aria-selected={active === index} data-cursor="tune">{item.title}</button>)}
         </div>
         <div className={styles.workActions}>
-          <a href={project.href} target={project.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">Open project <ArrowUpRight size={16} /></a>
-          <a href="/chat"><Radio size={16} /> Ask JJ</a>
+          <a href={project.href} target={project.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">Open project</a>
+          <a href="/chat"><Radio size={16} /> Ask A</a>
         </div>
       </div>
       <ProjectFrame project={project} />

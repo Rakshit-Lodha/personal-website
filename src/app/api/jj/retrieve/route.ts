@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { CURRENT_CAREER_STATUS } from "@/lib/assistantIdentity";
 import { retrievePortfolioContext } from "@/lib/jj/retrieval";
 
 export const runtime = "nodejs";
@@ -19,5 +20,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "query is required" }, { status: 400 });
   }
 
-  return NextResponse.json(await retrievePortfolioContext(query, { limit, rerank, useEmbeddings }));
+  const context = await retrievePortfolioContext(query, { limit, rerank, useEmbeddings });
+  return NextResponse.json({ ...context, currentCareerStatus: CURRENT_CAREER_STATUS });
 }

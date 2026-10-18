@@ -78,7 +78,7 @@ export default function MusicStripMobile() {
               background: "#1B6AE7",
             }}
           />
-          Summoned by JJ
+          Summoned by A
         </span>
       )}
       <div

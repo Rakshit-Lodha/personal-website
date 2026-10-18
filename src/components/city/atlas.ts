@@ -181,7 +181,7 @@ export const SIGNAL_PLACE: Place = {
   accent: "#1B6AE7",
   interior: "none",
   cityCopy: {
-    kicker: "Talk to JJ",
+    kicker: "Talk to A",
     tagline: "Ask out loud. It answers with evidence.",
     body: "The broadcast mast. A voice agent that reads a job description or a company URL and argues the case with sources instead of adjectives.",
   },

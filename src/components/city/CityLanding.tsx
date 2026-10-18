@@ -204,7 +204,7 @@ export default function CityLanding() {
                   ▶ Take the tour
                 </button>
                 <button type="button" className="city-chip" onClick={openJJ}>
-                  ◉ Talk to JJ
+                  ◉ Talk to A
                 </button>
               </div>
             </motion.div>

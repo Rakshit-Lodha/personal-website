@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUp, ArrowUpRight, FileText, Link2, Mail } from "lucide-react";
+import { ArrowRight, ArrowUp, FileText, Link2, Mail } from "lucide-react";
 import type { RomanContent } from "@/lib/roman/types";
 import { Scene, SectionLabel, linkProps } from "./parts";
 import SceneIn from "./SceneIn";
@@ -25,7 +25,6 @@ export default function Closing({ contact, quote }: Pick<RomanContent, "contact"
                 <a className={s.row} {...linkProps(link.url)}>
                   <Link2 aria-hidden="true" />
                   <span>{link.label}</span>
-                  <ArrowUpRight size={20} aria-hidden="true" />
                 </a>
               </li>
             ))}

@@ -151,6 +151,7 @@ export function searchProfileEvidence(query: string, mode: SearchMode = "auto") 
       title: PROFILE_DATA.person.title,
       location: PROFILE_DATA.person.location,
       locationPreference: PROFILE_DATA.person.locationPreference,
+      careerStatus: PROFILE_DATA.person.careerStatus,
       summary: PROFILE_DATA.person.summary,
       positioning: PROFILE_DATA.person.positioning,
       domains: PROFILE_DATA.person.domains,

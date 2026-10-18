@@ -1,20 +1,23 @@
+import { CURRENT_CAREER_STATUS } from "@/lib/assistantIdentity";
+
 export const HIRING_PREFERENCES = {
+  currentSearchStatus: CURRENT_CAREER_STATUS,
   availability: {
     noticePeriod: "30 days",
+    note: "This is contractual context, not an indication that Rakshit is seeking a move or available to join.",
   },
   workMode: {
     preferred: "Onsite",
-    flexibility:
-      "Open to exploring remote or hybrid roles when the opportunity is a strong fit.",
+    flexibility: "Not currently exploring other roles or work arrangements.",
   },
   locations: {
     current: "Gurgaon",
     openTo: ["Mumbai", "Bengaluru", "Pune", "Hyderabad"],
-    note: "Open to relocating beyond these cities for the right opportunity.",
+    note: "These are background preferences, not an active relocation search.",
   },
   compensation: {
     current: "INR 38 LPA",
-    target: "Around INR 45 LPA",
+    target: "Not currently seeking a new role or negotiating target compensation.",
   },
   engagementType: {
     preferred: "Full-time roles",

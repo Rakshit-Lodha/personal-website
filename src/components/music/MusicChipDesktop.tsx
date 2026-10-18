@@ -298,7 +298,7 @@ export default function MusicChipDesktop({ collapsedHeight = 56 }: Props) {
                         boxShadow: "0 0 0 3px rgba(27,106,231,.15)",
                       }}
                     />
-                    Summoned by JJ
+                    Summoned by A
                   </span>
                 )}
               </div>

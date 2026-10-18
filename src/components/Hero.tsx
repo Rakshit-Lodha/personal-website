@@ -279,7 +279,7 @@ export default function Hero() {
                 fontSize: "clamp(13px,1.16vw,20px)",
               }}
             >
-              Talk to JJ
+              Talk to A
               <span style={{ fontSize: "1em" }}>✦</span>
             </button>
             <a
