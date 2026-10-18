@@ -62,7 +62,9 @@
   transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(0);
   transform-origin: center;
   overflow: hidden;
-  animation: artExpand 5.6s cubic-bezier(.22,1,.36,1) both;
+  animation:
+    artExpand 5.6s linear both,
+    artFade 5.6s linear both;
 }
 .heroFigure { object-fit: contain; object-position: center bottom; }
 .heroHands { display: none; }
@@ -90,12 +92,20 @@
 @keyframes firstOut { 0%, 14% { transform: translateX(0); } 70%, 100% { transform: translateX(-42vw); } }
 @keyframes lastOut { 0%, 14% { transform: translateX(0); } 70%, 100% { transform: translateX(42vw); } }
 @keyframes emblemIn { 0%, 10% { opacity: 0; transform: scale(.3) rotate(-45deg); } 20%, 33% { opacity: 1; transform: scale(1) rotate(0); } 42%, 100% { opacity: 0; transform: scale(2.5); } }
+/*
+ * One continuous move: from a speck at the centre straight to the hero art's rect, on a single curve.
+ * Easing is per keyframe segment, so intermediate keyframes would each ease out and stall the growth.
+ * Opacity runs separately so the art is fully in early without a second segment on the transform.
+ */
 @keyframes artExpand {
-  0%, 22% { opacity: 0; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(calc(var(--s, 1) * .02)); background: #f4ebdf; }
-  34% { opacity: 1; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(calc(var(--s, 1) * .42)); background: #f4ebdf; }
-  51% { opacity: 1; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(var(--s, 1)); background: #f4ebdf; }
-  76%, 100% { opacity: 1; transform: translate(0, 0) scale(1); background: transparent; }
+  0%, 22% {
+    transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(calc(var(--s, 1) * .02));
+    background: #f4ebdf;
+    animation-timing-function: cubic-bezier(.45, 0, .15, 1);
+  }
+  76%, 100% { transform: translate(0, 0) scale(1); background: transparent; }
 }
+@keyframes artFade { 0%, 22% { opacity: 0; } 30%, 100% { opacity: 1; } }
 @keyframes cornersAway { 0%, 52% { opacity: .75; } 72%, 100% { opacity: 0; } }
 @keyframes fragmentOut {
   0%, 37% { opacity: 0; transform: translate(0, 0) rotate(0) scale(.5); }
@@ -117,15 +127,20 @@
   .first { animation: mobileFirstOut 4.4s cubic-bezier(.35,0,.75,1) both; }
   .last { animation: mobileLastOut 4.4s cubic-bezier(.35,0,.75,1) both; }
   .emblem { animation-duration: 4.4s; }
-  .artwork { animation: mobileArtReveal 4.4s cubic-bezier(.42,0,.2,1) both; }
+  .artwork {
+    animation:
+      mobileArtReveal 4.4s linear both,
+      artFade 4.4s linear both;
+  }
   .artwork > span { animation-duration: 4.4s; }
 }
 @keyframes mobileRevealSite { 0%, 78% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes mobileArtReveal {
-  0%, 22% { opacity: 0; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(calc(var(--s, 1) * .02)); }
-  35% { opacity: 1; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(calc(var(--s, 1) * .52)); }
-  55% { opacity: 1; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(var(--s, 1)); }
-  78%, 100% { opacity: 1; transform: translate(0, 0) scale(1); }
+  0%, 22% {
+    transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(calc(var(--s, 1) * .02));
+    animation-timing-function: cubic-bezier(.45, 0, .15, 1);
+  }
+  78%, 100% { transform: translate(0, 0) scale(1); }
 }
 @keyframes mobileNameAway { 0%, 25% { opacity: 1; } 42%, 100% { opacity: 0; } }
 @keyframes mobileFirstOut { 0%, 12% { transform: translateX(0); } 55%, 100% { transform: translateX(-18vw); } }
