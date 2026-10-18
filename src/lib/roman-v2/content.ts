@@ -35,7 +35,7 @@ const CHAPTER_COPY: Record<
   etmoney: {
     title: "Scaled numbers beyond the powerpoint",
     narrative:
-      "Built AI, lending and wealth products that deliver real numbers. Taught customer support AI empathy along the way. Humans remain a work in progress.",
+      "Built AI, lending and wealth products that deliver real numbers. Taught a customer-support AI to be more empathetic along the way. Humans remain a work in progress.",
     outcomes: [
       { value: "53%", label: "fewer tickets" },
       { value: "₹300Cr", label: "AUM for ET Money Earn" },
