@@ -945,6 +945,85 @@
       "notes": "Orb removed (concept px centre ≈ (1481, 430), r ≈ 80 + glow) – place the CSS orb there. Darker oxblood circle (#491614) behind the head is baked in."
     },
     {
+      "id": "jj-listener-start",
+      "section": "jj",
+      "alt": "",
+      "decorative": true,
+      "status": "regenerated master",
+      "files": [
+        {
+          "path": "public/roman-v2/jj/jj-listener-start-680.avif",
+          "url": "/roman-v2/jj/jj-listener-start-680.avif",
+          "format": "avif",
+          "width": 680,
+          "height": 453,
+          "bytes": 23803
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-start-680.webp",
+          "url": "/roman-v2/jj/jj-listener-start-680.webp",
+          "format": "webp",
+          "width": 680,
+          "height": 453,
+          "bytes": 45294
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-start-1002.avif",
+          "url": "/roman-v2/jj/jj-listener-start-1002.avif",
+          "format": "avif",
+          "width": 1002,
+          "height": 668,
+          "bytes": 41895
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-start-1002.webp",
+          "url": "/roman-v2/jj/jj-listener-start-1002.webp",
+          "format": "webp",
+          "width": 1002,
+          "height": 668,
+          "bytes": 83874
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-start-1536.avif",
+          "url": "/roman-v2/jj/jj-listener-start-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 63466
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-start-1536.webp",
+          "url": "/roman-v2/jj/jj-listener-start-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 124454
+        }
+      ],
+      "sourcePixels": {
+        "width": 1536,
+        "height": 1024
+      },
+      "hasAlpha": true,
+      "placement": "Same slot as jj-listener: the hand-down start pose shown before jj-listen raises the hand to the ear.",
+      "fade": {
+        "sides": {
+          "left": "160px",
+          "top": "40px",
+          "right": "24px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#4f1816"
+      },
+      "sectionBackgroundSampled": "#4f1816",
+      "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
+      "source": {
+        "master": "design/roman-v2/assets/masters/jj-listener-start.png"
+      },
+      "cleanup": [],
+      "notes": "Orb removed (concept px centre ≈ (1481, 430), r ≈ 80 + glow) – place the CSS orb there. Darker oxblood circle (#491614) behind the head is baked in."
+    },
+    {
       "id": "jj-listener-mobile",
       "section": "jj",
       "alt": "",
@@ -1019,6 +1098,85 @@
       "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
       "source": {
         "master": "design/roman-v2/assets/masters/jj-listener-mobile.png"
+      },
+      "cleanup": [],
+      "notes": "No orb in this crop."
+    },
+    {
+      "id": "jj-listener-mobile-start",
+      "section": "jj",
+      "alt": "",
+      "decorative": true,
+      "status": "regenerated master",
+      "files": [
+        {
+          "path": "public/roman-v2/jj/jj-listener-mobile-start-420.avif",
+          "url": "/roman-v2/jj/jj-listener-mobile-start-420.avif",
+          "format": "avif",
+          "width": 420,
+          "height": 525,
+          "bytes": 33614
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-mobile-start-420.webp",
+          "url": "/roman-v2/jj/jj-listener-mobile-start-420.webp",
+          "format": "webp",
+          "width": 420,
+          "height": 525,
+          "bytes": 61618
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-mobile-start-560.avif",
+          "url": "/roman-v2/jj/jj-listener-mobile-start-560.avif",
+          "format": "avif",
+          "width": 560,
+          "height": 700,
+          "bytes": 51882
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-mobile-start-560.webp",
+          "url": "/roman-v2/jj/jj-listener-mobile-start-560.webp",
+          "format": "webp",
+          "width": 560,
+          "height": 700,
+          "bytes": 96660
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-mobile-start-1122.avif",
+          "url": "/roman-v2/jj/jj-listener-mobile-start-1122.avif",
+          "format": "avif",
+          "width": 1122,
+          "height": 1402,
+          "bytes": 115104
+        },
+        {
+          "path": "public/roman-v2/jj/jj-listener-mobile-start-1122.webp",
+          "url": "/roman-v2/jj/jj-listener-mobile-start-1122.webp",
+          "format": "webp",
+          "width": 1122,
+          "height": 1402,
+          "bytes": 213144
+        }
+      ],
+      "sourcePixels": {
+        "width": 1122,
+        "height": 1402
+      },
+      "hasAlpha": true,
+      "placement": "Same slot as jj-listener-mobile: the hand-down start pose shown before jj-listen raises the hand to the ear.",
+      "fade": {
+        "sides": {
+          "left": "50px",
+          "top": "40px",
+          "right": "40px"
+        },
+        "fadesTo": "transparent (alpha)",
+        "intendedBackground": "#4f1816"
+      },
+      "sectionBackgroundSampled": "#4f1816",
+      "transparency": "master ground keyed to alpha (lo 3, hi 7) plus edge fades",
+      "source": {
+        "master": "design/roman-v2/assets/masters/jj-listener-mobile-start.png"
       },
       "cleanup": [],
       "notes": "No orb in this crop."

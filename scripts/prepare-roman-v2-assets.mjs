@@ -165,10 +165,24 @@ const ASSETS = [
     notes: 'Orb removed (concept px centre ≈ (1481, 430), r ≈ 80 + glow) – place the CSS orb there. Darker oxblood circle (#491614) behind the head is baked in.',
   },
   {
+    id: 'jj-listener-start', section: 'jj', concept: C.jj, crop: [670, 20, 1002, 692], widths: [680, 1002, 1536], matte: { lo: 3, hi: 7 }, 
+    bg: PALETTE.jj.oxblood, fade: { left: 160, top: 40, right: 24 },
+    ops: [],
+    placement: 'Same slot as jj-listener: the hand-down start pose shown before jj-listen raises the hand to the ear.',
+    notes: 'Orb removed (concept px centre ≈ (1481, 430), r ≈ 80 + glow) – place the CSS orb there. Darker oxblood circle (#491614) behind the head is baked in.',
+  },
+  {
     id: 'jj-listener-mobile', section: 'jj', concept: C.jj, crop: [860, 30, 560, 682], widths: [420, 560, 1122], matte: { lo: 3, hi: 7 }, 
     bg: PALETTE.jj.oxblood, fade: { left: 50, top: 40, right: 40 },
     ops: [],
     placement: 'Mobile JJ: head + listening hand, full width below the copy, bottom-aligned.',
+    notes: 'No orb in this crop.',
+  },
+  {
+    id: 'jj-listener-mobile-start', section: 'jj', concept: C.jj, crop: [860, 30, 560, 682], widths: [420, 560, 1122], matte: { lo: 3, hi: 7 }, 
+    bg: PALETTE.jj.oxblood, fade: { left: 50, top: 40, right: 40 },
+    ops: [],
+    placement: 'Same slot as jj-listener-mobile: the hand-down start pose shown before jj-listen raises the hand to the ear.',
     notes: 'No orb in this crop.',
   },
   {

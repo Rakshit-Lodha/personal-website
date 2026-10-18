@@ -30,8 +30,9 @@ export default function JJCallout({ jj }: { jj: RomanV2JJ }) {
 
       <div className={s.art} aria-hidden="true">
         <picture>
+          {/* Hand down until the listen clip raises it; without motion the still is the finished pose. */}
           <source
-            media="(max-width: 767px)"
+            media="(prefers-reduced-motion: reduce) and (max-width: 767px)"
             type="image/avif"
             srcSet="/roman-v2/jj/jj-listener-mobile-420.avif 420w, /roman-v2/jj/jj-listener-mobile-560.avif 560w, /roman-v2/jj/jj-listener-mobile-1122.avif 1122w"
             sizes="100vw"
@@ -39,7 +40,7 @@ export default function JJCallout({ jj }: { jj: RomanV2JJ }) {
             height={1402}
           />
           <source
-            media="(max-width: 767px)"
+            media="(prefers-reduced-motion: reduce) and (max-width: 767px)"
             type="image/webp"
             srcSet="/roman-v2/jj/jj-listener-mobile-420.webp 420w, /roman-v2/jj/jj-listener-mobile-560.webp 560w, /roman-v2/jj/jj-listener-mobile-1122.webp 1122w"
             sizes="100vw"
@@ -47,13 +48,41 @@ export default function JJCallout({ jj }: { jj: RomanV2JJ }) {
             height={1402}
           />
           <source
+            media="(prefers-reduced-motion: reduce)"
             type="image/avif"
             srcSet="/roman-v2/jj/jj-listener-680.avif 680w, /roman-v2/jj/jj-listener-1002.avif 1002w, /roman-v2/jj/jj-listener-1536.avif 1536w"
             sizes="(min-width: 1024px) max(96vw, 1260px), 100vw"
           />
-          <img
-            src="/roman-v2/jj/jj-listener-1002.webp"
+          <source
+            media="(prefers-reduced-motion: reduce)"
+            type="image/webp"
             srcSet="/roman-v2/jj/jj-listener-680.webp 680w, /roman-v2/jj/jj-listener-1002.webp 1002w, /roman-v2/jj/jj-listener-1536.webp 1536w"
+            sizes="(min-width: 1024px) max(96vw, 1260px), 100vw"
+          />
+          <source
+            media="(max-width: 767px)"
+            type="image/avif"
+            srcSet="/roman-v2/jj/jj-listener-mobile-start-420.avif 420w, /roman-v2/jj/jj-listener-mobile-start-560.avif 560w, /roman-v2/jj/jj-listener-mobile-start-1122.avif 1122w"
+            sizes="100vw"
+            width={1122}
+            height={1402}
+          />
+          <source
+            media="(max-width: 767px)"
+            type="image/webp"
+            srcSet="/roman-v2/jj/jj-listener-mobile-start-420.webp 420w, /roman-v2/jj/jj-listener-mobile-start-560.webp 560w, /roman-v2/jj/jj-listener-mobile-start-1122.webp 1122w"
+            sizes="100vw"
+            width={1122}
+            height={1402}
+          />
+          <source
+            type="image/avif"
+            srcSet="/roman-v2/jj/jj-listener-start-680.avif 680w, /roman-v2/jj/jj-listener-start-1002.avif 1002w, /roman-v2/jj/jj-listener-start-1536.avif 1536w"
+            sizes="(min-width: 1024px) max(96vw, 1260px), 100vw"
+          />
+          <img
+            src="/roman-v2/jj/jj-listener-start-1002.webp"
+            srcSet="/roman-v2/jj/jj-listener-start-680.webp 680w, /roman-v2/jj/jj-listener-start-1002.webp 1002w, /roman-v2/jj/jj-listener-start-1536.webp 1536w"
             sizes="(min-width: 1024px) max(96vw, 1260px), 100vw"
             width={1536}
             height={1024}
