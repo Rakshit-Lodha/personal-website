@@ -276,8 +276,8 @@ export async function getRomanV2Content(): Promise<RomanV2Content> {
     },
     jj: {
       heading: { lead: "Have more", accent: "questions?" },
-      body: "Ask A about my work, decisions, failures and how I think",
-      voiceLabel: "Talk to A",
+      body: "Ask Augustus about my work, decisions, failures and how I think",
+      voiceLabel: "Talk to Augustus",
     },
     closing: {
       heading: { lead: "Festina Lente", accent: "Make haste slowly" },

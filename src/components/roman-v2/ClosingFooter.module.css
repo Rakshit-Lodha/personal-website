@@ -191,7 +191,8 @@
 
   .ctas .conversation,
   .socials .social {
-    justify-content: space-between;
+    justify-content: center;
+    text-align: center;
     width: 100%;
     min-height: 56px;
   }
