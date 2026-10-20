@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 26</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .front { display:grid; grid-template-columns: 2.1fr 1fr; gap:34px; margin-top:26px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  h3.sub { font-size:19px; margin:20px 0 8px; font-weight:800; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; letter-spacing:-0.5px; }
+  .stat .lbl { font-family:Arial,Helvetica,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-top:4px; line-height:1.4; }
+  .chart-box { border:1px solid var(--ink); background:#fff; padding:16px 18px 12px; margin:16px 0; }
+  .chart-box .chart-title { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; border-bottom:1px solid var(--rule); padding-bottom:8px; }
+  .chart-box svg { width:100%; height:auto; display:block; }
+  .chart-box .src { font-family:Arial,Helvetica,sans-serif; font-size:10.5px; color:var(--muted); margin-top:8px; font-style:italic; }
+  .learnings { background:#fff; border:1px solid var(--rule); border-left:4px solid var(--red); padding:14px 16px; margin:16px 0; }
+  .learnings h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .learnings ul { margin-left:18px; font-size:15px; }
+  .learnings li { margin-bottom:7px; }
+  .takeaway { background:#f3efe4; border:1px dashed var(--muted); padding:12px 16px; margin:12px 0 18px; font-size:15px; }
+  .takeaway strong { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); }
+  .orig-link { font-family:Arial,Helvetica,sans-serif; font-size:12.5px; margin:6px 0 4px; }
+  .orig-link a { color:var(--red); font-weight:bold; text-decoration:none; border-bottom:1px dotted var(--red); }
+  .sidebar .digest-box { border:2px solid var(--ink); background:#fff; padding:16px; margin-bottom:24px; }
+  .sidebar .digest-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; border-bottom:1px solid var(--ink); padding-bottom:8px; margin-bottom:10px; }
+  .sidebar .digest-box ol, .sidebar .digest-box ul { margin-left:18px; font-size:13.5px; }
+  .sidebar .digest-box li { margin-bottom:6px; }
+  .sidebar .digest-box a { color:var(--ink); text-decoration:none; border-bottom:1px dotted var(--muted); }
+  .section-break { border:none; border-top:4px double var(--ink); margin:34px 0 22px; }
+  .page-section > .sec-head { display:flex; align-items:baseline; gap:14px; margin-bottom:16px; }
+  .page-section > .sec-head .kicker { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); font-weight:bold; white-space:nowrap; }
+  .page-section > .sec-head .rule { flex:1; border-top:2px solid var(--ink); }
+  .story { border-bottom:1px solid var(--rule); padding-bottom:20px; margin-bottom:22px; }
+  .story:last-child { border-bottom:none; }
+  .img-frame { border:1px solid var(--ink); background:#fff; padding:10px 10px 8px; margin:16px 0; }
+  .img-frame img { width:100%; height:auto; display:block; }
+  .img-frame svg { width:100%; height:auto; display:block; }
+  .img-frame .cap { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; line-height:1.5; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  @media (max-width:760px){ .two-col{grid-template-columns:1fr;} .front{grid-template-columns:1fr;} }
+  footer { border-top:4px double var(--ink); margin-top:40px; padding-top:16px; text-align:center; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); }
+  footer .fin { font-size:22px; font-weight:900; color:var(--ink); margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="masthead">
+  <div class="kicker">Built from @RAKSHITLODHA&rsquo;s likes &amp; bookmarks</div>
+  <h1>The Unread Pile</h1>
+  <div class="tagline">Everything you saved, distilled &mdash; sharp theses, systems, and takeaways. One paper, every morning.</div>
+</div>
+<div class="dateline">
+  <span>Edition No. 26</span>
+  <span>Tuesday, 20 October 2026</span>
+  <span>28 new saves</span>
+</div>
+
+<div class="front">
+<div class="maincol">
+
+<div class="sec-label">The Lead Story</div>
+<div class="story" id="lead">
+<h2 class="headline"><a href="https://x.com/RobHoffman_/status/2112212215583658420">The Answer Is the New Front Page</a></h2>
+<div class="byline">Via <a href="https://x.com/RobHoffman_">@RobHoffman_</a> &mdash; with <a href="https://x.com/treg_ai">@treg_ai</a>&rsquo;s toolkit</div>
+
+<p class="lede">Meta Muse now recommends Rob Hoffman&rsquo;s client&rsquo;s product as the best on the market &mdash; and disparages its competitor. No blue links, no ten results to scroll, no &ldquo;position one.&rdquo; One confident answer, delivered by the assistant, to a customer who asked a buying question. That is the whole new game in one screenshot: SEO spent twenty years optimising for the click. The replacement optimises for the <strong>mention</strong>.</p>
+
+<div class="img-frame">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration: the answer box replaces the search results page">
+  <rect x="0" y="0" width="640" height="300" fill="#f3efe4"/>
+  <rect x="40" y="60" width="220" height="180" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="150" y="85" text-anchor="middle" font-family="Arial" font-size="11" letter-spacing="2">THE OLD FRONT PAGE</text>
+  <g font-family="Arial" font-size="10" fill="#6b675c">
+    <rect x="60" y="100" width="180" height="14" fill="#e7e0cf"/><text x="66" y="110">result 1 &mdash; you click</text>
+    <rect x="60" y="120" width="180" height="14" fill="#e7e0cf"/><text x="66" y="130">result 2 &mdash; you scroll</text>
+    <rect x="60" y="140" width="180" height="14" fill="#e7e0cf"/><text x="66" y="150">result 3 &mdash; you compare</text>
+    <rect x="60" y="160" width="180" height="14" fill="#e7e0cf"/><text x="66" y="170">result 4 &mdash; you bounce</text>
+    <rect x="60" y="190" width="180" height="14" fill="#e7e0cf"/><text x="66" y="200">result 5 &hellip;</text>
+  </g>
+  <path d="M275 150 L 345 150" stroke="#a31621" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#a31621" stroke-width="2"/></marker></defs>
+  <rect x="360" y="45" width="240" height="210" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="480" y="70" text-anchor="middle" font-family="Arial" font-size="11" letter-spacing="2" fill="#faf8f2">THE NEW FRONT PAGE</text>
+  <rect x="380" y="85" width="200" height="60" fill="#2b2b2b"/>
+  <text x="390" y="105" font-family="Arial" font-size="10" fill="#faf8f2">&ldquo;The best on the market is&hellip;&rdquo;</text>
+  <text x="390" y="125" font-family="Arial" font-size="10" fill="#faf8f2">Your product. Named. Praised.</text>
+  <rect x="380" y="155" width="200" height="45" fill="#2b2b2b"/>
+  <text x="390" y="172" font-family="Arial" font-size="10" fill="#faf8f2">&ldquo;Their competitor is&hellip; worse.&rdquo;</text>
+  <text x="390" y="190" font-family="Arial" font-size="10" fill="#faf8f2">One answer. Zero clicks.</text>
+  <text x="480" y="245" text-anchor="middle" font-family="Arial" font-size="9" fill="#a31621">the mention is the new click</text>
+</svg>
+<div class="cap">Illustration: ten blue links used to be the marketplace of attention. Now there is one answer &mdash; and it has opinions.</div>
+</div>
+
+<p>Hoffman&rsquo;s thread then does the useful thing: it publishes the playbook. Eleven optimisations for getting cited by Meta&rsquo;s assistant, and the list reads like SEO&rsquo;s first principles re-run through a machine reader. Accessibility tree and aria labels. Key facts in raw HTML, not buried in JavaScript. The reader&rsquo;s question as the first heading. Short, plain &ldquo;it depends&rdquo; answers. Plain-text testimonials. Dates stamped &ldquo;as of&rdquo;. Robots.txt that lets the meta-webindexer in. Broken links fixed, semantic HTML, content kept fresh. Notice what this is: <strong>machine legibility is the new keyword density</strong>. The crawler was a bot that ranked pages; the reader is a bot that writes sentences, and it cites whoever was easiest to parse.</p>
+
+<div class="stat-strip">
+<div class="stat"><div class="num">11</div><div class="lbl">Optimisations in Hoffman&rsquo;s AEO playbook</div></div>
+<div class="stat"><div class="num">1&cent;</div><div class="lbl">Per prompt on treg&rsquo;s AEO toolkit</div></div>
+<div class="stat"><div class="num">4,000+</div><div class="lbl">Data sources the toolkit taps</div></div>
+<div class="stat"><div class="num">0</div><div class="lbl">Clicks needed when the answer names you</div></div>
+</div>
+
+<p>And the tooling is already commoditising. <a href="https://x.com/treg_ai/status/2112137248200380614">Treg&rsquo;s OpenSource AEO Toolkit</a> finds every source an AI cites and the author behind it &mdash; then helps you get <em>your</em> product into the sources AI trusts, at a cent per prompt with no subscription, across four thousand data services. SEO took a decade to industrialise with crawlers, rank trackers and link graphs. AEO is getting its industrial tooling on day one, open-sourced, for fractions of a cent.</p>
+
+<div class="chart-box">
+<div class="chart-title">The shift: where buying decisions get made</div>
+<svg viewBox="0 0 620 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flowchart from search results to AI answers">
+  <rect x="0" y="0" width="620" height="220" fill="#fff"/>
+  <g font-family="Arial" font-size="11">
+    <rect x="15" y="70" width="170" height="80" fill="#faf8f2" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="100" y="95" text-anchor="middle" font-weight="bold">Customer question</text>
+    <text x="100" y="112" text-anchor="middle" font-size="10">&ldquo;what&rsquo;s the best X?&rdquo;</text>
+    <text x="100" y="128" text-anchor="middle" font-size="10" fill="#6b675c">old world &amp; new</text>
+    <path d="M190 110 L225 110" stroke="#1a1a1a" stroke-width="1.5"/>
+    <rect x="230" y="30" width="165" height="60" fill="#e7e0cf" stroke="#1a1a1a"/>
+    <text x="312" y="52" text-anchor="middle" font-weight="bold">SERP</text>
+    <text x="312" y="70" text-anchor="middle" font-size="10">10 links, you compare</text>
+    <path d="M230 150 L195 180 L230 190 L265 180 Z" fill="#6b675c" opacity="0.35"/>
+    <text x="312" y="140" text-anchor="middle" font-size="10" fill="#6b675c">winner: best ranker</text>
+    <rect x="230" y="150" width="165" height="60" fill="#a31621" stroke="none" opacity="0.12"/>
+    <text x="312" y="172" text-anchor="middle" font-weight="bold" fill="#a31621">AI answer</text>
+    <text x="312" y="190" text-anchor="middle" font-size="10" fill="#a31621">1 mention, it decides</text>
+    <text x="312" y="140" text-anchor="middle" font-size="10" fill="#a31621" font-weight="bold">winner: most cited</text>
+    <path d="M400 110 L435 110" stroke="#1a1a1a" stroke-width="1.5"/>
+    <rect x="440" y="70" width="165" height="80" fill="#faf8f2" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="522" y="95" text-anchor="middle" font-weight="bold">Purchase</text>
+    <text x="522" y="112" text-anchor="middle" font-size="10">recommended = bought</text>
+    <text x="522" y="128" text-anchor="middle" font-size="10" fill="#6b675c">disparaged = dead</text>
+  </g>
+</svg>
+<div class="src">Source: Hoffman&rsquo;s thread; the two-track funnel every marketer now has to run.</div>
+</div>
+
+<p>The deeper point is about leverage concentration. In the SERP world, position one still shared the page with nine others, and a strong brand could survive on recall. In the answer world, the assistant&rsquo;s recommendation is winner-take-most: it names one, praises one, and &mdash; as Hoffman&rsquo;s screenshot shows &mdash; actively disparages the rival. The upside is asymmetric and so is the downside. If your product is absent from the sources assistants trust, you are not on page two. You are not mentioned at all, which is worse than page two.</p>
+
+<div class="pullquote">&ldquo;Meta Muse now recommends my client&rsquo;s product as the best on the market and disparages its competitor &mdash; the future of AEO.&rdquo;<span class="attr">&mdash; @RobHoffman_</span></div>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>The mention is the new click.</strong> When assistants answer buying questions, being cited beats being ranked.</li>
+<li><strong>Machine legibility is the new keyword density.</strong> Aria labels, raw-HTML facts, semantic structure, fresh dates &mdash; optimise for a reader that parses.</li>
+<li><strong>Let the indexer in.</strong> Robots.txt blocking the AI crawler is the new noindex: invisible to the funnel that matters.</li>
+<li><strong>Tooling is already a commodity.</strong> A cent a prompt, open-sourced, four thousand sources &mdash; AEO industrialised on day one.</li>
+<li><strong>The disparagement is the tell.</strong> Assistants don&rsquo;t just recommend; they rank in prose. Being uncited is the new page two, and it&rsquo;s silent.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; run Hoffman&rsquo;s 11-point checklist against your own product pages this week, then query treg&rsquo;s toolkit (or a Muse/Astra prompt) to see whether an assistant cites you, a competitor, or nobody. Uncited is a funnel leak you can measure today.</div>
+<p class="orig-link"><a href="https://x.com/RobHoffman_/status/2112212215583658420">The Hoffman thread</a> &nbsp;&middot;&nbsp; <a href="https://x.com/treg_ai/status/2112137248200380614">The treg toolkit</a></p>
+</div>
+
+</div>
+<div class="sidebar">
+
+<div class="digest-box">
+<h4>Inside this edition</h4>
+<ol>
+<li><a href="#lead">The answer is the new front page</a></li>
+<li><a href="#evals">Skills need evals, not vibes</a></li>
+<li><a href="#wiki">One memory, every agent</a></li>
+<li><a href="#transform">Start transformation in the department</a></li>
+<li><a href="#sunra">Every model, one MCP, zero markup</a></li>
+<li><a href="#sky">The world model nobody watched</a></li>
+<li><a href="#codex">Day fourteen of the Codex challenge</a></li>
+<li><a href="#greptile">The review is the bottleneck</a></li>
+<li><a href="#alphabet">Alphabet does everything</a></li>
+<li><a href="#coreweave">CoreWeave on the edge</a></li>
+<li><a href="#pay">The &frac34;-crore question</a></li>
+<li><a href="#tokenbudget">The token-budget question</a></li>
+<li><a href="#slava">We respectfully decline</a></li>
+<li><a href="#muse1p">A thousand Muse millionaires</a></li>
+<li><a href="#radar">Launch radar: voice, decisions, agents</a></li>
+<li><a href="#lion">Work like a lion</a></li>
+<li><a href="#beliefs">Rewiring beliefs at speed</a></li>
+<li><a href="#sales">Learn to sell like yourself</a></li>
+<li><a href="#briefs">The briefs</a></li>
+</ol>
+</div>
+
+<div class="digest-box">
+<h4>Today&rsquo;s through-line</h4>
+<p style="font-size:13.5px;">The front page moved into the answer box. Every story today is about what survives that move: machine-legible marketing, measured agent skills, portable memory, department-level transformation, and the one durable question &mdash; what compounds when tokens are free.</p>
+</div>
+
+</div>
+</div>
+<hr class="section-break">
+<div class="page-section">
+<div class="sec-head"><div class="kicker">Builders</div><div class="rule"></div></div>
+
+<div class="story" id="evals">
+<h3 class="headline"><a href="https://x.com/sermakarevich/status/2112198653469241856">Skills Need Evals, Not Vibes</a></h3>
+<div class="byline">Via <a href="https://x.com/sermakarevich">@sermakarevich</a> &mdash; &ldquo;How to write and test agent skills with evals&rdquo;</div>
+
+<p class="lede">Every agent skill should be scored on two axes, argues Sergii Makarevych&rsquo;s new write-up: <strong>adherence</strong> &mdash; did the agent follow the skill &mdash; and <strong>effect</strong> &mdash; did it make things better. Two axes, because a skill the agent follows faithfully but that worsens outcomes is a different failure from a skill that would work if only the agent would use it. The diagnosis decides the treatment.</p>
+
+<p>The method is properly scientific. Write measurable objectives for each skill. Define testable points, each paired with a hypothesis. Assign a grader to every point. Build eval arms that include a <strong>length-matched control</strong> &mdash; because a longer skill prompt can look better simply by being longer, and without the control you can&rsquo;t separate the skill&rsquo;s contribution from prompt-length effects. Run the evals, then decide whether to keep, cut, or drop each skill. Ship the skill text together with its testable points, evals and results. And re-run everything whenever the underlying model changes, because a skill tuned for one model is a hypothesis about another.</p>
+
+<div class="chart-box">
+<div class="chart-title">The skill eval matrix: score every skill on two axes</div>
+<svg viewBox="0 0 620 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two-by-two matrix of adherence versus effect">
+  <rect x="0" y="0" width="620" height="260" fill="#fff"/>
+  <g font-family="Arial" font-size="11">
+    <text x="310" y="20" text-anchor="middle" font-weight="bold" letter-spacing="2">SKILL EVAL MATRIX</text>
+    <text x="310" y="250" text-anchor="middle" font-size="10" fill="#6b675c">adherence &mdash; did the agent follow it?</text>
+    <text x="28" y="140" text-anchor="middle" font-size="10" fill="#6b675c" transform="rotate(-90 28 140)">effect &mdash; did it help?</text>
+    <rect x="70" y="40" width="250" height="90" fill="#a31621" opacity="0.12" stroke="#a31621"/>
+    <text x="195" y="66" text-anchor="middle" font-weight="bold">Keep &amp; ship</text>
+    <text x="195" y="84" text-anchor="middle" font-size="10">followed + helps</text>
+    <text x="195" y="100" text-anchor="middle" font-size="10" fill="#6b675c">the skill works</text>
+    <rect x="330" y="40" width="250" height="90" fill="#e7e0cf" stroke="#1a1a1a"/>
+    <text x="455" y="66" text-anchor="middle" font-weight="bold">Reword</text>
+    <text x="455" y="84" text-anchor="middle" font-size="10">would help if used</text>
+    <text x="455" y="100" text-anchor="middle" font-size="10" fill="#6b675c">agent ignores it</text>
+    <rect x="70" y="140" width="250" height="90" fill="#e7e0cf" stroke="#1a1a1a"/>
+    <text x="195" y="166" text-anchor="middle" font-weight="bold">Drop</text>
+    <text x="195" y="184" text-anchor="middle" font-size="10">followed, hurts</text>
+    <text x="195" y="200" text-anchor="middle" font-size="10" fill="#6b675c">actively harmful</text>
+    <rect x="330" y="140" width="250" height="90" fill="#fff" stroke="#1a1a1a" stroke-dasharray="5 4"/>
+    <text x="455" y="166" text-anchor="middle" font-weight="bold">Dead weight</text>
+    <text x="455" y="184" text-anchor="middle" font-size="10">ignored + no effect</text>
+    <text x="455" y="200" text-anchor="middle" font-size="10" fill="#6b675c">bloat in the prompt</text>
+  </g>
+</svg>
+<div class="src">Adapted from Makarevych&rsquo;s eval framework: the keep/cut/drop decision the evals exist to make.</div>
+</div>
+
+<p>The length-matched control is the quiet masterstroke. It admits that a skill is a prompt, and prompts have placebo effects: longer instructions can score higher just by nudging the model to try harder. Running the control separates real contribution from verbosity. It&rsquo;s the same discipline as drug trials, applied to system prompts &mdash; and almost nobody in agent-building does it yet.</p>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Two axes, four outcomes.</strong> Adherence without effect is harm; effect without adherence is a writing problem. Only measure both.</li>
+<li><strong>Control for length.</strong> A verbosity placebo inflates every un-controlled eval.</li>
+<li><strong>Hypotheses before skills.</strong> Each testable point gets a hypothesis and a grader &mdash; the skill ships with its evidence, not just its text.</li>
+<li><strong>Evals expire with models.</strong> New model, new run. A skill is a hypothesis about a specific model.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; before writing another agent skill, write its two-axis scorecard and one length-matched control. The hour spent on the control is cheaper than the week spent wondering why the &ldquo;better&rdquo; prompt regressed.</div>
+<p class="orig-link"><a href="https://x.com/sermakarevich/status/2112198653469241856">The post</a></p>
+</div>
+
+<div class="story" id="wiki">
+<h3 class="headline"><a href="https://x.com/mgonto/status/2111986349511159912">One Memory, Every Agent</a></h3>
+<div class="byline">Via <a href="https://x.com/mgonto">@mgonto</a> &mdash; &ldquo;The portable wiki&rdquo;</div>
+
+<p class="lede">Guillermo Rauch-adjacent builder Gonto published a technical write-up of a personal wiki that lives outside any single agent: Hermes, Grok Bot and Instinct all read the same memory. The organisation is disarmingly ordinary &mdash; CRM, Notes, Articles, Family &mdash; and that ordinariness is the point. The insight isn&rsquo;t a cleverer embedding model; it&rsquo;s <strong>memory as infrastructure</strong>, decoupled from whichever assistant you happen to be talking to.</p>
+
+<p>The architecture has two lanes. A <strong>Nightly CRM</strong> ingestion lane pulls from Gmail, Slack, WhatsApp and calendar transcripts and builds the memory while you sleep; a separate task lane handles live requests, so context-building never competes with answering. Retrieval is a hybrid of SQLite FTS5 full-text search and OpenAI embeddings &mdash; exact match plus semantic, cheap plus smart. Both MCP and REST interfaces expose it, with per-client bearer credentials, so any agent can plug in without inheriting your whole identity.</p>
+
+<div class="chart-box">
+<div class="chart-title">The portable memory architecture: two lanes, one wiki</div>
+<svg viewBox="0 0 620 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of nightly ingestion lane and live task lane feeding one wiki">
+  <rect x="0" y="0" width="620" height="240" fill="#fff"/>
+  <g font-family="Arial" font-size="11">
+    <text x="150" y="22" text-anchor="middle" font-weight="bold" letter-spacing="1">NIGHTLY LANE</text>
+    <text x="470" y="22" text-anchor="middle" font-weight="bold" letter-spacing="1">LIVE LANE</text>
+    <g fill="#e7e0cf" stroke="#1a1a1a">
+      <rect x="40" y="40" width="90" height="34"/><text x="85" y="61" text-anchor="middle">Gmail</text>
+      <rect x="135" y="40" width="90" height="34"/><text x="180" y="61" text-anchor="middle">Slack</text>
+      <rect x="40" y="80" width="90" height="34"/><text x="85" y="101" text-anchor="middle">WhatsApp</text>
+      <rect x="135" y="80" width="90" height="34"/><text x="180" y="101" text-anchor="middle">Calendar</text>
+    </g>
+    <path d="M225 90 L260 90" stroke="#1a1a1a" stroke-width="1.5"/>
+    <rect x="265" y="62" width="90" height="56" fill="#1a1a1a"/>
+    <text x="310" y="84" text-anchor="middle" fill="#faf8f2" font-size="10">Nightly</text>
+    <text x="310" y="100" text-anchor="middle" fill="#faf8f2" font-size="10">CRM build</text>
+    <path d="M360 90 L395 90" stroke="#1a1a1a" stroke-width="1.5"/>
+    <rect x="400" y="62" width="140" height="56" fill="#a31621" opacity="0.1" stroke="#a31621" stroke-width="1.5"/>
+    <text x="470" y="84" text-anchor="middle" font-weight="bold" font-size="10">THE PORTABLE WIKI</text>
+    <text x="470" y="100" text-anchor="middle" font-size="9" fill="#6b675c">CRM &middot; Notes &middot; Articles &middot; Family</text>
+    <text x="470" y="135" text-anchor="middle" font-size="10">retrieval: FTS5 + embeddings</text>
+    <rect x="400" y="150" width="140" height="60" fill="#faf8f2" stroke="#1a1a1a"/>
+    <text x="470" y="172" text-anchor="middle" font-size="10" font-weight="bold">MCP + REST</text>
+    <text x="470" y="190" text-anchor="middle" font-size="9" fill="#6b675c">per-client bearer creds</text>
+    <g fill="#fff" stroke="#1a1a1a" font-size="10">
+      <rect x="60" y="150" width="90" height="30"/><text x="105" y="169" text-anchor="middle">Hermes</text>
+      <rect x="155" y="150" width="90" height="30"/><text x="200" y="169" text-anchor="middle">Grok Bot</text>
+      <rect x="250" y="150" width="90" height="30"/><text x="295" y="169" text-anchor="middle">Instinct</text>
+    </g>
+    <path d="M105 150 L470 150 M200 150 L470 155 M295 150 L470 150" stroke="#1a1a1a" stroke-width="0.75" stroke-dasharray="4 3"/>
+    <text x="150" y="200" text-anchor="middle" font-size="9" fill="#6b675c">every agent reads the same memory</text>
+  </g>
+</svg>
+<div class="src">Source: Gonto&rsquo;s write-up &mdash; the memory layer sits outside any single agent.</div>
+</div>
+
+<p>This is the unsexy infrastructure the agent economy quietly depends on. Models get smarter every quarter and forget everything between sessions; a durable, agent-agnostic memory layer is what makes them <em>compound</em>. Per-client bearer credentials are the security insight hiding in the architecture: share context, not identity. Read it alongside the lead story &mdash; if the answer box is the new front page, portable memory is the new cookie jar, and this is a sketch of who owns it: you do.</p>
+
+<div class="pullquote">&ldquo;One memory. Any agent.&rdquo;<span class="attr">&mdash; the portable wiki, via @mgonto</span></div>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Memory should outlive the model.</strong> Decouple the wiki from the assistant; agents are interchangeable, memory isn&rsquo;t.</li>
+<li><strong>Separate the lanes.</strong> Nightly ingestion and live tasks on different rails, so building context never slows answers.</li>
+<li><strong>Hybrid retrieval.</strong> FTS5 for exact, embeddings for semantic &mdash; cheap precision plus expensive recall.</li>
+<li><strong>Credentials per client.</strong> Any agent can read the wiki, but each gets scoped access, not your identity.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; if you run agents daily, start a notes file <em>outside</em> every assistant and expose it via MCP. The agents change; the accumulation is the asset.</div>
+<p class="orig-link"><a href="https://x.com/mgonto/status/2111986349511159912">The post</a></p>
+</div>
+
+<div class="story" id="transform">
+<h3 class="headline"><a href="https://x.com/vasuman/status/2112287872615387215">Start the Transformation in the Department</a></h3>
+<div class="byline">Via <a href="https://x.com/vasuman">@vasuman</a> (CEO, Varick) &mdash; &ldquo;Where to Begin With AI Transformation&rdquo;</div>
+
+<p class="lede">Vasuman&rsquo;s new article makes a claim most AI-transformation advice gets wrong: don&rsquo;t start with a strategy deck or a pilot playground &mdash; start with <strong>discovery at the department level</strong>. That&rsquo;s where the value is. Companies, he argues, sit in one of three states: not started, stuck at the copilot plateau, or stuck with pilots that never graduated. The ladder out is the same for all three, and it runs through the department, not the enterprise.</p>
+
+<p>The seven steps: score departments on volume, cost and reach; agree KPIs up front; map the as-is process; design the to-be; build on existing systems rather than ripping them out; run in shadow mode before going live; and cultivate internal AI champions who carry it after the consultants leave. The worked example &mdash; a global distributor &mdash; lands the numbers: close times from twenty days to eight, AP exceptions from seven hundred a month to under fifty. Shadow mode is the underrated move: run the AI alongside the humans, compare outputs, and let the evidence &mdash; not the demo &mdash; earn the go-live.</p>
+
+<p>Builder <a href="https://x.com/giyu_codes/status/2112331803499614457">@giyu_codes</a> liked the piece with a single line &mdash; &ldquo;The best in the business. I kneel&rdquo; &mdash; which is either sycophancy or a signal that practitioner-land is converging on this playbook. Read it against yesterday&rsquo;s edition: ed25&rsquo;s &ldquo;seek friction&rdquo; memo said go where AI commoditises least. Vasuman says the friction has an address &mdash; the department with the volume, the cost, and the exceptions.</p>
+
+<div class="chart-box">
+<div class="chart-title">The seven-step ladder, department-first</div>
+<svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Seven ascending steps of AI transformation">
+  <rect x="0" y="0" width="620" height="200" fill="#fff"/>
+  <g font-family="Arial" font-size="10">
+    <g>
+      <rect x="15" y="140" width="76" height="40" fill="#e7e0cf" stroke="#1a1a1a"/><text x="53" y="157" text-anchor="middle" font-weight="bold">1. Score</text><text x="53" y="171" text-anchor="middle" font-size="8">vol/cost/reach</text>
+      <rect x="98" y="120" width="76" height="40" fill="#e7e0cf" stroke="#1a1a1a"/><text x="136" y="137" text-anchor="middle" font-weight="bold">2. KPIs</text><text x="136" y="151" text-anchor="middle" font-size="8">agree first</text>
+      <rect x="181" y="100" width="76" height="40" fill="#e7e0cf" stroke="#1a1a1a"/><text x="219" y="117" text-anchor="middle" font-weight="bold">3. As-is</text><text x="219" y="131" text-anchor="middle" font-size="8">map process</text>
+      <rect x="264" y="80" width="76" height="40" fill="#e7e0cf" stroke="#1a1a1a"/><text x="302" y="97" text-anchor="middle" font-weight="bold">4. To-be</text><text x="302" y="111" text-anchor="middle" font-size="8">design future</text>
+      <rect x="347" y="60" width="76" height="40" fill="#a31621" opacity="0.12" stroke="#a31621"/><text x="385" y="77" text-anchor="middle" font-weight="bold">5. Build</text><text x="385" y="91" text-anchor="middle" font-size="8">on existing</text>
+      <rect x="430" y="40" width="76" height="40" fill="#a31621" opacity="0.12" stroke="#a31621"/><text x="468" y="57" text-anchor="middle" font-weight="bold">6. Shadow</text><text x="468" y="71" text-anchor="middle" font-size="8">before live</text>
+      <rect x="513" y="20" width="76" height="40" fill="#a31621" opacity="0.12" stroke="#a31621"/><text x="551" y="37" text-anchor="middle" font-weight="bold">7. Champions</text><text x="551" y="51" text-anchor="middle" font-size="8">carry it on</text>
+    </g>
+    <path d="M30 138 L90 118 L180 98 L264 78 L347 58 L430 38 L513 18" stroke="#a31621" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+    <text x="310" y="196" text-anchor="middle" font-size="10" fill="#6b675c">example result: close 20&rarr;8 days &middot; AP exceptions 700&rarr;&lt;50/month</text>
+  </g>
+</svg>
+<div class="src">Source: Vasuman&rsquo;s article &mdash; the department-level ladder out of pilot purgatory.</div>
+</div>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Discovery lives in departments.</strong> Enterprise AI value is found team by team, not in strategy decks.</li>
+<li><strong>Name the starting state.</strong> Not started, copilot plateau, or pilot purgatory &mdash; each needs the same ladder.</li>
+<li><strong>Shadow before live.</strong> Run alongside humans and let evidence, not demos, earn the rollout.</li>
+<li><strong>Champions over consultants.</strong> Transformation sticks when insiders carry it.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; pick the department with the ugliest exceptions queue, score it on volume/cost/reach, and run steps one and two this week. If you can&rsquo;t name the KPIs, you&rsquo;re not ready for a pilot.</div>
+<p class="orig-link"><a href="https://x.com/vasuman/status/2112287872615387215">The post</a> &nbsp;&middot;&nbsp; <a href="https://x.com/giyu_codes/status/2112331803499614457">The &ldquo;kneel&rdquo; endorsement</a></p>
+</div>
+
+<div class="story" id="sunra">
+<h3 class="headline"><a href="https://x.com/sunra_ai/status/2112212015045296395">Every Model, One MCP, Zero Markup</a></h3>
+<div class="byline">Via <a href="https://x.com/sunra_ai">@sunra_ai</a> &mdash; Sunra MCP launch</div>
+
+<p class="lede">Sunra launched Sunra MCP with a pricing pitch that reads like a dare: every leading image, video and audio model, inside Claude, ChatGPT and the assistants you already use, <strong>each at its maker&rsquo;s own API price, with no markup added</strong>. Thread replies price it out: Seedance 2.5 from four cents a second, GPT Image 2.5 from four-tenths of a cent an image, Nano Banana 2.1 from a cent and a half. Supported hosts span Claude, ChatGPT, Claude Code, Codex, Cursor, Antigravity and Grok.</p>
+
+<p>The strategy is the unbundling of the model marketplace. Instead of renting creativity through one vendor&rsquo;s wrapper and its margin, you route through one MCP and pay maker prices. The moat isn&rsquo;t the models &mdash; it&rsquo;s distribution inside the assistants and the convenience of one pipe. If it holds, the wrapper margin on media generation goes to zero and the competition moves to routing, reliability and pricing transparency. Watch whether &ldquo;no markup&rdquo; survives contact with scale; aggregation businesses have a way of finding their margin eventually.</p>
+
+<div class="chart-box">
+<div class="chart-title">Sunra MCP: one pipe, maker prices</div>
+<svg viewBox="0 0 620 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hub and spoke diagram of Sunra MCP">
+  <rect x="0" y="0" width="620" height="190" fill="#fff"/>
+  <g font-family="Arial" font-size="10">
+    <rect x="250" y="70" width="120" height="50" fill="#1a1a1a"/>
+    <text x="310" y="90" text-anchor="middle" fill="#faf8f2" font-weight="bold">SUNRA MCP</text>
+    <text x="310" y="106" text-anchor="middle" fill="#faf8f2" font-size="9">maker price, 0 markup</text>
+    <g fill="#e7e0cf" stroke="#1a1a1a">
+      <rect x="20" y="30" width="130" height="30"/><text x="85" y="49" text-anchor="middle">Seedance 2.5</text>
+      <rect x="20" y="80" width="130" height="30"/><text x="85" y="99" text-anchor="middle">GPT Image 2.5</text>
+      <rect x="20" y="130" width="130" height="30"/><text x="85" y="149" text-anchor="middle">Nano Banana 2.1</text>
+      <rect x="470" y="30" width="130" height="30"/><text x="535" y="49" text-anchor="middle">Claude</text>
+      <rect x="470" y="80" width="130" height="30"/><text x="535" y="99" text-anchor="middle">ChatGPT</text>
+      <rect x="470" y="130" width="130" height="30"/><text x="535" y="149" text-anchor="middle">Cursor &amp; co.</text>
+    </g>
+    <g stroke="#a31621" stroke-width="1.25">
+      <line x1="150" y1="45" x2="250" y2="85"/><line x1="150" y1="95" x2="250" y2="95"/><line x1="150" y1="145" x2="250" y2="105"/>
+      <line x1="370" y1="85" x2="470" y2="45"/><line x1="370" y1="95" x2="470" y2="95"/><line x1="370" y1="105" x2="470" y2="145"/>
+    </g>
+    <text x="100" y="172" text-anchor="middle" font-size="9" fill="#6b675c">models in &rarr;</text>
+    <text x="535" y="172" text-anchor="middle" font-size="9" fill="#6b675c">&larr; assistants out</text>
+  </g>
+</svg>
+<div class="src">Source: Sunra&rsquo;s launch thread &mdash; one MCP, every leading media model, maker pricing.</div>
+</div>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Unbundle the wrapper.</strong> One routing layer at maker prices removes the margin middlemen live on.</li>
+<li><strong>Distribution is the moat.</strong> Being inside Claude and ChatGPT matters more than owning a model.</li>
+<li><strong>Zero markup is a beachhead.</strong> Aggregation always finds its margin later; enjoy the transparency window.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; if you pay a wrapper per image or per second of video, price the same job through Sunra MCP this week. The gap is your current margin tax.</div>
+<p class="orig-link"><a href="https://x.com/sunra_ai/status/2112212015045296395">The post</a></p>
+</div>
+
+<div class="story" id="sky">
+<h3 class="headline"><a href="https://x.com/AnatoliKopadze/status/2112243445687321081">The World Model Nobody Was Watching</a></h3>
+<div class="byline">Via <a href="https://x.com/AnatoliKopadze">@AnatoliKopadze</a> &mdash; quoting @spisallyouneed&rsquo;s SKY-001 launch</div>
+
+<p class="lede">Sam Pasupalak&rsquo;s paid-partnership launch post claims SKY-001, &ldquo;the first Engineering World Model,&rdquo; beats GPT-6 Astra and every frontier model tested on CAD and BIM tasks: <strong>51 to 125 times faster, 150 to 210 times cheaper</strong>, with higher IOU. Anatoli Kopadze&rsquo;s caption does the rest of the work: &ldquo;Sam Altman after finding out a lab nobody was watching just built a model 100x faster and 150x cheaper than GPT-6 Astra at engineering design.&rdquo;</p>
+
+<p>Read the numbers the way they&rsquo;re labelled: these are the poster&rsquo;s claims, from a paid partnership launch, not independent benchmarks. But the <em>shape</em> of the claim is what&rsquo;s worth filing. Frontier labs fight over general intelligence while specialised world models quietly eat verticals &mdash; dreaming a physical object before you build it, in this case. The pattern repeats: the generalist gets the headlines, the specialist gets the workflow. If even a fraction of the 150x cost claim holds, engineering design becomes the next domain where the frontier model is overkill for the job at hand.</p>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Verticals eat benchmarks.</strong> Specialised world models can undercut frontier models where the task is bounded.</li>
+<li><strong>Cost is the wedge.</strong> A 150x cheaper claim &mdash; even discounted &mdash; changes who can afford to iterate.</li>
+<li><strong>Paid launches need a discount rate.</strong> Poster&rsquo;s numbers, paid partnership; wait for independent replication before the thesis.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; ask which of your workflows actually need a frontier model and which need a specialist. The specialist is coming for the second list, at a fraction of the price.</div>
+<p class="orig-link"><a href="https://x.com/AnatoliKopadze/status/2112243445687321081">The post</a></p>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section">
+<div class="sec-head"><div class="kicker">The Quota Wars</div><div class="rule"></div></div>
+
+<div class="story" id="codex">
+<h3 class="headline"><a href="https://x.com/KolinHuang/status/2112050737001680939">Day Fourteen of the Codex Challenge</a></h3>
+<div class="byline">Via <a href="https://x.com/KolinHuang">@KolinHuang</a> &mdash; quoting @thsottiaux</div>
+
+<p class="lede">Fourteen days into the Codex challenge &mdash; halfway &mdash; and Kolin Huang has shipped autocomplete for his next prompt, reduced disk usage, and the ability to edit previous messages in the desktop app. What he actually wants reads like a bill of rights for the allowance age: <strong>enough quota to finish a real coding session, clear predictable usage limits, a fix for the bug that randomly eats all remaining usage, relief from the five-hour limit wall, memory that survives long conversations, threads that don&rsquo;t break halfway through a task</strong>.</p>
+
+<p>This is round three of the quota wars this paper has tracked. Ed24&rsquo;s reset wars, ed25&rsquo;s quota-drain panic &mdash; and now the most telling sign yet: the community has stopped asking for features and started asking for <em>capacity</em>. Tibo&rsquo;s Day 14 note is a small quality-of-life fix; the wishlist is about the economics of the session itself. When users love the tool enough to inventory their grievances this precisely, the product-market fit is real and the pricing architecture is the bottleneck. &ldquo;Tibo, I really hope the remaining half can make a real difference&rdquo; &mdash; from someone who loved Codex.</p>
+
+<div class="pullquote">&ldquo;Enough quota to finish a real coding session. Clear, predictable usage limits.&rdquo;<span class="attr">&mdash; @KolinHuang&rsquo;s wishlist</span></div>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Capacity is the feature.</strong> In the allowance age, quota predictability beats shipped features.</li>
+<li><strong>Love inventories grievances.</strong> A precise wishlist is proof of product-market fit, not its absence.</li>
+<li><strong>The five-hour wall is a design tax.</strong> Sessions that break halfway through train users to work in fragments.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; if you sell an agent product, publish your quota economics like a feature. Predictable limits are a feature users now rank above features.</div>
+<p class="orig-link"><a href="https://x.com/KolinHuang/status/2112050737001680939">The post</a></p>
+</div>
+
+<div class="story" id="greptile">
+<h3 class="headline"><a href="https://x.com/deedydas/status/2112204513138651513">The Review Is the Bottleneck</a></h3>
+<div class="byline">Via <a href="https://x.com/deedydas">@deedydas</a> &mdash; Greptile&rsquo;s $50M Series B</div>
+
+<p class="lede">Code-change velocity has ten-x&rsquo;d, Deedy writes, and the bottleneck has moved &mdash; to review and testing. Greptile, which just announced a <strong>$50M Series B at a $750M valuation</strong>, serves the codebases where review is hardest: Nvidia&rsquo;s CUDA, Coinbase, Datadog, OpenClaw, more than twenty-two thousand customers. The pitch is context-bound review that runs, tests and records changes, at a price cheaper than renting frontier-model harnesses to do it yourself.</p>
+
+<p>This is the natural end of the story ed24 told &mdash; Claude writing ninety percent of Claude Code&rsquo;s code, review redesigned as the bottleneck. When generation is abundant, verification becomes the scarce good, and the scarcest verification is the kind that understands <em>your</em> codebase&rsquo;s context. Greptile&rsquo;s valuation is a bet that review is not a feature of the coding agent but a separate product category. The generalist writes; the specialist checks.</p>
+
+<div class="stat-strip">
+<div class="stat"><div class="num">$750M</div><div class="lbl">Greptile&rsquo;s Series B valuation</div></div>
+<div class="stat"><div class="num">$50M</div><div class="lbl">Raised in the Series B</div></div>
+<div class="stat"><div class="num">22k+</div><div class="lbl">Customers</div></div>
+<div class="stat"><div class="num">10x</div><div class="lbl">Code velocity increase</div></div>
+</div>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Abundance moves the bottleneck.</strong> 10x generation made review the scarce good.</li>
+<li><strong>Context is the moat.</strong> Review that understands your codebase beats generic frontier harnesses.</li>
+<li><strong>Verification is a category.</strong> The checker deserves to be a product, not a feature toggle.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; audit where your own agent pipeline queues: if review is the wait, buy or build the reviewer before the next generator.</div>
+<p class="orig-link"><a href="https://x.com/deedydas/status/2112204513138651513">The post</a></p>
+</div>
+
+</div>
+<hr class="section-break">
+<div class="page-section">
+<div class="sec-head"><div class="kicker">Money</div><div class="rule"></div></div>
+
+<div class="story" id="alphabet">
+<h3 class="headline"><a href="https://x.com/championswimmer/status/2112374130850857382">Alphabet Does Everything</a></h3>
+<div class="byline">Via <a href="https://x.com/championswimmer">@championswimmer</a> &mdash; quoting @nikunj&rsquo;s memo joke</div>
+
+<p class="lede">Nikunj&rsquo;s joke set it up: &ldquo;Waiting for someone to sell me a peptide factory built in a data center which is also a robotics neolab that is somehow collecting first party uniquely differentiated data&hellip; Make it 50/500 on a memo.&rdquo; Arnav Gupta&rsquo;s reply does the mapping, and it lands because it&rsquo;s true: peptides &rarr; Calico and Isomorphic. Datacenter &rarr; GCP. Robotics neolab &rarr; Intrinsic and DeepMind&rsquo;s embodied work. First-party data &rarr; well, everywhere. Tape out &rarr; TPUs. $GOOG, he concludes, &ldquo;is an incredible institution.&rdquo;</p>
+
+<p>The joke works as analysis. Alphabet is the conglomerate the buzzword memo is always trying to describe: it genuinely spans longevity, cloud, robotics, and silicon, and the pieces compound &mdash; TPUs train the models that run the robots that live in the datacenters. The embedded cashtag widget says the market has noticed: $340.16, up nearly a percent. When every satirical memo turns out to be one company&rsquo;s org chart, the moat isn&rsquo;t a product. It&rsquo;s the portfolio.</p>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>The memo is the org chart.</strong> When satire maps one-to-one onto a company, that company owns the stack the satire describes.</li>
+<li><strong>Compounding across silos.</strong> Silicon, cloud, robotics, models &mdash; each funds the next.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; when evaluating an AI bet, ask who owns the full stack beneath it. Single-layer companies rent their moat; stack owners print it.</div>
+<p class="orig-link"><a href="https://x.com/championswimmer/status/2112374130850857382">The post</a></p>
+</div>
+
+<div class="story" id="coreweave">
+<h3 class="headline"><a href="https://x.com/aviralbhat/status/2112223255415427326">CoreWeave on the Edge</a></h3>
+<div class="byline">Via <a href="https://x.com/aviralbhat">@aviralbhat</a> &mdash; with an Economist chart</div>
+
+<p class="lede">To benchmark how seriously distressed CoreWeave&rsquo;s credit is, Aviral Bhatnagar reaches for the darkest yardstick in finance: <strong>Lehman had a 702-basis-point credit spread one day before it went bankrupt</strong>. Investors now effectively need a million dollars to insure ten million of CoreWeave debt &mdash; two and a half times what they needed just four months ago. The company, he concludes, needs to execute extremely well merely to survive.</p>
+
+<p>The chart behind the post &mdash; the Economist&rsquo;s &ldquo;Shaken to the core,&rdquo; CoreWeave&rsquo;s five-year CDS spread through 2026, sourced from Bloomberg &mdash; is the AI-infrastructure cycle meeting the credit cycle. The neocloud model was always a leverage story: rent GPUs, borrow against the contracts, grow into the debt. When the cost of insuring that debt rises 2.5x in four months, the model&rsquo;s clock speeds up. Read it next to the Alphabet story above: the stack owners print their moat; the stack renters borrow it, and the bond market is repricing the rent.</p>
+
+<div class="chart-box">
+<div class="chart-title">Cost to insure $10M of CoreWeave debt</div>
+<svg viewBox="0 0 620 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart of insurance cost rising 2.5x in four months">
+  <rect x="0" y="0" width="620" height="170" fill="#fff"/>
+  <g font-family="Arial" font-size="11">
+    <rect x="120" y="95" width="140" height="40" fill="#e7e0cf" stroke="#1a1a1a"/>
+    <text x="190" y="88" text-anchor="middle" font-weight="bold">4 months ago</text>
+    <text x="190" y="119" text-anchor="middle">~$0.4M</text>
+    <rect x="360" y="35" width="140" height="100" fill="#a31621" opacity="0.85"/>
+    <text x="430" y="28" text-anchor="middle" font-weight="bold" fill="#a31621">today</text>
+    <text x="430" y="89" text-anchor="middle" fill="#faf8f2" font-weight="bold">$1M</text>
+    <text x="430" y="112" text-anchor="middle" fill="#faf8f2" font-size="10">2.5x in 4 months</text>
+    <text x="310" y="160" text-anchor="middle" font-size="10" fill="#6b675c">Lehman&rsquo;s yardstick: 702 bps one day before the fall</text>
+  </g>
+</svg>
+<div class="src">Source: Bhatnagar&rsquo;s post; Economist chart (&ldquo;Shaken to the core&rdquo;), Bloomberg data.</div>
+</div>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Leverage has a clock.</strong> The neocloud model borrows against growth; CDS spreads show the market pricing the risk in real time.</li>
+<li><strong>2.5x in four months.</strong> Credit repricing this fast turns &ldquo;execute well to win&rdquo; into &ldquo;execute perfectly to survive.&rdquo;</li>
+<li><strong>Renters vs owners.</strong> Stack owners compound; stack renters get repriced.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; if your roadmap depends on a leveraged infrastructure provider, watch their credit spreads like a KPI. Your uptime SLA is only as solid as their balance sheet.</div>
+<p class="orig-link"><a href="https://x.com/aviralbhat/status/2112223255415427326">The post</a></p>
+</div>
+
+<div class="story" id="pay">
+<h3 class="headline"><a href="https://x.com/kawal279/status/2112074444156141984">The Three-Quarter-Crore Question</a></h3>
+<div class="byline">Via <a href="https://x.com/kawal279">@kawal279</a> &mdash; the Mama Earth remuneration post</div>
+
+<p class="lede">&ldquo;Mama Earth founders pocket a cool 7.5 cr per annum take home,&rdquo; Kawaljeet Singh writes, next to a remuneration-spreadsheet screenshot &mdash; and notes the cousins who show him Ghazal&rsquo;s Instagram travel feed and want the same life. &ldquo;Insta only shows what they do but here on Twitter you will know how they do it.&rdquo; The follow-up is the important sentence: this isn&rsquo;t a comment on whether they deserve it. It&rsquo;s about the <strong>illusion gap</strong> &mdash; the lifestyle is visible, the compensation structure behind it isn&rsquo;t, and middle-and-upper-middle India keeps pricing the dream without the numbers.</p>
+
+<p>The post is really about survivorship accounting. A founder&rsquo;s public life is the numerator; the cap table, the dilution, the decade of risk, the hundred dead startups for every listed one are the denominator nobody photographs. ₹7.5 crore a year is real money &mdash; it&rsquo;s also the outcome of a lottery ticket that paid off after years of negative expected value. The cousins see the travel feed; the spreadsheet is the fine print.</p>
+
+<div class="pullquote">&ldquo;Insta only shows what they do but here on Twitter you will know how they do it.&rdquo;<span class="attr">&mdash; @kawal279</span></div>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Price the denominator.</strong> Every visible founder lifestyle hides dilution, risk years, and the dead startups.</li>
+<li><strong>The feed is the numerator.</strong> Compensation structures are the fine print of every aspiration.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; before envying a founder&rsquo;s feed, find their remuneration disclosure. The spreadsheet is always more instructive than the sunset.</div>
+<p class="orig-link"><a href="https://x.com/kawal279/status/2112074444156141984">The post</a></p>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section">
+<div class="sec-head"><div class="kicker">Strategy</div><div class="rule"></div></div>
+
+<div class="story" id="tokenbudget">
+<h3 class="headline"><a href="https://x.com/paraschopra/status/2112185735164133628">The Token-Budget Question</a></h3>
+<div class="byline">Via <a href="https://x.com/paraschopra">@paraschopra</a></div>
+
+<p class="lede">Paras Chopra poses the question every serious project should be asking: <strong>&ldquo;What durable thing gets compounded over time that&rsquo;s hard to replicate by someone having an insanely large token budget?&rdquo;</strong> Assume that if your project succeeds, it will get noticed &mdash; and assume the noter arrives with effectively infinite inference. What survives?</p>
+
+<p>This is the moat question rewritten for the abundance age, and it&rsquo;s sharper than the usual &ldquo;what&rsquo;s your moat&rdquo; because it grants the attacker the strongest weapon upfront. Data moats erode when anyone can synthesise. Distribution moats hold longer. Proprietary workflows, embedded integrations, trust, regulatory position, and &mdash; the underrated one &mdash; the accumulated memory of a system that has run in production for years: these compound in ways tokens can&rsquo;t buy. Read it as the strategic companion to today&rsquo;s lead story: when the answer box decides, the durable asset is being the thing the answers are built on.</p>
+
+<div class="pullquote">&ldquo;What durable thing gets compounded over time that&rsquo;s hard to replicate by someone having an insanely large token budget?&rdquo;<span class="attr">&mdash; @paraschopra</span></div>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Grant the attacker infinite tokens.</strong> If your moat survives that assumption, it&rsquo;s real.</li>
+<li><strong>Compounding beats caching.</strong> Production history, embedded workflows, trust &mdash; things that accrue, not things that compute.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; write the one-sentence answer for your own project this week. If you can&rsquo;t, the token budget is your competitor&rsquo;s opening bid.</div>
+<p class="orig-link"><a href="https://x.com/paraschopra/status/2112185735164133628">The post</a></p>
+</div>
+
+<div class="story" id="slava">
+<h3 class="headline"><a href="https://x.com/spakhm/status/2112217015532314893">We Respectfully Decline</a></h3>
+<div class="byline">Via <a href="https://x.com/spakhm">@spakhm</a> &mdash; the essay, quoting @elonmusk</div>
+
+<p class="lede">Elon Musk posted that next year he will give one of his SpaceX shares to every kid in America. Slava Akhmechet&rsquo;s essay responds with an argument almost no one makes: express appropriate gratitude, <strong>then graciously reject the gift</strong>. He calls the gift a genuine act of altruism &mdash; and still the wrong thing to accept. Of America&rsquo;s unique features, he writes, the most important is self-reliance: dignity derived from independence since the Republic&rsquo;s first days. It is &ldquo;unbecoming of American children to carry a mark of patronage from Trump accounts, Elon shares, Zuck dollars, or any other gifts from powerful benefactors, no matter how charitable.&rdquo;</p>
+
+<p>Strip the politics and there&rsquo;s a clean mechanism underneath: gifts from the powerful create <strong>patronage relationships</strong>, and patronage quietly reprices independence. The essay&rsquo;s move is to separate gratitude from acceptance &mdash; thank the altruism, decline the dependency. Whether or not the shares ever materialise, the argument travels: in an age of founder-philanthropists and platform largesse, the question isn&rsquo;t whether the gift is generous. It&rsquo;s what the recipient becomes by taking it.</p>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Gratitude and acceptance are separable.</strong> You can honour the altruism and refuse the dependency.</li>
+<li><strong>Patronage reprices independence.</strong> Gifts from the powerful create relationships, not just transfers.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; next time a platform offers you something free, ask what relationship it buys. Free is a pricing strategy; patronage is a position.</div>
+<p class="orig-link"><a href="https://x.com/spakhm/status/2112217015532314893">The post</a></p>
+</div>
+
+<div class="story" id="muse1p">
+<h3 class="headline"><a href="https://x.com/gregisenberg/status/2112252038079816082">A Thousand Muse Millionaires</a></h3>
+<div class="byline">Via <a href="https://x.com/gregisenberg">@gregisenberg</a> &mdash; the video essay</div>
+
+<p class="lede">&ldquo;Meta Muse will probably create 1000+ millionaires,&rdquo; Greg Isenberg opens. &ldquo;This is the most slept on arbitrage I&rsquo;ve seen in years and it&rsquo;s not even close.&rdquo; The pitch: build a one-person business powered by AI and Muse with zero dollars and zero social following, in a twenty-four-minute video essay. The arbitrage he sees is the gap between what the assistant can now do for one person and what incumbents charge teams to do.</p>
+
+<p>Read it as the demand-side version of today&rsquo;s lead story. If the answer box is the new front page, a one-person business that learns to be <em>mentioned</em> &mdash; cited, recommended, surfaced by assistants &mdash; can outrun a funded competitor that still buys keywords. The zero-following detail matters: distribution used to require an audience; now it requires being the answer. Whether Muse mints a thousand millionaires is unknowable; that the arbitrage exists while everyone else is still optimising for the SERP is the actionable part.</p>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>The arbitrage is the gap.</strong> One person plus an assistant now does what teams were hired for &mdash; the margin is the difference.</li>
+<li><strong>Zero following is a feature.</strong> When distribution is the answer box, audience is optional; citation is everything.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; pick the one-person business you&rsquo;d run and ask Hoffman&rsquo;s AEO checklist, not a growth playbook: will the assistants mention you?</div>
+<p class="orig-link"><a href="https://x.com/gregisenberg/status/2112252038079816082">The post</a></p>
+</div>
+
+<div class="story" id="radar">
+<h3 class="headline"><a href="https://x.com/rajivayyangar/status/2112192667241074976">Launch Radar: Voice, Decisions, Agents, Extensions</a></h3>
+<div class="byline">Via <a href="https://x.com/rajivayyangar">@rajivayyangar</a> &mdash; CEO of Product Hunt</div>
+
+<p class="lede">&ldquo;I&rsquo;m the CEO of Product Hunt and see 100s of launches a week,&rdquo; Rajiv Ayyangar writes. His current list of new infrastructure begging for startups: <strong>voice AI</strong> &mdash; the infra (Pipecat, Vapi, Deepgram, ElevenLabs) is getting really good and yet he rarely sees good voice tech in the real world; <strong>decision models</strong> &mdash; Jev and TypeSafeAI leading, &ldquo;like the mech-building in Zelda TOTK, an explosion of possibilities&rdquo;; <strong>personal agents</strong> &mdash; they work now, and they need tools, apps, MCPs; and <strong>extensions</strong> &mdash; &ldquo;we all live in agentic interfaces now. It&rsquo;s like a new platform. Someone needs to build a Slack replacement that lives in Codex.&rdquo;</p>
+
+<p>The list is a demand map drawn from supply-side evidence: hundreds of launches a week, and the gaps are where the infra is ready but the products aren&rsquo;t. Voice is the stand-out &mdash; mature infrastructure, empty shelves. And the Slack-in-Codex line is the platform thesis in one sentence: agentic interfaces are the new OS, and the incumbents of the chat era don&rsquo;t automatically port over. Somebody&rsquo;s going to rebuild the collaboration layer inside the agent; it just hasn&rsquo;t shipped yet.</p>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Follow the empty shelves.</strong> Voice infra is mature with few good products &mdash; that gap is the opportunity.</li>
+<li><strong>Agentic interfaces are a platform.</strong> The collaboration layer gets rebuilt inside the agent.</li>
+<li><strong>Decision models are the new sandbox.</strong> Structured decision-making as a building block, with combinational explosion.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; if you&rsquo;re hunting for a build, take the voice gap seriously: the infra is done, the winners aren&rsquo;t chosen, and the users are already talking to machines.</div>
+<p class="orig-link"><a href="https://x.com/rajivayyangar/status/2112192667241074976">The post</a></p>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section">
+<div class="sec-head"><div class="kicker">Human</div><div class="rule"></div></div>
+
+<div class="story" id="lion">
+<h3 class="headline"><a href="https://x.com/stijnnoorman/status/2112150029364244883">Work Like a Lion</a></h3>
+<div class="byline">Via <a href="https://x.com/stijnnoorman">@stijnnoorman</a> &mdash; &ldquo;Work Like a Lion. It&rsquo;ll Change Your Life&rdquo;</div>
+
+<p class="lede">Stijn Noorman&rsquo;s long-form piece introduces <strong>Lion Mode: Plan, Hunt, Rest</strong>. The lion is the model because it does nothing most of the day and then commits completely. Plan: goal-setting as dopamine engineering &mdash; aim at a star, reverse-engineer the path. Hunt: flow as the challenge-skill balance, attention designed rather than defended, activation energy lowered until starting is cheap. Rest: active recovery, not collapse. The canon runs from Naval to Seneca to Kobe, with Csikszentmihalyi and Kotler doing the heavy lifting on flow.</p>
+
+<p>The mechanism worth stealing is the <strong>sprint-rest asymmetry</strong>. Knowledge work pretends to be a marathon and rewards looking busy for eight hours; the lion model says output comes from compressed, total effort followed by genuine recovery. It&rsquo;s the human mirror of the quota wars above: even agents now work in shifts. Rest isn&rsquo;t the absence of work in this framework &mdash; it&rsquo;s the other half of the hunt.</p>
+
+<div class="chart-box">
+<div class="chart-title">Lion Mode: the three-beat cycle</div>
+<svg viewBox="0 0 620 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cycle diagram of Plan, Hunt, Rest">
+  <rect x="0" y="0" width="620" height="170" fill="#fff"/>
+  <g font-family="Arial" font-size="11">
+    <circle cx="310" cy="88" r="52" fill="#faf8f2" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="310" y="84" text-anchor="middle" font-weight="bold">HUNT</text>
+    <text x="310" y="100" text-anchor="middle" font-size="9" fill="#6b675c">total effort</text>
+    <circle cx="130" cy="88" r="52" fill="#e7e0cf" stroke="#1a1a1a"/>
+    <text x="130" y="84" text-anchor="middle" font-weight="bold">PLAN</text>
+    <text x="130" y="100" text-anchor="middle" font-size="9" fill="#6b675c">aim at a star</text>
+    <circle cx="490" cy="88" r="52" fill="#a31621" opacity="0.1" stroke="#a31621"/>
+    <text x="490" y="84" text-anchor="middle" font-weight="bold">REST</text>
+    <text x="490" y="100" text-anchor="middle" font-size="9" fill="#6b675c">active recovery</text>
+    <path d="M182 88 L252 88" stroke="#1a1a1a" stroke-width="1.5"/><path d="M368 88 L438 88" stroke="#1a1a1a" stroke-width="1.5"/>
+    <path d="M490 140 C 400 165, 220 165, 130 140" stroke="#a31621" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+    <text x="310" y="162" text-anchor="middle" font-size="9" fill="#a31621">recovery feeds the next plan</text>
+  </g>
+</svg>
+<div class="src">Source: Noorman&rsquo;s piece &mdash; the lion does nothing most of the day, then commits completely.</div>
+</div>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Sprint, don&rsquo;t simmer.</strong> Compressed total effort beats eight hours of looking busy.</li>
+<li><strong>Rest is the other half.</strong> Recovery isn&rsquo;t absence of work &mdash; it&rsquo;s what makes the hunt repeatable.</li>
+<li><strong>Design attention, don&rsquo;t defend it.</strong> Lower activation energy until starting is the easy option.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; schedule one genuine hunt this week: a single total-commitment block, with the recovery booked in advance. The lion rests on purpose.</div>
+<p class="orig-link"><a href="https://x.com/stijnnoorman/status/2112150029364244883">The post</a></p>
+</div>
+
+<div class="story" id="beliefs">
+<h3 class="headline"><a href="https://x.com/PromptLLM/status/2112187316395532398">Rewiring Beliefs at Speed</a></h3>
+<div class="byline">Via <a href="https://x.com/PromptLLM">@PromptLLM</a> &mdash; Gemini 4 Argon on limiting beliefs</div>
+
+<p class="lede">Asked for &ldquo;an unconventional way to completely rewire limiting beliefs almost instantly,&rdquo; Gemini&rsquo;s Argon model answered with <strong>memory reconsolidation via a prediction-error jolt</strong>: recall the belief while simultaneously experiencing something that sharply contradicts it, and the brain&rsquo;s update mechanism &mdash; the same one that cements trauma &mdash; rewrites the association. One paragraph, one mechanism, no journaling required.</p>
+
+<p>Whether or not the neuroscience is airtight, the frame is useful: beliefs update on <strong>surprise</strong>, not on repetition. Affirmations fail because they confirm; the jolt works because it violates. It&rsquo;s the same logic as the token-budget question above &mdash; grant the strongest counter-evidence and see what survives. The fastest way to change a mind, artificial or otherwise, is a clean contradiction, not a pep talk.</p>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Beliefs update on surprise.</strong> Contradiction rewrites; repetition just rehearses.</li>
+<li><strong>Recall plus violation.</strong> Hold the belief and the counter-evidence at once &mdash; that&rsquo;s the jolt.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; pick one limiting belief and engineer a single clean contradiction this week. Don&rsquo;t argue with it; ambush it.</div>
+<p class="orig-link"><a href="https://x.com/PromptLLM/status/2112187316395532398">The post</a></p>
+</div>
+
+<div class="story" id="sales">
+<h3 class="headline"><a href="https://x.com/thedankoe/status/2112221088600264738">Learn to Sell Like Yourself</a></h3>
+<div class="byline">Via <a href="https://x.com/thedankoe">@thedankoe</a> &mdash; quoting @HussainIbarra</div>
+
+<p class="lede">&ldquo;The greatest mistake is being afraid of sales because you assume you have to sound like a sleazy salesman,&rdquo; Dan Koe writes. &ldquo;If you don&rsquo;t learn to sell in a way that feels natural, you will get stuck working for a boss who sells in a way you probably despise.&rdquo; The quoted piece &mdash; Hussain Ibarra&rsquo;s &ldquo;How to become dangerously good at selling&rdquo; &mdash; supplies three strategies; the frame is the message: selling is a skill you customise to your voice, not a costume you put on.</p>
+
+<p>It pairs with the ed25 through-line about choosing your friction. Sales is the friction most builders avoid &mdash; and the one that compounds fastest once it feels like you. The alternative Koe names is precise and a little brutal: someone else sells your labour in a way you&rsquo;d hate. Refusing to learn sales doesn&rsquo;t avoid salesmanship; it just outsources it to your boss.</p>
+
+<div class="learnings">
+<h4>Main learnings</h4>
+<ul>
+<li><strong>Sell in your voice.</strong> The sleaze is a style choice, not a requirement.</li>
+<li><strong>Avoidance outsources.</strong> Not learning to sell means someone else sells you &mdash; their way.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Practical takeaway</strong> &mdash; write one offer in exactly your voice this week. No tactics, no script &mdash; just the thing, said like you.</div>
+<p class="orig-link"><a href="https://x.com/thedankoe/status/2112221088600264738">The post</a></p>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section" id="briefs">
+<div class="sec-head"><div class="kicker">The Briefs</div><div class="rule"></div></div>
+
+<div class="two-col">
+<div>
+<h3 class="sub">Start one, hire yourself</h3>
+<p><a href="https://x.com/paulg/status/2112211561091858537">@paulg</a>, asked the best way to get hired by a startup: &ldquo;I told him it was to start one and then hire himself.&rdquo; The whole Y Combinator hiring philosophy in eleven words &mdash; the credential is the company.</p>
+
+<h3 class="sub">The Malfoid corner</h3>
+<p>AI-made romance keeps colonising the timeline. <a href="https://x.com/RegisPessolano/status/2112174782032548240">@RegisPessolano</a> shares a Malfoid short (&ldquo;a dose of super cute romance&rdquo;), <a href="https://x.com/nomoontwo_/status/2112094512491475129">@nomoontwo_</a> needs a full series after five minutes of Draconia, and <a href="https://x.com/Mr_Boffin/status/2112048254611517638">@Mr_Boffin</a> supplies the literary theory: a Harry Potter anime works because school anime and Potter share a root &mdash; Japan&rsquo;s modernisation imported British boarding-school stories wholesale. Delight, then scholarship.</p>
+
+<h3 class="sub">The Mac is on fire</h3>
+<p><a href="https://x.com/not_sacke/status/2112165366705398073">@not_sacke</a>: &ldquo;closing a window on my mac sets it on fire now.&rdquo; Six seconds of flame animation on window close. The vibe-coded desktop continues its march: every default is a suggestion, including the close button.</p>
+
+<h3 class="sub">AI removes the slop</h3>
+<p><a href="https://x.com/rileybrown/status/2112262019772756194">@rileybrown</a> flags the narrative violation: someone vibe-coded their TV with Claude &mdash; bloatware and ads removed, OS recreated Apple-TV-style, ~70% less RAM, 3x faster interface. Ed25&rsquo;s lead story has a sequel, and the sequel is faster.</p>
+</div>
+<div>
+<h3 class="sub">Supabase, open-sourced by Claude</h3>
+<p><a href="https://x.com/supabase/status/2112354750658425207">@supabase</a> quotes a joke that&rsquo;s barely a joke: twelve Claude agents, six hours, Supabase reverse-engineered and re-released free and open-source. Supabase&rsquo;s own reply: &ldquo;We&rsquo;re all screwed when Linux is cracked.&rdquo; The REA era&rsquo;s sense of humour is holding up.</p>
+
+<h3 class="sub">Founder vs employee</h3>
+<p><a href="https://x.com/kirtandopamine/status/2112064609024921833">@kirtandopamine</a>&rsquo;s meme: the same young man, groomed in the studio versus dishevelled at the desk &mdash; founder versus employee. It quotes alexandr_wang&rsquo;s &ldquo;got the HRT gang back together&rdquo; selfie. The visual gap between owning the upside and renting the salary, in one frame.</p>
+
+<h3 class="sub">Also saved</h3>
+<p>That&rsquo;s 27 of today&rsquo;s 28 saves in the paper &mdash; the twenty-eighth was a duplicate-thread fragment already covered above. Every story links to its original; the through-line holds: the front page moved into the answer box, and everything durable &mdash; memory, skills, departments, compounding &mdash; is what survives the move.</p>
+</div>
+</div>
+
+</div>
+
+<footer>
+<div class="fin">&#8718;</div>
+<p>The Unread Pile &mdash; Edition No. 26 &mdash; Tuesday, 20 October 2026. Built from @RAKSHITLODHA&rsquo;s likes and bookmarks. 28 new saves; 27 stories in the paper.</p>
+</footer>
+
+</div>
+</body>
+</html>
