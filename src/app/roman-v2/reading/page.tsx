@@ -40,7 +40,7 @@ export default function ReadingArchivePage() {
       ) : (
         <>
           {latest && (
-            <Link href={`/roman-v2/reading/${latest.date}`} className={s.featured}>
+            <Link href={`/reading/${latest.date}`} className={s.featured}>
               <span className={s.featuredLabel}>Latest edition</span>
               <span className={s.featuredDate}>{editionDate(latest.date)}</span>
               <span className={s.featuredTitle}>{latest.title}</span>
@@ -56,7 +56,7 @@ export default function ReadingArchivePage() {
               <ul className={s.list}>
                 {archive.map((edition) => (
                   <li key={edition.date}>
-                    <Link href={`/roman-v2/reading/${edition.date}`} className={s.row}>
+                    <Link href={`/reading/${edition.date}`} className={s.row}>
                       <span className={s.rowDate}>{editionDate(edition.date)}</span>
                       <span className={s.rowTitle}>{edition.title}</span>
                       <span className={s.rowArrow} aria-hidden="true">→</span>

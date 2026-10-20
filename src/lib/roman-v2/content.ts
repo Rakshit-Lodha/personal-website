@@ -255,8 +255,7 @@ export async function getRomanV2Content(): Promise<RomanV2Content> {
         heading: "From my corner of the internet",
         body: "Ideas I’m saving across the internet, distilled by Meta’s Muse agent.",
         edition,
-        // Points at the latest published one-pager once an edition exists.
-        action: action("Read Now", realEdition ? `/roman-v2/reading/${realEdition.date}` : null),
+        action: action("Read Now", "/reading"),
       },
       writing: {
         eyebrow: "Writing",

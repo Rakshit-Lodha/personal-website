@@ -11,7 +11,7 @@ export async function getLatestEdition(): Promise<ReadingEdition | null> {
       date: published.date,
       title: published.title,
       summary: published.summary,
-      url: `/roman-v2/reading/${published.date}`,
+      url: `/reading/${published.date}`,
       audio:
         published.audioAssetId && published.audioDurationSeconds
           ? { src: audioSrc(published.audioAssetId), durationSeconds: published.audioDurationSeconds }

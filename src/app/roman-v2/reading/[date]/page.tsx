@@ -86,7 +86,7 @@ export default async function ReadingEditionPage({ params }: { params: Promise<{
       )}
 
       <p className={s.back}>
-        <Link href="/roman-v2/reading">← All editions</Link>
+        <Link href="/reading">← All editions</Link>
       </p>
     </main>
   );
