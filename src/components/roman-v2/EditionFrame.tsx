@@ -6,7 +6,15 @@ import { useRef, useState } from "react";
  * Embeds a full edition's visual HTML newspaper in an isolated frame.
  * srcDoc keeps it same-origin so the frame auto-sizes to its content.
  */
-export default function EditionFrame({ html, title }: { html: string; title: string }) {
+export default function EditionFrame({
+  html,
+  title,
+  background = "#f1eadf",
+}: {
+  html: string;
+  title: string;
+  background?: string;
+}) {
   const ref = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState(1200);
 
@@ -19,15 +27,17 @@ export default function EditionFrame({ html, title }: { html: string; title: str
       onLoad={() => {
         const doc = ref.current?.contentDocument;
         if (doc?.documentElement) {
+          doc.documentElement.style.setProperty("background", background, "important");
+          doc.body?.style.setProperty("background", background, "important");
           setHeight(doc.documentElement.scrollHeight + 40);
         }
       }}
       style={{
         width: "100%",
         height: `${height}px`,
-        border: "1px solid rgba(23, 22, 20, 0.12)",
-        borderRadius: "4px",
-        background: "#fff",
+        border: 0,
+        borderRadius: 0,
+        background,
       }}
     />
   );

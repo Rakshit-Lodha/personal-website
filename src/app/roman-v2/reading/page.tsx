@@ -1,6 +1,6 @@
 import Link from "next/link";
+import ReadingShell from "@/components/roman-v2/ReadingShell";
 import { getPublishedEditions } from "@/lib/reading/store";
-import shared from "@/components/roman-v2/contemporary-roman.module.css";
 import s from "./reading.module.css";
 
 export const metadata = {
@@ -8,7 +8,6 @@ export const metadata = {
   description: "Ideas discovered across the internet, distilled by Muse.",
 };
 
-/** Edition dates are calendar days in Asia/Kolkata. */
 function editionDate(date: string) {
   return new Intl.DateTimeFormat("en-GB", {
     day: "numeric",
@@ -18,56 +17,87 @@ function editionDate(date: string) {
   }).format(new Date(`${date}T12:00:00+05:30`));
 }
 
-export default function ReadingArchivePage() {
+export default async function ReadingArchivePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ view?: string }>;
+}) {
+  const mode = (await searchParams).view === "agent" ? "agent" : "human";
   const editions = getPublishedEditions();
   const [latest, ...archive] = editions;
 
   return (
-    <main className={`${shared.container} ${s.page}`}>
-      <section className={s.intro} aria-labelledby="archive-title">
-        <div className={s.introCopy}>
-          <p className={shared.eyebrow}>Daily reading · by Muse</p>
-          <h1 id="archive-title" className={s.title}>
-            From my corner <span className={shared.accent}>of the internet</span>
-          </h1>
-          <p className={shared.lede}>Ideas I discover across the internet, distilled by Muse.</p>
-        </div>
-        <div className={s.introArt} aria-hidden="true" />
-      </section>
-
-      {editions.length === 0 ? (
-        <p className={s.empty}>The first edition is on its way.</p>
+    <ReadingShell mode={mode} humanHref="/reading" agentHref="/reading?view=agent">
+      {mode === "agent" ? (
+        <main className={s.agentPage}>
+          <header className={s.agentIntro}>
+            <p>READING_INDEX</p>
+            <h1>Daily reading</h1>
+            <p>A chronological, machine-readable index of ideas discovered across the internet and distilled by Muse.</p>
+          </header>
+          <ol className={s.agentList}>
+            {editions.map((edition, index) => (
+              <li key={edition.date}>
+                <article>
+                  <p>{String(index + 1).padStart(3, "0")} · {edition.date}</p>
+                  <h2>{edition.title}</h2>
+                  <p>{edition.summary}</p>
+                  <Link href={`/reading/${edition.date}?view=agent`}>[READ EDITION]</Link>
+                </article>
+              </li>
+            ))}
+          </ol>
+        </main>
       ) : (
-        <>
-          {latest && (
-            <Link href={`/reading/${latest.date}`} className={s.featured}>
-              <span className={s.featuredLabel}>Latest edition</span>
-              <span className={s.featuredDate}>{editionDate(latest.date)}</span>
-              <span className={s.featuredTitle}>{latest.title}</span>
-            </Link>
-          )}
+        <main className={s.humanPage}>
+          <header className={s.archiveIntro}>
+            <p className={s.eyebrow}>Daily reading · by Muse</p>
+            <h1>From my corner of the internet</h1>
+            <p>Ideas I discover across the internet, distilled into a daily edition.</p>
+          </header>
 
-          {archive.length > 0 && (
-            <section className={s.archive} aria-labelledby="archive-index-title">
-              <div className={s.archiveHeader}>
-                <h2 id="archive-index-title">The archive</h2>
-                <span>{archive.length} editions</span>
-              </div>
-              <ul className={s.list}>
-                {archive.map((edition) => (
-                  <li key={edition.date}>
-                    <Link href={`/reading/${edition.date}`} className={s.row}>
-                      <span className={s.rowDate}>{editionDate(edition.date)}</span>
-                      <span className={s.rowTitle}>{edition.title}</span>
-                      <span className={s.rowArrow} aria-hidden="true">→</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
+          {editions.length === 0 ? (
+            <p className={s.empty}>The first edition is on its way.</p>
+          ) : (
+            <>
+              {latest && (
+                <Link href={`/reading/${latest.date}`} className={s.latestArticle}>
+                  <div>
+                    <span className={s.latestLabel}>Latest edition</span>
+                    <span className={s.latestDate}>{editionDate(latest.date)}</span>
+                  </div>
+                  <div>
+                    <h2>{latest.title}</h2>
+                    <p>{latest.summary}</p>
+                    <span className={s.readLink}>Read edition <span aria-hidden="true">→</span></span>
+                  </div>
+                </Link>
+              )}
+
+              {archive.length > 0 && (
+                <section className={s.archive} aria-labelledby="archive-title">
+                  <div className={s.archiveHeading}>
+                    <h2 id="archive-title">All editions</h2>
+                    <span>{editions.length} published</span>
+                  </div>
+                  <ol className={s.editionList}>
+                    {archive.map((edition, index) => (
+                      <li key={edition.date}>
+                        <Link href={`/reading/${edition.date}`}>
+                          <span className={s.editionNumber}>{String(index + 2).padStart(2, "0")}</span>
+                          <span className={s.editionDate}>{editionDate(edition.date)}</span>
+                          <span className={s.editionTitle}>{edition.title}</span>
+                          <span className={s.editionArrow} aria-hidden="true">→</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              )}
+            </>
           )}
-        </>
+        </main>
       )}
-    </main>
+    </ReadingShell>
   );
 }
