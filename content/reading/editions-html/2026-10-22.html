@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 28</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .front { display:grid; grid-template-columns: 2.1fr 1fr; gap:34px; margin-top:26px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  h3.sub { font-size:19px; margin:20px 0 8px; font-weight:800; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; letter-spacing:-0.5px; }
+  .stat .lbl { font-family:Arial,Helvetica,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-top:4px; line-height:1.4; }
+  .chart-box { border:1px solid var(--ink); background:#fff; padding:16px 18px 12px; margin:16px 0; }
+  .chart-box .chart-title { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; border-bottom:1px solid var(--rule); padding-bottom:8px; }
+  .chart-box svg { width:100%; height:auto; display:block; }
+  .chart-box .src { font-family:Arial,Helvetica,sans-serif; font-size:10.5px; color:var(--muted); margin-top:8px; font-style:italic; }
+  .learnings { background:#fff; border:1px solid var(--rule); border-left:4px solid var(--red); padding:14px 16px; margin:16px 0; }
+  .learnings h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .learnings ul { margin-left:18px; font-size:15px; }
+  .learnings li { margin-bottom:7px; }
+  .takeaway { background:#f3efe4; border:1px dashed var(--muted); padding:12px 16px; margin:12px 0 18px; font-size:15px; }
+  .takeaway strong { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); }
+  .orig-link { font-family:Arial,Helvetica,sans-serif; font-size:12.5px; margin:6px 0 4px; }
+  .orig-link a { color:var(--red); font-weight:bold; text-decoration:none; border-bottom:1px dotted var(--red); }
+  .sidebar .digest-box { border:2px solid var(--ink); background:#fff; padding:16px; margin-bottom:24px; }
+  .sidebar .digest-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; border-bottom:1px solid var(--ink); padding-bottom:8px; margin-bottom:10px; }
+  .sidebar .digest-box ol, .sidebar .digest-box ul { margin-left:18px; font-size:13.5px; }
+  .sidebar .digest-box li { margin-bottom:6px; }
+  .sidebar .digest-box a { color:var(--ink); text-decoration:none; border-bottom:1px dotted var(--muted); }
+  .section-break { border:none; border-top:4px double var(--ink); margin:34px 0 22px; }
+  .page-section > .sec-head { display:flex; align-items:baseline; gap:14px; margin-bottom:16px; }
+  .page-section > .sec-head .kicker { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); font-weight:bold; white-space:nowrap; }
+  .page-section > .sec-head .rule { flex:1; border-top:2px solid var(--ink); }
+  .story { border-bottom:1px solid var(--rule); padding-bottom:20px; margin-bottom:22px; }
+  .story:last-child { border-bottom:none; }
+  .img-frame { border:1px solid var(--ink); background:#fff; padding:10px 10px 8px; margin:16px 0; }
+  .img-frame img { width:100%; height:auto; display:block; }
+  .img-frame svg { width:100%; height:auto; display:block; }
+  .img-frame .cap { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; line-height:1.5; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  @media (max-width:760px){ .two-col{grid-template-columns:1fr;} .front{grid-template-columns:1fr;} }
+  footer { border-top:4px double var(--ink); margin-top:40px; padding-top:16px; text-align:center; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); }
+  footer .fin { font-size:22px; font-weight:900; color:var(--ink); margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="kicker">Built from @RAKSHITLODHA&rsquo;s likes &amp; bookmarks</div>
+  <h1>The Unread Pile</h1>
+  <div class="tagline">Everything you saved, distilled &mdash; sharp theses, systems, and takeaways. One paper, every morning.</div>
+</div>
+<div class="dateline">
+  <span>Edition No. 28</span>
+  <span>Thursday, 22 October 2026</span>
+  <span>5 new saves</span>
+</div>
+
+<div class="front">
+<div class="maincol">
+
+<div class="sec-label">The Lead Story</div>
+<div class="story" id="lead">
+<h2 class="headline"><a href="https://x.com/claudeai/status/2112984664256241837">The Software That Comes to You</a></h2>
+<div class="byline">Via <a href="https://x.com/claudeai">@claudeai</a> &mdash; and <a href="https://x.com/hnshah">@hnshah</a>&rsquo;s essay on what it means</div>
+
+<p class="lede">Anthropic opened a research preview this week for <strong>Claude Duet</strong> &mdash; &ldquo;a new app where Claude works as a proactive agent. It comes to you with what needs your attention, completes tasks you ask of it, keeps working when you step away, and checks with you before it acts on your behalf.&rdquo; Forty-one thousand likes in a day suggests the industry heard the sentence. But the more useful text saved alongside it was Hiten Shah&rsquo;s essay, <em>The Harnessification of Software</em>, which explains the economics behind Duet: a <strong>harness</strong> is the system that gives a model the tools and context to get work done &mdash; access to tools, the ability to check what happened, and the loop to try again when something goes wrong. The biggest opportunity, Shah argues, is not software that answers better. It is software that keeps working <em>after the customer has moved on</em>: software that checks on a job, notices what needs attention, and takes an authorized action without a fresh prompt every time.</p>
+
+<div class="img-frame">
+<svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ladder from operated software to proactive software">
+  <rect x="0" y="0" width="640" height="340" fill="#f3efe4"/>
+  <text x="320" y="30" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">FROM FEATURES TO RESPONSIBILITY</text>
+  <g font-family="Arial">
+    <rect x="60" y="52" width="170" height="120" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="145" y="76" text-anchor="middle" font-size="11" font-weight="bold">L1: YOU OPERATE IT</text>
+    <text x="145" y="96" text-anchor="middle" font-size="10" fill="#6b675c">the dashboard era</text>
+    <text x="145" y="112" text-anchor="middle" font-size="10" fill="#6b675c">open, notice, decide,</text>
+    <text x="145" y="126" text-anchor="middle" font-size="10" fill="#6b675c">act &mdash; every time</text>
+    <text x="145" y="150" text-anchor="middle" font-size="10" font-weight="bold" fill="#6b675c">priced per seat</text>
+    <rect x="255" y="52" width="170" height="120" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="340" y="76" text-anchor="middle" font-size="11" font-weight="bold">L2: AGENTS USE IT</text>
+    <text x="340" y="96" text-anchor="middle" font-size="10" fill="#6b675c">headless APIs, MCP</text>
+    <text x="340" y="112" text-anchor="middle" font-size="10" fill="#6b675c">Salesforce Headless 360</text>
+    <text x="340" y="126" text-anchor="middle" font-size="10" fill="#6b675c">less screen time,</text>
+    <text x="340" y="140" text-anchor="middle" font-size="10" fill="#6b675c">more underlying usage</text>
+    <text x="340" y="158" text-anchor="middle" font-size="10" font-weight="bold" fill="#6b675c">distribution moves to the agent</text>
+    <rect x="450" y="52" width="130" height="120" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="515" y="76" text-anchor="middle" font-size="11" font-weight="bold" fill="#faf8f2">L3: IT COMES TO YOU</text>
+    <text x="515" y="96" text-anchor="middle" font-size="10" fill="#faf8f2">Claude Duet</text>
+    <text x="515" y="112" text-anchor="middle" font-size="10" fill="#faf8f2">proactive, checks</text>
+    <text x="515" y="126" text-anchor="middle" font-size="10" fill="#faf8f2">before it acts</text>
+    <text x="515" y="150" text-anchor="middle" font-size="10" font-weight="bold" fill="#faf8f2">priced per result</text>
+    <path d="M230 112 h20 M425 112 h20" stroke="#a31621" stroke-width="3" fill="none"/>
+    <polygon points="252,104 262,112 252,120" fill="#a31621"/>
+    <polygon points="447,104 457,112 447,120" fill="#a31621"/>
+  </g>
+  <g font-family="Arial">
+    <text x="320" y="205" text-anchor="middle" font-size="11" font-weight="bold">THE UNIT OF VALUE SHIFTS</text>
+    <rect x="90" y="218" width="200" height="52" fill="#fff" stroke="#6b675c" stroke-width="1.5"/>
+    <text x="190" y="240" text-anchor="middle" font-size="11" font-weight="bold">feature</text>
+    <text x="190" y="256" text-anchor="middle" font-size="10" fill="#6b675c">gives the customer a capability</text>
+    <rect x="350" y="218" width="200" height="52" fill="#fff" stroke="#a31621" stroke-width="2.5"/>
+    <text x="450" y="240" text-anchor="middle" font-size="11" font-weight="bold" fill="#a31621">responsibility</text>
+    <text x="450" y="256" text-anchor="middle" font-size="10" fill="#6b675c">&ldquo;the work will be taken care of&rdquo;</text>
+    <path d="M292 244 h54" stroke="#a31621" stroke-width="2" fill="none"/>
+    <polygon points="342,238 352,244 342,250" fill="#a31621"/>
+    <text x="320" y="298" text-anchor="middle" font-size="11" fill="#6b675c">the question to ask of any product:</text>
+    <text x="320" y="318" text-anchor="middle" font-size="13" font-style="italic" font-weight="bold">&ldquo;When this happens, my software will do this&rdquo; &mdash; can you finish the sentence?</text>
+  </g>
+</svg>
+<div class="cap">The ladder Shah sketches: interfaces thin out, usage moves under the surface, and value shifts from capabilities to responsibilities. Duet is Anthropic&rsquo;s bet that L3 is a product, not a demo.</div>
+</div>
+
+<p>The essay&rsquo;s sharpest pressure point is aimed directly at founders: <strong>your customers can build what you sell</strong>. In February 2026, OpenAI described an experiment where a small engineering team built an internal product with Codex generating everything &mdash; roughly a million lines of code and fifteen hundred merged pull requests in five months &mdash; with no code written by hand. The engineers&rsquo; real work was <em>harness engineering</em> (Mitchell Hashimoto&rsquo;s term): designing the environment, adding checks in response to mistakes, improving docs where the system lacked context. So the defensibility question flips: give a capable coding agent the job of recreating one valuable workflow and measure how far it gets. What survives? Shah names three durable positions &mdash; <strong>authoritative records</strong> that must stay consistent no matter who acts, <strong>transactions</strong> that have to actually settle, and <strong>recurring responsibilities</strong> a customer would rather keep paying for than supervise themselves.</p>
+
+<div class="pullquote">&ldquo;We&rsquo;re in the early days of the harnessification of software. The businesses that matter will be the ones that keep earning the right to do more of the work.&rdquo;<span class="attr">&mdash; Hiten Shah, quoted by the essay saved this week</span></div>
+
+<p>Two practical metrics fall out of the piece. First, <strong>cost per verified result</strong> &mdash; not cost per token or per attempt, but the full cost of the job including human review and recovery work when the agent gets it wrong. A 2026 study of production agents found that sixty-eight percent ran no more than ten steps before human intervention; the flashy demo tells you what software might do once, reliability tells you what it handles month after month. Second, pricing follows responsibility: per-seat pricing fits collaboration interfaces, transaction pricing fits payments, and products that finish measurable work can experiment with charging per completed result &mdash; Intercom&rsquo;s Fin support agent being the early proof.</p>
+
+<div class="learnings">
+<h4>The System</h4>
+<ul>
+<li><strong>Harness = tools + context + the check loop.</strong> Edit, run the tests, use failures to guide the next attempt. The loop is the product, not the model call.</li>
+<li><strong>Your next competitor might be your customer.</strong> If your value is a few screens moving information around, test it: ask an agent to recreate your most valuable workflow.</li>
+<li><strong>Permission is a product problem.</strong> A bank can restrict automated operations, a store can gate agent access. Shopify&rsquo;s Universal Commerce Protocol and Stripe&rsquo;s agent payment tools are early infrastructure for delegated authority.</li>
+<li><strong>Screen time can fall while usage rises.</strong> An agent that pulls Salesforce data for a briefing uses the record system more, even as the manager opens the app less. Lose the clicks, keep the value.</li>
+</ul>
+</div>
+
+<div class="takeaway"><strong>The Takeaway</strong> &mdash; Duet is the product launch; Shah&rsquo;s essay is the operator&rsquo;s manual. The prompt to run this week: <em>when this happens, my software will do this, and the customer will know it worked because of this evidence.</em> If you can&rsquo;t finish that sentence, you&rsquo;re promising more autonomy than you can deliver.</div>
+
+<div class="orig-link">Originals: <a href="https://x.com/claudeai/status/2112984664256241837">Claude Duet research preview</a> &middot; <a href="https://x.com/hnshah/status/2112755950016987429">Hiten Shah on the harnessification of software</a></div>
+</div>
+
+</div>
+<div class="sidebar">
+<div class="digest-box">
+<h4>Inside Today&rsquo;s Pile</h4>
+<ol>
+<li><a href="#lead">The Software That Comes to You</a> &mdash; Claude Duet + the harnessification thesis</li>
+<li><a href="#flipkart">India&rsquo;s Internet Crown Jewel Is in Trouble</a> &mdash; Flipkart&rsquo;s board, by the numbers</li>
+<li><a href="#pfm">The PFM Bet: Vertical, Regulated, Affluent</a> &mdash; Tejeshwi Sharma&rsquo;s AI finance thesis</li>
+<li><a href="#voxel">91 Minutes, One HTML File, One Voxel Castle</a> &mdash; Opus 5.5&rsquo;s single-file spectacle</li>
+</ol>
+</div>
+<div class="digest-box">
+<h4>The Through-Line</h4>
+<ul><li>Old software waits to be opened. The new software &mdash; Duet, a harness with a job to do, a vertical PFM agent with a licence &mdash; comes to you, carries responsibility, and charges for results. Everything this week&rsquo;s pile rewards is on that side of the line; everything it warns about (Flipkart&rsquo;s attrition war) is on the other.</li></ul>
+</div>
+</div>
+</div>
+
+<hr class="section-break">
+
+<div class="page-section">
+<div class="sec-head"><span class="kicker">Money &amp; India</span><span class="rule"></span></div>
+
+<div class="story" id="flipkart">
+<h3 class="headline"><a href="https://x.com/Rahul_J_Mathur/status/2112769738921386048">India&rsquo;s Internet Crown Jewel Is in Real Trouble</a></h3>
+<div class="byline">Via <a href="https://x.com/Rahul_J_Mathur">@Rahul_J_Mathur</a> &mdash; a thread on Flipkart&rsquo;s board predicament</div>
+
+<p class="lede">Rahul Mathur&rsquo;s thread reads like a board deck nobody wanted to present: Flipkart&rsquo;s board, he argues, is in &ldquo;an incredibly tough situation right now,&rdquo; and the numbers stack up in five compounding directions. First, a <strong>leadership exodus</strong> &mdash; more than ten SVP and CXO level departures since April 2026, each with five-plus years of tenure at the company, including the CPTO and the CFO. Second, <strong>bad acquisitions</strong> &mdash; &ldquo;&#8377;3.2k cr lost on Cleartrip alone over five years,&rdquo; on a company bought for &#8377;300cr. Third, the <strong>core e-commerce business has slowed</strong> &mdash; growth down from around forty percent to roughly fifteen percent &mdash; while staying deeply unprofitable (&ldquo;&#8377;5k cr+ loss for FY26&rdquo;). Fourth, a <strong>war of attrition in quick commerce</strong>: Flipkart was late, invested &#8377;5.5k cr to build Minutes, and is &ldquo;losing &#8377;400 cr per quarter&rdquo;. Fifth, <strong>disgruntled ex-employees</strong> &mdash; twenty thousand expected to sign a petition for ESOP liquidity, after five liquidity events that already returned $1.38 billion to employees. &ldquo;Our country&rsquo;s Internet crown jewel is in real trouble.&rdquo;</p>
+
+<div class="chart-box">
+<div class="chart-title">Flipkart, by Mathur&rsquo;s numbers &mdash; losses against the buy price</div>
+<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart of Flipkart loss figures">
+  <rect x="0" y="0" width="640" height="260" fill="#fff"/>
+  <g font-family="Arial" font-size="11">
+    <text x="200" y="24" text-anchor="end" fill="#6b675c">Cleartrip buy price</text>
+    <rect x="210" y="10" width="26" height="20" fill="#1a1a1a"/>
+    <text x="244" y="24" fill="#1a1a1a">&#8377;300 cr</text>
+    <text x="200" y="54" text-anchor="end" fill="#6b675c">Cleartrip: lost in 5 yrs</text>
+    <rect x="210" y="40" width="278" height="20" fill="#a31621"/>
+    <text x="496" y="54" fill="#a31621" font-weight="bold">&#8377;3,200 cr (&sim;10.7&times; the price)</text>
+    <text x="200" y="84" text-anchor="end" fill="#6b675c">Core e-comm loss, FY26</text>
+    <rect x="210" y="70" width="434" height="20" fill="#a31621"/>
+    <text x="452" y="98" fill="#a31621" font-weight="bold">&#8377;5,000 cr+</text>
+    <text x="200" y="124" text-anchor="end" fill="#6b675c">Minutes: invested</text>
+    <rect x="210" y="110" width="372" height="20" fill="#6b675c"/>
+    <text x="590" y="124" fill="#6b675c">&#8377;5,500 cr</text>
+    <text x="200" y="154" text-anchor="end" fill="#6b675c">Minutes: burn / quarter</text>
+    <rect x="210" y="140" width="35" height="20" fill="#a31621"/>
+    <text x="253" y="154" fill="#a31621">&#8377;400 cr/qtr (&sim;&#8377;1,600 cr/yr run-rate)</text>
+    <text x="200" y="184" text-anchor="end" fill="#6b675c">ESOPs paid out (5 events)</text>
+    <rect x="210" y="170" width="372" height="20" fill="#1a1a1a" opacity="0.55"/>
+    <text x="590" y="184" fill="#1a1a1a">$1.38 bn returned</text>
+    <text x="200" y="214" text-anchor="end" fill="#6b675c">ESOP petition (expected)</text>
+    <text x="210" y="200" fill="#1a1a1a" font-weight="bold">20,000 ex-employees signing for liquidity</text>
+    <text x="320" y="246" text-anchor="middle" font-size="10" font-style="italic" fill="#6b675c">bar lengths roughly to scale (Cleartrip buy price &#8377;300cr = 26px). All figures per Mathur&rsquo;s thread.</text>
+  </g>
+</svg>
+<div class="src">Source: Rahul J. Mathur&rsquo;s thread, saved this week. Figures are his reporting; treat as claims, not audited numbers.</div>
+</div>
+
+<div class="learnings">
+<h4>Why It Compounds</h4>
+<ul>
+<li><strong>The leadership exits are the signal, the losses are the symptom.</strong> Ten-plus long-tenured CXOs leaving in six months reads as a verdict on the strategy &mdash; and strategy is set by the people who just walked out.</li>
+<li><strong>Late entry into quick commerce is brutally expensive.</strong> &#8377;5.5k cr invested to build Minutes, and still losing &#8377;400 cr a quarter against incumbents who built the muscle first. The war of attrition favours the entrenched.</li>
+<li><strong>The Cleartrip ratio is the damning one.</strong> Buying for &#8377;300 cr and losing &#8377;3.2k cr over five years is not a bad acquisition &mdash; it is a decade-scale capital allocation failure priced in lakhs of crores of opportunity cost.</li>
+<li><strong>ESOP pressure is the cultural bill coming due.</strong> $1.38bn already returned across five events, and twenty thousand ex-employees still want liquidity. A decade of wealth-creation promises now has a petition attached.</li>
+</ul>
+</div>
+
+<div class="orig-link">Original: <a href="https://x.com/Rahul_J_Mathur/status/2112769738921386048">Rahul J. Mathur&rsquo;s Flipkart thread</a></div>
+</div>
+
+</div>
+
+<hr class="section-break">
+
+<div class="page-section">
+<div class="sec-head"><span class="kicker">Builders</span><span class="rule"></span></div>
+
+<div class="two-col">
+<div>
+
+<div class="story" id="pfm">
+<h3 class="headline"><a href="https://x.com/tejeshwi_sharma/status/2112764061771243747">The PFM Bet: Vertical, Regulated, Affluent</a></h3>
+<div class="byline">Via <a href="https://x.com/tejeshwi_sharma">@tejeshwi_sharma</a> &mdash; first of a six-part thread</div>
+<p class="lede">&ldquo;AI personal finance management app is a consumer large opportunity in India. That debate is over.&rdquo; Tejeshwi Sharma opens a six-part thread with a settled premise and a sharp fork in it: <strong>the winner will not be a horizontal agent. It will be a vertical, regulated product for affluent Indians with complicated finances.</strong> The logic is worth sitting with &mdash; especially from this chair. A horizontal AI agent for money is a demo; a regulated vertical that actually holds the relationship, the data, and the licence for someone with a complicated balance sheet is a business. Affluent India&rsquo;s finances are genuinely complicated: multiple bank accounts, mutual funds, tax residency questions, family money. That complexity is exactly the surface a general-purpose chatbot bounces off &mdash; and exactly where a vertical product earns trust.</p>
+<div class="pullquote">&ldquo;The winner will not be a horizontal agent. It will be a vertical, regulated product for affluent Indians with complicated finances.&rdquo;<span class="attr">&mdash; @tejeshwi_sharma</span></div>
+<p>The thesis rhymes neatly with this edition&rsquo;s lead: a vertical PFM product is a <em>responsibility</em> &mdash; licences, compliance, and the burden of getting it right &mdash; not a feature. Trust is the moat, regulation is the moat, and both are earned the slow way. (One caveat: this save captured only the first of six parts, so the full argument &mdash; the how, not just the what &mdash; is in the thread.)</p>
+<div class="orig-link">Original: <a href="https://x.com/tejeshwi_sharma/status/2112764061771243747">@tejeshwi_sharma&rsquo;s thread (1/6)</a></div>
+</div>
+
+</div>
+<div>
+
+<div class="story" id="voxel">
+<h3 class="headline"><a href="https://x.com/not_sacke/status/2112892408039907564">91 Minutes, One HTML File, One Voxel Castle</a></h3>
+<div class="byline">Via <a href="https://x.com/not_sacke">@not_sacke</a></div>
+<p class="lede">The week&rsquo;s pure-delight save: &ldquo;a voxel castle on a hill with a moat, a village below and a dragon circling the towers&rdquo; &mdash; generated by <strong>Claude Opus 5.5</strong> in ninety-one minutes, and <strong>the whole thing is still a single HTML file</strong>. A 3D scene with terrain, water, a village, and an animated dragon, rendered in the browser from one self-contained document: no build step, no assets folder, no bundler. It is the Motion Lab instinct taken to its logical extreme &mdash; the model as a one-shot creative studio, and the deliverable as a file you can email.</p>
+<div class="img-frame">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of the single-file voxel castle pipeline">
+  <rect x="0" y="0" width="640" height="300" fill="#f3efe4"/>
+  <text x="320" y="28" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">PROMPT &rarr; ONE FILE</text>
+  <g font-family="Arial">
+    <rect x="40" y="60" width="200" height="150" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="140" y="84" text-anchor="middle" font-size="11" font-weight="bold">THE PROMPT</text>
+    <text x="140" y="104" text-anchor="middle" font-size="10" fill="#6b675c">&ldquo;voxel castle on a hill</text>
+    <text x="140" y="118" text-anchor="middle" font-size="10" fill="#6b675c">with a moat, a village</text>
+    <text x="140" y="132" text-anchor="middle" font-size="10" fill="#6b675c">below, a dragon</text>
+    <text x="140" y="146" text-anchor="middle" font-size="10" fill="#6b675c">circling the towers&rdquo;</text>
+    <text x="140" y="184" text-anchor="middle" font-size="10" font-weight="bold">1 line of intent</text>
+    <path d="M240 135 L 300 135" stroke="#1a1a1a" stroke-width="2" marker-end="url(#arr28)"/>
+    <defs><marker id="arr28" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#1a1a1a" stroke-width="2"/></marker></defs>
+    <rect x="310" y="60" width="120" height="150" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="370" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="#faf8f2">CLAUDE</text>
+    <text x="370" y="118" text-anchor="middle" font-size="11" font-weight="bold" fill="#faf8f2">OPUS 5.5</text>
+    <text x="370" y="146" text-anchor="middle" font-size="10" fill="#faf8f2">91 minutes</text>
+    <text x="370" y="162" text-anchor="middle" font-size="10" fill="#faf8f2">of generation</text>
+    <text x="370" y="190" text-anchor="middle" font-size="10" font-weight="bold" fill="#faf8f2">voxel engine,</text>
+    <text x="370" y="204" text-anchor="middle" font-size="10" font-weight="bold" fill="#faf8f2">physics, animation</text>
+    <path d="M430 135 L 480 135" stroke="#a31621" stroke-width="2" marker-end="url(#arr28b)"/>
+    <defs><marker id="arr28b" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#a31621" stroke-width="2"/></marker></defs>
+    <rect x="490" y="60" width="110" height="150" fill="#fff" stroke="#a31621" stroke-width="2.5"/>
+    <text x="545" y="84" text-anchor="middle" font-size="11" font-weight="bold" fill="#a31621">1 HTML FILE</text>
+    <text x="545" y="108" text-anchor="middle" font-size="10" fill="#6b675c">castle + hill + moat</text>
+    <text x="545" y="122" text-anchor="middle" font-size="10" fill="#6b675c">village + dragon</text>
+    <text x="545" y="140" text-anchor="middle" font-size="10" fill="#6b675c">no build step</text>
+    <text x="545" y="154" text-anchor="middle" font-size="10" fill="#6b675c">no assets folder</text>
+    <text x="545" y="184" text-anchor="middle" font-size="10" font-weight="bold">email-able art</text>
+    <text x="320" y="250" text-anchor="middle" font-size="11" font-style="italic">Ninety-one minutes from a sentence to a living 3D scene &mdash; the unit of creative work is now the file, not the project.</text>
+    <text x="320" y="272" text-anchor="middle" font-size="10" fill="#6b675c">The interesting question is not the castle. It is what else fits in one file.</text>
+  </g>
+</svg>
+<div class="cap">The pipeline behind the week&rsquo;s most charming save: a sentence in, a living scene out, one file of HTML as the entire studio output.</div>
+</div>
+<div class="orig-link">Original: <a href="https://x.com/not_sacke/status/2112892408039907564">@not_sacke&rsquo;s voxel castle</a></div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<footer>
+<div class="fin">The End.</div>
+<div>The Unread Pile &mdash; Edition No. 28 &mdash; built from @RAKSHITLODHA&rsquo;s likes &amp; bookmarks &mdash; 22 October 2026</div>
+<div style="margin-top:6px;">Five new saves this week; one low-signal meme (#malfoid music video) left out of the paper.</div>
+</footer>
+
+</div>
+</body>
+</html>
