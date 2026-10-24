@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 30</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .front { display:grid; grid-template-columns: 2.1fr 1fr; gap:34px; margin-top:26px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  h3.sub { font-size:19px; margin:20px 0 8px; font-weight:800; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; letter-spacing:-0.5px; }
+  .stat .lbl { font-family:Arial,Helvetica,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-top:4px; line-height:1.4; }
+  .chart-box { border:1px solid var(--ink); background:#fff; padding:16px 18px 12px; margin:16px 0; }
+  .chart-box .chart-title { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; border-bottom:1px solid var(--rule); padding-bottom:8px; }
+  .chart-box svg { width:100%; height:auto; display:block; }
+  .chart-box .src { font-family:Arial,Helvetica,sans-serif; font-size:10.5px; color:var(--muted); margin-top:8px; font-style:italic; }
+  .learnings { background:#fff; border:1px solid var(--rule); border-left:4px solid var(--red); padding:14px 16px; margin:16px 0; }
+  .learnings h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .learnings ul { margin-left:18px; font-size:15px; }
+  .learnings li { margin-bottom:7px; }
+  .takeaway { background:#f3efe4; border:1px dashed var(--muted); padding:12px 16px; margin:12px 0 18px; font-size:15px; }
+  .takeaway strong { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); }
+  .orig-link { font-family:Arial,Helvetica,sans-serif; font-size:12.5px; margin:6px 0 4px; }
+  .orig-link a { color:var(--red); font-weight:bold; text-decoration:none; border-bottom:1px dotted var(--red); }
+  .sidebar .digest-box { border:2px solid var(--ink); background:#fff; padding:16px; margin-bottom:24px; }
+  .sidebar .digest-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; border-bottom:1px solid var(--ink); padding-bottom:8px; margin-bottom:10px; }
+  .sidebar .digest-box ol, .sidebar .digest-box ul { margin-left:18px; font-size:13.5px; }
+  .sidebar .digest-box li { margin-bottom:6px; }
+  .sidebar .digest-box a { color:var(--ink); text-decoration:none; border-bottom:1px dotted var(--muted); }
+  .section-break { border:none; border-top:4px double var(--ink); margin:34px 0 22px; }
+  .page-section > .sec-head { display:flex; align-items:baseline; gap:14px; margin-bottom:16px; }
+  .page-section > .sec-head .kicker { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); font-weight:bold; white-space:nowrap; }
+  .page-section > .sec-head .rule { flex:1; border-top:2px solid var(--ink); }
+  .story { border-bottom:1px solid var(--rule); padding-bottom:20px; margin-bottom:22px; }
+  .story:last-child { border-bottom:none; }
+  .img-frame { border:1px solid var(--ink); background:#fff; padding:10px 10px 8px; margin:16px 0; }
+  .img-frame img { width:100%; height:auto; display:block; }
+  .img-frame svg { width:100%; height:auto; display:block; }
+  .img-frame .cap { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; line-height:1.5; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  @media (max-width:760px){ .two-col{grid-template-columns:1fr;} .front{grid-template-columns:1fr;} }
+  footer { border-top:4px double var(--ink); margin-top:40px; padding-top:16px; text-align:center; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); }
+  footer .fin { font-size:22px; font-weight:900; color:var(--ink); margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="masthead">
+  <div class="kicker">Built from @RAKSHITLODHA&rsquo;s likes &amp; bookmarks</div>
+  <h1>The Unread Pile</h1>
+  <div class="tagline">Everything you saved, distilled &mdash; sharp theses, systems, and takeaways. One paper, every morning.</div>
+</div>
+<div class="dateline">
+  <span>Edition No. 30</span>
+  <span>Saturday, 24 October 2026</span>
+  <span>31 new saves</span>
+</div>
+
+<div class="front">
+<div class="maincol">
+
+<div class="sec-label">The Lead Story</div>
+<div class="story" id="lead">
+<h2 class="headline"><a href="https://x.com/theo/status/2113424203345265053">What Is a Harness, Anyway?</a></h2>
+<div class="byline">Via <a href="https://x.com/theo">Theo (t3.gg)</a> &mdash; flagged for the paper, read in full</div>
+
+<p class="lede">Theo is tired of explaining the word, so he wrote the explainer nobody else had bothered to write &mdash; and it is the single clearest thing in this week&rsquo;s pile on the most overloaded term in the agent economy. The setup is disarmingly simple: humans never use computers directly. You use an <strong>interface</strong> &mdash; a terminal, a website, an app &mdash; rather than writing unique code per task. Nobody opens Chrome and thinks about the code underneath. An LLM has the same problem in reverse: left alone, it can only generate text. To do anything real, it needs an apparatus around it &mdash; tools (<code>read_file</code>, <code>edit_file</code>, <code>bash</code>, <code>search</code>), a custom text syntax for calling them (something like <code>&lt;read_file name=&quot;README.md&quot;&gt;</code>), a system that parses that syntax and actually runs the code, a way to feed tool output back to the model, and a catalogue of the available tools with descriptions. That whole apparatus is the <strong>harness</strong>.</p>
+
+<div class="img-frame">
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flowchart: interface, harness, LLM, MCP and agent relationships">
+  <rect x="0" y="0" width="640" height="360" fill="#f3efe4"/>
+  <text x="320" y="28" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">THE STACK, PER THEO</text>
+  <g font-family="Arial">
+    <rect x="60" y="52" width="240" height="64" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="180" y="76" text-anchor="middle" font-size="13" font-weight="bold">HUMAN</text>
+    <text x="180" y="96" text-anchor="middle" font-size="11" fill="#6b675c">uses an interface</text>
+    <rect x="340" y="52" width="240" height="64" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="460" y="76" text-anchor="middle" font-size="13" font-weight="bold">LLM</text>
+    <text x="460" y="96" text-anchor="middle" font-size="11" fill="#6b675c">only generates text</text>
+    <line x1="180" y1="116" x2="180" y2="150" stroke="#1a1a1a" stroke-width="2"/>
+    <polygon points="180,150 174,140 186,140" fill="#1a1a1a"/>
+    <rect x="60" y="150" width="240" height="64" fill="#1a1a1a"/>
+    <text x="180" y="174" text-anchor="middle" font-size="13" font-weight="bold" fill="#faf8f2">INTERFACE</text>
+    <text x="180" y="194" text-anchor="middle" font-size="11" fill="#d8d2c4">terminal &middot; website &middot; app</text>
+    <line x1="460" y1="116" x2="460" y2="150" stroke="#1a1a1a" stroke-width="2"/>
+    <polygon points="460,150 454,140 466,140" fill="#1a1a1a"/>
+    <rect x="340" y="150" width="240" height="64" fill="#a31621"/>
+    <text x="460" y="174" text-anchor="middle" font-size="13" font-weight="bold" fill="#faf8f2">HARNESS</text>
+    <text x="460" y="194" text-anchor="middle" font-size="11" fill="#f3efe4">tools &middot; parser &middot; tool output loop</text>
+    <line x1="460" y1="214" x2="460" y2="244" stroke="#1a1a1a" stroke-width="2"/>
+    <polygon points="460,244 454,234 466,234" fill="#1a1a1a"/>
+    <rect x="340" y="244" width="240" height="56" fill="#ffffff" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="460" y="266" text-anchor="middle" font-size="13" font-weight="bold">AGENT</text>
+    <text x="460" y="286" text-anchor="middle" font-size="11" fill="#6b675c">= harness + LLM</text>
+    <rect x="60" y="244" width="240" height="56" fill="#ffffff" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="180" y="266" text-anchor="middle" font-size="13" font-weight="bold">CLAUDE CODE</text>
+    <text x="180" y="286" text-anchor="middle" font-size="11" fill="#6b675c">interface + Anthropic Agent SDK</text>
+  </g>
+  <g font-family="Arial">
+    <text x="60" y="330" font-size="11" fill="#6b675c">MCP = the cookbook for the kitchen: T3 Code exposes custom functionality (e.g. Claude Code threads spawning subagents in Codex) as MCP</text>
+    <text x="60" y="346" font-size="11" fill="#6b675c">recipes without changing how the kitchen operates. Chef = LLM &middot; Kitchen = harness &middot; Restaurant (T3 Code) = bring any kitchen.</text>
+  </g>
+</svg>
+<div class="cap">Theo&rsquo;s mental model: an agent is what happens when you combine a harness and an LLM &mdash; most &ldquo;different agents&rdquo; are just different harness configurations.</div>
+</div>
+
+<p>The second move is the one that will save you from half the marketing you read this year. Is Claude Code a harness? <em>Kind of.</em> Claude Code has two parts: the interface (the terminal TUI, the desktop GUI) and the harness (the Anthropic Agent SDK running underneath; ChatGPT and Codex sit on the Codex App Server the same way). The harness is rarely exposed to humans directly &mdash; which is why it is also the part everyone reuses. The Cursor harness powers Grok Bot. The Anthropic Agents SDK and the Codex App Server power T3 Code. Pi powers OpenClaw. When someone launches &ldquo;a new agent,&rdquo; Theo&rsquo;s test is simple: which harness did they configure, and what did they change?</p>
+
+<p>The kitchen metaphor does the rest of the work. A harness is like a kitchen: no kitchen has every tool every chef needs, so the good ones let you bring your own. Codex and Claude Code ship with many tools; Pi is deliberately minimal. And &mdash; this is the line to underline &mdash; <strong>neither the human nor the LLM can see or touch the tools directly</strong>: the harness is what exposes them to both. Then MCP arrives to complicate the picture, and Theo makes it legible in one contrast: tools are <em>&ldquo;run code here to do a thing,&rdquo;</em> MCPs are <em>&ldquo;make an API request somewhere else to do a thing.&rdquo;</em> Chrome extensions are like tools (they run locally); MCPs are like websites (you only need the URL). The most common MCP use case, he notes, is just exposing data &mdash; emails, site analytics &mdash; and T3 Code&rsquo;s trick is exposing its custom functionality as an MCP, a cookbook for the kitchen, rather than building its own kitchen at all.</p>
+
+<div class="pullquote">&ldquo;Neither the human nor the LLM can see or touch the tools directly &mdash; the harness exposes them to both.&rdquo;<span class="attr">&mdash; Theo, &ldquo;What is a &lsquo;harness&rsquo;?&rdquo;</span></div>
+
+<p>Why lead the paper with a vocabulary lesson? Because the saves this week keep circling the same insight from different altitudes. Theo&rsquo;s own follow-up post says Meta&rsquo;s Muse Wonder Full is &ldquo;probably the most impressive coding model I&rsquo;ve used since Sonnet 4.5&rdquo; for orchestration work &mdash; long-running multi-step tasks without getting lost. Read through the harness lens, that is a claim about the <em>chef</em> getting better at working inside the kitchen: a model that holds its thread across dozens of tool calls changes what a harness can be trusted with. Two editions ago this paper covered hnshah&rsquo;s &ldquo;harnessification of software&rdquo; essay; this is the field manual for that thesis. If the durable unit of software is shifting from features to responsibilities, then the harness &mdash; the apparatus that lets a model be responsible for something &mdash; is the layer worth understanding first.</p>
+
+<div class="learnings">
+<h4>Learnings</h4>
+<ul>
+<li><strong>Separate the interface from the harness before you evaluate any &ldquo;agent.&rdquo;</strong> Ask: whose harness is it, what tools does it ship, can you bring your own, and what changed in the configuration.</li>
+<li><strong>MCP is not a tool; it is a cookbook.</strong> Tools run code locally, MCPs make requests elsewhere. Most MCP value today is just exposing data (emails, analytics) to the kitchen.</li>
+<li><strong>The chef is catching up to the kitchen.</strong> Models that survive long multi-step orchestration without losing the thread (Theo&rsquo;s read on Muse Wonder Full) are what let harnesses take on real responsibility.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Every &ldquo;new agent&rdquo; launch this year deserves Theo&rsquo;s two questions: which harness, and what did they change? The answers are usually more interesting than the announcement.</div>
+<div class="orig-link">Originals: <a href="https://x.com/theo/status/2113424203345265053">Theo&rsquo;s &ldquo;What is a &lsquo;harness&rsquo;?&rdquo; article</a> &middot; <a href="https://x.com/theo/status/2113570906677432531">his Muse Wonder Full post</a></div>
+</div>
+
+</div>
+<div class="sidebar">
+<div class="digest-box">
+<h4>In this edition</h4>
+<ol>
+<li>Theo&rsquo;s harness explainer, read in full</li>
+<li>Dessa: Block&rsquo;s speech-native voice model</li>
+<li>Kimi K3.1 Pro: open weights, 3 points off the frontier</li>
+<li>Greg Isenberg&rsquo;s 39 agent-era startup ideas</li>
+<li>The engineer who stopped writing code</li>
+<li>India: WTH India! and India IRL</li>
+<li>Sergii Makarevych&rsquo;s AI knowledge base</li>
+<li>Tibo&rsquo;s AI UGC army playbook</li>
+<li>The POWER framework: start with possibilities</li>
+<li>Briefs: Grok Bot addiction, Fo, Thorsten Ball, MKBHD</li>
+</ol>
+</div>
+<div class="digest-box">
+<h4>The through-line</h4>
+<p style="font-size:13.5px; margin:0;">The harness week: from Theo&rsquo;s definition to Dessa&rsquo;s speech-native kitchen to engineers running 5&ndash;10 agents in parallel &mdash; the apparatus around the model is now the product.</p>
+</div>
+</div>
+</div>
+
+<hr class="section-break">
+<div class="page-section" id="labs">
+<div class="sec-head"><span class="kicker">The Labs</span><span class="rule"></span></div>
+
+<div class="story">
+<h3 class="headline"><a href="https://x.com/RagavanThurair/status/2113671324400861645">Dessa: The Model That Learned to Talk by Listening</a></h3>
+<div class="byline">Via <a href="https://x.com/RagavanThurair">Ragavan Thurairatnam</a> &middot; <a href="https://x.com/jack">Jack Dorsey</a> &middot; <a href="https://x.com/shwetzzalmighty">Shweta Bharadwaj</a> &middot; <a href="https://x.com/LinusEkenstam">Linus Ekenstam</a></div>
+
+<p class="lede">Block&rsquo;s in-house AI lab announced <strong>Dessa</strong> on Thursday, and the claim is the kind that sounds impossible until you hear the mechanism: a full-duplex speech-to-speech model <strong>trained from scratch on nothing but human conversation</strong> &mdash; no text data, no pretrained language model underneath. It takes in audio and puts out audio, simultaneously. It learned, from real conversation, when to cut in and when to backchannel with a little &ldquo;mm-hmm&rdquo; to show it is following. It natively hears and produces emotion, sarcasm, laughter, a frustrated sigh, a voice cracking with sadness. Ragavan Thurairatnam, the lab&rsquo;s lead, calls it &ldquo;a GPT3 moment for speech.&rdquo; Jack Dorsey, who the team reports to: <em>&ldquo;Voice is the most natural way to interact with intelligence&hellip; talking with it feels like talking with a person &mdash; full of emotion, nuance, pauses, and a natural cadence.&rdquo;</em></p>
+
+<div class="stat-strip">
+<div class="stat"><div class="num">0</div><div class="lbl">words of text in training</div></div>
+<div class="stat"><div class="num">1</div><div class="lbl">GB200 NVL72 rack for training</div></div>
+<div class="stat"><div class="num">2&times;</div><div class="lbl">directions at once: full-duplex</div></div>
+<div class="stat"><div class="num">M4 Max</div><div class="lbl">runs locally on a MacBook</div></div>
+</div>
+
+<p>The training story is the thesis. Block says Dessa learned language the way a child does &mdash; <em>&ldquo;Babies learn to talk without ever seeing a word written down. We wanted to see if a model could too. It can. It&rsquo;s just very hard.&rdquo;</em> &mdash; from &ldquo;hundreds of times fewer words&rdquo; than the text corpora LLMs see, on a single NVIDIA GB200 NVL72 rack (serious compute, but a fraction of a frontier text cluster). The payoff is what gets lost in the standard voice pipeline: every conventional assistant flattens your speech into text, runs it through a language model, and turns the answer back into speech &mdash; and in that flattening, timing, tone, and all the non-text signals get discarded. Dessa keeps them because it never had text to begin with. Inference runs faster than real time, so replies land without the awkward pause, and the whole thing runs on a MacBook Pro M4 Max or better &mdash; no cloud required.</p>
+
+<div class="pullquote">&ldquo;The real uncanny valley isn&rsquo;t clankers sounding like people. It&rsquo;s that we&rsquo;ve forgotten what a mid-IQ, average-articulation conversation even feels like.&rdquo;<span class="attr">&mdash; @shwetzzalmighty</span></div>
+
+<p>Shweta Bharadwaj&rsquo;s reply is the observation of the week: every bot we talk to is a 140-IQ language model with perfect grammar and no &ldquo;uhms&rdquo;, so we have forgotten what a normal person sounds like. Linus Ekenstam&rsquo;s verdict: OpenAI&rsquo;s voice mode just got &ldquo;slapped&rdquo;, and the Turing test for voice is solved. Ashish Singh calls it the biggest voice-AI breakthrough since GPT-4o&rsquo;s voice mode. The team is honest about the rough edges &mdash; Block&rsquo;s own demos include Dessa mistaking a speaker for someone named Ronaldo, and one write-up calls the exchanges &ldquo;like talking to an awkward new friend&rdquo; &mdash; but the safety framing is worth sitting with: <em>&ldquo;AI keeps gaining power and independence, and it&rsquo;s still nearly deaf to the emotion in our voices. Imagine being in serious pain while a voice AI has no idea and just keeps going.&rdquo;</em> Dessa is, among other things, a bet that hearing is a safety problem. Access is a public waitlist at block.xyz/dessa, with early access going to AI safety researchers first.</p>
+
+<div class="learnings">
+<h4>Learnings</h4>
+<ul>
+<li><strong>The pipeline is the product.</strong> Speech&rarr;text&rarr;LLM&rarr;speech discards exactly the signals that make conversation human. Removing the text bottleneck is an architecture insight, not a bigger-model insight.</li>
+<li><strong>Data efficiency is the sleeper stat.</strong> &ldquo;Hundreds of times fewer words&rdquo; on one rack &mdash; the speech-native route may be cheaper than the text route ever was.</li>
+<li><strong>Local inference changes the trust equation.</strong> A voice model that runs on your MacBook sidesteps the cloud-latency and privacy objections in one move.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Watch for the inversion: the best voice interface may not come from the labs with the best text models. It may come from whoever throws the text away.</div>
+<div class="orig-link">Originals: <a href="https://x.com/RagavanThurair/status/2113671324400861645">Ragavan&rsquo;s announcement</a> &middot; <a href="https://x.com/jack/status/2113697902916751661">Jack&rsquo;s post</a> &middot; <a href="https://x.com/shwetzzalmighty/status/2113733227278180630">Shweta&rsquo;s uncanny-valley reply</a> &middot; <a href="https://x.com/LinusEkenstam/status/2113767466002211306">Linus&rsquo;s verdict</a> &middot; <a href="https://x.com/ashzingh/status/2113573657515794885">Ashish Singh</a></div>
+</div>
+
+<div class="story">
+<h3 class="headline"><a href="https://x.com/Kimi_Moonshot/status/2113680701770068067">Kimi K3.1 Pro: Three Points Off the Frontier, Weights Incoming</a></h3>
+<div class="byline">Via <a href="https://x.com/Kimi_Moonshot">Kimi.ai (Moonshot AI)</a></div>
+
+<p>Moonshot AI launched Kimi K3.1 Pro on Friday, and the independent numbers are the story: <strong>55 on the Artificial Analysis Intelligence Index &mdash; fourth overall, three points behind Claude Opus 5.5&rsquo;s 58</strong>, and eleven points above Kimi K3. The weights land by November 4th, at which point it becomes the highest-scoring open-weights model available &mdash; and the gap between the best open model and the best proprietary one compresses from twelve index points to three. The skeleton is unchanged from K3 (2.8 trillion total parameters, 104 billion active in an MoE design, one-million-token context, text plus image), but the post-training compute was turned up enormously &mdash; and almost all the gains sit in agentic work, which is where the money is.</p>
+
+<div class="img-frame">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart: Artificial Analysis Intelligence Index scores">
+  <rect x="0" y="0" width="640" height="300" fill="#f3efe4"/>
+  <text x="320" y="28" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">ARTIFICIAL ANALYSIS INTELLIGENCE INDEX</text>
+  <g font-family="Arial">
+    <text x="40" y="70" font-size="12" font-weight="bold">Claude Opus 5.5</text>
+    <rect x="220" y="54" width="348" height="24" fill="#1a1a1a"/>
+    <text x="578" y="72" font-size="12" fill="#6b675c">58</text>
+    <text x="40" y="110" font-size="12" font-weight="bold">Muse Wonder Full</text>
+    <rect x="220" y="94" width="336" height="24" fill="#6b675c"/>
+    <text x="566" y="112" font-size="12" fill="#6b675c">56</text>
+    <text x="40" y="150" font-size="12" font-weight="bold" fill="#a31621">Kimi K3.1 Pro</text>
+    <rect x="220" y="134" width="330" height="24" fill="#a31621"/>
+    <text x="560" y="152" font-size="12" font-weight="bold" fill="#a31621">55 &larr; open weights Nov 4</text>
+    <text x="40" y="190" font-size="12" font-weight="bold" fill="#999">Kimi K3</text>
+    <rect x="220" y="174" width="264" height="24" fill="#c9c2b2"/>
+    <text x="494" y="192" font-size="12" fill="#6b675c">44</text>
+    <text x="220" y="226" font-size="11" fill="#6b675c">Agentic gains: GDPval-AA 1,846 Elo (3rd, +312 over K3) &middot; Terminal-Bench 4.0 13% &rarr; 65.7% &middot; AutomationBench 58% &rarr; 73%</text>
+    <text x="220" y="250" font-size="11" fill="#6b675c">API pricing cut 33%: $2/$10/$0.20 per 1M input/output/cached tokens &middot; Highspeed variant 2&ndash;3&times; faster</text>
+    <text x="320" y="282" text-anchor="middle" font-size="10" font-style="italic" fill="#6b675c">The open-weights lag, compressed to a single model version.</text>
+  </g>
+</svg>
+<div class="cap">Two years of received wisdom &mdash; open weights trail the frontier by a generation &mdash; redrawn in one post-training pass. Figures: Artificial Analysis launch analysis, Oct 2026.</div>
+</div>
+
+<p>The details that matter for builders: Moonshot deliberately stripped cyberattack training data out of the model so the open release won&rsquo;t push the frontier of offensive hacking; the Highspeed variant runs two to three times faster for interactive work; both are live now across the Kimi app, Kimi Work, Kimi Code and the API, with prices a third lower than K3&rsquo;s. On Moonshot&rsquo;s own hallucination stress test the claim-level error rate fell from 23.4% to 8.3%. The colour around the launch is already mythic &mdash; one widely-shared post claimed an unnamed top US law firm &ldquo;cut off Claude and installed Kimi&rdquo; (unverified), and a Dario-Amodei-emergency-session rumour picked up a Community Note. Strip the mythology away and the durable fact is the index score: near-frontier capability at open-weights economics, eleven points of it bought with post-training alone.</p>
+
+<div class="learnings">
+<h4>Learnings</h4>
+<ul>
+<li><strong>Post-training is the new pretraining.</strong> Eleven index points with no architecture change &mdash; the RL stack, long-context inference and sandbox infra did the work.</li>
+<li><strong>Agentic benchmarks are the scoreboard now.</strong> GDPval, Terminal-Bench, AutomationBench &mdash; the gains cluster where agents do economically valuable work.</li>
+<li><strong>Open weights at 55 points reset the build-vs-buy math</strong> for anyone currently renting frontier capability by the token.</li>
+</ul>
+</div>
+<div class="orig-link">Original: <a href="https://x.com/Kimi_Moonshot/status/2113680701770068067">Kimi&rsquo;s launch post</a> &middot; Independent analysis: <a href="https://artificialanalysis.ai/articles/kimi-k3-1-pro-launch-benchmarks">Artificial Analysis</a></div>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section" id="builders">
+<div class="sec-head"><span class="kicker">Builders</span><span class="rule"></span></div>
+
+<div class="story">
+<h3 class="headline"><a href="https://x.com/gregisenberg/status/2113721373482987970">The 39 Most Obvious Startup Ideas Right Now</a></h3>
+<div class="byline">Via <a href="https://x.com/gregisenberg">Greg Isenberg</a></div>
+
+<p class="lede">Greg Isenberg dropped a numbered list of 39 startup ideas this week, and the list is more interesting as a pattern than as 39 pitches. The pattern: <strong>every incumbent category is getting an agent-native twin.</strong> Zestimate for company data. Google Analytics for agents. Y Combinator for one-person companies. Okta for agents. Marie Kondo for company data. FICO for agents. Geico for agents. Datadog for agents. Twilio for agents. Upwork for agents. ESPN for AI. Shutterstock for robot training videos. Credit Karma for what AI knows about you. Norton for AI scams. And twenty-five more in the same vein.</p>
+
+<div class="img-frame">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of the agent-native twin pattern">
+  <rect x="0" y="0" width="640" height="300" fill="#f3efe4"/>
+  <text x="320" y="28" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">THE AGENT-NATIVE TWIN PATTERN</text>
+  <g font-family="Arial">
+    <rect x="60" y="56" width="250" height="70" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="185" y="82" text-anchor="middle" font-size="13" font-weight="bold">THE INCUMBENT</text>
+    <text x="185" y="104" text-anchor="middle" font-size="11" fill="#6b675c">FICO &middot; Okta &middot; Datadog &middot; Upwork</text>
+    <text x="185" y="120" text-anchor="middle" font-size="11" fill="#6b675c">built for humans</text>
+    <rect x="330" y="56" width="250" height="70" fill="#a31621"/>
+    <text x="455" y="82" text-anchor="middle" font-size="13" font-weight="bold" fill="#faf8f2">THE AGENT TWIN</text>
+    <text x="455" y="104" text-anchor="middle" font-size="11" fill="#f3efe4">FICO for agents &middot; Okta for agents</text>
+    <text x="455" y="120" text-anchor="middle" font-size="11" fill="#f3efe4">built for the harness</text>
+    <line x1="310" y1="91" x2="330" y2="91" stroke="#1a1a1a" stroke-width="2"/>
+    <polygon points="330,91 322,85 322,97" fill="#1a1a1a"/>
+    <text x="60" y="160" font-size="11" fill="#6b675c">Why the twins win: agents are a new <tspan font-weight="bold">customer class</tspan>, not a feature. They need identity, credit,</text>
+    <text x="60" y="178" font-size="11" fill="#6b675c">observability, insurance, marketplaces, and analytics built for machine-speed consumption.</text>
+    <line x1="60" y1="200" x2="580" y2="200" stroke="#1a1a1a" stroke-width="1"/>
+    <text x="60" y="224" font-size="12" font-weight="bold" fill="#1a1a1a">The non-obvious ones on the list:</text>
+    <text x="60" y="244" font-size="11" fill="#6b675c">&ldquo;Credit Karma for what AI knows about you&rdquo; &mdash; your agent-exposure score &middot; &ldquo;ESPN for AI&rdquo; &mdash; the sports layer of the agent economy</text>
+    <text x="60" y="262" font-size="11" fill="#6b675c">&ldquo;Shutterstock for robot training videos&rdquo; &middot; &ldquo;Norton for AI scams&rdquo; &mdash; trust infrastructure for a machine-speed world</text>
+    <text x="320" y="290" text-anchor="middle" font-size="10" font-style="italic" fill="#6b675c">The gold rush isn&rsquo;t agents. It&rsquo;s the picks and shovels agents need.</text>
+  </g>
+</svg>
+<div class="cap">Isenberg&rsquo;s list, compressed: the agent economy needs its own identity, credit, analytics, insurance and marketplaces.</div>
+</div>
+
+<p>Read it next to Theo&rsquo;s harness piece above and the economics sharpen. If an agent is a harness plus an LLM, then every agent is a <em>customer</em> that needs the same infrastructure humans needed &mdash; and the incumbents were built for eyeballs, not API calls. The sharpest entries on the list are the ones that treat the agent as the buyer: analytics for agents (who watches what the harness did?), FICO for agents (which agents are creditworthy counterparties?), Norton for AI scams (the attack surface is machine-speed now). The meta-lesson of the list is the one Isenberg keeps returning to: the biggest opportunities sit one layer below the thing everyone is excited about. The gold rush isn&rsquo;t agents. It&rsquo;s the picks and shovels the agents need.</p>
+
+<div class="learnings">
+<h4>Learnings</h4>
+<ul>
+<li><strong>Agents are a customer class, not a feature.</strong> Every &ldquo;X for agents&rdquo; idea is really &ldquo;rebuild X for a buyer with no patience and infinite scale.&rdquo;</li>
+<li><strong>Trust infrastructure comes first in a machine-speed economy.</strong> Identity (Okta), credit (FICO), insurance (Geico), scam protection (Norton) &mdash; the unsexy layer is the moat.</li>
+<li><strong>Your data exhaust is someone&rsquo;s product.</strong> &ldquo;Credit Karma for what AI knows about you&rdquo; is the consumer version of the same thesis.</li>
+</ul>
+</div>
+<div class="orig-link">Original: <a href="https://x.com/gregisenberg/status/2113721373482987970">Isenberg&rsquo;s 39 ideas</a></div>
+</div>
+
+<div class="story">
+<h3 class="headline"><a href="https://x.com/tankots/status/2113638907116126607">The Engineer Who Stopped Writing Code</a></h3>
+<div class="byline">Via <a href="https://x.com/tankots">Tanay Kothari</a>, co-founder &amp; CEO, Wispr Flow</div>
+
+<p>&ldquo;I&rsquo;ve been writing code since I was 10. I&rsquo;ve barely written a single line in the last year. Claude or Astra writes it. I read it and make sure I understand it.&rdquo; Tanay Kothari&rsquo;s post is the most honest account in this week&rsquo;s pile of what the engineer&rsquo;s job has actually become. For a couple of months, he writes, it hurt &mdash; a lifetime spent getting good at writing code, and the skill felt useless. Then the reframe landed: <strong>the years of coding still matter, because engineers can now use their experience to guide a lot more work at once.</strong> Today every engineer at Wispr runs five to ten agents in parallel, and they are shipping faster than ever. &ldquo;I don&rsquo;t think anyone feels sad about not writing code anymore.&rdquo;</p>
+
+<div class="pullquote">&ldquo;Every engineer at Wispr runs 5 to 10 agents in parallel, and we&rsquo;re shipping faster than ever.&rdquo;<span class="attr">&mdash; @tankots</span></div>
+
+<p>The mechanism is the identity shift. The scarce skill moved from <em>writing</em> the code to <em>reading</em> it &mdash; reviewing, understanding, directing &mdash; which is exactly what a decade of writing code trains you for. The engineer becomes the manager of a small fleet: five to ten agents, each doing the typing, with human judgment as the scarce resource on top. It pairs uncomfortably well with this week&rsquo;s hnshah-adjacent grok-bot mania and the harness thesis: the interface changed, the harness changed, and now the human&rsquo;s job inside the loop is changing too &mdash; from producer to conductor. The grief phase (&ldquo;for a couple of months that really hurt&rdquo;) is worth naming plainly, because every experienced engineer reading this has felt some version of it, and Kothari&rsquo;s answer is that the feeling passes when the leverage arrives.</p>
+
+<div class="takeaway"><strong>Takeaway</strong> &mdash; If your engineers are still measured by code written, you are measuring the wrong thing. Measure what they can direct.</div>
+<div class="orig-link">Original: <a href="https://x.com/tankots/status/2113638907116126607">@tankots&rsquo;s post</a> (written with Wispr Flow)</div>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section" id="india">
+<div class="sec-head"><span class="kicker">India</span><span class="rule"></span></div>
+
+<div class="story">
+<h3 class="headline"><a href="https://x.com/vaibhavbetter/status/2113605098878431720">WTH India! &mdash; And What Comes After Convenience</a></h3>
+<div class="byline">Via <a href="https://x.com/vaibhavbetter">Vaibhav Domkundwar</a>, founder, Better Capital &mdash; two essays, read in full</div>
+
+<p class="lede">Vaibhav Domkundwar published two essays this week that read as a matched pair &mdash; a diagnosis and a prescription. The diagnosis is <strong>&ldquo;WTH India!&rdquo;</strong>: India&rsquo;s &ldquo;normalized dysfunction&rdquo; &mdash; things unnecessarily complicated, inefficient or outright absurd that have become so routine people accept them as the price of living or doing business here &mdash; is a hunting ground for company building. The prescription is <strong>&ldquo;India IRL&rdquo;</strong>: after two decades of making consumption accessible and convenient, the next multi-decade opportunity is making the actual experience of living better. Together they are the sharpest India consumer thesis in this paper in months.</p>
+
+<p>The WTH thesis starts from a pattern: the person who needs the outcome does far too much of the work. Receiving an overseas payment means navigating forms, declarations, signatures and regulatory follow-ups &mdash; <em>&ldquo;the customer is effectively doing the institution&rsquo;s work.&rdquo;</em> Renovating a home turns the owner into a coordinator of contractors and budgets. Running a small business drowns the owner in reconciliations and compliance. Each maps to a business: cross-border financial services, a trusted homeowner representative managing the entire outcome, managed financial operations, patient-side care coordination, end-to-end property management. But the line that matters most draws a boundary between two kinds of products: most products improve individual steps &mdash; better forms, faster approvals, dashboards &mdash; and sometimes the customer doesn&rsquo;t want a better way to manage the process at all. <strong>They don&rsquo;t want to manage the process.</strong> The homeowner wants the home completed to agreed quality, budget and timeline. Trust replaces supervision; reliability replaces follow-ups; accountability replaces coordination.</p>
+
+<div class="img-frame">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flowchart: from friction to outcome ownership">
+  <rect x="0" y="0" width="640" height="300" fill="#f3efe4"/>
+  <text x="320" y="28" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">THE WTH INDIA PLAYBOOK</text>
+  <g font-family="Arial">
+    <rect x="50" y="56" width="160" height="60" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="130" y="80" text-anchor="middle" font-size="12" font-weight="bold">FRICTION</text>
+    <text x="130" y="100" text-anchor="middle" font-size="10" fill="#6b675c">normalized dysfunction</text>
+    <polygon points="222,86 210,78 210,94" fill="#1a1a1a"/>
+    <rect x="232" y="56" width="160" height="60" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="312" y="80" text-anchor="middle" font-size="12" font-weight="bold">HIDDEN COST</text>
+    <text x="312" y="100" text-anchor="middle" font-size="10" fill="#6b675c">workarounds + never-attempted</text>
+    <polygon points="404,86 392,78 392,94" fill="#1a1a1a"/>
+    <rect x="414" y="56" width="176" height="60" fill="#a31621"/>
+    <text x="502" y="80" text-anchor="middle" font-size="12" font-weight="bold" fill="#faf8f2">OWN THE OUTCOME</text>
+    <text x="502" y="100" text-anchor="middle" font-size="10" fill="#f3efe4">not a better tool &mdash; the result</text>
+    <line x1="50" y1="140" x2="590" y2="140" stroke="#1a1a1a" stroke-width="1"/>
+    <text x="60" y="164" font-size="11" fill="#6b675c">The invisible cost: people get good at workarounds, and the effort disappears &mdash; but so do the things</text>
+    <text x="60" y="182" font-size="11" fill="#6b675c">never attempted: the business that won&rsquo;t serve international customers, the renovation postponed.</text>
+    <text x="60" y="206" font-size="11" fill="#1a1a1a" font-weight="bold">AI changes the economics:</text>
+    <text x="60" y="224" font-size="11" fill="#6b675c">understanding documents, coordinating parties, handling exceptions &mdash; previously too costly &mdash; now viable.</text>
+    <text x="60" y="242" font-size="11" fill="#6b675c">The moat is not &ldquo;an AI interface on top of every frustrating experience.&rdquo; Trust, distribution, workflow</text>
+    <text x="60" y="260" font-size="11" fill="#6b675c">ownership, regulatory expertise. AI is the enabler, not the moat.</text>
+    <text x="320" y="290" text-anchor="middle" font-size="10" font-style="italic" fill="#6b675c">&ldquo;The opportunity isn&rsquo;t to make complexity more manageable. It&rsquo;s to make it disappear.&rdquo;</text>
+  </g>
+</svg>
+<div class="cap">Domkundwar&rsquo;s move: stop at &ldquo;better tools&rdquo; and you have a feature; go to &ldquo;own the outcome&rdquo; and you have a company.</div>
+</div>
+
+<p>Two ideas in the essay deserve underlining. First, the hidden cost: people get so good at workarounds &mdash; hiring intermediaries, supervising harder, baking follow-ups into routine &mdash; that the effort becomes invisible, and the hardest cost to see is the activity that never happens. Removing friction doesn&rsquo;t just ease an existing activity; <strong>it can enable activity that wasn&rsquo;t happening</strong>. Second, the discipline: &ldquo;A problem worth solving isn&rsquo;t automatically a business worth building.&rdquo; WTH India is explicitly a thesis for <em>finding problems</em>, not selecting businesses &mdash; start from the friction, imagine a fundamentally better experience, and let the model come later.</p>
+
+<p>&ldquo;India IRL&rdquo; then asks what comes after the convenience era Better Capital helped pioneer (they were early on quick commerce). The last two decades made things accessible, affordable and convenient; the next question is <em>&ldquo;What human experience can I make dramatically better &mdash; starting from the human, not the product?&rdquo;</em> The coffee worked example makes it concrete: not another brand or caf&eacute; chain, but starting from why people drink coffee &mdash; taste, ritual, energy, the pause, the environment &mdash; and imagining completely different coffee experiences brought to people rather than demanding they come to you. Crucially, it must not mean only luxury: the bigger opportunity is making previously inaccessible experiences mass-market &mdash; the fitness experience without the expensive trainer, personal care beyond premium salons. And the technology may be near-invisible: <em>&ldquo;Technology may make the business possible. The human experience is what makes it valuable.&rdquo;</em> The difficulty of physical delivery &mdash; people, locations, training, expectations &mdash; is the moat.</p>
+
+<div class="pullquote">&ldquo;Because &lsquo;that&rsquo;s just how things work in India&rsquo; doesn&rsquo;t have to be the end of the conversation. It might just be the beginning of a really good business.&rdquo;<span class="attr">&mdash; @vaibhavbetter</span></div>
+
+<div class="learnings">
+<h4>Learnings</h4>
+<ul>
+<li><strong>Hunt friction, not categories.</strong> Start from where people absorb complexity involuntarily; the business model comes second.</li>
+<li><strong>Outcome ownership beats tool improvement.</strong> The customer doesn&rsquo;t want a better way to manage the process &mdash; they want the result.</li>
+<li><strong>Count the never-attempted.</strong> The largest opportunity in any friction is the demand that doesn&rsquo;t exist yet because the experience is too hard.</li>
+<li><strong>Start from the human, not the product.</strong> India IRL&rsquo;s question works on any category: what experience, for whom, in which moments of their life?</li>
+</ul>
+</div>
+<div class="orig-link">Originals: <a href="https://x.com/vaibhavbetter/status/2113605098878431720">&ldquo;WTH India!&rdquo;</a> &middot; <a href="https://x.com/vaibhavbetter/status/2113566365873529102">&ldquo;India IRL&rdquo;</a></div>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section" id="craft">
+<div class="sec-head"><span class="kicker">The Craft</span><span class="rule"></span></div>
+
+<div class="story">
+<h3 class="headline"><a href="https://x.com/sermakarevich/status/2113681318852600222">A Knowledge Base Built for Two Readers</a></h3>
+<div class="byline">Via <a href="https://x.com/sermakarevich">Sergii Makarevych</a> &mdash; article read in full</div>
+
+<p class="lede">Nearly every published knowledge-base design serves only the model, Sergii Makarevych argues &mdash; but a project knowledge base has <strong>two readers</strong>: the AI coding agent that acts on what it finds, and the engineer who must understand the system. His article is the most rigorous thing in this week&rsquo;s pile: five operations over one tree of Markdown files &mdash; <strong>Store, Create, Update, Retrieve, Teach</strong> &mdash; where everything is chained so that when a source changes, every page built on it is rebuilt in the same run. It is, not coincidentally, a design for the harness age: the knowledge base is the context the harness feeds the chef.</p>
+
+<div class="img-frame">
+<svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flowchart of the five-operation knowledge pipeline">
+  <rect x="0" y="0" width="640" height="320" fill="#f3efe4"/>
+  <text x="320" y="28" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">STORE &middot; CREATE &middot; UPDATE &middot; RETRIEVE &middot; TEACH</text>
+  <g font-family="Arial">
+    <rect x="40" y="56" width="104" height="52" fill="#1a1a1a"/>
+    <text x="92" y="78" text-anchor="middle" font-size="11" font-weight="bold" fill="#faf8f2">STORE</text>
+    <text x="92" y="96" text-anchor="middle" font-size="9" fill="#d8d2c4">raw / facts / artifacts</text>
+    <rect x="156" y="56" width="104" height="52" fill="#1a1a1a"/>
+    <text x="208" y="78" text-anchor="middle" font-size="11" font-weight="bold" fill="#faf8f2">CREATE</text>
+    <text x="208" y="96" text-anchor="middle" font-size="9" fill="#d8d2c4">6-step pipeline</text>
+    <rect x="272" y="56" width="104" height="52" fill="#a31621"/>
+    <text x="324" y="78" text-anchor="middle" font-size="11" font-weight="bold" fill="#faf8f2">UPDATE</text>
+    <text x="324" y="96" text-anchor="middle" font-size="9" fill="#f3efe4">by inputs, not date</text>
+    <rect x="388" y="56" width="104" height="52" fill="#1a1a1a"/>
+    <text x="440" y="78" text-anchor="middle" font-size="11" font-weight="bold" fill="#faf8f2">RETRIEVE</text>
+    <text x="440" y="96" text-anchor="middle" font-size="9" fill="#d8d2c4">progressive disclosure</text>
+    <rect x="504" y="56" width="104" height="52" fill="#1a1a1a"/>
+    <text x="556" y="78" text-anchor="middle" font-size="11" font-weight="bold" fill="#faf8f2">TEACH</text>
+    <text x="556" y="96" text-anchor="middle" font-size="9" fill="#d8d2c4">top-down / bottom-up</text>
+    <line x1="92" y1="108" x2="92" y2="130" stroke="#1a1a1a" stroke-width="2"/>
+    <line x1="208" y1="108" x2="208" y2="130" stroke="#1a1a1a" stroke-width="2"/>
+    <line x1="324" y1="108" x2="324" y2="130" stroke="#1a1a1a" stroke-width="2"/>
+    <line x1="440" y1="108" x2="440" y2="130" stroke="#1a1a1a" stroke-width="2"/>
+    <line x1="556" y1="108" x2="556" y2="130" stroke="#1a1a1a" stroke-width="2"/>
+    <rect x="40" y="130" width="568" height="34" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="324" y="152" text-anchor="middle" font-size="11" fill="#1a1a1a">Every artifact links to the facts it was built from &mdash; a script walks the links backward on change</text>
+    <text x="60" y="192" font-size="11" fill="#1a1a1a" font-weight="bold">The numbers that justify the machinery:</text>
+    <text x="60" y="212" font-size="11" fill="#6b675c">Per-stage gates cut pipeline errors 58.4% &rarr; 16.2%; a single final check gained only 2.3 points.</text>
+    <text x="60" y="230" font-size="11" fill="#6b675c">Update by recorded inputs: 30/30 workflows stayed in step; update by date: 30/30 went stale.</text>
+    <text x="60" y="248" font-size="11" fill="#6b675c">Index always loaded in the harness beat on-demand skill 100% vs 53% of eval cases (Vercel).</text>
+    <text x="60" y="266" font-size="11" fill="#6b675c">Specs: full docstrings resolved ~89% of agent tasks vs ~56% with bare signatures.</text>
+    <text x="60" y="284" font-size="11" fill="#6b675c">Organise, don&rsquo;t condense: organised stores scored 86.1, condensed rewrites 79.1 (LoCoMo).</text>
+    <text x="320" y="310" text-anchor="middle" font-size="10" font-style="italic" fill="#6b675c">&ldquo;A pipeline checked only at the end is a pipeline that polishes its mistakes.&rdquo;</text>
+  </g>
+</svg>
+<div class="cap">Makarevych&rsquo;s design, with the measurements that make it more than a style guide. Every figure is from the article&rsquo;s cited studies.</div>
+</div>
+
+<p>The design repays a close read. <strong>Store</strong> keeps three folders strictly separate: raw sources (captured exactly as fetched, never edited), facts (each chunk one fact &mdash; the original span word-for-word beside a rewrite that reads on its own), and artifacts (everything the model wrote). <strong>Create</strong> runs a fixed six-step pipeline with a guardrail at every page &mdash; a script check that every link resolves, plus one model call asking whether the page says anything its facts don&rsquo;t. <strong>Update</strong> is the heart of it: when a refetched source&rsquo;s hash changes, a script walks the links backward and rewrites every dependent artifact in the same run, nearest the change first, stopping early when a rewritten page means the same as before (a &ldquo;same-meaning stop&rdquo; borrowed from incremental build systems). <strong>Retrieve</strong> is progressive disclosure through short index files &mdash; and the article&rsquo;s most practical finding: the project index must be the agent&rsquo;s <em>first read</em>, not a skill it chooses to invoke, because Vercel measured an always-loaded 8KB index passing every eval case while the same content as an on-demand skill passed 53%. <strong>Teach</strong> serves the second reader: top-down reading for newcomers, bottom-up from a ticket-named chunk for experts.</p>
+
+<p>The sharpest line in the piece is about the spec: <em>&ldquo;The spec is the one input I control, and in the measurement it moved success by about a third.&rdquo;</em> Specs are written only when a feature is to be implemented, with every critical statement validated against and linking to a fact &mdash; and agents given full docstrings resolved ~89% of tasks versus ~56% with bare signatures. The whole design is an argument that context engineering is an engineering discipline: versioned inputs, per-stage gates, scripted updates, measured retrieval. It is the natural companion to this edition&rsquo;s lead story &mdash; Theo defined the harness; Makarevych designed what you feed it.</p>
+
+<div class="learnings">
+<h4>Learnings</h4>
+<ul>
+<li><strong>Check at every stage, not at the end.</strong> Per-stage gates cut surviving errors from 58.4% to 16.2%; a final check alone gained 2.3 points.</li>
+<li><strong>Update by inputs, never by date.</strong> Rebuild-by-recorded-inputs kept 30 of 30 workflows current; age-based checking let all 30 go stale.</li>
+<li><strong>The index must be the first read.</strong> Context the agent has to choose to fetch is context the agent won&rsquo;t fetch.</li>
+<li><strong>Organise, don&rsquo;t condense.</strong> Condensing rewrites cost up to half the answers; organised-but-uncondensed stores cost nothing.</li>
+</ul>
+</div>
+<div class="orig-link">Original: <a href="https://x.com/sermakarevich/status/2113681318852600222">Makarevych&rsquo;s article</a> (X long-form)</div>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section" id="playbooks">
+<div class="sec-head"><span class="kicker">Playbooks</span><span class="rule"></span></div>
+
+<div class="story">
+<h3 class="headline"><a href="https://x.com/tibo_maker/status/2113633105776890343">How to Build and Run an Army of AI UGC Accounts</a></h3>
+<div class="byline">Via <a href="https://x.com/tibo_maker">Tibo</a> &mdash; article read in full</div>
+
+<p class="lede">Tibo&rsquo;s article is the most operational thing in this week&rsquo;s pile: a complete system &mdash; with twelve copy-ready prompts &mdash; for replacing rented human UGC with <strong>owned AI creators</strong>. The premise is economic. UGC works because it doesn&rsquo;t look like an ad, but running it breaks in four places: it&rsquo;s an operations job (finding, briefing, chasing, paying creators who rotate), you pay per video (and testing hooks is the whole game, so per-video pricing is what kills testing first), it&rsquo;s slow (briefs and edit rounds post last week&rsquo;s format into this week&rsquo;s feed), and you don&rsquo;t own any of it (the face, account and audience belong to the creator; usage rights expire). Three things changed the math: AI faces now stay consistent across hundreds of videos, you can search what&rsquo;s already working instead of guessing, and agents can run the whole loop &mdash; search, script, render, schedule &mdash; so one person can run what used to need a small team.</p>
+
+<p>The design principle is the part worth stealing even if you never touch AI faces: <strong>design the creator from the buyer, not from the product.</strong> The example builds four creators for a vitamin C serum &mdash; Priya (wellness, India), Jess (travel, USA), Liam (outdoors, Australia), Layla (lifestyle, Dubai) &mdash; and none of them is &ldquo;a skincare creator.&rdquo; Each gets a bible (speech patterns, values, habits, running jokes, what they&rsquo;d never say), a locked face with one distinctive detail for thumbnail recognisability, and twenty topics &mdash; at least fifteen <em>unrelated to the product</em>. The rule is blunt: a creator who only talks about the product is &ldquo;an ad with a face,&rdquo; and the non-product videos build the audience the product videos are for. The product appears inside the creator&rsquo;s life for exactly one beat, the way a real person mentions something they use &mdash; &ldquo;if it sounds like being paid, it&rsquo;s wrong.&rdquo;</p>
+
+<div class="pullquote">&ldquo;One creator is a channel. Three or four of them, each speaking to a different kind of buyer, is the army.&rdquo;<span class="attr">&mdash; Tibo</span></div>
+
+<p>The loop itself is pure harness thinking: the agent is the brain, every tool is swappable, and the daily run reads each creator&rsquo;s file, picks an unused topic, searches viral references, remixes the winner&rsquo;s structure (never its words), renders with the saved character, and <em>schedules</em> &mdash; never publishes &mdash; at least 24 hours out. That 24-hour review window is the load-bearing human decision: you scan the queue once a day and kill anything off, staying in control without becoming the bottleneck. Weekly reviews rank by watch-through and saves, not views. And when a creator flatlines for three weeks, the diagnosis is counterintuitive: <em>&ldquo;the instinct is to post more. usually the persona is the problem, and more posts of the wrong person just gives you more of the same result.&rdquo;</em></p>
+
+<div class="learnings">
+<h4>Learnings</h4>
+<ul>
+<li><strong>Own the face, the account, the audience.</strong> Rented creators reset you to zero; owned creators compound.</li>
+<li><strong>Remix structure, never words.</strong> Keep the winning hook type, pacing and length; change the setting, story and language.</li>
+<li><strong>Schedule, don&rsquo;t publish.</strong> The 24-hour review window is where human taste stays in the loop without becoming the bottleneck.</li>
+<li><strong>When it flatlines, fix the persona, not the volume.</strong> More posts of the wrong person just give you more of the same result.</li>
+</ul>
+</div>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; The playbook generalises: the agent is the brain, tools are swappable, the human owns the review window. That&rsquo;s a harness, and it works on anything with a loop.</div>
+<div class="orig-link">Original: <a href="https://x.com/tibo_maker/status/2113633105776890343">Tibo&rsquo;s article</a> (X long-form, tools: Revid.ai, Squad.so)</div>
+</div>
+
+<div class="story">
+<h3 class="headline"><a href="https://x.com/OGMayank/status/2113701717393166539">If I Had 30 Days to Change My Life</a></h3>
+<div class="byline">Via <a href="https://x.com/OGMayank">Mayank</a> &mdash; article read in full</div>
+
+<p>The most-saved life-advice piece in the pile is refreshingly un-mystical. Mayank&rsquo;s 30-day guide is a systems manual, not a motivation poster: audit reality on day one (health, work, environment, relationships &mdash; &ldquo;you cannot fix a problem you refuse to look at&rdquo;), pick exactly <strong>three</strong> measurable priorities, fix mornings before fixing the day (consistent wake time, no 5 AM fetishism, one protected 30-minute focus block), and design every habit with a low starting minimum &mdash; fifteen minutes to open the postponed course, workout clothes laid out, the next physical action defined. The week-by-week roadmap (control the basics &rarr; build consistency &rarr; increase capacity &rarr; evaluate) is less important than the two recovery rules: when a day goes badly, name what broke, do one useful thing, and make tomorrow easier &mdash; and &ldquo;consistency isn&rsquo;t never falling off track. It&rsquo;s learning how to return without turning every setback into a personal crisis.&rdquo; The closing line belongs on a wall: <em>&ldquo;A better life is rarely built through one extraordinary decision. It&rsquo;s built through ordinary decisions that you repeat long enough for them to change your circumstances.&rdquo;</em></p>
+<div class="orig-link">Original: <a href="https://x.com/OGMayank/status/2113701717393166539">Mayank&rsquo;s article</a> (X long-form)</div>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section" id="briefs">
+<div class="sec-head"><span class="kicker">Briefs</span><span class="rule"></span></div>
+
+<div class="two-col">
+<div class="story">
+<h3 class="headline"><a href="https://x.com/hnshah/status/2113410068435566937">The Grok Bot Addiction</a></h3>
+<div class="byline">Via <a href="https://x.com/hnshah">Hiten Shah</a></div>
+<p>&ldquo;I&rsquo;ve got a problem. I&rsquo;m addicted to Grok Bot. I keep finding excuses to make another @grok @bot. Apparently I&rsquo;ve made 81 bots since August.&rdquo; Hiten Shah &mdash; who has shipped products for two decades &mdash; has built eighty-one bots in about two months, and the team handed him 50 codes for a free month of Super ($100 tier) to give away. The interesting bit isn&rsquo;t the giveaway; it&rsquo;s what the addiction implies: bots as a medium you reach for the way you reach for a spreadsheet. When making a bot is cheaper than writing a doc, the unit of work changes.</p>
+</div>
+<div class="story">
+<h3 class="headline"><a href="https://x.com/vkhosla/status/2113643745971445929">Hire Humans When Needed</a></h3>
+<div class="byline">Via <a href="https://x.com/vkhosla">Vinod Khosla</a> &middot; <a href="https://x.com/shivanipod">Shivani Poddar</a></div>
+<p>&ldquo;An AI assistant should get things done. Including hiring humans when needed.&rdquo; Khosla amplifies Shivani Poddar&rsquo;s Fo rundown: she CCs fo@wajo.ai on emails and lets it run calendaring, meal prepping (including grocery ordering), and weekend events from her interests. The thesis lands next to this edition&rsquo;s harness story: the agent that can hire a human is the harness that finally takes responsibility for the outcome, not just the task.</p>
+</div>
+</div>
+
+<div class="two-col">
+<div class="story">
+<h3 class="headline"><a href="https://x.com/thorstenball/status/2113647306998264109">You&rsquo;re No Longer Working With Humans</a></h3>
+<div class="byline">Via <a href="https://x.com/thorstenball">Thorsten Ball</a></div>
+<p>One image, one line: &ldquo;Don&rsquo;t forget: you&rsquo;re no longer working with humans.&rdquo; The reminder pairs with Kothari&rsquo;s fleet-of-agents post above &mdash; your collaborators now have infinite patience, no ego, and no memory unless you build it. Manage accordingly.</p>
+</div>
+<div class="story">
+<h3 class="headline"><a href="https://x.com/MKBHD/status/2113383149011140730">Slow Burn</a></h3>
+<div class="byline">Via <a href="https://x.com/MKBHD">Marques Brownlee</a>, quoting Zach Blank</div>
+<p>&ldquo;How long it took the world&rsquo;s biggest YouTubers to hit 10M subscribers&rdquo; &mdash; and the answer, across the board, is years of unremarkable output before the curve bends. MKBHD&rsquo;s two-word verdict: slow burn. A useful counterweight to a week of overnight-agent narratives.</p>
+</div>
+</div>
+
+<div class="two-col">
+<div class="story">
+<h3 class="headline"><a href="https://x.com/dhumchikdish/status/2113585249783517406">The Dug-Up Road, Flagged by an Agent</a></h3>
+<div class="byline">Via <a href="https://x.com/dhumchikdish">Anirudh Mittal</a></div>
+<p>&ldquo;New fav personal assistant use case unlocked!&rdquo; Annoyed that the roads near his HSR home were dug up for months with nothing he could do about it, Mittal asked his assistant (&ldquo;faff&rdquo;) back in early September to find a way to flag it to the authorities &mdash; and it did. Civic infrastructure as an agent use case: the boring, high-friction, nobody-wants-to-do-it work is exactly where delegation pays.</p>
+</div>
+<div class="story">
+<h3 class="headline">The Malfoid Watch</h3>
+<div class="byline">A lighter note</div>
+<p>The Lumos Lumos saga continues in the saves: this week it&rsquo;s the Sectumsempra scene &mdash; &ldquo;the low point in their relationship, the furthest point back from which the arrow is shot&rdquo; &mdash; with the fandom in full agreement that the adaptation nailed it. Left out of the paper proper (the standing precedent), but the appointment viewing continues.</p>
+</div>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section" id="power">
+<div class="sec-head"><span class="kicker">Playbook</span><span class="rule"></span></div>
+
+<div class="story">
+<h3 class="headline"><a href="https://x.com/aakashgupta/status/2113411612078157848">Start With Possibilities, Not Problems</a></h3>
+<div class="byline">Via <a href="https://x.com/aakashgupta">Aakash Gupta</a> &middot; Ankit Shukla (HelloPM) &mdash; video captions sampled, post read in full</div>
+
+<p class="lede">&ldquo;Product management teaches you to start with the problem. @AnkythShukla thinks that&rsquo;s exactly why AI projects go nowhere.&rdquo; Aakash Gupta&rsquo;s summary of his long interview with HelloPM founder Ankit Shukla contains the sharpest diagnosis of stalled AI adoption in this week&rsquo;s pile: <strong>some things in your company were never filed as problems.</strong> You looked at them, decided that&rsquo;s just how it is, and stopped &mdash; not because they didn&rsquo;t hurt, but because nothing existed that could fix them. Those are the ones worth finding now. And a problem list won&rsquo;t surface them, because that list was pruned years ago by what was possible <em>then</em>.</p>
+
+<p>So the first step of Shukla&rsquo;s POWER framework is not &ldquo;problems&rdquo; &mdash; it&rsquo;s <strong>possibilities</strong>. Go work out what AI actually does &mdash; which he boils down to three verbs: <em>understand, transform, generate</em> &mdash; then look at competitors, your industry, and the one next door, and build a running list of what people are pulling off. On the whiteboard in the interview (captions confirm the moment: he writes POWER at the board around the sixteen-minute mark, after walking through a Discovery &rarr; Delivery &rarr; third-phase arc), the possibilities exercise comes before any roadmap &mdash; including the n8n workflows and the &ldquo;hack the whole process&rdquo; demos that follow. Possibilities first, then problems worth solving, then the rest of the letters.</p>
+
+<div class="pullquote">&ldquo;Adoption is whether your team uses AI. Advantage is whether the business gets anything back.&rdquo;<span class="attr">&mdash; Aakash Gupta, on Shukla&rsquo;s framework</span></div>
+
+<p>The distinction most companies mash together is the one to underline: <strong>adoption is not advantage.</strong> Plenty of companies have solved the first &mdash; the team uses AI &mdash; and quietly assumed the second followed. It didn&rsquo;t. And there&rsquo;s a side benefit to the possibilities map that has nothing to do with AI strategy: when a CEO says everything can be done with AI and the team knows it can&rsquo;t, that argument is really about what each side believes is possible. Map that first, and the argument mostly disappears. The interview frames the whole thing as the roadmap to the quarter-million-dollar product-builder role &mdash; &ldquo;is the role real or hype,&rdquo; &ldquo;what a product builder does,&rdquo; &ldquo;why delivery was the gate&rdquo; &mdash; but the framework travels further than careers: it&rsquo;s a way to find the work that was never filed as a problem.</p>
+
+<div class="learnings">
+<h4>Learnings</h4>
+<ul>
+<li><strong>Start with possibilities, not problems.</strong> The problem list was pruned by old constraints; map what AI can do (understand, transform, generate) first.</li>
+<li><strong>Separate adoption from advantage.</strong> Team usage is not business return. Measure the second, not just the first.</li>
+<li><strong>Map beliefs before arguing.</strong> Most AI disagreements are disagreements about what&rsquo;s possible. Make the map explicit.</li>
+</ul>
+</div>
+<div class="orig-link">Original: <a href="https://x.com/aakashgupta/status/2113411612078157848">Aakash&rsquo;s summary post</a> (68-minute interview, X captions sampled)</div>
+</div>
+
+</div>
+
+<footer>
+<div class="fin">The End.</div>
+<div>The Unread Pile &mdash; Edition No. 30 &mdash; built from @RAKSHITLODHA&rsquo;s likes &amp; bookmarks &mdash; 24 October 2026</div>
+<div style="margin-top:6px;">31 new saves since the last edition; 21 used in the paper, 9 left out as low-signal (two Malfoid anime videos, three meme one-liners, one meme clip, one quote-chain, one off-brief vlog, one low-context one-liner). One video carried over for retry: Joseph Tsar&rsquo;s &ldquo;Why technical people are poor communicators&rdquo; (11:19) has no captions on X, so it stays new for tomorrow&rsquo;s run.</div>
+</footer>
+
+</div>
+</body>
+</html>
