@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 31</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .front { display:grid; grid-template-columns: 2.1fr 1fr; gap:34px; margin-top:26px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; letter-spacing:-0.5px; }
+  .stat .lbl { font-family:Arial,Helvetica,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-top:4px; line-height:1.4; }
+  .chart-box { border:1px solid var(--ink); background:#fff; padding:16px 18px 12px; margin:16px 0; }
+  .chart-box .chart-title { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; border-bottom:1px solid var(--rule); padding-bottom:8px; }
+  .chart-box svg { width:100%; height:auto; display:block; }
+  .chart-box .src { font-family:Arial,Helvetica,sans-serif; font-size:10.5px; color:var(--muted); margin-top:8px; font-style:italic; }
+  .learnings { background:#fff; border:1px solid var(--rule); border-left:4px solid var(--red); padding:14px 16px; margin:16px 0; }
+  .learnings h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .learnings ul { margin-left:18px; font-size:15px; }
+  .learnings li { margin-bottom:7px; }
+  .takeaway { background:#f3efe4; border:1px dashed var(--muted); padding:12px 16px; margin:12px 0 18px; font-size:15px; }
+  .takeaway strong { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); }
+  .orig-link { font-family:Arial,Helvetica,sans-serif; font-size:12.5px; margin:6px 0 4px; }
+  .orig-link a { color:var(--red); font-weight:bold; text-decoration:none; border-bottom:1px dotted var(--red); }
+  .sidebar .digest-box { border:2px solid var(--ink); background:#fff; padding:16px; margin-bottom:24px; }
+  .sidebar .digest-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; border-bottom:1px solid var(--ink); padding-bottom:8px; margin-bottom:10px; }
+  .sidebar .digest-box ol, .sidebar .digest-box ul { margin-left:18px; font-size:13.5px; }
+  .sidebar .digest-box li { margin-bottom:6px; }
+  .sidebar .digest-box a { color:var(--ink); text-decoration:none; border-bottom:1px dotted var(--muted); }
+  .section-break { border:none; border-top:4px double var(--ink); margin:34px 0 22px; }
+  .page-section > .sec-head { display:flex; align-items:baseline; gap:14px; margin-bottom:16px; }
+  .page-section > .sec-head .kicker { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); font-weight:bold; white-space:nowrap; }
+  .page-section > .sec-head .rule { flex:1; border-top:2px solid var(--ink); }
+  .story { border-bottom:1px solid var(--rule); padding-bottom:20px; margin-bottom:22px; }
+  .story:last-child { border-bottom:none; }
+  .img-frame { border:1px solid var(--ink); background:#fff; padding:10px 10px 8px; margin:16px 0; }
+  .img-frame svg { width:100%; height:auto; display:block; }
+  .img-frame .cap { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; line-height:1.5; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  @media (max-width:760px){ .two-col{grid-template-columns:1fr;} .front{grid-template-columns:1fr;} }
+  footer { border-top:4px double var(--ink); margin-top:40px; padding-top:16px; text-align:center; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); }
+  footer .fin { font-size:22px; font-weight:900; color:var(--ink); margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="masthead">
+  <div class="kicker">Built from @RAKSHITLODHA&rsquo;s likes &amp; bookmarks</div>
+  <h1>The Unread Pile</h1>
+  <div class="tagline">Everything you saved, distilled &mdash; sharp theses, systems, and takeaways. One paper, every morning.</div>
+</div>
+<div class="dateline">
+  <span>Edition No. 31</span>
+  <span>Sunday, 25 October 2026</span>
+  <span>16 new saves + 3 Substack picks</span>
+</div>
+
+<div class="front">
+<div class="maincol">
+
+<div class="sec-label">The Lead Story</div>
+<div class="story" id="lead">
+<h2 class="headline"><a href="https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop">Fold the Subagents Back In</a></h2>
+<div class="byline">Via <a href="https://x.com/chamath">Chamath</a>, <a href="https://x.com/cherry_mx_reds">cherry_mx_reds</a> and <a href="https://x.com/Xudong07452910">Xudong Han</a> &mdash; Anthropic&rsquo;s guide, read in full</div>
+
+<p class="lede">For two years the default advice was to split every agent job into specialist subagents and orchestrate them. This week Anthropic told its enterprise customers the opposite: in deployment after deployment, one agent loop with skills loaded on demand beat both the one-giant-prompt design and the multi-agent design on quality, and usually on cost and speed too. One customer&rsquo;s single loop ran roughly twice as fast as its multi-agent setup. The through-line of this whole edition is right there: the industry spent a year adding agents, and is now learning to remove them.</p>
+
+<p>Why did the multi-agent stack lose? Anthropic&rsquo;s diagnosis is organisational before it is technical. Each team builds its own agent, a platform team builds an orchestrator on top, and the architecture quietly becomes a copy of the org chart &mdash; Conway&rsquo;s law, running in production. The failure modes pile up: context has to be negotiated between agents and detail is lost in the handoffs; every team ships overlapping subagents with no owner and no standards; every team adds a sentence to the system prompt until the prompt contradicts itself; every team writes its own narrow evals, so nobody owns the end-to-end score; and every nested model call adds latency. Split agents by problem type and you get what the guide calls a telephone game, with fidelity degrading at each handoff.</p>
+
+<div class="img-frame">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: multi-agent telephone game versus a single loop with skills">
+  <rect x="0" y="0" width="640" height="300" fill="#f3efe4"/>
+  <text x="320" y="26" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">TWO ARCHITECTURES, ONE TASK</text>
+  <g font-family="Arial">
+    <text x="160" y="52" text-anchor="middle" font-size="12" font-weight="bold">MULTI-AGENT: THE TELEPHONE GAME</text>
+    <rect x="40" y="66" width="240" height="44" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="160" y="94" text-anchor="middle" font-size="12" font-weight="bold">ORCHESTRATOR</text>
+    <rect x="40" y="126" width="110" height="44" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="95" y="154" text-anchor="middle" font-size="12">SPECIALIST A</text>
+    <rect x="170" y="126" width="110" height="44" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="225" y="154" text-anchor="middle" font-size="12">SPECIALIST B</text>
+    <text x="160" y="196" text-anchor="middle" font-size="12" fill="#a31621">summary of a summary of a summary</text>
+    <text x="160" y="216" text-anchor="middle" font-size="11" fill="#6b675c">fidelity lost at every handoff</text>
+    <text x="480" y="52" text-anchor="middle" font-size="12" font-weight="bold">SINGLE LOOP + SKILLS</text>
+    <rect x="360" y="66" width="240" height="44" fill="#a31621"/><text x="480" y="94" text-anchor="middle" font-size="12" font-weight="bold" fill="#faf8f2">ONE MODEL, ONE CONTEXT</text>
+    <rect x="360" y="126" width="240" height="44" fill="#ffffff" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="6 4"/><text x="480" y="154" text-anchor="middle" font-size="12">SKILLS LOADED ONLY WHEN NEEDED</text>
+    <text x="480" y="196" text-anchor="middle" font-size="12" fill="#1a1a1a">the planner is also the doer</text>
+    <text x="480" y="216" text-anchor="middle" font-size="11" fill="#6b675c">plan revises mid-turn, nothing re-summarised</text>
+  </g>
+</svg>
+<div class="cap">The guide&rsquo;s core contrast: handoffs lose information; a single loop keeps everything it has learned in one context. Skills and tool search load detail only when needed, which removes the original reason teams split work up.</div>
+</div>
+
+<p>The replacement design is deliberately boring. One model, one context window, an open-ended tool loop with turn and cost budgets and write gates set in the harness. Each turn the model emits a batch of tool calls; the harness runs them in parallel and returns raw results to the same model, which decides the next step. The model writes its plan in context on the first turn and revises it as results arrive &mdash; the planner is also the doer, so it can change the plan mid-turn instead of handing a revised brief to a stranger. Ordering and domain procedure move into skills; hard limits, validation and approval gates move into tools; code still loads anything cheap and almost always relevant. That is also why the guide insists on progressive disclosure: the agent sees short descriptions of skills and tools and loads the full content only when needed. Anthropic says it cut Claude Code&rsquo;s system prompt for newer models by more than eighty percent this way.</p>
+
+<p>Subagents are not dead, and the guide is precise about when to keep them: when a single loop measurably degrades from context bloat; when several tasks can run in parallel in fresh, disposable context windows; or when one agent cannot pick the right tools or its prompt carries conflicting instructions. Everything else should be folded in, one subagent at a time, with an end-to-end eval built first &mdash; even ten golden examples will do &mdash; and the folded version compared against the original on quality, cost and latency. The cautionary tale matters: in one support-agent migration, folding a subagent in lowered latency but broke a previously passing flow, because the main agent answered from its own order lookup instead of asking the shipping specialist for the delivery date. The break only showed up in one run out of two, which is why the guide says to run each eval task more than once and to check which tasks flipped, not just the headline score.</p>
+
+<div class="pullquote">Measure, change one thing at a time, and keep what holds up.<span class="attr">Anthropic&rsquo;s closing principle</span></div>
+
+<p>Chamath&rsquo;s gloss on all this is the joke that lands because it is true: agents, like humans in groups, leak information when they work together. The leak is the handoff. And the deeper point, which runs through the harness stories below, is that as models get more capable, more of the decision-making moves out of the harness and into the model itself &mdash; which makes rigid multi-agent structures the thing that stops the new model from doing more of the work. Architecture is now a depreciating asset; the eval set is the durable one.</p>
+
+<div class="learnings"><h4>Learnings</h4><ul>
+<li>Start with one loop plus skills; add a subagent only for a measured reason &mdash; context bloat, parallel disposable work, or tool-choice failure.</li>
+<li>Group tools by user intent; past roughly thirty to fifty tool definitions, tool choice degrades.</li>
+<li>One small central team should own the system prompt and the end-to-end evals; domain teams own skills and tools, not agents.</li>
+<li>Fold one subagent at a time, compare on flipped tasks, and run each eval task twice.</li>
+</ul></div>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; If your agent diagram looks like your org chart, that is the diagnosis, not the design. Audit one subagent this week against a ten-task golden set; fold it if the loop matches or beats it.</div>
+<p class="orig-link">Originals: <a href="https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop">Anthropic&rsquo;s guide</a> &middot; <a href="https://x.com/chamath/status/2114029854849184026">Chamath&rsquo;s post</a> &middot; <a href="https://x.com/cherry_mx_reds/status/2113969070118666670">cherry_mx_reds&rsquo; post</a></p>
+</div>
+
+</div>
+<div class="sidebar">
+<div class="digest-box"><h4>In this edition</h4><ol>
+<li><a href="#lead">Fold the subagents back in</a></li>
+<li><a href="#beam">A harness that finishes long tasks</a></li>
+<li><a href="#teamos">One shared repo for the whole product team</a></li>
+<li><a href="#war">The assistant wars, summarised</a></li>
+<li><a href="#builder">Everyone can be a builder</a></li>
+<li><a href="#applied">Stop rejecting yourself first</a></li>
+<li><a href="#india">Pollution season, and whose fire it is</a></li>
+<li><a href="#briefs">The briefs</a></li>
+<li><a href="#substacks">From the Substacks</a></li>
+</ol></div>
+<div class="digest-box"><h4>The through-line</h4><p style="font-size:13.5px;">Simplify the loop, then let it run. Fold subagents, thin the CLAUDE.md, share one team repo, and let the harness &mdash; not the model &mdash; do the remembering.</p></div>
+</div>
+</div>
+
+<hr class="section-break">
+<div class="page-section">
+<div class="sec-head"><span class="kicker">The Harness Issue</span><span class="rule"></span></div>
+
+<div class="story" id="beam">
+<h3 class="headline"><a href="https://x.com/beamnxw/status/2107522996046905797">A Harness That Finishes Long Tasks</a></h3>
+<div class="byline">Via <a href="https://x.com/hayatomaruu">hayatomaruu</a> &mdash; the Opus 5.5 setup article, read in full</div>
+<p class="lede">Yesterday&rsquo;s lead asked what a harness is. Today&rsquo;s answer is a working one: a reusable setup that makes a long Opus 5.5 task end with an openable result, inspectable evidence, and enough saved progress to continue tomorrow &mdash; instead of an unfinished run that ate the budget. The setup is seven layers deep, but the idea is one sentence: define what &ldquo;done&rdquo; means before the run starts, and make the run prove it.</p>
+<p>The layers, in order: give the workspace the facts it needs, keeping the root CLAUDE.md to cross-task information and pushing temporary deadlines and open source questions into the task itself; save the repeated procedure as a skill, so each step has an observable result &mdash; reading produces a source selection, drafting produces a saved file, reviewing produces findings; give the task access to its source material through connections added only when a specific step needs them; put action rules in the execution layer, with permission rules at the tool boundary and a hook that inspects a proposed action before it runs; make the reviewer return evidence, not verdicts &mdash; a bounded subagent that links every finding to an opened source and must show conflicting evidence before calling a claim incorrect; assign reasoning effort deliberately (the main session at medium, the reviewer at high); and finally, tell the run what it must prove, as a saved draft, a checking table, and an updated progress note.</p>
+<div class="img-frame">
+<svg viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: seven layers of the Opus 5.5 harness setup">
+  <rect x="0" y="0" width="640" height="330" fill="#f3efe4"/>
+  <text x="320" y="26" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">SEVEN LAYERS, ONE FINISHED RUN</text>
+  <g font-family="Arial" font-size="12">
+    <rect x="60" y="44" width="520" height="34" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="66" text-anchor="middle" font-weight="bold">1 &middot; FACTS &mdash; thin root CLAUDE.md, task-local detail</text>
+    <rect x="60" y="86" width="520" height="34" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="108" text-anchor="middle" font-weight="bold">2 &middot; PROCEDURE AS A SKILL &mdash; every step leaves an artefact</text>
+    <rect x="60" y="128" width="520" height="34" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="150" text-anchor="middle" font-weight="bold">3 &middot; SOURCES &mdash; connections only where a step needs them</text>
+    <rect x="60" y="170" width="520" height="34" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="192" text-anchor="middle" font-weight="bold">4 &middot; EXECUTION RULES &mdash; permissions at the tool boundary</text>
+    <rect x="60" y="212" width="520" height="34" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="234" text-anchor="middle" font-weight="bold">5 &middot; EVIDENCE REVIEWER &mdash; findings linked to opened sources</text>
+    <rect x="60" y="254" width="520" height="34" fill="#a31621"/><text x="320" y="276" text-anchor="middle" font-weight="bold" fill="#faf8f2">6 &middot; EFFORT + 7 &middot; PROOF &mdash; draft, checks, progress note</text>
+  </g>
+</svg>
+<div class="cap">The setup&rsquo;s discipline: the reviewer never rewrites the draft, corrections stay with the main agent, and revised wording gets re-checked along with adjacent sentences.</div>
+</div>
+<p>Three details are worth stealing even if you never touch Claude Code. First, recovery is a first-class feature: the progress note records current files, completed checks, open questions and the next action after every meaningful stage, so a fresh session can resume instead of restarting &mdash; and a run that restarts from scratch is a run that pays twice. Second, the permission model is honest about its limits: file-tool restrictions do not stop arbitrary code from reading files through its own routines, so operating-system sandboxing matters; a rule that only constrains the polite path is not a security boundary. Third, measurement is part of the workflow: record review time and corrections required, change one component at a time, and treat a heavily repaired output as a different result, not a success. A harness that cannot tell you what it cost you in corrections is a demo, not infrastructure.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Before your next long agent task, write down the three files it must leave behind &mdash; the artefact, the evidence table, the progress note &mdash; and refuse to call the run done until all three exist.</div>
+<p class="orig-link">Original: <a href="https://x.com/beamnxw/status/2107522996046905797">beamnxw&rsquo;s setup article</a> (saved via <a href="https://x.com/hayatomaruu/status/2113719510985269442">hayatomaruu</a>; the video in that post was not transcribed and is not covered here)</p>
+</div>
+
+<div class="story" id="teamos">
+<h3 class="headline"><a href="https://x.com/aakashgupta/status/2113701998092853595">One Shared Repo for the Whole Product Team</a></h3>
+<div class="byline">Via <a href="https://x.com/aakashgupta">Aakash Gupta</a>, on Oji Udezue&rsquo;s work &mdash; read in full</div>
+<p class="lede">The fastest AI-native teams, according to Oji Udezue&rsquo;s work with companies becoming AI-native, share one surprising thing: product managers, designers and engineers all work out of a single repo. Not the codebase. A repo of product-team machinery the author calls a Team Operating System, also run by Hannah Stulberg at DoorDash and Gabor Mayer at Google. The pitch is that the best teams do not use tons of AI tools; they use the best tools well, from one shared place.</p>
+<p>The operating system has four layers. First, a thin CLAUDE.md: the old pattern of a four-hundred-line file was patching deficiencies in models from one or two years ago, and the author&rsquo;s files have shrunk from over four hundred lines to under eighty, because the file is read in every chat and quality still degrades as context fills up. Keep it to architecture &mdash; what is where, what to do on start, and the essentials for every message. Second, connections: work with legal and compliance to connect everything &mdash; GitHub for code, Jira or Linear for tickets, Notion and Google Docs for documents, Tableau plus Amplitude for analytics, Qualtrics plus Dovetail for user research, and email, calendar and meetings for the workspace. A team without business-intelligence access, the post argues, is cut off at the knees. Third, skills: each shared task &mdash; how to measure a feature&rsquo;s effectiveness, what recent user research says, where the team stands on its OKRs &mdash; gets a skill on a slash command. Oji runs sixteen; the author runs more than forty-one; the number matters less than whether the team feels leverage. Fourth, rollout: the common failure is merging everyone&rsquo;s operating system into one context-eating monster. Start from first principles, then build iteratively through pull requests.</p>
+<div class="stat-strip">
+<div class="stat"><div class="num">400&rarr;80</div><div class="lbl">CLAUDE.md lines, before and after thinning</div></div>
+<div class="stat"><div class="num">16</div><div class="lbl">Shared skills in Oji&rsquo;s setup</div></div>
+<div class="stat"><div class="num">41+</div><div class="lbl">Skills in the author&rsquo;s system</div></div>
+<div class="stat"><div class="num">1</div><div class="lbl">Shared repo, not one per function</div></div>
+</div>
+<p>The payoff is stated in terms of the PM&rsquo;s calendar, not the model&rsquo;s benchmark: the PM spends less time answering questions, the team self-serves more, and the PM can focus on strategy &mdash; which problems to solve, what is being learned from users, and the hard stakeholders &mdash; instead of becoming a project manager by default. That is the same lesson as the lead story, one level up: the scarce resource is not model capability, it is a shared, maintained context that everyone draws from. A team where each function keeps its own private AI setup is just the subagent problem with job titles.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; If your team&rsquo;s AI setup lives in five private prompt libraries, pick one shared task, turn it into one skill in one repo, and let the team feel the leverage before you scale it.</div>
+<p class="orig-link">Original: <a href="https://x.com/aakashgupta/status/2113701998092853595">Aakash Gupta&rsquo;s post</a></p>
+</div>
+
+<div class="story" id="war">
+<h3 class="headline"><a href="https://x.com/ns123abc/status/2114154793425928422">The Assistant Wars, Summarised</a></h3>
+<div class="byline">Via <a href="https://x.com/ns123abc">ns123abc</a> &mdash; an image post, described in full</div>
+<p class="lede">The whole personal-assistant race fits in one image: a collage of posts about two rival assistants &mdash; one racing to a billion users, the other misspelled on purpose by its rivals &mdash; above a cartoon in which one mascot fights and the other sits back, relaxed and detached, while the fight goes on without it. The replies supply the punchline: the relaxed mascot is the most accurate part, the racing assistant is barely in the conversation, and users still cannot get an assistant to remember a dentist appointment or find their keys.</p>
+<p>That gap is the actual story of the assistant wars. The race is scored in users, mascots and memes, but the job is memory: a personal assistant that does not remember is a search box with a face. Every lab is fighting over the front door &mdash; the app, the brand, the daily habit &mdash; while the hard problem sits behind it: durable, permissioned memory of what a specific person asked, promised and forgot. The cartoon&rsquo;s joke works because it inverts the scoreboard: the mascot that is not fighting is winning precisely by not fighting, because the fight is not the product. The product is the quiet thing that remembers the appointment.</p>
+<div class="pullquote">Users still cannot get an assistant to remember a dentist appointment.<span class="attr">The replies&rsquo; verdict on the assistant wars</span></div>
+<p>For builders, the read is unsentimental. Do not measure your assistant by how loudly it fights for attention; measure it by what it still knows next Tuesday. Distribution is a race; memory is a moat. And the team that ships memory that users can inspect, correct and revoke will beat the team that ships a louder mascot.</p>
+<p class="orig-link">Original: <a href="https://x.com/ns123abc/status/2114154793425928422">ns123abc&rsquo;s post</a></p>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section">
+<div class="sec-head"><span class="kicker">People &amp; Careers</span><span class="rule"></span></div>
+
+<div class="story" id="builder">
+<h3 class="headline"><a href="https://x.com/amorriscode/status/2113972174524674247">Everyone Can Be a Builder</a></h3>
+<div class="byline">Via <a href="https://x.com/amorriscode">Anthony Morris</a> &mdash; read in full</div>
+<p class="lede">Yesterday was his last day at Anthropic, and the farewell post is short enough to quote in spirit: he built Claude Code on desktop because he believes everyone can be a builder; every feature request and bug report from the community was a gift that shaped a product used by millions; leaving his best friends, a product he poured his heart into and the mission was the hardest thing in his career. He is now, by his own account, free for the next big game release, already itching to get back to addressing feedback, and will share what is next soon.</p>
+<p>The post is interesting for what it does not do. No grievance, no manifesto, no stealth announcement of a startup. Just the claim that community feedback is a gift, and that contributing to the mission will remain a career highlight beyond anything he imagined. In a week when the lead story is about removing agents, this is the human version of the same idea: the product was not the model, it was the loop between the builders and the people filing bugs. The desktop app mattered because it put that loop where non-programmers live. &ldquo;Everyone can be a builder&rdquo; is not a slogan here; it is the product thesis, stated by the person who shipped it, on his way out.</p>
+<p class="orig-link">Original: <a href="https://x.com/amorriscode/status/2113972174524674247">Anthony Morris&rsquo;s post</a></p>
+</div>
+
+<div class="story" id="applied">
+<h3 class="headline"><a href="https://x.com/brandon_galang/status/2114026128746909925">Stop Rejecting Yourself First</a></h3>
+<div class="byline">Via <a href="https://x.com/brandon_galang">Brandon Galang</a> &mdash; read in full; also the author of this week&rsquo;s Leverage Loops pick</div>
+<p class="lede">You want to work in applied AI, but you keep telling yourself you are not technical enough. You only vibe-code. You need another few months. The post&rsquo;s answer is a question: says who? Have you talked to a team doing the work you want to do? The author used to be that person &mdash; thousands of GitHub commits, nights up until one in the morning, another project to prove readiness &mdash; and some of that skill development mattered, but he was also rejecting himself before finding out what the role actually required.</p>
+<p>The advice is practical, not motivational. Talk to someone doing the job. Ask what the day-to-day work involves, how much technical depth it needs, and what interviews actually test. The bar might be higher than expected, or in a completely different place. Find out what actually needs improvement before spending another month trying to become &ldquo;technical enough&rdquo; in the abstract. It is the career version of the eval-first rule from the lead story: measure the real requirement before you rebuild the architecture &mdash; in this case, yourself. His follow-up points readers to his newsletter, Leverage Loops, where he writes weekly about applied AI and career moves; it is also one of the two publications Rakshit himself picked for this paper&rsquo;s new Substack pool.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Before your next month of self-study, have one conversation with someone doing the job and write down the three things they actually test for. Study that list, not the feeling.</div>
+<p class="orig-link">Originals: <a href="https://x.com/brandon_galang/status/2114026128746909925">Brandon Galang&rsquo;s post</a> &middot; <a href="https://x.com/brandon_galang/status/2114113347155009591">his newsletter note</a></p>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section">
+<div class="sec-head"><span class="kicker">India</span><span class="rule"></span></div>
+
+<div class="story" id="india">
+<h3 class="headline"><a href="https://x.com/vijayshekhar/status/2114042467922395433">Pollution Season, and Whose Fire It Is</a></h3>
+<div class="byline">Via <a href="https://x.com/vijayshekhar">Vijay Shekhar Sharma</a> and <a href="https://x.com/aravind">Aravind</a> &mdash; both posts read in full; Aravind&rsquo;s claims are reported as his, not verified here</div>
+<p class="lede">Vijay Shekhar Sharma&rsquo;s ask is simple and open-handed: he wishes farmers would sincerely solve this problem so everyone can live and breathe healthy air around those farms and in Delhi NCR, and he asks anyone with a potential solution &mdash; or a pointer to one &mdash; to share it, saying he is ready to contribute in every possible way. The post he quotes, from Aravind, makes a much sharper argument, and it needs to be reported with care, because Aravind&rsquo;s own profile bio says, in substance, that he posts conspiracies, that nothing he says is real, and that readers should not believe anything he posts.</p>
+<p>Aravind&rsquo;s argument, in his own terms, runs like this. As India braces for a Delhi&ndash;Mumbai pollution season and the protests he says can be predicted, readers should look at Singapore: its air recently reached hazardous levels, he says, not because the well-managed city-state made a mistake, but because of forest fires in Indonesia, lit by humans &mdash; specifically companies &mdash; at the moment the wind would carry smoke toward Singapore, and Singapore is now going after the culprit companies even outside its borders. By analogy, he argues, Delhi and Mumbai pollution worsening at this time of year is not mainly automobiles, road dust or construction, though those contribute, but mainly farm fires lit in many provinces at the right time, using wind direction, to hit the cities &mdash; and that protests against city governments, or imagining a change of regime would fix it, will not make the pollution go away until farm burning stops. He further claims authorities are afraid of farmers, who have been encouraged to use machines and compactors but will not, and that telling them to use them could lead to violence.</p>
+<p>Those are serious claims about deliberate burning, and this paper does not verify them. What is verifiable is the shape of the problem Vijay is pointing at: a seasonal, predictable, cross-boundary harm, where the people blamed and the people who can act are not the same people, and where a solution has to work for farmers as well as for cities &mdash; machines, incentives and alternatives that farmers will actually use, not just prohibitions they will resist. Vijay&rsquo;s open ask is the right frame for that: solutions, not slogans. If you have one &mdash; stubble management that pays, equipment that works at small-farm scale, a business model for the residue &mdash; his thread is collecting them.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Treat seasonal air as a systems problem with two sets of users: the cities breathing it and the farmers lighting it. Any fix that does not work for the second group will not hold for the first.</div>
+<p class="orig-link">Originals: <a href="https://x.com/vijayshekhar/status/2114042467922395433">Vijay Shekhar Sharma&rsquo;s post</a> &middot; <a href="https://x.com/aravind/status/2114030000592900314">Aravind&rsquo;s post</a></p>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section" id="briefs">
+<div class="sec-head"><span class="kicker">The Briefs</span><span class="rule"></span></div>
+<div class="two-col">
+<div>
+<h3 class="headline"><a href="https://x.com/lennysan/status/2113725944955535387">Lenny Wants Your Best AI Workflow</a></h3>
+<p>Lenny Rachitsky is collecting readers&rsquo; best AI workflows to feature in his newsletter, launching a series called Hype(less) with Noam Segal &mdash; a deliberate answer to overhyped AI demos. If you have a workflow that actually survives contact with real work, this is the door to submit it through.</p>
+<p class="orig-link"><a href="https://x.com/lennysan/status/2113725944955535387">Lenny&rsquo;s post</a></p>
+<h3 class="headline"><a href="https://x.com/Greshamtrade/status/2113769453007827036">146 Grok Bot Templates, Free, Apparently</a></h3>
+<p>Greshamtrade&rsquo;s post claims SpaceXAI dropped 146 Grok Bot templates, supposedly worth $29,200, for free, alongside a full course post on making Grok Bot do more work. Treat the price tag as the poster&rsquo;s marketing, not a valuation &mdash; but the template drop itself is a sign of how fast agent know-how is being commoditised: yesterday&rsquo;s $29,200 course is today&rsquo;s free thread.</p>
+<p class="orig-link"><a href="https://x.com/Greshamtrade/status/2113769453007827036">Greshamtrade&rsquo;s post</a></p>
+<h3 class="headline"><a href="https://x.com/karthikponna19/status/2113627288298491971">The Cold Email That Landed Lovable at 17</a></h3>
+<p>Karthik Ponnala calls it the best cold email he has ever seen: one email got its sender an internship at Lovable at seventeen. The post itself is the exhibit &mdash; short, specific, and proof that a single well-aimed message still beats a hundred generic applications.</p>
+<p class="orig-link"><a href="https://x.com/karthikponna19/status/2113627288298491971">Karthik&rsquo;s post</a></p>
+</div>
+<div>
+<h3 class="headline"><a href="https://x.com/deedydas/status/2114195317860266432">The Inference-Provider Barrage</a></h3>
+<p>Deedy&rsquo;s observation from the timeline: there is an absolute barrage of inference providers popping up that reach $1M a month extremely quickly. Read it as a market signal &mdash; inference is becoming a commodity race, and the winners will be decided on latency, price and reliability, not on having a model at all.</p>
+<p class="orig-link"><a href="https://x.com/deedydas/status/2114195317860266432">Deedy&rsquo;s post</a></p>
+<h3 class="headline"><a href="https://x.com/elayadesigns/status/2114049200749175174">Landing Pages, Designed by a Skill</a></h3>
+<p>Elaya designed a run of landing pages over two months using Higgsfield, Claude and Cursor with a custom AI designer skill &mdash; and the skill itself is open source. It is a small, concrete version of this edition&rsquo;s thesis: the durable asset is not the tool, it is the skill that encodes how you use it.</p>
+<p class="orig-link"><a href="https://x.com/elayadesigns/status/2114049200749175174">Elaya&rsquo;s post</a></p>
+</div>
+</div>
+</div>
+
+<hr class="section-break">
+<div class="page-section" id="substacks">
+<div class="sec-head"><span class="kicker">From the Substacks</span><span class="rule"></span></div>
+<p style="margin-bottom:18px;">The first edition of the paper&rsquo;s new standing section: three articles drawn from the twelve-publication pool, each read in full, rotating across publications. This week all three land on the same question from different angles &mdash; what AI progress actually is, once you stop counting model releases.</p>
+
+<div class="story">
+<h3 class="headline"><a href="https://latent.space/p/ai-is-getting-good-at-math/">Why AI Is Getting Good at Maths</a></h3>
+<div class="byline">Latent Space &mdash; 23 October 2026, read in full</div>
+<p class="lede">Humans solve problems breadth-first: generate candidate directions, explore them shallowly, abandon most, commit to a few &mdash; because developing an idea takes months, and you need a reason to believe before you commit. Models solve them depth-first: give one a prompt and it gives you a solution, maybe correct, maybe a beautiful false proof. The trick that flips the comparison is the verifier. With an automated checker that prunes finished trajectories, it becomes rational to spend enormous compute on uncertain ideas, because you find out in minutes whether an idea works. Failed attempts then become negative hints for the next round: a drafter, a solver and a verifier, with every failure written into the next prompt as an instruction.</p>
+<p>The framework is Gowers&rsquo; hint sequence: a problem&rsquo;s difficulty is the shortest sequence of insights that would let experts reconstruct the solution, and complexity grows exponentially with the number of insights. For humans, the quality bar for a hint is high because pursuing it costs months; for a model, the bar nearly disappears, because following a hint costs minutes. That predicts where models win: where the number of insights and the branching factor are small, and where a verifier can judge a finished argument &mdash; which is also why an exploit chain, where the shape of the solution is already known, falls first. The human edge, on this account, is shrinking branches with taste and judgement; the model&rsquo;s edge is shrinking the time to prune one branch. The complement only works if we get to see the failures, because much of the insight is in them &mdash; and a proof announced without its failed attempts mistakes the destination for the journey.</p>
+<div class="chart-box"><div class="chart-title">Where the edge sits</div>
+<svg viewBox="0 0 640 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: humans shrink branches, models shrink pruning time">
+  <rect x="0" y="0" width="640" height="180" fill="#f3efe4"/>
+  <g font-family="Arial" font-size="13">
+    <rect x="40" y="40" width="260" height="100" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="170" y="70" text-anchor="middle" font-weight="bold">HUMANS</text>
+    <text x="170" y="96" text-anchor="middle">shrink branches</text>
+    <text x="170" y="116" text-anchor="middle" fill="#6b675c">taste &middot; judgement &middot; conviction</text>
+    <rect x="340" y="40" width="260" height="100" fill="#a31621"/>
+    <text x="170" y="70" text-anchor="middle" font-weight="bold" fill="#faf8f2" transform="translate(310,0)">MODELS</text>
+    <text x="480" y="96" text-anchor="middle" fill="#faf8f2">shrink pruning time</text>
+    <text x="480" y="116" text-anchor="middle" fill="#f3efe4">compute &middot; verifiers &middot; negative hints</text>
+  </g>
+</svg>
+<div class="src">After Latent Space&rsquo;s account of the unit-distance disproof, the Navier-Stokes proof, and Gowers&rsquo; hint-sequence model.</div>
+</div>
+<p class="orig-link">Original: <a href="https://latent.space/p/ai-is-getting-good-at-math/">Latent Space</a></p>
+</div>
+
+<div class="story">
+<h3 class="headline"><a href="https://www.interconnects.ai/p/i-expect-rapid-progress-but-not-towards">Rapid Progress, Not Superintelligence</a></h3>
+<div class="byline">Interconnects, Nathan Lambert &mdash; 9 October 2026, read in full</div>
+<p class="lede">Nathan Lambert&rsquo;s bet is deliberately unglamorous: models will be superhuman distributed GPU engineers within a few years, the effective cost of model intelligence will fall near-exponentially, pretraining research in architecture and data selection could be automated in two to three years &mdash; and none of that makes models dramatically different in nature. The acceleration researchers feel is real, but it is an acceleration in infrastructure and engineering capability, not a change in kind.</p>
+<p>The mechanism is verifiability. Training speed, inference cost per answer, tokens per prompt &mdash; these are measurable, optimisable quantities, and agents will soon help optimise the whole stack end to end, squeezing toward the maximum the accelerators allow. That triggers a Jevons paradox for agentic models: as intelligence gets cheaper, demand only grows, because the industry is bottlenecked not on capability but on figuring out better ways to orient and deliver agents. Meta&rsquo;s Muse agent is Lambert&rsquo;s early indicator &mdash; value created by understanding how agents work, not by pushing the frontier. The same logic gives science a cross-field dividend: models are superhuman at crawling literature and connecting sparse networks of researchers who rarely talk, which may herald new discovery or merely accelerate the arc science was already on. And one piece of low-hanging fruit is bluntly fixable: reinforcement-learning data quality, where much of what labs buy is, in researchers&rsquo; own assessment, poor. The ceiling he draws is equally blunt: no economically valuable superhuman traits outside maths and coding, at least on this path. Good ideas, in the coming era, become more valuable than good execution &mdash; because execution is what got cheap.</p>
+<p class="orig-link">Original: <a href="https://www.interconnects.ai/p/i-expect-rapid-progress-but-not-towards">Interconnects</a></p>
+</div>
+
+<div class="story">
+<h3 class="headline"><a href="https://www.oneusefulthing.org/p/30-months-on-the-exponential-in-charts">Thirty Months on the Exponential, in Charts</a></h3>
+<div class="byline">One Useful Thing, Ethan Mollick &mdash; 20 October 2026, read in full</div>
+<p class="lede">Ethan Mollick&rsquo;s second AI book, Co-Existence, arrives thirty months after Co-Intelligence, and the gap between them is the cleanest measure of the period available: in early 2024 there was one undeniably best model in the world, GPT-4. Since then twenty different models have held the lead, all from Anthropic, Google or OpenAI; a hundred and eighty models are now better than GPT-4 was at release, many of them open-weight, and nineteen can run on a modern phone. On the METR long-horizon benchmark, the amount of human work an AI could do with at least a fifty-percent chance of success doubled eight times: from a four-minute task in 2024 to seventeen hours of human work by April 2026 &mdash; and then the benchmark ran out, because METR said it could no longer measure the quantity accurately. Other estimates put it at seventeen weeks or more.</p>
+<div class="chart-box"><div class="chart-title">How long a task AI can do (METR, 50% success from one prompt)</div>
+<svg viewBox="0 0 640 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart: 4 minutes in 2024, 17 hours in April 2026, benchmark exhausted beyond that">
+  <rect x="0" y="0" width="640" height="190" fill="#f3efe4"/>
+  <g font-family="Arial" font-size="12">
+    <text x="30" y="40" font-weight="bold">2024</text>
+    <rect x="120" y="24" width="18" height="28" fill="#6b675c"/><text x="148" y="44">4 minutes</text>
+    <text x="30" y="100" font-weight="bold">Apr 2026</text>
+    <rect x="120" y="84" width="300" height="28" fill="#a31621"/><text x="430" y="104">17 hours</text>
+    <text x="30" y="160" font-weight="bold">Beyond</text>
+    <rect x="120" y="144" width="300" height="28" fill="#ffffff" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="6 4"/><text x="430" y="164">benchmark exhausted; estimates run to 17+ weeks</text>
+  </g>
+</svg>
+<div class="src">METR long-horizon figures as reported by Mollick; the benchmark itself stopped because it could no longer measure the quantity.</div>
+</div>
+<p>Meanwhile the price of a correct answer on his favourite graduate-stump benchmark collapsed from thirty cents to four hundredths of a cent. And yet the frontier is still jagged: long-form writing remains stubbornly weak while maths went from terrible to superhuman in the same period. The working relationship has therefore changed kind, not just degree. Co-Intelligence described centaur work (divided between human and AI) and cyborg work (blended); Co-Existence adds a third: the conjurer, who summons agents, assigns work, and evaluates what comes back. Mollick made this post&rsquo;s charts that way &mdash; an orchestrator agent spinning off subagents, with hand-wavy feedback like &ldquo;make it better&rdquo; that would drive a human team mad, and the system even correcting his own maths. It is the most powerful way to work with AI, and it carries a new risk: losing control over what, exactly, the AI did to get you the result. His answer to that risk is the book&rsquo;s thesis: the human advantages that survive are deep knowledge, wide knowledge, taste, and agency &mdash; knowing what to ask for, and when not to hand it over at all.</p>
+<p class="orig-link">Original: <a href="https://www.oneusefulthing.org/p/30-months-on-the-exponential-in-charts">One Useful Thing</a></p>
+</div>
+
+</div>
+
+<footer>
+<div class="fin">— 30 —</div>
+<p>Edition No. 31 &middot; Built from Rakshit Lodha&rsquo;s X likes and bookmarks, plus the standing Substack pool (Latent Space, Interconnects, One Useful Thing this week).<br>
+Carried over for retry, not covered and not marked used: three videos whose content could not be extracted today &mdash; Joseph Tsar on technical communication, the 55-minute GrokBot session, and the 11-minute Opus harness video &mdash; plus re-shares of stories already covered in earlier editions. They stay in the pile for the next run.</p>
+</footer>
+
+</div>
+</body>
+</html>
