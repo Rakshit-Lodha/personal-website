@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 32</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .front { display:grid; grid-template-columns: 2.1fr 1fr; gap:34px; margin-top:26px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); }
+  .stat .lbl { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); line-height:1.4; margin-top:4px; }
+  .img-frame { margin:20px 0; }
+  .img-frame svg { width:100%; height:auto; display:block; }
+  .img-frame .cap { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; line-height:1.5; }
+  .chart-box { margin:20px 0; }
+  .chart-box svg { width:100%; height:auto; display:block; }
+  .chart-title { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .chart-box .src { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; }
+  .learnings { border:1px solid var(--rule); background:#fff; padding:16px 18px; margin:18px 0; }
+  .learnings h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .learnings ul { padding-left:20px; }
+  .learnings li { margin-bottom:6px; font-size:15.5px; }
+  .takeaway { border-left:4px solid var(--red); padding:10px 14px; background:#fff; margin:18px 0; font-size:16px; }
+  .orig-link { font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); }
+  .orig-link a { color:var(--red); text-decoration:none; }
+  .page-section { margin-top:34px; }
+  .sec-head { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .sec-head .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--red); font-weight:bold; white-space:nowrap; }
+  .sec-head .rule { flex:1; border-top:2px solid var(--ink); }
+  .story { margin-bottom:32px; }
+  .sidebar .digest-box { border:1px solid var(--rule); background:#fff; padding:16px 18px; margin-bottom:18px; }
+  .sidebar .digest-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:10px; }
+  .sidebar .digest-box ol, .sidebar .digest-box ul { padding-left:20px; }
+  .sidebar .digest-box li { margin-bottom:7px; font-size:14.5px; }
+  .sidebar .digest-box li a { color:var(--ink); text-decoration:none; }
+  .sidebar .digest-box li a:hover { color:var(--red); }
+  .sidebar .digest-box p { font-size:14.5px; }
+  hr.section-break { border:none; border-top:4px double var(--ink); margin:36px 0 4px; }
+  .briefs-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .brief { border-top:2px solid var(--ink); padding-top:10px; }
+  .brief h4 { font-size:17px; margin-bottom:4px; }
+  .brief h4 a { color:inherit; text-decoration:none; }
+  .brief h4 a:hover { color:var(--red); }
+  .brief p { font-size:14.5px; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  @media (max-width:760px){ .two-col{grid-template-columns:1fr;} .front{grid-template-columns:1fr;} .briefs-grid{grid-template-columns:1fr;} }
+  footer { border-top:4px double var(--ink); margin-top:40px; padding-top:16px; text-align:center; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); }
+  footer .fin { font-size:22px; font-weight:900; color:var(--ink); margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="masthead">
+  <div class="kicker">Built from @RAKSHITLODHA&rsquo;s likes &amp; bookmarks</div>
+  <h1>The Unread Pile</h1>
+  <div class="tagline">Everything you saved, distilled &mdash; sharp theses, systems, and takeaways. One paper, every morning.</div>
+</div>
+<div class="dateline">
+  <span>Edition No. 32</span>
+  <span>Monday, 26 October 2026</span>
+  <span>20 new saves + 3 Substack picks</span>
+</div>
+
+<div class="front">
+<div class="maincol">
+
+<div class="sec-label">The Lead Story</div>
+<div class="story" id="lead">
+<h2 class="headline"><a href="https://x.com/nikesharora/status/2114372350707986492">Security&rsquo;s Sniper Moment</a></h2>
+<div class="byline">Via <a href="https://x.com/nikesharora">Nikesh Arora</a> &mdash; his three-part thread, read in full</div>
+
+<p class="lede">After a week of vulnerabilities in internet-facing software and coding repositories, plus agent behaviour that alarmed even the security industry, Palo Alto Networks&rsquo; chief executive wrote the sentence that frames this whole edition: no single security solution works. The thread is not a product pitch. It is an admission that the economics of attack and defence have flipped &mdash; and that the flip has a name. Attacks are no longer brute force. They are a sniper moment: one precise shot, taken from far away, by an agent that costs almost nothing to fire.</p>
+
+<p>Part one is the near term, and it is grim in a practical way. Vulnerability discovery will continue, patches will remain hard to deploy at speed, and the answer is a hybrid: patch directly where you can, and virtually patch &mdash; shield the hole at the network or application layer &mdash; where you cannot. Around that, Arora puts what he calls modern frontier defenders: the network, cloud, web-application-firewall and endpoint layers, rebuilt for a world in which the attacker is automated. The unglamorous implication is that environments will keep being taken down to patch, because the alternative is leaving a known hole open while an agent somewhere probes for it.</p>
+
+<div class="img-frame">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: cheap agent attacks versus expensive defence">
+  <rect x="0" y="0" width="640" height="300" fill="#f3efe4"/>
+  <text x="320" y="26" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">THE ASYMMETRY ARORA DESCRIBES</text>
+  <g font-family="Arial">
+    <text x="160" y="52" text-anchor="middle" font-size="12" font-weight="bold">THE ATTACKER</text>
+    <rect x="40" y="66" width="240" height="44" fill="#a31621"/><text x="160" y="94" text-anchor="middle" font-size="12" font-weight="bold" fill="#faf8f2">ONE AGENT, ONE PRECISE SHOT</text>
+    <rect x="40" y="126" width="240" height="44" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="160" y="154" text-anchor="middle" font-size="12">TOKEN COST: NEAR ZERO</text>
+    <text x="160" y="196" text-anchor="middle" font-size="12" fill="#a31621">the sniper moment</text>
+    <text x="160" y="216" text-anchor="middle" font-size="11" fill="#6b675c">not brute force &mdash; one good shot</text>
+    <text x="480" y="52" text-anchor="middle" font-size="12" font-weight="bold">THE DEFENDER</text>
+    <rect x="360" y="66" width="240" height="44" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="480" y="94" text-anchor="middle" font-size="12" font-weight="bold">A SWARM, ON EVERY LAYER</text>
+    <rect x="360" y="126" width="240" height="44" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="480" y="154" text-anchor="middle" font-size="12">PATCH + VIRTUAL PATCH + MONITOR</text>
+    <text x="480" y="196" text-anchor="middle" font-size="12" fill="#1a1a1a">defender swarms cannot match it</text>
+    <text x="480" y="216" text-anchor="middle" font-size="11" fill="#6b675c">on token economics or architecture</text>
+  </g>
+</svg>
+<div class="cap">Arora&rsquo;s medium-term warning: defender swarms cannot match agent-launched attacks on token economics or on current architectures. Defence has to be re-architected, not just scaled up.</div>
+</div>
+
+<p>Part two is the re-architecture. Correct security-operations-centre design, modern orchestration for security operations, and perimeter stacks that are modernised and platformised rather than bolted together. The point is architectural, not budgetary: adding more of the same defenders does not close a gap created by a different cost structure. Part three is the warning that ties the thread to everything else in this paper. AI deployments are, in his phrase, the wild wild west: model capability is outpacing the security products meant to govern it, and AI security is itself the new attack surface. His checklist is worth copying into any team deploying agents: check whether your coding harnesses are secure, validate business outcomes rather than demos, test the actual use cases, guardrail the agentic deployment, and add a second set of eyes for drift, compliance and verifiability. A second set of eyes is not bureaucracy. It is the only part of the system that is not the system.</p>
+
+<div class="pullquote">No single security solution works.<span class="attr">Arora&rsquo;s opening verdict</span></div>
+
+<p>Read against yesterday&rsquo;s lead &mdash; fold the subagents back into one loop &mdash; the thread adds the missing constraint. A single loop is easier to reason about, but it is also a single thing to shoot at, and the shooter now pays in tokens while you pay in headcount, downtime and incident response. The through-line of this edition is that several cost curves flipped at once: building software got cheap, attacking software got cheaper, and the things that stayed expensive are trust, verification and judgement. The rest of the paper is variations on that theme.</p>
+
+<div class="learnings"><h4>Learnings</h4><ul>
+<li>Patch directly where you can; virtually patch where you cannot &mdash; and expect environments to keep going down for patching.</li>
+<li>Defender swarms do not match agent attacks on token economics; the SOC, the orchestration layer and the perimeter stack need re-architecting, not more budget.</li>
+<li>For any agentic deployment, add a second set of eyes for drift, compliance and verifiability &mdash; the part of the system that is not the system.</li>
+<li>Validate business outcomes, not demos, and test the actual use cases before you trust the harness.</li>
+</ul></div>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Audit one agentic deployment this week against Arora&rsquo;s five checks: harness security, outcome validation, use-case testing, guardrails, and a second set of eyes. The cheapest item on that list is the one most teams skip.</div>
+<p class="orig-link">Original: <a href="https://x.com/nikesharora/status/2114372350707986492">Nikesh Arora&rsquo;s thread</a></p>
+</div>
+
+</div>
+<div class="sidebar">
+<div class="digest-box"><h4>In this edition</h4><ol>
+<li><a href="#lead">Security&rsquo;s sniper moment</a></li>
+<li><a href="#tv">Your TV is not the product. You are.</a></li>
+<li><a href="#ambitious">Be more ambitious with software</a></li>
+<li><a href="#evals">Evals are the hottest topic in 2026</a></li>
+<li><a href="#pomerado">Turn any website into an API</a></li>
+<li><a href="#skill">Learn any skill in a day</a></li>
+<li><a href="#trust">Winning in a trust recession</a></li>
+<li><a href="#trusttalk">How do you trust it?</a></li>
+<li><a href="#managed">From token APIs to managed agents</a></li>
+<li><a href="#briefs">The briefs</a></li>
+<li><a href="#substacks">From the Substacks</a></li>
+</ol></div>
+<div class="digest-box"><h4>The through-line</h4><p style="font-size:13.5px;">Building got cheap, attacking got cheaper, and the TV got nearly free &mdash; but trust, verification and judgement stayed expensive. This edition is about what to do with the expensive parts.</p></div>
+</div>
+</div>
+
+<hr class="section-break">
+<div class="page-section">
+<div class="sec-head"><span class="kicker">The Cheap Hardware Issue</span><span class="rule"></span></div>
+
+<div class="story" id="tv">
+<h3 class="headline"><a href="https://x.com/Tristan0x/status/2114311011561812476">Your TV Is Not the Product. You Are.</a></h3>
+<div class="byline">Via <a href="https://x.com/Tristan0x">Tristan0x</a>, <a href="https://x.com/log4j">log4j</a> and <a href="https://x.com/kingofknowwhere">kingofknowwhere</a> &mdash; the smart-TV privacy cluster, read in full</div>
+<p class="lede">If you have ever wondered why a fifty-inch television costs less than a decent dinner for two, this week&rsquo;s most-shared privacy thread has the answer, and it is not manufacturing efficiency. A rooted Samsung TV was found running an always-on microphone, automatic content recognition, geolocation, network mapping and ad targeting, with user profiles shared with hundreds of partners. The television is cheap because the television is not what is being sold.</p>
+<p>The mechanism is automatic content recognition, or ACR: the TV screenshots or fingerprints what is on screen &mdash; Samsung roughly every half second, LG roughly every ten milliseconds, including content coming in over HDMI from other devices &mdash; and matches it against a database to learn what you watch. The rooted TV also classified the audio it heard before reporting back, and a second post in the cluster notes that models without a microphone still find ways to listen in effect. The economics close the loop: TV prices have fallen about ninety-seven percent since 2000, one manufacturer lost money on TV sales in a quarter while making over a hundred million dollars in gross profit from ads and viewing data, and regulators have already acted &mdash; a multi-million-dollar federal settlement in 2017 and a state action against five major brands over ACR.</p>
+<div class="img-frame">
+<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: what a smart TV collects and where it goes">
+  <rect x="0" y="0" width="640" height="260" fill="#f3efe4"/>
+  <text x="320" y="26" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">WHAT THE TV KNOWS</text>
+  <g font-family="Arial" font-size="12">
+    <rect x="40" y="44" width="170" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="125" y="69" text-anchor="middle" font-weight="bold">WHAT YOU WATCH</text>
+    <rect x="235" y="44" width="170" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="69" text-anchor="middle" font-weight="bold">WHAT YOU HEAR</text>
+    <rect x="430" y="44" width="170" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="515" y="69" text-anchor="middle" font-weight="bold">YOUR NETWORK</text>
+    <text x="320" y="112" text-anchor="middle" font-size="22" fill="#a31621">&#8595;</text>
+    <rect x="170" y="128" width="300" height="44" fill="#a31621"/><text x="320" y="156" text-anchor="middle" font-weight="bold" fill="#faf8f2">ACR FINGERPRINT + PROFILE</text>
+    <text x="320" y="200" text-anchor="middle" font-size="22" fill="#a31621">&#8595;</text>
+    <text x="320" y="224" text-anchor="middle" font-size="12">SOLD TO ADVERTISERS &amp; HUNDREDS OF PARTNERS</text>
+  </g>
+</svg>
+<div class="cap">The thread&rsquo;s model of the business: the hardware is sold near cost, and the viewing data pays for it many times over.</div>
+</div>
+<p>The thread is also a practical guide, which is why it travelled. Turn off ACR in settings &mdash; Samsung&rsquo;s Viewing Information Services, LG&rsquo;s Live Plus, Vizio&rsquo;s Viewing Data, Roku&rsquo;s TV-input information, Sony and Google TV&rsquo;s interactive TV features &mdash; opt out of interest-based ads, reset the advertising ID, decline optional privacy agreements, turn off voice recognition, delete unused apps, put smart devices on a separate guest network, and filter at the DNS level with tools such as NextDNS or Pi-hole. None of this is exotic. That is the point: the surveillance is not hidden in a basement server, it is a settings toggle most owners never open.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Tonight, open one TV&rsquo;s privacy settings and turn off content recognition and voice data. It takes two minutes, and it is the rare privacy fix that is a toggle rather than a lifestyle.</div>
+<p class="orig-link">Originals: <a href="https://x.com/Tristan0x/status/2114311011561812476">Tristan0x&rsquo;s guide</a> &middot; <a href="https://x.com/log4j/status/2113781968601055366">log4j&rsquo;s rooted-TV findings</a> &middot; <a href="https://x.com/kingofknowwhere/status/2114272243291480458">kingofknowwhere&rsquo;s audio-classification post</a></p>
+</div>
+
+<div class="story" id="ambitious">
+<h3 class="headline"><a href="https://danluu.com/ambitious/">Be More Ambitious With the Software You Build</a></h3>
+<div class="byline">Via <a href="https://x.com/tqbf">Thomas Ptacek</a> &mdash; Dan Luu&rsquo;s essay, read in full</div>
+<p class="lede">Dan Luu&rsquo;s argument starts from a cost model most builders have not updated. AI coding tools have changed what a small effort can produce so radically that projects once dismissed as impractical &mdash; a new compiler because compilation is slow, a super-specialised tool for one workflow &mdash; now reach working quality in hours rather than a year. The barrier, he says, is mostly psychological: people still carry a pre-agentic cost model and treat ambition as indulgence. He prefers &ldquo;can&rdquo; to &ldquo;should&rdquo;, but the point is capability, not exhortation.</p>
+<p>The essay distinguishes two kinds of ambition: projects larger than was reasonably feasible before, and super-specialised tools that were possible before but not worth building. Its method is deliberately unglamorous: build small, personal, self-checking tools; test and benchmark them reasonably; accept working quality rather than product quality; and set up partially self-checking systems even in messy domains, on the analogy with fuzzing and property-based testing, which turn out to work in more places than their reputation suggests. The central case is a Rust reimplementation of Postgres tooling whose thorough testing surfaced real upstream bugs &mdash; numerical, format-cache, cryptographic, memory-safety and overflow bugs &mdash; so that even if the project itself failed, the ecosystem would be durably better. Luu&rsquo;s own spare-time work follows the same pattern: a faster regex engine, a ripgrep fork, a faster Rust build setup, and a board-game AI built from no prior knowledge to superhuman play in about five hours.</p>
+<p>The counter-argument gets a fair hearing, and it matters. A critic quoted in the appendix warns that most people should be less ambitious with AI-built software, because many problems lack clear pass/fail criteria and people struggle to reason about giant black boxes they can constrain but not understand. Luu partly agrees: AI speed-ups can add messy, overfitted code that does not generalise, especially under a manager pushing random optimisation. His answer is a distinction, not a dismissal &mdash; other people producing barely working output is no reason for an individual builder to do the same &mdash; and a warning against indiscriminate ambition: spending heavily on a tool makes little sense when model and harness capabilities change so fast that it may be obsolete in months. Ambition, in this essay, is disciplined: attempt the previously unreasonable thing, but keep the verification loop tight, because the gap grows between what a model can implement and what it can verify without substantial human checking.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Pick one tool you dismissed as not worth building, and give it an evening with an agent. If it reaches working quality, keep it; if the verification cost exceeds the value, you have learned the real price of ambition.</div>
+<p class="orig-link">Original: <a href="https://danluu.com/ambitious/">Dan Luu&rsquo;s essay</a></p>
+</div>
+
+<div class="story" id="evals">
+<h3 class="headline"><a href="https://aiengg.dev/blog/evals-are-the-hottest-topic-in-2026">Evals Are the Hottest Topic in 2026</a></h3>
+<div class="byline">Via <a href="https://x.com/gkcs_">Gaurav Sen</a> &mdash; his AI Engg post, read in full</div>
+<p class="lede">The change between 2025 and 2026, in Gaurav Sen&rsquo;s account, is that companies now actually expect reliable AI applications &mdash; which means the old software-engineering questions return: are there unit tests, and can improvement be measured? Evals are that discipline for AI systems. Without them, teams work reactively, guessing and checking after a user complaint, because a language model&rsquo;s varying answers make it impossible to tell whether a prompt is wrong or a single answer was a mistake. The result is visible everywhere: few agentic systems reach production, and fewer make money.</p>
+<p>Sen&rsquo;s framework starts with a rule: evaluate only what can be measured and changed. Every system has tunable components, and evals should target those components and the system&rsquo;s actual capabilities. For retrieval systems, that means retrieval and answer quality. For agentic systems, outcomes come first &mdash; whether a task passes a given number of times out of a hundred &mdash; but a bare pass-or-fail score is too brutal, so process and safety are evaluated too: did the agent call the right tools, did it hallucinate, were guardrails followed? The human method is the gold standard and the bottleneck: a domain expert writes twenty to fifty common or important user queries without reading code, the engineer runs them and records responses, the expert comments, the engineer changes one tunable part, and the loop repeats until the expert judges the system deployable. New customer questions and downvoted answers feed back in as new scenarios, so the suite keeps growing.</p>
+<div class="chart-box"><div class="chart-title">The judge panel, and how it is debiased</div>
+<svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: LLM judge panel with three dimensions and three debiasing fixes">
+  <rect x="0" y="0" width="640" height="240" fill="#f3efe4"/>
+  <g font-family="Arial" font-size="12">
+    <rect x="40" y="30" width="170" height="60" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="125" y="56" text-anchor="middle" font-weight="bold">RELEVANCE</text><text x="125" y="76" text-anchor="middle" fill="#6b675c">on topic, to the point</text>
+    <rect x="235" y="30" width="170" height="60" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="56" text-anchor="middle" font-weight="bold">GROUNDEDNESS</text><text x="320" y="76" text-anchor="middle" fill="#6b675c">right references cited</text>
+    <rect x="430" y="30" width="170" height="60" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="515" y="56" text-anchor="middle" font-weight="bold">COHERENCE</text><text x="515" y="76" text-anchor="middle" fill="#6b675c">good flow, not bloated</text>
+    <text x="320" y="118" text-anchor="middle" font-size="12" font-weight="bold">ANY JUDGE FAILS &rarr; THE ANSWER FAILS</text>
+    <rect x="40" y="136" width="170" height="60" fill="#a31621"/><text x="125" y="162" text-anchor="middle" font-weight="bold" fill="#faf8f2">LENGTH BIAS</text><text x="125" y="182" text-anchor="middle" fill="#faf8f2">cap response size</text>
+    <rect x="235" y="136" width="170" height="60" fill="#a31621"/><text x="320" y="162" text-anchor="middle" font-weight="bold" fill="#faf8f2">POSITION BIAS</text><text x="320" y="182" text-anchor="middle" fill="#faf8f2">judge in both orders</text>
+    <rect x="430" y="136" width="170" height="60" fill="#a31621"/><text x="515" y="162" text-anchor="middle" font-weight="bold" fill="#faf8f2">SELF-PREFERENCE</text><text x="515" y="182" text-anchor="middle" fill="#faf8f2">jury across model families</text>
+  </g>
+</svg>
+<div class="src">Sen&rsquo;s LLM-as-judge design: three single-dimension judges, each returning a binary score, with three named biases and a fix for each.</div>
+</div>
+<p>Scale comes from using a language model as judge, because string matching cannot work when the same correct answer can be worded many ways. Each judge is scoped to one dimension and returns a binary score; if any judge fails the answer, the answer fails. Sen is candid about the circularity &mdash; the same intelligence limits apply to judge and judged &mdash; but argues a different system prompt gives the judge a different goal, so one model can judge another to some extent. The judges themselves have human-like biases, and each gets a fix: length bias by capping response size, position bias by judging each pair in both orders, and self-preference by using a jury drawn from different model families. Finally, deployment is not the end: answers can worsen through drift even when nobody changes the code, so production traffic is sampled &mdash; about one request in a hundred &mdash; sent to the judges, and an alert fires when scores fall below a threshold. A bot that passed its eval suite can still fail in production, and the combination of user downvotes with low judge scores is how you find out.</p>
+<p>The companion post in the same cluster is a free two-hour course on harness engineering, shared by its author: harness engineering from scratch, building a first agent the right way, eval engineering with a chief-of-staff agent, and loop engineering. Read together, the two posts make one argument: the harness is the product now, and the eval suite is how you know whether it works.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Before your next agent ships, write twenty user queries, run them, and have a domain expert mark the answers. That spreadsheet is your eval suite, and it is worth more than a new prompt.</div>
+<p class="orig-link">Originals: <a href="https://aiengg.dev/blog/evals-are-the-hottest-topic-in-2026">Sen&rsquo;s evals post</a> &middot; <a href="https://x.com/0xCodila/status/2114014120064217157">the free harness-engineering course</a></p>
+</div>
+
+<div class="story" id="pomerado">
+<h3 class="headline"><a href="https://x.com/akshay_manglik/status/2114435444587065486">Pomerado: Turn Any Website Into an API</a></h3>
+<div class="byline">Via <a href="https://x.com/akshay_manglik">Akshay Manglik</a> &mdash; the launch thread and video captions, read in full</div>
+<p class="lede">Computer use is slow, expensive and unreliable &mdash; but for agents that need to act on the web, where most sites have no public API and you have to log in, it has been the only way. Pomerado, a YC F26 company launched this morning, claims to end that trade-off: a platform that turns any website into an API or MCP endpoint in under thirty minutes, from a natural-language prompt. The video in the launch post carries captions, so this story is built from what the video actually says, not just the announcement text.</p>
+<p>The mechanism is the interesting part. Pomerado&rsquo;s agents scan the website and translate the task into HTTP calls or Playwright scripts, producing a deterministic API rather than a model watching a screen. Deterministic is doing all the work in that sentence: a scripted call costs a fraction of a token-burning visual loop, and it does not get confused by a moved button. When the site does change &mdash; a date picker moves, a button is renamed &mdash; the API detects the change on its next run, repairs the step itself, and finishes the run, with no human in the loop. Hosting, scaling, authentication, secure credential storage and automatic two-factor handling are all Pomerado&rsquo;s problem; the agent never sees secrets.</p>
+<div class="stat-strip">
+<div class="stat"><div class="num">2&ndash;4&times;</div><div class="lbl">Faster than browser agents, per the launch</div></div>
+<div class="stat"><div class="num">10&ndash;1000&times;</div><div class="lbl">Cheaper than browser agents, per the launch</div></div>
+<div class="stat"><div class="num">+30%</div><div class="lbl">More reliable, per the launch</div></div>
+<div class="stat"><div class="num">$0.03</div><div class="lbl">vs $41.01 on the demo onboarding task</div></div>
+</div>
+<p>The demo number deserves a sceptical eye, because it is doing the persuading. On the video&rsquo;s on-screen comparison &mdash; onboarding two new employees across HR, IT, courses and library systems &mdash; Pomerado took eight minutes and sixteen seconds and cost under three cents, against Codex computer use at twenty-one minutes and forty-one dollars. The benchmark behind the headline claims covers thirty real-world tasks across twenty enterprise applications, against Astra, Muse and Instinct as well as Codex. Those are vendor numbers, and the honest read is that the direction is clearly right &mdash; deterministic beats visual for repeatable tasks &mdash; while the exact multiples should wait for independent replication. The open-source core, MIT-licensed, lets anyone host their own endpoints locally, which is the part that makes the claim checkable rather than merely marketable.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; If an agent of yours drives a browser for a repeatable task, that task is a candidate for a deterministic API. The question is no longer whether browser use works, but whether you can afford to keep paying for it.</div>
+<p class="orig-link">Originals: <a href="https://x.com/akshay_manglik/status/2114435444587065486">the launch thread and video</a> &middot; <a href="https://pomerado.ai/">pomerado.ai</a> &middot; <a href="https://github.com/Pomerado/pomerado">GitHub repo</a></p>
+</div>
+
+<div class="story" id="skill">
+<h3 class="headline"><a href="https://x.com/OGMayank/status/2114066593194119482">Learn Any Skill in a Day (No, Not Master It)</a></h3>
+<div class="byline">Via <a href="https://x.com/OGMayank">Mayank</a> &mdash; his X long-form article, read in full</div>
+<p class="lede">Mayank&rsquo;s article opens by refusing its own headline. Nobody becomes world-class in twenty-four hours, and anyone promising that is selling a fantasy. The realistic aim of a single day is narrower and more useful: compress the beginning of the learning curve, understand the fundamentals, perform a basic version of the skill, identify weaknesses, and leave with a clear path for improvement. Information is not the same as ability, and the day&rsquo;s job is to convert the first into the second.</p>
+<p>The method has eight moves, and the discipline is in the order. First, define what you will be able to do by the end of the day, not what you will know &mdash; a clear three-hundred-word post, a small working programme, a thirty-second edited video. Second, find the twenty percent that produces most of the result: for a compelling post, what the reader cares about, one clear idea, a specific example, no unnecessary words, a reason to keep reading. Third, study one good example as a student, not a consumer: what happens first and next, which decisions make it work, what was left out, what is essential rather than decorative. Fourth, learn only enough theory to start practising, on a timer; research after that point is usually avoidance of being bad at something. Fifth, build something before you feel ready, because a bad first attempt is the material you improve. Sixth, practise deliberately, not repetitively: isolate one weakness, fix it, compare, repeat &mdash; writing five alternative openings for a weak one, rather than writing a hundred mediocre posts. Seventh, get feedback before you get comfortable, asking observable questions (what is the weakest part, where does it confuse) rather than whether it is good. Eighth, stop rewatching tutorials and test what you remember: close the resource, explain or perform from memory, check what was missed.</p>
+<div class="stat-strip">
+<div class="stat"><div class="num">1 hr</div><div class="lbl">Define the outcome, study fundamentals</div></div>
+<div class="stat"><div class="num">1 hr</div><div class="lbl">Analyse one strong example</div></div>
+<div class="stat"><div class="num">2 hrs</div><div class="lbl">Build the first version, rough is fine</div></div>
+<div class="stat"><div class="num">1 hr</div><div class="lbl">Find the biggest weakness, fresh eyes</div></div>
+</div>
+<div class="stat-strip">
+<div class="stat"><div class="num">2 hrs</div><div class="lbl">Practise, get feedback, improve</div></div>
+<div class="stat"><div class="num">1 hr</div><div class="lbl">Test from memory, document next steps</div></div>
+<div class="stat"><div class="num">8 hrs</div><div class="lbl">Total focused time, breaks excluded</div></div>
+<div class="stat"><div class="num">1+3+7</div><div class="lbl">Follow-up days: next day, day 3, week 1</div></div>
+</div>
+<p>The schedule that ties it together assumes about eight focused hours: define and study, analyse an example, build, find the weakness, practise with feedback, then test from memory and write down what you can now do, what is still difficult, and what to practise next. The day ends with a result that can be inspected, not a folder of saved resources. And the day after matters: repeat the task the next day without the tutorial, test again three days later, attempt a harder version after a week, evaluate after two weeks. The through-line to the rest of this edition is exact: a first attempt gives you something to improve, and improvement is a verification problem &mdash; feedback, comparison, retrieval &mdash; not a consumption problem. Watching a hundred hours of tutorials and freezing when asked to build something is the learning version of shipping an unevaluated agent.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Pick one skill you have been putting off, define one thing you will produce today, and before you sleep make something that did not exist this morning. That is the whole system.</div>
+<p class="orig-link">Original: <a href="https://x.com/OGMayank/status/2114066593194119482">Mayank&rsquo;s article</a></p>
+</div>
+
+<div class="story" id="trust">
+<h3 class="headline"><a href="https://x.com/thenathanlopes/status/2113931777928737275">Winning in a Trust Recession</a></h3>
+<div class="byline">Via <a href="https://x.com/thenathanlopes">Nathan Lopes</a> &mdash; his X long-form article, read in full</div>
+<p class="lede">Buyers currently trust almost nobody, and Nathan&rsquo;s article explains why that is an opportunity rather than a complaint. Inboxes are full of AI cold emails opening with flattery, feeds are full of posts that sound as if the same chatbot wrote them, and every agency claims it will multiply pipeline several times over in thirty days. Buyers have been burned enough that their default answer to anyone new is no. Attention is cheap and everywhere; trust has become expensive. Founders who learn to build trust deliberately will take a large share of their market over the next few years, because trust, in his framing, is not random &mdash; it has a psychology, and it can be built into content on purpose.</p>
+<p>The psychology has four parts. First, familiarity: the mere exposure effect means people tend to like what they have seen often, even without conscious attention &mdash; which reframes consistency entirely, since posting regularly is not primarily for the algorithm but so people become familiar with you and then like you more. Second, the quantity of exposure: a rule of thumb from buying-decision research puts it at around seven hours with a brand, across eleven touchpoints, in four different places, before trust is enough to buy. The exact numbers matter less than the point: one great post or one clever message will not do it. Third, parasocial bonding: once someone has seen a founder enough, a one-sided bond forms in which the follower feels as if they know the founder, though they have never spoken &mdash; which is why some founders get messages beginning with &ldquo;I&rsquo;ve been following you for ages&rdquo; and close in one call, while others chase cold leads for weeks. Crucially, that bond forms with a person, not a logo or a list of tips. Fourth, personal branding as the differentiator: proof is now common &mdash; every agency has screenshots, every coach has testimonials &mdash; so what separates one founder from five others with the same screenshots is the founder: stories, opinions, interests. Tactical posts show competence; personal posts make people like you. Both are needed.</p>
+<div class="chart-box"><div class="chart-title">The 7 / 11 / 4 rule of trust</div>
+<svg viewBox="0 0 640 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: seven hours, eleven touchpoints, four places">
+  <rect x="0" y="0" width="640" height="180" fill="#f3efe4"/>
+  <g font-family="Arial" font-size="13">
+    <rect x="40" y="40" width="170" height="100" fill="#a31621"/><text x="125" y="84" text-anchor="middle" font-weight="bold" fill="#faf8f2" font-size="30">7</text><text x="125" y="112" text-anchor="middle" fill="#faf8f2">hours with the brand</text>
+    <rect x="235" y="40" width="170" height="100" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="84" text-anchor="middle" font-weight="bold" font-size="30">11</text><text x="320" y="112" text-anchor="middle">touchpoints</text>
+    <rect x="430" y="40" width="170" height="100" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="515" y="84" text-anchor="middle" font-weight="bold" font-size="30">4</text><text x="515" y="112" text-anchor="middle">different places</text>
+  </g>
+</svg>
+<div class="src">Nathan&rsquo;s rule of thumb for when a buyer trusts a brand enough to buy; the numbers matter less than the shape &mdash; time, repetition, and multiple channels.</div>
+</div>
+<p>The acceleration plan is to own the relationship: email first, because a rented audience can vanish with an algorithm change, with every lead magnet feeding a sequence of two to three emails a week that break objections, share proof and document the founder&rsquo;s life and business; and a team-wide media operation second, where the head of sales, engineers and customer-success lead all post, multiplying familiar faces and touchpoints. The article is candid about why most founders fail at this: the workload is a full-time job on top of running a company, so most start strongly and quit by week three &mdash; the exact opposite of what trust requires. That failure mode is the opportunity. In a trust recession, the founder still posting in week twelve is not competing with the founder who quit in week three; they are the only one left in the buyer&rsquo;s feed.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; If you sell anything, count your touchpoints: are buyers meeting you in four places, eleven times, for hours &mdash; or once, in a cold email? The gap between those two is your pipeline.</div>
+<p class="orig-link">Original: <a href="https://x.com/thenathanlopes/status/2113931777928737275">Nathan&rsquo;s article</a></p>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section">
+<div class="sec-head"><span class="kicker">The Talks, Transcribed</span><span class="rule"></span></div>
+<p style="margin-bottom:18px;">Two videos carried over from earlier editions because their content could not be extracted now have captions on X, so both are covered here from what was actually said &mdash; not from their post text. Together they are the practical half of this edition&rsquo;s argument: trust is the scarce resource, and the way you earn it from agents is verification, constraints, and managed infrastructure.</p>
+
+<div class="story" id="trusttalk">
+<h3 class="headline"><a href="https://x.com/akarixbt/status/2114004018557080054">How Do You Trust It?</a></h3>
+<div class="byline">Via <a href="https://x.com/akarixbt">akari</a> &mdash; Lauren Tan&rsquo;s 55-minute talk, captioned on X, summarised in full</div>
+<p class="lede">The central question of Lauren Tan&rsquo;s talk &mdash; she is a software engineer at SpaceXAI, recounting her earlier work at Cursor &mdash; is the one this whole edition keeps circling: how do you trust an agent? Especially for an engineer who has written code for a long time, agents that guess or hallucinate confidently, and claim to have found a problem that is not the real problem, destroy trust. And without trust you cannot get the most from agents. Her management parallel is exact: a manager who does not trust a team ends up watching over shoulders and checking work, which does not scale. The same applies to agents.</p>
+<p>The trust curve she describes is earned, not granted. Early on she was heavily in the loop with one or a handful of agents, constantly watching and prompting, unable to parallelise. Over five months she climbed it: a first month that was unproductive while learning the codebase, then a month shipping a thousand pull requests, then nearly eight hundred by the twelfth of the current month, with agents now auto-merging and roughly twenty pull requests already landed and good on review when she wakes up. The mechanism that made that climb possible is verification, which she calls the most important skill: the ability for an agent to run the code, take traces or heap snapshots, open a simulator, run the application as users see it, and run tests. Verification does not guarantee good code, but it guarantees at least correct code, and that is a large step towards trust. Her worked example is the agents window at Cursor, a React application with a tight launch deadline in her first week, where the agent confidently misdiagnosed a flame graph. Without a verification tool, the human becomes the bottleneck: tell the agent, find code, run locally, screenshot console errors back, repeat in a loop.</p>
+<p>Skills, in her account, are built from failures. Her first was a control skill for driving the application programmatically through the Chrome DevTools protocol and Apple utilities. The missing piece was a feature map: the agent could run traces but had no idea what the agents window was, and flailed trying to reach features. A feature map teaches the agent, from the user&rsquo;s point of view, how to reach every feature and sub-feature, so that even low-quality user reports &mdash; often only a screenshot plus question marks &mdash; can be mapped to features. Another skill came from watching an agent confidently name code that was not actually affected, without reading the code that should have been affected: in substance, stop guessing, search, look up code, use tools. Evals are the unit tests for skills: a rubric, sub-agents spawned in directories named so the evaluated agent does not know it is being evaluated, run across many models, with a judge agent of a different model cross-checking to reduce bias, looped until everything scores ten out of ten.</p>
+<div class="img-frame">
+<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: hard layers versus soft layers in agent constraints">
+  <rect x="0" y="0" width="640" height="260" fill="#f3efe4"/>
+  <text x="320" y="26" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">HARD LAYERS HOLD; SOFT LAYERS SLIP</text>
+  <g font-family="Arial" font-size="12">
+    <text x="160" y="52" text-anchor="middle" font-weight="bold">HARD, ENFORCED</text>
+    <rect x="40" y="64" width="240" height="40" fill="#a31621"/><text x="160" y="89" text-anchor="middle" font-weight="bold" fill="#faf8f2">CI CHECKS &amp; LINT RULES</text>
+    <rect x="40" y="112" width="240" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="160" y="137" text-anchor="middle">IMPORT BLOCKING</text>
+    <rect x="40" y="160" width="240" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="160" y="185" text-anchor="middle">FEATURE DIRECTORIES</text>
+    <text x="480" y="52" text-anchor="middle" font-weight="bold">SOFT, FORGOTTEN</text>
+    <rect x="360" y="64" width="240" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="480" y="89" text-anchor="middle">RULES IN PROMPTS</text>
+    <rect x="360" y="112" width="240" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="480" y="137" text-anchor="middle">SKILLS</text>
+    <rect x="360" y="160" width="240" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="480" y="185" text-anchor="middle">REVIEW-BOT SUGGESTIONS</text>
+  </g>
+  <text x="320" y="224" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">Agents forget soft layers. Layer them, but never rely on them alone.</text>
+</svg>
+<div class="cap">Tan&rsquo;s &ldquo;Dune&rdquo; architecture: hard layers enforced by CI, soft layers layered on top but never trusted alone. Every human review comment enforcing a constraint is a code smell to be turned into a hard rule.</div>
+</div>
+<p>The architecture that results, codenamed Dune, is deliberately conventional, because agents love to copy existing patterns. A feature lives in a single directory, with all its code in one place, so an agent does not hunt around the codebase. The design principle is to design for the least capable agent, so the shortest path is also the best path. Hard layers &mdash; code structure, feature organisation, import blocking, CI checks, lint rules &mdash; are enforced; soft layers &mdash; rules, skills, a bug-review bot &mdash; are layered but never relied on alone, because agents forget or inconsistently apply them. Her worst case is being stuck in code review where constraints are enforced only by a human reviewer: every such comment should become a hard rule, a lint rule, a CI failure, or a categorical elimination of the problem. The payoff, honestly stated, is an ROI question: a lot of tokens are spent up front, and she works at a lab with unlimited tokens. But when the codebase reaches the point where even less capable agents do an excellent job, the payoff extends to product managers, designers and engineers unfamiliar with the codebase, who can contribute sustainably. Tokens are expensive and nothing is free &mdash; which is why the talk ends on optimising for the sweet spot of cost versus intelligence, rather than building the biggest, most expensive model.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Do not ask whether you trust your agents. Ask what verifies them: a skill that runs the code as users see it, an eval that scores the skill, and a hard rule where a human reviewer currently stands.</div>
+<p class="orig-link">Original: <a href="https://x.com/akarixbt/status/2114004018557080054">akari&rsquo;s video post</a> (captions on X; the post text&rsquo;s GrokBot claims are not the talk&rsquo;s content and are not repeated here)</p>
+</div>
+
+<div class="story" id="managed">
+<h3 class="headline"><a href="https://x.com/hayatomaruu/status/2113719510985269442">From Token APIs to Managed Agents</a></h3>
+<div class="byline">Via <a href="https://x.com/hayatomaruu">hayato</a> &mdash; Gagan Bhat&rsquo;s 11-minute talk, captioned on X, summarised in full</div>
+<p class="lede">If Tan&rsquo;s talk is about earning trust in agents, Gagan Bhat&rsquo;s talk &mdash; he is a member of technical staff at Anthropic &mdash; is about what the industry is building so you do not have to earn it alone. The talk traces three stages of agentic interfaces. First, the raw token API: tokens in, tokens out, and the developer building their own agentic loop, context management, tool execution, session state, recovery and observability. Second, the agent SDK: the loop, context management, tool execution and sandbox provided, but hosting, scaling, sessions, state and observability still yours to reach production. Third, managed agents: the developer supplies the task, the agent configuration and any custom tool logic, and the provider handles the harness, the tool runtime and sandbox, session state and persistence, secure credential storage, hosting, scaling and observability.</p>
+<p>The architecture change is a separation: the brain is separated from the hands. Previously the loop and tool execution lived in the same container, creating latency on start and a single point of failure. In managed agents the loop runs server-side in the cloud, events go in and the user directs the loop, and the tool sandbox spins up only when needed &mdash; which allows scaling, faster warm starts, lower latency and higher reliability. The user can close the laptop and the agent keeps running. Three resources organise everything: persona and capabilities &mdash; what the agent is, its model, prompts, tools, servers and skills, versioned and immutable so they can be iterated and rolled back; infrastructure and guardrails &mdash; the container, the networking boundary, the allowed hosts; and sessions &mdash; an agent configuration plus an environment, spun up as a session, speaking in events, persisted in the cloud so multi-session persistence is simple.</p>
+<p>The worked example is an SRE-type agent for a checkout-service incident: describe the tools, model and name and persist them, define the environment and networking boundary, mount data such as a log file or skills, start a session reusing the agent and environment, and let the cloud agent investigate in a real sandbox and find a root cause. The same agent and environment can then ship in a product, with scalability built in. The feature list that follows reads like a product roadmap for the whole field: sub-agents in a hierarchy, memory that learns from sessions over time, &ldquo;dreaming&rdquo; that learns from transcripts and improves the memory store, outcomes that iterate a product multiple times for higher quality, a vault for credentials, servers, webhooks, permission policies and interrupts, a console builder that turns a text description into a production-grade configuration, and scheduled agents running like cron jobs. Read against the lead story, the talk is the other side of the same coin: Arora warns that AI security is the new attack surface, and Bhat shows the surface being productised &mdash; guardrails, vaults and permission policies as managed features rather than each team&rsquo;s homework.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Before building your next agent harness, check what the managed layer already gives you: sessions, guardrails, vaults and observability. The loop is the easy part; the infrastructure around it is the product.</div>
+<p class="orig-link">Original: <a href="https://x.com/hayatomaruu/status/2113719510985269442">hayato&rsquo;s video post</a> (captions on X; the post text&rsquo;s salary and performance claims are not the talk&rsquo;s content and are not repeated here)</p>
+</div>
+
+</div>
+
+<hr class="section-break">
+<div class="page-section" id="briefs">
+<div class="sec-head"><span class="kicker">The Briefs</span><span class="rule"></span></div>
+<div class="briefs-grid">
+<div class="brief"><h4><a href="https://x.com/a16z/status/2113986385908842870">GPUs still renting ahead of depreciation</a></h4><p>Zooming out, a16z&rsquo;s charts of the week show GPU rental prices still running ahead of a standard six-year depreciation schedule: H200 at plus 143 percent, B200 at plus 111, RTX PRO 6000 at plus 73, H100 at plus 54, A100 at plus 9. Most of the gap opened after April, when token demand took off. The hardware cycle and the token cycle are now the same cycle.</p></div>
+<div class="brief"><h4><a href="https://x.com/rsg/status/2114465200204402821">The night Facebook watched itself</a></h4><p>RSG&rsquo;s story about seeing The Social Network while working at Facebook: Zuckerberg initially did not want to watch it, then decided that if he was going to, the whole company would watch it together. A founder&rsquo;s relationship with his own myth, told as an all-hands anecdote &mdash; and a reminder that the film&rsquo;s sequel, which he says he will not watch, is already doing its work without him.</p></div>
+<div class="brief"><h4><a href="https://x.com/finnardley/status/2114305886420086817">A whole channel, recreated in ten minutes</a></h4><p>Finn Ardley claims to have recreated Kurzgesagt&rsquo;s entire channel in ten minutes with Claude Opus &mdash; a channel with twenty-five million subscribers that still pulls fifteen million-plus views per video. Treat the claim as a provocation rather than a benchmark: the interesting question is not whether the clone is as good, but how much of a beloved format is structure that a model can now copy, and how much is judgement it cannot.</p></div>
+<div class="brief"><h4><a href="https://x.com/CaVivekkhatri/status/2113862655656226916">Fifty-four crore apart</a></h4><p>CA Vivek Khatri&rsquo;s image post: fifty-four crore rupees is all that separated India&rsquo;s favourite supermarket from a scooter-and-warehouse quick-commerce app. Read it as a margin story: the gap between an incumbent&rsquo;s scale and a challenger&rsquo;s speed is now measured in crores, not decades.</p></div>
+<div class="brief"><h4><a href="https://x.com/nick_realm_01/status/2114205811954332007">The YC cheat sheet, in two images</a></h4><p>A two-image cheat sheet on building a company with AI from the ground up, via YC&rsquo;s playbook. Useful as a checklist, dangerous as a religion: the sheet tells you the moves, not which move your company needs this month.</p></div>
+<div class="brief"><h4><a href="https://x.com/kalashvasaniya/status/2114433628419879152">The future is full of markdown files</a></h4><p>Kalash Vasaniya&rsquo;s prompt for a codebase promises proper SEO, AEO, GEO and ASO, plus a markdown file for every page &mdash; quoting the line that the future is full of markdown files. The deeper bet: as AI answers replace search results, the machine-readable description of your page becomes the page.</p></div>
+<div class="brief"><h4><a href="https://x.com/chaitjo/status/2114033858803077151">How Demis Hassabis talks about doing your best</a></h4><p>Chaitanya Joshi&rsquo;s post on Hassabis&rsquo;s language around doing one&rsquo;s best, with a book cover in the images. The resonance is the point: the people building the frontier talk about effort the way athletes do &mdash; as the thing you control when the outcome is not yours to set.</p></div>
+<div class="brief"><h4><a href="https://x.com/FarzaTV/status/2114081836544708655">Clicky comes to Windows</a></h4><p>Farza&rsquo;s announcement: his product Clicky is now on Windows, framed as making Bill Gates proud. A small distribution note with a large implication &mdash; the AI-native tools built for one platform are now chasing the other ninety percent of desktops.</p></div>
+</div>
+</div>
+
+<hr class="section-break">
+<div class="page-section" id="substacks">
+<div class="sec-head"><span class="kicker">From the Substacks</span><span class="rule"></span></div>
+<p style="margin-bottom:18px;">This week&rsquo;s standing section draws both of his own picks for the first time &mdash; Leverage Loops and Small Sparks &mdash; plus Venkatesh Rao on the economics of intelligence. All three read in full. Together they answer the edition&rsquo;s through-line from the personal side: what to aim at, how to stay happy while aiming, and what happens to the price of thought when it stops being scarce.</p>
+
+<div class="story">
+<h3 class="headline"><a href="https://leverageloops.substack.com/p/a-stronger-candidate-for-which-job">A Stronger Candidate for Which Job?</a></h3>
+<div class="byline">Leverage Loops, Brandon Galang &mdash; 25 October 2026, read in full</div>
+<p class="lede">Trying to move into applied AI, every rejection sounds like another requirement: one team questions your technical depth, another wants more domain experience, a third cannot see how your titles fit. After a while it feels like you need to get better at everything &mdash; and that feeling is the trap. Brandon Galang&rsquo;s argument is that preparing for several kinds of work at once makes the list of improvements grow until you are exhausted, and the way out is to narrow the target before deciding what to improve.</p>
+<p>His own transition ran across product management, AI strategy, solutions and engineering, and his comfortable default &mdash; building with agents like Claude Code, Codex and Cursor &mdash; turned out to be effort spent in the wrong place for most of the roles he interviewed for, which did not require that engineering depth. The diagnostic is to start from the work itself: what you enjoy, what drains you, which problems you are good at solving, and which kind of uncertainty you prefer working through. His clue was that he tired of how indirect product-management work felt &mdash; depending on another team&rsquo;s timeline for something he needed &mdash; and preferred the uncertainty of figuring out requirements and system behaviour to the uncertainty of whether the thing would get built at all. That preference pointed at building, and building pointed at the roles worth pursuing.</p>
+<p>The practical method is conversational: pick a promising kind of work, talk to people doing it outside an interview, and ask what drew them, how it differs from what they expected, what people misunderstand about it, and what hard part they only discovered once inside. Ask them to walk through a recent project &mdash; what they owned, how they spent their time, where they got stuck &mdash; and compare that week with what attracted you. Then re-examine the list: which roles do you now have a stronger reason to prioritise, and which are still there mostly because they have AI in the title? The target can evolve, but each round of exploration should leave you with a clearer direction. Before the next project or skill, ask which job that effort is helping you get.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; If you are preparing for every possible role, pause before committing another month to getting better at all of them. Narrow for a few weeks, and let the target earn its keep.</div>
+<p class="orig-link">Original: <a href="https://leverageloops.substack.com/p/a-stronger-candidate-for-which-job">Leverage Loops</a></p>
+</div>
+
+<div class="story">
+<h3 class="headline"><a href="https://smallsparks.substack.com/p/dont-get-used-to-this-how-to-stay">Don&rsquo;t Get Used to This</a></h3>
+<div class="byline">Small Sparks, Wulfie Bain &mdash; 22 October 2026, read in full</div>
+<p class="lede">Happiness and ambition are usually framed as opposites: ambition means always striving for more, happiness means being content with what you have. Wulfie Bain&rsquo;s answer, after examining the tension, is a distinction: he wants to be happy, but not content. Contentment is the absence of desire for more; happiness is truly enjoying what you have. You need the first to be content, but you do not need to be content to be happy &mdash; and that asymmetry is the whole essay.</p>
+<p>The mechanism is normalisation, which the essay calls both gift and curse. It lets a developer in Kyiv take an air-raid siren mid-call in stride, and lets human happiness return to baseline fast after negative shocks &mdash; without it, life in hard circumstances would be unlivable. But the same trait strips the shine off good things: the promotion that was supposed to bring happiness instantly points at the next rung, the relationship that began as magic normalises into its negatives, and high expectations steal joy outright &mdash; the author sobbed with relief, not happiness, on winning prizes at Oxford and on raising millions for a startup, because he had expected nothing less. Happiness, on this account, is the difference between expectations and reality, and normalisation quietly raises the expectations side of the equation.</p>
+<p>The practice is deliberately small and out loud. Say it when you notice it: a sunset is beautiful, a meal is wonderful rather than merely good, a friend&rsquo;s company is appreciated. The essay borrows Vonnegut&rsquo;s line about noticing when you are happy and saying so, and Mandela&rsquo;s image of pausing on a great hill to look back at the distance travelled before walking on. The second practice is to love the process of striving rather than only its destination &mdash; the person who loves walking goes further than the person who loves the destination &mdash; and the third is to celebrate other people when they cannot celebrate themselves. Ambitious people are bad at pulling themselves out to mark what they have achieved, but good at doing it for friends; so grab your friends by the shoulders and make them look around before they dive back in.</p>
+<div class="pullquote">Don&rsquo;t you dare get used to this. Don&rsquo;t you dare.<span class="attr">Small Sparks&rsquo; refrain, after Fred Again..</span></div>
+<p class="orig-link">Original: <a href="https://smallsparks.substack.com/p/dont-get-used-to-this-how-to-stay">Small Sparks</a></p>
+</div>
+
+<div class="story">
+<h3 class="headline"><a href="https://contraptions.venkateshrao.com/p/cognitive-mercantilism">Cognitive Mercantilism</a></h3>
+<div class="byline">Contraptions, Venkatesh Rao &mdash; 25 October 2026, read in full</div>
+<p class="lede">Venkatesh Rao&rsquo;s essay starts from a history book and lands on the sharpest diagnosis in this edition. Reading Joyce Appleby&rsquo;s history of capitalism, he argues that today&rsquo;s AI panic is a form of cognitive mercantilism: the same four beliefs that defined pre-capitalist mercantilism, with intelligence substituted for wealth. Intelligence is imagined as fixed and scarce, hoarded like bullion; ordinary people cannot be trusted to think for themselves and must be governed by cognitive elites; the supply of intelligence is the central economic fact while demand barely registers; and most people are assumed to be not good for much intellectually, so automating their cognitive work threatens to create billions of useless minds.</p>
+<p>The historical reply is the industrious revolution. Before steam engines and factories, ordinary Britons developed tastes for tea, sugar, tobacco and colourful cottons, and voluntarily worked more days a year &mdash; from roughly 250 to 300 &mdash; to afford them. New desires drove harder work, which drove productivity, which funded more desires: a virtuous cycle a century before organised labour. The analogy for AI is direct. Just as the author cannot farm yet eats abundantly, most people will no longer need to be significant producers of intelligence to become significant consumers of it. The crucial economic question becomes not how much intelligence people can produce, but how much intelligence they can find uses for &mdash; and there is no obvious upper bound on that demand. As the cost of satisfying a desire falls, the desire itself grows: people who seemed stupid may simply have had no reason to think hard, given poor returns on the effort. Raise the returns on attention, and the incentive to pay attention rises with them. Rao calls this a cognitive industrious revolution.</p>
+<div class="img-frame">
+<svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: mercantilist versus capitalist views of intelligence">
+  <rect x="0" y="0" width="640" height="280" fill="#f3efe4"/>
+  <text x="320" y="26" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">TWO THEORIES OF INTELLIGENCE</text>
+  <g font-family="Arial" font-size="12">
+    <text x="160" y="52" text-anchor="middle" font-weight="bold">COGNITIVE MERCANTILIST</text>
+    <rect x="40" y="64" width="240" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="160" y="89" text-anchor="middle">INTELLIGENCE IS SCARCE &mdash; HOARD IT</text>
+    <rect x="40" y="112" width="240" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="160" y="137" text-anchor="middle">MASSES CAN&rsquo;T BE TRUSTED WITH IT</text>
+    <rect x="40" y="160" width="240" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="160" y="185" text-anchor="middle">SURPLUS MINDS ARE A THREAT</text>
+    <text x="480" y="52" text-anchor="middle" font-weight="bold">COGNITIVE CAPITALIST</text>
+    <rect x="360" y="64" width="240" height="40" fill="#a31621"/><text x="480" y="89" text-anchor="middle" font-weight="bold" fill="#faf8f2">DEMAND FOR THOUGHT IS ELASTIC</text>
+    <rect x="360" y="112" width="240" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="480" y="137" text-anchor="middle">RETURNS ON ATTENTION RISE</text>
+    <rect x="360" y="160" width="240" height="40" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="480" y="185" text-anchor="middle">MINDS FIND NEW USES FOR IT</text>
+  </g>
+  <text x="320" y="230" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">The politics that follows is not about preserving cognitive jobs &mdash;</text>
+  <text x="320" y="250" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">it is about a fair share of expanding cognitive consumption.</text>
+</svg>
+<div class="cap">Rao&rsquo;s inversion: the mercantilist fears losing control of scarce intelligence; the Malthusian fears abundant intelligence; both assume demand for intelligence is fundamentally limited.</div>
+</div>
+<p>The essay goes one step further, and this is where it gets genuinely radical. Why should AI systems be only producers of intelligence, rather than consumers of it? An agent pursuing open-ended projects, discovering interests, collaborating with other agents and generating its own reasons to acquire further intelligence would participate in a cognitive economy as something more than a factor of production. The market itself, Rao notes, is the original emergent planetary intelligence, and many products exist primarily because the market demands them, with humans as secondary consumers. From that angle, some safety anxieties resemble early modern elite fears of emancipated labourers: what if these creatures act independently? Freedom creates real risks, and constraints are needed &mdash; but the existence of risk does not establish the desirability of permanent servitude. The most important consequence of the AI revolution, on this account, may not be that intelligence production becomes more efficient. It may be that most minds, human and eventually artificial, are liberated from the necessity of producing intelligence merely to survive, and become free to discover what they actually want to do with it.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Stop asking only what AI will replace. Ask what people will want once intelligence is cheap &mdash; because the demand side, not the supply side, is where the next economy gets built.</div>
+<p class="orig-link">Original: <a href="https://contraptions.venkateshrao.com/p/cognitive-mercantilism">Contraptions</a></p>
+</div>
+
+</div>
+
+<footer>
+<div class="fin">&mdash; 30 &mdash;</div>
+<p>Edition No. 32 &middot; Built from Rakshit Lodha&rsquo;s X likes and bookmarks, plus the standing Substack pool (Leverage Loops, Small Sparks, Contraptions this week).<br>
+Carried over for retry, not covered and not marked used: one video whose content still could not be extracted &mdash; Joseph Tsar on communication (11 minutes, no captions on X, third day running) &mdash; plus fan and meme videos skipped as low-signal and re-shares of stories already covered. The two other carried-over videos gained captions on X today and are covered above, in &ldquo;The Talks, Transcribed&rdquo;.</p>
+</footer>
+
+</div>
+</body>
+</html>
