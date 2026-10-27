@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 33</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .front { display:grid; grid-template-columns: 2.1fr 1fr; gap:34px; margin-top:26px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); }
+  .stat .lbl { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); line-height:1.4; margin-top:4px; }
+  .img-frame { margin:20px 0; }
+  .img-frame svg { width:100%; height:auto; display:block; }
+  .img-frame .cap { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; line-height:1.5; }
+  .chart-box { margin:20px 0; }
+  .chart-box svg { width:100%; height:auto; display:block; }
+  .chart-title { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .chart-box .src { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; }
+  .learnings { border:1px solid var(--rule); background:#fff; padding:16px 18px; margin:18px 0; }
+  .learnings h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .learnings ul { padding-left:20px; }
+  .learnings li { margin-bottom:6px; font-size:15.5px; }
+  .takeaway { border-left:4px solid var(--red); padding:10px 14px; background:#fff; margin:18px 0; font-size:16px; }
+  .orig-link { font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); }
+  .orig-link a { color:var(--red); text-decoration:none; }
+  .page-section { margin-top:34px; }
+  .sec-head { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .sec-head .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--red); font-weight:bold; white-space:nowrap; }
+  .sec-head .rule { flex:1; border-top:2px solid var(--ink); }
+  .story { margin-bottom:32px; }
+  .sidebar .digest-box { border:1px solid var(--rule); background:#fff; padding:16px 18px; margin-bottom:18px; }
+  .sidebar .digest-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:10px; }
+  .sidebar .digest-box ol, .sidebar .digest-box ul { padding-left:20px; }
+  .sidebar .digest-box li { margin-bottom:7px; font-size:14.5px; }
+  .sidebar .digest-box li a { color:var(--ink); text-decoration:none; }
+  .sidebar .digest-box li a:hover { color:var(--red); }
+  .sidebar .digest-box p { font-size:14.5px; }
+  hr.section-break { border:none; border-top:4px double var(--ink); margin:36px 0 4px; }
+  .briefs-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .brief { border-top:2px solid var(--ink); padding-top:10px; }
+  .brief h4 { font-size:17px; margin-bottom:4px; }
+  .brief h4 a { color:inherit; text-decoration:none; }
+  .brief h4 a:hover { color:var(--red); }
+  .brief p { font-size:14.5px; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  @media (max-width:760px){ .two-col{grid-template-columns:1fr;} .front{grid-template-columns:1fr;} .briefs-grid{grid-template-columns:1fr;} }
+  footer { border-top:4px double var(--ink); margin-top:40px; padding-top:16px; text-align:center; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); }
+  footer .fin { font-size:22px; font-weight:900; color:var(--ink); margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="masthead">
+  <div class="kicker">Built from @RAKSHITLODHA&rsquo;s likes &amp; bookmarks</div>
+  <h1>The Unread Pile</h1>
+  <div class="tagline">Everything you saved, distilled &mdash; sharp theses, systems, and takeaways. One paper, every morning.</div>
+</div>
+<div class="dateline">
+  <span>Edition No. 33</span>
+  <span>Tuesday, 27 October 2026</span>
+  <span>11 new saves + 2 Substack picks</span>
+</div>
+
+<div class="front">
+<div class="maincol">
+
+<div class="sec-label">The Lead Story</div>
+<h2 class="headline"><a href="https://x.com/socialcapital/status/2114740894914187557">Anthropic Files: The Fastest Curve in Business History, Priced at Nothing Yet</a></h2>
+<div class="byline">Social Capital&rsquo;s S-1 charts, Greg Isenberg&rsquo;s takeaways, Anthropic&rsquo;s filing announcement &mdash; 26 October 2026</div>
+<p class="lede">On Monday, 26 October, Anthropic publicly filed its S-1 for a Nasdaq listing under the ticker ANT, and the numbers inside it break every mental model of how fast a company can grow. Quarterly revenue went from 376 million dollars in the first quarter of 2025 to 11.6 billion dollars in the second quarter of 2026 &mdash; roughly thirty-one times in five quarters. The first half of 2026 alone produced 16.3 billion dollars of revenue, against 1.2 billion in the same months a year earlier. Three years ago the company did 41 million dollars in a full year.</p>
+<p>The filing also forces a distinction every reader of the headlines needs. The second quarter brought Anthropic&rsquo;s first quarterly operating profit: 974 million dollars on 11.6 billion of revenue. The net loss in the same quarter was 66.3 billion dollars &mdash; but that figure is dominated by non-cash charges from revaluing convertible notes as Anthropic&rsquo;s own valuation rose, Social Capital putting 59.6 billion on the note revaluation alone. For the first half, the same pattern holds: an 80.7 billion dollar net loss, of which 72.4 billion is the fair-value charge, against an operating loss of just 693 million. The business, on operating terms, is nearly breakeven at a scale no software company has reached this fast; the accounting loss is largely the price of having become vastly more valuable while holding convertible paper.</p>
+<div class="img-frame">
+<svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart: Anthropic revenue by year">
+  <rect x="0" y="0" width="640" height="320" fill="#f3efe4"/>
+  <text x="320" y="26" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">ANTHROPIC REVENUE &mdash; THE CURVE THAT BREAKS MODELS</text>
+  <g font-family="Arial" font-size="12">
+    <rect x="80" y="278" width="90" height="2" fill="#a31621"/><text x="125" y="272" text-anchor="middle" font-weight="bold">2023</text><text x="125" y="298" text-anchor="middle">$41M</text>
+    <rect x="210" y="272" width="90" height="8" fill="#a31621"/><text x="255" y="266" text-anchor="middle" font-weight="bold">2024</text><text x="255" y="298" text-anchor="middle">$386M</text>
+    <rect x="340" y="198" width="90" height="82" fill="#a31621"/><text x="385" y="192" text-anchor="middle" font-weight="bold">2025</text><text x="385" y="298" text-anchor="middle">$4,585M</text>
+    <rect x="470" y="40" width="90" height="240" fill="#1a1a1a"/><text x="515" y="34" text-anchor="middle" font-weight="bold">H1 2026</text><text x="515" y="298" text-anchor="middle" font-weight="bold">$16,286M</text>
+  </g>
+  <text x="320" y="316" text-anchor="middle" font-family="Arial" font-size="11" fill="#6b675c">Full years for 2023&ndash;2025; first half only for 2026. Bars to scale.</text>
+</svg>
+<div class="cap">From 41 million dollars to 16.3 billion in half a year &mdash; and the second quarter alone was 11.6 billion. The S-1 itself warns that this growth rate will decline over time.</div>
+</div>
+<p>Three mechanisms explain the curve, and each is a lesson on its own. First, compute efficiency: in the first quarter of 2025 Anthropic spent about 2.51 dollars on compute and infrastructure for every dollar of revenue; by the second quarter of 2026 that was 48 cents. Second, expansion: customers spending over 100,000 dollars a year went from roughly twenty at the end of 2023 to more than 11,900 by September 2026, and net revenue retention is approximately 900 percent &mdash; customers spend about nine times more after a year, where good software companies brag about 120 percent. Third, distribution through other people&rsquo;s budgets: about 48 percent of revenue comes through cloud marketplaces, because big companies buy where their budget already lives. Greg Isenberg&rsquo;s founder lesson from that one is blunt: get listed where your buyers already spend.</p>
+<p>The filing leaves the two questions investors most want answered completely blank: no share count, no price range, no listing date. Press reports point to a roadshow in the week of 9 November and a debut in the second half of November, but none of that is in the filing. What is in the filing, and what matters more for builders, is the governance: a single founder-held share carries 50.1 percent of the general voting power, and the company&rsquo;s Long-Term Benefit Trust elects a majority of the board. Public buyers get the economics; they do not get control. And the filing itself names the opportunity that should interest a builder most: the gap between what Claude can do and how widely it is used is one of Anthropic&rsquo;s biggest growth opportunities. The models are ahead of the market, and someone has to close that gap for dentists, landlords and plumbers &mdash; the same gap Greg Isenberg&rsquo;s carried-over Main Street video is about.</p>
+<div class="stat-strip">
+  <div class="stat"><div class="num">31&times;</div>Quarterly revenue, Q1 2025 to Q2 2026</div>
+  <div class="stat"><div class="num">$0.48</div>Compute per $1 revenue, down from $2.51</div>
+  <div class="stat"><div class="num">11,900+</div>Customers spending $100K+ a year</div>
+  <div class="stat"><div class="num">~900%</div>Net revenue retention</div>
+</div>
+<div class="pullquote">I don&rsquo;t think anyone has a mental model for that curve yet. I sure don&rsquo;t.<span class="attr">Greg Isenberg, on the S-1</span></div>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; When growth is this fast, the scarce resource stops being the product and starts being distribution, trust and control. Anthropic solved production; the filing is a bet that someone else will solve adoption &mdash; and that the company can keep control while they do.</div>
+<p class="orig-link">Originals: <a href="https://x.com/socialcapital/status/2114740894914187557">Social Capital&rsquo;s S-1 charts</a> &middot; <a href="https://x.com/gregisenberg/status/2114711399620333841">Greg Isenberg&rsquo;s 12 takeaways</a> &middot; <a href="https://x.com/AnthropicAI/status/2114705042817110293">Anthropic&rsquo;s announcement</a></p>
+<p style="font-size:13px;color:#6b675c;">Note: Social Capital promised six charts; five follow-up posts were visible on X, so the sixth could not be verified from the thread. Figures above are as reported from the filing in that thread and in S-1 coverage; the share count, price range and listing date are not in the filing.</p>
+
+</div>
+<div class="sidebar">
+<div class="digest-box"><h4>In this edition</h4><ol>
+<li><a href="#hiten">Hiten Shah&rsquo;s Early Access Playbook</a></li>
+<li><a href="#addy">How Claude Code reviews code at AI scale</a></li>
+<li><a href="#ather">Ather&rsquo;s unlikely bankers</a></li>
+<li><a href="#hiring">Hire for four things</a></li>
+<li><a href="#briefs">Briefs: Kite APIs, Provision Labs, Eternal, Candy Crush</a></li>
+<li><a href="#substacks">From the Substacks</a></li>
+</ol></div>
+<div class="digest-box"><h4>The through-line</h4><p style="font-size:13.5px;">Supply stopped being the bottleneck. Anthropic can produce capability faster than the market absorbs it, Hiten Shah can build software in hours, and Claude writes 90 percent of its own code. What is scarce now is demand, evidence and judgement &mdash; who actually needs it, what they can prove, and who decides. This edition is about the disciplines for the scarce side.</p></div>
+</div>
+</div>
+
+<hr class="section-break">
+<div class="story" id="hiten">
+<h3 class="headline"><a href="https://x.com/hnshah/status/2114790395376968126">The Early Access Playbook: Learn Faster Than You Can Build</a></h3>
+<div class="byline">Hiten Shah, The Early Access Playbook v1.0 (Google Doc, read in full) &mdash; 27 October 2026</div>
+<p class="lede">Hiten Shah spent roughly eighteen months at KISSmetrics on two product directions that missed the mark &mdash; one attracted Facebook application developers who could not pay, the other required too much work before customers saw value &mdash; and wishes more of that time had gone into learning how people already solved the problems he wanted to fix. His playbook, written down after twenty-plus years of launching products, starts from a new urgency: AI can now turn an idea into working software in hours, so a team can ship another version before learning what happened with the last one. The faster a team can build, the faster it needs to learn, and early access is where that learning should happen.</p>
+<p>First, what early access is not. It is not a large, near-final beta used mainly to find bugs or validate a finished product. It starts with a few people who already have the problem, and it can start before any code exists &mdash; with conversations, a manual service, or a working first version. It is a voluntary learning relationship, not a launch audience: participants are invited deliberately, told what they get, what the team may ask, what data or permissions may be involved, who owns the programme, and how they can leave. And the test is always a real job, not an opinion about an idea, a demo, a sign-up, or a click.</p>
+<p>The playbook runs as six plays, each ending in a decision with evidence, not a completed worksheet. Play 01, Define the promise, produces a Promise Card: Person, Situation, Job, Existing method, Better outcome, and Quality &mdash; what must be true before someone could rely on the result. The play is done when another person could recognise success and failure without the team&rsquo;s explanation. Play 02, Assemble the early group, builds a small, qualified cohort &mdash; a practical route to the first five runs through a shortlist of ten plausible people, personal invitations, and a roster that tracks invited, opted in, enabled, attempted, and first value separately. The discipline is to learn from the first group, then choose the next group to challenge one advantage the first group had, such as personal familiarity with the founder. Play 03, Find the Pattern of Pain, turns recent job episodes into a testable pattern: compare specific episodes from people doing the same job, keep the cases where the old method works, and state the narrowest problem hypothesis plus one counterexample that could falsify it.</p>
+<div class="img-frame">
+<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flowchart: the six plays of the Early Access Playbook">
+  <rect x="0" y="0" width="640" height="200" fill="#f3efe4"/>
+  <text x="320" y="24" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">SIX PLAYS, EACH ENDING IN A DECISION</text>
+  <g font-family="Arial" font-size="11" font-weight="bold">
+    <rect x="10" y="50" width="92" height="70" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="56" y="80" text-anchor="middle">01 DEFINE</text><text x="56" y="97" text-anchor="middle">THE PROMISE</text>
+    <rect x="114" y="50" width="92" height="70" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="160" y="80" text-anchor="middle">02 ASSEMBLE</text><text x="160" y="97" text-anchor="middle">THE GROUP</text>
+    <rect x="218" y="50" width="92" height="70" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="322" y="80" text-anchor="middle">03 PATTERN</text><text x="322" y="97" text-anchor="middle">OF PAIN</text>
+    <rect x="322" y="50" width="92" height="70" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="372" y="80" text-anchor="middle">04 WATCH</text><text x="372" y="97" text-anchor="middle">REAL WORK</text>
+    <rect x="426" y="50" width="92" height="70" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="472" y="80" text-anchor="middle">05 IMPROVE</text><text x="472" y="97" text-anchor="middle">&amp; RETEST</text>
+    <rect x="530" y="50" width="92" height="70" fill="#a31621"/><text x="576" y="80" text-anchor="middle" fill="#faf8f2">06 PROVE</text><text x="576" y="97" text-anchor="middle" fill="#faf8f2">VALUE &amp;</text><text x="576" y="112" text-anchor="middle" fill="#faf8f2">DECIDE</text>
+  </g>
+  <text x="320" y="155" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">Enter anywhere the evidence justifies &mdash; but never skip the decision at the end of a play.</text>
+  <text x="320" y="178" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">A failed task may mean a product change &mdash; or the wrong problem entirely.</text>
+</svg>
+<div class="cap">Shah&rsquo;s loop: promise, people, pain, observation, decision, proof &mdash; with the decision, not the deliverable, as the unit of progress.</div>
+</div>
+<p>Play 04, Watch real work, is the heart of it: a twenty-minute task session in the participant&rsquo;s normal environment, with a real task they brought, where the team records what was seen separately from what was said, notes every piece of help given, and checks the actual outcome. Assisted success and independent success tell different stories, and a demo can succeed while the customer&rsquo;s job still fails &mdash; Shah&rsquo;s FYI example is people who could not remember enough to search, and remembered coworkers instead, which challenged the search-box interface while leaving the underlying problem worth solving. Play 05, Improve and retest, converts an observation into a one-page Decision Receipt: at least two possible explanations, one chosen change, what would prove the team wrong, and a retest of the same kind of job. It also separates enablers from blockers &mdash; Linear&rsquo;s early Google-only sign-in was a blocker that kept qualified developers out entirely, while better multi-window controls would merely enable more sophisticated work. Play 06, Prove value and decide, enforces honest denominators: a fictional twelve-person cohort in which four of six people with an observed second opportunity succeeded must be reported as four of six among observed opportunities and four of twelve against all invitees &mdash; never as a 67 percent retention headline. The decision &mdash; continue, widen, change, pause, or stop &mdash; comes with an owner, a review date, and the observation that could reverse it.</p>
+<p>Two cautions run through the whole document, and both are aimed at the AI era. Steve Blank&rsquo;s September 2026 warning, quoted in the playbook, is that AI killed the minimum viable product and replaced it with the Initial Untested Product: something can look finished before anyone has established whether people need it, and a polished interface can hide a weak customer assumption. And Keith Rabois&rsquo;s objection &mdash; that customer interviews can harm consumer products because people misjudge their future choices &mdash; is answered, not dismissed: ask for past stories, then test an actual product outcome, and still record another possible explanation before changing the roadmap. The through-line to this edition&rsquo;s other stories is direct: Snyder&rsquo;s PULL framework asks whether demand exists before building; Shah&rsquo;s playbook is how you prove it, one real job at a time.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Before the next version, write down what observation would change your mind, watch one real job without helping, and report every denominator. If the team can build in hours, it must learn in hours too &mdash; or it will just ship its misunderstandings faster.</div>
+<p class="orig-link">Originals: <a href="https://x.com/hnshah/status/2114790395376968126">Hiten Shah&rsquo;s post</a> &middot; <a href="https://docs.google.com/document/d/1bo9n52j_M4Nx094TObZQVAq1htlB6h9XlySLgFsH710/edit?tab=t.0">The Early Access Playbook</a></p>
+</div>
+
+<hr class="section-break">
+<div class="story" id="addy">
+<h3 class="headline"><a href="https://x.com/addyosmani/status/2114604912520921136">How Claude Code Reviews Its Own Code &mdash; And Still Ships</a></h3>
+<div class="byline">Addy Osmani, X long-form article (read in full) &mdash; 26 October 2026</div>
+<p class="lede">Claude writes about 90 percent of the code for Claude Code. Between June and September, the number of pull requests merged for Claude Code more than doubled &mdash; while the share of pull requests that had to be reverted fell by more than 40 percent. Addy Osmani&rsquo;s article, a rewrite of the team&rsquo;s original piece, asks the obvious question: at that scale, who reads code anyway, and what happens if code goes wrong? The team&rsquo;s answer is not that it stopped reviewing. It automated the majority of reading, tuned the automation to optimise for human time and effort, and invested heavily in making reverts faster and easier. In the wider monorepo, changes merging each day rose from roughly 2,500 in May to over 30,000 in September; manual, line-by-line review at that pace becomes, in the article&rsquo;s words, increasingly hard, if not impossible.</p>
+<p>The reframe comes first. Code review serves two purposes: catching bugs before they ship, and building shared understanding of the codebase. The article focuses on the first, and replaces the question &ldquo;did someone read the code?&rdquo; with a sharper one: what could go wrong with this change, and what check &mdash; automated or human &mdash; is the right one to catch it? Review stops being a gate after the fact and becomes continuous, more like spellcheck while writing: the majority of changes have already been reviewed and corrected by Claude, at least once, before a human is asked to look, so routine bugs are caught early and human attention is reserved for higher-level considerations. Human time is measured as a dual cost &mdash; time spent reviewing plus time spent fixing bugs bad code introduced &mdash; and tracked as median human approvals per pull request, human comments, and pull-request wait time, with revert and incident rates as the guardrail. If reverts rise, human time was not saved, only relocated. The goal: most pull requests merge with a maximum of one person in the loop, without reverts or incidents rising.</p>
+<p>The journey of a change runs through six layers plus rollback. One, pre-PR verification: Claude must show a runnable result &mdash; tests, a build, a screenshot compared to the design &mdash; not merely claim the task is done, then a subagent reviews the diff with fresh context; Boris Cherny, who created Claude Code, estimates that equipping Claude with verification improves its output quality by a factor of two to three. Two, AI review on every pull request: Claude reviews the diff against the whole codebase and the author&rsquo;s stated intent, findings vetted by parallel agents voting on validity, style-only findings filtered out, the rest presented as inline comments marked Important, Nit, or Pre-existing; since the research preview, the share of internal pull requests receiving substantive review comments rose from 16 percent to 54 percent. Three, security review that can block: no pull request merges with an open finding from code or security review. Four, automated checks that block: lint, type checks, tests on all platforms, build &mdash; dozens of checks on a typical command-line pull request before anyone looks. Five, human approval scaled by risk: low-risk changes (docs, copy, internal-only features, additive changes behind a flag) need no human approval once automated checks are green; ordinary changes need one person; the highest-risk code, plus a small set of paths that always need two people, needs two &mdash; and the tier is set by the change, not the author, with agent approvals never counting as human approvals. Six, merge queue, feature flags, and staged rollouts: employees get access first, and the team&rsquo;s own heavy use of the product often surfaces regressions before users do. Seven, fast feedback and rollback: flag-off reversals, a weekly on-call rotation, and incident reviews that ask which layer should have caught the problem.</p>
+<div class="img-frame">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: the seven layers of Claude Code review">
+  <rect x="0" y="0" width="640" height="300" fill="#f3efe4"/>
+  <text x="320" y="26" text-anchor="middle" font-family="Arial" font-size="12" letter-spacing="3" fill="#6b675c">LAYERS, NOT ONE GATE</text>
+  <g font-family="Arial" font-size="12">
+    <rect x="70" y="44" width="500" height="28" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="62" text-anchor="middle">1 &middot; PRE-PR VERIFICATION &mdash; SHOW, DON&rsquo;T CLAIM</text>
+    <rect x="70" y="76" width="500" height="28" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="94" text-anchor="middle">2 &middot; AI REVIEW ON EVERY PR &mdash; VOTED, FILTERED, INLINE</text>
+    <rect x="70" y="108" width="500" height="28" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="126" text-anchor="middle">3 &middot; SECURITY REVIEW THAT CAN BLOCK</text>
+    <rect x="70" y="140" width="500" height="28" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="158" text-anchor="middle">4 &middot; AUTOMATED CHECKS THAT BLOCK</text>
+    <rect x="70" y="172" width="500" height="28" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="190" text-anchor="middle">5 &middot; HUMAN APPROVAL, SCALED BY RISK</text>
+    <rect x="70" y="204" width="500" height="28" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/><text x="320" y="222" text-anchor="middle">6 &middot; MERGE QUEUE, FLAGS, STAGED ROLLOUTS</text>
+    <rect x="70" y="236" width="500" height="28" fill="#a31621"/><text x="320" y="254" text-anchor="middle" font-weight="bold" fill="#faf8f2">7 &middot; FAST FEEDBACK &amp; ROLLBACK &mdash; THE LAST LINE</text>
+  </g>
+  <text x="320" y="286" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">Few bugs get through all of them. The ones that do meet the rollback.</text>
+</svg>
+<div class="cap">Osmani&rsquo;s model: the article describes six layers of checks with a rollback mechanism, then numbers seven sections &mdash; the rollback is the seventh. Each layer catches some bugs and misses others.</div>
+</div>
+<p>The most human detail in the article is about loops. An agent author and an agent reviewer can cycle forever: a human dismisses a nit in a second, while an agent addressing it produces another commit and another review cycle. One command-line pull request cycled more than fifty times overnight before someone stopped it manually; when the team ran git blame on what the system kept flagging, about 59 percent was code that had been there since its first pass &mdash; the system was rarely finding new bugs, just a few more old ones each cycle. The fix is convergence discipline: limit cycles, ask the author to re-evaluate the approach after three cycles, limit re-review to just the new diff, specify the class of bugs so the author fixes all of them rather than one line, and never re-report issues already observed. Review agents also run overnight on the current codebase to catch historical bugs before they propagate, and every incident is added to an evaluation collection against which every change to the review system is scored daily.</p>
+<p>Humans remain essential for five things, and the list is worth copying onto any team&rsquo;s wall: deciding whether to build something at all, and setting vision, taste, and goals; auditing dangerous code such as billing, the auto-updater, and continuous-integration workflows; architecture review, because those choices set the conventions others follow; verifying proofs &mdash; test output, commands run, screenshots, reviewer comments &mdash; with the test that if a reviewer cannot describe what the checks would miss, they should not simply approve; and taking responsibility, since a person answers for every change that ships, whoever typed it. The second purpose of review, shared understanding, has no formal mechanism any more: nobody holds a full mental model of Claude Code, and nobody needs one. When someone wants to learn a slice of the codebase, they ask Claude for an explainer about that exact slice &mdash; a few minutes, always up to date &mdash; which teaches more than reading trivial diffs line by line. The article&rsquo;s closing invitation is the right one for this edition&rsquo;s readers: if you let agents open pull requests, share what you have automated, what still requires a human, and what the team is getting wrong.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Stop asking whether a human read every line. Ask, for each change, which check is most likely to catch what could go wrong, make mistakes cheap to reverse, and spend the saved human hours on whether to build it at all.</div>
+<p class="orig-link">Original: <a href="https://x.com/addyosmani/status/2114604912520921136">Addy Osmani&rsquo;s article</a></p>
+</div>
+
+<hr class="section-break">
+<div class="story" id="ather">
+<h3 class="headline"><a href="https://x.com/ravishagrwal/status/2114723874554433816">Ather&rsquo;s Unlikely Bankers: Two Founders Who Bet Against Type</a></h3>
+<div class="byline">Ravish Agrawal, replying to Ashlee Vance &mdash; 26 October 2026</div>
+<p class="lede">Ather went public in India last year and is now worth almost 7 billion dollars. The interesting part of the story, Ravish Agrawal argues, is not the company but who funded it. Sachin Bansal, the Flipkart co-founder, invested roughly 53 million dollars of his own money, starting as an angel and then leading the Series C and Series D &mdash; an Indian founder personally bankrolling a hardware startup&rsquo;s growth rounds. Hero MotoCorp, a traditional two-wheeler incumbent, started investing in 2016 and kept doubling down on a startup that could eventually compete with its own business; its stake is now worth billions. Between them, nearly half of Ather&rsquo;s capital &mdash; about 250 million dollars &mdash; came from two backers you would hardly expect to write those cheques, and neither was a traditional venture fund.</p>
+<p>Agrawal extends the point beyond Ather. Mukesh Bansal invested about 1.5 million dollars in Skyroot Aerospace very early; that bet is now reportedly worth around 80 million dollars including partial exits, nearly sixty times over, in his telling. His conclusion is about incentives, not just admiration: spend more time celebrating the people who actually make contrarian investments, and less time criticising those who do not, because celebration encourages more risk-taking and criticism does not. For a builder, the practical version is sharper &mdash; the most important early capital may not come from the firms whose job it is to take risk, but from the operators and incumbents who understand the problem well enough to bet against their own interests.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; When you are raising for something unfashionable, look past the usual funds to the people with lived exposure to the problem. They write the cheques the market calls irrational &mdash; and then the market reprices them.</div>
+<p class="orig-link">Original: <a href="https://x.com/ravishagrwal/status/2114723874554433816">Ravish Agrawal</a></p>
+</div>
+
+<div class="story" id="hiring">
+<h3 class="headline"><a href="https://x.com/tankots/status/2114767591655018771">Hire for Four Things. Experience Is Not One of Them.</a></h3>
+<div class="byline">Tanay Kothari (Wispr) &mdash; 26 October 2026</div>
+<p class="lede">Tanay Kothari looks for four things in every hire, and he is explicit that experience is not on the list. One, a strong first-principles thinker: someone who works out why something is true instead of repeating what is usually done, because twenty years of experience often teaches what is supposed to work, not what does. Two, high CPU &mdash; his term for how quickly someone absorbs new information and can have a conversation about it, which matters more than what they already know when what a startup needs to know changes every few months. Three, high EQ, which shows up as self-awareness and low ego: the biggest difference between an extremely smart intern and an average one, in his observation, is how quickly they learn from feedback, and you cannot learn from feedback if your ego gets in the way. Four, obsession: is there something they are deeply, madly obsessed with? He has been obsessed with the same question since he was ten &mdash; what does the next generation of computing look like?</p>
+<p>The proof he offers is a hiring story, not a theory. One of his best engineers was a twenty-year-old with no fancy resume who messaged him on a Saturday, came into the office two hours later, and shipped a full feature by Sunday morning. Applications from staff engineers and principal scientists arrive all the time; the filter that matters is aptitude over experience, and the fastest signal of aptitude is what someone does in the first forty-eight hours, not what their resume says they did over ten years.</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; If you are hiring for a world that changes every few months, test for learning speed, ego and obsession &mdash; and give the candidate a real thing to do this weekend, not a panel to impress next week.</div>
+<p class="orig-link">Original: <a href="https://x.com/tankots/status/2114767591655018771">Tanay Kothari</a></p>
+</div>
+
+<hr class="section-break">
+<div class="sec-head" id="briefs"><span class="kicker">Briefs</span><span class="rule"></span></div>
+<div class="briefs-grid">
+<div class="brief">
+<h4><a href="https://x.com/Nithin0dha/status/2114664897305063524">Kite APIs Are Free. Now Everyone Builds Their Own Brokerage Tools.</a></h4>
+<p>Zerodha has made Kite Connect APIs free, and Nithin Kamath&rsquo;s question is the story: how are you using them with AI agents, and what have you built? Coding agents like Claude Code and Codex have made it much easier for traders and investors to build their own tools without much coding experience, and more people are using Kite&rsquo;s APIs because of those agents. When the interface to a market becomes free and programming against it becomes conversational, the brokerage stops being only a product and becomes a platform users extend themselves. The open question is what guardrails look like when self-built tools start trading real money on their owners&rsquo; behalf.</p>
+</div>
+<div class="brief">
+<h4><a href="https://x.com/pranavmukul/status/2114622075835158777">Pronto&rsquo;s Founder Bets on Physical AI &mdash; Cameras on the Job</a></h4>
+<p>Pronto founder Anjali Sardana has set up Provision Labs in the United States, a physical-AI venture collecting data to train and test AI systems that perform real-world tasks using robots and other machines. The context: Pronto&rsquo;s Verified service lets customers opt for household jobs to be recorded with head-mounted cameras worn by service professionals, footage then used to train AI models. The scarcest input for useful robots is clean footage of humans doing the job properly &mdash; and the questions that follow are whose home, whose consent, whose face, and who owns the footage once a worker&rsquo;s hands have taught a machine their trade.</p>
+</div>
+<div class="brief">
+<h4><a href="https://x.com/suncheetosji/status/2114677649658565074">The Credit Card Website People Actually Talk About</a></h4>
+<p>Credit card websites are boring, and Eternal&rsquo;s designers decided to change that narrative. The Eternal SBI Credit Card page &mdash; flat 10 percent off Zomato and District, a minimum 5 percent off Blinkit &mdash; is being passed around as, in Keshav Lohia&rsquo;s words, by far the coolest credit card website ever created. The product facts are ordinary; the presentation is the point. In a category of fee tables and footnotes, a page people screenshot and share is distribution the brand did not have to buy.</p>
+</div>
+<div class="brief">
+<h4><a href="https://x.com/RhysSullivan/status/2114394680070942947">Candy Crush Still Makes a Billion a Year &mdash; and Users Are Taking Their Software Back</a></h4>
+<p>Rhys Sullivan&rsquo;s argument, in one line: the tech industry spent fifteen years doing the worst possible thing for its users, and now large language models let people debloat their televisions, ignore upsells in checkouts, revive games studios gave up on, and crack open whatever software they want. The quoted video makes the point concrete &mdash; its captions report that Candy Crush generates nearly a billion dollars annually, fourteen years after launch, after its creator reverse engineered it. This video was carried over from earlier editions because it had no extractable captions; captions are now shown on X, so it is covered here from them. It pairs with edition 32&rsquo;s smart-television privacy story: user-side AI is becoming the counterweight to platform extraction.</p>
+</div>
+</div>
+
+<hr class="section-break">
+<div class="sec-head" id="substacks"><span class="kicker">From the Substacks</span><span class="rule"></span></div>
+<p style="margin-bottom:18px;">This week&rsquo;s standing section rotates to two publications not yet used in the section: Lenny&rsquo;s Newsletter on finding demand before building, and Simon Willison on the guardrail every agent deployment needs. Both read in full from the free text available.</p>
+
+<div class="story">
+<h3 class="headline"><a href="https://www.lennysnewsletter.com/p/an-86-minute-guide-to-finding-pmf">Finding Pull: Demand Before Building</a></h3>
+<div class="byline">Lenny&rsquo;s Newsletter, Rob Snyder (The Power of Pull) &mdash; 25 October 2026; episode outline and PULL framework post read</div>
+<p class="lede">Rob Snyder spent two years pushing a product the market did not want before accidentally stumbling onto what actually works, and has since advised more than fifty startups from zero to a million dollars in annual recurring revenue. His framework, PULL, treats demand as a noun: PULL is the state of having demand, and when you find it, customers pull the product out of your hands. Buyers pull when four things are true. P: there is a Project on their to-do list. U: it is Unavoidable right now. L: they Look into the available options. L: those options are Lacking for some critical reason. Snyder&rsquo;s own refinement, and the honest wrinkle in the framework, is that the L&rsquo;s do not quite capture the gold standard &mdash; the buyer literally cannot implement the other options. That is the test worth applying to your own pipeline: not whether customers like the product, but whether every alternative is unusable for a reason that matters today.</p>
+<p>The episode around the framework covers the working parts of finding that state: where the best startup ideas come from, tactics for cold outreach and running a first sales call, why Snyder advises against design partners, what to do in goblin mode when nothing is working, and how to apply the framework inside larger companies. The through-line for this edition is the demand test. Anthropic&rsquo;s filing says the models are ahead of the market; Snyder says the market has to be pulling before the building matters. Put them together and the question for any new product sharpens: which unavoidable project, on whose to-do list, has no workable option today?</p>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Before the next build, write down the project, its deadline, and why every existing option fails. If you cannot, you do not have pull yet &mdash; you have a hypothesis.</div>
+<p class="orig-link">Original: <a href="https://www.lennysnewsletter.com/p/an-86-minute-guide-to-finding-pmf">Lenny&rsquo;s Newsletter</a> &middot; <a href="https://thephysicsofstartups.substack.com/p/the-pull-framework">The PULL framework</a></p>
+</div>
+
+<div class="story">
+<h3 class="headline"><a href="https://simonw.substack.com/p/openai-devday-2026-live-blog">Hard Budget Caps, or the Bill That Arrives While You Sleep</a></h3>
+<div class="byline">Simon Willison&rsquo;s Newsletter, OpenAI DevDay 2026 &mdash; read in full</div>
+<p class="lede">Simon Willison spent a day at OpenAI&rsquo;s DevDay &mdash; dots, the new personal agent product; ChatGPT Space, a collaboration platform inside ChatGPT; GPT-6.1 Sol at a fifth of the price of Astra; an Ultrafast mode eight times faster at six times the price; a 500-dollar-a-month Pro plan; a Decisions API; Codex Cloud and a security cloud; Sign in with ChatGPT &mdash; and came away arguing for a feature none of the keynotes centred: default hard budget caps on pretty much everything. A hard cap says: after X dollars a month, cut this thing off and return errors. A soft cap says: after X dollars, send a warning email. In an age of coding agents and personal agents that can spin up code that calls paid APIs, rents hosted applications and bills for storage and compute, the difference is the difference between an error and a surprise bill. Nobody wants to wake up to a midnight warning email and find that, while they slept, their rogue service consumed several hundred or several thousand dollars more.</p>
+<p>Willison&rsquo;s answer to the objection &mdash; businesses do not want their applications to start throwing errors &mdash; is that most businesses and individuals would prefer errors to a surprise ten-thousand-dollar bill, and that living dangerously should be an explicit opt-in: a prominent checkbox reading, in effect, remove the budget cap, my application will not be shut down, and I accept the charges. The trend is moving his way: Google Cloud launched Spend Caps in July, and Amazon Web Services launched spending limits in September, though Willison notes AWS&rsquo;s version is still reaching only a limited number of customers. His closing nudge is aimed at the agents themselves: they should start biasing towards providers with hard caps, and warning new builders away from uncapped services. For anyone shipping agents on someone else&rsquo;s budget &mdash; which, after this edition&rsquo;s Anthropic story, is nearly everyone &mdash; the cap is not a finance feature. It is the guardrail that makes the rest of the autonomy safe to sell.</p>
+<div class="pullquote">I think hard budget caps need to be the default.<span class="attr">Simon Willison</span></div>
+<div class="takeaway"><strong>Takeaway</strong> &mdash; Put a hard cap on every agent, API key and project before it ships, per agent or per task where you can &mdash; and treat any provider that only offers a warning email as a risk, not a feature gap.</div>
+<p class="orig-link">Original: <a href="https://simonw.substack.com/p/openai-devday-2026-live-blog">Simon Willison&rsquo;s Newsletter</a></p>
+</div>
+
+<div class="digest-box"><h4>Carried over for retry (not in this edition, not marked used)</h4><p style="font-size:13.5px;">Three videos could not be covered from what they actually say today, so they stay new for tomorrow&rsquo;s run: Joseph Tsar&rsquo;s communication video (about eleven minutes, still no captions on X &mdash; its fourth day carried over); Greg Isenberg&rsquo;s Main Street AI video (about forty-four minutes, no captions visible on X; a longer YouTube version exists and is the fallback for tomorrow); and Treg&rsquo;s Jev people-search launch video (about a minute, no captions visible in the still seen). Also not covered: Peter Steinberger&rsquo;s one-word &ldquo;Banger&rdquo; post linking a YouTube video, and the short phone-shot Vogue clip &mdash; neither carries enough substance on its own to build a story from.</p></div>
+
+<footer>
+<div class="fin">&mdash; 30 &mdash;</div>
+<p>The Unread Pile, Edition No. 33 &mdash; built from @RAKSHITLODHA&rsquo;s likes and bookmarks, plus the standing Substack pool. Next edition tomorrow morning.</p>
+</footer>
+
+</div>
+</body>
+</html>
