@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 34</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .front { display:grid; grid-template-columns: 2.1fr 1fr; gap:34px; margin-top:26px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); }
+  .stat .lbl { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); line-height:1.4; margin-top:4px; }
+  .img-frame { margin:20px 0; }
+  .img-frame svg { width:100%; height:auto; display:block; }
+  .img-frame .cap { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; line-height:1.5; }
+  .chart-box { margin:20px 0; }
+  .chart-box svg { width:100%; height:auto; display:block; }
+  .chart-title { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .chart-box .src { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; }
+  .learnings { border:1px solid var(--rule); background:#fff; padding:16px 18px; margin:18px 0; }
+  .learnings h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .learnings ul { padding-left:20px; }
+  .learnings li { margin-bottom:6px; font-size:15.5px; }
+  .takeaway { border-left:4px solid var(--red); padding:10px 14px; background:#fff; margin:18px 0; font-size:16px; }
+  .orig-link { font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); }
+  .orig-link a { color:var(--red); text-decoration:none; }
+  .page-section { margin-top:34px; }
+  .sec-head { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .sec-head .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--red); font-weight:bold; white-space:nowrap; }
+  .sec-head .rule { flex:1; border-top:2px solid var(--ink); }
+  .story { margin-bottom:32px; }
+  .sidebar .digest-box { border:1px solid var(--rule); background:#fff; padding:16px 18px; margin-bottom:18px; }
+  .sidebar .digest-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:10px; }
+  .sidebar .digest-box ol, .sidebar .digest-box ul { padding-left:20px; }
+  .sidebar .digest-box li { margin-bottom:7px; font-size:14.5px; }
+  .sidebar .digest-box li a { color:var(--ink); text-decoration:none; }
+  .sidebar .digest-box li a:hover { color:var(--red); }
+  .sidebar .digest-box p { font-size:14.5px; }
+  hr.section-break { border:none; border-top:4px double var(--ink); margin:36px 0 4px; }
+  .briefs-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .brief { border-top:2px solid var(--ink); padding-top:10px; }
+  .brief h4 { font-size:17px; margin-bottom:4px; }
+  .brief h4 a { color:inherit; text-decoration:none; }
+  .brief h4 a:hover { color:var(--red); }
+  .brief p { font-size:14.5px; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  @media (max-width:760px){ .two-col{grid-template-columns:1fr;} .front{grid-template-columns:1fr;} .briefs-grid{grid-template-columns:1fr;} }
+  footer { border-top:4px double var(--ink); margin-top:40px; padding-top:16px; text-align:center; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); }
+  footer .fin { font-size:22px; font-weight:900; color:var(--ink); margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+<div style="font-family:Arial,Helvetica,sans-serif;letter-spacing:4px;font-size:12px;text-transform:uppercase;">The Unread Pile</div>
+<h1 style="font-size:56px;line-height:1.05;margin:8px 0;">The Unread Pile</h1>
+<div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#6b675c;">Edition No. 34 &middot; Wednesday, 28 October 2026 &middot; From Rakshit Lodha&rsquo;s saves, plus the Substacks</div>
+</div>
+
+<div class="front">
+<div>
+<div class="sec-label">Lead &middot; World Models</div><h2 class="headline">Genie 4: The World That Talks Back</h2><div class="byline">By Google DeepMind and Sundar Pichai &middot; via <a href="https://x.com/sundarpichai/status/2115115252690145519">X</a> and <a href="https://x.com/GoogleDeepMind/status/2115114028338962672">X</a></div><p>Google&rsquo;s new world model does not just render a scene. It keeps the scene alive: environments that change in real time as you act in them, sound that belongs to the world rather than sitting on top of it, and characters inside the world that converse, react and remember what has happened. That is the step from video generation to simulation &mdash; a model you can steer, not just watch.</p><p>The through-line to the rest of this edition is hard to miss. Two days ago this paper covered Runway&rsquo;s bet that watching the world teaches a model how the world works. Genie 4 is the same bet, from the other end of the industry: a world you can walk into, where the model must keep track of objects, people, sound and cause and effect, frame after frame, or the illusion collapses. The test of a world model is not one beautiful frame. It is the tenth minute, when everything you did earlier still has to be true.</p><p>For now it reaches Google AI Ultra subscribers in the United States first, with a wider release in Google AI Studio promised later this year. The practical question for builders is the same one that runs through the agent stories below: a simulation is only as good as the memory that holds it together.</p><svg viewBox="0 0 640 220" width="100%" style="border:2px solid #1a1a1a;background:#fff;margin:16px 0;">
+<text x="320" y="26" text-anchor="middle" font-size="15" font-weight="bold" font-family="Arial">GENIE 4: FROM A CLIP TO A LIVING WORLD</text>
+<rect x="20" y="50" width="130" height="60" fill="#faf8f2" stroke="#1a1a1a"/><text x="85" y="75" text-anchor="middle" font-size="13" font-family="Arial">You act</text><text x="85" y="95" text-anchor="middle" font-size="13" font-family="Arial">in real time</text>
+<rect x="180" y="50" width="130" height="60" fill="#faf8f2" stroke="#1a1a1a"/><text x="245" y="75" text-anchor="middle" font-size="13" font-family="Arial">World</text><text x="245" y="95" text-anchor="middle" font-size="13" font-family="Arial">responds</text>
+<rect x="340" y="50" width="130" height="60" fill="#faf8f2" stroke="#1a1a1a"/><text x="405" y="75" text-anchor="middle" font-size="13" font-family="Arial">Characters</text><text x="405" y="95" text-anchor="middle" font-size="13" font-family="Arial">speak &amp; react</text>
+<rect x="500" y="50" width="120" height="60" fill="#a31621" stroke="#1a1a1a"/><text x="560" y="75" text-anchor="middle" font-size="13" font-family="Arial" fill="#fff">World</text><text x="560" y="95" text-anchor="middle" font-size="13" font-family="Arial" fill="#fff">learns &amp; keeps</text>
+<text x="85" y="125" text-anchor="middle" font-size="20" font-family="Arial">&#8594;</text><text x="245" y="125" text-anchor="middle" font-size="20" font-family="Arial">&#8594;</text><text x="405" y="125" text-anchor="middle" font-size="20" font-family="Arial">&#8594;</text>
+<text x="320" y="170" text-anchor="middle" font-size="14" font-family="Arial">The hard part is not one frame. It is minute ten, when everything earlier must still hold.</text>
+<text x="320" y="195" text-anchor="middle" font-size="13" font-family="Arial" fill="#6b675c">Sight, sound and memory have to stay consistent &mdash; or the world breaks.</text>
+</svg><div class="pullquote">A world model is judged in minute ten, not frame one.<span class="attr">The Unread Pile</span></div><p><a href="https://x.com/GoogleDeepMind/status/2115114028338962672">Source: Google DeepMind on X &rarr;</a></p>
+</div>
+<div>
+<div class="sec-label">In this edition</div>
+<ul style="font-size:15px;line-height:1.7;">
+<li><b>Genie 4</b> &mdash; Google&rsquo;s interactive world model.</li>
+<li><b>The Anthropic funding switch</b> &mdash; from debt to stock.</li>
+<li><b>Delete most subagents</b> &mdash; Anthropic&rsquo;s folding guide.</li>
+<li><b>Pitching</b> &mdash; Aaron Harris on worldbuilding.</li>
+<li><b>Friction as distribution</b>, a history obsession, and a complexity-theory claim.</li>
+<li><b>Briefs</b> &mdash; Spark&rsquo;s second cheques, Matiks&rsquo; $10M, Lossfunk Batch 9, an AI dock.</li>
+<li><b>From the Substacks</b> &mdash; a video-short skill, and India&rsquo;s platform livelihoods.</li>
+</ul>
+<div class="sec-label" style="margin-top:24px;">The through-line</div>
+<p style="font-size:15px;">The model is no longer the scarce thing. Judgement is: which world to build, which agent to keep, which story to tell, which friction to keep. Every story today is about choosing where to point a capability that has stopped being rare.</p>
+</div>
+</div>
+
+<hr style="border:none;border-top:2px solid #1a1a1a;margin:30px 0;">
+
+<div class="sec-label">The Funding Story &middot; After the S-1</div><h2 class="headline">Anthropic&rsquo;s IPO Is Where the Build Switches From Debt to Stock</h2><div class="byline">By Haircut (@nodiligence) &middot; X long-form article, read in full &middot; <a href="https://x.com/nodiligence/status/2114892356260626705">Source</a></div><p>Yesterday&rsquo;s lead was Anthropic&rsquo;s filing. Today&rsquo;s follow-up asks a different question: not whether demand for AI is real, but who pays for building it. The author&rsquo;s answer is that the marginal funder is changing &mdash; from lenders to public shareholders &mdash; because credit has grown choosy about whose balance sheet stands behind a contract.</p><p>The business underneath, on his reading, is stronger than the headline loss suggests: a first-half gross margin near 85%, a first operating profit in the second quarter, and operating cash flow well ahead of capital spending. The catch is on the other side of the ledger. Anthropic has committed to hundreds of billions in compute over years, while its own customers can mostly cut spending at will. Some of those compute bills, the article argues, can even be settled in Anthropic&rsquo;s own shares &mdash; which ties the share count to the compute bill in a way public buyers should price in before day one.</p><p>The wider cast matters too. Lenders, the piece shows, now charge very different prices depending on how close a borrower sits to a hyperscaler&rsquo;s balance sheet, and the biggest builders have quietly stopped buying back stock and started selling it. Whether you buy the whole thesis or not, the framing is useful: in a build this large, financing is not a footnote to the technology story. It is the story, and the first weeks of trading &mdash; index entry, lockup releases, a Federal Reserve meeting &mdash; are the calendar to watch.</p><div class="pullquote">Follow the funding, not just the models: whoever is paid in cash, up front, keeps the value.<span class="attr">The Unread Pile</span></div>
+
+<hr style="border:none;border-top:1px solid #d8d2c4;margin:26px 0;">
+
+<div class="sec-label">Agents &middot; The Cull</div><h2 class="headline">Delete Most of Your Subagents</h2><div class="byline">By Bajan, applying Anthropic&rsquo;s 22 October guide &middot; X long-form article, read in full &middot; <a href="https://x.com/Dylan_Texe/status/2115144394340733174">Source</a></div><p>Anthropic&rsquo;s applied team compared agent setups across large companies and reached an unfashionable conclusion: one agent, equipped with skills it loads only when needed, often beat a team of subagents on quality, cost and speed. One customer, running the same work both ways, finished in roughly half the time with the single agent. The reason subagents proliferated, the guide argues, was historical: when every instruction had to live in one giant prompt, splitting work up was the only way to cope. Skills and better models removed much of that need.</p><p>The guide keeps subagents for three cases only: when the context genuinely gets too big and quality falls, when genuinely parallel work needs fresh memory each time, and when the agent gets confused by tool choice or conflicting instructions. Even then, split by context, not by topic &mdash; a frontend agent and a backend agent mostly just recreate the telephone game, each working from a summary of the other half. A test runner that swallows pages of noisy output and returns only failures earns its place; two specialists split by layer usually do not.</p><p>The practical test is refreshingly concrete: write ten real tasks for a subagent, move its instructions into a skill, run the tasks both ways, and keep the subagent only if the folded version does worse &mdash; checking not just the final score, but every chain of agents and every rule that must never break, run more than once. Dylan&rsquo;s gloss on the post says it in one line: more agents do not mean better results, because every handoff is another chance to lose context.</p><svg viewBox="0 0 640 200" width="100%" style="border:2px solid #1a1a1a;background:#fff;margin:16px 0;">
+<text x="320" y="26" text-anchor="middle" font-size="15" font-weight="bold" font-family="Arial">DOES THIS SUBAGENT EARN ITS PLACE?</text>
+<rect x="30" y="50" width="180" height="52" fill="#faf8f2" stroke="#1a1a1a"/><text x="120" y="72" text-anchor="middle" font-size="13" font-family="Arial">Context too big?</text><text x="120" y="90" text-anchor="middle" font-size="13" font-family="Arial">Quality falling?</text>
+<rect x="230" y="50" width="180" height="52" fill="#faf8f2" stroke="#1a1a1a"/><text x="320" y="72" text-anchor="middle" font-size="13" font-family="Arial">Truly parallel work?</text><text x="320" y="90" text-anchor="middle" font-size="13" font-family="Arial">Fresh memory each?</text>
+<rect x="430" y="50" width="180" height="52" fill="#faf8f2" stroke="#1a1a1a"/><text x="520" y="72" text-anchor="middle" font-size="13" font-family="Arial">Agent confused?</text><text x="520" y="90" text-anchor="middle" font-size="13" font-family="Arial">Wrong tools?</text>
+<text x="320" y="135" text-anchor="middle" font-size="14" font-family="Arial">None of the three? It is probably a skill pretending to be an agent. Fold it.</text>
+<text x="320" y="160" text-anchor="middle" font-size="14" font-family="Arial">One of the three? Keep it &mdash; split by context, not by topic.</text>
+<text x="320" y="185" text-anchor="middle" font-size="13" font-family="Arial" fill="#6b675c">Test on ten real tasks, more than once, before deleting anything.</text>
+</svg><div class="pullquote">A subagent has to earn its place.<span class="attr">The Unread Pile</span></div>
+
+<hr style="border:none;border-top:1px solid #d8d2c4;margin:26px 0;">
+
+<div class="sec-label">Founders &middot; The Pitch</div><h2 class="headline">How to Pitch Really Damn Well</h2><div class="byline">By Aaron Harris, former YC partner &middot; X long-form article, read in full &middot; <a href="https://x.com/harris/status/2115066843614347265">Source</a></div><p>An investor&rsquo;s scarcest resource, Harris argues, is not money but time. Every early meeting is therefore an elimination exercise: the investor is looking for a reason to cross a company off, and dreads crossing off one of the few that will matter. A founder&rsquo;s job in the room is to make that dismissal feel unsafe &mdash; until the investor decides this might be the big one.</p><p>His method has two parts. First, worldbuilding: show a future world that does not exist yet, and make the investor feel the excitement of it in about fifteen minutes, instead of walking them through operational complexity. Second, the vertebrae: three or four load-bearing claims, each strong enough on its own that believing any one of them makes the company hard to dismiss, tested for months in advance in meetings that are treated as a laboratory &mdash; watching which points get repeated back, which get leaned into, which are remembered a quarter later.</p><p>The final twist is psychological. Investors want to feel contrarian, but no successful contrarian wants to stay alone forever; the trick is to stake a position against prevailing wisdom and then build consensus around it. A pitch that threads that needle &mdash; an arch-contrarian bet that later capital will also want in on &mdash; captures both the excitement and the fear. In an era when companies are founded and scaled faster than ever, and benchmarks feel uncertain, that combination is the whole game.</p><svg viewBox="0 0 640 170" width="100%" style="border:2px solid #1a1a1a;background:#fff;margin:16px 0;">
+<text x="320" y="26" text-anchor="middle" font-size="15" font-weight="bold" font-family="Arial">THE PITCH, AS A SPINE</text>
+<rect x="40" y="50" width="170" height="50" fill="#faf8f2" stroke="#1a1a1a"/><text x="125" y="70" text-anchor="middle" font-size="13" font-family="Arial">Worldbuilding</text><text x="125" y="88" text-anchor="middle" font-size="13" font-family="Arial">a future that pulls</text>
+<rect x="235" y="50" width="170" height="50" fill="#faf8f2" stroke="#1a1a1a"/><text x="320" y="70" text-anchor="middle" font-size="13" font-family="Arial">Vertebrae</text><text x="320" y="88" text-anchor="middle" font-size="13" font-family="Arial">3&ndash;4 claims that hold</text>
+<rect x="430" y="50" width="170" height="50" fill="#faf8f2" stroke="#1a1a1a"/><text x="515" y="70" text-anchor="middle" font-size="13" font-family="Arial">Contrarian &rarr; right</text><text x="515" y="88" text-anchor="middle" font-size="13" font-family="Arial">then build consensus</text>
+<text x="320" y="130" text-anchor="middle" font-size="14" font-family="Arial">Test every vertebra for months before the raise. What investors repeat back is the data.</text>
+</svg>
+
+<hr style="border:none;border-top:1px solid #d8d2c4;margin:26px 0;">
+
+<div class="sec-label">Strategy &middot; The Moat Question</div><h2 class="headline">Friction Is the New Distribution</h2><div class="byline">By Vaibhav Domkundwar &middot; <a href="https://x.com/vaibhavbetter/status/2115053939603452123">Source</a></div><p>Pre-AI businesses, Vaibhav argues, ran away from friction; post-AI, the defensible thing may be friction itself &mdash; but only a particular kind. As AI erodes the old moats, what survives is domain-specific friction embedded in the problem being solved: hard to replicate, even though the customer never feels it. The customer&rsquo;s experience gets smoother; the competitor&rsquo;s path gets harder. Distribution used to be the moat you built around a product. Now, the argument goes, the moat is the difficulty of the problem itself, worn down by someone who stayed inside it long enough to know where it bites.</p><p>Read next to the subagent story, this is a useful check. Removing friction for the user and removing friction for the builder are different things, and confusing them is how companies automate away the very difficulty that protected them.</p>
+
+<hr style="border:none;border-top:1px solid #d8d2c4;margin:26px 0;">
+
+<div class="sec-label">The Essay Shelf</div><h2 class="headline">Why One Writer Is Obsessed With Early American History</h2><div class="byline">By Slava Akhmechet &middot; <a href="https://x.com/spakhm/status/2115098212495135229">Source</a></div><p>Slava&rsquo;s long post is less about America than about how to learn. Early American history, he argues, is a portal twice over: into many other histories &mdash; the founders in Paris, London, the Netherlands and Russia &mdash; and into the past itself, through the Greek and Roman authors the founders read and the English civil war Jefferson studied. Then there are the founders themselves: educated, civic-minded, entrepreneurial and prudent, set against revolutions that turned out very differently, and a correspondence &mdash; John and Abigail Adams, Jefferson and Benjamin Rush &mdash; that lets you watch minds change in real time.</p><p>The most useful part is his closing discipline: learning what to discount and what to keep in sight. He sketches a counterfactual 1778 &mdash; opposition, repression, smallpox, desertions, hyperinflation, foreign meddling, mutinies &mdash; and asks what survives that kind of stress test. It is a historian&rsquo;s version of the subagent audit: keep what holds up under repeated runs, not what sounds good once.</p>
+
+<hr style="border:none;border-top:1px solid #d8d2c4;margin:26px 0;">
+
+<div class="sec-label">Science Note</div><h2 class="headline">A 27-Year-Old Conjecture, Reportedly Fallen</h2><div class="byline">By Deedy &middot; <a href="https://x.com/deedydas/status/2115028333356548605">Source</a></div><p>Deedy reports that the Exponential Time Hypothesis, a 27-year-old conjecture in complexity theory, fell on 16 October, with OpenAI and Anthropic models independently arriving at the same improved bound for 3-SAT. His framing is careful on one point and worth repeating: this is not a claim that P equals NP. It is a claim that a hard problem got measurably faster than anyone expected &mdash; which, if it holds up, is the kind of result that quietly re-prices what machines can do to mathematics itself. Treat it as a report to watch, not a settled theorem, until the proofs circulate.</p>
+
+<hr style="border:none;border-top:2px solid #1a1a1a;margin:30px 0;">
+
+<div class="sec-label">Briefs</div>
+<p><b>The second cheque is the skill.</b> Spark Capital is, per Tejeshwi Sharma, the only venture firm named in Anthropic&rsquo;s S-1: it led the $450M round in 2023, then invested in five more rounds, nearly $800M in all, now worth $11B at a $1.5T valuation. His point: the underrated venture skill is writing the second, third and fourth cheque into a company you already know. <a href="https://x.com/tejeshwi_sharma/status/2115082273225945474">Source</a></p>
+<p><b>Ambition learns from ambition.</b> Tejeshwi again: a founder learns more from an Olympic athlete, a chef chasing a third star, or a scientist chasing a breakthrough than from a comfortable founder in their own industry. Skills are domain-specific; standards are not. Choose company by intensity, not industry. <a href="https://x.com/tejeshwi_sharma/status/2114939647239610826">Source</a></p>
+<p><b>Matiks raises $10M &mdash; after turning down a life-changing offer.</b> Rahul Mathur notes that Sudhanshu&rsquo;s team turned down an acquisition offer right after their seed round, led by Info Edge in November 2024, stuck together, and found product-market fit across distribution channels over the past year. The $10M raise takes the mind-sports platform from India to the world. <a href="https://x.com/Rahul_J_Mathur/status/2114968153629532378">Source</a></p>
+<p><b>Lossfunk is back.</b> Paras Chopra kicked off Batch 9 of the Lossfunk residency after a pause: AI agent swarms, cancer drugs, AI sitcoms, a GTA-style Bangalore, and large language models served directly from the operating system. <a href="https://x.com/paraschopra/status/2115052847549341764">Source</a></p>
+<p><b>An AI-native dock, and the search engine inside it.</b> Thariq is building a macOS dock with custom modes for writing and building, where an agent customises mode behaviour and adds modes, using Jev to classify activity and notifications in real time and act on them. The Jev demo itself, from Treg&rsquo;s launch video, shows people-search at $0.0089 a lead, 85% cheaper than Clay, with a screen demo shortlisting 96 leads for $1.49 &mdash; open source, with a plugin for any agent. <a href="https://x.com/trq212/status/2115135857669881939">Source</a> &middot; <a href="https://x.com/treg_ai/status/2114674262179188755">Jev</a></p>
+<p><b>X has a new product chief.</b> Mark Kretschmann flags Peter Sellis joining X to lead product, with a mission statement pitched, in Sellis&rsquo;s own words, at making posting multiplanetary. <a href="https://x.com/mark_k/status/2114818217390805419">Source</a></p>
+<p><b>The moat, in one sentence.</b> Viraj Sheth: the moat is a founder with childhood trauma and a constant, debilitating fear of not achieving their potential. Read it as provocation, not psychology &mdash; it pairs uncomfortably well with the ambition brief above. <a href="https://x.com/viraj_sheth/status/2114974334741856565">Source</a></p>
+<p><b>Accents are the last hard problem in speech-to-text.</b> Yurii Rebryk&rsquo;s benchmark post argues transcription is solved except for accented, spontaneous English, drawing on over a million people across 180 countries and 580,000 hours with Fluently AI tutors. <a href="https://x.com/rebryk/status/2115126244782248363">Source</a></p>
+<p><b>Instinct&rsquo;s sprint.</b> Alex Cohen notes Instinct is now worth half of Delta Airlines, quoting a $30B raise in progress after a run from $100M to $500M to $2.5B to $10B in under a year. Private-market momentum, in one line. <a href="https://x.com/anothercohen/status/2115240910472757702">Source</a></p>
+
+<hr style="border:none;border-top:2px solid #1a1a1a;margin:30px 0;">
+
+<div class="sec-label">From the Substacks</div>
+
+<h3 class="headline">A Free Skill That Turns Raw Recordings Into Real Shorts</h3>
+<div class="byline">Behind the Craft &middot; Peter Yang &middot; 21 October 2026 &middot; <a href="https://creatoreconomy.so/p/use-my-video-short-skill-to-create-compelling-shorts">Original</a></div>
+<p class="lede">Peter Yang&rsquo;s new skill does for short video what the subagent audit does for code: it makes the loop visible, and lets a human correct it frame by frame.</p>
+<p>The skill, free on GitHub, runs inside Claude Code, ChatGPT Desktop, Antigravity or any agent that can follow it. Point it at a raw recording and it transcribes, cuts retakes and dead air, researches the topic, finds matching B-roll, and proposes a scene-by-scene plan &mdash; what is on screen, what is spoken, what should be generated &mdash; before you say go. Four layouts cover the grammar of a short: full-screen talking head, a tighter punch shot, a split screen with a visual on top, and full-screen B-roll while you keep talking. Captions match the words, motion graphics are written in HTML, and music and AI video are optional extras.</p>
+<p>The part worth stealing is not the tooling but the review page: play the draft, pause on any frame, leave feedback, and the agent applies it and reloads. That is the same discipline as the pitch vertebrae above &mdash; test against real reactions, iterate in the open, and never ship a first draft as if it were a verdict. The skill needs ffmpeg, yt-dlp, a transcription model and a renderer, about a gigabyte in all; optional Gemini generation needs an API key with billing on.</p>
+<p><b>Why it matters to him:</b> he has spent this month watching agents do the work and humans do the judging. This is a tool built for exactly that split &mdash; and a reminder that the best agent workflows are the ones a human can interrupt.</p>
+
+<h3 class="headline" style="margin-top:28px;">Beyond Valuations: What India&rsquo;s Startups Actually Build</h3>
+<div class="byline">The Loggical Investor &middot; 18 October 2026 &middot; <a href="https://theloggicalinvestor.substack.com/p/beyond-valuations-and-venture-capital">Original</a></div>
+<p class="lede">Judge a platform business by its losses alone and you miss half the story: the livelihoods it creates, and whether those livelihoods can grow into something more secure.</p>
+<p>The piece starts where most startup commentary stops &mdash; burn, unit economics, the wait for profit &mdash; and asks what changes for the person who finds work because the business exists. India&rsquo;s platform workforce is large by any count: NITI Aayog put gig workers at 7.7 million in 2020&ndash;21 and projected 23.5 million by 2029&ndash;30; the International Labour Organization puts platform workers near 12 million by the end of 2025, with a similar 2029&ndash;30 projection. Indicative monthly net earnings run roughly Rs 18,000 to Rs 35,000 across food delivery, quick commerce, ride-hailing and organised home services &mdash; real money for a household managing uncertainty, and not a uniform guarantee.</p>
+''' + '''<svg viewBox="0 0 640 190" width="100%" style="border:2px solid #1a1a1a;background:#fff;margin:16px 0;">
+<text x="320" y="26" text-anchor="middle" font-size="15" font-weight="bold" font-family="Arial">INDIA&rsquo;S PLATFORM WORKFORCE, IN NUMBERS</text>
+<text x="30" y="60" font-size="13" font-family="Arial">Gig workers, 2020&ndash;21 (NITI Aayog)</text><rect x="30" y="68" width="154" height="22" fill="#a31621"/><text x="190" y="84" font-size="13" font-family="Arial">7.7m</text>
+<text x="30" y="105" font-size="13" font-family="Arial">Platform workers, end-2025 (ILO, approx.)</text><rect x="30" y="113" width="240" height="22" fill="#a31621"/><text x="276" y="129" font-size="13" font-family="Arial">~12m</text>
+<text x="30" y="150" font-size="13" font-family="Arial">Projected, 2029&ndash;30</text><rect x="30" y="158" width="470" height="22" fill="#1a1a1a"/><text x="506" y="174" font-size="13" font-family="Arial">23.5m</text>
+</svg>''' + '''
+<p>The deeper argument is about formalisation. Documented earnings, digital payments, training and insurance do not automatically make a good job &mdash; the author is explicit about that &mdash; but they give a worker something informal work rarely offers: a record. That record can be the first step toward credit, savings and protection, especially where salary slips and credit histories do not exist. The Code on Social Security, 2020, in force since November 2025, gives that shift a statutory frame; implementation, as always, will decide how much of it a worker can actually use when it matters.</p>
+<p>The piece closes with a warning against both romanticising gig work and dismissing it. A job does not have to be a destination to be a beginning, and a business can be both a questionable investment and a meaningful livelihood. For someone building in India &mdash; or investing in those who do &mdash; holding both truths at once is the discipline. The author&rsquo;s own example, Urban Company, reported average net in-hand monthly earnings of Rs 28,332 for active service professionals in the first nine months of FY26, with higher averages for top earners: company-reported, variable by place and hours, and still a useful measure of what organised home services can pay.</p>
+<p><b>Why it matters to him:</b> his own work has always been about building platforms that move real money for real people. This is the other side of that ledger &mdash; and a useful counterweight to a week dominated by trillion-dollar valuations.</p>
+
+<hr style="border:none;border-top:2px solid #1a1a1a;margin:30px 0;">
+<p style="font-size:13px;color:#6b675c;">The Unread Pile, Edition No. 34 &middot; Built from Rakshit Lodha&rsquo;s X likes and bookmarks of 27&ndash;28 October 2026, plus two Substack picks read in full. Two videos from earlier editions remain untranscribed on X and are carried over for another retry, unmarked: Joseph Tsar on technical communication, and Greg Isenberg on selling AI to Main Street businesses. Posts skipped as low-signal or image-dependent and left unmarked for a later pass: the US Department of Education image post, the ChatGPT-anniversary quote, the Malfoid fan video, the Koramangala note images, the visa-site image post and its quote, the Replit article (not read in full), and the steipete YouTube link.</p>
+</div>
+</body>
+</html>
