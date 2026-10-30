@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 36</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .front { display:grid; grid-template-columns: 2.1fr 1fr; gap:34px; margin-top:26px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); }
+  .stat .lbl { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); line-height:1.4; margin-top:4px; }
+  .img-frame { margin:20px 0; }
+  .img-frame svg { width:100%; height:auto; display:block; }
+  .img-frame .cap { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; line-height:1.5; }
+  .chart-box { margin:20px 0; }
+  .chart-box svg { width:100%; height:auto; display:block; }
+  .chart-title { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .chart-box .src { font-family:Arial,Helvetica,sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:8px; }
+  .learnings { border:1px solid var(--rule); background:#fff; padding:16px 18px; margin:18px 0; }
+  .learnings h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .learnings ul { padding-left:20px; }
+  .learnings li { margin-bottom:6px; font-size:15.5px; }
+  .takeaway { border-left:4px solid var(--red); padding:10px 14px; background:#fff; margin:18px 0; font-size:16px; }
+  .orig-link { font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); }
+  .orig-link a { color:var(--red); text-decoration:none; }
+  .page-section { margin-top:34px; }
+  .sec-head { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .sec-head .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--red); font-weight:bold; white-space:nowrap; }
+  .sec-head .rule { flex:1; border-top:2px solid var(--ink); }
+  .story { margin-bottom:32px; }
+  .sidebar .digest-box { border:1px solid var(--rule); background:#fff; padding:16px 18px; margin-bottom:18px; }
+  .sidebar .digest-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:10px; }
+  .sidebar .digest-box ol, .sidebar .digest-box ul { padding-left:20px; }
+  .sidebar .digest-box li { margin-bottom:7px; font-size:14.5px; }
+  .sidebar .digest-box li a { color:var(--ink); text-decoration:none; }
+  .sidebar .digest-box li a:hover { color:var(--red); }
+  .sidebar .digest-box p { font-size:14.5px; }
+  hr.section-break { border:none; border-top:4px double var(--ink); margin:36px 0 4px; }
+  .briefs-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .brief { border-top:2px solid var(--ink); padding-top:10px; }
+  .brief h4 { font-size:17px; margin-bottom:4px; }
+  .brief h4 a { color:inherit; text-decoration:none; }
+  .brief h4 a:hover { color:var(--red); }
+  .brief p { font-size:14.5px; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  @media (max-width:760px){ .two-col{grid-template-columns:1fr;} .front{grid-template-columns:1fr;} .briefs-grid{grid-template-columns:1fr;} }
+  footer { border-top:4px double var(--ink); margin-top:40px; padding-top:16px; text-align:center; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); }
+  footer .fin { font-size:22px; font-weight:900; color:var(--ink); margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+<div style="font-family:Arial,Helvetica,sans-serif;letter-spacing:4px;font-size:12px;text-transform:uppercase;">The Unread Pile</div>
+<h1 style="font-size:56px;line-height:1.05;margin:8px 0;">The Unread Pile</h1>
+<div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#6b675c;">Edition No. 36 &middot; Friday, 30 October 2026 &middot; From Rakshit Lodha&rsquo;s saves, plus the Substacks</div>
+</div>
+
+<div class="front">
+<div>
+<div class="sec-label">Lead &middot; From the Substacks &middot; Engineering</div><h2 class="headline">Anthropic Outgrew Git &mdash; So It Built Its Own</h2><div class="byline">By Gergely Orosz, The Pragmatic Engineer &middot; <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-anthropic-builds-its-own">Source</a></div><p class="lede">Coding is no longer the bottleneck at Anthropic. That is the company&rsquo;s own diagnosis, and it is worth sitting with, because it inverts the story of the last three years. For a decade, the scarce resource in software was writing code. Now Claude agents write it faster than the systems around them can absorb it &mdash; and the thing that breaks first is not the model, but the plumbing built for humans: source control, builds, and continuous integration.</p><p>The numbers make the point concrete. In May 2026, Anthropic merged an average of around two thousand five hundred code changes a day. By September, it was merging more than thirty thousand a day &mdash; a twelvefold increase in four months. Each of its roughly three thousand staff typically runs ten to fifteen Claude agents in parallel, so the company&rsquo;s coding output resembles a firm with thirty-five thousand to seventy thousand engineers. Its working copy alone is twenty-five gigabytes, and its continuous integration system performs twenty-five million Git checkouts a day. Git, designed for developers who sometimes go offline and sync later, was never built for clients that are always online, always pushing, at this volume. Anthropic ran hundreds of Git mirrors and still hit a wall: once the repository outgrew the mirrors&rsquo; disk capacity, it could no longer scale the repository at all.</p>
+<div class="stat-strip"><div class="stat"><div class="num">2,500</div><div>merges a day, May 2026</div></div><div class="stat"><div class="num">30,000+</div><div>merges a day, September 2026</div></div><div class="stat"><div class="num">25M</div><div>Git checkouts a day, for CI</div></div><div class="stat"><div class="num">7</div><div>engineers build and run Scion</div></div></div>
+<svg viewBox="0 0 640 190" width="100%" style="border:2px solid #1a1a1a;background:#fff;margin:16px 0;">
+<text x="320" y="26" text-anchor="middle" font-size="15" font-weight="bold" font-family="Arial">ANTHROPIC'S MERGED CHANGES PER DAY, 2026</text>
+<text x="30" y="60" font-size="13" font-family="Arial">May</text><rect x="110" y="48" width="42" height="22" fill="#a31621"/><text x="158" y="64" font-size="13" font-family="Arial">2,500</text>
+<text x="30" y="100" font-size="13" font-family="Arial">September</text><rect x="110" y="88" width="500" height="22" fill="#a31621"/><text x="30" y="140" font-size="13" font-family="Arial">Twelvefold in four months &mdash; and Anthropic expects the growth to continue.</text>
+<text x="30" y="165" font-size="13" font-family="Arial">Source: Anthropic engineering blog, via The Pragmatic Engineer.</text>
+</svg>
+<div class="pullquote">&ldquo;The bottleneck, now, is all of the developer infrastructure built for human scale: source control, builds, and CI.&rdquo;<span class="attr">Anthropic engineering blog</span></div><p>So Anthropic built Scion, its own source control system, and Antique, a new code review and code management platform to replace what it lost by leaving GitHub. The design is deliberately simple: server nodes hold the whole repository, changesets live in Google Spanner, and large files live in Google Cloud Storage. It is written in Rust; Antique&rsquo;s backend is Go with a React frontend. Every component can autoscale, though it has not needed to yet &mdash; the data is content-addressed and never changes once stored, so caching tiers do most of the work. One hundred percent of the monorepo has moved off Git, a migration the team says Claude itself was instrumental in completing: get to roughly ninety-nine percent coverage, force the cutover, and let Claude fix whatever actually mattered.</p>
+<svg viewBox="0 0 640 210" width="100%" style="border:2px solid #1a1a1a;background:#fff;margin:16px 0;">
+<text x="320" y="26" text-anchor="middle" font-size="15" font-weight="bold" font-family="Arial">HOW SCION WORKS, AT A HIGH LEVEL</text>
+<rect x="30" y="50" width="170" height="60" fill="#faf8f2" stroke="#1a1a1a"/><text x="115" y="75" text-anchor="middle" font-size="13" font-family="Arial">Server nodes</text><text x="115" y="95" text-anchor="middle" font-size="13" font-family="Arial">hold the whole repo</text>
+<rect x="235" y="50" width="170" height="60" fill="#faf8f2" stroke="#1a1a1a"/><text x="320" y="75" text-anchor="middle" font-size="13" font-family="Arial">Changesets in</text><text x="320" y="95" text-anchor="middle" font-size="13" font-family="Arial">Google Spanner</text>
+<rect x="440" y="50" width="170" height="60" fill="#faf8f2" stroke="#1a1a1a"/><text x="525" y="75" text-anchor="middle" font-size="13" font-family="Arial">Blobs in Google</text><text x="525" y="95" text-anchor="middle" font-size="13" font-family="Arial">Cloud Storage</text>
+<text x="115" y="140" font-size="13" font-family="Arial">Rust client + server</text>
+<text x="320" y="140" font-size="13" font-family="Arial">Multi-region replication</text>
+<text x="525" y="140" text-anchor="middle" font-size="13" font-family="Arial">Soft deletes + backups</text>
+<text x="320" y="175" text-anchor="middle" font-size="14" font-family="Arial">Antique (Go + React) replaces GitHub code review on top.</text>
+</svg><p>There is a sting in the tail. The creator of Mononoke, an open-source high-throughput version control server, accused Anthropic of ripping off Mononoke&rsquo;s data model &mdash; and Anthropic added a small attribution only after the public complaint. Open source lets you build on others&rsquo; work; the complaint is not about permission but about credit. It is a reminder that even infrastructure stories are reputation stories, and Anthropic&rsquo;s decision not to open-source Scion &mdash; &ldquo;mostly bandwidth,&rdquo; the team says, with a small team and fast-changing code &mdash; sits awkwardly next to Meta&rsquo;s open-sourcing of Sapling, its own Git replacement.</p><p>Orosz&rsquo;s own hunch is the useful corrective: very few companies will go through the trouble of building another source control system, and most teams do not need to leave Git. The real question is which human-scale assumptions break next. Google is already preparing for ten times more code shipped; a new batch of vendors &mdash; Entire, founded by GitHub&rsquo;s last chief executive Thomas Dohmke, Cursor Origin, and Code Storage &mdash; is positioning itself as Git-compatible version control built for AI scale. The bottleneck moved once, from writing code to absorbing it. It will move again, to review, to testing, to deployment. Every team running agents at scale should be asking which of its own pipes was sized for humans, and what happens when the machines fill it twelve times over.</p>
+<div class="learnings"><h4>What to take from it</h4><ul><li>Agent throughput breaks human-scale infrastructure first: source control, builds, and CI, not model quality.</li><li>Centralised, always-online version control beats Git&rsquo;s offline assumptions once agents never disconnect.</li><li>A seven-person team can run planetary-scale plumbing if the data model is simple and content-addressed.</li><li>Credit matters as much as code: Anthropic&rsquo;s attribution arrived only after a public complaint.</li></ul></div>
+<p><a href="https://newsletter.pragmaticengineer.com/p/the-pulse-anthropic-builds-its-own">Source: The Pragmatic Engineer, &ldquo;The Pulse: Anthropic builds its own source control system&rdquo; &rarr;</a></p>
+</div>
+<div>
+<div class="sec-label">In this edition</div>
+<ul style="font-size:15px;line-height:1.7;">
+<li><b>Anthropic outgrew Git</b> &mdash; thirty thousand merges a day forced a new source control system.</li>
+<li><b>Buying the Google dip</b> &mdash; a save on loading up on Alphabet after a twelve-percent fall.</li>
+<li><b>From the Substacks</b> &mdash; the Pragmatic Engineer on infrastructure built for human scale.</li>
+</ul>
+<div class="sec-label" style="margin-top:24px;">The through-line</div>
+<p style="font-size:15px;">When machines do the work, the constraints move. Code got cheap, so the pipes broke; a stock fell, so the dip got bought. In both cases the interesting question is not the first-order event but what it breaks, or opens, next.</p>
+</div>
+</div>
+
+<hr style="border:none;border-top:2px solid #1a1a1a;margin:30px 0;">
+
+<div class="sec-label">From the Saves &middot; Markets</div><h2 class="headline">Buying the Google Dip, and the Dad Who Cancelled ChatGPT</h2><div class="byline">By Pieter Levels &middot; <a href="https://x.com/levelsio/status/2114792905973838057">Source</a></div><p>Pieter Levels&rsquo; post is short, and it captures a market mood in two beats. First, the trade: Google is, in his words, &ldquo;down bad for no apparent reason,&rdquo; so he has been loading up on Alphabet stock, which he considers very cheap at these levels. Second, the anecdote: on a video call, his dad told him he had cancelled ChatGPT &mdash; the kind of small, personal data point that says more about consumer AI habits than any survey.</p><p>The context makes the trade legible. Alphabet fell roughly twelve and a half percent on Thursday, 29 October, after missing third-quarter revenue and earnings expectations: search advertising growth slowed even as cloud revenue more than doubled, while capital spending on AI infrastructure surged. The stock had closed near three hundred and twenty-two dollars and fell to around two hundred and eighty-two. Yesterday&rsquo;s edition covered the quarter itself; this is the other side of that print &mdash; the moment a bad earnings reaction becomes somebody else&rsquo;s buying opportunity.</p><p>Read the two beats together and they pull in opposite directions, which is what makes the post worth saving. The dip-buyer sees a cheap Alphabet; the dad cancelling ChatGPT is a reminder that consumer subscriptions are fickle and that the AI race is still being fought one household at a time. Neither beat settles the question. But for anyone building AI products, the dad is the more useful signal: distribution is not just about model quality, it is about who stays subscribed when the novelty fades.</p><p><a href="https://x.com/levelsio/status/2114792905973838057">Source: Pieter Levels on X &rarr;</a></p>
+
+<footer><div class="fin">— 30 —</div>The Unread Pile &middot; Edition No. 36 &middot; Built from Rakshit Lodha&rsquo;s saves and the Substack pool &middot; Friday, 30 October 2026</footer>
+</div>
+</body>
+</html>
