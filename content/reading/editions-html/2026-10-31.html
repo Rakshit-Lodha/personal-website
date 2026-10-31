@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 37</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .front { display:grid; grid-template-columns: 2.1fr 1fr; gap:34px; margin-top:26px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; }
+  .stat .lbl { font-size:11px; font-family:Arial,Helvetica,sans-serif; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
+  .chart-box { border:1px solid var(--rule); background:#fff; padding:16px; margin:18px 0; }
+  .chart-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .chart-box figcaption { font-size:12.5px; color:var(--muted); margin-top:8px; font-family:Arial,Helvetica,sans-serif; }
+  .flow { display:flex; align-items:stretch; gap:0; margin:16px 0; font-family:Arial,Helvetica,sans-serif; }
+  .flow .step { flex:1; background:#fff; border:1.5px solid var(--ink); padding:12px 10px; font-size:13.5px; line-height:1.45; }
+  .flow .step b { display:block; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--red); margin-bottom:4px; }
+  .flow .arrow { align-self:center; font-size:22px; padding:0 6px; color:var(--red); font-weight:900; }
+  .takeaway { background:#fdf3e3; border-left:5px solid var(--red); padding:14px 18px; margin:18px 0; font-size:16px; }
+  .takeaway b { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); display:block; margin-bottom:4px; }
+  hr.sep { border:none; border-top:1px solid var(--ink); margin:34px 0; }
+  .briefs { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .brief { border-top:3px solid var(--ink); padding-top:10px; }
+  .brief h4 { font-size:19px; line-height:1.3; margin-bottom:6px; }
+  .brief p { font-size:15px; }
+  .brief .src { font-family:Arial,Helvetica,sans-serif; font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
+  .brief .src a { color:var(--red); text-decoration:none; font-weight:bold; }
+  .colophon { margin-top:40px; border-top:4px double var(--ink); padding-top:14px; font-size:13px; color:var(--muted); font-family:Arial,Helvetica,sans-serif; }
+  a { color:var(--red); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="masthead">
+    <div class="kicker">Saturday &bull; 31 October 2026 &bull; Bengaluru</div>
+    <h1>The Unread Pile</h1>
+    <div class="tagline">Today&rsquo;s ideas, distilled &mdash; Edition No. 37</div>
+  </div>
+  <div class="dateline"><span>From the saves, the long reads, and the Substacks</span><span>Price: your attention</span></div>
+
+  <div>
+    <div>
+      <div class="sec-label">Lead Story &bull; From the Saves</div>
+      <h2 class="headline"><a href="https://x.com/MaxAnderson/status/2080229375773941871">Google Is Manufacturing Its Search Growth &mdash; and Its Best Customers Are Noticing</a></h2>
+      <div class="byline">By <a href="https://x.com/MaxAnderson">Max Anderson</a>, CEO of OnlyFinder, via X &bull; corroborated by The Register and Search Engine Journal</div>
+      <p class="lede">A man who has spent more than five hundred thousand dollars a month on Google Ads for years has said out loud what many advertisers have muttered in private: Google&rsquo;s search revenue growth is no longer earned the way it used to be. It is, in his words, &ldquo;artificial and extremely unhealthy for Google&rsquo;s business long term.&rdquo; The post landed the same week Alphabet&rsquo;s third-quarter results knocked roughly thirteen percent off the share price &mdash; and the two events explain each other.</p>
+      <p>The mechanism Anderson describes is precise, and that is what makes it hard to dismiss. For years, Google ran a second-price auction: bid five dollars, next-highest bid one dollar, you paid about a dollar and one cent. Anderson says Google has drifted toward charging advertisers up to their bid and budget caps regardless of competing bids. At the same time, &ldquo;exact match&rdquo; has been stretched through &ldquo;close variants&rdquo; so broadly that ads show &mdash; and charge &mdash; on queries the advertiser never approved. Campaigns, he notes, can spend twice their daily budget in a day. Each change is individually defensible. Together they let Google hold revenue up while the underlying quality of what advertisers buy goes down.</p>
+      <div class="stat-strip">
+        <div class="stat"><div class="num">$500k+</div><div class="lbl">Anderson&rsquo;s monthly Google Ads spend, for years</div></div>
+        <div class="stat"><div class="num">17% &rarr; 12%</div><div class="lbl">Search revenue growth, Q2 to Q3 2026</div></div>
+        <div class="stat"><div class="num">~$500bn</div><div class="lbl">Market value Alphabet shed after Q3</div></div>
+        <div class="stat"><div class="num">$51.4bn</div><div class="lbl">Alphabet&rsquo;s Q3 capital expenditure</div></div>
+      </div>
+      <div class="chart-box">
+        <h4>The squeeze, in one picture</h4>
+        <svg viewBox="0 0 640 220" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart of Google search revenue growth slowing from 17 percent in Q2 to 12 percent in Q3 2026, alongside 51.4 billion dollars of quarterly capital expenditure">
+          <text x="20" y="22" font-family="Arial" font-size="13" font-weight="bold" fill="#1a1a1a">Search revenue growth slows while AI spending explodes</text>
+          <rect x="60" y="60" width="150" height="90" fill="#a31621"></rect>
+          <text x="135" y="80" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold" fill="#ffffff">17%</text>
+          <text x="135" y="170" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">Q2 2026</text>
+          <rect x="260" y="85" width="150" height="65" fill="#d88a8a"></rect>
+          <text x="335" y="105" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold" fill="#ffffff">12%</text>
+          <text x="335" y="170" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">Q3 2026</text>
+          <rect x="470" y="40" width="130" height="110" fill="#1a1a1a"></rect>
+          <text x="535" y="95" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#ffffff">$51.4bn</text>
+          <text x="535" y="170" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">Q3 capex</text>
+          <line x1="40" y1="150" x2="620" y2="150" stroke="#d8d2c4" stroke-width="1"></line>
+        </svg>
+        <figcaption>Search growth: Alphabet Q3 2026 results as reported by The Register. Capex: Alphabet Q3 2026. Free cash flow turned negative, at minus $9.07 billion, in the same quarter.</figcaption>
+      </div>
+      <p>Google&rsquo;s own earnings call tells the other half of the story. Chief business officer Philipp Schindler blamed foreign exchange, the end of Europe&rsquo;s customs-duty exemption, and &ldquo;the lower monetization we were seeing in AI Mode.&rdquo; That is the bind in one sentence: AI Overviews and AI Mode answer questions without sending users to the ad-laden results page, so each query is worth less &mdash; even as the company insists query volume itself is growing at its fastest rate in five years. Google&rsquo;s answer is more ads inside AI answers, including multi-turn ads in AI Mode in the United States.</p>
+      <div class="flow">
+        <div class="step"><b>Then</b>Second-price auction: you paid just above the next bid. Exact match meant exact.</div>
+        <div class="arrow">&rarr;</div>
+        <div class="step"><b>Now</b>Charges up to your bid and budget cap. &ldquo;Close variants&rdquo; stretch matching to queries you never approved.</div>
+        <div class="arrow">&rarr;</div>
+        <div class="step"><b>Result</b>Revenue holds up; advertiser ROI falls. Trust &mdash; the thing the auction was built to protect &mdash; erodes.</div>
+      </div>
+      <p>The counter-argument, made by Mobile Dev Memo&rsquo;s Eric Seufert, is that query volume is not actually declining, so the &ldquo;artificial growth&rdquo; charge overreaches. Fair &mdash; but it misses Anderson&rsquo;s real point. Even if volumes hold, the <em>terms</em> of the trade have changed: advertisers pay more per click, for less control over where their money goes, to fund an AI transition whose monetisation is visibly worse than the search business it cannibalises. That is a story about incentives, not just volumes. And it is the other side of yesterday&rsquo;s coin: Pieter Levels bought the Google dip; Anderson is explaining why the dip happened.</p>
+      <div class="pullquote">&ldquo;This revenue growth in Search is artificial &amp; extremely unhealthy for Google&rsquo;s business long term.&rdquo;<span class="attr">&mdash; Max Anderson, X</span></div>
+      <div class="takeaway"><b>The takeaway</b>When a platform&rsquo;s growth comes from loosening the rules of its own marketplace rather than from more demand, treat every future &ldquo;growth&rdquo; print with suspicion &mdash; and watch advertiser ROI, not revenue, as the leading indicator. Sources: <a href="https://www.theregister.com/ai-and-ml/2026/10/30/googles-search-revenue-ferrari-hits-an-ai-powered-speed-bump/5306520">The Register</a>, <a href="https://www.searchenginejournal.com/googles-q3-selloff-raises-advertiser-concerns-about-ai-search/595005/">Search Engine Journal</a>.</div>
+    </div>
+  </div>
+
+  <hr class="sep">
+  <div class="sec-label">From the Substacks &bull; Read in Full</div>
+
+  <h3 class="headline"><a href="https://www.interconnects.ai/p/was-i-wrong-about-open-models-and">Was I Wrong About Open Models &amp; Cyber Risks?</a></h3>
+  <div class="byline">Nathan Lambert &bull; <a href="https://www.interconnects.ai/">Interconnects</a> &bull; 30 October 2026</div>
+  <p class="lede">A few weeks ago, Nathan Lambert made a deliberately provocative claim: if Claude Mythos had leaked as an open-weight model, the world would have been more or less fine &mdash; an acceleration of cyber risk, not a step change. Then came Black October: PHP2Shell, a GitLab flaw rated ten out of ten, a cluster of critical disclosures, and a major crypto incident at Binance. So Lambert did the rare thing and publicly re-examined his own take.</p>
+  <p>His verdict is a careful half-retreat. He still stands by the core claim, but concedes &ldquo;fine&rdquo; was the wrong word. What is coming is not fine; it is a forced, expensive industry-wide update to how software is built and maintained &mdash; a long climb up a sigmoid curve of vulnerability discovery that will take a long time to level off. The evidence that moved him is concrete: Epoch AI used GLM-5.3, an open model, to build a website that exfiltrated files from a visiting Firefox user&rsquo;s machine with no further interaction. Finding the exploit, he notes, is only one step in a multi-stage attack &mdash; but the chain from discovery to harm is getting shorter.</p>
+  <p>The deeper argument is about attribution. Lambert finds &ldquo;very low evidence&rdquo; that open models are to blame for the current wave; closed models, he argues, have played the heavier part, and the ecosystem-level trend in exploit rates has been exponential since long before ChatGPT. The more useful frame is not open versus closed but offense versus defense: most attackers are lower-resourced than the companies defending, and defenders will adopt open-weight models faster than attackers will weaponise them. The open question he keeps returning to is whether any actor will push the full force of these models at public institutions rather than quietly extracting information en masse.</p>
+  <div class="pullquote">&ldquo;Cyber is really a societal problem, one which AI companies alone cannot solve.&rdquo;<span class="attr">&mdash; Nathan Lambert, Interconnects</span></div>
+  <div class="takeaway"><b>The takeaway</b>Stop asking whether open models are dangerous in the abstract. Ask who finds vulnerabilities faster &mdash; attackers or defenders &mdash; and whether the patching system can keep up with an exponential discovery curve. That race, not the model weights, is the story.</div>
+
+  <hr class="sep">
+  <h3 class="headline"><a href="https://latent.space/p/claude-mods/">Claude Mods: Flipping the Harness Inside Out</a></h3>
+  <div class="byline">swyx &bull; <a href="https://www.latent.space/">Latent Space</a> &bull; 21 October 2026</div>
+  <p class="lede">The agent harness started as the layer between the agent and the machine: prompts in, commands and file edits out. As models absorb more of that machinery into their weights, swyx argues, what is left of the harness faces the human &mdash; it becomes the Attention Interface, the layer that decides when the agent interrupts you, what it shows you, and which decisions it needs from you. Claude Mods are the first version of that interface you can shape yourself.</p>
+  <p>A mod is a Claude Code plugin &mdash; TypeScript or JavaScript functions that respond to events like a prompt, a tool call, or a render, and can observe, restyle, or replace the default behaviour. Two examples carry the piece. <em>You Should Know</em>, a built-in side agent, once saved swyx from discarding weeks of uncommitted work across forty-five files when he was about to throw away a demo&rsquo;s edits. <em>Next Steps Supervisor</em>, a mod he built himself, reviews every turn that edits files or makes eight or more tool calls and offers one-keypress next steps. The contrast with rivals is the point: ChatGPT&rsquo;s Intelligent UI lets the model design the interface per answer, inside a frame OpenAI built; Cursor&rsquo;s PR Routing lets the team write policy, but the flow is Cursor&rsquo;s. Only Mods let you and the agent build the interface itself, in code.</p>
+  <p>swyx is honest about the costs, and they are the most useful part. Noise: the supervisor fires on ninety-nine of his hundred and eleven turns, so he starts skimming past it &mdash; which defeats the entire purpose of an attention interface. Cost: each check forks the conversation at roughly five to six thousand input-equivalent tokens. Trust: mods are not sandboxed; a mod can read your files, see every prompt, and spend your usage. His test for any mod is admirably simple: did it surface something you would have missed, make a decision easier, or let you act without wading through more output? If not, it is window-dressing.</p>
+  <div class="flow">
+    <div class="step"><b>ChatGPT Intelligent UI</b>The model designs the interface, per answer. Zero setup, little control.</div>
+    <div class="arrow">&rarr;</div>
+    <div class="step"><b>Cursor PR Routing</b>The team writes policy; a fixed workflow enforces it. Rules, not interface.</div>
+    <div class="arrow">&rarr;</div>
+    <div class="step"><b>Claude Mods</b>You and the agent build the interface itself, in code. Full control, full responsibility.</div>
+  </div>
+  <div class="takeaway"><b>The takeaway</b>The next platform war is not over models but over who designs the layer between you and the agent. If the bet is right, we will soon talk about startups built on a harness the way we once talked about startups built on a browser &mdash; and the winners will be decided by whose attention interface wastes least of yours.</div>
+
+  <hr class="sep">
+  <h3 class="headline"><a href="https://leverageloops.substack.com/p/why-wont-anyone-give-me-a-chance">Why Won&rsquo;t Anyone Give Me a Chance?</a></h3>
+  <div class="byline">Brandon Galang &bull; <a href="https://leverageloops.substack.com/">Leverage Loops</a> &bull; 18 October 2026</div>
+  <p class="lede">Brandon Galang spent a year looking for a job &mdash; May 2025 to May 2026, ninety-two interview sessions across thirty-three companies, a hundred and seventy-nine applications &mdash; and burned himself out doing it. The essay he built from the wreckage is not another list of job-search tips. It is a diagnostic map, and its central insight is that most job-search advice fails because it prescribes a tactic without diagnosing which part of the search is actually broken.</p>
+  <p>The map has two branches. Getting considered: how many attempts you make, which routes you use to reach people, and what you ask them to do next. Building buy-in: what the hiring side needs to believe about you, and what gives them confidence those beliefs are justified &mdash; your track record, a conversation, work they can inspect, or someone they trust vouching for you. The branches connect: a project someone discovers can start a conversation and carry evidence at once; an introduction can create an opportunity and lend it someone else&rsquo;s credibility.</p>
+  <p>The diagnostic discipline is the payoff. Silence after thirty applications and two conversations tells you two different things: the applications describe attempts, the conversations describe results, and confusing them sends you fixing the wrong branch. Galang&rsquo;s own failure mode is painfully recognisable: after each rejection he reacted to whatever had just gone wrong &mdash; sounding more technical, explaining a gap differently &mdash; when the pattern across interviews pointed to one question he was never answering clearly: was he making a clear case for the role? &ldquo;The return on a tactic depends on the problem it&rsquo;s meant to solve.&rdquo; Before your next week of effort, ask the map&rsquo;s question: which part of my search deserves my next hour?</p>
+  <div class="chart-box">
+    <h4>Galang&rsquo;s search, by the numbers</h4>
+    <svg viewBox="0 0 640 150" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of Brandon Galang's job search: 179 applications, 92 interview sessions, 33 companies">
+          <rect x="20" y="30" width="180" height="70" fill="#faf8f2" stroke="#1a1a1a" stroke-width="2"></rect>
+          <text x="110" y="62" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#a31621">179</text>
+          <text x="110" y="85" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">companies applied to</text>
+          <rect x="230" y="30" width="180" height="70" fill="#faf8f2" stroke="#1a1a1a" stroke-width="2"></rect>
+          <text x="320" y="62" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#a31621">92</text>
+          <text x="320" y="85" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">interview sessions</text>
+          <rect x="440" y="30" width="180" height="70" fill="#faf8f2" stroke="#1a1a1a" stroke-width="2"></rect>
+          <text x="530" y="62" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#a31621">33</text>
+          <text x="530" y="85" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">companies interviewed</text>
+          <text x="320" y="130" text-anchor="middle" font-family="Arial" font-size="13" font-style="italic" fill="#1a1a1a">June 2025 &ndash; April 2026, reconstructed records</text>
+        </svg>
+    <figcaption>Source: Leverage Loops, &ldquo;Why Won&rsquo;t Anyone Give Me a Chance?&rdquo; Records reconstructed by the author and possibly incomplete.</figcaption>
+  </div>
+  <div class="takeaway"><b>The takeaway</b>Treat a stalled search like a debugging session: separate attempts from results, name the branch that is actually constraining you, and pick one action that produces evidence about that branch. An offer is the eventual outcome; smaller signs of progress are how you know the fix is working.</div>
+
+  <div class="colophon">
+    <p>The Unread Pile &mdash; Edition No. 37, Saturday 31 October 2026. Built from Rakshit Lodha&rsquo;s X saves and three Substack essays read in full. Carried over for retry, unmarked: the Granola AEO workflow post (full text not obtained today), the Joseph Tsar video and the Greg Isenberg Main Street AI video (no captions or transcript available on X), and the remaining unmarked items from 30 October. Nothing in this edition was covered from a headline or a caption alone.</p>
+  </div>
+</div>
+</body>
+</html>
