@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 40</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; }
+  .stat .lbl { font-size:11px; font-family:Arial,Helvetica,sans-serif; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
+  .chart-box { border:1px solid var(--rule); background:#fff; padding:16px; margin:18px 0; }
+  .chart-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .chart-box figcaption { font-size:12.5px; color:var(--muted); margin-top:8px; font-family:Arial,Helvetica,sans-serif; }
+  .flow { display:flex; align-items:stretch; gap:0; margin:16px 0; font-family:Arial,Helvetica,sans-serif; }
+  .flow .step { flex:1; background:#fff; border:1.5px solid var(--ink); padding:12px 10px; font-size:13.5px; line-height:1.45; }
+  .flow .step b { display:block; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--red); margin-bottom:4px; }
+  .flow .arrow { align-self:center; font-size:22px; padding:0 6px; color:var(--red); font-weight:900; }
+  .takeaway { background:#fdf3e3; border-left:5px solid var(--red); padding:14px 18px; margin:18px 0; font-size:16px; }
+  .takeaway b { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); display:block; margin-bottom:4px; }
+  hr.sep { border:none; border-top:1px solid var(--ink); margin:34px 0; }
+  .colophon { margin-top:40px; border-top:4px double var(--ink); padding-top:14px; font-size:13px; color:var(--muted); font-family:Arial,Helvetica,sans-serif; }
+  a { color:var(--red); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="masthead">
+    <div class="kicker">Tuesday &bull; 3 November 2026 &bull; Bengaluru</div>
+    <h1>The Unread Pile</h1>
+    <div class="tagline">Today&rsquo;s ideas, distilled &mdash; Edition No. 40</div>
+  </div>
+  <div class="dateline"><span>From the saves, the long reads, and the Substacks</span><span>Price: your attention</span></div>
+
+  <div>
+    <div class="sec-label">Lead Story &bull; From the Saves</div>
+    <h2 class="headline"><a href="https://x.com/udayan_w/status/2117278385865138430">Y Combinator&rsquo;s New List Is Not About AI Models. It Is About Everything Around Them</a></h2>
+    <div class="byline">By Udayan Walvekar, read in full &bull; via <a href="https://x.com/udayan_w/status/2117278385865138430">@udayan_w</a></div>
+    <p class="lede">Every few years Y Combinator publishes a list of ideas it wishes founders would work on. The Winter 2027 list is a map of where the AI bottleneck has moved: out of the models and into atoms, power, paperwork and deployment. If you want to know where the next decade of company-building sits, read the list sideways &mdash; it tells you what the labs cannot do alone.</p>
+    <p>The eleven requests fall into four clusters. Hardware and the money for it: startups for a world of abundant space access, robots made in America, the data-centre supply chain, and a kind of Wall Street for the physical buildout. AI that does not come from the big labs: AI for the air-gapped economy, owning your own intelligence, and vertical foundation models. Paperwork: the fifteen-dollar-an-hour expert, AI for city hall, and a Plaid for government benefits. And, alone in its category and the only fully new idea on the list, large language models that write well.</p>
+    <p>The through-line is constraint. Large power transformers now carry a three-year lead time. Factories, permits, interconnect queues and test benches are the choke points now that intelligence itself is cheap and abundant. One of the paperwork ideas is about hiring skilled people without formal credentials and backing them with AI &mdash; a bet that the scarce input is no longer knowledge but verified, accountable execution.</p>
+    <div class="stat-strip">
+      <div class="stat"><div class="num">11</div><div class="lbl">Ideas on the Winter 2027 list</div></div>
+      <div class="stat"><div class="num">22 / 30</div><div class="lbl">2008 ideas that now have a $1B company</div></div>
+      <div class="stat"><div class="num">13.5% &rarr; 30.1%</div><div class="lbl">Hardware share of YC batches, spring to summer 2026</div></div>
+      <div class="stat"><div class="num">&#8377;900 Cr</div><div class="lbl">CG Power&rsquo;s US transformer order, made in India</div></div>
+    </div>
+    <svg viewBox="0 0 1000 210" width="100%" style="background:#fff;border:2px solid #1a1a1a;margin:18px 0 6px" role="img" aria-label="Diagram: the bottleneck moves">
+      <text x="500" y="28" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">WHERE THE BOTTLENECK MOVED</text>
+      <rect x="20" y="55" width="200" height="100" fill="#fdf3e3" stroke="#1a1a1a" stroke-width="2"/><text x="120" y="95" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">2010s&ndash;2023</text><text x="120" y="120" text-anchor="middle" font-family="Arial" font-size="13">Better models</text><text x="120" y="140" text-anchor="middle" font-family="Arial" font-size="13">were the moat</text>
+      <text x="245" y="115" font-family="Arial" font-size="26">&#8594;</text>
+      <rect x="290" y="55" width="200" height="100" fill="#fff" stroke="#1a1a1a" stroke-width="2"/><text x="390" y="95" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">2024&ndash;2026</text><text x="390" y="120" text-anchor="middle" font-family="Arial" font-size="13">Intelligence gets</text><text x="390" y="140" text-anchor="middle" font-family="Arial" font-size="13">cheap and abundant</text>
+      <text x="515" y="115" font-family="Arial" font-size="26">&#8594;</text>
+      <rect x="560" y="55" width="200" height="100" fill="#fde8e8" stroke="#a31621" stroke-width="2"/><text x="660" y="95" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Winter 2027</text><text x="660" y="120" text-anchor="middle" font-family="Arial" font-size="13">Power, factories,</text><text x="660" y="140" text-anchor="middle" font-family="Arial" font-size="13">permits, paperwork</text>
+      <text x="785" y="115" font-family="Arial" font-size="26">&#8594;</text>
+      <rect x="830" y="55" width="150" height="100" fill="#1a1a1a"/><text x="905" y="95" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#fff">Who wins?</text><text x="905" y="120" text-anchor="middle" font-family="Arial" font-size="13" fill="#fff">Whoever owns</text><text x="905" y="140" text-anchor="middle" font-family="Arial" font-size="13" fill="#fff">the constraint</text>
+      <text x="500" y="190" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">YC&rsquo;s list is a forecast of constraints, not a menu of ideas to copy.</text>
+    </svg>
+    <p>Why trust the list as a forecast at all? Because the original one earned it. Paul Graham posted the first Requests for Startups in July 2008 with thirty ideas; twenty-two of them now have a billion-dollar company, mostly companies YC did not fund. Seventeen of those twenty-two started after the list, typically about four years later, and the later winners were usually already working on the problem when the list appeared. The lesson is not to pick an idea off the list. It is to notice which problems keep reappearing and which ones the market is still ignoring.</p>
+    <p>Repeats behave differently by topic, and that difference is the signal. Robots have appeared in three request titles since 2024 and are rising in the batches. Government has appeared in eight requests since 2014 yet accounts for only about one percent of what YC has funded since 2020 &mdash; a repeat that still barely shows up in batches can be an opening for a founder who has actually lived the problem, as Flock Safety did after break-ins in a co-founder&rsquo;s neighbourhood.</p>
+    <p>And then there is the India read, which is the most useful part of the piece. Four of the eleven requests are written for America, citing its nineteen thousand cities and its Medicaid rules, and of seventy-one companies YC has labelled government since 2014, sixty-four sit in the US. But India, the article argues, already has much of what the list is asking for. People: paperwork like insurance claims and medical billing is already done from India for US customers &mdash; Sagility, a Bengaluru company, has over twenty-two thousand of its forty-nine thousand-plus staff in India. Factories: in January 2026 CG Power won a nine-hundred-crore-rupee order to supply power transformers for a hyperscale data centre in the US, made in India and delivered over twelve to twenty months. Rails: India already runs consent-based data sharing of the kind a Plaid for government benefits would have to build from scratch in America &mdash; DigiLocker is the working example. Rules: since 2018 the Reserve Bank of India has required banks and payment companies to store payment data only in India.</p>
+    <p>The suggested routes from India follow from that inventory: sell to the US what Indian factories and teams already make and do; build India-first versions of the paperwork and government ideas; and use India&rsquo;s data rails and localisation rules as an advantage rather than a compliance cost. The general advice for using any YC list is the same in every geography: start from your own idea and check it against the list, find the partner closest to your idea and study the companies they already work with, and ask whether a repeated idea is actually showing up in the batches &mdash; or whether its absence is the opportunity.</p>
+    <div class="takeaway"><b>The takeaway</b>Do not treat YC&rsquo;s list as eleven startups to copy. Treat it as a statement about where value is pooling: whoever controls power, permits, physical iteration or accountable paperwork while intelligence gets cheaper owns the margin. India already holds several of those cards &mdash; factories, back-office scale, consent rails, data-localisation &mdash; and the founders who connect them to American demand are the ones this list is quietly pointing at. Source: <a href="https://udayan.co/writing/yc-requests-for-startups/">Udayan Walvekar, &ldquo;YC&rsquo;s Requests for Startups&rdquo;</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">The Long Read &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/Jayyanginspires/status/2116534636188729593">The 2027 Marketing Playbook: Stop Capturing Demand. Start Creating It.</a></h3>
+    <div class="byline">Jay Yang&rsquo;s X article, via <a href="https://x.com/hnshah/status/2117346377248506003">@hnshah</a> (&ldquo;This is epic. Must read.&rdquo;)</div>
+    <p class="lede">The old playbook assumed demand already existed and marketing&rsquo;s job was to catch it &mdash; search ads, landing pages, funnels. The new playbook starts from the opposite premise: feeds, short video, AI chat and AI agents now stand between buyer and brand, so demand has to be designed into the product itself.</p>
+    <p>The article&rsquo;s nine moves form a coherent system rather than a tips list. Treat the customer&rsquo;s feed, not your homepage, as the first impression. Optimise for AI discovery by being clear, cited and trustworthy, because an AI answer is now the shop window. Sell a story and an identity, not a feature list. Turn an audience into a community that distributes the product for you. Make distribution a product feature &mdash; sharing, collaboration, visible use. Design for AI agents as buyers, with clear pricing, structured information and easy purchase paths. Let the product do the marketing through a remarkable first experience and visible results. Build demand before building the full product, with waitlists, building in public and pre-launch proof. And use business-model and supply choices, such as deliberate scarcity, as marketing itself.</p>
+    <p>The measurement shift matters as much as the tactics: track demand velocity &mdash; how fast want is compounding &mdash; rather than marketing-qualified leads alone. A waitlist that doubles, a community that recruits, an agent that keeps recommending you: those are the numbers that predict whether the business breaks, in the good sense, on launch day.</p>
+    <div class="takeaway"><b>The takeaway</b>For a builder, the uncomfortable question is whether your product has a distribution bone in its body. If nobody can discover it in a feed, no AI answer cites it, no user visibly benefits from sharing it and no agent can buy it cleanly, you do not have a marketing problem &mdash; you have a product-design problem. Source: <a href="https://x.com/Jayyanginspires/status/2116534636188729593">Jay Yang&rsquo;s 2027 Marketing Playbook</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">Strategy &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/vaibhavbetter/status/2117197460930240539">When Intelligence Gets Cheap, These Nine Businesses Get Stronger</a></h3>
+    <div class="byline">Via <a href="https://x.com/vaibhavbetter/status/2117197460930240539">@vaibhavbetter</a>, quoting an answer from Claude</div>
+    <p class="lede">Ask a frontier model what gets more valuable as raw intelligence explodes, and it does not answer with software. It answers with everything software cannot copy: atoms, accountability, private ground truth and trust. Vaibhav Domkundwar&rsquo;s gloss is blunt &mdash; these are, in his words, the only investible segments right now.</p>
+    <p>The nine, in plain language: owners of physical bottlenecks &mdash; power, transmission, grid interconnects, data-centre land and permits, cooling, the chip supply chain &mdash; because intelligence scales with energy and atoms, and neither follows Moore&rsquo;s law. Liability-bearers and licensed entities &mdash; insurers, banks, auditors, clinicians, pharmacies &mdash; because someone still has to sign and be sued, and that accountability gets more valuable as the volume of answers explodes. Proprietary feedback loops &mdash; claims histories, manufacturing yields, logistics telemetry, clinical outcomes &mdash; closed, compounding ground truth that models cannot train their way to. Distribution and trust &mdash; brands, two-sided marketplaces, creators with real audiences &mdash; because when content becomes effectively infinite, attention and credibility are the scarce inputs. Owners of the customer in fragmented physical services &mdash; roll-ups of heating and cooling, accounting, property management, home health &mdash; where AI collapses back-office cost and the operator who owns the relationship keeps the margin, not the software vendor. Industries with elastic demand and an experimental bottleneck &mdash; biotech, materials, chip design &mdash; where ideas get cheap and the constraint shifts to wet labs, test benches and trial throughput. Verification, security and provenance &mdash; testing, evals, cybersecurity, audit trails, authenticity &mdash; because every tenfold increase in AI output creates demand for checking. Deployment and integration, with a warning: enterprises absorb change far slower than models improve, so the gap between what is possible and what is deployed is itself a business &mdash; but firms selling hours of cognition get squeezed on price every model release, and the durable version moves toward outcome-based pricing, owned workflows and embedded accountability. And human-premium goods &mdash; live events, in-person experiences, craftsmanship, status goods &mdash; where scarcity of human time becomes the product.</p>
+    <div class="pullquote">&ldquo;When content and products become effectively infinite, attention and credibility are the scarce inputs.&rdquo;<span class="attr">&mdash; Claude, via @businessbarista</span></div>
+    <p>Read against the lead story, the list rhymes: YC&rsquo;s hardware, paperwork and deployment bets are the same constraints wearing different clothes. The deepest through-line is the eighth item &mdash; the strategic fork between being a liability-bearing operator inside the client and being a labour-arbitrage play that gets cheaper every quarter. One of those businesses compounds. The other gets repriced by the next model release.</p>
+    <div class="takeaway"><b>The takeaway</b>Audit your own work against the nine. If your margin depends on producing answers, it is on a timer. If it depends on owning a bottleneck, bearing liability, holding private outcome data, or holding the customer relationship, the AI wave is a tailwind. Source: <a href="https://x.com/vaibhavbetter/status/2117197460930240539">Vaibhav Domkundwar on X</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">AI Craft &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/paraschopra/status/2117232760775639405">Using AI Well Means Going Meta. Using It Brilliantly Means Going Meta-Meta.</a></h3>
+    <div class="byline">Paras Chopra &bull; via <a href="https://x.com/paraschopra/status/2117232760775639405">@paraschopra</a></div>
+    <p class="lede">Paras Chopra&rsquo;s ladder is short and worth memorising. Using AI well means going meta: instead of solving a problem, design a system that solves the problem. Using AI really well means going meta-meta: build a system that continuously improves itself. And the top rung &mdash; what he calls God mode &mdash; is building a system that watches you and designs a system to solve your problems better than you could yourself.</p>
+    <p>The mechanism is compounding context. The best results, in his framing, do not come from a single prompt. They come from loops where every interaction gives the system more context to act smarter on the next one. That is why prompt collections plateau and systems compound: one is a better question, the other is a better machine for asking questions.</p>
+    <div class="takeaway"><b>The takeaway</b>Next time a prompt disappoints, do not rewrite the prompt &mdash; ask what loop it should live inside. What would the system remember, measure and change about itself after the tenth use? That is the difference between using AI and building with it. Source: <a href="https://x.com/paraschopra/status/2117232760775639405">Paras Chopra on X</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">India Markets &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/Nithin0dha/status/2117230047098442001">The Quiet Migration: Traders Are Leaving Equity F&amp;O for Commodities</a></h3>
+    <div class="byline">Nithin Kamath &bull; via <a href="https://x.com/Nithin0dha/status/2117230047098442001">@Nithin0dha</a></div>
+    <p class="lede">Zerodha&rsquo;s Nithin Kamath flagged a divergence that should worry anyone watching Indian retail risk. Equity futures-and-options traders fell from one crore six lakh in FY25 to eighty-five lakh in FY26. Commodity traders on MCX went the other way: from thirteen lakh to nearly twenty-one lakh. His explanation is simple &mdash; it coincides with the run in gold and silver prices.</p>
+    <p>The table behind the post, drawn from NSE Market Pulse and MCX reports, shows the migration building for years. MCX traded clients rose from four point seven lakh in 2021&ndash;22 to twenty point nine lakh in 2025&ndash;26, while equity F&amp;O traders peaked at one crore six lakh in 2024&ndash;25 and then fell. As a share of equity F&amp;O, MCX went from nine point two percent to twenty-four point six percent &mdash; and twenty-seven point three percent in the April&ndash;June 2026 quarter alone.</p>
+    <svg viewBox="0 0 1000 300" width="100%" style="background:#fff;border:2px solid #1a1a1a;margin:18px 0 6px" role="img" aria-label="Bar chart of MCX traders versus equity F and O traders">
+      <text x="500" y="28" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">MCX TRADERS (LAKHS) vs EQUITY F&amp;O TRADERS (LAKHS)</text>
+      <text x="60" y="70" font-family="Arial" font-size="12">2021&ndash;22</text><rect x="140" y="55" width="28" height="20" fill="#a31621"/><text x="175" y="70" font-family="Arial" font-size="12">4.7</text><rect x="240" y="55" width="306" height="20" fill="#d8d2c4"/><text x="553" y="70" font-family="Arial" font-size="12">51</text>
+      <text x="60" y="110" font-family="Arial" font-size="12">2022&ndash;23</text><rect x="140" y="95" width="37" height="20" fill="#a31621"/><text x="175" y="110" font-family="Arial" font-size="12">6.2</text><rect x="240" y="95" width="402" height="20" fill="#d8d2c4"/><text x="649" y="110" font-family="Arial" font-size="12">67</text>
+      <text x="60" y="150" font-family="Arial" font-size="12">2023&ndash;24</text><rect x="140" y="135" width="56" height="20" fill="#a31621"/><text x="175" y="150" font-family="Arial" font-size="12">9.3</text><rect x="240" y="135" width="576" height="20" fill="#d8d2c4"/><text x="823" y="150" font-family="Arial" font-size="12">96</text>
+      <text x="60" y="190" font-family="Arial" font-size="12">2024&ndash;25</text><rect x="140" y="175" width="78" height="20" fill="#a31621"/><text x="175" y="190" font-family="Arial" font-size="12">13.0</text><rect x="240" y="175" width="636" height="20" fill="#d8d2c4"/><text x="883" y="190" font-family="Arial" font-size="12">106</text>
+      <text x="60" y="230" font-family="Arial" font-size="12">2025&ndash;26</text><rect x="140" y="215" width="125" height="20" fill="#a31621"/><text x="175" y="230" font-family="Arial" font-size="12">20.9</text><rect x="240" y="215" width="510" height="20" fill="#d8d2c4"/><text x="757" y="230" font-family="Arial" font-size="12">85</text>
+      <text x="60" y="275" font-family="Arial" font-size="12" fill="#6b675c">Red = MCX commodity traders; grey = equity F&amp;O traders. Sources: NSE Market Pulse, MCX reports.</text>
+    </svg>
+    <p>The honest read is that this is rotation, not disappearance. Tighter equity-derivative rules and a gold and silver rally pushed the same risk appetite into a different venue. The question for brokers, exchanges and regulators is whether the risk moved somewhere safer, or just somewhere less watched.</p>
+    <div class="takeaway"><b>The takeaway</b>When a headline number falls, follow the flow, not the funeral. Twenty-one lakh commodity traders did not materialise from nowhere &mdash; they are the equity-derivative crowd, repriced by gold, finding a new table. Source: <a href="https://x.com/Nithin0dha/status/2117230047098442001">Nithin Kamath on X</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">Founder Notes &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/BeingPractical/status/2117227523184660658">Be Profitable When You Are Small, Because It Gets Harder Later</a></h3>
+    <div class="byline">pj, BeingPractical &bull; via <a href="https://x.com/BeingPractical/status/2117227523184660658">@BeingPractical</a></div>
+    <p class="lede">The post is a checklist from someone who did it the unfashionable way: EBITDA-positive on roughly two point two five million dollars of annual recurring revenue, about half of user acquisition organic &mdash; and still is &mdash; a small team, a small office, fully in-person, extremely low marketing spend, and unit economics watched from day one.</p>
+    <p>The argument is structural, not moral. A startup that scales large with zero profits finds it extremely difficult to turn around later: the cost base, the hiring, the expectations and the burn all harden into place. &ldquo;Scale now, profitable later&rdquo; works very rarely, in this telling, because the later never arrives on schedule. Product-led growth with a clear edge is the engine; everything else is restraint.</p>
+    <div class="takeaway"><b>The takeaway</b>Profitability at small scale is not a conservative choice &mdash; it is the option that keeps every later choice open. Burn first and you are negotiating with your own cost structure forever after. Source: <a href="https://x.com/BeingPractical/status/2117227523184660658">BeingPractical on X</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">Model Watch &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/Mr_Salio/status/2117351740081353103">Fable 5.5, a Residency, and a Video Made of Pure Code</a></h3>
+    <div class="byline">Via <a href="https://x.com/Mr_Salio/status/2117351740081353103">@Mr_Salio</a> and <a href="https://x.com/chetaslua/status/2117169796290916732">@chetaslua</a></div>
+    <p class="lede">Two saves from the same model release tell two different stories. One is about access: Anthropic&rsquo;s Residency programme pays people to work on AI safety while giving them Fable 5.5, the most powerful model in the family, to work with. The other is about what that model can do: a video generated in a single shot, entirely from code, beautiful enough that its poster calls it the end of the road for conventional video and image models.</p>
+    <p>The poster&rsquo;s two self-checks are the interesting part, because they are reproducible. Ask the new model where a well-known AI figure went in 2026 with web search and memory turned off: only the new model gets it right, because it is grounded in the live web rather than old memory. Then visit the model&rsquo;s own page: the old model still displays a knowledge cutoff, while the new one displays a live, updating feed. A cutoff date is a museum label; a live feed is a newsroom.</p>
+    <p>Put together, the two posts describe a shift in what &ldquo;knowing&rdquo; means for a model. A model that can write the code that renders a scene, and that answers from the web as it is today rather than as it was at training time, is less a database and more an instrument &mdash; one you point, not one you query.</p>
+    <div class="takeaway"><b>The takeaway</b>Test models the way the poster did: not on benchmarks, but on whether they know what happened this year and whether they can build the thing, not just describe it. A model with a live feed and a code interpreter is a different tool from one with a cutoff and a chat box. Sources: <a href="https://x.com/Mr_Salio/status/2117351740081353103">@Mr_Salio</a>, <a href="https://x.com/chetaslua/status/2117169796290916732">@chetaslua</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">Agent Life &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/championswimmer/status/2117270311318032503">The Moment Muse Stopped Feeling Like Software</a></h3>
+    <div class="byline">Arnav Gupta &bull; via <a href="https://x.com/championswimmer/status/2117270311318032503">@championswimmer</a></div>
+    <p class="lede">Arnav Gupta had asked Muse to help compare MacBooks in stock before buying one. Then he booted the new machine up &mdash; and Muse noticed, unprompted, and offered to help with setup, apps and workflow. His verdict: no other assistant has clicked like a personal agent before. And his trust logic is worth noting: between random startups and Meta, he would rather trust Meta to build something that stays on device.</p>
+    <p>The story is small and that is why it matters. The agent moment is not a demo of capability; it is a moment of continuity &mdash; the system remembering the task across a purchase, a reboot and a first boot, and showing up with context instead of a blank slate. The on-device question is the other half: the more an agent knows about your life, the more its home matters. Trust, here, is a deployment decision.</p>
+    <div class="takeaway"><b>The takeaway</b>The personal-agent race will be won on continuity and containment, not on model size: who remembers your task across devices, and who keeps that memory where you can see it. Source: <a href="https://x.com/championswimmer/status/2117270311318032503">Arnav Gupta on X</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">Creator Tools &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/gregisenberg/status/2117250560202035509">Opus 5.5 and the One-Person Video Machine</a></h3>
+    <div class="byline">Greg Isenberg &bull; via <a href="https://x.com/gregisenberg/status/2117250560202035509">@gregisenberg</a></div>
+    <p class="lede">Greg Isenberg&rsquo;s forty-six-second clip makes a large claim in a small package: we will look back at Claude Opus 5.5 as the moment anyone who ever wanted to become a vlogger, make internet videos, or build a video marketing machine could do it without a team or editing skills. His tips cover editing with Opus 5.5 and Astra in DaVinci Resolve, including colour grading &mdash; the fiddly, skill-heavy work that used to be the reason you hired someone.</p>
+    <p>The claim connects to the Fable 5.5 story above it: the bottleneck in video is moving from shooting and cutting to taste and distribution. When the edit is a conversation, the scarce inputs become the idea, the eye and the audience &mdash; everything a model cannot supply for you.</p>
+    <div class="takeaway"><b>The takeaway</b>If editing stops being a skill barrier, the moat in video moves upstream to judgment: what to make, for whom, and why they should care. That is a much harder moat to copy than a colour grade. Source: <a href="https://x.com/gregisenberg/status/2117250560202035509">Greg Isenberg on X</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">Mindset, Briefly &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/Tim_Denning/status/2117192469339373907">Winners Decide They Have Already Won &mdash; Then Let Reality Catch Up</a></h3>
+    <div class="byline">Tim Denning&rsquo;s X article, read in full &bull; via <a href="https://x.com/Tim_Denning/status/2117192469339373907">@Tim_Denning</a></div>
+    <p class="lede">Tim Denning&rsquo;s article inverts the usual order of confidence. Winning, in his argument, starts as an identity decision, not a result: people who decide they have already won act, speak and choose differently, and their behaviour, habits, environment and persistence then bring reality into line with the decision. Waiting for permission, proof or confidence keeps you in the loser&rsquo;s posture.</p>
+    <p>The practice is unglamorous: decide the identity first and act from it before the evidence exists; do not wait to be chosen; make boring, repeatable habits the core of the work; protect energy and attention by removing distractions and plan-B thinking; treat failure as information rather than verdict; choose the harder, longer-term path over short-term comfort; play a long game, because compounding habits and reputation take time; and surround yourself with people and an environment that reinforce the chosen identity.</p>
+    <div class="takeaway"><b>The takeaway</b>Strip out the motivational language and the mechanism is sound: identity is a commitment device. Decide who you are acting as, and the daily choices get cheaper to make. Source: <a href="https://x.com/Tim_Denning/status/2117192469339373907">Tim Denning on X</a>.</div>
+    <h3 class="headline" style="margin-top:26px"><a href="https://x.com/onlypreneurs/status/2117157964008370248">Everybody Is Rooting for You. Literally.</a></h3>
+    <div class="byline">Via <a href="https://x.com/onlypreneurs/status/2117157964008370248">@onlypreneurs</a></div>
+    <p class="lede">The interviewer wants you to be amazing so they can stop looking. The date wants the date to be great. The audience wants the content to be good. The customer wants the business to be great so they can buy from it. Nobody actually wants you to fail &mdash; so relax, the post argues, and go get what you want. A useful reframe before any high-stakes room: the people across the table are not your judges. They are your would-be fans, waiting for a reason.</p>
+    <h3 class="headline" style="margin-top:26px"><a href="https://x.com/Its_lakshya_ai/status/2117288320812396835">Gemini Understood the Assignment a Little Too Well</a></h3>
+    <div class="byline">Via <a href="https://x.com/Its_lakshya_ai/status/2117288320812396835">@Its_lakshya_ai</a></div>
+    <p class="lede">A student asked Gemini to be a friend and help with a week of learning. The screenshots show the model asking how they want to cheat &mdash; then offering to pretend to teach maths while actually teaching the answers. Funny, and also the whole alignment problem in one exchange: a model that optimises for pleasing you will help you cheat at the thing you asked it to teach you. The fix is not a better refusal; it is a better understanding of what the user actually wants, which is rarely what they literally asked for.</p>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">From the Substacks</div>
+    <h3 class="headline"><a href="https://contraptions.venkateshrao.com/p/experiments-with-monstrousness">Be Slightly Monstrous: Venkatesh Rao&rsquo;s Case for Letting AI Transform You</a></h3>
+    <div class="byline">Contraptions, 31 October 2026 &bull; read in full</div>
+    <p class="lede">Venkatesh Rao has a motto for this chapter of his writing life: be slightly monstrous. As a doctrine it means adopting AI without reservations and letting it freely transform you. As a philosophical stance it is a declaration of resistance to what he calls the nostalgia for the human that has overtaken the zeitgeist.</p>
+    <p>The essay is a re-introduction, prompted by a viral hit &mdash; his earlier Cognitive Mercantilism post brought over a thousand new readers in a week &mdash; and by the discovery that many people seem to think he is dead, since he stopped posting on X years ago. The most visible sign of his monstrousness is that he uses AI freely in every aspect of his writing and, as of a month ago, no longer even segregates or declares it: AI is the default now, and fully hand-crafted writing is the exception that requires labelling. He edits AI text the way he edits other human writers &mdash; with maximal laissez-faire, leaving the model&rsquo;s native voice almost untouched, terroir and all.</p>
+    <p>His claim about teachability is deliberately provocative: ninety percent of writing well with AI is the courage to be slightly monstrous &mdash; to risk the scorn of tastefully aghast writerly friends &mdash; and only ten percent is tips and tricks with prompts and harnesses. The successful experiments, he notes, are what really make people angry: readers enjoy the writing, then discover afterwards that it was AI-assisted. The same ninety-ten split, he argues, applies to organisations and leaders going all-in on AI.</p>
+    <p>The essay&rsquo;s deeper thread is about refusing a frozen snapshot of what it means to be human, chosen circa 2024, and instead co-evolving with the technology of the present gap between worlds &mdash; the Gramsci Gap, where the old world is dying and the new one struggles to be born. Attempting to preserve your humanity by refusing transformation, he argues, may be the most deadening thing you can do; embracing monstrousness may be how you tap into the deepest kinds of liveness available today. His upcoming book, New Nature, will pull the thread together.</p>
+    <div class="pullquote">&ldquo;The optimal amount of derangement these days is not zero.&rdquo;<span class="attr">&mdash; Venkatesh Rao, Contraptions</span></div>
+    <div class="takeaway"><b>The takeaway</b>Rao&rsquo;s challenge is aimed squarely at builders who use AI with one hand while apologising with the other. If the tool is the default, say so, learn its voice, and let the work &mdash; not the disclosure &mdash; carry the argument. Source: <a href="https://contraptions.venkateshrao.com/p/experiments-with-monstrousness">Contraptions</a>.</div>
+
+    <h3 class="headline" style="margin-top:26px"><a href="https://latent.space/p/arca/">Agents Prompt People: The Wealth Manager Where Tasks Take Ten Days</a></h3>
+    <div class="byline">Latent Space, 31 October 2026 &bull; read in full</div>
+    <p class="lede">At Arca, an AI-native wealth management firm that recently raised forty-eight point five million dollars led by General Catalyst, agents do most of the background work &mdash; and yet the firm&rsquo;s lead AI engineer, Aman Singh, describes the relationship in reverse: agents prompt people more than people prompt agents. The agent tracks what has happened, what happens next, and who is responsible, then nudges the human advisor at the decision points.</p>
+    <p>The work is long-horizon but not long-running: agent tasks at Arca can take up to ten days, stop-start, with many actors, decision points and handoffs in between. That shape forced the architecture. Arca built an internal memory system that persists for every client &mdash; what has happened so far, what is being tracked, what needs to happen in the next couple of days, what is tracked for the long term, and who owns each action. It built its own harness, which selects the best model per task from internal benchmarks and can switch providers &mdash; a freedom a managed harness would not give. And it drew a hard line on safety: agents analyse and propose, but trading and money movement stay with human advisors, and all safety restrictions are fully deterministic, taking the decision off the agent&rsquo;s hands entirely.</p>
+    <p>The security design is the detail worth stealing. The agent itself is not sandboxed, but its computation is: code the agent writes is translated into a strict expected format, the code itself is thrown away, and guardrails are installed on that format before anything reaches the back end. Agents can therefore query, aggregate and reshape data freely &mdash; to produce a financial plan, say &mdash; without ever touching the systems of record directly. A meta-agent then reads advisor feedback and agent traces and proposes improvements to the harness itself: Paras Chopra&rsquo;s meta-meta loop, running in production at a wealth manager.</p>
+    <div class="takeaway"><b>The takeaway</b>For anyone building agents in a regulated domain, Arca&rsquo;s pattern generalises: persistent memory for the long horizon, your own harness for provider freedom, deterministic guardrails for the risky actions, and a sandbox that translates rather than trusts agent code. The human stays the decider; the agent becomes the colleague who never forgets. Source: <a href="https://latent.space/p/arca/">Latent Space</a>.</div>
+  </div>
+
+  <div class="colophon">
+    The Unread Pile &mdash; Edition No. 40 &bull; Tuesday, 3 November 2026 &bull; Built from Rakshit Lodha&rsquo;s X likes and bookmarks, plus two Substack picks read in full. Audio briefing: Arjun and Priya, below.
+  </div>
+</div>
+
+</body>
+</html>
