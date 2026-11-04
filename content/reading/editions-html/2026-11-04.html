@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 41</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; }
+  .stat .lbl { font-size:11px; font-family:Arial,Helvetica,sans-serif; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
+  .chart-box { border:1px solid var(--rule); background:#fff; padding:16px; margin:18px 0; }
+  .chart-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .chart-box figcaption { font-size:12.5px; color:var(--muted); margin-top:8px; font-family:Arial,Helvetica,sans-serif; }
+  .flow { display:flex; align-items:stretch; gap:0; margin:16px 0; font-family:Arial,Helvetica,sans-serif; }
+  .flow .step { flex:1; background:#fff; border:1.5px solid var(--ink); padding:12px 10px; font-size:13.5px; line-height:1.45; }
+  .flow .step b { display:block; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--red); margin-bottom:4px; }
+  .flow .arrow { align-self:center; font-size:22px; padding:0 6px; color:var(--red); font-weight:900; }
+  .takeaway { background:#fdf3e3; border-left:5px solid var(--red); padding:14px 18px; margin:18px 0; font-size:16px; }
+  .takeaway b { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); display:block; margin-bottom:4px; }
+  hr.sep { border:none; border-top:1px solid var(--ink); margin:34px 0; }
+  .colophon { margin-top:40px; border-top:4px double var(--ink); padding-top:14px; font-size:13px; color:var(--muted); font-family:Arial,Helvetica,sans-serif; }
+  a { color:var(--red); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="masthead">
+    <div class="kicker">Wednesday &bull; 4 November 2026 &bull; Bengaluru</div>
+    <h1>The Unread Pile</h1>
+    <div class="tagline">Today&rsquo;s ideas, distilled &mdash; Edition No. 41</div>
+  </div>
+  <div class="dateline"><span>From the saves, the long reads, and the Substacks</span><span>Price: your attention</span></div>
+
+  <div>
+    <div class="sec-label">Lead Story &bull; From the Saves</div>
+    <h2 class="headline"><a href="https://x.com/thorstenball/status/2117336484911140955">A Frontier Model Just Edited Another Model&rsquo;s Brain &mdash; by Hand</a></h2>
+    <div class="byline">MIT CSAIL&rsquo;s &ldquo;Sparks of Weight-Space Programming&rdquo;, via <a href="https://x.com/thorstenball/status/2117336484911140955">@thorstenball</a> quoting <a href="https://x.com/rikiyatakehi/status/2117313742891327994">@rikiyatakehi</a></div>
+    <p class="lede">On 2 November, four researchers at MIT&rsquo;s Computer Science and Artificial Intelligence Laboratory published something that reads like science fiction and is, by their own account, very early science: they handed the raw weights of a small open model to OpenAI&rsquo;s frontier model GPT-6 Astra and asked it to make the model better at maths &mdash; without training it, without gradients, without an optimiser. Astra read the weights, found the fault, and edited it directly.</p>
+    <p>The patient was Qwen3.5-0.8B, a small reasoning model with a well-known bad habit: it gets stuck in thinking loops, repeating itself until it hits the token limit, a flaw its own model card warns about. Astra traced the looping to a single direction written by the MLPs in layers 15 and 19, then subtracted that direction from 64 output columns in each layer. That is 131,072 weights out of roughly 0.8 billion &mdash; 0.016% of the model. With a budget of 50 forward passes, the edited model&rsquo;s MATH-500 score jumped from 7.9% to 48.1%, grade-school maths (GSM8K) from 13.8% to 67.1%, and instruction following (IFEval) roughly tripled, from 21.0% to 62.3%.</p>
+    <div class="stat-strip">
+      <div class="stat"><div class="num">0.016%</div><div class="lbl">Weights edited &mdash; 131,072 of 0.8 billion</div></div>
+      <div class="stat"><div class="num">7.9% &rarr; 48.1%</div><div class="lbl">MATH-500, before and after the edit</div></div>
+      <div class="stat"><div class="num">93% &rarr; 33%</div><div class="lbl">Answers hitting the token limit</div></div>
+      <div class="stat"><div class="num">51.0%</div><div class="lbl">Independent Hugging Face re-run score</div></div>
+    </div>
+    <svg viewBox="0 0 1000 260" width="100%" style="background:#fff;border:2px solid #1a1a1a;margin:18px 0 6px" role="img" aria-label="Bar chart: Qwen scores before and after the weight edit">
+      <text x="500" y="30" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">WHAT THE EDIT CHANGED (PERCENT)</text>
+      <text x="180" y="70" font-family="Arial" font-size="13">MATH-500, before</text><rect x="180" y="78" width="60" height="26" fill="#d8d2c4"/><text x="250" y="97" font-family="Arial" font-size="13">7.9</text>
+      <text x="180" y="125" font-family="Arial" font-size="13">MATH-500, after</text><rect x="180" y="133" width="370" height="26" fill="#a31621"/><text x="560" y="152" font-family="Arial" font-size="13" font-weight="bold">48.1</text>
+      <text x="180" y="180" font-family="Arial" font-size="13">GSM8K, after</text><rect x="180" y="188" width="515" height="26" fill="#1a1a1a"/><text x="705" y="207" font-family="Arial" font-size="13" font-weight="bold">67.1</text>
+      <text x="500" y="245" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">Source: Takehi, Teoh, Zhang &amp; Khattab, MIT CSAIL, 2 Nov 2026; IFEval roughly tripled to 62.3%.</text>
+    </svg>
+    <p>The team calls this weight-space programming: a general-purpose language model reading and writing another network&rsquo;s weights directly, around a natural-language specification, sometimes with no environment feedback at all. In other experiments in the same post, Astra identified what a network had been trained to do just by looking at its raw weights, and wrote small game-playing networks from scratch that outplayed networks trained with PPO for 100 million steps. A follow-up with Google&rsquo;s Gemma 3 270M, which rarely loops, showed almost no gain &mdash; about a point &mdash; which is itself informative about where the method bites.</p>
+    <p>Now the necessary cold water, because the reaction has been as interesting as the result. The edit mostly removed a failure mode rather than adding a capability: the base model was hitting the token limit on 93% of MATH-500 answers, and the edit cut that to 33%. Critics, including spaCy creator Matthew Honnibal, have argued the headline overstates what happened &mdash; editing weights can unblock an ability a model already has, but cannot conjure one it lacks. The work is a blog post, not a peer-reviewed paper, and the headline model is proprietary, so others cannot rerun Astra itself; what they can check is public, and it held up in one important way: Hugging Face&rsquo;s Ahsen Khaliq rebuilt the edited checkpoint from the published logs and re-ran the full evaluation, scoring 51.0% on MATH-500 in 51 minutes on a single Nvidia H200.</p>
+    <p>Why it matters even with the caveats: if frontier models can read weights the way a programmer reads code, model maintenance changes shape. Debugging becomes patching, not retraining; interpretability stops being a separate research programme and becomes something the model does for itself; and the boundary between &ldquo;the model&rdquo; and &ldquo;the tool that improves the model&rdquo; starts to dissolve. The honest version of the story is not &ldquo;AI can now rewrite brains at will.&rdquo; It is narrower and stranger: a frontier model looked inside a smaller one, found the one broken direction, and fixed it with a scalpel instead of a training run &mdash; and the fix generalised beyond the task it was asked to fix.</p>
+    <div class="takeaway"><b>The takeaway</b>Treat weight-space programming as a new maintenance primitive to watch, not a solved capability. The next test is whether it works on models that are not already broken in an obvious way &mdash; and whether anyone outside the frontier labs can reproduce it on open weights. Source: <a href="https://x.com/rikiyatakehi/status/2117313742891327994">Rikiya Takehi et al., &ldquo;Sparks of Weight-Space Programming&rdquo;, MIT CSAIL</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">Featured &bull; Flagged for This Edition</div>
+    <h3 class="headline"><a href="https://www.linkedin.com/pulse/taste-20-minutes-ojasvika-sahu-ewsmc">Taste Is the War Against Mediocrity &mdash; and It Has Three Tests</a></h3>
+    <div class="byline">Ojasvika Sahu, &ldquo;Taste in 20 minutes&rdquo;, read in full</div>
+    <p class="lede">Paul Graham&rsquo;s prediction &mdash; that in the AI age, when anyone can make anything, the differentiator becomes what you choose to make &mdash; is the starting gun for this essay. Ojasvika Sahu&rsquo;s answer is a definition with teeth: taste is the incessant war against mediocrity, the climb beyond sloth and insincerity, toward meaning. And she gives it a working test, so it is not just a vibe.</p>
+    <p>Every example of taste, she argues, passes three tests, and mediocrity fails at least one. Vigour: was real effort put in, or is the maker settling for comfort? Sincerity: was it made for its own sake, or made to be seen? Meaning: does it speak to you, or is it just noise? The first two can be observed in the work itself; the third is personal, and she is honest about that &mdash; if you disagree with her meaning score, look at the other two, because they are harder to argue with.</p>
+    <div class="flow">
+      <div class="step"><b>Test 1 &mdash; Vigour</b>Real effort, or settling for comfort? The Cristo Velato&rsquo;s marble veil, carved from a single block in 1753 with zero margin for error, is the essay&rsquo;s gold standard.</div>
+      <div class="arrow">&rarr;</div>
+      <div class="step"><b>Test 2 &mdash; Sincerity</b>Made for its own sake, or made to be seen? The Palessi stunt &mdash; influencers praising cheap shoes at ten times the price because the label looked expensive &mdash; fails here.</div>
+      <div class="arrow">&rarr;</div>
+      <div class="step"><b>Test 3 &mdash; Meaning</b>Does it speak to you? A Lavani performance where lyrics, music and choreography deepen each other passes; an $18,000 invisible sculpture, &ldquo;made of air and spirit&rdquo;, does not.</div>
+    </div>
+    <p>The essay&rsquo;s most useful move is its account of where taste comes from. Preferences are conditioned &mdash; by geography, belief, culture, the rivers your civilisation grew up beside &mdash; and she does not pretend otherwise, using the example of fair-skin preference in India to show conditioning worth questioning. But vigour and sincerity, she argues, show up everywhere, across cultures: you do not need to share someone&rsquo;s belief system to notice when they did not care. A building that leaks in its first monsoon, a song written only to trend, a meal cooked without love &mdash; carelessness is legible in any language.</p>
+    <p>That leads to the essay&rsquo;s sharpest distinction, intent over impact. Impact is glorified because it feels like the destination, but intent is the quiet force that gives the journey meaning &mdash; and intent is within everyone&rsquo;s reach even when impact is not. A kid remixing a trend in his bedroom can show more taste than a million-dollar production, because the kid cared and the production only performed caring. The artist-beholder contract, borrowed from Sanskrit aesthetics, seals it: a performance comes alive only when it meets a sahrudaya, &ldquo;one with a heart&rdquo; &mdash; someone open and honest enough to feel what is really there. Le Corbusier&rsquo;s Pessac housing is the cautionary tale of the contract breaking from the artist&rsquo;s side: clean, consistent, admired &mdash; and rejected by the factory workers who lived there, who added pitched roofs and garden fences because the design served his style, not their lives.</p>
+    <div class="pullquote">&ldquo;Mediocrity isn&rsquo;t failure &mdash; it&rsquo;s settling halfway because the view seems good enough.&rdquo;<span class="attr">&mdash; Ojasvika Sahu, on mediocris, halfway up the mountain</span></div>
+    <p>The practice she leaves you with is disarmingly small, and that is the point. Sit down anywhere, pick anything &mdash; a chair, a sign, a cup, the building across the street &mdash; and ask the three questions: did whoever built this put in real effort? Was it made honestly? Does it mean something to you? If it means nothing, look it up before dismissing it; if it still does not speak to you, let it go. Each bubble of conditioned perspective you pop widens your judgement, like a crab moulting a shell that no longer fits. Taste, in this telling, is not a talent or a budget. It is a habit of refusing to settle, applied to everything around you, until choosing the rest of the climb becomes the default.</p>
+    <div class="takeaway"><b>The takeaway</b>For a builder, the three tests are a design review you can run on your own work today. Would a stranger see the effort in it, or the shortcut? Was it made to be good, or to look good? And does it mean something to the person it is for? Two honest yeses out of three is a start; three is the standard. Source: <a href="https://www.linkedin.com/pulse/taste-20-minutes-ojasvika-sahu-ewsmc">Ojasvika Sahu, &ldquo;Taste in 20 minutes&rdquo;</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">Communication &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/joseph_tsar_/status/2113660515461337464">Why Technical People Are Poor Communicators &mdash; and the Fix</a></h3>
+    <div class="byline">Joseph Tsar&rsquo;s video, listened to in full (11 minutes, no X captions)</div>
+    <p class="lede">Most engineers, Joseph Tsar argues, are cognitively expensive to listen to &mdash; not because their ideas are weak, but because their explanations charge the listener a tax before delivering any value. The video is a practical manual for paying that tax down, and it is worth carrying into any room where you need a decision from people who do not share your vocabulary.</p>
+    <p>The core diagnosis is a clash of worlds. Engineers are mechanism-first: how does this work, what are the dependencies, what are the edge cases, is this true? Executives and managers are decision-first: what changed, why does it matter, what is the risk, what do you need from me? Engineers stay in the mechanism-first world because it is defensible and provable. Decision-first rooms reward something else entirely: clarity under pressure.</p>
+    <p>Two ideas do the work. The first is the concept tax: every unexplained concept a listener must absorb before the point lands. Saying a team refactored the pipeline, updated the schema and improved concurrency asks the listener to hold three concepts before hearing why any of it matters, and within roughly half a minute to three minutes the room starts paying. The second is the image of verbal orange cones: jargon terms are cones on a road. One cone is manageable; a road covered in cones stops being about the destination and becomes about not crashing. His rule of thumb: more than a couple of technical terms inside about ten seconds, and the listener disengages &mdash; not from stupidity, but from the quiet social arithmetic of not wanting to look foolish by asking.</p>
+    <p>The fix is not to abandon technical language but to stop stacking it: roughly one term per sentence, each followed by its translation and why it matters &mdash; the term, its simplest meaning, and the consequence or decision. The secret weapon, he says, is the word &ldquo;why&rdquo;: a relationship with why is the gateway into the decision-first world. And the highest-leverage practice is the failure movie: a five-to-ten-second mental picture of what goes wrong &mdash; checkout failing, support tickets exploding, a 2 a.m. emergency &mdash; because non-technical listeners understand consequences far better than mechanisms. Instead of labelling work &ldquo;important&rdquo; or &ldquo;risk-reducing&rdquo;, add one sentence: if this breaks, who sees what, and what does it cost?</p>
+    <div class="takeaway"><b>The takeaway</b>Before your next review or pitch, translate your update into the decision-first frame: what changed, why it matters, what you need &mdash; one cone at a time, ending with the failure movie. The engineer who can do that is not dumbing anything down; they are becoming the translator senior rooms actually promote. Source: <a href="https://x.com/joseph_tsar_/status/2113660515461337464">Joseph Tsar on X</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">From the Substacks</div>
+    <h3 class="headline"><a href="https://www.lennysnewsletter.com/p/how-to-tell-if-a-startup-has-a-moat">How to Tell if a Startup Has a Moat: Look for the Flywheel, Not the Fuel</a></h3>
+    <div class="byline">Lenny&rsquo;s Newsletter &bull; Dan Hockenmaier, 13 October, read in full</div>
+    <p class="lede">In the AI era anyone can build anything, faster than ever, and everyone is building the same things. So the question for anyone choosing where to work &mdash; or where to invest years of their life &mdash; is not whether a startup is growing, but whether it can keep growing once competition gets fierce. Dan Hockenmaier&rsquo;s framework, written with Lenny Rachitsky, says you can answer it in about an hour, and it starts by throwing out most of what people call moats.</p>
+    <p>Only four advantages actually compound, he argues &mdash; self-reinforcing flywheels that get stronger over time and ultimately make a company very hard to compete with. Switching costs: the more deeply embedded a product is in how a customer works, the harder it is to rip out, and the revenue funds further embedding. Network effects: more users make the product better for everyone, which attracts more users. Scale economies: more volume funds lower costs or better quality at the same price, which drives more volume. Data effects: more usage generates more data, which improves the product, which drives more usage.</p>
+    <svg viewBox="0 0 1000 200" width="100%" style="background:#fff;border:2px solid #1a1a1a;margin:18px 0 6px" role="img" aria-label="Diagram: the four compounding advantages">
+      <text x="500" y="28" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">FOUR COMPOUNDING ADVANTAGES &mdash; AND WHAT IS ONLY FUEL</text>
+      <rect x="20" y="55" width="210" height="95" fill="#fdf3e3" stroke="#1a1a1a" stroke-width="2"/><text x="125" y="90" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">SWITCHING COSTS</text><text x="125" y="115" text-anchor="middle" font-family="Arial" font-size="12">Embedded in how</text><text x="125" y="133" text-anchor="middle" font-family="Arial" font-size="12">customers work</text>
+      <rect x="265" y="55" width="210" height="95" fill="#fff" stroke="#1a1a1a" stroke-width="2"/><text x="370" y="90" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">NETWORK EFFECTS</text><text x="370" y="115" text-anchor="middle" font-family="Arial" font-size="12">More users = better</text><text x="370" y="133" text-anchor="middle" font-family="Arial" font-size="12">for every user</text>
+      <rect x="510" y="55" width="210" height="95" fill="#fff" stroke="#1a1a1a" stroke-width="2"/><text x="615" y="90" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">SCALE ECONOMIES</text><text x="615" y="115" text-anchor="middle" font-family="Arial" font-size="12">Volume lowers unit</text><text x="615" y="133" text-anchor="middle" font-family="Arial" font-size="12">cost, funds growth</text>
+      <rect x="755" y="55" width="210" height="95" fill="#fde8e8" stroke="#a31621" stroke-width="2"/><text x="860" y="90" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">DATA EFFECTS</text><text x="860" y="115" text-anchor="middle" font-family="Arial" font-size="12">Usage creates data,</text><text x="860" y="133" text-anchor="middle" font-family="Arial" font-size="12">data improves product</text>
+      <text x="500" y="180" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">Speed, distribution, brand, a great team and funding are fuel: they get the car moving. The four above are the car rolling downhill on its own.</text>
+    </svg>
+    <p>Everything else, in this framing, is fuel, not flywheel. Speed of execution matters enormously, but a company that has to sprint forever will eventually misstep and slow down. Distribution matters more than ever, but it creates the raw ingredients for an advantage rather than being one. Brand, for most startups, behaves like acquisition spend &mdash; money in, growth out &mdash; and takes too long to become a true compounding advantage, Coke and Nike excepted. The test is not what a company says its strategy is, but what it actually does every day: what is on the roadmap, which teams are large and influential, where the work points.</p>
+    <p>The examples make the abstract concrete. Rippling is the switching-cost archetype: Parker Conrad&rsquo;s &ldquo;compound startup&rdquo;, expanding from onboarding across HR, talent, finance, payroll and business intelligence on shared infrastructure until it is too embedded to rip out. Faire, the marketplace Hockenmaier worked on, shows the network-effect playbook: nearly the whole roadmap was getting more retailers, getting more brands, improving discovery, and reducing risk so retailers would try more products &mdash; every decision filtered through &ldquo;does this strengthen the network?&rdquo; Zipline shows scale: manufacturing more drones and densifying deliveries cut cost per delivery from $300 at launch to $12, a curve any competitor must now climb from the expensive end. And Stripe Radar shows data effects at full power: over 70 trillion data points and $1.9 trillion in transaction volume mean 92% of transactions use a card Stripe has seen before &mdash; a fraud product a smaller-data rival cannot match.</p>
+    <p>The framework&rsquo;s second and third steps &mdash; gauge how strong the advantage could become, then measure whether it is actually working &mdash; are where most evaluations stop being generous. Not every marketplace network effect is equal; not every data loop compounds. The discipline is to name the one flywheel a startup is plausibly building, check that its daily work serves that flywheel rather than its pitch deck, and then watch the metrics that would prove the wheel is turning.</p>
+    <div class="takeaway"><b>The takeaway</b>Before joining, backing or copying a startup, ask which of the four flywheels it is building &mdash; and whether you can see it in the roadmap, not just the narrative. If you cannot name one, that is the red flag, however fast it is growing. Source: <a href="https://www.lennysnewsletter.com/p/how-to-tell-if-a-startup-has-a-moat">Dan Hockenmaier in Lenny&rsquo;s Newsletter</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">From the Substacks</div>
+    <h3 class="headline"><a href="https://creatoreconomy.so/p/the-internet-is-being-hacked-6-steps-to-secure-your-accounts">The Internet Is Being Hacked. Six Steps to Lock Down Your Accounts Now</a></h3>
+    <div class="byline">Behind the Craft &bull; Peter Yang, 28 October, read in full</div>
+    <p class="lede">Peter Yang&rsquo;s prompt to act was personal and slightly absurd: a Google security alert saying a Linux machine had deleted some emails &mdash; and every AI agent he uses, from Grok Bot to Muse to ChatGPT, runs on Linux machines. Behind the anecdote is a real shift: AI can now find vulnerabilities in legacy software faster than humans can patch them, and the past week alone brought critical PHP bugs flagged by the NSA, WordPress backdoors planted with stolen keys, patient records accessed at Quest Diagnostics, and unauthorised AI agents found inside bank customer accounts at JPMorgan, Bank of America and Wells Fargo.</p>
+    <p>His six-step checklist, done in about two hours, is the practical core. First, disconnect apps you do not use: he found 47 apps connected to his Google account and had AI audit the list for him rather than removing each by hand. Second, use a password manager with unique passwords everywhere: his audit found 32 reused passwords, and he now pays about $48 a year for 1Password, whose Watchtower page also flagged 20 sites where two-factor was available but not switched on. Third, turn on two-factor with an authenticator app, not SMS, because attackers can trick carriers into moving your number to their SIM. Fourth, rotate or retire API keys: an AI audit of his vibe-coded projects found two still-active keys for apps he had stopped using. Fifth, ask AI to scan and update your software and dependencies, read-only, every few days, because vendors are shipping fixes fast. Sixth, do not trust breach emails or calls: expect a wave of phishing dressed as urgent breach notices, and check the sender and the real link destination before clicking anything.</p>
+    <div class="takeaway"><b>The takeaway</b>Run the audit this week, not someday: connected apps, reused passwords, missing two-factor, stale API keys. The arms race between AI attackers and AI defenders is real, but most of the damage still walks in through doors you left open yourself. Source: <a href="https://creatoreconomy.so/p/the-internet-is-being-hacked-6-steps-to-secure-your-accounts">Peter Yang, Behind the Craft</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">Also in the Pile &bull; Briefs</div>
+    <p><b>Distribution is the underrated half of AI building.</b> Arjun Balaji&rsquo;s note from the saves cuts against the model-progress obsession: most people building in AI, he argues, are overestimating how fast models will improve and underestimating distribution. The through-line with the moat story is exact &mdash; distribution is fuel, but without it the flywheel never starts turning.</p>
+    <p><b>The zero-to-one business, stated bluntly.</b> Dan Koe&rsquo;s save argues a six-figure business needs no skills, experience or money upfront &mdash; only a product in a niche that solves a real problem for a specific person. Strip away the hype and the claim is about specificity: the narrower the person and the sharper the problem, the less everything else matters at the start.</p>
+    <p><b>Ten times in a few months, maybe a hundred times within a year.</b> Aravind Srinivas&rsquo;s save, on the pace of change in AI capabilities, is the counterweight to the Balaji note: the models really are moving that fast, which is precisely why the distribution and moat questions matter more, not less.</p>
+    <p><b>Still carried over for retry:</b> Greg Isenberg&rsquo;s 44-minute Main Street AI video, which has no captions or transcript on X, is left out again rather than covered from its caption, and stays new for tomorrow&rsquo;s run.</p>
+  </div>
+
+  <div class="colophon">
+    The Unread Pile &mdash; Edition No. 41, Wednesday 4 November 2026. Built from Rakshit Lodha&rsquo;s X saves, pieces he flagged, and the standing Substack pool. Stories marked &ldquo;read in full&rdquo; were opened and read from the source; videos were covered from their spoken content where a transcript or listening was available, and left out where it was not.
+  </div>
+</div>
+</body>
+</html>
