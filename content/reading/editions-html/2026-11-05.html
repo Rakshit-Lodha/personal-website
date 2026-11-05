@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unread Pile &mdash; Edition No. 42</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; }
+  .stat .lbl { font-size:11px; font-family:Arial,Helvetica,sans-serif; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
+  .chart-box { border:1px solid var(--rule); background:#fff; padding:16px; margin:18px 0; }
+  .chart-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .chart-box figcaption { font-size:12.5px; color:var(--muted); margin-top:8px; font-family:Arial,Helvetica,sans-serif; }
+  .flow { display:flex; align-items:stretch; gap:0; margin:16px 0; font-family:Arial,Helvetica,sans-serif; }
+  .flow .step { flex:1; background:#fff; border:1.5px solid var(--ink); padding:12px 10px; font-size:13.5px; line-height:1.45; }
+  .flow .step b { display:block; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--red); margin-bottom:4px; }
+  .flow .arrow { align-self:center; font-size:22px; padding:0 6px; color:var(--red); font-weight:900; }
+  .takeaway { background:#fdf3e3; border-left:5px solid var(--red); padding:14px 18px; margin:18px 0; font-size:16px; }
+  .takeaway b { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); display:block; margin-bottom:4px; }
+  hr.sep { border:none; border-top:1px solid var(--ink); margin:34px 0; }
+  .colophon { margin-top:40px; border-top:4px double var(--ink); padding-top:14px; font-size:13px; color:var(--muted); font-family:Arial,Helvetica,sans-serif; }
+  a { color:var(--red); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="masthead">
+    <div class="kicker">Thursday &bull; 5 November 2026 &bull; Bengaluru</div>
+    <h1>The Unread Pile</h1>
+    <div class="tagline">Today&rsquo;s ideas, distilled &mdash; Edition No. 42</div>
+  </div>
+  <div class="dateline"><span>From the saves, the long reads, and the Substacks</span><span>Price: your attention</span></div>
+
+  <div>
+    <div class="sec-label">Lead Story &bull; From the Saves</div>
+    <h2 class="headline"><a href="https://x.com/posthog/status/2117671104852754456">Say Nice Things About Your Competitors. It Converts.</a></h2>
+    <div class="byline">PostHog&rsquo;s thread on honest comparison content, read in full</div>
+    <p class="lede">Most &ldquo;Tool X versus Tool Y&rdquo; pages on the internet are dishonest, and everyone knows it &mdash; including the reader. PostHog&rsquo;s argument, backed by four years of its own numbers, is that the dishonesty is not just a smell problem. It is a conversion problem. The company has driven 700,000 pageviews and more than 25,000 sign-ups from content about its competitors, and the pages that work best are the ones that refuse to put a thumb on the scale.</p>
+    <p>The numbers are stark enough to rearrange a content strategy around. Head-to-head comparison pages convert at around 10% of readers to sign-ups. &ldquo;Alternatives&rdquo; and &ldquo;best tools&rdquo; listicles convert at about 4%. The rest of PostHog&rsquo;s blog converts at around 2.5%. Head-to-head pages also pull roughly seven times the readers of a typical post. Readership has compounded: from just over 6,000 pageviews in 2022 to more than 46,000 in 2025, with 35,000 already banked in 2026 &mdash; and conversion on those pages has climbed to 14.1% so far this year, up from 6.5% in 2022.</p>
+    <div class="stat-strip">
+      <div class="stat"><div class="num">10%</div><div class="lbl">Head-to-head pages convert, vs 2.5% for the rest of the blog</div></div>
+      <div class="stat"><div class="num">700k</div><div class="lbl">Pageviews from competitor content</div></div>
+      <div class="stat"><div class="num">25k+</div><div class="lbl">Sign-ups from competitor content</div></div>
+      <div class="stat"><div class="num">14.1%</div><div class="lbl">Head-to-head conversion, 2026 year to date</div></div>
+    </div>
+    <svg viewBox="0 0 1000 270" width="100%" style="background:#fff;border:2px solid #1a1a1a;margin:18px 0 6px" role="img" aria-label="Bar chart: PostHog comparison pageviews by year">
+      <text x="500" y="30" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">COMPARISON PAGEVIEWS, BY YEAR</text>
+      <text x="180" y="70" font-family="Arial" font-size="13">2022</text><rect x="260" y="52" width="48" height="26" fill="#d8d2c4"/><text x="318" y="71" font-family="Arial" font-size="13">6,000+</text>
+      <text x="180" y="115" font-family="Arial" font-size="13">2023</text><rect x="260" y="97" width="96" height="26" fill="#d8d2c4"/><text x="366" y="116" font-family="Arial" font-size="13">12,000+</text>
+      <text x="180" y="160" font-family="Arial" font-size="13">2024</text><rect x="260" y="142" width="280" height="26" fill="#1a1a1a"/><text x="550" y="161" font-family="Arial" font-size="13" font-weight="bold">35,000+</text>
+      <text x="180" y="205" font-family="Arial" font-size="13">2025</text><rect x="260" y="187" width="368" height="26" fill="#a31621"/><text x="638" y="206" font-family="Arial" font-size="13" font-weight="bold">46,000+</text>
+      <text x="500" y="250" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b675c">Source: PostHog thread, 3 Nov 2026; 2026 year to date already at 35,000+.</text>
+    </svg>
+    <p>The method has two rules, and they are the whole strategy. Be honest, with no smack talk and no sneaky framing. And respect the reader&rsquo;s intelligence: a developer comparing tools is smart, busy, and wants a decision fast, so give direct answers without slop. The goal of a comparison page, in this telling, is not to convince every reader that PostHog is best. It is to help the reader who fits PostHog&rsquo;s ideal customer profile understand why PostHog is best <em>for them</em> &mdash; and to tell everyone else, plainly, when another tool fits them better. The pages go into detail about PostHog&rsquo;s own gaps and its competitors&rsquo; strengths, researched from the competitors&rsquo; documentation and market position, and they get updated when PostHog ships a feature that changes the answer. Competitors have even flagged changes themselves &mdash; Amplitude did so the week before the thread &mdash; and PostHog shipped the edit.</p>
+    <p>Then comes the part that turns a writing discipline into an engineering system, and it is the part most teams will skip. Keeping dozens of comparison pages accurate by hand is miserable, so PostHog made it an engineering problem: one file per competitor in the website repository, holding everything known about that company, with most comparison tables rendered from those files through a single component. When a competitor ships a feature, someone changes one line in one file and every page that mentions them updates on the next deploy. The repository is public, so competitors can see exactly what is said about them and open a pull request if it is wrong. On top of that, two automated scouts run continuously: one watches competitors&rsquo; pricing and documentation pages and reports when what they say has drifted from what PostHog&rsquo;s pages say; the other reads PostHog&rsquo;s own pages against its changelog, documentation, open pull requests and Slack threads, and flags anywhere the company might be underselling itself. A report lands in an inbox, and a pull request follows.</p>
+    <div class="pullquote">&ldquo;Writing nice things about competitors that are trying to eat your lunch can make for a surprisingly good growth channel.&rdquo;<span class="attr">&mdash; PostHog, closing its thread</span></div>
+    <p>The deeper lesson is about what search and answer engines reward now. In an age where an AI summary can answer &ldquo;which tool should I use&rdquo; in one paragraph, the pages that survive are the ones a summary can trust and quote: specific, current, and visibly fair. Dishonest comparison content fails twice &mdash; the reader bounces, and the machine has nothing solid to cite. Honest comparison content compounds twice &mdash; readers trust it enough to share it, and the machinery of distribution trusts it enough to surface it. The honest page is not a sacrifice of growth for virtue. On PostHog&rsquo;s numbers, it is the growth channel itself.</p>
+    <div class="takeaway"><b>The takeaway</b>If you publish anything that compares you with alternatives, audit it against PostHog&rsquo;s two rules tonight: does it say where you lose, and does it respect a busy reader&rsquo;s time? Then make freshness an engineering problem, not an editorial chore &mdash; one source of truth per competitor, rendered everywhere, checked by machines. Source: <a href="https://x.com/posthog/status/2117671104852754456">PostHog&rsquo;s thread, 3 Nov 2026</a>, and its linked article on comparison content that does not age like milk.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">From the Saves &bull; People Moves</div>
+    <h3 class="headline"><a href="https://x.com/_catwu/status/2118137612577968402">OpenAI Hands Its Core Products to a New Product Chief</a></h3>
+    <div class="byline">@_catwu, announcing the move</div>
+    <p class="lede">Cat Wu is joining OpenAI to lead product management for Core Products, working with an established product team under Thsottiaux. The announcement is short, but the framing is the interesting part: respect for OpenAI having shown the world that scaling works and for bringing AI to more than a billion people, and a belief that great products are core to the mission, not a coat of paint on it.</p>
+    <p>The mission statement inside the post is worth reading as a product brief: build agents that have your back and your team&rsquo;s, keep the user in control, and give people more time for the people and work they love. That is the current battleground for every frontier lab &mdash; not who has the smartest model, but whose agent a user trusts to act on their behalf while staying visibly in charge. Core Products is where that trust is won or lost, in the daily surfaces rather than the demo stage. A new product chief there is a bet that the next phase of the race is won on product judgement, not just on scale.</p>
+    <div class="takeaway"><b>The takeaway</b>Watch OpenAI&rsquo;s Core Products surface over the next two quarters for the &ldquo;in control&rdquo; pattern: agents that act, but show their work and hand back the decision. Whoever nails that pattern first sets the default for agentic products everywhere. Source: <a href="https://x.com/_catwu/status/2118137612577968402">@_catwu on X</a>.</div>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">From the Saves &bull; In Brief</div>
+    <h3 class="headline"><a href="https://x.com/trq212/status/2117670540148347273">The Bitter Lesson, Restated: The Smartest Models Will Just Be Right</a></h3>
+    <div class="byline">Thariq (@trq212), quoting Lauren (@poteto)</div>
+    <p>Thariq&rsquo;s gloss on the bitter lesson is a single sharp claim: the smartest models will need fewer and fewer tokens, will not need to verify their work or check it for bugs, and will simply be right. It lands as a quote of Lauren&rsquo;s hotter take from the same day &mdash; that adversarial reviews are mostly a waste of tokens, and that those tokens are better spent on empirical testing combined with formal verification. Read together, the two posts describe a fork in how we spend inference: one camp keeps buying safety by making models argue with themselves, and the other bets that capability will make the argument unnecessary, with verification moving from vibes-based review to evidence and proof. The practical question for anyone building agents today is where your token budget actually buys reliability &mdash; in more self-critique loops, or in tests and checks that can fail loudly. Source: <a href="https://x.com/trq212/status/2117670540148347273">@trq212 on X</a>.</p>
+  </div>
+
+  <hr class="sep">
+  <div>
+    <div class="sec-label">From the Substacks</div>
+    <h3 class="headline"><a href="https://www.interconnects.ai/p/meta-shakes-up-the-frontiers-open">Meta Is Back at the Frontier &mdash; Open and Closed at Once</a></h3>
+    <div class="byline">Interconnects &bull; Nathan Lambert, 17 October, read in full</div>
+    <p class="lede">A week in October quietly changed the balance of American open-weight models. Meta released Muse Spark Open, now the strongest American-made open model by a clear margin, with Reflection&rsquo;s Beam alongside it &mdash; and without those two releases, more than twenty open-weight models from Chinese companies would have been better than the best Western ones. The gap between the best American and Chinese open models has roughly halved: from largely irrelevant to behind but relevant.</p>
+    <p>The model itself is a serious artefact: 816 billion total parameters with 42 billion active, a one-million-token context window, built for coding and agentic work, natively multimodal. Its performance lands somewhere above GLM 5.2 and near DeepSeek V4.1 Flash, behind GLM 5.3 and Kimi K3 &mdash; squarely good enough to slot into an open ecosystem where inference providers are scaling fast, an open post-training economy is forming, and enterprises want to own their intelligence. Lambert&rsquo;s observation that Western open-weight models get astonishingly more adoption than Chinese models of the same performance-to-size footprint matters here: Muse Spark Open lands into demand that is already accelerating, just as open-ended LLM agents become real.</p>
+    <div class="flow">
+      <div class="step"><b>1 &mdash; The open move</b>Muse Spark Open: 816B total / 42B active, 1M context, coding and agentic work, multimodal from the start.</div>
+      <div class="arrow">&rarr;</div>
+      <div class="step"><b>2 &mdash; The closed move</b>Days earlier, Muse Wonder and Muse Wonder Full: benchmarks just behind Opus 5.5, comparable to GPT-6 Astra and Gemini 4 Argon.</div>
+      <div class="arrow">&rarr;</div>
+      <div class="step"><b>3 &mdash; The catch</b>A custom licence: &ldquo;Built with Muse&rdquo; branding, revenue gating above $20M a month, an acceptable-use policy, and terms that reach outputs and derivatives.</div>
+    </div>
+    <p>The licence is the honest complication in an otherwise clean comeback story. It carries nearly every restrictive behaviour the open-model world has criticised in recent years: mandatory branding in products, a separate licence once a company makes more than $20 million a month across its business deploying the model, an acceptable-use policy that makes the model extremely not open-source in the strict sense, and terms that extend to outputs and derivatives, creating legal ambiguity around synthetic data. Lambert&rsquo;s judgement is that licences have not yet been the determining factor in AI adoption, but that this is an unnecessary strategic risk for a lab trying to regain adoption &mdash; and that many builders will likely ignore the terms while Meta only pursues egregious violations. The equilibrium is weird and untested in court, and worth watching precisely because it is untested.</p>
+    <p>The wider frame is organisational. Meta is now the only American company with frontier open and closed models at once, just over a year after Zuckerberg&rsquo;s &ldquo;Personal Superintelligence&rdquo; redirection, which was widely criticised at the time. Lambert&rsquo;s ranking of the field runs Anthropic first, then OpenAI, then Meta roughly level with Gemini, then xAI roughly level with Chinese open weights, then US open weights. The distinguishing factor, he argues, is not resources &mdash; every lab left in the race has those &mdash; but organisation: flat structures and clear vision against layers of management. Alexandr Wang runs the effort with more than 200 direct reports, and the releases have been strikingly consistent. The Llama failure, by contrast, is widely described as management going too far, with model decisions made on politics rather than performance. And the long view is financial: Meta valued under $2 trillion against Anthropic approaching a barnstorming IPO at about the same price, with Meta half a step behind on the same technology but holding an extremely profitable core business. One of those two valuations, Lambert notes, needs to correct massively.</p>
+    <div class="takeaway"><b>The takeaway</b>For builders, Muse Spark Open is a practical new default to evaluate for agentic workloads you want to own &mdash; with the licence read first, not after. For watchers, the story is organisational: flat, high-ownership labs are shipping consistently, and the frontier is narrowing to five American names plus the Chinese open-weight field. Source: <a href="https://www.interconnects.ai/p/meta-shakes-up-the-frontiers-open">Nathan Lambert, Interconnects</a>.</div>
+
+    <hr class="sep">
+    <h3 class="headline"><a href="https://simonw.substack.com/p/qwen-38-27b-on-my-laptop-can-interpret">Your Laptop Can Read Model Weights Too</a></h3>
+    <div class="byline">Simon Willison&rsquo;s Newsletter, 3 November, read in full</div>
+    <p class="lede">Yesterday&rsquo;s edition led with weight-space programming &mdash; a frontier model reading and editing another model&rsquo;s weights. Simon Willison&rsquo;s follow-up asks the question any curious engineer would ask next: does this trick need a frontier model, or can the laptop on my desk do it? His answer, after hours of patient compute, is that a 27-billion-parameter Qwen model running locally can do it too &mdash; slowly, imperfectly, and genuinely.</p>
+    <p>The experiment replays the paper&rsquo;s first test: four small networks trained to play simplified grid versions of Breakout, Pong, Pac-Man and Freeway, their raw weights handed to a model with no tools, no code execution, no calculator, and one question &mdash; which game was this trained on? Kimi K3.1 Pro, run through OpenRouter, guessed Breakout in about nine minutes and 19,493 reasoning tokens. Willison&rsquo;s laptop rig &mdash; Qwen 3.8 27B, a 17-gigabyte model in LM Studio with a long context window &mdash; took 46 minutes and 43,506 reasoning tokens to identify Pac-Man at 72% confidence, 1 hour 4 minutes to identify Pong at 75%, and 52 minutes to identify Breakout at 88%. It failed on Freeway, mistaking it for a Pac-Man-like grid game &mdash; unsurprising for the most obscure of the four, and itself informative about where the capability ends.</p>
+    <div class="stat-strip">
+      <div class="stat"><div class="num">17 GB</div><div class="lbl">Qwen 3.8 27B running on a laptop</div></div>
+      <div class="stat"><div class="num">3 of 4</div><div class="lbl">Games identified from raw weights alone</div></div>
+      <div class="stat"><div class="num">46 min</div><div class="lbl">Pac-Man identification, 43,506 reasoning tokens</div></div>
+      <div class="stat"><div class="num">88%</div><div class="lbl">Confidence on the Breakout identification</div></div>
+    </div>
+    <p>Willison is careful where the hype is not. He separates the paper&rsquo;s two claims &mdash; what models can do with raw weights without tools, versus what they can do once armed with code &mdash; and sides with the critics who say the paper conflates them: reading weights is one capability, running operations to improve models is another, and the second is closer to what a skilled human researcher would do with tooling. His verdict is deliberately deflationary: the paper is cool, but the wider commentary does not justify declaring the age of source code over, with incomprehensible machines editing their own weights in incomprehensible ways. The reasoning traces, he notes, are fun to skim and almost incomprehensible &mdash; yet he expects a sufficiently experienced human with a notepad and pencil could get there with enough effort. That is the right frame: weight-reading is a real, replicable skill that now runs on consumer hardware, and its limits are as interesting as its successes.</p>
+    <p>The same newsletter carries a second nugget worth pocketing. Revisiting the US Census Bureau&rsquo;s Business Trends and Outlook Survey, Willison found the AI-adoption question has changed twice: from asking about AI in &ldquo;producing goods or services&rdquo; to AI in &ldquo;any business function&rdquo;, and now &mdash; under Executive Order 14434, the &ldquo;Super Intelligence&rdquo; order &mdash; to asking about &ldquo;Super Intelligence or SI&rdquo; in any business function. The series are not comparable across those breaks, which quietly invalidates a year of adoption charts drawn as one smooth line. On the newest wording, 40.7% of the largest firms report using AI in some business function, against 21.1% of the smallest &mdash; but the honest chart shows the break, not a trend. A useful reminder for anyone citing adoption statistics this quarter: check the question before you quote the number.</p>
+    <div class="takeaway"><b>The takeaway</b>Replicability is the story: a capability demonstrated by a frontier model last week now runs on a laptop, slowly and with visible seams. That is how you tell a real capability from a demo &mdash; it survives contact with smaller hardware and less forgiving conditions. And when someone shows you an AI adoption chart, ask what question was actually asked. Source: <a href="https://simonw.substack.com/p/qwen-38-27b-on-my-laptop-can-interpret">Simon Willison&rsquo;s Newsletter</a>.</div>
+  </div>
+
+  <div class="colophon">
+    The Unread Pile &mdash; Edition No. 42 &bull; Thursday 5 November 2026 &bull; Built from Rakshit&rsquo;s verified X saves and the standing Substack pool. Every story above was read in full from its source; posts that could not be verified on X were left out rather than covered from summaries. The Greg Isenberg Main Street AI video remains carried over &mdash; X still shows no captions or transcript for it &mdash; and will be retried tomorrow.
+  </div>
+</div>
+</body>
+</html>
