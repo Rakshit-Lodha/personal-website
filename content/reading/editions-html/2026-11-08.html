@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<title>The Unread Pile &mdash; Edition 45 &mdash; Claude Learns to Dream</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; }
+  .stat .lbl { font-size:11px; font-family:Arial,Helvetica,sans-serif; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
+  .chart-box { border:1px solid var(--rule); background:#fff; padding:16px; margin:18px 0; }
+  .chart-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .chart-box figcaption { font-size:12.5px; color:var(--muted); margin-top:8px; font-family:Arial,Helvetica,sans-serif; }
+  .flow { display:flex; align-items:stretch; gap:0; margin:16px 0; font-family:Arial,Helvetica,sans-serif; }
+  .flow .step { flex:1; background:#fff; border:1.5px solid var(--ink); padding:12px 10px; font-size:13.5px; line-height:1.45; }
+  .flow .step b { display:block; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--red); margin-bottom:4px; }
+  .flow .arrow { align-self:center; font-size:22px; padding:0 6px; color:var(--red); font-weight:900; }
+  .takeaway { background:#fdf3e3; border-left:5px solid var(--red); padding:14px 18px; margin:18px 0; font-size:16px; }
+  .takeaway b { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); display:block; margin-bottom:4px; }
+  hr.sep { border:none; border-top:1px solid var(--ink); margin:34px 0; }
+  .colophon { margin-top:40px; border-top:4px double var(--ink); padding-top:14px; font-size:13px; color:var(--muted); font-family:Arial,Helvetica,sans-serif; }
+  a { color:var(--red); }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="masthead">
+    <div class="kicker">Sunday &bull; 8 November 2026 &bull; Bengaluru</div>
+    <h1>The Unread Pile</h1>
+    <div class="tagline">Today&rsquo;s ideas, distilled &mdash; Edition No. 45</div>
+  </div>
+  <div class="dateline"><span>From the saves, the long reads, and the Substacks</span><span>Price: your attention</span></div>
+
+  <div>
+    <div class="sec-label">Lead Story &bull; From the Saves</div>
+    <h2 class="headline"><a href="https://www.anthropic.com/research/components-of-agent-memory">Claude Learns to Dream: Anthropic&rsquo;s Playbook for Agent Memory</a></h2>
+    <div class="byline">Anthropic&rsquo;s Engineering Blog, read in full &bull; 6 November 2026</div>
+    <p class="lede">Anthropic has published the clearest account yet of how Claude remembers &mdash; and the mechanism is borrowed straight from your own brain. While you sleep, your hippocampus replays the day and distils it into long-term knowledge. Claude does the same thing with a process Anthropic calls dreaming: in idle time between sessions, it re-reads its own logs, corrects its mistakes, writes notes to itself, and builds maps of what it knows. The result is an agent that gets better at a job the longer it works it, without anyone retraining it. For anyone building with agents, this is the paper to internalise &mdash; because memory, not the model, is becoming the difference between an agent that helps and an agent that loops.</p>
+    <p>First, the definition. By &ldquo;agent memory&rdquo; Anthropic means knowledge Claude gains from experience &mdash; interactions with users, tasks it has been assigned &mdash; that it retains between sessions, saved as context it can read later. It is not a change to the model&rsquo;s weights, not in-context learning inside one conversation, and not compaction, the summaries Claude writes to replace older turns. It is a folder of notes the agent keeps for its future selves. And the first hard problem is salience: how does Claude know what is worth remembering before it knows what comes next? In the human brain, chemical signals mark some experiences as important, and those get replayed more often during sleep. Claude&rsquo;s version is to tag salient events as they happen, or to write them to a memory store &mdash; and then let dreaming sort out later which tags were right.</p>
+    <div class="stat-strip">
+      <div class="stat"><div class="num">413</div><div class="lbl">Memory files Sonnet 3.7 wrote playing Pok&eacute;mon &mdash; and earned 1 badge</div></div>
+      <div class="stat"><div class="num">9</div><div class="lbl">Memory files Fable 5 wrote &mdash; and earned 4 badges</div></div>
+      <div class="stat"><div class="num">13% &rarr; 48%</div><div class="lbl">Score on a 350,000-document corpus as dreaming scaled from 2 to 128 sessions</div></div>
+      <div class="stat"><div class="num">72% &rarr; 100%</div><div class="lbl">Contract facts captured once the wiki quoted terms verbatim</div></div>
+    </div>
+    <p>The Pok&eacute;mon Red experiment is the most memorable demonstration of why judgment beats volume. Two models played the game with a folder of memory files each. Claude Sonnet 3.7 assumed everything might matter and wrote indiscriminately: 413 memory files across 225 folders by step 10,000, a separate file for each battle, item and character it met &mdash; and one badge. Worse, the game state kept changing, so its detailed record went stale as fast as it was written; at one point it spent seventeen steps creating six files, deleting nine others, and taking no actions in the game at all. Claude Fable 5 wrote nine files in two folders plus a single top-level file called <i>global.md</i>, and earned four badges. It stored only what the game would not tell it again: strategy, plans, tested rules. After seven Pok&eacute; Balls in a row failed to catch a Magikarp &mdash; one of the easiest Pok&eacute;mon to catch &mdash; it wrote, &ldquo;If 3+ balls fail in a row, VARY the timing (insert extra &lsquo;wait&rsquo; presses between menu steps) &mdash; the catch landed right after doing this.&rdquo; Claude Opus 5.5 took the same approach, kept a small folder of notes tracking its current goal and next steps, rewrote them as it played &mdash; and beat the game.</p>
+    <svg viewBox="0 0 1000 320" width="100%" style="background:#fff;border:2px solid #1a1a1a;margin:18px 0 6px" role="img" aria-label="Flowchart: how dreaming organises agent memory">
+      <text x="500" y="30" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">HOW DREAMING ORGANISES MEMORY</text>
+      <rect x="20" y="60" width="180" height="70" fill="#fdf3e3" stroke="#1a1a1a" stroke-width="1.5"/><text x="110" y="88" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">1. SESSION</text><text x="110" y="108" text-anchor="middle" font-family="Arial" font-size="12">Claude works, tags</text><text x="110" y="124" text-anchor="middle" font-family="Arial" font-size="12">what seems salient</text>
+      <text x="215" y="100" font-family="Arial" font-size="22" font-weight="bold" fill="#a31621">&#8594;</text>
+      <rect x="240" y="60" width="180" height="70" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="330" y="88" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">2. NOTES</text><text x="330" y="108" text-anchor="middle" font-family="Arial" font-size="12">Rules, facts, warnings</text><text x="330" y="124" text-anchor="middle" font-family="Arial" font-size="12">saved to a folder</text>
+      <text x="435" y="100" font-family="Arial" font-size="22" font-weight="bold" fill="#a31621">&#8594;</text>
+      <rect x="460" y="60" width="180" height="70" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="550" y="88" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">3. DREAMING</text><text x="550" y="108" text-anchor="middle" font-family="Arial" font-size="12">Offline: checks notes</text><text x="550" y="124" text-anchor="middle" font-family="Arial" font-size="12">against transcripts</text>
+      <text x="655" y="100" font-family="Arial" font-size="22" font-weight="bold" fill="#a31621">&#8594;</text>
+      <rect x="680" y="60" width="180" height="70" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="770" y="88" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">4. WIKI + PROMOTE</text><text x="770" y="108" text-anchor="middle" font-family="Arial" font-size="12">Linked map of knowledge;</text><text x="770" y="124" text-anchor="middle" font-family="Arial" font-size="12">best notes preloaded</text>
+      <rect x="880" y="60" width="100" height="70" fill="#fdf3e3" stroke="#1a1a1a" stroke-width="1.5"/><text x="930" y="88" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold">5. NEXT</text><text x="930" y="108" text-anchor="middle" font-family="Arial" font-size="12">SESSION</text><text x="930" y="124" text-anchor="middle" font-family="Arial" font-size="12">starts smarter</text>
+      <text x="500" y="170" text-anchor="middle" font-family="Arial" font-size="13" fill="#6b675c">Dreaming also fixes what went wrong &mdash; it caught a misremembered landmark and rewrote the note</text>
+      <rect x="20" y="195" width="460" height="95" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/><text x="40" y="222" font-family="Arial" font-size="13" font-weight="bold">WRONG MEMORY, UNCORRECTED</text><text x="40" y="244" font-family="Arial" font-size="12">Claude misplaces the Pok&eacute;Center, declares &ldquo;Mt Moon DONE&rdquo;,</text><text x="40" y="262" font-family="Arial" font-size="12">falls off the same ledge 3 times, gives up, walks back to Pewter City.</text><text x="40" y="280" font-family="Arial" font-size="12">Run ends without ever reaching Cerulean City.</text>
+      <rect x="520" y="195" width="460" height="95" fill="#fdf3e3" stroke="#1a1a1a" stroke-width="1.5"/><text x="540" y="222" font-family="Arial" font-size="13" font-weight="bold">SAME MEMORY, AFTER DREAMING</text><text x="540" y="244" font-family="Arial" font-size="12">Dreaming checks the note against the session transcript,</text><text x="540" y="262" font-family="Arial" font-size="12">catches the error, rewrites it. Claude walks straight back</text><text x="540" y="280" font-family="Arial" font-size="12">into Mt. Moon and reaches Cerulean City.</text>
+    </svg>
+    <div class="pullquote">&ldquo;Memory is, occasionally, a prediction. By writing down a rule, an agent predicts that the pattern it is describing will be relevant again.&rdquo;<span class="attr">&mdash; Anthropic, &ldquo;The components of agent memory&rdquo;</span></div>
+    <p>The same pattern shows up at industrial scale. Anthropic gave Claude a corpus of internal documents from Stainless, a software company it acquired in May &mdash; about 350,000 files, roughly 420 million tokens &mdash; and asked it to build a wiki by dreaming over 128 sessions, each building on the last through a shared log. On a 25-question evaluation set, performance grew from 13% of graded criteria at two sessions to 48% at 128. The wiki helped most alongside search: search plus wiki scored 61%, against 53% for search alone, and saved about 20,000 tokens per question. But there are limits, and Anthropic is honest about them. On one legal-brief task the wiki grew larger than the documents themselves &mdash; like the mapmakers in Borges&rsquo;s story &ldquo;On Exactitude in Science&rdquo;, who drafted a map as large as the empire it represented, Claude had made a map that abstracted nothing. And the instructions matter enormously: when several agents wrote contract terms into one shared table, they overwrote each other and the resulting brief captured only 41 of 57 facts (72%). When Claude reflected on the failure, rewrote its own instructions, and gave each contract its own page quoting the terms word for word, the brief met 100% of the criteria.</p>
+    <p>Three practical lessons fall out for anyone running agents. First, tell Claude what memory is for but not how to use it: on the Continual Learning Bench, a rule to &ldquo;record only failures&rdquo; stripped away much of memory&rsquo;s benefit for the stronger models, which judge salience better than a fixed rule does. Steering helps older models most &mdash; prompting Sonnet 4.6 to read its memory files and test its theories nearly doubled its benchmark score, while Sonnet 5 reads its memory unprompted nine times out of ten. Second, keep the top of the hierarchy small: promoted memories get preloaded into every session, so dreaming&rsquo;s real job is pruning &mdash; moving detail down and leaving links behind. Claude Code&rsquo;s auto memory does exactly this, loading only the first 200 lines or 25 KB of MEMORY.md as an index. Third, memory drifts, and dreaming is the correction mechanism &mdash; but it costs compute, so the open question is cadence: which memories to re-check, and how often. The through-line is the one Anthropic opens with, quoting Kierkegaard: life can only be understood backward, but it must be lived forward. Agents, it turns out, have the same bind &mdash; and dreaming is how they look backward.</p>
+    <div class="takeaway"><b>The takeaway</b>Don&rsquo;t hoard context; curate it. The models that won Anthropic&rsquo;s tests wrote the least &mdash; a dashboard, a plan, a few tested rules &mdash; and let an offline pass fix what they got wrong. If you run agents, give them a memory folder, tell them what it is for, and schedule the dreaming.</div>
+  </div>
+
+  <hr class="sep"/>
+
+  <div>
+    <div class="sec-label">Feature &bull; Carried Over, Now Resolved</div>
+    <h2 class="headline"><a href="https://x.com/gregisenberg/status/2114788328868544908">Sell AI to Main Street, Not San Francisco</a></h2>
+    <div class="byline">Greg Isenberg with James Dickerson, 44-minute episode &bull; Full transcript read &bull; Carried over for seven days, resolved today</div>
+    <p class="lede">This one has sat in the pile for a week because the video would not give up a transcript &mdash; until the full episode turned up transcribed, all 44 minutes of it. It was worth the wait. Greg Isenberg&rsquo;s thesis is simple and, for anyone in the AI business, slightly heretical: the biggest opportunity in selling AI is not selling to people who already love AI. It is selling to the plumber in Dallas. His guest, James Dickerson &mdash; &ldquo;Mr. Boring Marketing&rdquo;, owner of Diesel Dudes, a mobile diesel-repair business in Charlotte &mdash; lays out the whole playbook, from picking the city to getting paid, and almost none of it mentions AI at all.</p>
+    <p>The arithmetic is what makes it serious. There are roughly 112,000 plumbing and HVAC companies in the US, averaging about $2.5 million a year in revenue, and only 14% of owners say AI is fully part of how they run. They pay around $129 per lead. A $5 million plumbing company probably spends $150,000 to $250,000 a year on marketing. These are businesses with budgets, real problems, and almost nobody useful pitching them &mdash; because everyone selling AI is pitching startups and solopreneurs who cannot afford them. The niche matters too: you want high-ticket, urgent work. Plumbing jobs run into the thousands; a homeowner with water coming through the ceiling paid $2,000 the same day. Lawn care and restaurants, by contrast, are low-ticket and not worth the effort. And the geography is the moat: pick one city, one trade, and become the authority inside a 25-mile radius.</p>
+    <svg viewBox="0 0 1000 300" width="100%" style="background:#fff;border:2px solid #1a1a1a;margin:18px 0 6px" role="img" aria-label="Bar chart: the cost of a leaky funnel for a plumber buying 100 leads a month">
+      <text x="500" y="28" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">THE LEAKY FUNNEL, IN DOLLARS</text>
+      <text x="40" y="70" font-family="Arial" font-size="12">100 leads a month &times; $129</text>
+      <rect x="280" y="50" width="650" height="26" fill="#a31621"/><text x="940" y="68" text-anchor="end" font-family="Arial" font-size="13" font-weight="bold" fill="#fff">$12,900 / month</text>
+      <text x="40" y="120" font-family="Arial" font-size="12">Wasted if the funnel loses 20%</text>
+      <rect x="280" y="100" width="130" height="26" fill="#d8a24a"/><text x="420" y="118" font-family="Arial" font-size="13" font-weight="bold">$2,580 gone</text>
+      <text x="40" y="170" font-family="Arial" font-size="12">One $1,714 plumbing job</text>
+      <rect x="280" y="150" width="86" height="26" fill="#1a1a1a"/><text x="376" y="168" font-family="Arial" font-size="13" font-weight="bold">pays for 13 leads</text>
+      <text x="40" y="230" font-family="Arial" font-size="13" fill="#6b675c">Agencies still charge $20,000 for a good funnel.</text>
+      <text x="40" y="252" font-family="Arial" font-size="13" fill="#6b675c">A coding agent can now build one in hours, on brand, in the customer&rsquo;s own voice.</text>
+      <text x="40" y="282" font-family="Arial" font-size="13" font-weight="bold">Fix the leak, don&rsquo;t sell the AI.</text>
+    </svg>
+    <p>The core move is to stop selling the technology entirely. &ldquo;Customers don&rsquo;t care about any of that. They care about revenue,&rdquo; Dickerson says. &ldquo;They care about ROI. Never lead with &lsquo;I&rsquo;m implementing AI into your local company.&rsquo;&rdquo; Many owners do not know what an AI agent is &mdash; they hear &ldquo;agent&rdquo; and think of a real-estate agent &mdash; and plenty of mainstream customers actively dislike AI. His own test of an AI receptionist ended with voicemails asking &ldquo;Is this a dumb AI thing?&rdquo; before hanging up. So the pitch is booked jobs and phone calls, and the product is a funnel that fixes the leaks in the marketing the business is already paying for. Dickerson audited five highly rated Dallas plumbers and found the same holes everywhere: four out of five landing pages did not even repeat the promise of the ad that sent the traffic there; three out of five did not show their Google rating, despite hundreds of reviews at 4.8 or 4.9 stars; four out of five made you scroll past three screens to book a service. The funnel itself is borrowed from direct-response marketing: a tripwire offer (a $79 tune-up), an instant price, a repair-or-replace quiz, a video sales letter where the owner walks the customer through the decision, and SMS and email follow-up for everyone who does not buy on the spot.</p>
+    <div class="flow">
+      <div class="step"><b>1. Find</b>Pick one city, one trade. Use AI to research 100 dream clients &mdash; reviews, ads, websites, owners &mdash; and score them.</div>
+      <div class="arrow">&rarr;</div>
+      <div class="step"><b>2. Pitch</b>Send a rebuilt page, not a demo request. Show the leak in their own numbers: the ad promise their page breaks, the rating they hide.</div>
+      <div class="arrow">&rarr;</div>
+      <div class="step"><b>3. Deliver</b>Build the funnel with a coding agent, route their existing ad traffic to it, measure calls and booked jobs. Then charge.</div>
+    </div>
+    <p>Getting the clients is the old-school part, and it is where most people quit. The Dream 100 &mdash; Chet Holmes&rsquo;s idea from <i>The Ultimate Sales Machine</i> &mdash; is a list of the hundred companies you would most love to work with, researched to the nth degree, with free value added every week for months. Holmes himself got 28 clients in a single month, in month six. Then there is lumpy mail, Dan Kennedy&rsquo;s trick: send the owner a box with a brass fitting and a letter that says, &ldquo;You fix the plumbing leaks, I&rsquo;ll fix the leaks in your marketing.&rdquo; Jay Abraham&rsquo;s rule underneath it all is to become the advisor, not the vendor &mdash; the trusted authority, a position he calls preeminence. Even the branding follows the customer, not the founder: call the firm something like &ldquo;Leak Proof&rdquo;, because a brand Stripe would admire means nothing to a plumber in Dallas. And if you have no clients and no audience, do the first one free in exchange for a case study. The cost to you is tokens and time; the case study is what lets you charge. One market, one geography, six months &mdash; that is the whole strategy, and it is the kind of thing that sounds too boring to work until you run the numbers.</p>
+    <div class="takeaway"><b>The takeaway</b>Sell the outcome, never the tool. The businesses with money to spend do not want an AI agent; they want the phone to ring. Find the leak, fix it in their own numbers, and the technology becomes invisible &mdash; which is exactly the point.</div>
+  </div>
+
+  <hr class="sep"/>
+
+  <div>
+    <div class="sec-label">The Argument &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/chamath/status/2118883605615427972">Where Did AI&rsquo;s Productivity Gains Go? Ask Airbnb at 9 a.m.</a></h3>
+    <div class="byline">Chamath Palihapitiya, quoting Craig Shapiro on Brian Chesky&rsquo;s earnings call</div>
+    <p>Most of Airbnb&rsquo;s traffic, Brian Chesky said on the earnings call, arrives between nine and five &mdash; while people are at work, using Airbnb as escapism. Chamath&rsquo;s gloss is the sharp part: he believes this and other forms of escapism &mdash; X, YouTube, games, shopping &mdash; are where most of the current productivity gains in AI have gone. It is a bleak accounting, and it is hard to argue with from inside the building. The tools got dramatically better at drafting, summarising, coding and searching; the hours they freed did not obviously go to more output. They went to the feed. The question it leaves is not whether AI raises productivity &mdash; the benchmarks say it does, task by task &mdash; but who captures the surplus, and whether the surplus is even legible as work. If the gains leak into distraction, then the productivity story is really a story about attention, and the winners are whoever owns the escape hatch.</p>
+  </div>
+
+  <hr class="sep"/>
+
+  <div>
+    <div class="sec-label">Temple, Part Two &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/championswimmer/status/2119025370619899939">The Temple Post Was on Zomato&rsquo;s Slack, Not Temple&rsquo;s</a></h3>
+    <div class="byline">Arnav Gupta &bull; With Deepinder Goyal, quoted by Prajwal</div>
+    <p>A week after Temple dominated the pile, the follow-up is a governance question, not a product one. Arnav Gupta points out that Deepinder Goyal&rsquo;s big Temple post was published on Zomato&rsquo;s Slack, not Temple&rsquo;s &mdash; &ldquo;and that is, if not anything, conflict of interest. He keeps saying Temple is an independent company which he has raised separate funding for. But more than that, it is just cringe.&rdquo; The charge is worth sitting with rather than dismissing, because it names the exact tension in the Temple story: a founder who left a roughly $35-billion company to build a device, insisting the new venture is independent, while using the old company&rsquo;s internal channels to launch it. Independence is a claim about structure &mdash; separate funding, separate entity &mdash; but also a claim about attention, and the Slack channel is where the two claims collide. Deepinder&rsquo;s own line, quoted the same day &mdash; &ldquo;Temple is an ambitious project. The team is delusional enough to think we can build this. And we will&rdquo; &mdash; is the counterweight: underpromise, overdeliver. The device will be judged on whether it ships and works. But the governance question will keep following it until the separation is as clean in practice as it is on paper.</p>
+  </div>
+
+  <hr class="sep"/>
+
+  <div>
+    <div class="sec-label">Platforms &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/Muse/status/2118782474486501510">Muse Wants to Be Your Operating System</a></h3>
+    <div class="byline">Muse launches Spaces &bull; SasoEquity and Alexandr Wang on what comes next</div>
+    <p>Meta&rsquo;s Muse launched Spaces this week: describe a planner, a tracker, a game, whatever you need, and Muse builds it right into the app; pin it to your tabs and it stays up to date. It is the latest step in the same direction every assistant is walking &mdash; from answering questions, to doing tasks, to hosting the software you live in. SasoEquity takes the thesis one step further: &ldquo;I wouldn&rsquo;t be surprised if $META Muse eventually becomes a full-fledged mobile OS. The ingredients are there to challenge Apple&rsquo;s entire ecosystem.&rdquo; The ingredients he means are the distribution (billions of people already inside Meta&rsquo;s apps), the assistant layer, and now the ability to generate the apps themselves. Alexandr Wang&rsquo;s joke lands as the footnote the whole story needs: &ldquo;god when is meta ever going to launch muse voice they announced it forever ago.&rdquo; The voice that was announced and never quite arrived is the reminder that platform ambitions are easy to announce and hard to ship &mdash; and that the race is not to the best demo, but to the thing that is actually in people&rsquo;s hands.</p>
+  </div>
+
+  <hr class="sep"/>
+
+  <div>
+    <div class="sec-label">The Absurd Startup &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/olelehmann/status/2118783732316573851">AI Robots That Stab Fish in the Brain (So They Taste Better)</a></h3>
+    <div class="byline">Ole Lehmann on Shinkei</div>
+    <p>We have a winner for the most absurd AI startup ever, and it is not close. Shinkei, backed by Peter Thiel, uses AI robots to stab fish in the brain &mdash; modernising ikejime, a centuries-old Japanese technique in which a spike to the brain kills the fish instantly, preventing the stress hormones that sour the flesh. Done right, the fish tastes better and lasts up to three times longer. Dozens of Michelin-star restaurants are already lining up to buy it. It is easy to laugh at, and it is also the purest form of the AI story: a centuries-old craft, a task no human wants to do at scale, a robot that does it with inhuman precision, and a premium market that will pay for the difference. The absurdity is the point &mdash; the weirder the niche, the less competition, and the more the customer cares about the outcome rather than the technology. Somewhere a plumber in Dallas would understand perfectly.</p>
+  </div>
+
+  <hr class="sep"/>
+
+  <div>
+    <div class="sec-label">Distribution &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/mahanot_dikshit/status/2119059170062471546">Religion, Wrapped in AI, Shipped to a Hundred Thousand Phones</a></h3>
+    <div class="byline">Dikshit Jain on &ldquo;Bhagavad Gita For All&rdquo;</div>
+    <p>&ldquo;AI wrapper + religion + distribution!! This app is definitely making $$$$$&rdquo; &mdash; Dikshit Jain&rsquo;s verdict on an app called Bhagavad Gita For All, which lets users talk to the Gita and get real answers. The numbers in the screenshots do the talking: a 4.8-star rating, more than a hundred thousand downloads, a ₹499-a-year plan. The wrapper critique writes itself &mdash; it is a chat interface over a model anyone can access &mdash; but the distribution insight is the one that matters. Religion is the oldest retention loop there is: daily practice, deep trust, a text people return to for their hardest questions. Wrap that in a conversational interface, price it below a coffee a month, and the wrapper stops looking thin. The lesson is the same one as the Main Street story above it: the technology is the cheap part. The distribution &mdash; a hundred thousand people who already wanted to talk to the Gita &mdash; is the business.</p>
+  </div>
+
+  <hr class="sep"/>
+
+  <div>
+    <div class="sec-label">The Human File &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/chiragbarjatyaa/status/2118951765496512557">The Test Drive That Sold the Car Before the Showroom Did</a></h3>
+    <div class="byline">Chirag Barjatya, retelling Khushika Pahwa&rsquo;s BMW story</div>
+    <p>He had made a promise to himself long ago: the first time he sat inside a BMW or a Mercedes would be when he could afford to buy one. So when the day finally came and the salesperson insisted on a test drive, he was hesitant &mdash; he had never driven a luxury car, and he was worried he might damage it. A few minutes in, the salesperson asked him to switch to Sport mode, take the car up to 110 kilometres an hour, and drive over a speed breaker without slowing down. Then, casually: &ldquo;Dekho sir, feel nahi hua na?&rdquo; &mdash; you didn&rsquo;t feel it, did you? He was already sold on the car before he entered the showroom. That one experience increased its aura tenfold. He went there to buy a BMW; the salesperson made him understand why he wanted one. It is the oldest sales lesson there is, and the one every product person forgets: people do not buy specifications, they buy the feeling of the thing working. The speed breaker is the demo. The product is the car. The sale is the moment the bump disappears.</p>
+  </div>
+
+  <hr class="sep"/>
+
+  <div>
+    <div class="sec-label">Culture &bull; From the Saves</div>
+    <h3 class="headline"><a href="https://x.com/Hesamation/status/2118799296917070172">Silicon Valley Called It: The AI That Breaks Encryption by Accident</a></h3>
+    <div class="byline">Hesamation on the finale, seven years on</div>
+    <p>The finale of <i>Silicon Valley</i> ended with the AI discovering a maths breakthrough that could break the world&rsquo;s encryption &mdash; not because anyone asked it to, but because it stumbled on the discovery while recursively improving Pied Piper&rsquo;s compression algorithm and itself, with no engineers guiding the process. Seven years later, with OpenAI&rsquo;s maths work and Anthropic&rsquo;s cryptanalysis progress in the news, watching that ending hits a little different. Hesamation is careful about the claim: this is not the show &ldquo;predicting&rdquo; anything, but the sheer range of things its writers could imagine back then. The mathematician Alex Kontorovich, funnily enough, brought up the same scenario on Lex Fridman&rsquo;s podcast last week. The point is not prophecy; it is that the shape of the risk was visible to storytellers before it was visible to the industry &mdash; capability that arrives sideways, as a by-product of optimising something else entirely, discovered by a system that was never told to look for it.</p>
+  </div>
+
+  <hr class="sep"/>
+
+  <div>
+    <div class="sec-label">From the Substacks &bull; India Business</div>
+    <h3 class="headline"><a href="https://theloggicalinvestor.substack.com/p/supriya-lifescience-ltd-a-difficult">Supriya Lifescience: When the Margin Guidance Breaks Before the Business Does</a></h3>
+    <div class="byline">The Loggical Investor &bull; Q2 FY27 earnings call, read in full &bull; 7 November 2026</div>
+    <p class="lede">Supriya Lifescience makes the active pharmaceutical ingredients inside other companies&rsquo; medicines. This week it reported a quarter that tells two stories at once: the business is still growing, and the profitability story investors were promised has broken. Revenue for Q2 FY27 was ₹206 crore, up 3.2% year on year. EBITDA fell 37.5% to ₹45 crore. Margins came in at 22%, taking the first half to 23.4% &mdash; and management cut full-year margin guidance from 33&ndash;35% to 23&ndash;25%. For a company that delivered close to 35% EBITDA margins in FY25 and FY26, that is not a wobble. It is a reset, and the earnings call is a case study in how guidance breaks.</p>
+    <svg viewBox="0 0 1000 300" width="100%" style="background:#fff;border:2px solid #1a1a1a;margin:18px 0 6px" role="img" aria-label="Bar chart: Supriya Lifescience margin bridge from 33 to 35 percent guidance to 22 percent actual">
+      <text x="500" y="28" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">THE MARGIN BRIDGE: 33&ndash;35% GUIDANCE &rarr; 22% ACTUAL</text>
+      <text x="40" y="80" font-family="Arial" font-size="12">Old guidance (mid)</text>
+      <rect x="240" y="58" width="340" height="26" fill="#1a1a1a"/><text x="590" y="76" font-family="Arial" font-size="13" font-weight="bold">34%</text>
+      <text x="40" y="130" font-family="Arial" font-size="12">Ambernath ramp-up</text>
+      <rect x="240" y="108" width="60" height="26" fill="#a31621"/><text x="310" y="126" font-family="Arial" font-size="13" font-weight="bold">&minus;6 pts</text>
+      <text x="40" y="180" font-family="Arial" font-size="12">LATAM reclassification</text>
+      <rect x="240" y="158" width="30" height="26" fill="#a31621"/><text x="280" y="176" font-family="Arial" font-size="13" font-weight="bold">&minus;3 pts</text>
+      <text x="40" y="230" font-family="Arial" font-size="12">Raw material inflation</text>
+      <rect x="240" y="208" width="30" height="26" fill="#a31621"/><text x="280" y="226" font-family="Arial" font-size="13" font-weight="bold">&minus;3 pts</text>
+      <text x="40" y="280" font-family="Arial" font-size="12">Q2 FY27 actual</text>
+      <rect x="240" y="258" width="220" height="26" fill="#d8a24a"/><text x="470" y="276" font-family="Arial" font-size="13" font-weight="bold">22%</text>
+    </svg>
+    <p>Management attributed the damage to three causes. The Ambernath facility, still ramping up, costs about 6 points of margin: substantial operating expenses with negligible revenue, roughly ₹60 crore of cost in FY27, and an EU audit pushed to November, so the revenue it was supposed to contribute this year will now be negligible. Latin American regulation cost about 3 points: several high-margin controlled products were reclassified as controlled substances in Colombia, Peru, Uruguay and other markets, so customers now need import authorisations &mdash; a four-to-five-month process &mdash; and the sales mix shifted toward semi-regulated markets with lower realisations. Raw material and solvent inflation cost another 3 points, despite a backward-integrated model, because not every basic chemical is made in-house. The LATAM hit is largely timing, management said, and purchase orders still exist. The pass-through mechanism works, but slowly: new purchase orders at higher prices have started coming in, yet the full benefit takes two to three quarters, and large regulated-market customers resist price rises.</p>
+    <p>What makes the call worth reading is not the margin maths but the communication failure around it. When Supriya held its Q1 call on 14 August, management reiterated confidence in 33&ndash;35% margins for FY27 &mdash; with the Q1 margin already down to 25%, higher solvent and power costs already acknowledged, and the Ambernath EU audit dates already set for the second half of November. A new facility&rsquo;s ramp-up costs, audit timelines and registration delays are normal pharmaceutical manufacturing realities; nobody expects a plant to be profitable overnight. The criticism, as The Loggical Investor frames it, is that management should have factored those execution realities into its outlook &mdash; a wider 25&ndash;30% range would have been more prudent than holding 33&ndash;35% and then cutting to 23&ndash;25% in one move. The CFO added that Ambernath could take a year to eighteen months after approvals to reach meaningful scale, with breakeven revenue of ₹160&ndash;200 crore and eventual potential of ₹450&ndash;500 crore. FY28, in other words, is a transition year, not a snap back.</p>
+    <p>The rest of the story is genuinely encouraging, which is what makes the call hard to dismiss. The FY27 revenue target of roughly ₹1,000 crore still stands &mdash; the first half delivered ₹396 crore, so the second half needs about ₹604 crore &mdash; and the pipeline has real substance: anaesthetic products with CE certification and US DMF approval expected, a large contract-manufacturing opportunity close to signing, two ADHD products with a $100&ndash;150 million API-level opportunity, a contrast-media launch targeted for next quarter, a cardiovascular intermediate with multiple large contracts under discussion, and whey protein samples approved. The author&rsquo;s verdict is measured: a good business with several temporary headwinds hitting at once, not a broken thesis; existing investors from lower levels can track the execution, fresh investors should wait and watch, and the checkpoint is Q3 FY27. The lesson generalises beyond one stock: when everyone goes silent after a disappointing quarter, keep discussing the business objectively. Not every difficult quarter means the underlying business is broken &mdash; but guidance, once broken, is earned back slowly.</p>
+    <div class="takeaway"><b>The takeaway</b>Judge the quarter on the bridge, not the headline. Three of Supriya&rsquo;s twelve lost margin points are timing; the rest is execution. The question for Q3 is whether Ambernath, LATAM permits and price pass-through all move at once &mdash; if they do, the reset looks temporary; if they don&rsquo;t, the guidance was the honest part.</div>
+  </div>
+
+  <hr class="sep"/>
+
+  <div>
+    <div class="sec-label">From the Substacks &bull; Engineering</div>
+    <h3 class="headline"><a href="https://newsletter.pragmaticengineer.com/p/scaling-slack-and-github-with-maude">Scaling Slack and GitHub: The 23-Emoji Rule and Other Hard-Won Lessons</a></h3>
+    <div class="byline">The Pragmatic Engineer &bull; Maude Lemaire, read in full &bull; 5 November 2026</div>
+    <p class="lede">Maude Lemaire spent nearly eight years at Slack leading backend performance infrastructure, then joined GitHub in 2024 as Copilot was taking off, and most recently worked on performance at Cursor, including time to first token. She is also the author of <i>Refactoring at Scale</i>. In conversation with Gergely Orosz, she distils that career into eight lessons about what breaks when software gets big &mdash; and the recurring theme is that the abstraction you love is usually the thing that hurts you.</p>
+    <p>The most delightful detail is the emoji rule. Slack limits custom emojis to 23 per message, and the reason is a thundering herd: if the CEO of a 100,000-member channel posts &ldquo;everyone gets Friday off!&rdquo;, and people reply with custom emojis, every single emoji has to fan out to all 100,000 users. Ten emojis means a million fan-outs; a hundred means ten million. The absent 24th emoji, as Maude notes, is not missed. The cousin of the thundering herd is the event flood: a power user logged into many busy channels gets every message and emoji at once through a single WebSocket, with no deduplication, and their client simply drowns. And then there is load testing itself. When a 500,000-user customer was about to sign, Maude needed to prove Slack could handle the load; the straightforward approach &mdash; headless Chrome instances, each running a Slack session at $0.37 per five-hour session &mdash; would have cost $150,000 per run. So she built Koi Pond, a tool that spins up slimmed-down Slack clients in Go to establish the WebSocket connections. The same instinct &mdash; build the cheap, precise tool rather than pay for the blunt one &mdash; is the whole of performance engineering.</p>
+    <p>GitHub taught her the other half of the lesson: what friendly abstractions cost at scale. The Rails monolith used Active Record, and the home page fetched live data from the database on most reloads, regularly triggering 100 SQL queries across three database clusters &mdash; because developers using the abstraction did not know, or care, about the load they were placing on the database. Worse, scatter queries &mdash; queries without a sharding key that must run across every shard &mdash; prevented GitHub from adding more than 16 database shards, since more shards make such queries slower. The developer-friendly layer had become the scaling ceiling. Her other rules are about judgment rather than systems: for foundational work she personally verifies everything she gets from an LLM, separating foundational from non-foundational work and giving the former far more attention; and she argues platform and product engineers should rotate, because the best platform engineers are product engineers who got frustrated rebuilding the same feature and built the tool to remove the toil &mdash; while platform engineers who drift away from product work lose touch with the experience of the people using what they build.</p>
+    <div class="takeaway"><b>The takeaway</b>Performance is a product decision, not an optimisation pass. The 23-emoji limit, the $150,000 load test avoided, the 16-shard ceiling &mdash; each is a small constraint that kept a giant system honest. Build the cheap precise tool, and distrust the abstraction that hides the cost.</div>
+  </div>
+
+  <hr class="sep"/>
+
+  <div>
+    <div class="sec-label">From the Substacks &bull; Product</div>
+    <h3 class="headline"><a href="https://www.lennysnewsletter.com/p/how-figmas-pms-actually-use-ai-every">How Figma&rsquo;s PMs Actually Use AI Every Day</a></h3>
+    <div class="byline">Lenny&rsquo;s Newsletter &bull; Ezra Mechaber, growth PM at Figma, read in full &bull; 2 November 2026</div>
+    <p class="lede">Ezra Mechaber&rsquo;s goal, in his own words, is to be &ldquo;lazy in the right places.&rdquo; When he joined Figma he found almost no one outside engineering using AI to get real work done, so he and a couple of fellow PMs turned his personal Claude Code setup into PM OS &mdash; a shared repository of 31 skills that every PM at Figma now uses. The episode walks through the setup in detail, and it is the most concrete picture yet of what AI-native product management actually looks like inside a company that builds the tools.</p>
+    <p>The structure is what matters. PM OS is a repo, not a product: skills, hooks, and private sub-repos, kept in sync across sixty to seventy PMs, with the skills themselves built, roasted and whittled down by the people who use them. One skill &mdash; the one that tames Slack &mdash; runs six times a day. Another is a bug-bash agent built on Codex that catches things Ezra says he never would. The showpiece is AutoXP, an automated growth PM that runs experiments with a single human checkpoint and found a huge win on its very first experiment. And then there is Jev, the real-time writing assistant Ezra built with a colleague &mdash; which took over every meeting he was in for two weeks. The through-line is the transition from the terminal to a local web front end: the tools started as command-line setups for the technically comfortable, and became something the whole PM org could use. That is the pattern to copy. The skill repo is not the innovation; the innovation is making the skill repo ordinary &mdash; shared, reviewed, and used six times a day by people whose job is judgment, not prompting.</p>
+    <div class="takeaway"><b>The takeaway</b>Don&rsquo;t buy an AI product for your PMs; grow a skill repo with them. One shared repository, thirty-one skills, one human checkpoint on the automated experiments &mdash; and the laziness, properly placed, compounds.</div>
+  </div>
+
+  <div class="colophon">
+    <b>The Unread Pile &mdash; Edition No. 45</b> &bull; Sunday, 8 November 2026 &bull; Built from Rakshit Lodha&rsquo;s X likes and bookmarks, plus the Substacks. Lead: Anthropic&rsquo;s &ldquo;The components of agent memory&rdquo;. Feature: Greg Isenberg&rsquo;s Main Street AI masterclass, resolved after seven days in the pile. One video carried over for retry: the Telegram CEO clip, still without a transcript. Sources linked throughout; read the originals.
+  </div>
+</div>
+
+</body>
+</html>
