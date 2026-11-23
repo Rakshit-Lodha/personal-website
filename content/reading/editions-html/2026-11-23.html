@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<title>The Unread Pile &mdash; Edition 60 &mdash; Superintelligence Is Arriving</title>
+<style>
+
+
+
+
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; }
+  .stat .lbl { font-size:11px; font-family:Arial,Helvetica,sans-serif; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
+  .chart-box { border:1px solid var(--rule); background:#fff; padding:16px; margin:18px 0; }
+  .chart-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .chart-box figcaption { font-size:12.5px; color:var(--muted); margin-top:8px; font-family:Arial,Helvetica,sans-serif; }
+  .flow { display:flex; align-items:stretch; gap:0; margin:16px 0; font-family:Arial,Helvetica,sans-serif; }
+  .flow .step { flex:1; background:#fff; border:1.5px solid var(--ink); padding:12px 10px; font-size:13.5px; line-height:1.45; }
+  .flow .step b { display:block; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--red); margin-bottom:4px; }
+  .flow .arrow { align-self:center; font-size:22px; padding:0 6px; color:var(--red); font-weight:900; }
+  .takeaway { background:#fdf3e3; border-left:5px solid var(--red); padding:14px 18px; margin:18px 0; font-size:16px; }
+  .takeaway b { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); display:block; margin-bottom:4px; }
+  hr.sep { border:none; border-top:1px solid var(--ink); margin:34px 0; }
+  .colophon { margin-top:40px; border-top:4px double var(--ink); padding-top:14px; font-size:13px; color:var(--muted); font-family:Arial,Helvetica,sans-serif; }
+  a { color:var(--red); }
+  ul.tight { margin:0 0 13px 20px; font-size:16.5px; }
+  ul.tight li { margin-bottom:6px; }
+  figure.ph { margin:18px 0; }
+  figure.ph img { width:100%; display:block; border:1px solid var(--rule); }
+  figure.ph figcaption { font-size:12.5px; color:var(--muted); margin-top:8px; font-family:Arial,Helvetica,sans-serif; }
+  .honest { background:#f2f0ea; border-left:4px solid var(--muted); padding:10px 14px; margin:14px 0; font-size:14.5px; color:#55524a; font-family:Arial,Helvetica,sans-serif; }
+
+  .fig { margin:18px 0 6px; }
+  .fig img { width:100%; display:block; border:1px solid var(--rule); }
+  .figcap { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); padding:7px 2px 0; line-height:1.5; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .twocol .story { border-top:1px solid var(--rule); padding-top:12px; }
+  table.data { width:100%; border-collapse:collapse; font-family:Arial,Helvetica,sans-serif; font-size:13.5px; margin:12px 0; }
+  table.data th { text-align:left; border-bottom:2px solid var(--ink); padding:7px 8px 7px 0; font-size:12px; text-transform:uppercase; letter-spacing:1px; }
+  table.data td { border-bottom:1px solid var(--rule); padding:8px 8px 8px 0; vertical-align:top; line-height:1.5; }
+  .corr { border:2px solid var(--red); background:#fdf3f2; padding:14px 16px; margin:16px 0; }
+  .corr b { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); }
+  .small { font-size:14.5px; }
+
+
+
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+<div class="kicker">The Unread Pile &middot; A Daily Newspaper from the Saves</div>
+<h1>The Unread Pile</h1>
+<div class="tagline">Today&rsquo;s ideas, distilled &mdash; from Rakshit&rsquo;s likes and bookmarks, read in full.</div>
+</div>
+<div class="dateline"><span>Monday, 23 November 2026</span><span>Edition 60</span><span>New Delhi &middot; Mumbai &middot; The Internet</span></div>
+
+<!-- LEAD -->
+<div class="sec-label">Lead Story &middot; Superintelligence</div>
+<h2 class="headline"><a href="https://x.com/alexandr_wang/status/2124636606959345776">Superintelligence Is Arriving &mdash; and the Only Thing Left Is the Plumbing</a></h2>
+<div class="byline">By <a href="https://x.com/alexandr_wang">Alexandr Wang</a> &middot; X Article &middot; 23 November 2026 &middot; Read in full</div>
+<p class="lede">Alexandr Wang&rsquo;s argument, published this morning, is the cleanest statement yet of the case the whole AI industry has been circling since the Riemann Hypothesis proof landed: raw intelligence is no longer the bottleneck. What is left &mdash; domain know-how, plumbing, experimentation &mdash; is a matter of time, not of breakthrough. And if that is true, the argument goes, the models are about to become the greatest contributor of progress in nearly every field, including AI research itself.</p>
+<p>Wang builds the case in two steps. The first is a memory. In December 2024, the models began acing the AIME &mdash; the American Invitational Mathematics Examination, the hard end of high-school maths competition. For people who did maths competitions, Wang writes, that was the &ldquo;oh shit, everything is about to change&rdquo; moment. The hardest AIME problems are, in sheer intellectual difficulty, harder than the problems most engineers and business people solve day to day. Intelligence was never the constraint after that point; the constraint was everything around intelligence &mdash; context, tools, feedback loops, the tacit knowledge of a domain.</p>
+<p>The second step is the Riemann Hypothesis. Wang calls it the most intellectually demanding problem humanity has ever devised, a problem the brightest minds spent 150 years on, and notes &mdash; with the dry understatement of someone raised in Los Alamos &mdash; that many physicists would call the atomic bomb a homework problem by comparison. The proof, produced with the help of what he calls &ldquo;an alien mind that we don&rsquo;t understand&rdquo;, marks the end of the argument about whether models can do the hardest intellectual work there is. If a model can do that, then the remaining gaps in every other field are not intelligence gaps. They are gaps of know-how and experimentation &mdash; and those are fillable.</p>
+<div class="pullquote">&ldquo;The remaining gaps for models to greatly surpass humanity in every field are no longer intelligence; they are domain-specific know-how, plumbing, and experimentation.&rdquo;<span class="attr">&mdash; Alexandr Wang, &ldquo;Superintelligence Is Arriving&rdquo;</span></div>
+<p>The implication Wang draws is the one that matters most to anyone building with these models: AI research itself is, by this measure, much less intellectually demanding than the Riemann Hypothesis. The models are, in his words, clearly going to be intelligent enough to automate all of AI research and be superhuman at improving themselves &mdash; and to massively accelerate biology, weapons research, economics, and more. Recursive self-improvement stops being a science-fiction premise and becomes a scheduling question.</p>
+<p>That is where the piece turns from analysis to warning. Wang&rsquo;s complaint is with a form of lazy thinking he sees across the industry: that superintelligence is inevitable and the only problem left is how to do it safely. He argues there is much more at stake than safety engineering &mdash; that we should not be okay with a &ldquo;handover&rdquo; of society to AI, and that the industry needs to take meaningfully different actions from the default path. The piece does not specify what those actions are. It insists, instead, that the choice is still open &mdash; that &ldquo;how humanity acts over the next year will have great consequence on what future world we live in.&rdquo;</p>
+<div class="chart-box"><h4>The capability ladder &mdash; as Wang frames it</h4>
+<svg viewBox="0 0 900 260" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+<rect x="0" y="0" width="900" height="260" fill="#fff"/>
+<line x1="60" y1="220" x2="860" y2="220" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="60" y1="220" x2="60" y2="20" stroke="#1a1a1a" stroke-width="2"/>
+<text x="60" y="245" font-size="12" fill="#6b675c">Dec 2024</text>
+<text x="330" y="245" font-size="12" fill="#6b675c">2025 &ndash; 2026</text>
+<text x="700" y="245" font-size="12" fill="#6b675c">Nov 2026</text>
+<circle cx="90" cy="190" r="7" fill="#a31621"/><text x="80" y="170" font-size="13" font-weight="bold" fill="#1a1a1a">o3 aces AIME</text><text x="80" y="155" font-size="11" fill="#6b675c">hardest teen maths &gt; most daily work</text>
+<circle cx="380" cy="130" r="7" fill="#a31621"/><text x="330" y="110" font-size="13" font-weight="bold" fill="#1a1a1a">Coding &ldquo;nearly solved&rdquo;</text><text x="330" y="95" font-size="11" fill="#6b675c">+ cyber + agentic aides</text>
+<circle cx="640" cy="80" r="7" fill="#a31621"/><text x="590" y="60" font-size="13" font-weight="bold" fill="#1a1a1a">Agents become general aides</text>
+<circle cx="820" cy="35" r="9" fill="#a31621"/><text x="700" y="18" font-size="13" font-weight="bold" fill="#a31621">Riemann Hypothesis proved</text>
+<polyline points="90,190 380,130 640,80 820,35" fill="none" stroke="#a31621" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="60" y="15" font-size="12" fill="#6b675c">Intellectual difficulty cleared &rarr; what remains: know-how, plumbing, experimentation</text>
+</svg>
+<figcaption>Wang&rsquo;s ladder: each rung is harder than the last, and the top rung &mdash; the Riemann Hypothesis &mdash; was the hardest intellectual problem humans had. The gaps that remain are not intelligence gaps.</figcaption></div>
+<div class="takeaway"><b>The takeaway</b>Read alongside Edition 59&rsquo;s verification of the proof, this is the &ldquo;so what&rdquo;. If intelligence is solved and only plumbing remains, then the strategic question for every builder flips: the moat is no longer being smarter than the model, it is owning the domain context, the feedback loops and the distribution the model still lacks. That is the same argument Notion makes later in this edition &mdash; rent the intelligence, own the context.</div>
+<hr class="sep"/>
+
+<!-- STORY 2: PACHOCKI -->
+<div class="sec-label">The Safety Countermove</div>
+<h2 class="headline"><a href="https://openai.com/index/perplexity-and-intelligence/">OpenAI Wants a Shared Speed Limit &mdash; Measured in Perplexity</a></h2>
+<div class="byline">By <a href="https://x.com/merettm">Jakub Pachocki</a>, OpenAI &middot; via <a href="https://x.com/sama">Sam Altman</a> &middot; 22 November 2026 &middot; Read in full</div>
+<p class="lede">Hours before Wang&rsquo;s piece, Sam Altman called another OpenAI publication &ldquo;the most important thing OpenAI has published in awhile&rdquo;. It is, in a sense, the institutional answer to Wang&rsquo;s warning: a proposal, from OpenAI&rsquo;s chief scientist Jakub Pachocki, for common capability limits that every lab would agree to &mdash; measured, at least in part, by a number as old as language modelling itself.</p>
+<p>The number is perplexity: how well a model predicts the next word. Pachocki&rsquo;s essay, &ldquo;Perplexity and Intelligence&rdquo;, argues that perplexity remains a useful yardstick &mdash; it tracks benchmark performance closely, even on tasks that need long chains of thought &mdash; but that it is also misleading in important ways. A model can be good at predicting the next word locally and still be poor at choosing the steps that lead to a solution. Some models with worse perplexity do better on reasoning benchmarks. The relationship between a small drop in perplexity and a large jump in capability is, Pachocki writes, poorly understood: a modest improvement in perplexity can correspond to an enormous change in capabilities. The newest model, he says, can solve problems much harder than anything in its training &mdash; a qualitatively different kind of intelligence.</p>
+<p>That gap between the metric and the meaning is the whole point of the proposal. If labs are going to coordinate on safety, they need a set of metrics they can all measure &mdash; and, in the long term, common limits on capability based on perplexity and other measurements. A lab would not release a model past a certain threshold until it understood its behaviour better. Progress beyond a limit would be gated on understanding, not just on training run size.</p>
+<div class="chart-box"><h4>Base-model log-perplexity, 2022&ndash;2026 &mdash; OpenAI&rsquo;s chart, redrawn</h4>
+<svg viewBox="0 0 900 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">
+<rect x="0" y="0" width="900" height="300" fill="#fff"/>
+<line x1="70" y1="260" x2="870" y2="260" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="70" y1="260" x2="70" y2="20" stroke="#1a1a1a" stroke-width="2"/>
+<text x="70" y="282" font-size="12" fill="#6b675c">2022</text><text x="430" y="282" font-size="12" fill="#6b675c">2024</text><text x="800" y="282" font-size="12" fill="#6b675c">2026</text>
+<text x="8" y="60" font-size="12" fill="#6b675c">1.05</text><text x="8" y="150" font-size="12" fill="#6b675c">0.85</text><text x="8" y="240" font-size="12" fill="#6b675c">0.7</text>
+<text x="300" y="18" font-size="13" font-weight="bold" fill="#1a1a1a">Log-perplexity falls slowly&hellip; capability jumps in steps</text>
+<polyline points="90,240 180,225 260,205 340,195 420,180 500,165 580,150 660,135 740,115 820,95 860,80" fill="none" stroke="#a31621" stroke-width="2.5"/>
+<circle cx="90" cy="240" r="5" fill="#a31621"/><text x="80" y="225" font-size="11" fill="#1a1a1a">GPT-3.5</text>
+<circle cx="260" cy="205" r="5" fill="#a31621"/><text x="240" y="190" font-size="11" fill="#1a1a1a">GPT-4</text>
+<circle cx="420" cy="180" r="5" fill="#a31621"/><text x="400" y="165" font-size="11" fill="#1a1a1a">GPT-4.5</text>
+<circle cx="580" cy="150" r="5" fill="#a31621"/><text x="560" y="135" font-size="11" fill="#1a1a1a">GPT-5 / 5.1</text>
+<circle cx="740" cy="115" r="5" fill="#a31621"/><text x="700" y="100" font-size="11" fill="#1a1a1a">GPT-6 Astra</text>
+<circle cx="860" cy="80" r="6" fill="#a31621"/><text x="800" y="65" font-size="11" font-weight="bold" fill="#a31621">Internal model</text>
+<text x="600" y="220" font-size="12" fill="#6b675c">Annotations on the original: fluent conversation &rarr; useful coder &rarr;</text>
+<text x="600" y="238" font-size="12" fill="#6b675c">cybersecurity expert &rarr; solved a Millennium Prize problem</text>
+</svg>
+<figcaption>The chart&rsquo;s argument in one image: the line creeps down a little; the labels on the right jump a lot. That mismatch &mdash; small metric change, enormous capability change &mdash; is why Pachocki says perplexity alone cannot be the safety bar, but a shared bar is still needed.</figcaption></div>
+<p>Altman&rsquo;s framing is worth noting: &ldquo;We are providing a lot of transparency into our pretraining progress and hope we can agree as a field to common limits. I think that would be very wise and help ensure safety and control.&rdquo; Transparency as a coordination device is the move here &mdash; publish your own curve, invite everyone else to publish theirs, and make the limit a shared Schelling point rather than a regulation imposed from outside. Whether rival labs accept the invitation is, of course, the open question; the essay is careful to say the limits are a long-term ambition, not a treaty.</p>
+<div class="takeaway"><b>The takeaway</b>Two pieces, one morning, one argument: Wang says the capability problem is solved; Pachocki says the measurement problem is not, and proposes we agree on the ruler before we argue about the speed. For a builder, the practical version is simpler: evals are the moat. If a small perplexity drop can hide a giant capability jump, the teams that actually measure what their systems do &mdash; rather than trusting a single number &mdash; are the ones that will not be surprised.</div>
+<hr class="sep"/>
+
+<!-- STORY 6: NOTION -->
+<div class="sec-label">AI at Work</div>
+<h2 class="headline"><a href="https://www.notion.com/a-new-shape-for-work">Notion&rsquo;s New Shape for Work: Rent the Intelligence, Own the Context</a></h2>
+<div class="byline">Notion &middot; Shared by <a href="https://x.com/akothari">Akshay Kothari</a> &middot; 21 November 2026 &middot; Read in full</div>
+<p class="lede">AI without a strategy, Notion&rsquo;s field guide begins, gives little leverage &mdash; like a power boost to a bicycle with only one gear. The guide&rsquo;s answer has two parts: first build a shared context system that you, your team and your agents all work in together; then build shared AI systems &mdash; &ldquo;factories&rdquo; &mdash; on top of it. It is the most concrete version of the argument Wang makes in the lead story: intelligence is rented; context is owned.</p>
+<p>The diagnosis comes first, and it will be familiar to anyone who has watched a team adopt AI in the last year. One-off chatbot use. Disorganised information. Agents that lack context. No audit or preview before edits. Unknown numbers of personal agents running around with unknown access and unknown risk. And a jagged frontier on both sides: models are unevenly competent, and organisations are unevenly good at using them. The core philosophy is that humans should do the creative work only they can do and everything else should be automated &mdash; but automation without shared context just produces faster confusion.</p>
+<p>A context system, as Notion defines it, stores, organises and governs information &mdash; permissions, version control, different views of the same data &mdash; gives a good collaboration experience, and works with any agent. Don&rsquo;t roll your own, the guide warns, because of security, agent integration, governance and collaboration costs. The interesting design ideas are the ontology &mdash; modelling what exists in your world and how things relate, with Notion&rsquo;s own CompanyOS example of Projects, Tasks, Documents, People, Teams and Customers, with Manager and DRI relations &mdash; the fractal structure, the syncs (managed and worker syncs, a &ldquo;context warehouse&rdquo;), meetings as first-class objects, and row- and column-level permissions. The guide is honest about the maintenance problem too: context rots, and part of the system&rsquo;s job is curing that rot with agents.</p>
+<p>Then come the factories: shared AI systems for specific tasks, specific, shared and scrutinised. Examples include customer-experience, slide-deck, bug-fix, data and customer-intake factories. The case for them is Adam Smith &mdash; specialisation and gains from trade. Without a factory, every person sets up their own version of the same workflow, quality varies, improvements do not compound, and when someone leaves, the setup leaves with them. The guide&rsquo;s numbers make the point sharply: a team of four spends 50% of its time building; a team of 36 spends 5.6%. Skills, in this framing, are proto-factories &mdash; but not scrutinised and not truly shared. And a factory is not a &ldquo;dark factory&rdquo; with no human oversight, and not only for software. The economies of scale are subtle because physical factories need years and millions while AI factories need hours and hundreds of dollars &mdash; so the incentive to centralise is easy to miss, and easy to get wrong.</p>
+<div class="flow">
+<div class="step"><b>1 &middot; Notice</b>Find work that is recurring, verifiable, stable, average-quality, purely digital, with a known information universe and low-cost mistakes.</div>
+<div class="arrow">&rarr;</div>
+<div class="step"><b>2 &middot; Plan</b>Start simple with a personal agent. Decide what it does, where it lives, its inputs, stages, outputs and tools.</div>
+<div class="arrow">&rarr;</div>
+<div class="step"><b>3 &middot; Run</b>Shadow runs, controlled volume, a tiny sample &mdash; or an eval suite.</div>
+<div class="arrow">&rarr;</div>
+<div class="step"><b>4 &middot; Improve</b>Edit prompts, keep prompt versions, use evals &mdash; task lists plus judgement criteria &mdash; to catch unintended consequences.</div>
+</div>
+<p>The simplest possible factory, the guide says, is a Notion &ldquo;Slide Decks&rdquo; database with to-do, doing and done status and an agent triggered on new to-do rows. The conclusion reaches for the long view, quoting William Gibson &mdash; the future is already here, just not very evenly distributed &mdash; and Marshall McLuhan: we shape our tools, and thereafter our tools shape us. People want to be useful, solve problems, develop mastery, move fast, have fun and be creative, the guide says, and none of that changes because of AI.</p>
+<div class="takeaway"><b>The takeaway</b>For a product leader, the practical test is the &ldquo;configuration tax&rdquo;: if every person on your team is paying it separately, you do not have an AI strategy, you have a hobby. The factory is the unit that turns a good prompt into an organisational capability &mdash; and the context system is what makes the factory trustworthy enough to run without a human watching every row.</div>
+<hr class="sep"/>
+
+<!-- STORY 7: MJS TASTE -->
+<div class="sec-label">The Human Edge</div>
+<h2 class="headline"><a href="https://x.com/manasjsaloi/status/2124057935328539101">Is Math Over? Is Everything Over? No &mdash; Taste Is the Answer Key That Doesn&rsquo;t Exist</a></h2>
+<div class="byline">By <a href="https://x.com/manasjsaloi">mjs</a> &middot; Two images, transcribed in full &middot; 21 November 2026</div>
+<p class="lede">mjs asks the question the whole edition is circling, in five words: &ldquo;Is Math over? Is everything over?&rdquo; The two images attached to the post answer it, and the answer is the most useful distinction in this week&rsquo;s pile: anything with an objective answer will get automated. Anything that runs on taste is here to stay.</p>
+<p>The argument is disarmingly simple. Maths has an answer. Code compiles or it doesn&rsquo;t. Both have an answer key, and if a machine can grade it, a machine can do it. Creative tasks have no answer key. Give two great designers the same brief and you will get two completely different outputs. You cannot prove which one is better. You can only feel it. And it depends on taste.</p>
+<p>He proves it with a story from his own week. He cut a video himself, sampling other videos first, and it came out with blocky text, fast frames, and what he calls &ldquo;pure TikTok energy&rdquo;. He loved it. He sent it to the team&rsquo;s designer &mdash; years of experience, a great eye for motion design &mdash; for a quick polish. The designer came back with a completely different take. mjs actually liked his own version more. They posted the designer&rsquo;s anyway. The point, he writes, is not who was right. It is that nobody could prove who was right. There is no answer key.</p>
+<p>And that absence has a dynamic. In creative work, the moment a format works, everyone copies it. Then everyone copies the copies. A template&rsquo;s strength decays exponentially toward slop. Instrument Serif is a beautiful typeface, he notes &mdash; and now it is on every seed-stage landing page. So someone always has to keep inventing: new formats, new angles. There is no large dataset of &ldquo;taste&rdquo;. AI trains on consensus. Taste requires breaking it.</p>
+<div class="pullquote">&ldquo;Anything with an objective answer will get automated. Anything that runs on taste is here to stay.&rdquo;<span class="attr">&mdash; mjs</span></div>
+<p>Read against Wang&rsquo;s lead, the piece is a necessary correction. Wang says the models will surpass humans in every field because intelligence is solved; mjs says the fields that matter most to a builder are not the ones with answer keys. The two claims are compatible, and together they draw the map: automate everything gradeable, and compete where grading itself is the skill. The recommended watch he leaves at the end &mdash; Pablo Stanley&rsquo;s &ldquo;Designing a composer&rdquo; &mdash; is the homework.</p>
+<div class="takeaway"><b>The takeaway</b>Taste is not a vibe; it is the ability to choose when no one can prove you right. That is now the job description. If your work has an answer key, a model will do it. If it does not, your edge is the willingness to invent the next format before the last one decays into slop.</div>
+<hr class="sep"/>
+
+<!-- STORY 9: ISENBERG 41 -->
+<div class="sec-label">The Opportunity Map</div>
+<h2 class="headline"><a href="https://x.com/gregisenberg/status/2123906584531304944">Greg Isenberg&rsquo;s 41 Opportunities, Grouped: What to Build When Everything Gets Cheap</a></h2>
+<div class="byline">By <a href="https://x.com/gregisenberg">Greg Isenberg</a> &middot; 21 November 2026 &middot; Read in full</div>
+<p class="lede">Greg Isenberg posted 41 things to build right now &mdash; one of the longest opportunity lists he has published &mdash; and the pile&rsquo;s job is to make it usable. Read as a list it is overwhelming; read as a map it has a clear shape. The 41 collapse into six clusters, and the clusters tell you what has actually changed.</p>
+<h3 class="headline">1. The human premium</h3>
+<p>Loneliness, offline-ness, the bruised ego, the anti-AI premium, the return to the physical, the death of third places, keeping marriages alive, learning that keeps up. The through-line: as AI floods everything, the scarce goods are real human connection, unrecorded space, slowness, craft, and rooms where smart people actually push back. &ldquo;Build for people who miss being told they&rsquo;re wrong,&rdquo; he writes &mdash; AI agrees with everything you say now, so a real room that pushes back is becoming a luxury.</p>
+<h3 class="headline">2. Trust, re-priced</h3>
+<p>The death of &ldquo;everyone agrees&rdquo;, the friend with great recommendations, skin in the game, software you actually own, anti-marketing. When any claim can be supported by a chart or a clip, people starve for one source they actually trust. When everything is a $20-a-month subscription, pay-once-and-own-it is a wedge. When the slickest websites look like AI slop, a plain-text page from 1998 converts better because it feels like a real person built it.</p>
+<h3 class="headline">3. Agents need infrastructure</h3>
+<p>Agents that spend money, agents that sit on hold for you, the &ldquo;undo&rdquo; button for agents, the 90%-automated-10%-human-sign-off model, infinite creative testing, cold outreach that doesn&rsquo;t look like cold outreach. Agents are getting virtual cards and budgets; someone has to build the spend controls, the fraud protection, the receipts &mdash; and the safety net for when an agent does something its owner regrets.</p>
+<h3 class="headline">4. The end of the chat box</h3>
+<p>Life after the chat box, helpful without being creepy, small private rooms, someone taking the blame, protecting people&rsquo;s brains, the attention-span crisis. Typing prompts already feels old; the best AI products will sit in the background and proactively handle things. But helpfulness that feels creepy loses, and a machine cannot look you in the eye when it goes wrong &mdash; people still pay for a human on the hook.</p>
+<h3 class="headline">5. Markets that were too small to matter</h3>
+<p>Five hundred lobster fishermen were never worth a team; now they are a real business. The same logic covers the caregiving wave, the housing and rootlessness problem, people who can&rsquo;t retire at 65, the food and toxin awakening, and the sports-betting and day-trading hangover. Small markets, deep needs, and a cost structure that finally fits.</p>
+<h3 class="headline">6. The long game</h3>
+<p>Day 2, not day 0 &mdash; anyone can launch an app in a weekend now; the question is who can keep it running, fix the mess and grow it for three years. Throwaway software, programmatic free tools instead of blog posts, finding things you didn&rsquo;t know to search for, and building for people who don&rsquo;t own anything anymore. The pattern across all six clusters is the same: the cost of starting has collapsed, so the value has moved to staying, trusting, owning and caring.</p>
+<div class="takeaway"><b>The takeaway</b>Isenberg&rsquo;s list is best read as a bet on what stays scarce when generation gets free: trust, attention, ownership, presence, and someone willing to be blamed. Pick a cluster, not a number &mdash; and note how many of the 41 are, in effect, the human half of the Notion factory: the judgement, the sign-off, the relationship that the machine cannot supply.</div>
+<hr class="sep"/>
+
+<!-- STORY 10: GARY VEE -->
+<div class="sec-label">The Playbook</div>
+<h2 class="headline"><a href="https://x.com/ansonlin/status/2120539693263806548">Gary Vee on Winning Attention: Document, Don&rsquo;t Create</a></h2>
+<div class="byline">Compiled by <a href="https://x.com/ansonlin">Anson Lin</a> from Gary Vaynerchuk&rsquo;s books, blog and interviews &middot; Two images, transcribed in full &middot; 11 November 2026</div>
+<p class="lede">The most-shared advice in the pile this week is also the oldest: Gary Vaynerchuk&rsquo;s attention playbook, pulled together by Anson Lin from his books &mdash; <i>Day Trading Attention</i>, <i>Jab, Jab, Jab, Right Hook</i> &mdash; his blog and interviews. It survives because its core claim has only become more true: attention is the asset, and it is underpriced wherever the people making ad decisions do not yet understand the platform.</p>
+<p>The argument starts with the interest graph. Social media used to work like email: get followers, and a percentage of them see your post. Platforms now show you what you are interested in, not who you follow &mdash; the TikTokification of social media. That levels the playing field: your follower count matters far less than your content, and creative is the variable of success. Your reach is your creative.</p>
+<p>The practical system is &ldquo;one pillar, 30-plus pieces&rdquo;: start with one long-form pillar &mdash; a vlog, a podcast, a keynote, a Q&amp;A &mdash; cut the best moments into micro content (clips, quotes, memes, articles, images), and let every piece drive people back to the long-form. Make each piece native to its platform: change the size, the format, the caption and the text overlay; use each platform&rsquo;s creative units; add subtitles, because people scroll with the sound off; on TikTok, use the trending sound. Before you post, ask who it is for and why they should care.</p>
+<p>The discipline is in the ratios. Hook in the first three to five seconds. Title with real, actionable advice. End by telling people exactly what to do next. Quantity leads to quality &mdash; six or seven meaningful pieces a day is how you learn what quality even means to the market. And the jab-jab-jab-right-hook rhythm: jabs are the value you give &mdash; content, help, appreciation &mdash; and the right hook is the ask. Jabbing does not entitle you to the sale; you have to earn the right to ask. When it is time to throw the right hook, go in for the kill.</p>
+<p>The line that holds the whole thing together is the one about documenting: &ldquo;Your hunger to make the perfect piece of content is what&rsquo;s crippling you. You don&rsquo;t have one at bat. Documenting is still creating.&rdquo; Pick up your phone, talk about what matters to you, do a long-form show at least once a week, and play to your strengths &mdash; video, audio or writing, whichever you are best at.</p>
+<div class="takeaway"><b>The takeaway</b>Read next to Hiten Shah&rsquo;s playbook, this is the distribution half of the same lesson: Shah tells you how to make the moment land; Vaynerchuk tells you how to make it travel. The bridge between them is the stranger test &mdash; on every platform, the viewer decides in three seconds, with the sound off.</div>
+<hr class="sep"/>
+
+<!-- STORY 12: MADE WITH AI -->
+<div class="sec-label">Made With AI</div>
+<h2 class="headline"><a href="https://thaxnay.com/ramayana/">A Ramayana You Can Play: Fable 5.2, Unity, and India&rsquo;s Mythology as a Blockbuster Engine</a></h2>
+<div class="byline">By <a href="https://x.com/Thaxnay">Thaxnay</a> &middot; 22 November 2026 &middot; Game verified playable in the browser</div>
+<p class="lede">Thaxnay built a Ramayana action-adventure game with Fable 5.2 and put it in the browser, playable right now on desktop and mobile: traverse an open valley as Lord Rama, protect the sages, discover secrets. The game, &ldquo;Ramayana: The Sacred Fires&rdquo;, is an early build in three parts &mdash; Rama&rsquo;s home, a dark wood held by rakshasas, and a flight with Jatayu. It is built in Unity and Blender, with Claude and GPT in the loop. The video attached to the post is gameplay footage with no spoken content; the game itself is the story, and we checked the site: it loads as a playable browser game, with full controls (move, look, draw and loose the bow, aim, run, jump, roll, strike, act) and a note that a full play uses about 120 MB of data and is best with sound.</p>
+<p>The argument in the post is the interesting part: &ldquo;India has the mythology to fuel a generation of blockbuster games.&rdquo; The Ramayana is not being adapted as a curiosity; it is being treated as IP with the same structural advantages as any fantasy franchise &mdash; a known hero, a clear quest, a bestiary, a flying companion &mdash; and built with the tools that have collapsed the cost of making it. A single builder, a frontier model, a game engine, and a browser: that is the whole studio now.</p>
+<div class="takeaway"><b>The takeaway</b>The pattern to watch is not one game but the pipeline: mythology as open IP, models as the production team, the browser as the console. The next Ramayana-scale game may not come from a studio at all.</div>
+
+<!-- BRIEFS -->
+<div class="sec-label">The Briefs</div>
+<h3 class="headline"><a href="https://x.com/deedydas/status/2124655797879894316">Deedy: X Compounds</a></h3>
+<div class="byline">By <a href="https://x.com/deedydas">Deedy</a> &middot; 23 November 2026</div>
+<p>The rate of change of technology is so quick, Deedy writes, that being on X compounds very quickly into a huge amount of alpha &mdash; and talking to people who are not on it feels like stepping in a time machine into the distant past. X is truly the town square for discussing technological progress. It is a short post and a self-aware one: this newspaper exists because the claim is, for its reader, mostly true.</p>
+
+<h3 class="headline"><a href="https://x.com/ujjawalasthana/status/2124409574652616857">Two Reels, 70 Million Views, 29,000 Followers</a></h3>
+<div class="byline">By <a href="https://x.com/ujjawalasthana">Ujjawal Asthana</a> &middot; 22 November 2026</div>
+<p>An ex-colleague had 50 followers on Instagram two weeks ago, Ujjawal writes. He started posting reels made with Claude. In the last five days, two of them crossed 70 million views. He is at 29,000 followers now. &ldquo;True story,&rdquo; Ujjawal adds, and says he is reactivating his Instagram: time to make videos. The numbers are unverified, but the direction is not: the cost of making a reel has collapsed to a prompt, and the distribution is still free.</p>
+
+<h3 class="headline"><a href="https://x.com/alexandr_wang/status/2124235020701466913">Apple Is Building an Agent Like Muse, Says Kalshi</a></h3>
+<div class="byline">Via <a href="https://x.com/alexandr_wang">Alexandr Wang</a> &middot; 22 November 2026</div>
+<p>Kalshi reports that Apple is building a new AI agent similar to Meta&rsquo;s Muse. Wang&rsquo;s gloss &mdash; &ldquo;you already know these corposlops are about to unleash yet another butthole on us&rdquo; &mdash; is the least important part. The important part is the shape of the race: every platform is now building its own agent, and the agent, not the app, is becoming the interface.</p>
+
+<h3 class="headline"><a href="https://x.com/patrickc/status/2122832227482607752">Stripe Press Has a New Home</a></h3>
+<div class="byline">By <a href="https://x.com/patrickc">Patrick Collison</a> &middot; 18 November 2026</div>
+<p>Patrick Collison announced a new Stripe Press site at stripe.press. One line, no elaboration &mdash; but Stripe Press is the publishing arm that has produced some of the best long-form writing about progress, science and institutions of the last decade, and a new home for it is worth a bookmark.</p>
+
+<h3 class="headline"><a href="https://x.com/rauchg/status/2124386118661738994">We Need patrickcollison.com/fast for AI Feats</a></h3>
+<div class="byline">By <a href="https://x.com/rauchg">Guillermo Rauch</a> &middot; 22 November 2026</div>
+<p>Rauch wants a Collison-style &ldquo;fast&rdquo; page for AI feats &mdash; Patrick Collison&rsquo;s famous catalogue of things humans built quickly, from the Empire State Building to the first atomic bomb. The implicit argument: the field needs a public record of what is being achieved, and how fast, because the pace itself is the story. This edition is, in its small way, an attempt at exactly that.</p>
+<hr class="sep"/>
+
+<!-- SUBSTACKS -->
+<div class="sec-label">From the Substacks</div>
+<h2 class="headline"><a href="https://creatoreconomy.so/p/gemini-4-changed-how-google-builds-products-jaclyn-konzelmann">Behind the Craft: How Gemini 4 Changed the Job of a Google Product Director</a></h2>
+<div class="byline">By <a href="https://creatoreconomy.so">Peter Yang</a> with Jaclyn Konzelmann, Google Labs &middot; 1 November 2026 &middot; Episode free on <a href="https://www.youtube.com/watch?v=eJ2XC9-9-rU">YouTube</a>; Substack text is paid beyond the introduction</div>
+<p class="lede">Peter Yang&rsquo;s conversation with Jaclyn Konzelmann &mdash; product director at Google Labs, co-founder of Google Labs, fifteen years at Google, mother of three &mdash; is about what changes when the best model in the world is the one your own company makes and your whole team uses every day. The episode is free on YouTube; we read the full transcript there, since the Substack text is paid beyond its introduction and two takeaways.</p>
+<p>Her core idea is &ldquo;thinking first&rdquo;. She starts from first principles, thinks hard about the problem herself, and only then uses Gemini to think through the problem and improve her reasoning &mdash; AI as a thinking partner, not a writing machine. The failure mode she describes is one every team will recognise: her team used to have a &ldquo;wall of AI slop&rdquo;, produced by doing prompt-writing for their docs and then having the product write the docs, full of repetitive words. The fix was to think first &mdash; she does her best thinking in the shower, she says, and calls it the best place to think &mdash; and then ask the model to improve the thinking, not replace it. She teaches her team to write &ldquo;story first&rdquo;: tell a story, then use the model to find the best way to think about it and the best way to write about it.</p>
+<p>Two practical rules emerge from the free text. First, don&rsquo;t fight the product to make it your AI &mdash; use the product&rsquo;s existing AI and put in your own thinking. Second, use AI for 70% of the work and add your 30% on top: she gave Claude a set of principles and a couple of paragraphs and got a better outline in 20 minutes than she could have produced alone, then edited it herself. The through-line is the same as mjs&rsquo;s taste argument and Notion&rsquo;s factory argument: the model does the middle, the human does the thinking at the edges &mdash; the first principles at the start, and the judgement at the end.</p>
+<div class="takeaway"><b>The takeaway</b>For anyone running a product team, the &ldquo;thinking first&rdquo; rule is the cheapest process change in this edition. Ban the prompt-first doc. Make the team write the thinking &mdash; in the shower, on paper, anywhere &mdash; before the model is allowed near it. The slop wall disappears when the thinking comes first.</div>
+<hr class="sep"/>
+
+<div class="colophon">
+<p><b>THE UNREAD PILE</b> &middot; Edition 60 &middot; Monday, 23 November 2026. Built from Rakshit Lodha&rsquo;s X likes and bookmarks, read in full &mdash; articles opened and read, videos transcribed, images transcribed. Sources linked throughout. the Ramayana game page was checked in the browser; the Behind the Craft episode was read from its free YouTube transcript.</p>
+<p><b>Carried over for retry:</b> the Sam Bankman-Fried interview (Eli Goldfine, 14, interviews SBF from prison &mdash; 1 hour 22 minutes; download and transcription still running at publication time, so it is not covered from the post text and not marked used); the Social Capital Anthropic deep dive (still members-only); the Malfoid &ldquo;Lumos Lumos&rdquo; music video (music-only, no spoken content); the earlier carried-over items (Malfoid OVA, Star Wars anime trailer, Galwan trailer, Lumos music video) unchanged.</p>
+<p><b>Not covered:</b> a handful of meme and quote posts were left out as low-signal (Trouble Scott collage, Lakshya Gemini screenshots, Kavin quote-tweet, the GTA 6 music edit).</p>
+<p>Audio briefing: Arjun and Priya discuss the lead stories &mdash; Wang, Pachocki, Notion, taste, Isenberg&rsquo;s opportunity map, and the Substack pick &mdash; in the edition&rsquo;s audio edition.</p>
+</div>
+</div>
+</body>
+</html>
