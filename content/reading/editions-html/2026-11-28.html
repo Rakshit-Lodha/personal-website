@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<title>The Unread Pile &mdash; Edition 65 &mdash; Playing Product vs. Doing Product</title>
+<style>
+  :root { --ink:#1a1a1a; --paper:#faf8f2; --red:#a31621; --rule:#d8d2c4; --muted:#6b675c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+  .page { max-width:1080px; margin:0 auto; padding:0 28px 60px; }
+  .masthead { text-align:center; border-bottom:4px double var(--ink); padding:34px 0 18px; }
+  .masthead .kicker { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); }
+  .masthead h1 { font-size:64px; font-weight:900; letter-spacing:-1px; margin:8px 0 4px; }
+  .masthead .tagline { font-style:italic; color:var(--muted); font-size:17px; }
+  .dateline { display:flex; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:var(--muted); border-bottom:1px solid var(--ink); padding:9px 2px; text-transform:uppercase; letter-spacing:1px; }
+  .sec-label { font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--red); border-bottom:2px solid var(--red); padding-bottom:6px; margin-bottom:14px; font-weight:bold; }
+  h2.headline { font-size:34px; line-height:1.15; font-weight:800; margin:6px 0 8px; }
+  h2.headline a, h3.headline a { color:inherit; text-decoration:none; }
+  h2.headline a:hover, h3.headline a:hover { color:var(--red); }
+  h3.headline { font-size:24px; line-height:1.25; font-weight:800; margin:4px 0 6px; }
+  .byline { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .byline a { color:var(--red); text-decoration:none; font-weight:bold; }
+  p { margin-bottom:13px; font-size:16.5px; }
+  .lede { font-size:18.5px; }
+  .lede::first-letter { font-size:52px; float:left; line-height:0.85; padding:4px 8px 0 0; font-weight:900; color:var(--red); }
+  .pullquote { border-top:3px solid var(--red); border-bottom:3px solid var(--red); margin:20px 0; padding:14px 6px; font-size:23px; line-height:1.35; font-style:italic; font-weight:bold; text-align:center; color:#2b2b2b; }
+  .pullquote .attr { display:block; margin-top:8px; font-size:12px; font-style:normal; font-family:Arial,Helvetica,sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:normal; }
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); border:2px solid var(--ink); margin:20px 0 6px; background:#fff; }
+  .stat { padding:14px 10px; text-align:center; border-right:1px solid var(--rule); }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:30px; font-weight:900; color:var(--red); font-family:Arial,Helvetica,sans-serif; }
+  .stat .lbl { font-size:11px; font-family:Arial,Helvetica,sans-serif; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
+  .chart-box { border:1px solid var(--rule); background:#fff; padding:16px; margin:18px 0; }
+  .chart-box h4 { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .chart-box figcaption { font-size:12.5px; color:var(--muted); margin-top:8px; font-family:Arial,Helvetica,sans-serif; }
+  .flow { display:flex; align-items:stretch; gap:0; margin:16px 0; font-family:Arial,Helvetica,sans-serif; }
+  .flow .step { flex:1; background:#fff; border:1.5px solid var(--ink); padding:12px 10px; font-size:13.5px; line-height:1.45; }
+  .flow .step b { display:block; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--red); margin-bottom:4px; }
+  .flow .arrow { align-self:center; font-size:22px; padding:0 6px; color:var(--red); font-weight:900; }
+  .takeaway { background:#fdf3e3; border-left:5px solid var(--red); padding:14px 18px; margin:18px 0; font-size:16px; }
+  .takeaway b { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); display:block; margin-bottom:4px; }
+  hr.sep { border:none; border-top:1px solid var(--ink); margin:34px 0; }
+  .colophon { margin-top:40px; border-top:4px double var(--ink); padding-top:14px; font-size:13px; color:var(--muted); font-family:Arial,Helvetica,sans-serif; }
+  a { color:var(--red); }
+  ul.tight { margin:0 0 13px 20px; font-size:16.5px; }
+  ul.tight li { margin-bottom:6px; }
+  .honest { background:#f2f0ea; border-left:4px solid var(--muted); padding:10px 14px; margin:14px 0; font-size:14.5px; color:#55524a; font-family:Arial,Helvetica,sans-serif; }
+  .fig { margin:18px 0 6px; }
+  .fig img { width:100%; display:block; border:1px solid var(--rule); }
+  .figcap { font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); padding:7px 2px 0; line-height:1.5; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .twocol .story { border-top:1px solid var(--rule); padding-top:12px; }
+  table.data { width:100%; border-collapse:collapse; font-family:Arial,Helvetica,sans-serif; font-size:13.5px; margin:12px 0; }
+  table.data th { text-align:left; border-bottom:2px solid var(--ink); padding:7px 8px 7px 0; font-size:12px; text-transform:uppercase; letter-spacing:1px; }
+  table.data td { border-bottom:1px solid var(--rule); padding:8px 8px 8px 0; vertical-align:top; line-height:1.5; }
+  .corr { border:2px solid var(--red); background:#fdf3f2; padding:14px 16px; margin:16px 0; }
+  .corr b { font-family:Arial,Helvetica,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); }
+  .small { font-size:14.5px; }
+  table.vs { width:100%; border-collapse:collapse; font-family:Arial,Helvetica,sans-serif; font-size:13.5px; margin:14px 0; background:#fff; }
+  table.vs th { text-align:left; border-bottom:2px solid var(--ink); padding:9px 10px; font-size:12px; text-transform:uppercase; letter-spacing:1px; }
+  table.vs th.play { color:var(--muted); }
+  table.vs th.do { color:var(--red); }
+  table.vs td { border-bottom:1px solid var(--rule); padding:9px 10px; vertical-align:top; line-height:1.5; }
+  table.vs td.dim { color:var(--ink); font-weight:bold; font-size:12px; text-transform:uppercase; letter-spacing:0.5px; width:150px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="masthead">
+<div class="kicker">The Daily Reading &middot; From the Saves</div>
+<h1>The Unread Pile</h1>
+<div class="tagline">What Rakshit saved, read in full, and worth your morning.</div>
+</div>
+<div class="dateline"><span>Saturday, 28 November 2026</span><span>Edition 65</span><span>New Delhi &middot; Mumbai &middot; The Internet</span></div>
+
+<div class="sec-label">Lead Story &middot; The Mindset Test</div>
+
+<h2 class="headline"><a href="https://x.com/shreyas/status/2126489377648070951">Playing Product vs. Doing Product</a></h2>
+<div class="byline">Shreyas Doshi &middot; X, 28 November 2026 &middot; Table transcribed in full from the post&rsquo;s image</div>
+<p class="lede">Shreyas Doshi has been sitting on this one, by his own account, for a while &mdash; &ldquo;way overdue&rdquo;, he calls it. The distinction is not between good product people and bad ones. It is between two people who can look identical on a r&eacute;sum&eacute;, run the same rituals, and use the same vocabulary &mdash; one of whom is performing product management, and the other of whom is actually doing it. &ldquo;I see people Playing Product all the time, in startups and big companies,&rdquo; he writes. &ldquo;Interestingly, someone can have strong product skills, and yet end up Playing Product. It is mainly about their underlying mindset.&rdquo;</p>
+<p>That is the sting in the piece. The usual diagnosis of a failing product org is a skills gap: hire better PMs, teach better frameworks, run better discovery. Doshi says the failure mode survives all of that, because it is not a capability problem. It is a motivation problem. The Playing Product person wants to <i>feel like</i> a great product person; the Doing Product person wants the product to win in the market. Everything downstream &mdash; where attention goes, how evidence is treated, what gets measured &mdash; follows from which of those two hungers is actually driving the work.</p>
+
+<table class="vs">
+<tr><th></th><th class="play">Playing Product</th><th class="do">Doing Product</th></tr>
+<tr><td class="dim">Motivating mindset</td><td>Wanting to feel like a great product person</td><td>Wanting the product to win in the market</td></tr>
+<tr><td class="dim">Where attention goes</td><td>Their own image and self-perception</td><td>Customers, competitors, and what it takes to win</td></tr>
+<tr><td class="dim">Hypotheses &amp; tests</td><td>Written and run to look rigorous. Inconvenient results get explained away</td><td>Written and run because a decision depends on them. Results change the plan</td></tr>
+<tr><td class="dim">Language</td><td>Business speak, frameworks, borrowed terms, X-for-Y analogies to justify decisions</td><td>Plain description of what customers need and why they would choose this product</td></tr>
+<tr><td class="dim">Studying the greats</td><td>Copies their style, phrases, and visible habits. Tells stories of the greats to borrow their aura</td><td>Tries to understand why their decisions won in their market</td></tr>
+<tr><td class="dim">Insights</td><td>Values ideas that sound clever</td><td>Values ideas that turn out true, even boring ones</td></tr>
+<tr><td class="dim">Customer research</td><td>Collects quotes that support the existing idea</td><td>Looks for what would prove the idea wrong</td></tr>
+<tr><td class="dim">Competitors</td><td>Mostly referenced to sound informed</td><td>Studied because they are who you have to beat</td></tr>
+<tr><td class="dim">Metrics</td><td>Chosen to tell a good story</td><td>Chosen to show whether the product is winning</td></tr>
+<tr><td class="dim">Docs &amp; specs</td><td>Polished and impressive to read</td><td>As long as needed for the team to build the right thing</td></tr>
+<tr><td class="dim">When something fails</td><td>Protects the narrative or finds an external cause</td><td>Asks why customers chose something else</td></tr>
+<tr><td class="dim">Long-term litmus test</td><td>Keeps doing what feels like impressive product work</td><td>Keeps doing what helps the product win, including work that&rsquo;s dull or obvious</td></tr>
+</table>
+
+<p>Read the table as a diagnostic, not a personality test, and three rows do most of the work. The first is hypotheses: tests written &ldquo;to look rigorous&rdquo; are the product world&rsquo;s cargo cult &mdash; the experiment exists so the deck can say an experiment was run, and inconvenient results get explained away rather than allowed to change the plan. A test that cannot change your mind is theatre, and theatre is expensive: it burns the one resource a team cannot recover, which is the weeks spent building the wrong thing with confidence. The second is customer research: collecting quotes that support the existing idea is the most common form of self-deception in product, because it feels like listening while functioning as confirmation. The honest version of the job is to go looking for what would prove the idea wrong &mdash; and to be relieved, not threatened, when you find it early. The third is the failure row, which is really the same test applied after the fact: when something fails, do you protect the narrative, or do you ask why customers chose something else? The second question is the only one that contains information about the future.</p>
+
+<div class="pullquote">&ldquo;Values ideas that turn out true, even boring ones.&rdquo;<span class="attr">Shreyas Doshi &mdash; Doing Product, on insights</span></div>
+
+<p>There is also a quiet warning in the row about studying the greats, and it lands harder in an industry that runs on founder lore. Copying the visible habits of great product people &mdash; their phrases, their rituals, their stories &mdash; is the fastest way to sound like them and the slowest way to think like them. The useful question is never &ldquo;what did they do?&rdquo; but &ldquo;why did that decision win <i>in their market</i>?&rdquo; Strip away the market and the constraints and you are left with a style guide, not a strategy. Doshi&rsquo;s table is, in the end, a test you can run on yourself in about ninety seconds: look at last week&rsquo;s work and ask, for each row, which column it actually belonged in. The uncomfortable part is that the answer is usually mixed &mdash; and that the mix is the point. Nobody plays product all the time or does product all the time. The job is noticing which column you are in, and moving.</p>
+
+<div class="takeaway"><b>The takeaway</b>Skills don&rsquo;t separate the two columns; mindset does. If a test can&rsquo;t change your plan, a metric can&rsquo;t tell you you&rsquo;re losing, or research can&rsquo;t prove you wrong, you are performing product work, not doing it &mdash; and the fix is not another framework, it is asking, honestly, what you are optimising for.</div>
+
+<hr class="sep"/>
+
+<div class="sec-label">From the Saves &middot; Standards, Learned First-Hand</div>
+
+<h3 class="headline"><a href="https://x.com/a16z/status/2125968350123851847">Patrick Collison&rsquo;s Advice to People in Their Twenties: Go Find the Highest Standards and Stand Next to Them</a></h3>
+<div class="byline">a16z, quoting Patrick Collison with Dwarkesh Patel, 2024 &middot; X, 26 November 2026 &middot; Video (0:53) transcribed in full from the audio</div>
+<p class="lede">The clip is fifty-three seconds long and the advice in it is almost offensively simple: if you are in your twenties, find where the highest standards are, and go experience them firsthand. Collison&rsquo;s claim, as a16z posts it, is that this is the single most repeated lesson he hears from people in other domains &mdash; that working with a particular person, organisation, or environment taught them what great actually is, and that the lesson permanently recalibrated what they demanded of their own work.</p>
+<p>The mechanism is worth spelling out, because it is the same mechanism Doshi&rsquo;s lead story is circling from the other side. Standards are not really transmissible as information. You can read that Stripe&rsquo;s bar was high, or that a great lab&rsquo;s review process is brutal, and understand it intellectually without it changing anything about how you work on Monday. What changes you is proximity: watching someone you respect refuse to ship something you would have shipped, and realising the gap between your &ldquo;good enough&rdquo; and theirs is not a matter of taste but of discipline. Collison&rsquo;s version of a career strategy, then, is not &ldquo;learn skills&rdquo; or &ldquo;build a network&rdquo; &mdash; it is to deliberately place yourself inside an environment whose standards embarrass your own, early, while you still have the time to absorb them. &ldquo;Maybe one version of what people in their twenties should do,&rdquo; he says, &ldquo;is figure out, where can you learn the highest standards? Where are the highest standards embodied, and where can you go and experience that firsthand?&rdquo;</p>
+
+<div class="chart-box">
+<h4>The standards ladder &mdash; how a bar becomes yours</h4>
+<svg width="100%" height="190" viewBox="0 0 900 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of how exposure to high standards recalibrates your own bar">
+<rect x="20" y="20" width="270" height="60" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="155" y="45" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#a31621">1 &middot; EXPOSURE</text>
+<text x="155" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#1a1a1a">Work beside people whose</text>
+<text x="155" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#1a1a1a">bar embarrasses yours</text>
+<text x="305" y="55" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#a31621">&#8594;</text>
+<rect x="330" y="20" width="270" height="60" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="465" y="45" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#a31621">2 &middot; RECALIBRATION</text>
+<text x="465" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#1a1a1a">Your sense of &ldquo;good enough&rdquo;</text>
+<text x="465" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#1a1a1a">moves &mdash; permanently</text>
+<text x="615" y="55" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#a31621">&#8594;</text>
+<rect x="640" y="20" width="240" height="60" fill="#fdf3e3" stroke="#a31621" stroke-width="2"/>
+<text x="760" y="45" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#a31621">3 &middot; EMBODIMENT</text>
+<text x="760" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#1a1a1a">You become the environment</text>
+<text x="760" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#1a1a1a">someone else learns from</text>
+<rect x="20" y="115" width="860" height="55" fill="#f2f0ea" stroke="#d8d2c4" stroke-width="1"/>
+<text x="450" y="140" text-anchor="middle" font-family="Arial,sans-serif" font-size="12.5" fill="#6b675c">The lesson is not a skill you acquire. It is a bar you absorb &mdash; and it only transfers by proximity, not by reading about it.</text>
+<text x="450" y="160" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-style="italic" fill="#1a1a1a">&ldquo;That just permanently changed their sense for what their own standard for their work ought to be.&rdquo; &mdash; Patrick Collison</text>
+</svg>
+<figcaption>Collison&rsquo;s point, drawn out: standards are caught, not taught. The career move is choosing the room, not the curriculum.</figcaption>
+</div>
+
+<p>It pairs, almost too neatly, with the lead. Doshi&rsquo;s Playing Product person has strong skills and the wrong hunger; Collison&rsquo;s answer to that trap is environmental, not instructional. You do not fix a miscalibrated bar by studying harder. You fix it by standing next to a higher one until your own moves. For a twenty-something choosing between a prestigious-but-mediocre team and a demanding one that will make them feel slow for a year, the clip is a tiebreaker: take the room that makes you uncomfortable. The discomfort is the education.</p>
+
+<hr class="sep"/>
+
+<div class="sec-label">From the Saves &middot; The Super-App Creep</div>
+
+<h3 class="headline"><a href="https://x.com/kunalb11/status/2125989301485990010">WhatsApp Wants to Sell You Your Next SIM Card</a></h3>
+<div class="byline">Kunal Shah &middot; X, 26 November 2026 &middot; WhatsApp blog, &ldquo;Stay Connected on WhatsApp When You Travel&rdquo;, read in full</div>
+<p class="lede">Kunal Shah&rsquo;s post is a single provocation &mdash; &ldquo;What if WhatsApp could work anywhere you go in the world without any struggle&quot; &mdash; attached to a real announcement. WhatsApp is beginning explorations around eSIMs: a way to buy and install a data eSIM for international travel inside the app itself, in a few taps, without leaving WhatsApp. Land, and you keep using WhatsApp on the same number, without the airport kiosk, the caf&eacute; Wi-Fi hunt, or the roaming bill. Shah&rsquo;s framing gives it a name, WAnderlust, and an open invitation: &ldquo;Inviting partners everywhere to join us in this important mission.&rdquo;</p>
+<p>The blog post, published 26 November, names the partners WhatsApp is working with: Jio, Smart Axiata, Smart Communications, Verizon, and others. Rollout begins &ldquo;in select countries soon&rdquo;, and the feature will simply appear in the app when it reaches you &mdash; no dates, no country list, no pricing yet. That vagueness is itself the tell. WhatsApp is not launching a travel product; it is testing whether the world&rsquo;s most-used messaging app can become the front door to connectivity itself. The pitch is friction, not technology: the eSIM already exists, the telcos already sell it, and the airport kiosk already works. What WhatsApp owns is the moment of need &mdash; you are already in the app, messaging the person picking you up, when you realise you have no data. Owning that moment is worth more than owning the network.</p>
+
+<div class="chart-box">
+<h4>How the WAnderlust flow is supposed to work</h4>
+<svg width="100%" height="150" viewBox="0 0 900 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flow diagram of buying an eSIM inside WhatsApp">
+<rect x="20" y="35" width="180" height="70" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="110" y="62" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#a31621">YOU LAND</text>
+<text x="110" y="82" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" fill="#1a1a1a">No data, no local SIM,</text>
+<text x="110" y="97" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" fill="#1a1a1a">same phone number</text>
+<text x="212" y="75" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#a31621">&#8594;</text>
+<rect x="240" y="35" width="180" height="70" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="330" y="62" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#a31621">BUY IN-APP</text>
+<text x="330" y="82" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" fill="#1a1a1a">Data eSIM in a few taps,</text>
+<text x="330" y="97" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" fill="#1a1a1a">inside WhatsApp</text>
+<text x="432" y="75" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#a31621">&#8594;</text>
+<rect x="460" y="35" width="180" height="70" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="550" y="62" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#a31621">PARTNER NETWORK</text>
+<text x="550" y="82" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" fill="#1a1a1a">Jio, Smart, Verizon</text>
+<text x="550" y="97" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" fill="#1a1a1a">&amp; other telcos supply data</text>
+<text x="652" y="75" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#a31621">&#8594;</text>
+<rect x="680" y="35" width="200" height="70" fill="#fdf3e3" stroke="#a31621" stroke-width="2"/>
+<text x="780" y="62" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#a31621">SAME NUMBER, ONLINE</text>
+<text x="780" y="82" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" fill="#1a1a1a">No kiosk, no roaming bill,</text>
+<text x="780" y="97" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" fill="#1a1a1a">no Wi-Fi hunt</text>
+</svg>
+<figcaption>WhatsApp is not building a network. It is buying the moment of need &mdash; the landing &mdash; and renting the network behind it.</figcaption>
+</div>
+
+<p>There are two ways to read this. The generous one: it is a genuinely useful feature for the two-billion-person app that travellers already live inside, and the Jio partnership in particular matters for India, where WhatsApp is effectively infrastructure. The sharper one: every super-app in history has followed the same path &mdash; start with the thing people do every day, then absorb the adjacent transaction that happens next to it. WeChat did it with payments; WhatsApp has done it with business messaging and payments in India and Brazil; connectivity is the next adjacency, and it is a much bigger one. The question to watch is not whether the eSIM works &mdash; it will &mdash; but what WhatsApp becomes once it sells you the connection you use to reach WhatsApp. The company that owns the pipe and the conversation on top of it has a different kind of leverage, and telcos, who spent a decade being reduced to dumb pipes by exactly this app, will have noticed the irony.</p>
+
+<div class="takeaway"><b>The takeaway</b>Watch the distribution, not the feature. An eSIM sold at the moment of landing, inside the app you already have open, is a distribution play &mdash; and distribution is what decides whether this stays a travel convenience or becomes WhatsApp&rsquo;s next platform.</div>
+
+<hr class="sep"/>
+
+<div class="sec-label">From the Saves &middot; The Creator Escape Hatch</div>
+
+<h3 class="headline"><a href="https://x.com/gregisenberg/status/2126356350875709581">The New Founder Career Path: Raise, Fail, Become a Creator, Never Raise Again</a></h3>
+<div class="byline">Greg Isenberg &middot; X, 27 November 2026</div>
+<p class="lede">Isenberg says he is observing a new trend, and he lays it out as a six-step loop: a startup raises venture capital; it uses the venture dollars to become a creator; the startup fails; the founder falls back on becoming a full-time creator and makes five hundred thousand to five million dollars a year; they incubate other products, bootstrapped; they never raise venture capital again. It reads like a joke and a business model at the same time, which is usually a sign it is describing something real.</p>
+
+<div class="flow">
+<div class="step"><b>1 &middot; Raise</b>Startup raises venture capital</div><div class="arrow">&rarr;</div>
+<div class="step"><b>2 &middot; Create</b>Uses VC dollars to build an audience</div><div class="arrow">&rarr;</div>
+<div class="step"><b>3 &middot; Fail</b>The startup doesn&rsquo;t make it</div><div class="arrow">&rarr;</div>
+<div class="step"><b>4 &middot; Monetise</b>Full-time creator, $500k&ndash;$5M a year</div><div class="arrow">&rarr;</div>
+<div class="step"><b>5 &middot; Incubate</b>Bootstrapped products from the audience</div><div class="arrow">&rarr;</div>
+<div class="step"><b>6 &middot; Never again</b>No more venture capital</div>
+</div>
+
+<p>The interesting step is the second one, because it reframes what the venture money was actually buying. In the old story, VC funded a product. In Isenberg&rsquo;s loop, it funds an audience &mdash; content, distribution, a personal brand &mdash; and the product is almost incidental. When the startup dies, the audience does not, and the audience turns out to be the durable asset: it converts into creator income at a scale (half a million to five million dollars a year) that most venture-backed startups never reach, and it becomes the distribution channel for the next, bootstrapped product. The venture capitalist, in this telling, has unknowingly funded someone else&rsquo;s media company. Whether founders are doing this deliberately or discovering it by accident matters less than the incentive it creates: if building in public is the rational strategy even when the startup fails, then the loudest founders are not necessarily the most committed to their companies &mdash; they may simply be the ones who understood, early, which asset survives.</p>
+<p>The loop also has a quiet sting for the venture model itself. Step six &mdash; never raise again &mdash; is the founder keeping the lesson. Once you have an audience that pays you directly and a product you own outright, the venture bargain (money for control, growth at all costs, an exit on someone else&rsquo;s timetable) stops looking like a good deal. Isenberg is describing a world in which the best outcome of a failed startup is a founder who never needs venture again, which is a strange thing for the venture ecosystem to be producing at scale. The open question is how much of the five-hundred-thousand-to-five-million range is survivorship bias &mdash; the creators you hear about are, by definition, the ones it worked for &mdash; and how many founders in step three are quietly discovering that an audience of a few thousand does not pay rent. The loop is real. The conversion rate is the part nobody posts about.</p>
+
+<hr class="sep"/>
+
+<div class="sec-label">Briefs</div>
+
+<div class="twocol">
+<div class="story">
+<h3 class="headline"><a href="https://x.com/OfficialLoganK/status/2126434025292144821">Instinct, Onboarded to the Family: Time-to-Value Is Now Measured in Minutes</a></h3>
+<div class="byline">Logan Kilpatrick &middot; X, 28 November 2026</div>
+<p>Logan Kilpatrick has spent the last week onboarding non-technical family members to <a href="https://x.com/OfficialLoganK/status/2126434025292144821">Instinct</a>, and his report is the one every agent builder wants to hear: &ldquo;it&rsquo;s crazy how fast people just get it, time to value for good agent experiences in 2027 is going to be minutes or less.&rdquo; The reason it sticks, he says, is that &ldquo;you don&rsquo;t need a new app. Texting for the win!&rdquo; That last line is the whole thesis. The agent that wins the mainstream is not the one with the best benchmark; it is the one that meets people inside the interface they already live in, with no install, no onboarding flow, and no new habit to form. Family members are the harshest possible test of that claim &mdash; they will not read your docs, they will not tolerate a learning curve, and they will tell you, immediately, if it is confusing. If they get it in minutes, the product has crossed the line from a demo for the already-converted into something ordinary people can use. The prediction embedded in the post &mdash; that 2027&rsquo;s good agent experiences will have time-to-value measured in minutes &mdash; is a bet that distribution will be decided by familiarity, not capability. The best model in the world loses to the adequate model that arrives by text message.</p>
+</div>
+<div class="story">
+<h3 class="headline"><a href="https://x.com/heyclicky/status/2126409898682724542">&ldquo;Everything We Shipped This Week&rdquo;: A Founder&rsquo;s Shipping Log, Transcribed</a></h3>
+<div class="byline">heyclicky &middot; X, 28 November 2026 &middot; Video (1:12) transcribed in full from the audio</div>
+<p>The post is two words &mdash; &ldquo;i am trying my best&rdquo; &mdash; over a seventy-two-second montage, and the video is the actual story: a week-in-review from the maker of Hey Clicky. The new version is coming to iPad. Voices and Languages shipped, so the product &ldquo;speaks more natively in your own accent&rdquo;. Every morning, Hey Clicky now suggests a few things it can do for you, and &ldquo;all you have to do is click yes or no&rdquo;. The most-requested feature landed too: drawings that follow you when you scroll or move the page &mdash; &ldquo;it&rsquo;s really cool, it&rsquo;s like magic&rdquo;. Behind the feature list is the part that matters more: the founder says he talked to over two thousand users through emails, DMs, and calls to understand how they use the product, and the week also included sixty-plus ads, four new ad channels, and a run of videos about Clicky Drive, a customer reaction, and user calls. It is a small, complete picture of what shipping looks like from the inside when nobody is watching: a feature, a distribution push, and two thousand conversations, all in the same week. The post&rsquo;s caption is the honest frame for all of it &mdash; not a victory lap, but a builder saying the quiet part out loud.</p>
+</div>
+</div>
+
+<div class="twocol">
+<div class="story">
+<h3 class="headline"><a href="https://x.com/kunalb11/status/2125841793417933237">Drive, in One Sentence</a></h3>
+<div class="byline">Kunal Shah &middot; X, 26 November 2026</div>
+<p>&ldquo;Drive is often the core force behind any success. Drive often manifests as being competitive or being persistent or having high agency.&rdquo; Three sentences, one idea, and a useful reframe: drive is not a trait you either have or don&rsquo;t, it is a force that shows up wearing different costumes &mdash; competitiveness, persistence, agency &mdash; depending on the person. The practical version is that you don&rsquo;t need to manufacture motivation in the abstract; you need to find which of its forms you actually have, and put yourself where that form is an advantage. A competitive person should pick a game with a scoreboard. A persistent person should pick a problem that rewards outlasting everyone else. A high-agency person should pick a situation where nobody is coming to help. Same fuel, different engine.</p>
+</div>
+<div class="story">
+<h3 class="headline"><a href="https://x.com/deedydas/status/2126182313864335369">Diljit Dosanjh Is This Close to Pivoting Into AI</a></h3>
+<div class="byline">Deedy &middot; X, 27 November 2026 &middot; Image: a Mercor job posting, transcribed</div>
+<p>Deedy&rsquo;s joke lands because the screenshot is real: Mercor is hiring a &ldquo;Punjabi Music Production Specialist&rdquo;, remote, New York, posted one minute before the screenshot, &ldquo;be an early applicant&rdquo;. It is the latest exhibit in the running gag this paper has been tracking since the Mercor email in Edition 64 &mdash; the frontier labs&rsquo; appetite for human expertise has become so indiscriminate, and so specific, that a Punjabi music producer is now a plausible AI training hire. The joke works on two levels. First, the sheer specificity: the data-labelling economy has moved from &ldquo;we need smart people&rdquo; to &ldquo;we need this exact person, with this exact taste, right now&rdquo;. Second, the inversion: the world&rsquo;s biggest pop star from Punjab, Diljit Dosanjh, is the archetype of the expert the labs would want &mdash; and the idea of him taking a remote contractor gig is funny precisely because it exposes how strange the market has become. The labs are hiring culture itself, one specialist at a time, and the job board is starting to read like a casting call.</p>
+</div>
+</div>
+
+<hr class="sep"/>
+
+<div class="sec-label">From the Substacks</div>
+
+<h3 class="headline"><a href="https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in">How Anthropic Builds Software in 2026: The Rust Rewrite, the Review Agent, and the Death of the Coding Interview</a></h3>
+<div class="byline">The Pragmatic Engineer &middot; Gergely Orosz with Katelyn Lesse, who leads platform engineering at Anthropic &middot; 25 November 2026 &middot; Read in full</div>
+<p class="lede">This is the most useful inside account yet of what a frontier lab&rsquo;s engineering actually looks like once agents are doing real work &mdash; not a demo, but the daily operating system of the company that builds Claude. Katelyn Lesse leads platform engineering at Anthropic and previously led teams at Stripe; her team owns the Claude API and the infrastructure behind Claude Code and Claude Desktop. The episode&rsquo;s headline story is the rewrite of the API that serves every Claude token &mdash; the Messages API, which does authentication, tokenisation, billing, and safety checks before calling the GPU stack &mdash; from a Python monolith to Rust, in about five months, by a team in which nobody was a Rust expert.</p>
+<p>Start with why the monolith existed at all. In 2023 Anthropic was still a research company, the API team was small and overlapped heavily with Research, and researchers worked in Python, so Python was the natural choice &mdash; OpenAI made the same call, and later made the same rewrite. The problem was the CPU footprint: as the API grew, the overhead of Python became a real cost, and adding CPU capacity was hard in a global CPU shortage. The rewrite took a few engineers and a few months, and the detail that matters is how it was verified. The team did not do strict code reviews. Instead they had an unfair advantage: the existing Python API was a perfect test harness. They ran the new Rust API in shadow mode against production traffic and iterated until every response was identical. Lesse estimates engineers looked closely at only around twenty per cent of the generated code. Her rule for when that is acceptable is the one to remember: &ldquo;As long as you can really boil something down to make it verifiable in some way, then you don&rsquo;t have to look at every single line of Rust code that&rsquo;s getting written.&rdquo; Verifiability, not review coverage, is the control. And the reason the team felt able to attempt a language none of them knew is the quietest revolution in the piece: &ldquo;By 2026, they felt that Claude was good enough at Rust, and Claude helped engineers learn more about Rust during the rewrite.&rdquo; The model was the onboarding.</p>
+
+<div class="stat-strip">
+<div class="stat"><div class="num">~5</div><div class="lbl">Months, Python &rarr; Rust rewrite</div></div>
+<div class="stat"><div class="num">~20%</div><div class="lbl">Of generated code closely reviewed</div></div>
+<div class="stat"><div class="num">5&ndash;8</div><div class="lbl">People per two-pizza team, still</div></div>
+<div class="stat"><div class="num">~$1T</div><div class="lbl">Market cap, a tenth the headcount</div></div>
+</div>
+
+<p>Twelve learnings structure the episode, and the ones that travel furthest outside Anthropic are about what did <i>not</i> change. Planning and alignment time has not shrunk: engineers spend more time coordinating than implementing, and kicking off a project still takes the same effort to get Inference, Research, Safety, and App teams on the same page. Two-pizza teams of five to eight people are still the unit, because that is the right size to understand a complex system and staff an on-call rotation &mdash; and it is the <i>team</i>, not the individual, that gets paged. What changed is everything around those constants. Anthropic runs a Claude code-review classifier on every pull request, deciding whether a human review is needed at all (a mechanical change like an SDK bump, or a flaky-test fix, can be reviewed, merged, and deployed by Claude alone), how many human reviews a change needs, and which team should do it. A Claude agent has been shadowing the API on-call rotation for months, and now categorises incoming alerts first &mdash; real or noise &mdash; before a human is woken. The long-term goal is for the agent to handle incidents without waking anyone; they are not there yet. Onboarding for new engineers is, in Lesse&rsquo;s words, &ldquo;talk to Claude&rdquo;: Claude is connected to the codebase and internal systems, explains the architecture, and can generate interactive tutorials and visualisations. And a product manager shipped a feature to production &mdash; the &ldquo;software factory&rdquo; is not a metaphor inside Anthropic, it is the org chart.</p>
+<p>Two learnings will matter most to anyone hiring or being hired. First, Anthropic&rsquo;s team phased out the traditional coding interview, because strong candidates who crushed every other interview were starting to fail it &mdash; they no longer write code by hand. The team is experimenting with interviews conducted together with coding agents, while design and deep-dive interviews stay unchanged. Second, for promotions, &ldquo;time to complete a project&rdquo; is now meaningless: a year-long project can be done in days or weeks with AI, so the team evaluates impact instead &mdash; CPU saved, latency reduced, incidents avoided. Lesse&rsquo;s closing message is for engineers having an identity crisis about whether their knowledge still matters: the agentic infrastructure problems &mdash; multi-agent systems, verification, the hardest problems in software &mdash; are wide open, and &ldquo;you and your skills can be the difference in whether or not [they] get tackled&rdquo;. The through-line of the whole episode is a single shift: the scarce skill is no longer writing code, or even knowing a language. It is making things verifiable, so that the machine can do the writing and a human can still stand behind the result.</p>
+
+<div class="takeaway"><b>The takeaway</b>Anthropic&rsquo;s rewrite worked because the old system was a perfect test harness, not because the team were Rust experts. The general lesson: the bottleneck in AI-era engineering is not code generation, it is verification &mdash; and the teams that get this right will be the ones that can trust what the machine writes.</div>
+
+<hr class="sep"/>
+
+<h3 class="headline"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-221">The Dose #221: Quantum Gravity, a Million Satellites, and a Pig Kidney That Just Turned One</a></h3>
+<div class="byline">Not Boring &middot; Packy McCormick &middot; 27 November 2026 &middot; Read in full</div>
+<p class="lede">Packy McCormick&rsquo;s Friday Dose is, as ever, a tour of the week&rsquo;s good news &mdash; and this week the news refused to stay in its lane. The edition opens with the Riemann story this paper has followed for a week (Levent Alp&ouml;ge&rsquo;s 17-million-line Lean proof of the Generalised Riemann Hypothesis, certified within a day, with no human-readable paper yet in existence), and then, in Packy&rsquo;s words, &ldquo;things were going to keep getting wilder&rdquo; &mdash; and promptly did. Late on Wednesday night, OpenAI&rsquo;s roon shared his colleague Ven Chandrasekaran&rsquo;s proposal for a quantum theory of vacuum gravity in four dimensions: an algebraic quantisation of gravity from the null cone, built with AI assistance, which recovers the Bekenstein-Hawking black-hole entropy (including the one-loop logarithmic correction) and the semiclassical Einstein equations as a low-energy limit. It is not a Theory of Everything &mdash; vacuum only, no matter, unconfirmed by experiment, and unlikely, on early commentary, to be the final answer &mdash; but it is a concrete, background-independent attempt to turn general relativity itself into a quantum theory, and it arrived the same week as a proof of the biggest problem in mathematics. The Dose&rsquo;s framing is the right one: the breakthroughs are arriving faster than the institutions built to check them.</p>
+<p>The Elonverse section, as Packy calls it, has three items. First, Elon Musk&rsquo;s announcement that every child in America will receive two SpaceX shares &mdash; one from the company, one from him personally &mdash; via the Trump Accounts programme, with a follow-up promise of an additional share every year; he controls about 6.4 billion shares against roughly 72 million American children, so on that arithmetic he would give away more than ten per cent of his ownership within a decade. Second, the FCC has authorised SpaceX to deploy one million satellites for Starmind, its orbital data-centre constellation &mdash; the first authorisation in US history for data centres in space, on the back of Starship becoming fully reusable last week. Third, the FDA gave Neuralink approval to launch LINK, the first pivotal trial for an implantable brain-computer interface in the US, for patients with ALS &mdash; in the same week a Neuralink patient played GTA VI with his thoughts. The rest of the Dose is closer to earth, and arguably more important: the US Senate passed the Bipartisan American Affordability and Jobs Act (BAAJA) 62&ndash;33, a sweeping permitting reform package streamlining NEPA, Clean Water Act, and Endangered Species Act reviews, with dedicated provisions for transmission lines, nuclear licensing, energy permitting, and data centres &mdash; the bill now goes to the House. Hadrian, the manufacturing startup, is opening a one-million-square-foot factory and engineering campus in San Francisco in January, having recently raised $1.37 billion at a $7.87 billion valuation. And Capable, a new AI-bio startup from founder Isaak Freeman, wants to build a vertically integrated platform to give humans superpowers, starting with peptides and aiming at endurance, lifespan, energy on less sleep, and unbreakable bones.</p>
+<p>The Dose closes, as it often does, with the story Packy has tracked longest: pig kidneys. On Sunday 22 November, Molly Falco, a 58-year-old mother of two and former chef from New Hampshire, became the first person in history to live a full year off dialysis with a genetically engineered pig kidney &mdash; an organ she named Lily, carrying 69 genetic edits from George Church spinout eGenesis, which knocks out pig retroviruses and three glycan antigens and adds seven human genes. Before the surgery she spent eleven months on dialysis, too sick to drive; since February she has not been hospitalised, is driving again, and has been cleared to travel to Colorado for Christmas, where she plans to try skiing with her kids. Of the six patients who have received pig kidneys since 2024, three currently have them functioning, eGenesis launches formal trials in 33 patients in the first quarter of next year, and United Therapeutics performed its first pig thymo-kidney transplant last Friday and already has FDA clearance for a pig-heart trial. More than 500,000 Americans rely on dialysis, which carries a five-year mortality rate of 55 per cent &mdash; worse than most common cancers &mdash; with over 90,000 people on the kidney waitlist and twelve Americans dying while waiting every day. &ldquo;This is what it&rsquo;s all about,&rdquo; Packy writes. &ldquo;We humans have a lot to be thankful for.&rdquo;</p>
+
+<div class="stat-strip">
+<div class="stat"><div class="num">62&ndash;33</div><div class="lbl">Senate vote for BAAJA permitting reform</div></div>
+<div class="stat"><div class="num">1M</div><div class="lbl">Satellites authorised for SpaceX Starmind</div></div>
+<div class="stat"><div class="num">1 yr</div><div class="lbl">Molly Falco, off dialysis on a pig kidney</div></div>
+<div class="stat"><div class="num">12/day</div><div class="lbl">Americans who die waiting for a kidney</div></div>
+</div>
+
+<hr class="sep"/>
+
+<h3 class="headline"><a href="https://theloggicalinvestor.substack.com/p/part-1-suraksha-diagnostic-ltd-beyond">Suraksha Diagnostic: Why Owning an MRI Machine Is Not a Moat</a></h3>
+<div class="byline">The Loggical Investor &middot; Investor&rsquo;s Newsletter #64 &middot; 27 November 2026 &middot; Read in full</div>
+<p class="lede">The Loggical Investor&rsquo;s latest deep dive is a first-principles tour of a business most investors file under one word &mdash; diagnostics &mdash; and shows why that word hides two completely different economics. Suraksha Diagnostic, a Kolkata-centred integrated chain across Eastern India, runs pathology, radiology, and doctor consultations under one network: 1 central reference lab, 7 satellite labs, 19 hubs, 58 spokes, and 227 franchisee-owned sample collection centres, plus over 160 polyclinic chambers and a network of more than 1,000 doctors. In FY26, radiology contributed about 44.26 per cent of revenue and pathology 48.85 per cent, with the rest from consultations &mdash; a balance that makes it a useful lens for the whole sector, because the two halves behave nothing alike.</p>
+<p>Pathology is a volume business with modest entry barriers: a basic lab can be set up for roughly twenty-five to seventy-five lakh rupees, and routine tests &mdash; CBC, glucose, lipid profile, thyroid &mdash; are standardised, commoditised, and under constant pricing pressure. The advantage there comes from distribution reach, processing efficiency, brand trust, and volumes, not from owning equipment; Thyrocare is the proof that a scaled pathology network can generate a return on capital employed near 35 per cent. Radiology is the opposite: a 1.5T MRI machine costs roughly three to five crore rupees, a fully equipped imaging hub ten to twelve crore before it earns a rupee, and the work needs trained radiologists whose judgement cannot be replaced by technicians. The decisive variable is utilisation &mdash; an MRI costs the same whether it does eight scans a day or twenty, so the fixed cost per scan collapses only when patient volumes are high enough. Owning the machine is not the moat. Keeping it busy is.</p>
+
+<div class="chart-box">
+<h4>Suraksha&rsquo;s hub-and-spoke: access feeds the expensive machines</h4>
+<svg width="100%" height="200" viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hub and spoke diagram for Suraksha Diagnostic">
+<rect x="330" y="70" width="240" height="60" fill="#fdf3e3" stroke="#a31621" stroke-width="2"/>
+<text x="450" y="95" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#a31621">HUB &middot; 19 CENTRES</text>
+<text x="450" y="113" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#1a1a1a">MRI / CT, advanced imaging</text>
+<rect x="20" y="20" width="200" height="50" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="120" y="42" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">SPOKES &middot; 58</text>
+<text x="120" y="60" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" fill="#6b675c">Ultrasound, X-ray, cardiology</text>
+<rect x="20" y="130" width="200" height="50" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="120" y="152" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">COLLECTION &middot; 227</text>
+<text x="120" y="170" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" fill="#6b675c">Franchisee-owned, feeder points</text>
+<rect x="680" y="20" width="200" height="50" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="780" y="42" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">LABS &middot; 1 + 7</text>
+<text x="780" y="60" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" fill="#6b675c">Central + satellite labs</text>
+<rect x="680" y="130" width="200" height="50" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="780" y="152" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">POLYCLINICS &middot; 160+</text>
+<text x="780" y="170" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" fill="#6b675c">1,000+ doctors, online + offline</text>
+<line x1="220" y1="45" x2="330" y2="85" stroke="#a31621" stroke-width="1.5"/>
+<line x1="220" y1="155" x2="330" y2="115" stroke="#a31621" stroke-width="1.5"/>
+<line x1="680" y1="45" x2="570" y2="85" stroke="#a31621" stroke-width="1.5"/>
+<line x1="680" y1="155" x2="570" y2="115" stroke="#a31621" stroke-width="1.5"/>
+<text x="450" y="190" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#6b675c">Small centres create access and feed volumes into the hubs &mdash; the model works only if the flow keeps the machines utilised.</text>
+</svg>
+<figcaption>Every layer has a different job: collection centres create reach, spokes create access, hubs carry the expensive imaging. The economics live in the flow between them.</figcaption>
+</div>
+
+<p>The cautionary tale is Thyrocare&rsquo;s Nueclear. Thyrocare built a superb pathology business and then diversified into radiology through its nuclear-imaging subsidiary &mdash; and the capital efficiency collapsed: pathology generated a return on capital employed near 35 per cent, Nueclear just 6.95 per cent, with declining revenue and continued investment needs. In September 2026 Thyrocare&rsquo;s board approved selling its entire Nueclear stake to Trovera Healthcare for about a hundred and forty-one crore rupees. The lesson the piece draws is precise: entering a capital-intensive segment is not hard because of the investment; it is hard because generating the throughput to justify the investment is a different business from the one you already run. Suraksha starts from a different place &mdash; it already has a substantial radiology presence, and its spokes and polyclinics can feed referrals into the hubs &mdash; but the test is the same: can it convert network reach into utilisation?</p>
+<p>The numbers to track are given in unusual detail. In the second quarter of FY27 Suraksha served about 4.2 lakh patients and conducted around 24 lakh tests &mdash; roughly 5.7 tests per patient &mdash; with revenue per patient of 2,348 rupees, up from 2,083 a year earlier, and an indicative blended revenue per test of roughly 410&ndash;415 rupees. The maturity curve is the heart of the story: centres operating for more than two years improved their EBITDA margin from 38.2 per cent in the first quarter of FY26 to 42 per cent in the second quarter of FY27, while centres under two years moved from negative 19.6 per cent to positive 11.8 per cent, and the consolidated margin rose from 31.7 per cent to 36.7 per cent. The catch is that every new centre re-opens the same hole &mdash; rent, staff, and equipment costs arrive before patients do &mdash; so consolidated margins improve only if the existing network matures faster than new openings dilute it. The piece also flags the accounting: reported EBITDA of 36.7 per cent under Ind AS 116 is 29.2 per cent on the older IGAAP basis, and the two should never be mixed when comparing companies. Seasonality matters too: the third quarter is typically the weakest, with management guiding to a sequential revenue decline of around four to five per cent, and the monsoon quarter can lift testing demand. The mature integrated comparison is Vijaya, with about 37 per cent of revenue from radiology and an FY26 EBITDA margin of 41.4 per cent &mdash; the target Suraksha is chasing, from an earlier stage, in Eastern India. The investment question for Part 2, which the author promises next, is whether the current valuation offers an attractive risk-reward for that chase. The author discloses a possible position in the securities discussed; the piece is not investment advice.</p>
+
+<div class="stat-strip">
+<div class="stat"><div class="num">44.3%</div><div class="lbl">Revenue from radiology, FY26</div></div>
+<div class="stat"><div class="num">42.0%</div><div class="lbl">EBITDA margin, centres over 2 years</div></div>
+<div class="stat"><div class="num">35% vs 7%</div><div class="lbl">Thyrocare pathology vs Nueclear ROCE</div></div>
+<div class="stat"><div class="num">5.7</div><div class="lbl">Tests per patient, Q2 FY27</div></div>
+</div>
+
+<div class="takeaway"><b>The takeaway</b>Capital intensity is a barrier to entry, not a source of returns &mdash; returns come from utilisation. Suraksha&rsquo;s real moat, if it has one, is not its MRI machines but the network of patients, doctors, and referrals dense enough to keep them busy. Track mature-centre margins, new-centre improvement, and the blended margin: if the first two rise and the third follows, the model is working.</div>
+
+<hr class="sep"/>
+
+<div class="sec-label">The Pile, Carried Over</div>
+<p>One new item joins the carried-over pile today. Thariq&rsquo;s &ldquo;everything is reps&rdquo; post (27 November) is a 24-second pixel-art animation of a swimmer doing laps, seen from above &mdash; and the downloaded file contains no audio stream at all. There is nothing to transcribe, so it is not covered from its caption and not marked used; it stays in the pile. The Lumos Lumos Anime Season 2.5 &ldquo;Rivalry&rdquo; music video (26 November) was already carried over yesterday: downloaded, Whisper found zero speech segments, music-only like all previous Lumos entries. The Social Capital Anthropic deep dive is still members-only: re-checked today, the long free preview is readable but the full deep dive remains behind &ldquo;Become a Member To Read The Full Deep Dive&rdquo;. The standing carried-overs are unchanged: the garbled founder video, the silent Sol timelapse, the earlier Lumos and Star Wars music clips, the Malfoid fan edits, and the Galwan trailer (whose account now limits viewing). One item leaves the list: the Eli Goldfine interview with Sam Bankman-Fried from prison was covered in full in Edition 61, so it is removed from the carried-overs.</p>
+
+<div class="colophon">
+<p><b>How this edition was built.</b> Nine new posts since yesterday&rsquo;s watermark (status 2126027785399304468); eight are covered here and one silent animation is carried over. All three videos were downloaded: the Collison clip (0:53) and the Hey Clicky shipping montage (1:12) were transcribed in full with speech-to-text; the Thariq swimmer clip has no audio stream at all. The Shreyas table was transcribed in full from the post&rsquo;s image, the Mercor job card from its screenshot, and the WhatsApp eSIM story from the WhatsApp blog post, read in full. All three Substack pieces were read in full &mdash; the Pragmatic Engineer episode from its complete text, Not Boring #221 in full, and the Suraksha deep dive in full. No bookmarks were new today.</p>
+<p><b>Sources.</b> X posts as linked; blog.whatsapp.com for the eSIM announcement; The Pragmatic Engineer, Not Boring, and The Loggical Investor as linked. The Unread Pile is built from Rakshit&rsquo;s likes and bookmarks, read in full. Edition 65 &middot; Saturday, 28 November 2026.</p>
+</div>
+</div>
+</body>
+</html>
